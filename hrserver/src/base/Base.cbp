@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="Base" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/benben/code/servegg/src/base" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="base">
+         <Option output="/home/benben/code/servegg/src/base/libbase.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/benben/code/servegg/src/base" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-D_REENTRANT" />
+            <Add option="-D_FILE_OFFSET_BITS=64" />
+            <Add option="-DAC_HAS_INFO" />
+            <Add option="-DAC_HAS_WARNING" />
+            <Add option="-DAC_HAS_ERROR" />
+            <Add option="-DAC_HAS_CRITICAL" />
+            <Add option="-DTIXML_USE_STL" />
+            <Add option="-DAC_HAS_DEBUG" />
+            <Add option="-DLINUX_DAEMON" />
+            <Add directory="/home/benben/code/servegg/src/base" />
+            <Add directory="/home/benben/code/servegg/src/base/jsoncpp" />
+            <Add directory="/home/benben/code/servegg/src/base/pb" />
+            <Add directory="/home/benben/code/servegg/src/base/pb/protocol" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 base" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="base/fast">
+         <Option output="/home/benben/code/servegg/src/base/libbase.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/benben/code/servegg/src/base" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-D_REENTRANT" />
+            <Add option="-D_FILE_OFFSET_BITS=64" />
+            <Add option="-DAC_HAS_INFO" />
+            <Add option="-DAC_HAS_WARNING" />
+            <Add option="-DAC_HAS_ERROR" />
+            <Add option="-DAC_HAS_CRITICAL" />
+            <Add option="-DTIXML_USE_STL" />
+            <Add option="-DAC_HAS_DEBUG" />
+            <Add option="-DLINUX_DAEMON" />
+            <Add directory="/home/benben/code/servegg/src/base" />
+            <Add directory="/home/benben/code/servegg/src/base/jsoncpp" />
+            <Add directory="/home/benben/code/servegg/src/base/pb" />
+            <Add directory="/home/benben/code/servegg/src/base/pb/protocol" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 base/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/benben/code/servegg/src/base" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/benben/code/servegg/src/base/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/benben/code/servegg/src/base/Base64.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/BaseSocket.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Condition.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ConfigFileReader.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/EncDec.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/EventDispatch.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/HttpClient.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/HttpParserWrapper.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ImPduBase.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Lock.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/SeqAlloctor.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ServInfo.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Thread.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ThreadPool.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/TokenValidator.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/UtilPdu.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/http_parser.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/imconn.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/jsoncpp/json_reader.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/jsoncpp/json_value.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/jsoncpp/json_writer.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/log4z.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/netlib.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.BaseDefine.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.Buddy.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.File.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.Group.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.Login.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.Message.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.Other.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.Server.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/pb/protocol/IM.SwitchService.pb.cc">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/util.cpp">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Base64.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/BaseSocket.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Condition.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ConfigFileReader.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/EncDec.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/EventDispatch.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/HttpClient.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/HttpParserWrapper.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ImLog.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ImPduBase.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Lock.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/SeqAlloctor.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ServInfo.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/Thread.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/ThreadPool.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/TokenValidator.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/UtilPdu.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/http_parser.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/imconn.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/log4z.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/netlib.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/util.h">
+      </Unit>
+      <Unit filename="/home/benben/code/servegg/src/base/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
