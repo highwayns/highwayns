@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/datepicker.css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="{#$QISHI.site_template#}js/jquery.datepicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.name-link').toggle(function(){
+		$(this).parents('.c-data-content').removeClass('data-no-read').next().show();
+		$(this).parents('.c-data-row').css({'border-color':'#fff'});
+	}, function(){
+		$(this).parents('.c-data-content').next().hide();
+		$(this).parents('.c-data-row').css({'border-color':'#ccc'});
+	});
+	// 顶部筛选
+	$('.data-filter').on('click', function(e){
+		$(this).find('.filter-down').toggle();
+		var fWidth = $(this).find('.filter-span').outerWidth(true) - 2;
+		$(this).find(".filter-down").width(fWidth);
+		$(document).one("click",function(){
+			$('.filter-down').hide();
+		});
+		e.stopPropagation();
+		$(".data-filter").not($(this)).find('.filter-down').hide();
+	})
+	// 状态
+	$('.state-icon').on('click', function(e){
+		$(this).next().toggle();
+		$(document).one('click', function(){
+			$('.state-list').hide();
+		});
+		e.stopPropagation();
+		$('.state-icon').not($(this)).next().hide();
+	});
+	$('.state-list .state').on('click', function(e){
+		var resume_state= $(this).attr('state');
+		var resume_state_cn =$(this).text();
+		var resume_id =$(this).attr('resume_id');
+		$.post('{#$QISHI.site_dir#}user/user_label_resume.php', {"resume_state":resume_state,"resume_state_cn":resume_state_cn,"resume_id":resume_id}, function(data) 
+		{
+			if(data=="ok")
+			{
+				window.location.replace(location);
+			}
+			else
+			{
+				alert(data);
+				$('.state-list').hide();
+			}
+		});
+		e.stopPropagation();
+	});
+	// 删除弹出
+	delete_dialog('.ctrl-del','#form1');
+	//邀请面试弹出
+	inviteJob_dialog('.inter-job',"{#$QISHI.site_dir#}user/user_invited.php",'{#$smarty.session.utype#}');
+	// 发送到邮箱弹出
+	companySendToEmail_dialog('.db-btn.btn3','./company_ajax.php');
+})
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 收到的简历</div>
+<div class="usermain">
+  <div class="leftmenu  com link_bk">
+  	 {#include file="member_company/left.htm"#}
+  </div>
+  <div class="rightmain">
+  	<div class="bbox1">
+		<div class="topnav get_resume">
+			<div class="titleH1"><div class="h1-title">收到的简历</div></div>
+			<div class="navs link_bk">
+				<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>所有简历<span class="check">({#$count#})</span></a>
+				<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>未查看<span class="no_check">({#$count1#})</span></a>
+				<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>已查看<span class="check">({#$count2#})</span></a>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<form id="form1" name="form1" method="post" action="?act=set_apply_jobs">
+		<div class="company-data-list">
+			<div class="c-data-top apply_jobs clearfix">
+				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" /></div>
+				<div class="item f-left top-item1">
+					<div class="data-filter span1">
+						<span class="filter-span">{#if $smarty.get.state_cn==''#}标签{#else#}{#$smarty.get.state_cn#}{#/if#}<i class="filter-icon"></i></span>
+						<ul class="filter-down">
+							<li><a href="{#"state:,state_cn:全部"|qishi_parse_url#}">全部</a></li>
+							<li><a href="{#"state:1,state_cn:合适"|qishi_parse_url#}">合适</a></li>
+							<li><a href="{#"state:2,state_cn:不合适"|qishi_parse_url#}">不合适</a></li>
+							<li><a href="{#"state:3,state_cn:待定"|qishi_parse_url#}">待定</a></li>
+							<li><a href="{#"state:4,state_cn:未接通"|qishi_parse_url#}">未接通</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="item f-left top-item2">姓名</div>
+				<div class="item f-left top-item3">基本信息</div>
+				<div class="item f-left top-item4">
+					<div class="data-filter span2">
+						<span class="filter-span">{#if $smarty.get.jobname==''#}应聘职位{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"></i></span>
+						<ul class="filter-down">
+							<li><a href="{#"jobsid:,jobname:全部职位"|qishi_parse_url#}">全部职位</a></li>
+							{#foreach from=$jobs item=jos_li#}
+							<li><a href="{#"jobsid:$jos_li.id,jobname:$jos_li.jobs_name"|qishi_parse_url#}">{#$jos_li.jobs_name#}</a></li>
+							{#/foreach#}
+						</ul>
+					</div>
+				</div>
+				<div class="item f-left top-item5">申请时间</div>
+				<div class="item f-left top-item7">操作</div>
+			</div>
+			{#if $jobs_apply#}
+			{#foreach from=$jobs_apply item=list#}
+			{#if $list.sex_cn#}
+			<div class="c-data-row">
+				<div class="c-data-content apply_jobs clearfix {#if $list.personal_look=="1" && $smarty.get.look==""#}data-no-read{#/if#}">
+					<div class="c-item f-left check-item"><input name="y_id[]" type="checkbox" id="y_id"  value="{#$list.did#}"/></div>
+					<div class="c-item f-left content1">
+						<div class="data-state">
+							<span title="{#$list.resume_state_cn#}" class="state-icon {#if $list.resume_state>0#}s{#$list.resume_state#}{#else#}default{#/if#}"></span>
+							<div class="state-list">
+								<li><a href="javascript:;" class="state s1" state="1" resume_id="{#$list.resume_id#}">合适</a></li>
+								<li><a href="javascript:;" class="state s2" state="2" resume_id="{#$list.resume_id#}">不合适</a></li>
+								<li><a href="javascript:;" class="state s3" state="3" resume_id="{#$list.resume_id#}">待定</a></li>
+								<li><a href="javascript:;" class="state s4" state="4" resume_id="{#$list.resume_id#}">未接通</a></li>
+							</div>
+						</div>
+					</div>
+					<div class="c-item f-left content2"><a href="javascript:;" class="name-link underline">{#$list.fullname#}</a></div>
+					<div class="c-item f-left content3">{#$list.age#}岁/{#$list.education_cn#}/{#$list.experience_cn#}</div>
+					<div class="c-item f-left content4">{#$list.jobs_name#}</div>
+					<div class="c-item f-left content5"><span class="data-time">{#$list.apply_addtime|date_format:"%Y-%m-%d"#}</span></div>					<div class="c-item f-left content7"><a href="javascript:;" class="data-ctrl underline inter-job" resume_id="{#$list.resume_id#}">邀请面试</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=apply_jobs_del&y_id={#$list.did#}">删除</a></div>
+				</div>
+				<div class="data-detail">
+					<i class="arrow"></i>
+					{#if $list.resume_education_list#}
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">教育经历：</div>
+						<div class="db-content f-left">
+							{#foreach from=$list.resume_education_list item=edu_list#}
+							<p class="db-info"><span>{#$edu_list.startyear#}年{#$edu_list.startmonth#}月-{#$edu_list.endyear#}年{#$edu_list.endmonth#}月</span><span>{#$edu_list.school#}</span><span>{#$edu_list.speciality#}</span><span>{#$edu_list.education_cn#}</span></p>
+							{#/foreach#}
+						</div>
+					</div>
+					{#/if#}
+					{#if $list.resume_work_list#}
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">工作经历：</div>
+						<div class="db-content f-left">
+							{#foreach from=$list.resume_work_list item=w_list#}
+							<p class="db-info"><span>{#$w_list.startyear#}年{#$w_list.startmonth#}月-{#$w_list.endyear#}年{#$w_list.endmonth#}月</span><span>{#$w_list.companyname#}</span><span>{#$w_list.jobs#}</span></p>
+							{#/foreach#}
+						</div>
+					</div>
+					{#/if#}
+
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">求职意向：</div>
+						<div class="db-content f-left">
+							<div class="job-flow"><span>期望工作性质 {#$list.nature_cn#}</span> | <span>期望工作地区 {#$list.district_cn#}</span> | <span>期望薪资 <em>{#$list.wage_cn#}</em></span> | <span>期望职位 {#$list.intention_jobs#}</span> | <span>期望行业 {#$list.trade_cn#}</span></div>
+						</div>
+					</div>
+
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">&nbsp;</div>
+						<div class="db-btn-group f-left">
+							<a href="{#$list.resume_url#}" target="_blank" class="db-btn btn1 f-left"></a>
+							<a href="company_resume_doc.php?y_id={#$list.resume_id#}" class="db-btn btn2 f-left"></a>
+							<a href="javascript:;" class="db-btn btn3 f-left" resume_id="{#$list.resume_id#}" uid="{#$list.personal_uid#}" ></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{#else#}
+			<div class="c-data-row">
+				<div class="c-data-content interview clearfix">
+					<div class="c-item f-left check-item"><input type="checkbox" name="y_id[]" id="y_id" value="{#$list.did#}" class="checkbox" /></div>
+					[{#$list.resume_name#}] 的简历可能已被删除，您可以删除本条信息.	
+				</div>
+			</div>
+			{#/if#}
+			{#/foreach#}
+			<div class="c-data-row last">
+				<div class="c-data-content apply_jobs clearfix">
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" /></div>
+					<div class="data-last-btn f-left">
+						<input type="submit" name="set" value="设为已查看" class="btn-80-30blue"/>
+						<input type="button" name="delete" value="删除" class="btn-65-30blue ctrl-del" act="?act=apply_jobs_del"/>
+					</div>
+				</div>
+			</div>
+			{#else#}
+			<div class="emptytip">没有找到对应的信息！</div>
+			{#/if#}
+		</div>
+		</form>
+		{#if $page#}
+		<table border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+          </tr>
+      	</table>
+		{#/if#}
+	</div>
+  </div>
+  <div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

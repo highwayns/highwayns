@@ -1,0 +1,6 @@
+﻿/*格子广告*/
+.adimg { width:972px;margin:0 auto;}
+.adimg .list { width:155px; margin-top:8px; float:left; padding-left:6px;}
+.adimg .list .imgbox { width:153px; background-color:#FFFFFF; border:1px #E4E4E4 solid; height:50px;}
+.adimg .list .imgbox img{ width:153px; height:48px; border:0px;}
+.adimg .list .text {width:153px; background-color:#F8F8F8; border:1px #E4E4E4 solid; height:23px; line-height:23px; border-top:0px; text-align:center}

@@ -1,0 +1,107 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	
+	$(".exe").QSdialog({
+	DialogTitle:"系统提示",
+	DialogContent:"计划任务正在执行，请等待...",
+	DialogContentType:"text",
+	DialogAddObj:"body",	
+	DialogAddType:""	
+	});
+	//点击批量取消	
+	$("#ButDel").click(function(){
+		if (confirm('你确定要删除吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="crons/admin_crons_nav.htm"#}
+  <div class="clear"></div>
+</div>
+ <div class="toptip">
+	<h2>提示：</h2>
+	<p>
+计划任务是一项使系统在规定时间自动执行某些特定任务的功能，在需要的情况下，您也可以方便的将其用于功能的扩展。<br />
+计划任务是与系统核心紧密关联的功能特性，不当的设置可能造成功能的隐患，严重时可能导致网站无法正常运行。
+</p>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=del">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  class="admin_list_tit admin_list_first">
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />名称</label>
+	  </td>
+      <td   align="center" class="admin_list_tit"  width="10%"> 可用 </td>
+      <td   align="center" class="admin_list_tit"  width="10%">类型</td>
+      <td   align="center"   class="admin_list_tit"  width="160">上次执行时间</td>
+	  <td   align="center"   class="admin_list_tit"  width="160">下次执行时间</td>
+      <td width="130" align="center"  class="admin_list_tit" >操作</td>
+    </tr>
+	 {#foreach from=$list item=list#}
+    <tr>
+      <td   class="admin_list admin_list_first">
+	  <input name="id[]" type="checkbox"  value="{#$list.cronid#}" />
+	  {#$list.name#}
+	 </td>
+      <td align="center"  class="admin_list">
+	 {#if $list.available=="1"#}可用{#else#}<span style="color:#999999">不可用</span>{#/if#}
+	 </td>
+	   <td align="center"  class="admin_list"> 
+	   {#if $list.admin_set=="1"#}内置{#else#}自定义{#/if#}
+	   </td>
+      <td align="center"  class="admin_list">{#$list.lastrun|date_format:"%Y-%m-%d %H:%M"#}</td>
+      <td align="center"   class="admin_list">{#$list.nextrun|date_format:"%Y-%m-%d %H:%M"#}</td>
+      <td align="center"   class="admin_list">
+	  <a href="?act=edit&id={#$list.cronid#}">编辑</a>
+	  <a href="?act=execution&id={#$list.cronid#}&{#$urltoken#}"  class="exe">执行</a>
+	  </td>
+    </tr>
+	 {#/foreach#}
+  </table>
+  </form>
+  {#if !$list#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+<input type="button" class="admin_submit" id="ButAudit" value="添加任务"  onclick="window.location='?act=add'"/>
+<input type="button" class="admin_submit" id="ButDel" value="删除所选"/>
+		</td>
+        <td width="305" align="right">
+	<!--	<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"标题"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												 
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		 -->
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+  
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

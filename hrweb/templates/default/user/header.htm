@@ -1,0 +1,153 @@
+﻿<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript" language="javascript"></script>
+<script>
+	$(function() {
+		// 顶部nav展开
+		$('.nav-list').hover(function(){
+			$(this).find('.nav-li').css({'background-color':'#005eac'});
+			$(this).find('.nav-more-drop').show();
+		}, function(){
+			$(this).find('.nav-li').attr('style', '');
+			$(this).find('.nav-more-drop').hide();
+		});
+		// 搜索类型展开
+		$('.search-type').hover(function(){
+			$(this).find('.search-type-drop').show();
+		}, function(){
+			$(this).find('.search-type-drop').hide();
+		});
+		// 选择找工作还是找人才
+		$('.search-type-drop').bind('click', function() {
+			var stype = $(this).attr("code"), tit = $(this).attr("title"), data = $(this).attr("data"),
+				hstype = $(".search-type-show").attr("code"), htit = $(".search-type-show").attr("title"), hdata = $(".search-type-show").attr("data");
+			$("#btnForIndexSearch").attr("code",stype);
+			$("#keyForIndexSearch").attr("placeholder",data);
+			$(this).attr("code",hstype).attr("title",htit).attr("data",hdata).find("a").text(htit);
+			$(".search-type-show").attr("code",stype).attr("title",tit).attr("data",data).find("span").text(tit);
+			$('.search-type-drop').hide();
+		});
+		var dir = "{#$QISHI.site_dir#}";
+		// 回车搜索
+		$('#keyForIndexSearch').keydown(function(e) {
+			if (e.keyCode==13) {
+				search_location(dir);
+			}
+		});
+		// 搜索按钮点击
+		$("#btnForIndexSearch").click(function() {
+			search_location(dir);
+		});
+		// 搜索跳转
+		function search_location(dir) {
+			generateBackground();
+			var listype = $("#btnForIndexSearch").attr('code');
+			var key=$("input[name=keyForIndexSearch]").val();
+			var page=1;
+			$.get(dir+"plus/ajax_search_location.php", {"act":listype,"key":key,"page":page},
+				function (data,textStatus)
+				 {	
+					 window.location.href=data;
+				 },"text"
+			);
+		}
+		// 正在加载
+		function generateBackground() {
+			var backgroundHtm = '<div id="bonfire-pageloader"><div class="bonfire-pageloader-icon"></div></div>';
+			var html = jQuery('body');
+			html.append(backgroundHtm);
+			jQuery(window).resize(function(){
+				 resizenow();
+			});
+			function resizenow() {
+				var browserwidth = jQuery(window).width();
+				var browserheight = jQuery(window).height();
+				jQuery('.bonfire-pageloader-icon').css('right', ((browserwidth - jQuery(".bonfire-pageloader-icon").width())/2)).css('top', ((browserheight - jQuery(".bonfire-pageloader-icon").height())/2 + $(document).scrollTop() - 109));
+			};
+			resizenow();
+		}
+		// 搜索提示
+		var hotKey = $('#keyForIndexSearch').autocomplete({
+			serviceUrl:dir+"plus/ajax_common.php?act=hotword",
+			minChars:1, 
+			maxHeight:400,
+			width:278,
+			zIndex: 1,
+			deferRequestBy: 0 
+		});
+		// 名企列表
+		$('.famous-items:nth-child(4n)').css({'margin-right':0});
+		// 照片简历
+		$('.photo-items:nth-child(7n)').css({'margin-right':0});
+		// 广告位
+		var adBlock = $('.ad-row');
+		adBlock.each(function(){
+			if ($(this).find('.ad-item').length == 3) {
+				$(this).find('.ad-item:nth-child(3n)').css({'margin-right':0});
+			}else if($(this).find('.ad-item').length == 5) {
+				$(this).find('.ad-item:nth-child(5n)').css({'margin-right':0});
+			};
+		});
+	});
+</script>
+<!-- 头部 -->
+<div id="header">
+	<div class="top-nav-wrap">
+		<div class="top-nav clearfix">
+			<ul class="f-left">
+				{#qishi_nav set="调用名称:QS_top,列表名:list,分割:5"#}
+				{#foreach from=$list item=list#}
+				<li><a href="{#$list.url#}" target="{#$list.target#}" class="nav-li {#if $list.tag==$page_select && $list.tag!=""#}active{#/if#}">{#$list.title#}</a></li>
+			    {#/foreach#}
+				<li class="nav-list">
+					<a href="javascript:;" class="nav-li">更多<i class="nav-more"></i></a>
+					<div class="nav-more-drop">
+						<ul class="nav-detail clearfix">
+							{#foreach from=$list_more item=li#}
+							<li><a href="{#$li.url#}" target="{#$li.target#}" class="underline f-left">{#$li.title#}</a></li>
+						    {#/foreach#}
+							<li><a href="{#"QS_explainshow,id:7"|qishi_url#}" class="underline f-left" target="_blank">VIP服务</a></li>
+							<li><a href="{#"QS_suggest"|qishi_url#}" class="underline f-left" target="_blank">意见建议</a></li>
+							<li><a href="{#"QS_simplelist"|qishi_url#}" class="underline f-left" target="_blank">微招聘</a></li>
+							<li><a href="{#"QS_helplist"|qishi_url#}" class="underline f-left">使用帮助</a></li>
+						</ul>
+						<div class="mob-list">
+							<h4>移动互联</h4>
+							<div class="mob-list-box clearfix">
+								<a href="{#$QISHI.site_dir#}mobile/?type=touch" class="mob-link wap-link f-left" target="_balnk">触屏版</a>
+								<a href="{#$QISHI.site_dir#}mobile/?type=weixin" class="mob-link wechat-link f-left" target="_balnk">微信版</a>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="nav-right f-right">
+				{#if $smarty.session.username#}
+				<span class="login-reg"><a href="{#"QS_login"|qishi_url#}" class="underline">{#$smarty.session.username#}</a>&nbsp;&nbsp;&nbsp;<a href="{#"QS_login,act:logout"|qishi_url#}" class="underline">[退出]</a></span>
+				{#else#}
+				<span class="login-reg"><a href="{#"QS_login"|qishi_url#}" class="underline">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{#$QISHI.site_dir#}user/user_reg.php" class="underline">注册</a></span>
+				{#/if#}
+				<span class="nav-items"><a href="{#$QISHI.site_dir#}plus/shortcut.php" class="underline">保存到桌面</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="container-index header-main clearfix">
+		<div class="logo-box f-left"><a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" border="0" align="absmiddle" width="260" height="70"/></a></div>
+		<div class="mobile-block f-right">
+			<div class="complex-center f-left">
+				<!-- 搜索 -->
+				<div class="search-wrap clearfix">
+					<div class="search-box f-left">
+						<div class="search-type f-left">
+							<div title="找工作" code="QS_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
+							<div title="找人才" code="QS_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
+						</div>
+						<div class="search-text f-left">
+							<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="请输入职位名称或企业名称" />
+						</div>
+					</div>
+					<div class="search-submit f-left"><input type="button" name="btnForIndexSearch" id="btnForIndexSearch" value="搜索" class="search-submit" /></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 头部结束 -->

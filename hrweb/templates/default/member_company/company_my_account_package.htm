@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta name="renderer" content="webkit"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/user_common.css" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/user_company.css" />
+<script src="{#$QISHI.site_template#}js/jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		// 套餐列表
+		$('.account-item:nth-child(2n)').css({'margin-right':0});
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 会员服务</div>
+	<div class="usermain">
+		<div class="leftmenu com link_bk">
+			{#include file="member_company/left.htm"#}
+		</div>
+		<div class="rightmain">
+			<div class="bbox1 my_account">
+				<div class="topnav get_resume">
+					<div class="titleH1"><div class="h1-title">我的账户</div></div>
+					<div class="navs link_bk">
+						{#if $QISHI.operation_mode == '1' || $QISHI.operation_mode == '3'#}
+						<a href="company_service.php?act=j_account" {#if $act=='j_account'#}class="se"{#/if#}>我的积分</a>
+						{#/if#}
+						{#if $QISHI.operation_mode == '2' || $QISHI.operation_mode == '3'#}
+						<a href="company_service.php?act=t_account" {#if $act=='t_account'#}class="se"{#/if#}>我的套餐</a>
+						{#/if#}
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="account-wrap">
+					<div class="account-top-block clearfix">
+						<div class="account-state f-left">账户状态</div>
+						<div class="a-state-content f-left">
+							{#if $QISHI.operation_mode == '2' || $QISHI.operation_mode == '3'#}
+							<span class="account-type">当前套餐：<span>{#$setmeal.setmeal_name#}</span><em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em><a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a></span>
+							{#/if#}
+							{#if $QISHI.operation_mode == '1' || $QISHI.operation_mode == '3'#}
+							<span class="account-type last">当前{#$QISHI.points_byname#}：<span>{#$points#}</span>{#$QISHI.points_quantifier#}<a href="company_service.php?act=order_add" class="underline">积分充值</a></span>
+							{#/if#}
+						</div>
+					</div>
+					<div class="account-ctrl-bar clearfix">
+						<h3 class="f-left">套餐余量</h3>
+						<a href="company_service.php?act=t_account&detail=1" class="f-right underline">套餐消费明细</a>
+					</div>
+					<div class="account-lost clearfix">
+						<div class="account-item f-left">
+							<div class="ai-text f-left">发布招聘职位</div>
+							<div class="ai-number f-left">{#$setmeal.jobs_ordinary#}/{#$setmeal_rule.jobs_ordinary#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">下载普通人才简历</div>
+							<div class="ai-number f-left">{#$setmeal.download_resume_ordinary#}/{#$setmeal_rule.download_resume_ordinary#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">下载高级人才简历</div>
+							<div class="ai-number f-left">{#$setmeal.download_resume_senior#}/{#$setmeal_rule.download_resume_senior#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">邀请普通人才</div>
+							<div class="ai-number f-left">{#$setmeal.interview_ordinary#}/{#$setmeal_rule.interview_ordinary#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">邀请高级人才</div>
+							<div class="ai-number f-left">{#$setmeal.interview_senior#}/{#$setmeal_rule.interview_senior#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">职位推广-推荐</div>
+							<div class="ai-number f-left">{#$setmeal.recommend_num#}/{#$setmeal_rule.recommend_num#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">职位推广-紧急</div>
+							<div class="ai-number f-left">{#$setmeal.emergency_num#}/{#$setmeal_rule.emergency_num#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">职位推广-置顶</div>
+							<div class="ai-number f-left">{#$setmeal.stick_num#}/{#$setmeal_rule.stick_num#}</div>
+						</div>
+						<div class="account-item f-left">
+							<div class="ai-text f-left">职位推广-变色</div>
+							<div class="ai-number f-left">{#$setmeal.highlight_num#}/{#$setmeal_rule.highlight_num#}</div>
+						</div>
+					</div>
+					<div class="bottomtip">
+				 	   	<div class="tp h2-title">小贴士</div>
+					   套餐余量显示的数额为当前剩套餐余数/总数，如：发布招聘职位  18/20 即套餐发布招聘职位总数20，可使用数18。<br />
+						如果后台开通套餐叠加服务，套餐余量数额可能会大于为当前剩套餐总数，如：下载高级人才简历  38/20 即套餐下载高级人才简历总数20，还可使用数38。<br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

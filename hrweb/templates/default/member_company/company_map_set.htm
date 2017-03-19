@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<!-- <script src="http://api.map.baidu.com/api?v=2.0&ak=d0YqjLhVeeuYg6GH2M3oeUDw" type="text/javascript"></script> -->
+<script src="http://api.map.baidu.com/api?v=1.1" type="text/javascript"></script>
+</head>
+
+<body onbeforeunload="RunOnBeforeUnload()">
+{#include file="user/header.htm"#}
+
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 地图标注</div>
+
+<div class="usermain">
+  <div class="leftmenu com link_bk">
+   {#include file="member_company/left.htm"#}	
+  </div>
+  <div class="rightmain">
+	<div class="bbox1">	
+	  <div class="addjob link_bk">
+	    <div class="topnav">
+			<div class="titleH1" style="margin-top:0;">
+				<div class="h1-title">企业资料</div>
+			</div>
+			<div class="navs">
+				<a href="?act=company_profile">基本资料</a>
+				<a href="?act=company_logo">企业Logo</a>
+				<a href="?act=company_map_open" class="se">地图标注</a>
+				<div class="clear"></div>
+			</div>
+		</div>
+		  <!-- 地图标注 -->
+		 <div class="map">
+		  	<p>请在地图上找到您的具体位置，然后点击地图右上角“标记我的位置”，标记位置完成后点击“保存我的位置”。</p>
+		  	<form action="?act=company_map_set_save" method="post"  style="padding:0px; margin:0px;" id="form1" name="form1">
+  			<input name="x" type="hidden" id="x"><input name="y" type="hidden" id="y"><input name="zoom" type="hidden" id="zoom">
+  			</form>
+		  	<div style="width:700px;height:395px;border:3px solid  #CCCCCC; cursor:" id="container"></div>			
+			<script type="text/javascript">
+			function G(id) {
+				return document.getElementById(id);
+			}
+			var map = new BMap.Map("container");
+			//假如已经设置了标注
+			var opts = {   
+			  width : 250,     // 信息窗口宽度   
+			  height: 80,     // 信息窗口高度   
+			  title : "{#$company_profile.companyname#}"  // 信息窗口标题   
+			}
+			var infoWindow = new BMap.InfoWindow("{#$company_profile.address#}", opts);  // 创建信息窗口对象 
+			//假如有设置的，显示参数
+			{#if $company_profile && $company_profile.map_x && $company_profile.map_y#}
+			var point = new BMap.Point({#$company_profile.map_x#}, {#$company_profile.map_y#});
+			map.centerAndZoom(point, {#$company_profile.map_zoom#}); 
+			var qs_marker = new BMap.Marker(point);        // 创建标注   
+			map.addOverlay(qs_marker);  
+			map.openInfoWindow(infoWindow,point);
+			map.setCenter(point);
+			document.getElementById("x").value={#$company_profile.map_x#}; 
+			document.getElementById("y").value= {#$company_profile.map_y#}; 
+			document.getElementById("zoom").value=  {#$company_profile.map_zoom#}; 
+			{#else#}
+			var point = new BMap.Point({#$QISHI.map_center_x#},{#$QISHI.map_center_y#});
+			map.centerAndZoom(point, {#$QISHI.map_zoom#}); 
+			map.setCenter(point);
+			{#/if#}
+			map.addControl(new BMap.NavigationControl());//添加鱼骨
+			map.enableScrollWheelZoom();//启用滚轮放大缩小，默认禁用。
+			var myPushpin = new BMap.PushpinTool(map,{
+			cursor : "crosshair"  
+			});   // PushpinTool创建标注工具实例
+			myPushpin.addEventListener("markend", function(e){//添加题地图监控
+			// 打开信息窗口
+			map.openInfoWindow(infoWindow,e.marker.getPoint());   
+			document.getElementById("x").value=e.marker.getPoint().lng; 
+			document.getElementById("y").value= e.marker.getPoint().lat; 
+			document.getElementById("zoom").value= map.getZoom(); 
+			//alert(map.getZoom());//地图缩放级别
+			//map.zoomIn();地图放大一个级别
+			//alert("您标注的位置：" + e.marker.getPoint().lng + ", " + e.marker.getPoint().lat);
+			//打开提示层
+			});
+			//myPushpin.setIcon(icon:Icon);
+			// 定义一个控件类，即function   
+			function ZoomControl(){   
+			  // 设置默认停靠位置和偏移量   
+			  this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;   
+			  this.defaultOffset = new BMap.Size(108, 10);   
+			}
+			function SaveMap(){   
+			  // 设置默认停靠位置和偏移量   
+			  this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;   
+			  this.defaultOffset = new BMap.Size(10, 10);   
+			}  
+			// 通过JavaScript的prototype属性继承于BMap.Control   
+			ZoomControl.prototype = new BMap.Control();
+			SaveMap.prototype = new BMap.Control();   
+			  
+			// 自定义控件必须实现自己的initialize方法，并且将控件的DOM元素返回   
+			// 在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中   
+			ZoomControl.prototype.initialize = function(map){   
+			  // 创建一个DOM元素   
+			  var div = document.createElement("div");   
+			  // 添加文字说明   
+			  div.appendChild(document.createTextNode("标记我的位置"));   
+			  // 设置样式  
+			  div.style.cursor = "pointer";   
+			  div.style.padding = "6px"; 
+			  div.style.color = "#FFFFFF"; 
+			  div.style.border = "1px solid #003300";   
+			  div.style.backgroundColor = "#009900";   
+			  div.onclick = function(e){ 
+			  map.clearOverlays();//清楚地图上所有覆盖物
+			  myPushpin.open();//打开标注工具
+			  }   
+			  // 添加DOM元素到地图中   
+			  map.getContainer().appendChild(div);   
+			  // 将DOM元素返回   
+			  return div;   
+			}
+			SaveMap.prototype.initialize = function(map){   
+			  // 创建一个DOM元素   
+			  var div = document.createElement("div");   
+			  // 添加文字说明   
+			  div.appendChild(document.createTextNode("保存我的位置"));   
+			  // 设置样式 
+			  div.style.cursor = "pointer";   
+			  div.style.padding = "6px"; 
+			  div.style.color = "#FFFFFF"; 
+			  div.style.border = "1px solid #990000";   
+			  div.style.backgroundColor = "#FF6600";   
+			  div.onclick = function(e){ 
+			  chk_form();//验证
+			  }   
+			  // 添加DOM元素到地图中   
+			  map.getContainer().appendChild(div);   
+			  // 将DOM元素返回   
+			  return div;   
+			}   
+			  
+			// 创建控件   
+			var myZoomCtrl = new ZoomControl(); 
+			var SaveMapsub = new SaveMap(); 
+			// 添加到地图当中   
+			map.addControl(myZoomCtrl);
+			map.addControl(SaveMapsub);
+			//验证表单
+			function chk_form()
+			{
+			if (document.form1.x.value=="" || document.form1.y.value=="")
+				{
+				alert("请先在地图上标记您的位置")
+				return (false);
+				}
+				else
+				{
+				document.form1.submit();
+				}	
+			}
+			</script>
+		  </div> 
+		  <!-- 地图标注 结束 -->
+	
+	  </div>
+	</div>
+  </div>
+  <div class="clear"></div>
+</div>
+ {#include file="user/footer.htm"#}
+</body>
+</html>

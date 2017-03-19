@@ -1,0 +1,121 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量取消	
+	$("#ButDel").click(function(){
+		if (confirm('你确定要删除吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="help/admin_help_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">帮助分类</div>	
+		<div class="right">
+		<a href="{#"type_id:,parentid:"|qishi_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>不限</a>
+		{#qishi_help_category set="列表名:category,大类:0"#}
+		{#foreach from=$category item=list#}
+			<a href="{#"type_id:,parentid:"|cat:$list.id|qishi_parse_url#}" {#if $smarty.get.parentid==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
+			{#/foreach#}
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+{#if $smarty.get.parentid<>""#}
+<div class="seltpye_x">
+		<div class="left"><span style="color:#999999">└ </span>子分类</div>	
+		<div class="right">
+		<a href="{#"type_id:"|qishi_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+	 	{#qishi_help_category set="列表名:category,大类:"|cat:$smarty.get.parentid#}
+		{#foreach from=$category item=list#}
+		<a href="{#"type_id:"|cat:$list.id|qishi_parse_url#}" {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
+			{#/foreach#}
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+{#/if#}
+
+ 
+  <form id="form1" name="form1" method="post" action="?act=help_del">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>标题</label></td>
+      <td width="100"   align="center" class="admin_list_tit">排序</td>
+      <td width="100"   align="center" class="admin_list_tit">点击</td>
+      <td width="120"   align="center" class="admin_list_tit" >添加日期</td>
+      <td width="130"   align="center" class="admin_list_tit" >操作</td>
+    </tr>
+	  {#foreach from=$helplist item=list#}
+      <tr>
+      <td  class="admin_list admin_list_first">
+        <input name="id[]" type="checkbox" id="id" value="{#$list.id#}"/>
+		{#if $list.c_categoryname#}
+		<a href="?type_id={#$list.type_id#}&parentid={#$list.parentid#}" style="color: #006699">[{#$list.c_categoryname#}]</a> 
+		{#else#}
+		[分类不存在]&nbsp; 
+		{#/if#}
+		{#$list.title#}
+		</td>
+	    <td align="center"  class="admin_list">{#$list.order#}</td>
+        <td align="center"  class="admin_list">{#$list.click#}</td>
+        <td align="center"  class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>
+        <td align="center"  class="admin_list">
+		<a href="?act=edit&id={#$list.id#}">修改</a> &nbsp;&nbsp;
+		<a href="?act=help_del&id={#$list.id#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+      </tr>
+      {#/foreach#}
+    </table>
+  </form>
+	{#if !$helplist#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}	
+<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加"  onclick="window.location='?act=add'"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除所选"/>
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"标题"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="标题">标题</li>
+														<li id="2" title="帮助ID">帮助ID</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,291 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" src="js/jquery.userinfotip-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#ButAudit").QSdialog({
+	DialogTitle:"请选择",
+	DialogContent:"#OpAuditLayer",
+	DialogContentType:"id",
+	DialogAddObj:"#OpAudit",	
+	DialogAddType:"html"	
+	});
+	$("#ButDel").QSdialog({
+	DialogTitle:"请选择",
+	DialogContent:"#OpDelLayer",
+	DialogContentType:"id",
+	DialogAddObj:"#OpDel",	
+	DialogAddType:"html"	
+	});
+	$("#Butrefresh").QSdialog({
+	DialogTitle:"请选择",
+	DialogContent:"#OprefreshLayer",
+	DialogContentType:"id",
+	DialogAddObj:"#Oprefresh",	
+	DialogAddType:"html"	
+	});
+	$("#fail").click(function(){
+		$("#reason").show();
+	});
+	$("#wait").click(function(){
+		$("#reason").hide();
+	});
+	$("#success").click(function(){
+		$("#reason").hide();
+	});
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="company/admin_company_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">认证状态</div>	
+		<div class="right">
+			<a href="{#"audit:"|qishi_parse_url#}" {#if $smarty.get.audit==""#} class="select"{#/if#}>不限</a>
+			<a href="{#"audit:1"|qishi_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>认证通过</a>
+			<a href="{#"audit:2"|qishi_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待认证</a>
+			<a href="{#"audit:3"|qishi_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>认证未通过</a>
+			<a href="{#"audit:0"|qishi_parse_url#}" {#if $smarty.get.audit=="0"#}class="select"{#/if#}>未认证</a>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+  <div class="seltpye_x">
+		<div class="left">添加时间</div>	
+		<div class="right">
+		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:180"|qishi_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
+		<a href="{#"settr:360"|qishi_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=company_perform">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  class="admin_list_tit admin_list_first">
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>公司名称</label>
+	  </td>
+	 
+	  
+      
+	  <td    class="admin_list_tit">所属会员</td> 
+	  <td  width="12%" class="admin_list_tit">营业执照</td>  
+      <td width="10%" align="center" class="admin_list_tit">认证状态</td>
+	     
+      <td width="7%" align="center" class="admin_list_tit">创建时间</td>
+	   <td width="7%" align="center" class="admin_list_tit">刷新时间</td>
+		{#if $QISHI.operation_mode=='1'#}  
+			  <td width="7%" align="center" class="admin_list_tit">目前积分</td>
+		{#elseif $QISHI.operation_mode=='2'||$QISHI.operation_mode=='3'#}  
+			  <td width="7%" align="center" class="admin_list_tit">套餐名称</td>
+		{#/if#}
+			  <td width="9%" align="center" class="admin_list_tit">收到简历</td>
+      <td width="15%" align="center" class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$clist item=list#}
+      <tr >
+      <td class="admin_list admin_list_first" >
+        <input name="y_id[]" type="checkbox" id="y_id" value="{#$list.uid#}" />
+		<a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
+		</td>
+		
+		<td  class="admin_list">
+		{#$list.username#}
+		<a href="admin_mail.php?act=send&email={#$list.memail#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>
+		 {#if $list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>{#/if#}
+		</td>
+        <td class="admin_list">
+		{#if $list.certificate_img#}
+		<a href="{#$certificate_dir#}{#$list.certificate_img#}" target="_blank" title="点击查看">已上传</a>&nbsp;
+		{#else#}
+		<span  style="color: #999999">未上传</span>
+		{#/if#}	
+		</td>
+		
+        <td align="center" class="admin_list">
+		{#if $list.audit == "0"#}未认证{#/if#}
+		{#if $list.audit == "1"#}<span style="color: #009900">认证通过</span>{#/if#}
+		{#if $list.audit == "2"#}<span style="color:#FF3300">等待认证</span>{#/if#}
+		{#if $list.audit == "3"#}认证未通过{#/if#}
+		</td>
+     
+		      
+        <td align="center" class="admin_list">
+		{#$list.addtime|date_format:"%Y-%m-%d"#}
+		</td>
+		<td align="center" class="admin_list">
+		{#$list.refreshtime|date_format:"%Y-%m-%d"#}
+		</td>
+		<td align="center" class="admin_list">
+		{#if $QISHI.operation_mode=='1'#} 
+			<strong>{#$list.points#}</strong> 积分
+		{#elseif $QISHI.operation_mode=='2'||$QISHI.operation_mode=='3'#}  
+				{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#}
+		{#/if#}
+		</td>
+		<td align="center" class="admin_list">
+		{#$list.get_resume#}
+		</td>
+        <td width="15%" align="center" class="admin_list">
+		<a href="admin_memberslog.php?uid={#$list.uid#}">日志</a>
+		&nbsp;
+		<a href="?act=edit_company_profile&id={#$list.id#}">修改</a>
+		&nbsp;
+		<a href="?act=meal_log&key_uid={#$list.uid#}&key_type=2&key_type_cn=UID">充值记录</a>
+		&nbsp;
+		<a href="?act=management&id={#$list.uid#}"  target="_blank"  class="userinfo"  id="{#$list.uid#}">管理</a>
+		</td>
+      </tr>
+      {#/foreach#}
+    </table>
+<span id="OpAudit"></span>
+<span id="OpDel"></span>
+<span id="Oprefresh"></span>
+  </form>
+	{#if !$clist#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+  
+	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+        <input type="button" name="" value="认证企业" class="admin_submit"  id="ButAudit" />
+		<input type="button" name="" value="刷新" class="admin_submit"  id="Butrefresh" />
+		<input type="button" name="" value="删除" class="admin_submit"   id="ButDel"/>
+		  
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"公司名"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="公司名">公司名</li>
+														<li id="2" title="会员id">公司id</li>
+														<li id="3" title="会员名">会员名</li>
+														<li id="4" title="会员id">会员id</li>														
+														<li id="5" title="地址">地址</li>
+														<li id="6" title="电话">电话</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="company_list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+<div style="display:none" id="OpDelLayer">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
+    <tr>
+      <td height="30" colspan="2"><strong  style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+      </tr>
+    <tr>
+      <td width="20" height="25">&nbsp;</td>
+      <td><label>
+        <input name="delete_company" type="checkbox" id="delete_company" value="yes" checked="checked" />
+        删除企业资料</label></td>
+    </tr>
+	<tr>
+      <td height="25">&nbsp;</td>
+      <td><label>
+        <input name="delete_jobs" type="checkbox" id="delete_jobs" value="yes" checked="checked"/>
+        删除此企业发布的招聘信息</label></td>
+    </tr>
+	<tr>
+	  <td height="25">&nbsp;</td>
+	  <td><input type="submit" name="delete" value="确定" class="admin_submit"    /></td>
+	  </tr>
+  </table>
+</div>
+<!-- -->
+<div style="display:none" id="OprefreshLayer">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
+    <tr>
+      <td height="30" colspan="2"><strong  style="color:#0066CC; font-size:14px;">刷新该企业的职位：</strong></td>
+      </tr>
+    <tr>
+      <td width="20" height="25">&nbsp;</td>
+      <td><label>
+        <input name="refresh_jobs" type="checkbox" id="refresh_jobs" value="yes" />
+        同时刷新所选企业的职位</label></td>
+    </tr>
+	 <tr>
+      <td height="25">&nbsp;</td>
+      <td><input type="submit" name="set_refresh" value="确定" class="admin_submit"    /></td>
+    </tr>
+  </table>
+</div>
+<!-- -->
+<div style="display:none" id="OpAuditLayer">
+ <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
+    <tr>
+      <td width="20" height="30">&nbsp;</td>
+      <td height="30"><strong  style="color:#0066CC; font-size:14px;">将所选企业设置为：</strong></td>
+    </tr>
+		
+	      <tr>
+      <td height="25">&nbsp;</td>
+      <td>
+	  <label >
+                      <input name="audit" type="radio" value="1" checked="checked"  id="success" />
+                      认证通过 </label>	  </td>
+    </tr>
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td><label >
+                      <input type="radio" name="audit" value="3"  id="fail"/>
+        认证未通过</label></td>
+    </tr>
+	 <tr>
+      <td height="25">&nbsp;</td>
+      <td>
+	  <label >
+	  <input type="radio" name="audit" value="2"  id="wait"/>      
+	  等待认证
+	  </label>	</td>
+    </tr>
+    <tr>
+      <td width="40" height="25">&nbsp;</td>
+      <td>
+		  <label><input type="checkbox" name="pms_notice" value="1"  checked="checked"/>
+		  站内信通知
+		   </label>
+	  </td>
+    </tr>
+	<tr style="display:none" id="reason">
+      <td width="40" height="25" >理由：</td>
+      <td>
+         <textarea name="reason" id="reason" cols="50" style="font-size:12px"></textarea>            
+      </td>
+    </tr>
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td><input type="submit" name="set_audit" value="确定" class="admin_submit"    /></td>
+    </tr>		  
+  </table>
+</div>
+<!-- -->
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="mailqueue/admin_mailqueue_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+你可以用HTML美化邮件内容。
+</p>
+</div> 
+ <div class="toptit">新增邮件任务</div>
+<script type="text/javascript" charset="gbk" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="gbk" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="gbk" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+    <form id="form1" name="form1" method="post"   action="?act=mailqueue_add_save" >
+	{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+    <tr>
+      <td width="120" height="30" align="right"  >收件人：</td>
+      <td  ><input name="m_mail" type="text" class="input_text_200"   maxlength="100" value=""/>
+       </td>
+    </tr>
+	
+	
+	<tr>
+      <td width="120" height="30" align="right"  >邮件标题：</td>
+      <td  ><input name="m_subject" type="text" id="m_subject" class="input_text_400"   maxlength="100" value=""/>
+       </td>
+    </tr>
+	 <tr>
+      <td   height="30" align="right"  ></td>
+      <td  >
+	  
+	  {#foreach from=$label item=li#}			
+			<div id="{#$li.0#}" class="sellabel">{#$li.1#}</div>
+			{#/foreach#}
+				<div class="clear"></div>
+	  
+       </td>
+    </tr>
+	    <tr>
+      <td height="30" align="right" valign="top"  >邮件内容：</td>
+      <td   >
+	  <textarea name="m_body" id="m_body" style="width:700px; height:200px; font-size:12px; line-height:180%" ></textarea>
+	  <script type="text/javascript">
+          var ue = UE.getEditor('m_body');
+      </script>
+	  
+	  </td>
+    </tr>
+
+	  
+	  
+	      <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  > 
+            <input name="submit3" type="submit" class="admin_submit"    value="添加"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>
+  </table>
+    </form>
+</div>
+
+<script type="text/javascript" src="js/jquery.caretInsert.js"></script>
+<script language="JavaScript" type="text/javascript"> 
+(function($)
+{
+	$(".sellabel").hover(function(){$(this).css("background-color","#ffffff");},function()	{$(this).css("background-color","#F4FAFF");});
+
+		
+		 $('.sellabel[align!="left"]').unbind("click").click(function(){ 
+			 $('#m_subject').setCaret();
+			 $('#m_subject').insertAtCaret($(this).attr("id"));
+		 });
+
+	
+
+		 $('.sellabel[align="left"]').unbind("click").click(function(){ 
+		 $('#m_subject').unbind();
+			 editor.insertHtml($(this).attr("id"));
+			 //$('#templates_value').insertAtCaret($(this).attr("id"));
+	});
+})($);   
+</script> 
+
+
+
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

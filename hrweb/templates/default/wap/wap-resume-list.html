@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>简历列表 - {#$QISHI.site_name#}</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/resume.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+	
+	// 创建简历弹出框
+	  function showFloatBox() {
+	    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+	    $(".menu_bg_layer").height($(document).height());
+	    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+	    $(".menu_bg_layer").css("opacity",0.3);
+	  }
+
+	  // 地区点击
+	  $("#menulistCity").click(function(){
+	    showFloatBox();
+	    $("#menuDistrict").css({ top: ($(window).height() - $('#menuDistrict').outerHeight())/2 + $(document).scrollTop() });
+	    $("#menuDistrict").show();
+	  });
+
+	  // 职能点击
+	  $("#menulistJobs").click(function(){
+	    showFloatBox();
+	    $("#menuJobs").css({ top: ($(window).height() - $('#menuJobs').outerHeight())/2 + $(document).scrollTop() });
+	    $("#menuJobs").show();
+	  });
+
+	  // 学历点击
+	  	$("#menulistEducation").click(function(){
+		    showFloatBox();
+		    $("#menuEducation").css({ top: ($(window).height() - $('#menuEducation').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuEducation").show();
+		    $("#menuEducation li").click(function(){
+			    $("#education").val($(this).attr("id"));
+			   	$("#education_cn").val($(this).attr("title"));
+			   	$("#showListEducation").html($(this).attr("title"));
+			    $("#menuEducation").hide();
+			    $(".menu_bg_layer").remove();
+
+          //点击完直接搜索
+          var patrn=/^(请输入关键字)/i;
+          var key=$("#key").val();
+          if (patrn.exec(key))
+          {
+          key = "";
+          }
+          var district =$("#district").val();
+          var sdistrict =$("#sdistrict").val();
+          var experience =$("#experience").val();
+          var topclass =$("#topclass").val();
+          var category =$("#category").val();
+          var subclass =$("#subclass").val();
+          var talent =$("#talent").val();
+          var education =$("#education").val();
+          var url = "wap-resume-list.php";
+          window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent;
+		    });
+	  	});
+   
+	  	// 工作经验点击
+	  	$("#menulistExperience").click(function(){
+		    showFloatBox();
+		    $("#menuExperience").css({ top: ($(window).height() - $('#menuExperience').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuExperience").show();
+		    $("#menuExperience li").click(function(){
+			    $("#experience").val($(this).attr("id"));
+			   	$("#experience_cn").val($(this).attr("title"));
+			   	$("#showListExperience").html($(this).attr("title"));
+			    $("#menuExperience").hide();
+			    $(".menu_bg_layer").remove();
+
+          //点击完直接搜索
+          var patrn=/^(请输入关键字)/i;
+          var key=$("#key").val();
+          if (patrn.exec(key))
+          {
+          key = "";
+          }
+          var district =$("#district").val();
+          var sdistrict =$("#sdistrict").val();
+          var experience =$("#experience").val();
+          var topclass =$("#topclass").val();
+          var category =$("#category").val();
+          var subclass =$("#subclass").val();
+          var talent =$("#talent").val();
+          var education =$("#education").val();
+          var url = "wap-resume-list.php";
+          window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent;
+		    });
+	  	});
+      // 关闭弹出框
+      $(".choose_close").click(function(event) {
+        $(this).parent().hide();
+        $(".menu_bg_layer").remove();
+      });
+	//
+	$("#key").focus(function()
+	{
+		var patrn=/^(请输入关键字)/i; 
+		var key=$("#key").val();
+		if (patrn.exec(key))
+		{
+		$("#key").val('');
+		}
+	});
+	$("#clearkey").click( function () {
+	 $("#key").val('');
+	});
+	$(".resume_list .list").click(function(){
+		window.location.href=$(this).attr("url"); 
+	});
+	{#if $resume#}
+	$(".more").click(function(){
+		$(this).hide();
+		var patrn=/^(请输入关键字)/i; 
+		var key=$("#key").val();
+		if (patrn.exec(key))
+		{
+		key = "";
+		}
+		
+		var district =$("#district").val();
+		var sdistrict =$("#sdistrict").val();
+		
+		var education =$("#education").val();
+		
+		var topclass =$("#topclass").val();
+		var category =$("#category").val();
+		var subclass =$("#subclass").val();
+    var talent =$("#talent").val();
+		
+		var experience =$("#experience").val();
+		var offset=$(".resume_list div[class='list']").last().attr('id');
+		offset=parseInt(offset.substr(3));
+		$.get("{#$QISHI.wap_domain#}/plus/wap_ajax.php?act=ajaxresumelist&offset="+(offset+5)+"&rows=5&key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent, function(result){
+		    if(result=="-1"){
+		    	$(".more").show();
+		    	$(".more").html("没有更多简历了");
+		    }else{
+		    	$(".showlist").append(result);
+		    	$(".more").show();
+				$(".resume_list .list").click(function(){
+					window.location.href=$(this).attr("url"); 
+				});
+		    }
+		    
+		  });
+	});
+	{#/if#}
+	$(".so_sub").click(function(){
+		var patrn=/^(请输入关键字)/i;
+		var key=$("#key").val();
+		if (patrn.exec(key))
+		{
+		key = "";
+		}
+		var district =$("#district").val();
+		var sdistrict =$("#sdistrict").val();
+		var experience =$("#experience").val();
+		var topclass =$("#topclass").val();
+		var category =$("#category").val();
+		var subclass =$("#subclass").val();
+    var talent =$("#talent").val();
+		var education =$("#education").val();
+		var url = "wap-resume-list.php";
+		window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent; 
+	});
+});
+</script>
+</head>
+<body>
+<div class="sub_bodybg"></div>
+<div class="sub_head_top">
+	<div class="title">搜索简历</div>
+	<div class="back" id="pageback"><img src="images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="javascript:void(0);"><img src="images/2.jpg"  border="0"/></a></div>
+</div>
+
+<!--快捷按钮 -->
+{#include file="top-menu.html"#}
+<!--快捷按钮 -->
+<!--关键字搜索 -->
+<div class="resume_so">
+	<input name="key" type="text"  id="key"  class="keyinput" value="{#if $smarty.get.key==""#}请输入关键字{#else#}{#$smarty.get.key#}{#/if#}"/>
+	<div class="clearkey" id="clearkey"><img src="images/17.jpg"  border="0"/></div>
+    <div class="so_sub"><img src="images/19.jpg"  border="0"/></div>
+</div>
+<!--更多搜索条件 -->
+ <input type="hidden" id="talent" name="talent" value="{#$smarty.get.talent#}" />
+<div class="jobs_so_menus">
+  <div class="menulistboxs" id="menulistCity">
+    <div class="so_box area">
+      <img src="./images/so_icon_1_hui.gif" alt="" />&nbsp;地区
+        <input type="hidden" id="district" name="district" value="{#$smarty.get.district#}" />
+        <input type="hidden" id="sdistrict" name="sdistrict" value="{#$smarty.get.sdistrict#}" />
+    </div>
+  </div>
+  <div class="menu choose_menu" id="menuDistrict" style="display:none;position:absolute;z-index:1;">
+    <div class="menu_title">地区</div>
+    <div class="choose_close"></div>
+    <div class="area_choose">
+      <ul class="area_left" id="area_left"></ul>
+      <ul class="area_right" id="area_right"></ul>
+      <div class="clear"></div>
+    </div>
+    <script type="text/javascript">
+      var citystr = '';
+      $.each(QS_city_parent, function(pindex, pval) {
+        if(pval) {
+          var citys = pval.split(",");
+            citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
+        }
+      });
+      $("#area_left").html(citystr);
+      $("#area_left li").unbind().click(function(){
+        var cid = $(this).attr("rcoid");
+        var cid = $(this).attr("pid");
+        var ctitle = $(this).attr("title");
+        var scitystr = "";
+        if(QS_city[cid]) {
+          var ccitysArray = QS_city[cid].split("|");
+          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+          $.each(ccitysArray, function(cindex, cval) {
+            if(cval) {
+              var ccitys = cval.split(",");
+              scitystr += '<li class="area_small" rcoid="'+ccitys[0]+'" title="'+ctitle+'\/'+ccitys[1]+'" pid="'+cid+'.'+ccitys[0]+'">'+ccitys[1]+'</li>';
+            }
+          });
+          $("#area_right").html(scitystr).show();
+          $("#area_right li").click(function(){
+            var districtIds = $(this).attr("pid");
+            var districtIdArray = districtIds.split(".");
+            $("#district").val(districtIdArray[0]);
+            $("#sdistrict").val(districtIdArray[1]);
+            $("#district_text").html($(this).attr("title"));
+            $("#showListCity").html($(this).attr("title"));
+            $("#menuDistrict").hide();
+            $(".menu_bg_layer").remove();
+
+            //点击完直接搜索
+            var patrn=/^(请输入关键字)/i;
+            var key=$("#key").val();
+            if (patrn.exec(key))
+            {
+            key = "";
+            }
+            var district =$("#district").val();
+            var sdistrict =$("#sdistrict").val();
+            var experience =$("#experience").val();
+            var topclass =$("#topclass").val();
+            var category =$("#category").val();
+            var subclass =$("#subclass").val();
+            var talent =$("#talent").val();
+            var education =$("#education").val();
+            var url = "wap-resume-list.php";
+            window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent;
+          });
+        } else {
+          $("#district").val($(this).attr('pid'));
+          $("#sdistrict").val("0");
+          $("#district_text").html(ctitle);
+          $("#showListCity").html(ctitle);
+          $("#menuDistrict").hide();
+          $(".menu_bg_layer").remove();
+
+          //点击完直接搜索
+          var patrn=/^(请输入关键字)/i;
+          var key=$("#key").val();
+          if (patrn.exec(key))
+          {
+          key = "";
+          }
+          var district =$("#district").val();
+          var sdistrict =$("#sdistrict").val();
+          var experience =$("#experience").val();
+          var topclass =$("#topclass").val();
+          var category =$("#category").val();
+          var subclass =$("#subclass").val();
+          var talent =$("#talent").val();
+          var education =$("#education").val();
+          var url = "wap-resume-list.php";
+          window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent;
+        }
+      });
+    </script>
+  </div>
+
+  <div class="menulistboxs" id="menulistJobs">
+    <div class="so_box functions">
+      <img src="./images/so_icon_3_hui.gif" alt="" />&nbsp;职能
+          <input name="topclass" id="topclass" type="hidden" value="{#$smarty.get.topclass#}" />
+          <input name="category" id="category" type="hidden" value="{#$smarty.get.category#}" />
+          <input name="subclass" id="subclass" type="hidden" value="{#$smarty.get.subclass#}" />
+    </div>
+  </div>
+  <div class="menu choose_menu" id="menuJobs" style="display:none;position:absolute;z-index:1;">
+  <div class="menu_title">职能</div>
+  <div class="choose_close"></div>
+  <div class="area_choose">
+    <ul class="area_left" id="jobs_left_list"></ul>
+    <ul class="area_right" id="jobs_right_list"></ul>
+    <div class="clear"></div>
+  </div>
+  <script type="text/javascript">
+    var jobstr = '';
+    $.each(QS_jobs_parent, function(pindex, pval) {
+      if(pval) {
+        var jobs = pval.split(",");
+        var sjobsArray = QS_jobs[jobs[0]].split("|");
+        $.each(sjobsArray, function(sindex, sval) {
+          if(sval) {
+            var sjobs = sval.split(",");
+            jobstr += '<li class="area_big" rcoid="'+sjobs[0]+'" pid="'+jobs[0]+'.'+sjobs[0]+'" title="'+sjobs[1]+'">'+sjobs[1]+'</li>';
+          }
+        });
+      }
+    });
+    $("#jobs_left_list").html(jobstr);
+    $("#jobs_left_list li").unbind().click(function(){
+      var rid = $(this).attr("rcoid");
+      var rpid = $(this).attr("pid");
+      var rtitle = $(this).attr("title");
+      var sjobstr = "";
+      if(QS_jobs[rid]) {
+        var cjobsArray = QS_jobs[rid].split("|");
+        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">不限</li>';
+        $.each(cjobsArray, function(cindex, cval) {
+          if(cval) {
+            var cjobs = cval.split(",");
+            sjobstr += '<li class="area_small" rcoid="'+cjobs[0]+'" title="'+rtitle+'\/'+cjobs[1]+'" pid="'+rpid+'.'+cjobs[0]+'">'+cjobs[1]+'</li>';
+          }
+        });
+        $("#jobs_right_list").html(sjobstr).show();
+        $("#jobs_right_list li").click(function(){
+          var chid = new Array();
+          chid = $(this).attr('pid').split(".");
+          $("#topclass").val(chid[0]);
+          $("#category").val(chid[1]);
+          $("#subclass").val(chid[2]);
+          $("#jobs_text").html($(this).attr("title"));
+          $("#showListJobs").html($(this).attr("title"));
+          $("#menuJobs").hide();
+          $(".menu_bg_layer").remove();
+
+          //点击完直接搜索
+          var patrn=/^(请输入关键字)/i;
+          var key=$("#key").val();
+          if (patrn.exec(key))
+          {
+          key = "";
+          }
+          var district =$("#district").val();
+          var sdistrict =$("#sdistrict").val();
+          var experience =$("#experience").val();
+          var topclass =$("#topclass").val();
+          var category =$("#category").val();
+          var subclass =$("#subclass").val();
+          var talent =$("#talent").val();
+          var education =$("#education").val();
+          var url = "wap-resume-list.php";
+          window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent;
+        });
+      } else {
+        var tchid = new Array();
+        tchid = $(this).attr('pid').split(".");
+        $("#topclass").val(tchid[0]);
+        $("#category").val(tchid[1]);
+        $("#subclass").val("0");
+        $("#jobs_text").html(rtitle);
+        $("#showListJobs").html(rtitle);
+        $("#menuJobs").hide();
+        $(".menu_bg_layer").remove();
+
+        //点击完直接搜索
+        var patrn=/^(请输入关键字)/i;
+        var key=$("#key").val();
+        if (patrn.exec(key))
+        {
+        key = "";
+        }
+        var district =$("#district").val();
+        var sdistrict =$("#sdistrict").val();
+        var experience =$("#experience").val();
+        var topclass =$("#topclass").val();
+        var category =$("#category").val();
+        var subclass =$("#subclass").val();
+        var talent =$("#talent").val();
+        var education =$("#education").val();
+        var url = "wap-resume-list.php";
+        window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent;
+      }
+    });
+  </script>
+  </div>
+    <div class="menulistboxs" id="menulistExperience">
+    <div class="so_box trade">
+      <img src="./images/so_icon_6_hui.gif" alt="" />&nbsp;经验
+        <input name="experience" type="hidden" id="experience" value="{#$smarty.get.experience#}" />
+        <input name="experience_cn" type="hidden" id="experience_cn" value="{#$smarty.get.experience_cn#}" />
+    </div>
+  </div>
+  <div class="menu choose_menu" id="menuExperience" style="display:none;position:absolute;z-index:1;">
+  <div class="menu_title">工作经验</div>
+      <div class="choose_close"></div>
+      <ul>
+          {#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+          {#foreach from=$c_experience item=list#}
+          <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+          {#/foreach#}
+      </ul>
+  </div>
+  <div class="menulistboxs" id="menulistEducation">
+    <div class="so_box moneys">
+      <img src="./images/so_icon_5_hui.gif" alt="" />&nbsp;学历
+        <input name="education" type="hidden" id="education" value="{#$smarty.get.education#}" />
+        <input name="education_cn" type="hidden" id="education_cn" value="{#$smarty.get.education_cn#}" />
+    </div>
+  </div>
+    <div class="menu choose_menu" id="menuEducation" style="display:none;position:absolute;z-index:1;">
+	    <div class="menu_title">学历</div>
+      <div class="choose_close"></div>
+	    <ul>
+	        {#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+	        {#foreach from=$c_education item=list#}
+	        <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+	        {#/foreach#}
+	    </ul>
+	</div>
+  <div class="clear"></div>
+</div>
+
+
+<!-- 选择完之后的完成框 -->
+<div class="so_complete">
+  <div class="so_complete_box">
+  <span>搜索条件：</span><i id="showListCity"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListExperience"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListJobs"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListEducation"></i>
+  </div>
+  <div class="clear"></div>
+  <img id="clearShowList" src="./images/so_close.gif" alt=""width="16"height="17" />
+</div>
+<script type="text/javascript">
+  // 地区恢复
+  var citygetDistrictId = "{#$smarty.get.district#}";
+  var citygetSdistrictId = "{#$smarty.get.sdistrict#}";
+  var showCityHtm = "";
+  $.each(QS_city_parent, function(cindex, cval) {
+     if(cval) {
+        var citys = cval.split(",");
+        if(citys[0] == citygetDistrictId) {
+          showCityHtm += citys[1]+"/";
+        }
+     }
+  });
+  if(citygetSdistrictId == "0") {
+    showCityHtm += "不限";
+  } else {
+    if(QS_city[citygetDistrictId]) {
+      var ccitysArray = QS_city[citygetDistrictId].split("|");
+      $.each(ccitysArray, function(scindex, scval) {
+         if(scval) {
+            var scitys = scval.split(",");
+            if(scitys[0] == citygetSdistrictId) {
+              showCityHtm += scitys[1];
+            }
+         }
+      });
+    }
+  }
+  $("#showListCity").html(showCityHtm);
+  // 工作经验恢复
+  var citygetExperienceId = "{#$smarty.get.experience#}";
+  var showExperienceHtm = "";
+  $.each(QS_experience, function(windex, eval) {
+    if(eval) {
+      var experiences = eval.split(",");
+      if(experiences[0] == citygetExperienceId) {
+        showExperienceHtm += experiences[1];
+      }
+    }
+  });
+  $("#showListExperience").html(showExperienceHtm);
+  // 职能恢复
+  var citygetTopclassId = "{#$smarty.get.topclass#}";
+  var citygetCategoryId = "{#$smarty.get.category#}";
+  var citygetSubclassId = "{#$smarty.get.subclass#}";
+  var showJobsHtm = "";
+  if(QS_jobs[citygetTopclassId]) {
+    var sjobsArray = QS_jobs[citygetTopclassId].split("|");
+    $.each(sjobsArray, function(sindex, sval) {
+      if(sval) {
+        var sjobs = sval.split(",");
+        if(sjobs[0] == citygetCategoryId) {
+          showJobsHtm += sjobs[1]+"/";
+        }
+      }
+    });
+  }
+  if(citygetSubclassId == "0") {
+    showJobsHtm += "不限";
+  } else {
+    if(QS_jobs[citygetCategoryId]) {
+      var tsjobsArray = QS_jobs[citygetCategoryId].split("|");
+      $.each(tsjobsArray, function(sindex, sval) {
+        if(sval) {
+          var tsjobs = sval.split(",");
+          if(tsjobs[0] == citygetSubclassId) {
+            showJobsHtm += tsjobs[1];
+          }
+        }
+      });
+    }
+  }
+  $("#showListJobs").html(showJobsHtm);
+  // 学历恢复
+  var citygetEducationId = "{#$smarty.get.education#}";
+  var showEducationHtm = "";
+  $.each(QS_education, function(windex, edval) {
+    if(edval) {
+      var educations = edval.split(",");
+      if(educations[0] == citygetEducationId) {
+        showEducationHtm += educations[1];
+      }
+    }
+  });
+  $("#showListEducation").html(showEducationHtm);
+  $("#clearShowList").click(function(event) {
+    $(".so_complete i").html("");
+    $("#district").val("");
+    $("#sdistrict").val("");
+    $("#education").val("");
+    $("#topclass").val("");
+    $("#category").val("");
+    $("#subclass").val("");
+    $("#experience").val("");
+  });
+</script>
+<div class="resume_list">
+<div class="showlist">
+{#foreach from=$resume item=list#}
+	<div class="list" id="li-0" url="{#$list.url#}">
+	  <span><a href="{#$list.url#}">{#$list.fullname#}({#$list.sex_cn#})</a></span><br />
+学历：{#$list.education_cn#}  工作经验：{#$list.experience_cn#}<br />
+{#$list.intention_jobs#}
+	</div>
+{#/foreach#}
+</div>
+{#if $resume#}
+    <div class="more link_bk"><a href="javascript:void(0);">更多简历...</a></div>	
+{#else#}
+    <div class="more link_bk">没有更多简历了</div>	
+{#/if#}
+</div>
+{#include file="wap/footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" charset="gbk" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="gbk" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="gbk" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function()
+{
+	$("#check").click(function () {	
+	$("#submitbox").hide();
+	$("#hide").show();	
+	});
+	$(".again_send").click(function(){
+		$(this).html('发送中...');
+		$(this).css('color','red');
+		$id=$(this).attr('id');
+		window.location.href='?act=again_send&id='+$id;
+	})
+});
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+ 
+	<div class="toptit">发送邮件</div>
+    <span id="submitbox">
+		<form action="?act=email_send" method="post"   name="form" id="form">
+		<input name="uid" type="hidden"  id="uid" value="{#$smarty.get.uid#}" /></td>
+		{#$inputtoken#}
+		<table width="100%" border="0" cellspacing="10" cellpadding="1" style=" margin-bottom:3px;">
+          <tr>
+            <td width="100" align="right">收件人地址:</td>
+            <td>
+			<input name="email" type="text"  class="input_text_200" id="email" value="{#$smarty.get.email#}" maxlength="60"/></td>
+          </tr>
+		   <tr>
+            <td width="100" align="right">邮件标题:</td>
+            <td>
+			<input name="subject" type="text"  class="input_text_400" id="email" value="" /></td>
+          </tr>
+		  <tr>
+            <td width="100" align="right" valign="top">邮件内容:</td>
+            <td width="100" >
+          <script id="editor" name="body" type="text/plain" style="width:700px;height:300px;"></script>
+          <script type="text/javascript">
+              var ue = UE.getEditor('editor');
+          </script>
+        </td>
+          </tr>
+          <tr>
+            <td align="right">&nbsp;</td>
+            <td>
+			<input name="url" type="hidden" value="{#$url#}" />
+			<input name="check" type="submit" class="admin_submit" id="check"    value="立即发送" /></td>
+          </tr>
+        </table>
+	    </form>
+		{#if $maillog#}	
+	 <div class="toptit">邮件发送记录</div>
+	<form action="?act=del" method="post"   name="form1" id="form1">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  width="120" class="admin_list_tit admin_list_first">
+     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>类型</label>	 </td>
+	  <td class="admin_list_tit" width="13%">收件地址</td>
+	  <td  class="admin_list_tit">邮件主题</td>
+      <td  class="admin_list_tit">邮件内容</td>
+      <td width="110"  align="center"  class="admin_list_tit">添加时间</td>	  
+      <td width="110"  align="center"  class="admin_list_tit">发送时间</td>
+      <td width="10%" align="center"  class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$maillog item=list#}
+	 <tr>
+      <td   class="admin_list admin_list_first">
+     <input type="checkbox" name="id[]"  value="{#$list.m_id#}"/>
+	 {#if $list.m_type=="0"#}<span style="color:#FF6600">等待发送</span>{#/if#}
+	 {#if $list.m_type=="1"#}<span style="color: #009900">发送成功</span>{#/if#}
+	 {#if $list.m_type=="2"#}<span style="color: #666666">发送失败</span>{#/if#}
+	  </td>
+	  <td  class="admin_list">
+	  {#$list.m_mail#}
+	  </td>
+	  <td   class="admin_list vtip" title="{#$list.m_subject|nl2br#}" >
+	  {#$list.m_subject_#}
+	  </td>
+      <td   class="admin_list vtip" title="{#$list.m_body|nl2br#}" >
+	   {#$list.m_body_#}
+	  </td>
+      <td align="center"  class="admin_list">
+	  {#$list.m_addtime|date_format:"%Y-%m-%d"#}
+		</td>	  
+      <td align="center"  class="admin_list">
+	  
+	  {#if $list.m_sendtime=="0"#}
+		----
+		{#else#}
+	{#$list.m_sendtime|date_format:"%Y-%m-%d"#}
+		{#/if#}
+	  </td>
+      <td align="center"  class="admin_list">
+	  <a href="javascript:void()" class="again_send" id="{#$list.m_id#}">重新发送</a>
+	</td>
+	</tr>
+	{#/foreach#}
+  </table>
+	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm" >
+		<tr>
+            <td height="30" width="110" align="right" >&nbsp;</td>
+            <td height="30"  >
+              <input type="submit" name="submit22" type="button" class="admin_submit submitdel"    value="删除所选" />
+           </td>
+          </tr>
+	  </table>
+	</form>
+<div class="page link_bk" style="height:20px">{#$page#}</div>
+ {#/if#}
+  </span>
+<span id="hide" style="display: none; color: #009900; padding-left:30px; padding-bottom:80px;">
+ 正在发送邮件.......<br />
+<br />
+</span>
+
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

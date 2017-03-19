@@ -1,0 +1,75 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">分类显示</div>	
+		<div class="right">
+		<a href="{#"infotype:"|qishi_parse_url#}" {#if $smarty.get.infotype==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"infotype:1"|qishi_parse_url#}" {#if $smarty.get.infotype=="1"#}class="select"{#/if#}>意见</a>
+		<a href="{#"infotype:2"|qishi_parse_url#}" {#if $smarty.get.infotype=="2"#}class="select"{#/if#}>建议</a>
+		<a href="{#"infotype:3"|qishi_parse_url#}" {#if $smarty.get.infotype=="3"#}class="select"{#/if#}>求助</a>
+		<a href="{#"infotype:4"|qishi_parse_url#}" {#if $smarty.get.infotype=="4"#}class="select"{#/if#}>投诉</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+ <div class="seltpye_x">
+		<div class="left">添加时间</div>	
+		<div class="right">
+		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:180"|qishi_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
+		<a href="{#"settr:360"|qishi_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+  
+  <form id="form1" name="form1" method="post" action="?act=del_feedback">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td width="80"   class="admin_list_tit admin_list_first" >
+     <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>类型</label></td>
+      <td width="40%"  class="admin_list_tit"  >内容</td>
+      <td align="center" class="admin_list_tit">联系方式</td>
+      <td width="120" align="center" class="admin_list_tit">添加时间</td>
+    </tr>
+	{#foreach from=$list item=li#}
+	<tr>
+      <td   class="admin_list admin_list_first" >
+      <input name="id[]" type="checkbox" id="id" value="{#$li.id#}"/> 
+	   {#if $li.infotype=="1"#}意见{#/if#}
+		{#if $li.infotype=="2"#}建议{#/if#}
+		{#if $li.infotype=="3"#}求助{#/if#}
+		{#if $li.infotype=="4"#}投诉{#/if#}	
+	 </td>
+      <td  class="admin_list vtip" title="{#$li.feedback|nl2br#}" >{#$li.feedback#}</td>
+      <td align="center" class="admin_list">{#$li.tel#}</td>
+      <td align="center" class="admin_list">{#$li.addtime|date_format:"%Y-%m-%d"#}</td>
+    </tr>
+	 {#/foreach#}
+  </table>
+  {#if !$list#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+<input name="del" type="submit" class="admin_submit" id="ButDel" value="删除所选"/>
+		</td>
+        <td width="305" align="right">
+	    </td>
+      </tr>
+  </table>
+  </form>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

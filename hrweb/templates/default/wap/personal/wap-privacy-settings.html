@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>个人会员中心</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/user.css" rel="stylesheet" type="text/css" />
+<link href="../css/user_personal.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="../js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+ 	// 简历隐私设置
+ 	$(".privacy_save_but").click(function(){
+ 		var pid = {#$resume_one.id#};
+ 		// $('input[name="testradio"]:checked').val();
+ 		var display=$("input[name='display']:checked").val();
+ 		var display_name=$("input[name='display_name']:checked").val();
+ 		$.post("?act=resume_privacy_save",{pid:pid,display:display,display_name:display_name},function(data){
+		    if(data=="ok"){
+		    	alert("隐私设置成功");
+		    	window.location.reload();
+		    }else if(data=="err"){
+		    	alert("隐私设置失败");
+		    }
+		  });
+ 	});
+});
+</script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+	<div class="title">隐私设置</div>
+	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="../index.php";'>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-news-list.php";'>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+<!-- 隐私设置页面 -->
+<div class="privacy_title">
+	<p>{#$resume_one.title#}</p>
+</div>
+<form action="?act=resume_privacy_save" id="Form1" method="post">
+<table class="privacy_table">
+	<tbody>
+		<tr>
+			<td><div class="table_title">简历状态</div></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="display" value="1" {#if $resume_one.display==1#}checked{#/if#}/> 公开</label></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="display" value="2"  {#if $resume_one.display==2#}checked{#/if#}/> 保密</label></td>
+		</tr>
+	</tbody>
+</table>
+<table class="privacy_table">
+	<tbody>
+		<tr>
+			<td><div class="table_title">姓名</div></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="display_name" value="1" {#if $resume_one.display_name==1#}checked{#/if#} /> {#$resume_one.fullname#}</label></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="display_name" value="3" {#if $resume_one.display_name==3#}checked{#/if#}/> {#$resume_one.fullname_3#}</label></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="display_name" value="2" {#if $resume_one.display_name==2#}checked{#/if#}/> 编号</label></td>
+		</tr>
+	</tbody>
+</table>
+<!-- 简历照片设置 -->
+<!-- <table class="privacy_table">
+	<tbody>
+		<tr>
+			<td><div class="table_title">简历照片</div></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="photo_privacy" id="" checked /> 公开</label></td>
+		</tr>
+		<tr>
+			<td><label><input type="radio" name="photo_privacy" id="" /> 保密</label></td>
+		</tr>
+	</tbody>
+</table> -->
+</form>
+
+<div class="privacy_but_group">
+	<div class="privacy_save_but"><a>保存</a></div>
+	<div class="privacy_cancel_but" onclick="window.location.href='?act=resume_list'"><a>取消</a></div>
+	<div class="clear"></div>
+</div>
+
+
+<!-- footer -->
+{#include file="wap/footer.htm"#}
+</body>
+</html>

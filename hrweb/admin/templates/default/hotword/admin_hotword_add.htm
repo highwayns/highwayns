@@ -1,0 +1,43 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="hotword/admin_hotword_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+您可以修改关键字搜索次数来改变关键词排序；
+</p>
+</div> 
+ <div class="toptit">新增关键词</div>
+
+    <form id="form1" name="form1" method="post"   action="?act=addsave" >
+	{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+    <tr>
+      <td width="120" height="30" align="right"  >关键词：</td>
+      <td  ><input name="w_word" type="text" class="input_text_200"   maxlength="100" value=""/>
+       </td>
+    </tr>
+	    
+
+	    <tr>
+      <td height="30" align="right"  >搜索次数：</td>
+      <td   ><input name="w_hot" type="text" class="input_text_200"  maxlength="100" value="1"/>
+       </td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  > 
+            <input name="submit3" type="submit" class="admin_submit"    value="添加"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>
+  </table>
+    </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+	<tr>
+		<p class="security" style="padding: 10px 0px 5px 11px; color: #FF9900;">为了保障你的账号安全，请先帮助我们验证身份，如手机号丢失，请联系网站管理员修改</p>
+    </tr>
+    <tr>
+		<td width="120" align="right">原认证手机：</td>
+		<td class="mobile">{#$hid_mobile#}<input type="hidden" name="mobile" id="mobile_" value="{#$mobile#}"> </td>
+    </tr>
+    <tr id="displaymobilesend" style="display:none">
+		<td width="120" align="right">验证码：</td>
+		<td><input name="mobile_verifycode" id="mobile_verifycode" type="text" class="input_text_200" value="" /></td>
+    </tr>
+    <tr id="mobilesenddiv">
+		<td></td>
+		<td>
+			<input type="button" name="mobilesend" id="mobilesend" value="发送验证短信"  class="but130lan"/>
+		</td>
+    </tr>
+    <tr id="postverify" style="display:none">
+		<td align="right"></td>
+		<td><div class="but95cheng" style="margin-bottom: 10px;">确定</div></td>
+	</tr>
+	<input type="hidden" name="send_key" value="{#$send_mobile_key#}" id="send_key">
+</table>
+<script type="text/javascript">
+$(document).ready(function(){
+	//发送短信验证
+	$("#mobilesend").click(function(){
+		var tel = /^(13|15|14|18)\d{9}$/; 
+		if($("#mobile_").val()=='')
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '请填写手机号',
+			    width:'300px'
+			}).showModal();
+		}
+		else if(!tel.test($("#mobile_").val()))
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '手机号错误',
+			    width:'300px'
+			}).showModal();
+		}
+		else
+		{
+		$("#mobilesend").html("正在发送...");
+		var mobile = $("#mobile_").val();
+		$("#mobile_").attr("disabled","disabled");
+		$.post("../../plus/ajax_verify_old_mobile.php", {"mobile": $("#mobile_").val(),"send_key": $("#send_key").val(),"time":new Date().getTime(),"act":"send_code"},
+	 	function (data,textStatus)
+	 	 {
+			if (data=="success")
+			{	
+				$("#mobilesend").hide();
+				$("#mobilesendsucceed").show();
+				$("#displaymobilesend").show();
+				$("#postverify").show();
+			}
+			else
+			{
+				$("#mobilesenddiv").show();
+				$("#mobilesend").html("发送验证短信");
+				$("#mobile_").removeAttr('disabled');
+				$("#displaymobilesend").hide();
+				$("#mobilesendsucceed").hide();
+				dialog({
+				    title: '系统提示',
+				    content: ''+data+'',
+				    width:'300px',
+				    cancelDisplay: false,
+                    cancel: function () {
+				        $("#mobile_").removeAttr('disabled');
+				    }
+				}).showModal();
+			}
+	 	 }
+		 ,"text"
+		 )				 
+		}
+	});
+});
+</script>

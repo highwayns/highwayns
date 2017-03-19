@@ -1,0 +1,65 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="users/admin_users_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">日志类型</div>	
+		<div class="right">
+		<a href="{#"log_type:"|qishi_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"log_type:1"|qishi_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>登录成功</a>
+		<a href="{#"log_type:2"|qishi_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>登录失败</a>
+		<a href="{#"log_type:3"|qishi_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>操作记录</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td   class="admin_list_tit admin_list_first">用户名</td>
+      <td   class="admin_list_tit">日志类型</td>
+	  <td  class="admin_list_tit">说明</td>
+      <td width="15%"  class="admin_list_tit"> 操作时间 </td>
+      <td width="15%" class="admin_list_tit">操作IP</td>
+      
+    </tr>
+	{#foreach from=$list item=li#}
+    <tr>
+      <td class="admin_list admin_list_first"> {#$li.admin_name#}	</td>
+      <td class="admin_list">
+	  {#if $li.log_type=="1"#}
+	  登录成功
+	  {#elseif $li.log_type=="2"#}
+	  <span style="color:#FF0000">登录失败</span>
+	  {#else#}
+	  <span style="color:#FF0000">操作记录</span>
+	  {#/if#}
+	  </td>
+	  <td class="admin_list">{#$li.log_value#}</td>
+      <td class="admin_list"> {#$li.add_time|date_format:"%Y-%m-%d %H:%M"#} </td>
+      <td class="admin_list">{#$li.log_ip#}</td>
+      
+    </tr>
+	 {#/foreach#}
+  </table>
+    
+	{#if !$list#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+<input type="button" class="admin_submit" id="ButAudit" value="返回"  onclick="window.location='?'"/>
+		</td>
+        <td width="305" align="right"> 
+		
+	    </td>
+      </tr>
+  </table>
+ <div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

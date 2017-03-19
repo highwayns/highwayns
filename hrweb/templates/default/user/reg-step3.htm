@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<!-- 头部 -->
+	{#include file="user/reg_header.htm"#}
+	<!-- main -->
+	<div class="container">
+		<div class="step_wrap">
+			<div class="three-step-bar clearfix">
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>设置登录名</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>填写账户信息</div>
+				<div class="step tstep3 f-left active"><i class="step-icon">3</i>注册成功</div>
+			</div>
+		</div>
+		<div class="common-status" style="padding:120px 0px">
+			<div class="status-main">
+				<span><img src="{#$QISHI.site_template#}images/icon-success.png" alt="成功" /></span>恭喜您成功注册{#if $user.utype==1#}企业{#elseif $user.utype==2#}个人{#/if#}用户</div>
+			<p>立即进入 <a href="{#$user.url#}">会员中心</a> 或 <a href="{#$QISHI.site_dir#}">返回首页</a></p>
+		</div>
+	</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

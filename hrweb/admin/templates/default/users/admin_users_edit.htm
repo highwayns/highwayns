@@ -1,0 +1,75 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="users/admin_users_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+通过管理员设置，您可以进行编辑管理员资料、权限、密码以及删除管理员等操作；
+</p>
+</div>  
+  <div class="toptit">管理员详情</div>
+    <form id="form1" name="form1" method="post" action="?act=edit_users_info_save">
+	{#$inputtoken#}
+	<table width="100%" border="0" cellpadding="4" cellspacing="0"  class="admin_table" >
+	{#if $admin_purview=="all" and  $account.purview<>"all"#}<!--超级管理员登录并且不是修改超级管理员的资料-->
+    <tr>
+      <td width="120" height="30" align="right"  style="border:0px;"  >用户名：</td>
+      <td  tyle="border:0px;" >
+	  <input name="admin_name" type="text" class="input_text_200" id="admin_name" maxlength="25" value="{#$account.admin_name#}"/>	  </td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >电子邮件：</td>
+      <td   ><input name="email" type="text" class="input_text_200" id="email" maxlength="50" value="{#$account.email#}"/></td>
+    </tr>
+	<tr>
+      <td height="30" align="right"  >头衔：</td>
+      <td   ><input name="rank" type="text" class="input_text_200" id="email" maxlength="20" value="{#$account.rank#}"/></td>
+    </tr>
+	{#else#}
+	    <tr>
+      <td height="30" align="right"   width="120" style="border:0px;" >用户名：</td>
+      <td  style="border:0px;" >{#$account.admin_name#}</td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >电子邮件：</td>
+      <td   >{#$account.email#}</td>
+    </tr>
+	<tr>
+      <td height="30" align="right"  >头衔：</td>
+      <td   >{#$account.rank#}</td>
+    </tr>
+    
+	{#/if#}
+	    <tr>
+      <td height="30" align="right"  >创建时间：</td>
+      <td   >{#$account.add_time|date_format:"%Y-%m-%d %H:%M"#}</td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >最后登录ip：</td>
+      <td   >{#$account.last_login_ip#}</td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >最后登录时间：</td>
+      <td   >{#$account.last_login_time|date_format:"%Y-%m-%d %H:%M"#}</td>
+    </tr>
+	
+	  <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  >
+	  {#if $admin_purview=="all" and  $account.purview<>"all"#}<!--超级管理员登录并且不是修改超级管理员的资料-->
+	  <input name="id" type="hidden" value="{#$account.admin_id#}" />
+            <input name="submit3" type="submit" class="admin_submit"    value="修改"/>
+			{#/if#}
+            <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>	
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

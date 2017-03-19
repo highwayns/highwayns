@@ -1,0 +1,91 @@
+﻿{#include file="sys/admin_header.htm"#}
+<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="mail/admin_mail_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+		<p>你可以用HTML美化邮件内容模板。</p>
+		</div>
+	<div class="toptit">编辑邮件模板 <span style="color:#0033CC">{#$info.thisname#}</span></div>
+  <form action="?act=templates_save" method="post"   name="form1" id="form1">
+  {#$inputtoken#}
+		<table width="500" border="0" cellspacing="0" cellpadding="5" style=" margin-top:6px; margin-left:15px;">
+	 
+		<tr>
+            <td>邮件标题模版：</td>
+          </tr>
+		  <tr>
+            <td> 
+			{#foreach from=$label item=li#}			
+			<div id="{#$li.0#}" class="sellabel">{#$li.1#}</div>
+			{#/foreach#}			
+			<div class="clear"></div></td>
+          </tr>
+		  <tr>
+            <td><input name="title" type="text" id="title" maxlength="150" class="input_text_400" value="{#$title.value#}"/></td>
+          </tr>
+		  <tr>
+            <td>邮件内容模版：</td>
+          </tr>
+		  <tr>
+            <td>
+				{#foreach from=$label item=li#}			
+			<div id="{#$li.0#}" class="sellabel" align="left">{#$li.1#}</div>
+			{#/foreach#}
+				<div class="clear"></div>
+				</td>
+          </tr>
+          <tr>
+            <td><textarea name="templates_value" id="templates_value" style="width:700px; height:260px; font-size:12px; line-height:180%" >{#$info.value#}</textarea>
+			<script>
+      var editor;
+      KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="templates_value"]', {
+          allowFileManager : true
+        });
+      });
+    </script>   			</td>
+            </tr>
+			
+          <tr>
+            <td height="80" align="center">
+			<input name="templates_name" type="hidden" value="{#$info.name#}" />
+              <input name="save" type="submit" class="admin_submit"    value="保存修改"/>
+            
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>			</td>
+            </tr>
+          
+        </table>
+  </form>
+</div>
+<script type="text/javascript" src="js/jquery.caretInsert.js"></script>
+<script language="JavaScript" type="text/javascript"> 
+(function($)
+{
+	$(".sellabel").hover(function(){$(this).css("background-color","#ffffff");},function()	{$(this).css("background-color","#F4FAFF");});
+
+		
+		 $('.sellabel[align!="left"]').unbind("click").click(function(){ 
+		 $('#title').setCaret();
+			 $('#title').insertAtCaret($(this).attr("id"));
+		 });
+
+	
+
+		 $('.sellabel[align="left"]').unbind("click").click(function(){ 
+		 $('#title').unbind();
+			 editor.insertHtml($(this).attr("id"));
+			 //$('#templates_value').insertAtCaret($(this).attr("id"));
+	});
+})($);   
+</script>  
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

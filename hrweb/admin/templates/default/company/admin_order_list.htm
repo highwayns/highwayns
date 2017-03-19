@@ -1,0 +1,152 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" src="js/jquery.userinfotip-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量取消	
+	$("#ButDelOrder").click(function(){
+		if (confirm('你确定要取消吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+  <div class="seltpye_x">
+		<div class="left">完成状态</div>	
+		<div class="right">
+			<a href="{#"is_paid:"|qishi_parse_url#}" {#if $smarty.get.is_paid==""#}class="select"{#/if#}>不限</a>
+			<a href="{#"is_paid:2"|qishi_parse_url#}" {#if $smarty.get.is_paid=="2"#}class="select"{#/if#}>已完成</a>
+			<a href="{#"is_paid:1"|qishi_parse_url#}" {#if $smarty.get.is_paid=="1"#}class="select"{#/if#}>待付款</a>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+    <div class="seltpye_x">
+		<div class="left">付款方式</div>	
+		<div class="right">
+			<a href="{#"typename:"|qishi_parse_url#}" {#if $smarty.get.typename==""#}class="select"{#/if#}>不限</a>
+			{#foreach from=$payment_list item=list#}
+			<a href="{#"typename:"|cat:$list.typename|qishi_parse_url#}" {#if $smarty.get.typename==$list.typename#}class="select"{#/if#}>{#$list.byname#}</a>
+			{#/foreach#}
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+  <div class="seltpye_x">
+		<div class="left">添加时间</div>	
+		<div class="right">
+		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:180"|qishi_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
+		<a href="{#"settr:360"|qishi_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+  <form id="form1" name="form1" method="post" action="?act=order_del">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  width="10%" class="admin_list_tit admin_list_first">
+	   <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>全选</label></td>
+      <td class="admin_list_tit" width="10%">金额</td>           
+	  <td class="admin_list_tit">公司名称</td>
+	  <td class="admin_list_tit">说明</td> 
+	  <td align="center" class="admin_list_tit" width="190">单号</td>
+	  <td width="10%" align="center" class="admin_list_tit">申请会员</td>
+	  <td width="8%" align="center" class="admin_list_tit">申请时间</td>
+      <td width="8%" align="center" class="admin_list_tit">支付方式</td>      
+      <td width="15%" align="center"  class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$orderlist item=list#}
+      <tr>
+      <td class="admin_list admin_list_first">	 
+	  {#if $list.is_paid=="1"#}
+	   <input name="id[]" type="checkbox" id="y_id" value="{#$list.id#}"  />
+	  <span style="color: #FF6600">待付款...</span>
+	  {#/if#}
+	  {#if $list.is_paid=="2"#}
+	  <input name="id[]" type="checkbox" id="y_id" value="{#$list.id#}" disabled="disabled"/>
+		<span style="color: #009900;">已完成</span>
+	  {#/if#}
+	   </td>
+        <td class="admin_list">￥<strong>{#$list.amount#}</strong>元</td>        
+		<td class="admin_list">
+		{#if $list.companyname#}
+		{#$list.companyname#}
+		{#else#}
+		未填写企业资料
+		{#/if#}
+		</td>   
+		<td class="admin_list">{#$list.description#}</td>     
+		<td align="center" class="admin_list">{#$list.oid#}</td>
+		<td align="center" class="admin_list">
+		{#if $list.username#}
+		{#$list.username#}
+		{#else#}
+		未填写企业资料
+		{#/if#}
+		</td>
+		<td align="center" class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>    
+        <td align="center" class="admin_list">{#$list.payment_name#}</td>        
+        <td align="center" class="admin_list">
+		{#if $list.is_paid==2#}<a href="?act=show_order&id={#$list.id#}">查看</a>{#/if#}
+		{#if $list.is_paid==1#}
+		<a href="?act=order_set&id={#$list.id#}">设置</a> <a href="?act=order_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要取消吗？')">取消</a>{#/if#}
+		&nbsp;
+		<a href="?act=management&id={#$list.uid#}"  target="_blank" class="userinfo"  id="{#$list.uid#}">管理</a>
+		</td>
+      </tr>
+      {#/foreach#}
+  </table>
+	{#if !$orderlist#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+  </form>
+	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+          <input name="ButAudit" type="button" class="admin_submit" id="ButDelOrder"  value="取消订单"  />
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"公司名"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="公司名">公司名</li>
+														<li id="2" title="会员名">会员名</li>
+														<li id="3" title="单号">单号</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="order_list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

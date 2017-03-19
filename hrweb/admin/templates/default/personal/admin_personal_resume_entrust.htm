@@ -1,0 +1,108 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" src="js/jquery.userinfotip-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量投递
+	$("#ButMailing").click(function(){
+		$("form[name=form1]").attr("action",$("form[name=form1]").attr("action")+"&uid={#$resume.uid#}&rid={#$resume.id#}");
+		$("form[name=form1]").submit();
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+委托投递是指：在委托时间内将简历投递到合适的职位。<br />
+</p>
+</div>
+
+<div class="seltpye_y">
+	&nbsp;&nbsp;&nbsp;&nbsp;简历标题：{#$resume.title#}&nbsp;&nbsp;&nbsp;&nbsp;真实姓名：{#$resume.fullname#}
+</div>
+  <form id="form1" name="form1" method="post" action="?act=mailing">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
+    <tr>
+      <td   class="admin_list_tit admin_list_first">
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>职位名称</label></td>
+      <td  class="admin_list_tit"> 发布公司 </td>
+	<td align="center"  width="10%" class="admin_list_tit">审核状态</td>
+	<td align="center" width="10%" class="admin_list_tit">公司规模</td>
+	<td align="center" width="5%" class="admin_list_tit">行业</td>
+	<td align="center"  width="8%" class="admin_list_tit">性别要求</td>
+     	<td align="center" width="8%"  class="admin_list_tit">学历要求</td>
+     	<td align="center" width="8%"  class="admin_list_tit">工资</td>
+      <td    width="100" align="center"  class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$jobs item=list#}
+      <tr>
+      	<td  class="admin_list admin_list_first">
+     	   <input name="y_id[]" type="checkbox" id="y_id" value="{#$list.id#}"  />		
+		 <a href="{#$list.jobs_url#}" target="_blank"{#if $list.deadline<$smarty.now || $list.display == "2"#}style="color:#999999"{#/if#}  >{#$list.jobs_name#}</a>		 
+		 {#if $list.emergency == "1"#}&nbsp;<span style="color: #FF6600">[急聘]</span>{#/if#}
+		{#if $list.recommend == "1"#}&nbsp;<span style="color: #339900">[推荐]</span>{#/if#}
+		{#if $list.stick == "1"#}&nbsp;<span style="color: #FF3399">[置顶]</span>{#/if#}
+		{#if $list.highlight != ""#}&nbsp;<span style="color: #6633CC">[变色]</span>{#/if#}
+		{#if $list.display == "2"#}&nbsp;<span style="color: #999999">[已暂停]</span>{#/if#}		
+	</td>
+      	<td class="admin_list">
+		<a href="{#$list.company_url#}" target="_blank" style="color: #000000" title="{#$list.companyname#}">{#$list.companyname#}</a>
+	</td>
+	 <td class="admin_list" align="center">
+		{#if $list.audit == "1"#}
+		<span style="color: #009900">审核通过</span>	
+		{#elseif $list.audit == "2"#}
+		<span style="color:#FF0000">等待审核</span>
+		{#elseif $list.audit == "3"#}
+		审核未通过
+		{#/if#}
+	</td>
+	<td class="admin_list"align="center" >
+		{#$list.scale_cn#}
+	</td>
+        	<td class="admin_list" align="center" >
+		{#$list.trade_cn#}
+	</td>
+       	<td class="admin_list" align="center" >
+		{#$list.sex_cn#}
+	</td>
+	<td class="admin_list" align="center" >
+		{#$list.education_cn#}
+	</td>
+	<td class="admin_list" align="center" >
+		{#$list.wage_cn#}
+	</td>
+        	<td class="admin_list" align="center" >	
+		<a href="?act=mailing&id={#$list.id#}&uid={#$resume.uid#}&rid={#$resume.id#}"  id="{#$list.uid#}">投递</a> 
+	</td>
+      </tr>
+      {#/foreach#}   
+  </table>
+  <span id="OpAudit"></span>
+  <span id="OpTalent"></span>
+  <span id="OpPhotoresume"></span>
+ </form>
+{#if !$list#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+          <input name="ButMailing" type="button" class="admin_submit" id="ButMailing"    value="投递"  />
+		</td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+<div id="AuditSet" style="display: none" >
+</div>
+</body>
+</html>

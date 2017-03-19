@@ -1,0 +1,216 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#create_menu").click(function(){
+      window.location.href="create_menu.php";
+    });
+	$(".leftimg").click(function()
+	{
+		$(".Sclass_"+$(this).attr("id")).toggle();
+		SetCat($(this).attr("id"));
+		if ($(".Sclass_"+$(this).attr("id")).css("display")=="none")
+		{
+		$(this).attr("src","images/left_e.gif");
+		$(".Sclasst_"+$(this).attr("id")).hide();
+		}
+		else
+		{
+		$(this).attr("src","images/left_d.gif");
+		$(".leftimg1").attr("src","images/left_e.gif");
+		
+		}
+	});
+	
+	//全选
+	$('#categorychkAll').click(function(){$("#form1 :checkbox").attr('checked',$("#chk").attr('checked'))});
+	//点击大类，选择小类
+	$(".Bcheck").click(function()
+	{
+		SetCat($(this).attr("id"));
+		$(".Scheck_"+$(this).attr("id")).attr("checked",$(this).attr("checked"));
+		$(".Scheck_"+$(".Scheck_"+$(this).attr("id")).val()).attr("checked",$(this).attr("checked"));
+	});
+	$(".mid").live('click', function()
+	{
+		SetCat($(this).attr("id"));
+		$(".Scheck_"+$(this).val()).attr("checked",$(this).attr("checked"));
+		$(".Scheck_"+$(this).val()).attr("checked",$(this).attr("checked"));
+	});
+	//点击子类 释放父级的勾选
+	$(":checkbox[class^='Scheck_']").live('click', function()
+	{
+		if ($(this).attr("checked")==false)
+		{
+			var pid=$(this).attr("id");
+			$(".Bcheck[id="+pid+"]").attr("checked","");
+			$(".middle_"+pid).attr("checked","");
+			$(".Bcheck[id="+$(".middle_"+pid).attr("id")+"]").attr("checked","");
+		}
+	});
+	//删除
+	$("#ButDel").click(function(){
+		var num=$(":checkbox[checked][id!='chk']").length;
+		if (num==0)
+		{
+			alert("您没有选择项目");
+			return false;
+		}
+		if (confirm("你选择了"+num+"个菜单，删除顶级菜单同时将删除其子菜单，确定都要删除吗？"))
+		{
+			$("form[name=form1]").attr("action","?act=del_menu");
+			$("form[name=form1]").submit()
+		}
+	});
+	function SetCat(pid)
+	{
+		if ($(".Sclass_"+pid).length == 0)
+		{
+		MakeCat(pid);
+		}
+	}
+	function MakeCat(pid)
+	{
+		var tsTimeStamp= new Date().getTime();
+		$.get("admin_ajax.php", {"act":"get_weixin_sub_menu","tstime":tsTimeStamp,"pid":pid},
+			function (data,textStatus)
+			 {	
+			 	if (data)
+				{
+				 var str=data.split("|");
+				 var i=1;
+				 var html="";
+				 	for (x in str)
+					{
+					var val=str[x].split(",");
+					html+="<tr class=\"Sclass_"+pid+"\" id=\"Sclass_"+val[0]+"\">";
+			  		html+="<td  class=\"admin_list\"  style=\"padding-left:53px;\">";
+			  		html+="<img src=\"images/cat_left1.gif\" border=\"0\" align=\"absmiddle\" />";
+			  		<!-- html+='<img src="images/left_e.gif" border="0" align="absmiddle" parentid="'+pid+'" id="'+val[0]+'" class="leftimg1 pointer" />'; -->
+			  		html+="<input type=\"checkbox\" name=\"id[]\" value=\""+val[0]+"\" class=\"Scheck_"+pid+" middle_"+val[0]+" mid\" id=\""+pid+"\"/>";
+					html+="<input name=\"save_id[]\" type=\"hidden\" value=\""+val[0]+"\" />";
+			  		html+=val[1];
+			 		html+="<span style=\"color: #CCCCCC\">(id:"+val[0]+")</span></td>";
+			 		html+="<td align=\"center\"  class=\"admin_list\">"+val[4]+"</td>";
+			 		html+="<td align=\"center\"  class=\"admin_list\">"+val[3]+"</td>";
+			 		html+="<td align=\"center\"  class=\"admin_list\">"+val[5]+"</td>";
+			 		if(val[6]==1){
+			 			html+="<td align=\"center\"  class=\"admin_list\"><font color=\"green\">显示</font></td>";
+			 		}else{
+			 			html+="<td align=\"center\"  class=\"admin_list\"><font color=\"grey\">隐藏</font></td>";
+			 		}
+			 		
+			   		html+="<td align=\"center\"  class=\"admin_list\">";
+			  		html+="<input name=\"menu_order[]\" type=\"text\"  value=\""+val[2]+"\" class=\"input_text_50\"/>";
+			  		html+="</td>";
+			  		html+="<td class=\"admin_list\">";			
+			  		<!-- html+="<a href=\"?act=add_district&parentid="+val[0]+"\">此菜单下加子菜单</a>&nbsp;&nbsp;&nbsp;&nbsp;";	   -->
+			 		html+="<a href=\"?act=edit_menu&id="+val[0]+"\">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
+					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_menu&id="+val[0]+"&{#$urltoken#}\">删除</a>";
+					html+="</td>";	
+					html+="</tr>";
+					i++;
+					}
+					$("#tr_"+pid).after(html);
+					//如果大类已经选择，则小类也勾选
+					if ($(".Bcheck[id="+pid+"]").attr("checked"))
+					{
+					$(".Scheck_"+pid).attr("checked","true");
+					}
+				}
+			 }
+		);
+	}
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="weixin/admin_weixin_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+删除顶级菜单将会自动删除此菜单下的子菜单。<br />
+</p>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=menu_all_save">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="categorychkAll"><input type="checkbox" name=" " title="全选/反选" id="chk" />
+      微信自定义菜单</label>
+	 
+	  </td>
+	  <td width="160"   align="center"  class="admin_list_tit">菜单关键字</td>
+	  <td width="160"   align="center"  class="admin_list_tit">菜单类型</td>
+	  <td width="230"   align="center"  class="admin_list_tit">链接地址</td>
+	  <td width="30"   align="center"  class="admin_list_tit">状态</td>
+	  <td width="160"   align="center"  class="admin_list_tit">排序</td>
+      <td width="260"   align="center" class="admin_list_tit">操作</td>
+    </tr>
+    {#if $menu#}
+	  {#foreach from=$menu item=list#}
+     <tr id="tr_{#$list.id#}">
+      <td   class="admin_list admin_list_first" >
+      <input type="checkbox" name="id[]" value="{#$list.id#}" id="{#$list.id#}"  class="Bcheck"/>
+	  <input name="save_id[]" type="hidden" value="{#$list.id#}" />
+      <img src="images/left_e.gif" border="0" align="absmiddle"  id="{#$list.id#}" class="leftimg pointer"/>
+	  {#$list.title#}
+	  <span style="color:#CCCCCC">(id:{#$list.id#})</span>	  </td>
+	  <td align="center"  class="admin_list">
+	   {#if $list.key==""#}/{#else#}{#$list.key#}{#/if#}
+	  </td>
+	  <td align="center"  class="admin_list">
+	   {#$list.type#}
+	  </td>
+	  <td align="center"  class="admin_list">
+	   {#$list.url#}
+	  </td>
+	  <td align="center"  class="admin_list">
+	   {#if $list.status=="1"#}<font color="green">显示</font>{#else#}<font color="grey">隐藏</font>{#/if#}
+	  </td>
+	   <td align="center"  class="admin_list">
+	   <input name="menu_order[]" type="text"  value="{#$list.menu_order#}" class="input_text_50"/>
+	  </td>
+      <td class="admin_list">
+	  <a href="?act=add_menu&parentid={#$list.id#}">此菜单下加子菜单</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="?act=edit_menu&id={#$list.id#}">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+			  <a onclick="return confirm('你确定要删除吗？')" href="?act=del_menu&id={#$list.id#}&{#$urltoken#}">删除</a>
+			 </td>
+    </tr>
+      {#/foreach#}
+      {#else#}
+		  <tr >
+			  <td  class="admin_list"  style="padding-left:10px;">
+			   没有任何信息!
+			  </td>
+			   <td align="center"  class="admin_list">&nbsp;
+			  </td>
+			  <td class="admin_list"  >&nbsp;
+			  
+			    </td>
+				
+			</tr>
+			{#/if#}
+    </table>
+	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+		<input name="ButSave" type="submit" class="admin_submit" id="ButSave" value="保存菜单"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加菜单"  onclick="window.location='?act=add_menu'"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除所选" />
+        <input name="create_menu" id="create_menu" type="button" class="admin_submit"    value="同步菜单"/>
+		</td>
+        <td width="305" align="right">
+	  
+	    </td>
+      </tr>
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

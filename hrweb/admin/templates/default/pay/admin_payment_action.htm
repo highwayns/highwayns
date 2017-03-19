@@ -1,0 +1,108 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+安装在线支付插件需申请对应在线支付服务公司的服务账户。
+</p>
+</div>
+<div class="toptit">
+{#if $smarty.get.type=="install"#}
+安装
+{#else#}
+编辑
+{#/if#}
+支付方式
+</div>
+<form action="?act=save_payment" method="post" name="form1" id="form1">
+{#$inputtoken#}
+<table width="100%" border="0" cellspacing="0" cellpadding="6"  >
+<tr>
+<td align="right" style="border:0px;">插件名称：</td>
+ <td style="border:0px; color: #0066CC">
+ <input name="id" type="hidden" value="{#$show.id#}" />
+ <strong>{#$show.byname#}</strong>
+ </td>
+ </tr>
+{#if $pay.p_introduction#}
+   <tr>
+<td align="right">{#$pay.p_introduction#}</td>
+ <td><input name="p_introduction" type="text" class="input_text_400"  value="{#$show.p_introduction#}"/></td>
+ </tr>
+{#/if#}
+{#if $pay.notes#}
+   <tr>
+<td align="right" valign="top">{#$pay.notes#}</td>
+ <td>
+<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
+ <textarea name="notes" id="notes" class="input_textarea_400" style="width:700px;height: 250px; ">{#$show.notes#}</textarea>
+ <script>
+      var editor;
+      KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="notes"]', {
+          allowFileManager : true
+        });
+      });
+    </script>	
+ </td>
+ </tr>
+{#/if#}
+{#if $pay.partnerid#}
+   <tr>
+<td align="right">{#$pay.partnerid#}</td>
+ <td><input name="partnerid" type="text" class="input_text_400" value="{#$show.partnerid#}" /></td>
+ </tr>
+{#/if#}
+{#if $pay.ytauthkey#}
+   <tr>
+<td align="right">{#$pay.ytauthkey#}</td>
+ <td><input name="ytauthkey" type="text" class="input_text_400" value="{#$show.ytauthkey#}"/></td>
+ </tr>
+{#/if#}
+{#if $pay.fee#}
+<tr>
+<td align="right">{#$pay.fee#}</td>
+ <td><input name="fee" type="text" class="input_text_100"  value="{#$show.fee#}"/> %</td>
+ </tr>
+{#/if#}
+{#if $pay.parameter1#}
+<tr>
+<td align="right">{#$pay.parameter1#}</td>
+ <td><input name="parameter1" type="text" class="input_text_400"  value="{#$show.parameter1#}"/></td>
+ </tr>
+{#/if#}
+{#if $pay.parameter2#}
+<tr>
+<td align="right">{#$pay.parameter2#}</td>
+ <td><input name="parameter2" type="text" class="input_text_400"  value="{#$show.parameter2#}"/></td>
+ </tr>
+{#/if#}
+{#if $pay.parameter3#}
+<tr>
+<td align="right">{#$pay.parameter3#}</td>
+ <td><input name="parameter3" type="text" class="input_text_400"  value="{#$show.parameter3#}" /></td>
+ </tr>
+{#/if#}
+<tr>
+<td align="right">显示顺序：</td>
+ <td><input name="listorder" type="text" class="input_text_400" value="{#$show.listorder#}" /></td>
+ </tr>
+ <tr>
+<td width="180" align="right"></td>
+ <td>
+ <input name="submit" type="submit" class="admin_submit"    value="提交"/>
+<input name="submit222" type="button" class="admin_submit"    value="返回列表" onclick="Javascript:window.history.go(-1)"/>
+ </td>
+ </tr>
+</table>
+</form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

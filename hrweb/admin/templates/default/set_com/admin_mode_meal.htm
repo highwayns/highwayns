@@ -1,0 +1,129 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="set_com/admin_set_com_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+套餐模式是指会员可以购买不同等级服务，如普通会员，VIP会员等，每个等级都有不同的使用权限
+</p>
+</div>
+<div class="toptit">会员默认套餐设置</div>
+ 
+	<form action="?act=reg_service_save" method="post"  name="form1" id="form1">
+ {#$inputtoken#}
+    <table border="0" cellspacing="0" cellpadding="1"  style="margin-top:20px; margin-bottom:20px;">
+      <tr>
+        <td width="240" height="30" align="right" >新注册会员赠送服务：</td>
+        <td  >
+		
+          <label>
+          <input type="radio" name="reg_service" value="0" {#if $QISHI.reg_service=='0'#}checked="checked"{#/if#}/>
+          不赠送</label>
+          {#foreach from=$givesetmeal item=list#}
+		    &nbsp;&nbsp;
+		    <label>
+          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $QISHI.reg_service==$list.id#}checked="checked"{#/if#}/>
+          {#$list.setmeal_name#}</label>
+		   {#/foreach#}
+		</td>
+      </tr>
+    <tr>
+        <td height="30" align="right" >会员过期套餐过期后套餐自动变更为：</td>
+        <td>
+        {#foreach from=$givesetmeal item=list#}
+        <label>
+          <input type="radio" name="reset_service" value="{#$list.id#}"   {#if $QISHI.reset_service==$list.id#}checked="checked"{#/if#}/>
+          {#$list.setmeal_name#}
+        </label>
+        {#/foreach#}
+        </td>
+    </tr>
+	  <tr>
+      <td height="30" align="right" >服务超期或超出规定条数启用积分消费：</td>
+      <td  >
+	
+        <label>
+        <input type="radio" name="setmeal_to_points" value="1" {#if $QISHI.setmeal_to_points=='1'#}checked="checked"{#/if#}/>
+        是</label>
+       
+	    &nbsp;&nbsp;
+		
+		 <label>
+        <input type="radio" name="setmeal_to_points" value="2" {#if $QISHI.setmeal_to_points=='2'#}checked="checked"{#/if#}/>
+        否</label>
+	   
+	</td>
+    </tr>
+	 
+
+ <tr>
+        <td height="30" align="right" >服务到期时间提前几天提醒：</td>
+        <td  >
+		<input name="meal_min_remind" type="text" class="input_text_50" id="meal_min_remind" value="{#$QISHI.meal_min_remind#}"/>
+		   <span class="admin_note">0为不提醒</span> 
+		</td>
+      </tr>
+      <tr>
+        <td height="40"  > 
+        </td>
+        <td  ><input name="submit2" type="submit" class="admin_submit"    value="保存"/></td>
+      </tr>
+    </table>
+	</form>
+	<div class="toptit">服务套餐列表</div>
+ 	
+    <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+        <tr>
+          <td width="6%" height="26" class="admin_list_tit admin_list_first">显示</td>
+          <td  class="admin_list_tit ">名称</td>
+          <td width="10%"  class="admin_list_tit">会员申请</td>
+          <td width="10%"  class="admin_list_tit">服务价</td>
+          <td width="10%" align="center "class="admin_list_tit">期限</td>
+          <td width="8%" align="center"  class="admin_list_tit">排序</td>
+          <td width="15%" align="center"  class="admin_list_tit">操作</td>
+        </tr>
+		{#foreach from=$setmeal item=list#}
+        <tr>
+          <td class="admin_list admin_list_first" >
+		  {#if $list.display=="1"#}显示{#else#}<span style="color: #999999">屏蔽</span>{#/if#}		  </td>
+          <td  class="admin_list" >
+	
+		  {#$list.setmeal_name#}
+		 <span style="color:#999999">(id:{#$list.id#})</span>
+	      </td>
+          <td class="admin_list"  > {#if $list.apply=="1"#}允许{#else#}<span style="color: #999999">不允许</span>{#/if#}</td>
+          <td  class="admin_list" >
+		  {#if $list.expense==0#}
+		  免费
+		  {#else#}
+		   {#$list.expense#}元
+		  {#/if#}		  </td>
+          <td class="admin_list" >
+		  {#if $list.days==0#}
+		  不限制
+		  {#else#}
+		   {#$list.days#}天
+		  {#/if#}		  </td>
+          <td align="center" class="admin_list" >{#$list.show_order#}</td>
+          <td align="center"  class="admin_list" ><a href="?act=set_meal_edit&id={#$list.id#}">设置</a>&nbsp;&nbsp;&nbsp;<a href="?act=set_meal_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+        </tr>
+		{#/foreach#}
+  </table>
+  <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+<input name="add" type="button" class="admin_submit" id="add"    value="新增"  onclick="window.location='?act=set_meal_add'"/>
+		</td>
+        <td width="305" align="right">
+		
+	    </td>
+      </tr>
+  </table>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

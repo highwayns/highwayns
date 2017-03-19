@@ -1,0 +1,36 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="category/admin_category_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptit">修改颜色</div>
+<form id="form1" name="form1" method="post" action="?act=edit_color_save">
+{#$inputtoken#}
+<div id="html_tpl">
+<table width="100%" border="0" cellspacing="6" cellpadding="0" >
+  <tr>
+    <td width="120" align="right">选择颜色:</td>
+    <script src="{#$QISHI.site_template#}js/jquery.iColorPicker.js" type='text/javascript' language="javascript"></script>
+    <td><input id="val" name="val" type="text" value="{#$color.value#}" class="iColorPicker input_text_200"  onclick="iColorShow('val','icp_val')"/></td>
+  </tr>
+</table>
+</div>
+<div id="html"></div>
+<table width="100%" border="0" cellspacing="6" cellpadding="0">
+  <tr>
+    <td width="120"> </td>
+    <td>
+	<input name="id" type="hidden" value="{#$color.id#}" />
+	<input type="submit" name="addsave" value="保存" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=colorlist'"/>
+	
+	</td>
+  </tr>
+</table>
+ </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

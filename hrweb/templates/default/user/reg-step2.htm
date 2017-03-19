@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$QISHI.site_template#}js/jquery.company.selectlayer.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.hoverDelay.js" type='text/javascript'></script>
+
+<script>
+$(document).ready(function($) {
+	$("#Form1").validate({
+		success: function(lable) {
+				lable.text(" ").addClass("ver-success");
+		},
+		rules:{
+			password:
+			{
+				required: true,
+				minlength:6,
+				maxlength:18
+			},
+			rpassword:
+			{
+				required: true,
+				equalTo:"#password"
+			}
+		},
+		messages: {
+			password: 
+			{
+				required: "请填写密码",
+				minlength: jQuery.format("填写不能小于{0}个字符"),
+				maxlength: jQuery.format("填写不能大于{0}个字符")
+			},
+			rpassword: {
+				required: "请填写密码",
+				equalTo: "两次输入的密码不同"
+			}
+		},
+		errorPlacement: function(error, element) {
+		if ( element.is(":radio") )
+		    error.appendTo( element.parent().next().next() );
+		else if ( element.is(":checkbox") )
+		    error.appendTo ( element.next());
+		else
+		    error.appendTo(element.parent().next());
+		}
+	});
+	// 下拉操作
+	menuDown("#menu_nature","#nature","#nature_cn","#menu_nature_li","348px");
+	menuDown("#menu_scale","#scale","#scale_cn","#menu_scale_li","348px");
+	function menuDown(menuId,input,input_cn,menuList,width){
+		$(menuId).click(function(){
+			$(menuList).css("width",width);
+			$(menuList).slideDown('fast');
+			//生成背景
+			$(menuId).before("<div class=\"menu_bg_layer\"></div>");
+			$(".menu_bg_layer").height($(document).height());
+			$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute", left: "0", top: "0" , "z-index": "0", "background-color": "#ffffff"});
+			$(".menu_bg_layer").css("opacity","0");
+			$(".menu_bg_layer").click(function(){
+				$(".menu_bg_layer").remove();
+				$(menuList).slideUp("fast");
+				$(menuId).parent("div").css("position","");
+			});
+		});
+		$(menuList+" li").click(function(){
+			var id = $(this).attr("id");
+			var title = $(this).attr("title");
+			$(input).val(id);
+			$(input_cn).val(title);
+			$(menuId).html(title);
+			$(menuList).slideUp('fast');
+			$(".menu_bg_layer").remove();
+		});
+	};
+	allaround('{#$QISHI.site_dir#}');
+	// 显示行业
+	$("#jobsTrad").hoverDelay({
+		    hoverEvent: function(){
+		        $("#divTradCate").show();
+		    },
+		    outEvent: function(){
+                $("#divTradCate").hide();
+            }
+		});
+	// 显示地区
+	$("#jobsCity").hoverDelay({
+		    hoverEvent: function(){
+		        $("#divCityCate").show();
+		        var dx = $("#divCityCate").offset().left; // 获取弹出框的x坐标
+		        var dwidth = $("#divCityCate").outerWidth(true); // 获取弹出框的宽度
+		        var lastx = dx + dwidth; // 加上弹出框的宽度获取弹出框最右边的x坐标
+	 			$("#divCityCate li").each(function(index, el) {
+	 				var that = $(this);
+	 				var sx = that.offset().left; // 获取当前li的x坐标
+	 				that.hoverDelay({
+					    hoverEvent: function(){
+					        if(that.find('.subcate').length > 0) {
+			 					that.addClass('selected');
+			 					var tharsub = that.find('.subcate');
+			 					var thap = that.find('p');
+			 					thap.css("border-bottom","0px");
+			 					var swidth = tharsub.outerWidth(true); // 获取三级弹出框的宽度
+			 					if((lastx - sx) < swidth) { // 判断li与弹出框最右边的距离是否大于三级弹出框的宽度
+			 						tharsub.css("left",-265); // 如果小于就改变三级弹出框x方向的位置
+			 					}
+			 					tharsub.show();
+			 				} else {
+			 					that.find('a').css("color","#f77d40");
+			 				}
+					    },
+					    outEvent: function(){
+			                if(that.find('.subcate').length > 0) {
+				 				that.removeClass('selected');
+				 				that.find('.subcate').hide();
+			 				} else {
+			 					that.find('a').css("color","#0180cf");
+			 				}    
+			            }
+					});
+	 			});
+		    },
+		    outEvent: function(){
+                $("#divCityCate").hide(); 
+            }
+		});
+});	
+</script>
+</head>
+<body>
+	<!-- 头部 -->
+	{#include file="user/reg_header.htm"#}
+	<!-- main -->
+	<div class="container">
+		<div class="step_wrap">
+			<div class="three-step-bar clearfix">
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>设置登录名</div>
+				<div class="step tstep2 f-left active"><i class="step-icon">2</i>填写账户信息</div>
+				<div class="step tstep3 f-left"><i class="step-icon">3</i>注册成功</div>
+			</div>
+		</div>
+		<div class="reg-main clearfix">
+			<form action="?act=reg_step3" method="post" id="Form1">
+			<div class="reg-left-form f-left">
+				<h2 class="reg-title">账户信息</h2>
+				<div class="reg-form-item clearfix">
+					<div class="reg-form-type f-left">密码</div>
+					<div class="reg-form-content f-left">
+						<input type="password" name="password" id="password" class="text text-lg span350" placeholder="请输入用户密码" />
+					</div>
+					<div class="verification f-left"></div>
+				</div>
+				<div class="reg-form-item clearfix">
+					<div class="reg-form-type f-left">重复密码</div>
+					<div class="reg-form-content f-left">
+						<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="重复输入用户密码" />
+					</div>
+					<div class="verification f-left"></div>
+				</div>
+				<div class="reg-form-item special clearfix">
+					<div class="reg-form-type f-left">&nbsp;</div>
+					<div class="reg-form-content f-left">
+
+						<input type="hidden" name="utype" value="{#$sqlarr.utype#}"/>
+						<input type="hidden" name="email" value="{#$sqlarr.email#}"/>
+						<input type="hidden" name="reg_type" value="{#$sqlarr.reg_type#}"/>
+						<input type="hidden" name="mobile" value="{#$sqlarr.mobile#}"/>
+						<input type="hidden" name="token" value="{#$token#}"/>
+						<input type="submit" value="下一步" class="btn btn-lg blue span1" />
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="locoyspider/admin_locoyspider_nav.htm"#}
+  <div class="clear"></div>
+</div>
+    <div class="toptip">
+	<h2>提示：</h2>
+	<p>火车头采集规则请到论坛下载！</p>
+	</div>
+	<div class="toptit">基本设置</div>
+	 <form action="?act=set_save" method="post"  name="form1" id="form1">
+	 {#$inputtoken#}
+    <table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
+    <tr>
+      <td width="180" align="right">开启采集接口：</td>
+      <td ><label for="label">
+        <input name="open" type="radio" id="label" value="1"  {#if $show.open=="1"#}checked="checked"{#/if#}/>
+        开启</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label for="label2">
+<input type="radio" name="open" value="0" id="label2"  {#if $show.open=="0"#}checked="checked"{#/if#}/>
+关闭 </label></td>
+    </tr>
+    <tr>
+      <td align="right">&nbsp;</td>
+      <td height="50"><span style="font-size:14px;">
+        <input name="submit2" type="submit" class="admin_submit"    value="保存修改"/>
+      </span></td>
+    </tr>
+  </table>
+  </form>
+  <div class="toptit">模糊匹配阀值</div>
+	 <form action="?act=set_save" method="post"  name="form1" id="form1">
+	 {#$inputtoken#}
+    <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px; margin-top:10px;">
+    <tr>
+      <td width="180" align="right">模糊匹配阀值：</td>
+      <td >
+	  <input name="search_threshold" type="text" class="input_text_200" id="search_threshold" value="{#$show.search_threshold#}" maxlength="3"/>
+	  <span style="color:#666666">(范围:1-100，如设置为100则为精确匹配，推荐设为：50-80)</span></td>
+    </tr>
+    <tr>
+      <td align="right">&nbsp;</td>
+      <td height="50"><span style="font-size:14px;">
+        <input name="submit2" type="submit" class="admin_submit"    value="保存修改"/>
+      </span></td>
+    </tr>
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

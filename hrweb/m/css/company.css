@@ -1,0 +1,15 @@
+﻿/*企业详细页*/
+.company_show_box{width:92%;margin:0 auto; margin-top:12px;border:1px #CACACA solid;background-color:#FFFFFF;position:relative}
+.company_show_box .title{ width:100%; height:35px; line-height:35px; background-color:#F6F6F6;}
+.company_show_box .title h2{ padding-left:13px; font-size:14px; color:#333333; font-weight:normal}
+.company_show_box .txt{ padding-left:13px; padding-top:10px; padding-bottom:13px; font-size:12px; line-height:180%; color:#666666; padding-right:13px;}
+.company_show_box .txt.telbox{ width:70%;height:60px;}
+.company_show_box .telimg{ width:60px; height:60px; position:absolute; right:15px; top:45px;}
+.company_show_box .joblist{}
+.company_show_box .joblist .list{ height:55px; border-bottom:1px #CACACA solid; padding-left:15px;  padding-right:15px;background:url(../images/24.jpg) no-repeat right center; cursor:pointer}
+.company_show_box .joblist .list h3{ font:14px; line-height:30px; font-weight:normal}
+.company_show_box .joblist .list h3 a{color: #333333; text-decoration: none;}
+.company_show_box .joblist .list h5{font:12px;font-weight:normal}
+.company_show_box .joblist .more{ height:30px; line-height:30px; text-align:center; cursor:pointer}
+
+ 

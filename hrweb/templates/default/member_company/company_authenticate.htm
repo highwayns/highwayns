@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	// 验证邮箱
+	auditEmail_dialog('.audit_email',"company_ajax.php?act=user_email");
+	//验证手机
+	auditMobile_dialog(".audit_mobile","company_ajax.php?act=user_mobile");
+	// 身份验证
+	editMobile_dialog(".edit_mobile","company_ajax.php?act=old_mobile");
+	// 绑定操作微信
+	$(".bind_wx").click(function(){
+		dialog({
+            title: '微信绑定',
+            content: $("#weixin_openid")
+        }).showModal();
+	});
+	// 解除绑定
+	$(".bind_wx_jc").click(function() {
+		var uid = $(this).attr('uid');
+		var myDialog = dialog();
+		myDialog.title('解除账号绑定');
+		myDialog.content("加载中...");
+		myDialog.width('500');
+		myDialog.showModal();
+		$.get("{#$QISHI.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid, function(data)
+			{
+				myDialog.content(data);
+			});
+	});
+	// 确认解除绑定
+	$("#bind_wx_true").live('click', function() {
+		var uid = $(this).attr('uid');
+		var uid = $(this).attr('uid');
+		var myDialog = dialog();
+		myDialog.title('解除账号绑定');
+		myDialog.content("加载中...");
+		myDialog.width('500');
+		myDialog.showModal();
+		$.get("{#$QISHI.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid+"&bind_wx_true=1", function(data)
+			{
+				myDialog.content(data);
+				setTimeout(function () {window.location.reload()}, 1000);
+			});
+	});
+	// 新浪微博解除绑定
+	$("#accountUnbindSina").click(function() {
+		var myDialog = dialog();
+		myDialog.title('解除账号绑定');
+		myDialog.content($("#unbindBoxSina"));
+		myDialog.width('500');
+		myDialog.showModal();
+		$("#bind_sina_true").click(function() {
+			var uid = $(this).attr('uid');
+			$.get("?act=del_sina_binding", function(data)
+			{
+				myDialog.content(data);
+				setTimeout(function () {window.location.reload()}, 1000);
+			})
+		});
+		$(".sclosem").live("click",function(event) {
+			myDialog.close().remove();
+		});
+	});
+	// QQ解除绑定
+	$("#accountUnbindQQ").click(function() {
+		var myDialog = dialog();
+		myDialog.title('解除账号绑定');
+		myDialog.content($("#unbindBoxQQ"));
+		myDialog.width('500');
+		myDialog.showModal();
+		$("#bind_qq_true").click(function() {
+			var uid = $(this).attr('uid');
+			$.get("?act=del_qq_binding", function(data)
+			{
+				myDialog.content(data);
+				setTimeout(function () {window.location.reload()}, 1000);
+			})
+		});
+		$(".sclosem").live("click",function(event) {
+			myDialog.close().remove();
+		});
+	});
+	// 淘宝账号解除绑定
+	$("#accountUnbindTaobao").click(function() {
+		var myDialog = dialog();
+		myDialog.title('解除账号绑定');
+		myDialog.content($("#unbindBoxTaobao"));
+		myDialog.width('500');
+		myDialog.showModal();
+		$("#bind_taobao_true").click(function() {
+			var uid = $(this).attr('uid');
+			$.get("?act=del_taobao_binding", function(data)
+			{
+				myDialog.content(data);
+				setTimeout(function () {window.location.reload()}, 1000);
+			})
+		});
+		$(".sclosem").live("click",function(event) {
+			myDialog.close().remove();
+		});
+	});
+	// 修改密码
+	$("#updatePassword").die().live('click', function() {
+		dialog({
+            title: '修改密码',
+            content: $("#editPwdBox"),
+            width:520
+        }).showModal(); 
+	});
+	// 修改用户名
+	$("#updateName").die().live('click', function() {
+		var upDialog = dialog({
+            title: '修改用户名',
+            content: $("#editUserNameBox"),
+            width:520
+        }).showModal();
+		$("#newusernamesave").click(function() {
+			var uname = $('input[name=newusername]').val();
+			if (!uname) {
+				dialog({
+		            title: '系统提示',
+		            content: '请输入用户名',
+		            width:300
+		        }).show();
+			} else {
+				$.post('?act=save_username', {"newusername":$('input[name=newusername]').val()}, function(data) {
+					var conHtm = '';
+					if (data == "-1") {
+						conHtm = '用户名已存在';
+					} else if (data == "-2") {
+						conHtm = '用户不存在';
+					} else if (data == "-3") {
+						conHtm = '用户名修改失败';
+					} else {
+						conHtm = '修改成功';
+						upDialog.title('系统提示');
+						upDialog.content(conHtm);
+						upDialog.width(300);
+						setTimeout(function () {window.location.reload()}, 1000);
+						$(".ui-dialog-close").click(function() {
+				          upDialog.close().remove();
+				          setTimeout(function () {window.location.reload()}, 1000);
+				        });
+						return false;
+					}
+					dialog({
+			            title: '系统提示',
+			            content: conHtm,
+			            width:300
+			        }).show();
+				})
+			}
+		})
+	});
+	// var lileng = $(".field_value ul li").length;
+	// if (lileng >= 3) {
+	// 	$(".field_value ul li").eq(2).after('<div class="clear"></div>');
+	// }
+});
+{#if $QISHI.weixin_apiopen=='1' && $QISHI.weixin_scan_bind=='1' && !$user.weixin_openid#}
+window.setInterval(run, 5000);
+function run(){
+    $.get("{#$QISHI.site_dir#}plus/ajax_common.php?act=waiting_weixin_scan",function(data){
+        if(data=="1"){
+           window.location.reload();
+        }
+    });
+}
+{#/if#}
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 认证管理</div>
+
+<div class="usermain">
+  <div class="leftmenu com link_bk">
+   {#include file="member_company/left.htm"#}	
+  </div>
+<div class="rightmain">
+  
+	<div class="bbox1">
+	
+	<div class="authenticate link_bk">
+			
+ 	    	<div class="topnav">
+			  
+			<div class="titleH1">
+				<div class="h1-title">安全认证</div>
+			</div>
+					
+			<div class="navs link_bk">
+				  <a href="company_user.php?act=authenticate" class="se">账号安全</a>
+				  <a href="company_info.php?act=company_auth">营业执照</a>
+				  <a href="company_user.php?act=login_log">登录日志</a>
+				  <div class="clear"></div>
+			</div>
+	  	</div>
+
+	  	<div class="main">
+	  		<div class="my_account">
+				<div class="row rowpdno">
+					<dl>
+						<dt class="field_Key">用户名</dt>
+						<dd class="field_value"><b id="account-newName" class="old-userName">{#$user.username#}</b></dd>
+						<dd class="msg_box">用户名和邮箱都能作为登录{#$QISHI.site_name#}的帐户名。</dd>
+						<dd class="btn"><a id="updateName" title="修改" href="javascript:;">修改</a></dd>
+					</dl>
+				</div>
+				<div id="editUserNameBox" class="pwd" style="display:none;">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+						<tr>
+							<td width="165" align="right"><span class="nec">旧用户名</span>：</td>
+							<td width="424"><div id="account-oldName" class="field_value_up old-userName">{#$user.username#}</div></td>
+						</tr>
+						<tr>
+							<td width="165" align="right"><span class="nec">新用户名</span>：</td>
+							<td width="424"><input name="newusername" type="text" class="input_text_200" id="newusername" /> </td>
+							<td></td>
+						</tr>
+					   <tr>
+						<td align="right"> </td>
+						<td colspan="2"><input type="button" name="usernamesave" id="newusernamesave" value="修改"  class="but220lan"/>
+						</td>
+					  </tr>
+					</table>
+				</div>
+				<div class="row rowpdt">
+					<dl>
+						<dt class="field_Key">密码</dt>
+						<dd class="field_value">
+							<div id="default-pd-level" class="password_level low"><em>最后一次登录时间</em>&nbsp;{#$user.last_login_time|date_format:"%Y-%m-%d %H:%M"#}</div>
+						</dd>
+						<dd class="msg_box">互联网账户存在被盗风险，建议你定期更改密码以保护账户安全。</dd>
+						<dd class="btn"><a id="updatePassword" title="修改" href="javascript:;">修改</a></dd>
+					</dl>
+					<dl>
+						<dt class="field_Key">&nbsp;</dt>
+						<dd class="field_value">
+							<div class="verified mpdl"><a href="company_user.php?act=login_log" target="_blank">查看登录日志</a></div>
+						</dd>													
+					</dl>
+				</div>
+				<div id="editPwdBox" class="pwd" style="display:none">
+					<form id="Form1" name="Form1" method="post" action="?act=save_password">	 
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+					  <tr>
+						<td width="165" align="right"><span class="nec">旧密码</span>：</td>
+						<td width="424"><input name="oldpassword" type="password" class="input_text_200" id="oldpassword"/> </td>
+						<td></td>
+					  </tr>
+						<tr>
+						<td width="165" align="right"><span class="nec">新密码</span>：</td>
+						<td width="424"><input name="password" type="password" class="input_text_200" id="password" /> </td>
+						<td></td>
+						</tr>
+						<tr>
+						<td width="165" align="right"><span class="nec">确认新密码</span>：</td>
+						<td width="424"><input name="password1" type="password" class="input_text_200" id="password1" /> </td>
+						<td></td>
+						</tr>
+					   <tr>
+						<td align="right"> </td>
+						<td colspan="2"><input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/>
+						</td>
+					  </tr>
+					</table>
+					</form>
+					<script type="text/javascript">
+					//验证
+					 $("#Form1").validate({
+					 //debug: true,
+					// onsubmit:false,
+					//onfocusout :true,
+					   rules:{
+					   oldpassword:{
+					    required: true,
+						minlength:6,
+					    maxlength:18
+					   },
+					   password:{
+					    required: true,
+						minlength:6,
+					    maxlength:18,
+						NOequalTo:"#oldpassword"
+					   },
+					   password1:{
+						 equalTo:"#password"
+					   }
+						},
+					    messages: {
+					    oldpassword: {
+					    required: "请输入旧密码",
+					    minlength: jQuery.format("旧密码不能小于{0}个字符"),
+						maxlength: jQuery.format("旧密码不能大于{0}个字符")
+					   },
+					   password: {
+					    required: "请输入新密码",
+					    minlength: jQuery.format("新密码不能小于{0}个字符"),
+						maxlength: jQuery.format("新密码不能大于{0}个字符")
+					   },
+					   password1: {
+					    equalTo: "两次输入的密码不同"
+					   }
+					  },
+					  errorPlacement: function(error, element) {
+					    if ( element.is(":radio") )
+					        error.appendTo( element.parent().next().next() );
+					    else if ( element.is(":checkbox") )
+					        error.appendTo ( element.next());
+					    else
+					        error.appendTo(element.parent());
+						}
+					    });
+						jQuery.validator.addMethod("NOequalTo", function(value, element,param) {
+						var toval=$(param).val();
+					    return this.optional(element) || (toval!=value);
+					}, "新密码不可以和旧密码相同");
+					</script>
+				</div>
+				<div class="row rowpdt">
+					<dl>
+						<dt class="field_Key">邮箱</dt>
+						<dd class="field_value"><b>{#if $user.email#}{#$user.email#}{#else#}未填写{#/if#}</b></dd>
+						<dd class="msg_box">邮箱验证后，可以通过邮箱随时取回账户密码，接收个人申请职位邮件。</dd>
+						<dd class="btn"><a class="audit_email" title="{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;">{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}</a></dd>
+					</dl>
+					<dl>
+						<dt class="field_Key">&nbsp;</dt>
+						<dd class="field_value">
+							{#if $user.email_audit=="1"#}
+							<div class="verified"><i></i>已验证</div>
+							{#else#}
+							<div id="fieldValPhone" class="unverified"><i></i>未验证</div>
+							{#/if#}
+						</dd>													
+					</dl>
+				</div>
+				<div class="row rowpdt">
+					<dl>
+						<dt class="field_Key">手机</dt>
+						<dd class="field_value"><b>{#if $user.mobile#}{#$user.mobile#}{#else#}未填写{#/if#}</b></dd>
+						<dd class="msg_box">手机验证后，可以通过手机随时取回账户密码，向个人发送面试邀请短信。</dd>
+						<dd class="btn"><a class="{#if $user.mobile_audit=="1"#}edit_mobile{#else#}audit_mobile{#/if#}" title="{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;">{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}</a></dd>
+					</dl>
+					<dl>
+						<dt class="field_Key">&nbsp;</dt>							
+						<dd class="field_value ">
+							{#if $user.mobile_audit=="1"#}
+							<div class="verified"><i></i>已验证</div>
+							{#else#}
+							<div id="fieldValPhone" class="unverified"><i></i>未验证</div>
+							{#/if#}
+						</dd>				
+					</dl>
+				</div>
+				<div class="row binding rownb rowpdt">
+					<dl class="clearfix">
+						<dt class="field_Key">账号绑定</dt>
+						<dd class="field_value">
+							<ul class="clearfix">
+								<!-- 微博绑定 -->
+								{#if $QISHI.sina_apiopen=="1"#}
+								<li>
+									{#if $user.sina_access_token#}
+									<div class="status success">
+										<div class="box">
+											<div class="pic f-left sina"></div>
+											<div class="info f-left">
+												<div class="name">{#$user.sina_nick#}</div>
+												<div><a class="accountUnbind" id="accountUnbindSina" href="javascript:;">解除绑定</a></div>
+											</div>
+										</div>
+									</div>
+									{#else#}
+									<div class="status failure">
+										<div class="box">
+											<div class="pic f-left sina"></div>
+											<div class="info f-left">
+												<div class="mt"><a href="{#$QISHI.site_dir#}user/connect_sina.php" class="accountUnbind">绑定微博账号</a></div>
+											</div>
+										</div>
+									</div>
+									{#/if#}								
+								</li>
+								<div class="unbindBox" id="unbindBoxSina">
+									<div class="con">
+										<div class="f-left"><img src="{#$QISHI.site_template#}images/wx_showmsg.jpg"></div>
+										<div class="f-right tex">
+											确定要解除与<span class="co">新浪微博</span>的绑定吗?<br>如果解除绑定，你将无法使用新浪微博帐号直接登录{#$QISHI.site_name#}。确定并继续吗?
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="sclosePd">
+										<a class="sclose f-left" id="bind_sina_true" uid="{#$user.uid#}" href="javascript:;">确认</a>
+										<a class="sclose f-left sclosem" href="javascript:;">取消</a>
+									</div>
+								</div>
+								{#/if#}
+								<!-- 微博绑定 end-->
+								<!-- QQ绑定 -->
+								{#if $QISHI.qq_apiopen=="1"#}
+								<li>
+									{#if $user.qq_openid#}
+									<div class="status success">
+										<div class="box">
+											<div class="pic f-left qq"></div>
+											<div class="info f-left">
+												<div class="name">{#$user.qq_nick#}</div>
+												<div><a class="accountUnbind" id="accountUnbindQQ" href="javascript:;">解除绑定</a></div>
+											</div>
+										</div>
+									</div>
+									{#else#}
+									<div class="status failure">
+										<div class="box">
+											<div class="pic f-left qq"></div>
+											<div class="info f-left">
+												<div class="mt"><a href="{#$QISHI.site_dir#}user/{#if $QISHI.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding" class="accountUnbind">绑定QQ账号</a></div>
+											</div>
+										</div>
+									</div>
+									{#/if#}								
+								</li>
+								<div class="unbindBox" id="unbindBoxQQ">
+									<div class="con">
+										<div class="f-left"><img src="{#$QISHI.site_template#}images/wx_showmsg.jpg"></div>
+										<div class="f-right tex">
+											确定要解除与<span class="co">腾讯QQ</span>的绑定吗?<br>如果解除绑定，你将无法使用腾讯QQ帐号直接登录{#$QISHI.site_name#}。确定并继续吗?
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="sclosePd">
+										<a class="sclose f-left" id="bind_qq_true" uid="{#$user.uid#}" href="javascript:;">确认</a>
+										<a class="sclose f-left sclosem" href="javascript:;">取消</a>
+									</div>
+								</div>
+								{#/if#}
+								<!-- QQ绑定 end-->
+								<!-- 微信绑定 -->
+								{#if $QISHI.weixin_apiopen=="1" && $QISHI.weixin_scan_bind=='1'#}
+								<li>
+									{#if $user.weixin_openid#}
+									<div class="status success">
+										<div class="box">
+											<div class="pic f-left weixin"></div>
+											<div class="info f-left">
+												<div class="name">{#$user.weixin_nick#}</div>
+												<div><a uid="{#$user.uid#}" class="accountUnbind bind_wx_jc" href="javascript:;">解除绑定</a></div>
+											</div>
+										</div>
+									</div>
+									{#else#}
+									<div class="status failure">
+										<div class="box">
+											<div class="pic f-left weixin"></div>
+											<div class="info f-left">
+												<div class="mt"><a href="javascript:;" class="accountUnbind bind_wx">绑定微信账号</a></div>
+											</div>
+										</div>
+									</div>
+									{#/if#}
+								</li>
+								<div id="weixin_openid" style="display: none;padding-bottom: 15px;">
+						  			<table width="90%" border="0" cellspacing="0" cellpadding="5" style="margin: 0 auto;padding-bottom: 10px;">
+										<tr>
+										<td align="center">{#$qrcode_img#}</td>
+										</tr>
+										<tr>
+										<td align="center">请用微信扫描上方二维码，在打开的页面中点击“关注”</td>
+										</tr>
+									</table>
+						  		</div>
+								{#/if#}
+								<!-- 微信绑定 end-->
+								<!-- 淘宝绑定 -->
+								{#if $QISHI.taobao_apiopen=="1"#}
+								<li>
+									{#if $user.taobao_access_token#}
+									<div class="status success">
+										<div class="box">
+											<div class="pic f-left taobao"></div>
+											<div class="info f-left">
+												<div class="name">{#$user.taobao_nick#}</div>
+												<div><a class="accountUnbind" id="accountUnbindTaobao" href="javascript:;">解除绑定</a></div>
+											</div>
+										</div>
+									</div>
+									{#else#}
+									<div class="status failure">
+										<div class="box">
+											<div class="pic f-left taobao"></div>
+											<div class="info f-left">
+												<div class="mt"><a href="{#$QISHI.site_dir#}user/connect_taobao.php" class="accountUnbind">绑定淘宝账号</a></div>
+											</div>
+										</div>
+									</div>
+									{#/if#}								
+								</li>
+								<div class="unbindBox" id="unbindBoxTaobao">
+									<div class="con">
+										<div class="f-left"><img src="{#$QISHI.site_template#}images/wx_showmsg.jpg"></div>
+										<div class="f-right tex">
+											确定要解除与<span class="co">淘宝账号</span>的绑定吗?<br>如果解除绑定，你将无法使用淘宝账号帐号直接登录{#$QISHI.site_name#}。确定并继续吗?
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="sclosePd">
+										<a class="sclose f-left" id="bind_taobao_true" uid="{#$user.uid#}" href="javascript:;">确认</a>
+										<a class="sclose f-left sclosem" href="javascript:;">取消</a>
+									</div>
+								</div>
+								{#/if#}
+								<!-- 淘宝绑定 end-->
+							</ul>
+						</dd>
+					</dl>
+					<dl class="clearfix">
+						<dt class="field_Key">&nbsp;</dt>
+						<dd class="field_value remark">绑定第三方账号后，你可以用绑定账号直接登录{#$QISHI.site_name#}，便于账号密码记忆。</dd>
+					</dl>
+				</div>
+			</div>
+	  	</div>
+	</div>
+	</div>
+  </div>
+	</div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+{#include file="user/footer.htm"#}
+</body>
+</html>

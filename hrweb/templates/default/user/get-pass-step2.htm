@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.gotoemail.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$(function() {
+		$('.four-step-bar .step:last').css({'margin-right':0});
+	});
+	// 立即进入邮箱
+	gotoemail("#goto_email");
+	//验证码随机
+	$("#getcode").live('click',function(){
+		$(this).attr('src','{#$QISHI.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
+	});
+	// 下拉操作
+	menuDown("#getpass_menu","","","#menu1","348px");
+	function menuDown(menuId,input,input_cn,menuList,width){
+		$(menuId).click(function(){
+			$(menuList).css("width",width);
+			$(menuList).slideDown('fast');
+			//生成背景
+			$(menuId).before("<div class=\"menu_bg_layer\"></div>");
+			$(".menu_bg_layer").height($(document).height());
+			$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute", left: "0", top: "0" , "z-index": "0", "background-color": "#ffffff"});
+			$(".menu_bg_layer").css("opacity","0");
+			$(".menu_bg_layer").click(function(){
+				$(".menu_bg_layer").remove();
+				$(menuList).slideUp("fast");
+				$(menuId).parent("div").css("position","");
+			});
+		});
+
+		$(menuList+" li").click(function(){
+			var id = $(this).attr("id");
+			var title = $(this).attr("title");
+			$(menuId+" .drop-txt").html(title);
+			$(menuList).slideUp('fast');
+			$(".menu_bg_layer").remove();
+			if(id==1)
+			{
+				$("#getpass_mobile").show();
+				$("#getpass_email").hide();
+				$("#getpass_type").val("1");
+			}
+			else
+			{
+				$("#getpass_mobile").hide();
+				$("#getpass_email").show();
+				$("#getpass_type").val("2");
+			}
+		});
+	}
+	// 表单验证
+	$("#Form1").validate({
+		success: function(lable) {
+				lable.text(" ").addClass("ver-success");
+		},
+		rules:{
+			mobile_vcode:
+			{
+				required: true,
+				remote:{     
+					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					type:"post",    
+					data:{"mobile":function (){return {#$usinfo.mobile#}},"mobile_vcode":function (){return $("#mobile_vcode").val()},"act":"check_reg_send_sms","time":function (){return new Date().getTime()}}     
+				}
+			}
+		},
+		messages: {
+			mobile_vcode:
+			{
+				required: "请输入手机验证码",
+				remote: jQuery.format("验证码错误")	
+			}
+		},
+		errorPlacement: function(error, element) {
+		if ( element.is(":radio") )
+		error.appendTo( element.parent().next().next() );
+		else if ( element.is(":checkbox") )
+		error.appendTo ( element.next());
+		else
+		error.appendTo(element.parent().next());
+		}
+	});
+	// 点击发送到手机验证码
+	$("#sms_send").click(function() {
+		$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {'act':'reg_send_sms','mobile':"{#$usinfo.mobile#}",'sms_type':'getpass'}, function(data) {
+			if($.trim(data)=='success')
+			{
+				$("#sms_send").hide();
+				$("#send_ok").show();
+				function SetRemainTime()
+				{
+					if (SysSecond > 0)
+					{
+						SysSecond --;
+						$("#sms_send").hide();
+						$("#send_ok").show();
+						$("#send_ok").html( SysSecond +" 秒后重新发送");
+					} 
+					else 
+					{
+						window.clearInterval(InterValObj);
+						$("#sms_send").show();
+						$("#send_ok").hide();
+					}
+				}
+				SysSecond =60;
+				InterValObj = window.setInterval(SetRemainTime, 1000);
+			}
+			else
+			{
+				alert(data);
+			}
+		});
+	});
+	// 找回密码 提交表单和发送邮件
+	$("#getpass_submit").click(function() {
+		var getpass_type=$("#getpass_type").val();
+		if(getpass_type==1)
+		{
+			$("#Form1").submit();
+		}
+		else
+		{
+			var int_postcaptcha=$("#postcaptcha").val();
+			if(int_postcaptcha=="")
+			{
+				$("#postcaptcha_err").html('请输入验证码').css('display', 'inline').removeClass('ver-success');
+				$("#postcaptcha").focus();
+			}
+			else
+			{
+				$.post('{#$QISHI.site_dir#}include/imagecaptcha.php', {"act":"verify","postcaptcha":int_postcaptcha}, function(data){
+					if(data=="true")
+					{
+						$("#postcaptcha_err").html('').addClass('ver-success');
+						$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {"act":"getpass_sendemail","email":"{#$usinfo.email#}","uid":"{#$usinfo.uid#}","username":"{#$usinfo.username#}"}, function(data) {
+							if($.trim(data)=="success")
+							{
+								$("#Form1").hide();
+								$("#sucess_email").show();
+							}
+							else
+							{
+								alert(data);
+							}
+						});
+					}
+					else
+					{
+						$("#postcaptcha_err").html('验证码错误').css('display', 'inline').removeClass('ver-success');
+						$("#postcaptcha").focus();
+					}
+				});
+			}
+		}
+
+	});
+});
+</script>
+</head>
+<body class="login_body">
+	<!-- 头部 -->
+	{#include file="user/reg_header.htm"#}
+	<!-- main -->
+	<div class="container">
+		<div class="step_wrap">
+			<div class="four-step-bar clearfix">
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>填写账户名</div>
+				<div class="step tstep2 f-left active"><i class="step-icon">2</i>验证身份</div>
+				<div class="step tstep3 f-left"><i class="step-icon">3</i>设置新密码</div>
+				<div class="step tstep4 f-left"><i class="step-icon">4</i>找回成功</div>
+			</div>
+		</div>
+		<!-- 手机认证 -->
+		<div class="reg-main clearfix">
+			<form action="?act=get_pass_step3" id="Form1" method="post">
+			<div class="reg-left-form f-left">
+				<div class="reg-form-item clearfix">
+					<div class="reg-form-type long f-left">验证方式</div>
+					<div class="reg-form-content f-left" >
+						<div class="drop-control width350">
+							<div class="drop-box" id="getpass_menu">
+								{#if $usinfo.mobile && $usinfo.mobile_audit==1#}
+								<span class="drop-txt">已认证手机</span>
+								{#else#}
+								<span class="drop-txt">已认证邮箱</span>
+								{#/if#}
+								<i class="drop-icon"></i>
+							</div>
+							<ul class="drop-list" id="menu1">
+								{#if $usinfo.mobile && $usinfo.mobile_audit==1#}
+								<li id="1" title="已认证手机"><a href="javascript:void(0);">已认证手机</a></li>
+								{#/if#}
+								{#if $usinfo.email#}
+								<li id="2" title="已认证邮箱"><a href="javascript:void(0);" >已认证邮箱</a></li>
+								{#/if#}
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="reg-form-item clearfix">
+					<div class="reg-form-type long f-left">用户名</div>
+					<div class="reg-form-content f-left"><span class="password-text">{#$usinfo.username#}</span></div>
+				</div>
+				
+				<div id="getpass_mobile" {#if $usinfo.mobile=='' || $usinfo.mobile_audit!=1#}style="display: none;"{#/if#}>
+					<div class="reg-form-item clearfix">
+						<div class="reg-form-type long f-left">已认证手机</div>
+						<div class="reg-form-content f-left"><span class="password-text">{#$usinfo.mobile_#}</span></div>
+					</div>
+					<div class="reg-form-item clearfix">
+						<div class="reg-form-type long f-left">验证码</div>
+						<div class="reg-form-content f-left">
+							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="验证码" />
+						</div>
+						<div class="reg-form-other f-left verification">
+							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">免费获取激活短信</a>
+						<a id="send_ok" class="btn short-text-btn" style="display: none;"><span id="remainTime"></span>秒后重新发送</a>
+						</div>
+					</div>	
+				</div>
+				<div id="getpass_email" {#if $usinfo.email && $usinfo.email_audit==1 && ($usinfo.mobile=='' || $usinfo.mobile_audit!=1)#}{#else#}style="display: none;"{#/if#}>
+					<div class="reg-form-item clearfix">
+						<div class="reg-form-type long f-left">已认证邮箱</div>
+						<div class="reg-form-content f-left"><span class="password-text">{#$usinfo.email_#}</span></div>
+					</div>
+					<div class="reg-form-item clearfix">
+						<div class="reg-form-type long f-left">验证码</div>
+						<div class="reg-form-content f-left">
+							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
+						</div>
+						<div class="reg-form-other f-left verification">
+							<label class='error' id="postcaptcha_err"></label>
+							<div class="ver-box f-left"><img src="{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="reg-form-item special clearfix">
+					<div class="reg-form-type long f-left">&nbsp;</div>
+					<div class="reg-form-content f-left">
+						{#if $usinfo.email && $usinfo.email_audit==1 && ($usinfo.mobile=='' || $usinfo.mobile_audit!=1)#}
+						<input type="hidden" name="getpass_type" id="getpass_type" value="2" />
+						{#else#}
+						<input type="hidden" name="getpass_type" id="getpass_type" value="1"/>
+						{#/if#}
+						<input type="hidden" name="uid" value="{#$usinfo.uid#}" />
+						<input type="hidden" name="token" value="{#$token#}"/>
+						<input type="button" value="提交" class="btn btn-lg blue span1" id="getpass_submit"/>
+					</div>
+				</div>
+			</div>
+			</form>
+			<div class="common-status" id="sucess_email" style="padding-top: 0;display: none;">
+				<div class="status-main">
+					<span><img src="{#$QISHI.site_template#}images/icon-success.png" alt="成功" /></span>邮件发送成功
+				</div>
+				<p>我们已经向您的邮箱{#$usinfo.email#}发送了一封激活邮件，请点击邮件中的链接完成修改！</p>
+				<div class="status-btn"><a href="#" target="_blank" id="goto_email" email="{#$usinfo.email#}" class="btn btn-lg blue span2">立即进入邮箱</a></div>
+			</div>
+		</div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

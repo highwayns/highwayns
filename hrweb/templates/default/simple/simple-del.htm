@@ -1,0 +1,61 @@
+﻿<script type="text/javascript">
+$(document).ready(function()
+{
+$("#form_simple_del").validate({
+ //debug: true,
+// onsubmit:false,
+//onfocusout :true,
+   rules:{
+   pwd:{
+    required: true,
+	minlength:6,
+	remote:{     
+		url:"{#$QISHI.site_dir#}plus/ajax_simple.php",     
+		type:"get",    
+		data:{"pwd":function (){return $("#pwd").val()},"id":function (){return $("#id").val()},"act":"check_pwd","time":function (){return new Date().getTime()}}     
+		}
+   }	   
+	},
+    messages: {
+    pwd: {
+    required: "请输入密码",
+    minlength: jQuery.format("密码不能<{0}个字符"),
+	remote: jQuery.format("管理密码错误")	
+   }
+  },
+  errorPlacement: function(error, element) {
+    if ( element.is(":radio") )
+        error.appendTo( element.parent().next().next() );
+    else if ( element.is(":checkbox") )
+        error.appendTo ( element.next());
+    else
+        error.appendTo(element.parent());
+	}
+    });
+	/////验证码部分
+});
+</script>
+<form id="form_simple_del" name="form_simple_del" method="post" action="{#$QISHI.site_dir#}plus/ajax_simple.php?act=exe_delsimple">
+<div class="content link_lan wei_job_dialog">
+    <table>
+      <tbody>
+        <tr>
+          <td>请输入管理密码：</td>
+          <td><input type="text" class="input_text_155" name="pwd" id="pwd" maxlength="25"/>
+          </td>
+        </tr>
+         <tr>
+          <td></td>
+          <td>
+            <div>  
+            <input name="id" type="hidden"  id="id" value="{#$id#}" /> 
+            <input type="submit" value="确定" class="but95_35lan" id="addsimple" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="wei_jobs_tip">
+    <p>删除后不可恢复！</p>
+  </div>
+</form>

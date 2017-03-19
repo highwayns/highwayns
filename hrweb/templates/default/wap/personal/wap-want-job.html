@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>个人会员中心 - {#$QISHI.site_name#}</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/user.css" rel="stylesheet" type="text/css" />
+<link href="../css/user_personal.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="../js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+  // 创建简历弹出框
+  function showFloatBox() {
+    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+    $(".menu_bg_layer").height($(document).height());
+    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+    $(".menu_bg_layer").css("opacity",0.3);
+  }
+  // 期望职位点击
+  $("#jobs_menu").click(function(){
+    showFloatBox();
+    $("#menuJobs").css({ top: ($(window).height() - $('#menuJobs').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuJobs").show();
+  });
+    
+  // 期望薪资点击
+  $("#wage_menu").click(function(){
+    showFloatBox();
+    $("#menuWage").css({ top: ($(window).height() - $('#menuWage').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuWage").show();
+    $("#menuWage li").click(function(){
+      $("#wage").val($(this).attr("id"));
+      $("#wage_cn").val($(this).attr("title"));
+      $("#wage_text").html($(this).attr("title"));
+      $("#menuWage").hide();
+      $(".menu_bg_layer").remove();
+    });
+  });
+    
+  // 工作性质点击
+  $("#nature_menu").click(function(){
+    showFloatBox();
+    $("#menuNature").css({ top: ($(window).height() - $('#menuNature').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuNature").show();
+    $("#menuNature li").click(function(){
+      $("#nature").val($(this).attr("id"));
+      $("#nature_cn").val($(this).attr("title"));
+      $("#nature_text").html($(this).attr("title"));
+      $("#menuNature").hide();
+      $(".menu_bg_layer").remove();
+    });
+  });
+  // 期望地区点击
+  $("#district_menu").click(function(){ 
+    showFloatBox();
+    $("#menuDistrict").css({ top: ($(window).height() - $('#menuDistrict').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuDistrict").show();
+  });
+
+  // 期望行业点击
+  $("#trad_menu").click(function(){
+    showFloatBox();
+    $("#menuTrad").css({ top: ($(window).height() - $('#menuTrad').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuTrad").show();
+  });
+  // 关闭弹出框
+    $(".choose_close").click(function(event) {
+      $(this).parent().hide();
+      $(".menu_bg_layer").remove();
+    });
+  // ajax提交保存期望职位
+  $("#resume_save").click(function(event) {
+    var pid= {#$smarty.get.pid#};
+    var intention_jobs = $("input[name='intention_jobs']").val();
+    var intention_jobs_id = $("input[name='intention_jobs_id']").val();
+    var trade_cn=$("input[name=trade_cn]").val();
+    var trade=$("input[name=trade]").val();
+    var wage=$("input[name=wage]").val();
+    var wage_cn=$("input[name=wage_cn]").val();
+    var nature=$("input[name=nature]").val();
+    var nature_cn=$("input[name=nature_cn]").val();
+    var district_cn=$("input[name=district_cn]").val();
+    var district=$("input[name=district]").val();
+    var sdistrict=$("input[name=sdistrict]").val();
+
+    $.post('?act=resume_jobs_save', {"intention_jobs":intention_jobs,"intention_jobs_id":intention_jobs_id,"pid":pid,"trade":trade,"trade_cn":trade_cn,"district_cn":district_cn,"district":district,"sdistrict":sdistrict,"wage_cn":wage_cn,"wage":wage,"nature":nature,"nature_cn":nature_cn}, 
+      function(data) {
+        if (data == "ok") {
+          alert("修改成功！");
+          window.location.reload();
+        } else if(data == "err") {
+          alert("修改失败！");
+          // window.location.reload();
+        } else {
+          alert(data);
+        }
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+	<div class="title">期望职位</div>
+	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="../index.php";'>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-news-list.php";'>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+<div class="make_resume_top">
+  <p>期望职位</p>
+</div>
+
+<form method="post" action="?act=make_resume_save" style="width:92%;margin:0 auto;" id="Form1">
+    <table style="width:100%;border-collapse:collapse;">
+        <tr>
+          <td class="make_resume_td_L">期望职位</td>
+          <td class="make_resume_td_R" id="jobs_menu">
+              <div class="input_text_200_bg" id="jobs_text">{#$resume_one.intention_jobs#}</div>
+              <img src="../images/35.gif" alt="" />
+              <input name="intention_jobs" id="intention_jobs" type="hidden" value="{#$resume_one.intention_jobs#}" />
+              <input name="intention_jobs_id" id="intention_jobs_id" type="hidden" value="{#$resume_jobs.topclass#}.{#$resume_jobs.category#}.{#$resume_jobs.subclass#}" />
+          </td>  
+          <div class="menu choose_menu" id="menuJobs" style="display:none;position:absolute;z-index:1;">
+            <div class="menu_title">期望职位</div>
+            <div class="choose_close"></div>
+            <div class="area_choose">
+              <ul class="area_left" id="jobs_left_list"></ul>
+              <ul class="area_right" id="jobs_right_list"></ul>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </tr>
+        <script type="text/javascript">
+          var jobstr = '';
+          $.each(QS_jobs_parent, function(pindex, pval) {
+            if(pval) {
+              var jobs = pval.split(",");
+              var sjobsArray = QS_jobs[jobs[0]].split("|");
+              $.each(sjobsArray, function(sindex, sval) {
+                if(sval) {
+                  var sjobs = sval.split(",");
+                  jobstr += '<li class="area_big" rcoid="'+sjobs[0]+'" pid="'+jobs[0]+'.'+sjobs[0]+'" title="'+sjobs[1]+'">'+sjobs[1]+'</li>';
+                }
+              });
+            }
+          });
+          $("#jobs_left_list").html(jobstr);
+          $("#jobs_left_list li").unbind().click(function(){
+            var rid = $(this).attr("rcoid");
+            var rpid = $(this).attr("pid");
+            var rtitle = $(this).attr("title");
+            var sjobstr = "";
+            if(QS_jobs[rid]) {
+              var cjobsArray = QS_jobs[rid].split("|");
+              sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">不限</li>';
+              $.each(cjobsArray, function(cindex, cval) {
+                if(cval) {
+                  var cjobs = cval.split(",");
+                  sjobstr += '<li class="area_small" rcoid="'+cjobs[0]+'" title="'+rtitle+'\/'+cjobs[1]+'" pid="'+rpid+'.'+cjobs[0]+'">'+cjobs[1]+'</li>';
+                }
+              });
+              $("#jobs_right_list").html(sjobstr).show();
+              $("#jobs_right_list li").click(function(){
+                $("#intention_jobs_id").val($(this).attr("pid"));
+                $("#intention_jobs").val($(this).attr("title"));
+                $("#jobs_text").html($(this).attr("title"));
+                $("#menuJobs").hide();
+                $(".menu_bg_layer").remove();
+              });
+            } else {
+              $("#jobs_text").html(rtitle);
+              var chid = new Array();
+              chid = $(this).attr('pid').split(".");
+              if(chid.length < 3) {
+                chid.push(0);
+              }
+              var checkID = chid.join(".");
+              $("#intention_jobs_id").val(checkID);
+              $("#intention_jobs").val(rtitle);
+              $("#menuJobs").hide();
+              $(".menu_bg_layer").remove();
+            }
+          });
+        </script>
+        <tr>
+          <td class="make_resume_td_L">期望薪资</td>
+          <td class="make_resume_td_R" id="wage_menu">
+            <div class="input_text_200_bg" id="wage_text">{#$resume_one.wage_cn#}</div> 
+            <img src="../images/35.gif" alt="" />
+            <input name="wage" type="hidden" id="wage" value="{#$resume_one.wage#}" />
+            <input name="wage_cn" type="hidden" id="wage_cn" value="{#$resume_one.wage_cn#}" />
+          </td>
+          <div class="menu choose_menu" id="menuWage" style="display:none;position:absolute;z-index:1;">
+            <div class="menu_title">期望薪资</div>
+            <div class="choose_close"></div>
+            <ul>
+              {#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+              {#foreach from=$c_wage item=list#}
+              <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+              {#/foreach#}
+            </ul>
+          </div> 
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">工作性质</td>
+          <td class="make_resume_td_R" id="nature_menu">
+              <div class="input_text_200_bg" id="nature_text">{#$resume_one.nature_cn#} </div>
+              <img src="../images/35.gif" alt="" />
+              <input name="nature" id="nature" type="hidden" value="{#$resume_one.nature#}" />
+              <input name="nature_cn" id="nature_cn" type="hidden" value="{#$resume_one.nature_cn#}" />
+          </td>
+          <div class="menu choose_menu" id="menuNature" style="display:none;position:absolute;z-index:1;">
+            <div class="menu_title">工作性质</div>
+            <div class="choose_close"></div>
+            <ul>
+              {#qishi_get_classify  set="类型:QS_jobs_nature,列表名:c_nature"#}
+              {#section name=list loop=$c_nature#}
+              <li id="{#$c_nature[list].id#}" title="{#$c_nature[list].categoryname#}">{#$c_nature[list].categoryname#}</li>
+              {#/section#}
+            </ul>
+          </div> 
+        </tr>
+        <!-- 期望行业 -->
+        <tr>
+          <td class="make_resume_td_L">期望行业</td>
+          <td class="make_resume_td_R" id="trad_menu">
+              <div class="input_text_200_bg" id="trad_text">{#$resume_one.trade_cn#}</div>
+              <img src="../images/35.gif" alt="" />
+            <input type="hidden" id="trade" name="trade" value="{#$resume_one.trade#}" />
+            <input type="hidden" id="trade_cn" name="trade_cn" value="{#$resume_one.trade_cn#}" />
+          </td>
+          <div class="menu choose_menu" id="menuTrad" style="display:none;position:absolute;z-index:1;">
+              <div class="menu_title">期望行业</div>
+              <div class="choose_close"></div>
+              <ul id="trad_list"></ul>
+          </div> 
+        </tr>
+        <script type="text/javascript">
+              var tradli = '';
+              $.each(QS_trade, function(index, val) {
+                if(val) {
+                  var trads = val.split(",");
+                  tradli += '<li id="'+trads[0]+'" title="'+trads[1]+'">'+trads[1]+'</li>';
+                }
+              });
+              $("#trad_list").html(tradli);
+              $("#trad_list li").unbind().click(function(event) {
+                var tradId = $(this).attr("id");
+                var tradTitle = $(this).attr("title");
+                $("#trade").val(tradId);
+                $("#trade_cn").val(tradTitle);
+                $("#trad_text").html(tradTitle);
+                $("#menuTrad").hide();
+                $(".menu_bg_layer").remove();
+              });
+        </script>
+        <!-- 期望地区 -->
+        <tr>
+          <td class="make_resume_td_L">期望地区</td>
+          <td class="make_resume_td_R" id="district_menu">
+              <div class="input_text_200_bg" id="district_text">{#$resume_one.district_cn#}</div>
+              <img src="../images/35.gif" alt="" />
+              <input type="hidden" id="district" name="district" value="{#$resume_one.district#}" />
+              <input type="hidden" id="sdistrict" name="sdistrict" value="{#$resume_one.sdistrict#}" />
+              <input type="hidden" id="district_cn" name="district_cn" value="{#$resume_one.district_cn#}" />
+          </td>  
+          <div class="menu choose_menu" id="menuDistrict" style="display:none;position:absolute;z-index:1;">
+              <div class="menu_title">期望地区</div>
+              <div class="choose_close"></div>
+              <div class="area_choose">
+                <ul class="area_left" id="int_area_left"></ul>
+                <ul class="area_right" id="int_area_right"></ul>
+                <div class="clear"></div>
+              </div>
+          </div>
+          <script type="text/javascript">
+            var citystr = '';
+            $.each(QS_city_parent, function(pindex, pval) {
+              if(pval) {
+                var citys = pval.split(",");
+                if(QS_city[citys[0]]) {
+                  citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
+                }
+              }
+            });
+            $("#int_area_left").html(citystr);
+            $("#int_area_left li").unbind().click(function(){
+              var cid = $(this).attr("rcoid");
+              var cid = $(this).attr("pid");
+              var ctitle = $(this).attr("title");
+              var scitystr = "";
+              if(QS_city[cid]) {
+                var ccitysArray = QS_city[cid].split("|");
+                scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+                $.each(ccitysArray, function(cindex, cval) {
+                  if(cval) {
+                    var ccitys = cval.split(",");
+                    scitystr += '<li class="area_small" rcoid="'+ccitys[0]+'" title="'+ctitle+'\/'+ccitys[1]+'" pid="'+cid+'.'+ccitys[0]+'">'+ccitys[1]+'</li>';
+                  }
+                });
+                $("#int_area_right").html(scitystr).show();
+                $("#int_area_right li").click(function(){
+                  var districtIds = $(this).attr("pid");
+                  var districtIdArray = districtIds.split(".");
+                  $("#district").val(districtIdArray[0]);
+                  $("#sdistrict").val(districtIdArray[1]);
+                  $("#district_cn").val($(this).attr("title"));
+                  $("#district_text").html($(this).attr("title"));
+                  $("#menuDistrict").hide();
+                  $(".menu_bg_layer").remove();
+                });
+              } else {
+                $("#district").val($(this).attr('pid'));
+                $("#sdistrict").val("0");
+                $("#district_cn").val(ctitle);
+                $("#district_text").html(ctitle);
+                $("#menuDistrict").hide();
+                $(".menu_bg_layer").remove();
+              }
+            });
+          </script>
+        </tr>
+    </table>
+    <input type="button" id="resume_save" value="保存" class="personal_submit"/>
+</form>
+{#include file="wap/footer.htm"#}
+</body>
+</html>

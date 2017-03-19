@@ -1,0 +1,29 @@
+﻿/*帮助页面*/
+.about_left .t{padding-right:30px;background:url(../images/41.gif) 130px 24px no-repeat;background-color:#F5F5F5;border-bottom:1px solid #fff;}
+.about_left .s{padding-right:30px;background:url(../images/45.gif) 130px 24px no-repeat;background-color:#F5F5F5;border-bottom:1px solid #fff;}
+
+.about_left .nav_son{background-color:#fff;padding-top:10px;padding-bottom:10px;}
+.about_left .nav_son li{padding:0;font-size:12px;text-align:left;padding-left:62px;line-height:25px;}
+.about_left .nav_son li.active{background-color:#fff;}
+.about_left .nav_son li.active a{color:#017FCF;}
+.help_sreach{float:right;width:930px;padding:17px 20px;border:1px solid #ccc;background-color:#F5F5F5;margin-bottom:10px;}
+.help_sreach .input_text_300{height:34px;}
+.help_sreach .but70lan{margin-right:40px;*position: relative;*top:1px;}
+.help_sreach a{color:#017FCF;margin-left: 8px}
+.about_right .about_r_content li{border-bottom:1px dashed #ccc;line-height:45px;padding-left:15px;background:url(../images/41.gif)center left no-repeat;}
+/*关于我们页面*/
+.about_left{float:left;width:216px;border:1px solid #ccc;font-family:"宋体";}
+.about_left .about_tit{padding-top:16px;padding-bottom:18px;text-align:center;font-size:14px;color:#fff;border-bottom:1px solid #ccc;background-color:#0180CF;}
+.about_left li{padding:14px 0;font-size:14px;text-align:center;cursor:pointer;}
+.about_left li.active{background-color:#F5F5F5;}
+.about_left li a:hover{text-decoration:none;}
+.about_right{float:right;width:970px;margin-bottom:10px;border:1px solid #ccc;font-family:"宋体";}
+.about_right .about_r_tit{padding:16px 20px 18px 20px;font-size:14px;font-weight:bold;border-bottom:1px solid #ccc;background-color:#F5F5F5;}
+.about_right .about_r_content{padding:20px;font-size:14px;}
+.about_right .about_r_content p{text-indent:2em;line-height:25px;}
+.about_right .about_r_content .about_con{line-height:26px;}
+.about_right .about_r_content td span{margin-right:15px;}
+.about_right .about_r_content td textarea{width:615px;height:131px;padding:10px;resize:none;border:1px solid #ccc;}
+
+/*3.6修正*/
+.hot-help{line-height: 36px;}

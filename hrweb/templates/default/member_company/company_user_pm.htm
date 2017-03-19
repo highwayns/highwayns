@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".del-pm").click(function(event) {
+			var mypmDialog=dialog(),
+			url = $(this).attr("url");
+			mypmDialog.title('系统提示');
+			mypmDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">删除后无法恢复，您确定要删除吗？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		    mypmDialog.width('300');
+		    mypmDialog.showModal();
+		    /* 关闭 */
+		    $(".DialogClose").live('click',function() {
+		      mypmDialog.close().remove();
+		    });
+		    // 确定
+		    $(".DialogSubmit").click(function() {
+		    	if (url) {window.location.href=url};
+		    });
+		});
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 我的消息</div>
+
+<div class="usermain">
+  <div class="leftmenu com link_bk">
+   {#include file="member_company/left.htm"#}
+  </div>
+<div class="rightmain">
+  
+	<div class="bbox1">
+	
+	<div class="message ">
+			
+ 	    	<div class="topnav" style="height:62px;margin:0px 15px;">
+			  
+			<div class="titleH1" style="padding-left:5px;">
+				<div class="h1-title">我的消息</div>
+			</div>
+	  	</div>
+
+	  	<div class="main" style="margin-top:20px;">
+	  		{#if $pms#}
+	  		{#foreach from=$pms item=list#}
+		  <div class="list link_lan userliststyle">
+		  	<div class="title">系统消息<span>({#$list.dateline|date_format:"%Y-%m-%d"#})</span>{#if $list.new=='1'#}<u>[新消息]</u>{#/if#}</div>			
+			<div class="del"><a class="del-pm" href="javascript:;" url="?act=pm_del&pmid={#$list.pmid#}">[删除]</a></div>
+			<div class="clear"></div>
+			<p>{#$list.message#}</p>
+		  </div>
+		  {#/foreach#}
+		  {#if $page#}
+		<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+          <tr>
+            <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+          </tr>
+      </table>
+      {#/if#}
+		  {#else#}
+		  <div class="emptytip">对不起！没有找到您要的信息！</div>
+		  {#/if#}
+	  	</div>
+	</div>
+	</div>
+  </div>
+	</div>
+</div>
+
+<div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

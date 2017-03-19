@@ -1,0 +1,62 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	 {#include file="openconnect/admin_openconnect_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip link_lan"  >
+	<h2>提示：</h2>
+	<p>
+网站接入淘宝帐号登录后，用户只需要使用淘宝账号密码就可登录，简化用户注册流程，更有效率的提高转化用户流量；
+<br />
+接入淘宝登录前，网站需首先进行申请，获得对应的AppKey与AppSecret，以保证后续流程中可正确对网站与用户进行验证与授权。 
+现在就去<a href="http://open.taobao.com/" target="_blank">申请</a></p>
+</div>
+
+<div class="toptit">淘宝帐号登录设置</div>
+ 
+    <form action="?act=set_taobao_save" method="post" name="form1" id="form1">
+ {#$inputtoken#}
+    <table width="700" border="0" cellspacing="6" cellpadding="1" style=" margin-bottom:3px;">
+	<tr>
+      <td width="150" align="right">开启淘宝帐号登录：</td>
+      <td  >
+	  <label>
+        <input name="taobao_apiopen" type="radio"  value="1"  {#if $config.taobao_apiopen=="1"#}checked=checked {#/if#}/>开启</label>
+&nbsp;&nbsp;
+<label>
+        <input name="taobao_apiopen" type="radio"  value="0"  {#if $config.taobao_apiopen=="0"#}checked=checked {#/if#}/>关闭</label>
+		&nbsp;&nbsp;
+</td>
+    </tr>
+	 
+	<tr>
+      <td width="150" align="right">AppKey：</td>
+      <td  >
+	 <input name="taobao_appkey" type="text"  class="input_text_400"  value="{#$config.taobao_appkey#}"  />
+</td>
+    </tr>
+	<tr>
+      <td width="150" align="right">AppSecret：</td>
+      <td  >
+	 <input name="taobao_appsecret" type="text"  class="input_text_400"  value="{#$config.taobao_appsecret#}"  />
+</td>
+    </tr>
+	<tr>
+	  <td align="right" valign="top">&nbsp;</td>
+	  <td> 
+	    <input name="submit" type="submit" class="admin_submit"    value="保存"/>
+	  </td>
+	  </tr>
+  </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

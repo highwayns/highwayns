@@ -1,0 +1,503 @@
+﻿{#include file="sys/admin_header.htm"#}
+<link href="css/date_input.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.date_input.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+//日期
+	$(function() { 
+	$(".date_input").date_input(); 
+	}); 
+			
+	//套餐模式下，推广职位控制天数的显示，隐藏
+	//初始化天数样式
+	$(".monitor").keyup(function(){
+			var num=$(this).val();
+			var id=$(this).attr("id")+"_days";
+			var he=$(this).attr("id")+"_he";
+			if(num>0){
+				$("#"+he).addClass("set_meal");
+				$("#"+id).show();
+			}else{
+				$("#"+he).removeClass("set_meal");
+				$("#"+id).hide();
+			}
+	});
+	$(".monitor").each(function(){
+			var num=$(this).val();
+			var id=$(this).attr("id")+"_days";
+			var he=$(this).attr("id")+"_he";
+			if(num>0){
+				$("#"+he).addClass("set_meal");
+				$("#"+id).show();
+			}else{
+				$("#"+he).removeClass("set_meal");
+				$("#"+id).hide();
+			}
+	});
+	$(".no_money").click(function(){
+		$(".log_amount").hide();
+	});
+	$(".yes_money").click(function(){
+		$(".log_amount").show();
+	});
+	$(".no_money1").click(function(){
+		$(".log_amount1").hide();
+	});
+	$(".yes_money1").click(function(){
+		$(".log_amount1").show();
+	});
+	$(".no_money3").click(function(){
+		$(".log_amount3").hide();
+	});
+	$(".yes_money3").click(function(){
+		$(".log_amount3").show();
+	});
+	jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
+      var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+      return this.optional(element) || (tel.test(value));
+  }, "请正确填写手机号码");
+  $("#form4").validate({
+     rules:{
+      mobile: {
+       isPhoneNumber:true
+    },
+       email: {
+       required:true,
+       email:true
+       }
+    },
+      messages: {
+      mobile: {
+    isPhoneNumber: jQuery.format("请正确填写手机号码")
+     },
+     email: {
+      required: jQuery.format("请填写电子邮箱"),
+    email: jQuery.format("请正确填写电子邮箱")
+     } 
+    },
+    errorPlacement: function(error, element) {
+      if ( element.is(":radio") )
+          error.appendTo( element.parent().next().next() );
+      else if ( element.is(":checkbox") )
+          error.appendTo ( element.next());
+      else
+          error.appendTo(element.next());
+    }
+      });		
+}); 
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="toptit">编辑会员 <span style="color:#0066CC">({#$company_user.username#})</span> </div>
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+    <tr>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">注册时间：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed" >{#$company_user.reg_time|date_format:"%Y-%m-%d   %H:%M"#}&nbsp;</td>
+      <td width="120" align="right"  style=" border-bottom:1px #CCCCCC dashed" >最后登录时间：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed" >{#$company_user.last_login_time|date_format:"%Y-%m-%d %H:%M"#}</td>
+    </tr>
+    <tr>
+      <td height="30" align="right"   >注册IP：</td>
+      <td   >{#if $company_user.reg_ip#}{#$company_user.reg_ip#}{#else#}- - - -{#/if#}</td>
+      <td align="right"  >最后登录IP：</td>
+      <td   >{#if $company_user.last_login_ip#}{#$company_user.last_login_ip#}{#else#}- - - -{#/if#}</td>
+    </tr>
+  </table>
+  <div class="toptit">基本信息</div>
+  <form id="form4" name="form4" method="post" action="?act=set_account_save">
+	{#$inputtoken#}
+	<table width="700" border="0" cellpadding="4" cellspacing="0"   >
+      <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">用户名：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="username" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.username#}"  >
+          	</td>
+      </tr>
+	  <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邮箱：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="email" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.email#}"  >
+		  
+		  &nbsp;&nbsp;&nbsp;
+		  <label>
+          <input name="email_audit" type="checkbox" value="1" {#if $company_user.email_audit=="1"#}checked="checked"{#/if#} />
+          已验证</label>	
+		</td>
+      </tr>
+	  <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">手机：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="mobile" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.mobile#}"  >
+		  
+		  &nbsp;&nbsp;&nbsp;
+		  <label>
+          <input type="checkbox" name="mobile_audit" value="1"  {#if $company_user.mobile_audit=="1"#}checked="checked"{#/if#} />
+          已验证</label>	
+		</td>
+      </tr>
+	   <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">QQ绑定：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+         {#if $company_user.qq_openid#}
+		 已绑定QQ账号 
+		  &nbsp;&nbsp;&nbsp; 
+		 <label>
+          <input type="checkbox" name="qq_openid" value="1"  />
+          取消绑定</label>
+		 {#else#}
+		 未绑定QQ帐号
+		 {#/if#}
+		 	
+		</td>
+		<tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">展示模版：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="tpl" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.tpl#}"  >
+		</td>
+      </tr>
+      </tr>
+      <tr>
+        <td height="30" align="right"  >&nbsp;</td>
+        <td height="50"  >
+		<input type="hidden" name="company_uid"  value="{#$company_user.uid#}" />
+            <input type="hidden" name="url"  value="{#$url#}" />
+            <input name="submit32" type="submit" class="admin_submit"    value="确定"/>
+          <input name="submit222" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>        </td>
+      </tr>
+    </table>
+  </form>
+  <div class="toptit">修改密码</div>
+	<form id="form6" name="form6" method="post" action="?act=userpass_edit">
+	{#$inputtoken#}
+	<table width="100%" border="0" cellpadding="4" cellspacing="0"   >		 
+	<tr>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">新密码：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed;" >
+        <input name="password" type="password" class="input_text_200" id="password" maxlength="50" value=""  />        </td>
+    </tr>
+	    <tr>
+      <td height="30" align="right"   >&nbsp;</td>
+      <td height="60"   ><span style="font-size:14px;">
+        <input type="hidden" name="username"  value="{#$company_user.username#}" />
+		<input type="hidden" name="url"  value="{#$url#}" />
+        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+      </span></td>
+    </tr>
+	</table>
+	</form>
+   <div class="toptit">用户状态</div>
+	 <form id="form9" name="form9" method="post" action="?act=userstatus_edit">
+	 {#$inputtoken#}
+	<table width="100%" border="0" cellpadding="4" cellspacing="0"   > 
+		<tr>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">帐号状态：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed;" >
+	    <label>
+	    <input name="status" type="radio" value="1"  {#if $company_user.status=="1"#}checked="checked"{#/if#}/>
+	    正常</label> 
+		<label>&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="radio" name="status" value="2"  {#if $company_user.status=="2"#}checked="checked"{#/if#}/>
+	    暂停</label>
+		</td>
+    </tr>
+	    <tr>
+      <td height="30" align="right"   >&nbsp;</td>
+      <td height="60"   ><span style="font-size:14px;">
+        <input type="hidden" name="userstatus_uid"  value="{#$company_user.uid#}" />
+		<input type="hidden" name="url"  value="{#$url#}" />
+        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+      </span></td>
+    </tr>	
+  </table>
+  </form>
+{#if $QISHI.operation_mode=='1'||$QISHI.operation_mode=='3'#}  
+ <div class="toptit">会员积分设置</div>
+ <form id="form1" name="form1" method="post" action="?act=userpoints_edit">
+ {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+		 
+		 <tr>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">会员积分：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed; color: #FF6600; font-size:16px;" >{#$userpoints#}&nbsp;</td>
+    </tr>
+	<tr>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">操作积分：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed;" >
+	  <label><input name="points_type" type="radio" value="1" checked="checked" />增加</label>
+	  &nbsp;&nbsp;&nbsp;
+	  <label><input name="points_type" type="radio" value="2" />减少</label>
+	  </td>
+    </tr>
+			<tr>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">增减积分：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed;" >
+	   <input name="points" type="text"  id="points" maxlength="5" value="0"  class="input_text_50"  />
+	  点        </td>
+    </tr>
+	<tr>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">操作说明：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed;" >
+        <input name="points_notes" type="text" class="input_text_200" id="points_notes" maxlength="60" value="" style="width:450px;"/>        </td>
+    </tr>
+		<tr>
+			<td align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF0000">是否已收费：</span></td>
+			<td style=" border-bottom:1px #CCCCCC dashed">
+			<label>
+			 <input name="is_money" type="radio" value="1" checked="checked" class="yes_money3"/>
+			是</label> &nbsp;&nbsp;&nbsp;<label>
+			<input name="is_money" type="radio" value="0"  class="no_money3"/>
+			否</label>		
+			</td>
+      </tr>
+	   <tr class="log_amount3">
+        <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
+         <span class="admin_note">(请填写收费金额)</span> </td>
+      </tr>
+    <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="35"   ><span style="font-size:14px;">
+        <input type="hidden" name="company_uid"  value="{#$company_user.uid#}" />
+		<input type="hidden" name="url"  value="{#$url#}" />
+        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+      </span></td>
+    </tr> 
+	</table>
+  </form>
+	{#/if#}
+{#if $QISHI.operation_mode=='2'||$QISHI.operation_mode=='3'#}  
+  
+  
+	{#if $setmeal#}
+	<div class="toptit">会员服务套餐- 修改</div>
+	<form id="form2" name="form2" method="post" action="?act=edit_setmeal_save">
+	{#$inputtoken#}
+	<table width="100%" border="0" cellpadding="4" cellspacing="0" >
+	  <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">
+		服务套餐名称：		</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+{#$setmeal.setmeal_name#}		</td>
+      </tr>
+      <tr>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">服务时间：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+		开始时间：{#$setmeal.starttime|date_format:"%Y-%m-%d"#}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		结束时间：{#if $setmeal.endtime=="0"#}
+		无限制
+		{#else#}
+		{#$setmeal.endtime|date_format:"%Y-%m-%d"#}
+		{#/if#}
+		 <input type="hidden" name="oldendtime"  value="{#$setmeal.endtime#}" />		</td>
+      </tr>
+	  <tr>
+        <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">到期时间：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" ><input name="setendtime" type="text" class="input_text_200 date_input" id="setendtime" maxlength="10" value="{#if $setmeal.endtime=="0"#}{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#}"  >
+		<span class="admin_note">设置到期时间，格式 yyyy-mm-dd，留空为不限制</span>
+          </td>
+      </tr>
+	      <tr>
+        <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">服务天数：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="days" type="text" class="input_text_200" id="days" maxlength="50" value="" style="width:60px;">
+          天 <span class="admin_note">(默认为空表示不做修改，填0为不限制,如填写：3，则延长3天，-3 则减少3天)</span></td>
+      </tr>
+	  <!-- -->
+	  <tr>
+        <td  height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">发布普通招聘剩余：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="jobs_ordinary" type="text" class="input_text_200" id="jobs_ordinary" maxlength="50" value="{#$setmeal.jobs_ordinary#}"  >
+          条</td>
+      </tr>
+	 
+	  <tr>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">下载普通简历剩余：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="download_resume_ordinary" type="text" class="input_text_200" id="download_resume_ordinary" maxlength="50" value="{#$setmeal.download_resume_ordinary#}"  >
+          条</td>
+      </tr>
+	  <tr>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">下载高级简历剩余：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="download_resume_senior" type="text" class="input_text_200" id="download_resume_senior" maxlength="50" value="{#$setmeal.download_resume_senior#}"  >
+          条</td>
+      </tr>
+	  <tr>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邀请普通面试剩余：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="interview_ordinary" type="text" class="input_text_200" id="interview_ordinary" maxlength="50" value="{#$setmeal.interview_ordinary#}"  >
+          条</td>
+      </tr>
+	  
+	  <!-- -->
+	    	   	  <!-- -->
+	  <tr>
+        <td  height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邀请高级面试剩余：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="interview_senior" type="text" class="input_text_200" id="interview_senior" maxlength="50" value="{#$setmeal.interview_senior#}"  >
+          条</td>
+      </tr>
+
+	  <tr>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">人才库容量：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="talent_pool" type="text" class="input_text_200" id="talent_pool" maxlength="50" value="{#$setmeal.talent_pool#}"  >
+          条</td>
+      </tr>
+	  <!-- -->
+	    	   	  <!-- -->
+		
+	   <tr>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许推荐职位：<span style="position:relative;"><div class="set_meal" id="recommend_he"></div></span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="recommend_num" type="text" class="input_text_200 monitor" id="recommend" value="{#$setmeal.recommend_num#}" maxlength="5"/>
+        条 <span class="admin_note">(0为不允许使用推荐职位)</span> </td>
+      </tr>
+	   <tr style="display:none;" id="recommend_days" >
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">推荐天数设定：</td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="recommend_days" type="text" class="input_text_200"  value="{#$setmeal.recommend_days#}"  maxlength="5"/>
+        天 <span class="admin_note">(请设定天数)</span> </td>
+      </tr>
+	   <tr>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许置顶职位：<span style="position:relative;"><div class="set_meal" id="stick_he"></div></span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="stick_num" type="text" class="input_text_200 monitor" id="stick" value="{#$setmeal.stick_num#}" maxlength="5"/>
+        条 <span class="admin_note">(0为不允许使用置顶职位)</span> </td>
+      </tr >
+	   <tr style="display:none" id="stick_days" >
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">置顶天数设定：</td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="stick_days" type="text" class="input_text_200" value="{#$setmeal.stick_days#}" maxlength="5"/>
+        天 <span class="admin_note">(请设定天数)</span> </td>
+      </tr>
+	   <tr>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许紧急职位：<span style="position:relative;"><div class="set_meal" id="emergency_he"></div></span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="emergency_num" type="text" class="input_text_200 monitor" id="emergency" value="{#$setmeal.emergency_num#}" maxlength="5"/>
+        条 <span class="admin_note">(0为不允许使用紧急职位)</span> </td>
+      </tr>
+	   <tr style="display:none" id="emergency_days">
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed" >紧急天数设定：</td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="emergency_days" type="text" class="input_text_200"  value="{#$setmeal.emergency_days#}" maxlength="5"/>
+        天 <span class="admin_note">(请设定天数)</span> </td>
+      </tr>
+	   <tr>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许职位套色：<span style="position:relative;"><div class="set_meal" id="highlight_he"></div></span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="highlight_num" type="text" class="input_text_200 monitor" id="highlight" value="{#$setmeal.highlight_num#}" maxlength="5"/>
+        条 <span class="admin_note">(0为不允许使用职位套色)</span> </td>
+      </tr>
+	   <tr style="display:none" id="highlight_days">
+        <td align="right"  style=" border-bottom:1px #CCCCCC dashed">套色天数设定：</td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="highlight_days" type="text" class="input_text_200"  value="{#$setmeal.highlight_days#}" maxlength="5"/>
+        天 <span class="admin_note">(请设定天数)</span> </td>
+      </tr>
+	   <tr>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed" >参加招聘会设定：</td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="jobsfair_num" type="text" class="input_text_200"  value="{#$setmeal.jobsfair_num#}" maxlength="5"/>
+        场次 <span class="admin_note">(用户可参加招聘会场次)</span> </td>
+      </tr>
+	  <tr>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许会员切换模板：</td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><label>
+          <input name="change_templates" type="radio" value="1"  {#if $setmeal.change_templates=="1"#}checked="checked"{#/if#}/>
+        允许</label> &nbsp;&nbsp;&nbsp;<label>
+        <input type="radio" name="change_templates" value="0"  {#if $setmeal.change_templates=="0"#}checked="checked"{#/if#}/>
+        不允许</label></td>
+      </tr>
+		<tr>
+			<td align="right" style=" border-bottom:1px #CCCCCC dashed">开通企业电子地图：</td>
+			<td style=" border-bottom:1px #CCCCCC dashed">
+			<label>
+			  <input name="map_open" type="radio" value="1" {#if $setmeal.map_open=="1"#}checked="checked"{#/if#}/>
+			是</label> &nbsp;&nbsp;&nbsp;<label>
+			<input name="map_open" type="radio" value="0"  {#if $setmeal.map_open=="0"#}checked="checked"{#/if#}/>
+			否</label>		
+			</td>
+      </tr>
+	  <tr>
+        <td   height="30" align="right" valign="top"  style=" border-bottom:1px #CCCCCC dashed">其他说明：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <textarea name="added"   id="added" style="width:300px; height:60px;">{#$setmeal.added#}</textarea>        </td>
+      </tr>
+	  
+		<tr>
+			<td align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF0000">是否已收费：</span></td>
+			<td style=" border-bottom:1px #CCCCCC dashed">
+			<label>
+			 <input name="is_money" type="radio" value="1" checked="checked" class="yes_money"/>
+			是</label> &nbsp;&nbsp;&nbsp;<label>
+			<input name="is_money" type="radio" value="0"  class="no_money"/>
+			否</label>		
+			</td>
+      </tr>
+	   <tr class="log_amount">
+        <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
+         <span class="admin_note">(请填写收费金额)</span> </td>
+      </tr>
+	  <tr>
+      <td width="120" height="30" align="right"   >&nbsp;</td>
+      <td height="35"   > 
+        <input type="hidden" name="company_uid"  value="{#$company_user.uid#}" />
+		<input type="hidden" name="url"  value="{#$url#}" />
+        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/> </td>
+    </tr>
+    </table>
+	</form>
+	{#/if#}
+	<div class="toptit">重新开通服务套餐</div>
+	<form id="form4" name="form4" method="post" action="?act=set_setmeal_save">
+	{#$inputtoken#}
+	<table width="700" border="0" cellpadding="4" cellspacing="0"   id="edit_setmeal2" >
+      <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">选择套餐：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          {#foreach from=$givesetmeal item=list#}		   
+		    <label>
+          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $QISHI.reg_service==$list.id#}checked="checked"{#/if#}/>
+          {#$list.setmeal_name#}
+		  </label>
+		  &nbsp;&nbsp;&nbsp;&nbsp;
+
+		   {#/foreach#}
+	
+		</td>
+      </tr>
+		<tr>
+			<td align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF0000">是否已收费：</span></td>
+			<td style=" border-bottom:1px #CCCCCC dashed">
+			<label>
+			 <input name="is_money" type="radio" value="1" checked="checked" class="yes_money1"/>
+			是</label> &nbsp;&nbsp;&nbsp;<label>
+			<input name="is_money" type="radio" value="0"  class="no_money1"/>
+			否</label>		
+			</td>
+      </tr>
+	   <tr class="log_amount1">
+        <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
+         <span class="admin_note">(请填写收费金额)</span> </td>
+      </tr>
+      <tr>
+        <td height="30" align="right"  >&nbsp;</td>
+        <td height="35"  >
+		<input type="hidden" name="company_uid"  value="{#$company_user.uid#}" />
+            <input type="hidden" name="url"  value="{#$url#}" />
+            <input name="submit32" type="submit" class="admin_submit"    value="确定"/>
+          <input name="submit222" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+        </td>
+      </tr>
+    </table>
+	</form>	
+	
+	
+	
+	{#/if#}
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

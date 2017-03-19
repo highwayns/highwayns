@@ -1,0 +1,13 @@
+﻿.about_left{float:left;width:216px;border:1px solid #ccc;font-family:"宋体";}
+.about_left .about_tit{padding-top:16px;padding-bottom:18px;text-align:center;font-size:14px;color:#fff;border-bottom:1px solid #ccc;background-color:#0180CF;}
+.about_left li{padding:14px 0;font-size:14px;text-align:center;cursor:pointer;}
+.about_left li.active{background-color:#F5F5F5;}
+.about_left li a:hover{text-decoration:none;}
+.about_right{float:right;width:970px;margin-bottom:10px;border:1px solid #ccc;font-family:"宋体";}
+.about_right .about_r_tit{padding:16px 20px 18px 20px;font-size:14px;font-weight:bold;border-bottom:1px solid #ccc;background-color:#F5F5F5;}
+.about_right .about_r_content{padding:20px;font-size:14px;}
+.about_right .about_r_content table{margin-top:-20px;}
+.about_right .about_r_content p{text-indent:2em;line-height:25px;}
+.about_right .about_r_content .about_con{line-height:26px;}
+.about_right .about_r_content td span{margin-right:15px;}
+.about_right .about_r_content td textarea{width:565px;height:131px;padding:10px;resize:none;border:1px solid #ccc;}

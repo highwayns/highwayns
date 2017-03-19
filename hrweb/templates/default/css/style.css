@@ -1,0 +1,89 @@
+﻿/********************鍐呭鏍峰紡***********************/
+.BodyMain{width:1200px;margin:0 auto; border:0px solid #0F0;  margin-top:10px;}
+
+
+/****************************钖叕鎶ュ憡*******************************/
+
+.SalaryMain .SalaryTop{ height:46px;float:left;width:1178px; text-align:center;line-height: 50px;margin-bottom: 20px;border:1px solid #cccccc;padding-top:10px;padding-left:20px;}
+.SalaryMain .box{width:278px;height:30px;line-height:30px;font-size:14px;color:#ACACAC;border:1px solid #cccccc;background-color:#FFFFFF;padding-left:15px;position:relative;float:left;margin-right:20px;cursor:pointer;}
+.input_text_200_bgsala {width:282px; height:17px;border:1px solid  #CCCCCC ; font-size:12px;line-height:16px;padding:9px;background:url(../images/13.gif) no-repeat 282px -58px;cursor:pointer}
+.but180lansala { width:160px; height:37px; line-height:37px;font-size:15px; color:#FFFFFF; border:0px; background-color:#4095EF;font-family:"microsoft yahei","瀹嬩綋"; cursor:pointer;}
+.but180lansala.hover{ background-color:#1478DC}
+.SalaryMain .box span{display:block;width:250px;height:30px;overflow:hidden;white-space: nowrap;text-overflow:ellipsis;text-align:left;}
+.SalaryMain .box i{position:absolute;right:15px;top:13px;width:0;height:0;font-size:0;line-height:0;border-color:#ccc transparent transparent transparent;_border-color:#ccc #ffffff #ffffff #ffffff;border-style:solid;border-width:6px;cursor:pointer;}
+.SalaryMain .SalaryTop .bgFront{background:url("../images/salary/img_Salary.gif")/*tpa=http://www.jinshangrc.com/content/newsnew/images/img_Salary.gif*/ -0px 0px;height:56px;width:6px;float:left;}
+.SalaryMain .SalaryTop .bgBack{background:url("../images/salary/img_Salary.gif")/*tpa=http://www.jinshangrc.com/content/newsnew/images/img_Salary.gif*/ -6px 0px;height:56px;width:6px;float:right;}
+.SalaryMain .SalaryTop .bgMain{height:56px;float:left;width:974px; text-align:center;}
+.SalaryMain .SalaryTop span{ vertical-align:middle;}
+.SalaryMain .SalaryTop input{ vertical-align:middle;border:none;text-align: left;}
+.SalaryMain .SalaryTop .IndustrySelect{background: url("../images/salary/img_JsUnLogin_High.gif")/*tpa=http://www.jinshangrc.com/content/personal/images/salary/img_JsUnLogin_High.gif*/ -0px -64px;width: 357px;height: 30px;cursor: pointer;margin-right: 20px;padding-left: 10px;}
+.SalaryMain .SalaryTop .RegionSelect{background: url("../images/salary/img_JsUnLogin_High.gif")/*tpa=http://www.jinshangrc.com/content/personal/images/salary/img_JsUnLogin_High.gif*/ -0px -94px;width: 178px;height: 30px;cursor: pointer;padding-left: 10px;}
+.SalaryMain .SalaryTop .btnSalaryConfirm{background: url("../images/salary/img_Salary.gif")/*tpa=http://www.jinshangrc.com/content/newsnew/images/img_Salary.gif*/ -0px -86px;width: 101px;height: 31px;cursor: pointer;margin-top: 1px;margin-left: 10px;}
+.SalaryMain .SalaryBody{float:left; width:1200px;}
+.SalaryMain .SalaryBody .BodyTitle{float:left; background:#f5f5f5;border:1px solid #fff;height:36px; line-height:36px;padding-left:15px; font-weight:bold;color:#4095ef;font-size:14px;}
+.SalaryMain .SalaryBody .BodyContent{float:left;border-top: 1px solid #e1e8f0;border-bottom: 1px solid #e1e8f0;padding:20px 0;}
+.SalaryMain .SalaryBody .BodyLeft{float:left;border:1px solid #e1e8f0;}
+.SalaryMain .SalaryBody .BodyLeft .BodyTitle{width:1181px;}
+.SalaryMain .SalaryBody .BodyLeft .BodyTitle span{float:left;}
+.SalaryMain .SalaryBody .BodyLeft .BodyTitle a{float:right; margin-right:30px;background: url("../images/salary/img_Salary.gif")/*tpa=http://www.jinshangrc.com/content/newsnew/images/img_Salary.gif*/ -0px -133px; height:15px;padding-left:20px;line-height: normal;margin-top: 10px;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent{width:100%;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .BodyPart{width:960px;border-bottom:1px #e1e8f0 dotted; margin:0 auto; padding-bottom:20px;margin-top: 20px;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .ContentTitle{ font-family:"寰蒋闆呴粦";font-size:16px;padding-bottom: 20px;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .ContentTitle span{color: #FF6600;font-size:20px;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .ContentNotice{color:#999;line-height: 20px;padding-top: 20px;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .ContentNotice .Title{ font-weight:bold; vertical-align:top;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .ContentNotice .Content{width:660px; display:inline-block;vertical-align:top;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .tableD{width:700px; margin:0px auto;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .tableD td{line-height:36px; border-bottom:1px #e1e8f0 dotted; text-align:right;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .tableD td a{ text-decoration:none;color: #434343;}
+.SalaryMain .SalaryBody .BodyLeft .BodyContent .tableD td a:hover{color:#F90}
+.SalaryMain .SalaryBody .BodyRight{float:right;width:240px;border:1px solid #e1e8f0;}
+.SalaryMain .SalaryBody .BodyRight .BodyTitle{width:223px;}
+.SalaryMain .SalaryBody .BodyRight .BodyContent{width:240px;}
+.SalaryMain .SalaryBody .BodyRight .BodyContent .RightHeadRight div{height: 32px;float:left}
+.SalaryMain .SalaryBody .BodyRight .BodyContent .RightHeadRight span{display:inline-block;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.SalaryMain .SalaryBody .BodyRight .BodyContent .RightHeadRight span.City{width: 110px;padding-right:6px;}
+/*.SalaryMain .SalaryBody .BodyRight .BodyContent .RightHeadRight span{display:inline-block;height: 32px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.SalaryMain .SalaryBody .BodyRight .BodyContent .RightHeadRight span.City{width: 110px;padding-right:6px;}*/
+
+.SalaryMain .SalaryBody .BodyContent .tableA{border:1px #e1e8f0 solid; border-right:none;} 
+.SalaryMain .SalaryBody .BodyContent .tableA td{border:none; height:40px; vertical-align:top;border-right:1px #e1e8f0 dotted;width:200px;}
+.SalaryMain .SalaryBody .BodyContent .tableA td.Title{width:205px; text-align:right;}
+
+.SalaryMain .SalaryBody .BodyContent .tableB{border:1px #e1e8f0 solid; border-top:none;width:655px;}
+.SalaryMain .SalaryBody .BodyContent .tableB td{border:none; height:40px; vertical-align:top;border-top:1px #e1e8f0 dotted;width:90px;}
+.SalaryMain .SalaryBody .BodyContent .tableB .top td{border-top:none;}
+.SalaryMain .SalaryBody .BodyContent .tableBLeft{float: left;width: 35px;}
+.SalaryMain .SalaryBody .BodyContent .tableBLeft span{display: inline-block;height: 41px;}
+
+.Bar{ position:absolute;}
+.Bar span{vertical-align: middle;}
+.Bar .BarOrange{ display:inline-block; background:#FF9900; height:18px;width:18px; margin-right:5px;}
+.Bar .SalaryNo{font-family:Arial;font-size:14px;font-weight:bold;color:#666666;}
+
+.BarB{ position:absolute;width: 25px;text-align: center;margin-left: 30px;}
+.BarB span{vertical-align: middle;}
+.BarB .BarBlue{ display:inline-block; background:#00cc99; height:18px;width:22px;}
+.BarB .BarGreen{ display:inline-block; background:#99cc00; height:18px;width:22px;}
+.BarB .SalaryNo{font-family:Arial;font-size:14px;font-weight:bold;color:#666666;}
+.tbTitle{color:#999999; margin-left:15px; white-space:nowrap;}
+
+.tableA_x{margin-left: 116px;}
+.tableA_x span{display:inline-block; width:110px;font-family: Arial;}
+
+.tableB_x{margin-left: 48px;}
+.tableB_x span{display:inline-block; width:55px;font-family: Arial; text-align:center;white-space: nowrap;}
+
+.tips{margin-left:20px;line-height:20px;width:667px;background:url("../company/images/errorpage.gif")/*tpa=http://www.jinshangrc.com/Content/company/images/errorpage.gif*/  0px 0px no-repeat;background-position:16px 16px;height:383px}
+.tips p{color:#000;font-size:16px;font-family:"榛戜綋";font-weight:NORMAL; width:279px;padding-top: 200px;margin-left: 290px;}
+
+.BodyPart .imgPieCount{width:230px; float:left; text-align:center;}
+
+.imgPieNote{float:left;width:230px;}
+.imgPieNote div{float:left;height: 20px; margin-left:5px; white-space:nowrap;}
+.imgPieNote div span{ display:inline-block;width:14px; height:8px;border:1px #534f50 solid; margin-right:6px;}
+.imgPieCount{float:left;}
+.pie_type ul li {float:left;}
+.pie_type ul .t1{margin-left:140px;}
+.pie_type ul .t2{margin-left:250px;}
+.pie_type ul .t3{margin-left:280px;}

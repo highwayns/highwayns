@@ -1,0 +1,73 @@
+﻿<script>
+jQuery(document).ready(function($) {
+	//验证
+	$("form[id=Formlogin]").submit(function(e) {
+	e.preventDefault();
+		if ($("#username").val()=="")
+		{	
+			alert("请输入用户名！");
+		}
+		else if($("#password").val()=="")
+		{	
+			alert("请输入密码！");
+		}
+		else
+		{
+			$("#login_submit").val("正在登录");
+			$("#login_submit").attr("disabled","disabled");
+			 if($("#expire").attr("checked")==true)
+			 {
+			 var expire=$("#expire").val();
+			 }
+			 else
+			 {
+			 var expire="";
+			 }
+			$.post("{#$site_dir#}plus/ajax_user.php", {"username": $("#username").val(),"password": $("#password").val(),"expire":expire,"time": new Date().getTime(),"index_login":1,"act":"do_login"},
+		 	function (data,textStatus)
+		 	 {
+				if (data=="err")
+				{			
+					$("#login_submit").val("登录");
+					$("#login_submit").removeAttr('disabled');
+					$("#password").attr("value","");
+					alert("用户名或密码错误！");
+				}
+				else
+				{
+					$("body").append(data);
+				}
+		 	 })		
+		}
+		return false;
+	});
+});
+</script>
+{#$weixin_html_header#}
+<h4>会员登录</h4>
+<div class="login-wrap" id="pcLogin">
+	<form action="" id="Formlogin" method="post">
+	<div class="login-item">
+		<div class="login-text-box clearfix"><i class="login-icon user f-left"></i><div class="login-input f-left"><input type="text" name="username" id="username" placeholder="邮箱/手机号/用户名" /></div></div>
+	</div>
+	<div class="login-item">
+		<div class="login-text-box clearfix"><i class="login-icon pass f-left"></i><div class="login-input f-left"><input type="password" name="password" id="password" placeholder="请输入密码" /></div></div>
+	</div>
+	<div class="login-item clearfix">
+		<label class="auto-login f-left"><input type="checkbox" name="expire" id="expire" value="7"/>自动登录</label>
+		<a href="{#$site_dir#}user/user_getpass.php" class="forget underline f-right">忘记密码？</a>
+	</div>
+	<div class="login-item clearfix">
+		<div class="login-btn-box f-left"><input type="submit" value="立即登录" class="index-login-btn" id="login_submit"/></div>
+		<div class="f-left"><input type="button" value="免费注册" class="index-reg-btn" onclick='window.location.href="{#$reg_url#}"'/></div>
+	</div>
+	</form>
+	<div class="third-login clearfix">
+		<span class="f-left">{#$third_tit#}</span>
+		{#$qq_apiopen#}
+		{#$sina_apiopen#}
+		{#$taobao_apiopen#}
+	</div>
+</div>
+{#$weixin_html#}
+

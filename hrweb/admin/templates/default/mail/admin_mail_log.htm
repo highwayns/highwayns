@@ -1,0 +1,91 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="mail/admin_mail_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+		此列表为您系统发送的邮件列表
+	</p>
+</div>
+<div class="seltpye_x">
+		<div class="left">筛选类型</div>	
+		<div class="right">
+		<a href="{#"state:"|qishi_parse_url#}" {#if $smarty.get.state==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"state:1"|qishi_parse_url#}" {#if $smarty.get.state=="1"#}class="select"{#/if#}>发送成功</a>
+		<a href="{#"state:2"|qishi_parse_url#}" {#if $smarty.get.state=="2"#}class="select"{#/if#}>发送失败</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+   <form method="post">
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  width="120" class="admin_list_tit admin_list_first">
+     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>状态</label>	 </td>
+      <td class="admin_list_tit" width="13%">发送帐号</td>
+	  <td class="admin_list_tit" width="13%">收件地址</td>
+	  <td  class="admin_list_tit">邮件主题</td>
+      <td  class="admin_list_tit">邮件内容</td>
+      <td width="110"  align="center"  class="admin_list_tit">发送时间</td>
+    </tr>
+	{#foreach from=$list item=list#}
+	 <tr>
+      <td class="admin_list admin_list_first">
+	     <input type="checkbox" name="id[]"  value="{#$list.id#}"/>
+		 {#if $list.state=="1"#}<span style="color: #009900">发送成功</span>{#/if#}
+		 {#if $list.state=="2"#}<span style="color: #666666">发送失败</span>{#/if#}
+	  </td>
+	  <td  class="admin_list">{#$list.send_from#}</td>
+	  <td  class="admin_list">{#$list.send_to#}</td>
+	  <td  class="admin_list vtip" title="{#$list.subject|nl2br#}" >{#$list.subject_#}</td>
+      <td  class="admin_list vtip" title="{#$list.body|nl2br#}" >{#$list.body_#}</td>
+      <td  align="center"  class="admin_list">{#$list.sendtime|date_format:"%Y-%m-%d"#}</td>
+	</tr>
+	{#/foreach#}
+  </table>
+  
+	{#if !$list#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+  </form>	
+   <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+	<tr>
+	  <td>&nbsp;</td>
+      <td width="305">
+      	<form id="formseh" name="formseh" method="get" action="?">
+      		<input type="hidden" name="act" value="log">
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"邮件主题"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="邮件主题">邮件主题</li>
+														<li id="2" title="收件地址">收件地址</li>
+														<li id="3" title="发送帐号">发送帐号</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	  </td>
+     </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

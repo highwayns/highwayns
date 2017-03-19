@@ -1,0 +1,40 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="article/admin_article_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptit">修改属性分类</div>
+<form id="form1" name="form1" method="post" action="?act=edit_property_save">
+<div id="html_tpl">
+{#$inputtoken#}
+<table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
+  <tr>
+    <td width="120" align="right">属性名称:</td>
+    <td><input name="categoryname" type="text" class="input_text_200"  value="{#$property.categoryname#}" maxlength=""/></td>
+  </tr>
+    <tr>
+    <td width="120" align="right">排序:</td>
+    <td><input name="category_order" type="text" class="input_text_200"  value="{#$property.category_order#}" maxlength=""/></td>
+  </tr>
+</table>
+</div>
+<div id="html"></div>
+<table width="100%" border="0" cellspacing="6" cellpadding="0">
+  <tr>
+    <td width="120"> </td>
+    <td>
+	<input name="id" type="hidden" value="{#$property.id#}" />
+	<input type="submit" name="addsave" value="保存" class="admin_submit" />
+	
+		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="history.go(-1)"/>
+	
+	</td>
+  </tr>
+</table>
+ </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>企业会员中心</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/user.css" rel="stylesheet" type="text/css" />
+<link href="../css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="../js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+	// 职位关闭
+	$(".jobs_pause").click(function(){
+		var id = $(this).attr("jid");
+		$.post("?act=jobs_pause",{id:id},function(data){
+			if(data=="ok"){
+				alert("职位关闭成功");
+				window.location.reload();
+			}else if(data=="err"){
+				alert("职位关闭失败");
+				window.location.reload();
+			}else{
+				alert(data);
+				window.location.reload();
+			}
+		});
+	});
+	// 关闭职位恢复
+	$(".jobs_regain").click(function(){
+		var id = $(this).attr("jid");
+		$.post("?act=jobs_regain",{id:id},function(data){
+			if(data=="ok"){
+				alert("职位恢复成功");
+				window.location.reload();
+			}else if(data=="err"){
+				alert("职位恢复失败");
+				window.location.reload();
+			}else{
+				alert(data);
+				window.location.reload();
+			}
+		});
+	});
+	// 刷新职位
+	$(".jobs_refresh").click(function(){
+		var id = $(this).attr("jid");
+		$.post("?act=jobs_refresh",{id:id},function(data){
+			if(data=="ok"){
+				alert("刷新职位成功");
+				window.location.reload();
+			}else if(data=="err"){
+				alert("刷新职位失败");
+				window.location.reload();
+			}else{
+				alert(data);
+				window.location.reload();
+			}
+		});
+	});
+	// 删除职位
+	$(".jobs_del").click(function(){
+		var id = $(this).attr("jid");
+		if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+        else
+        {
+			$.post("?act=jobs_del",{id:id},function(data){
+				if(data=="ok"){
+					// alert("删除职位成功");
+					window.location.reload();
+				}else if(data=="err"){
+					alert("删除职位失败");
+					window.location.reload();
+				}else{
+					alert(data);
+					window.location.reload();
+				}
+			});
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+	<div class="title">职位管理</div>
+	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="../index.php";'>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-news-list.php";'>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+
+<!-- 职位管理首页 -->
+<div class="job_i_bbox">
+	<!-- 职位管理 -->
+	{#if $row#}
+	{#foreach from=$row  item=list#}
+	<div class="job_i_box">
+		<div class="detail" onclick="window.location.href='../wap-jobs-show.php?id={#$list.id#}'">
+			<div class="detail_t1">
+				<div class="resume_name">{#$list.jobs_name_#}<span>[<i class="audit">{#$list.status_cn#}</i>]</span></div>
+				<div class="resume_centent">
+					<div class="resume_centent_l">
+						招聘人数：{#$list.amount#}人<br />刷新：{#$list.refreshtime|date_format:'%Y-%m-%d'#}
+					</div>
+					<div class="resume_centent_r">
+						截至日期：{#$list.deadline|date_format:'%Y-%m-%d'#}<br />下载/浏览：{#$list.countresume#}/{#$list.click#}
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="detail_t2">
+				<img src="../images/32.gif" alt="" />
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="but_group">
+			<div class="small_icon"><img src="../images/33.gif" alt="" /></div>
+			<div class="but_list">
+				{#if $list.status==1#}
+				<div class="list_icon jobs_refresh" jid="{#$list.id#}">
+					<a><img src="../images/resume_1.gif" alt="" /><br />刷新</a>
+				</div>
+				{#else#}
+				<div class="list_icon">
+					<a><img src="../images/resume_1_hui.gif" alt="" /><br />刷新</a>
+				</div>
+				{#/if#}
+				<div class="list_icon" onclick="window.location.href='?act=jobs_edit&id={#$list.id#}'">
+					<a>
+						<img src="../images/resume_2.gif" alt="" /><br />修改
+					</a>
+				</div>
+				
+				{#if $list.status==1#}
+				<div class="list_icon">
+				<a href="../wap-resume-list.php?key=&district=&sdistrict=&education=&topclass={#$list.topclass#}&category={#$list.category#}&subclass={#$list.subclass#}&experience=">
+					<img src="../images/job_i_1.gif" alt="" /><br />匹配
+				</a>
+				</div>
+				{#else#}
+				<div class="list_icon hui">
+				<a><img src="../images/job_i_1_hui.gif" alt="" /><br />匹配</a>
+				</div>
+				{#/if#}
+				
+				{#if $list.status==1#}
+				<div class="list_icon jobs_pause" jid="{#$list.id#}">
+					<a>
+						<img src="../images/job_i_2.gif" alt="" /><br />关闭
+					</a>
+				</div>
+				{#elseif $list.status==2#}
+				<div class="list_icon jobs_regain" jid="{#$list.id#}">
+					<a>
+						<img src="../images/job_i_3.gif" alt="" /><br />恢复
+					</a>
+				</div>
+				{#else#}
+				<div class="list_icon">
+					<a>
+						<img src="../images/job_i_2_hui.gif" alt="" /><br />关闭
+					</a>
+				</div>
+				{#/if#}
+				<div class="list_icon jobs_del" jid="{#$list.id#}">
+					<a>
+						<img src="../images/resume_5.gif" alt="" /><br />删除
+					</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	{#/foreach#}
+	{#else#}
+	<div class="no_inter">您没有发布职位</div>
+	{#/if#}
+</div>
+
+<!-- 创建新简历按钮 -->
+<div class="make_new_job_but" onclick="window.location.href='?act=jobs_add'">发布新职位</div>
+<!-- footer -->
+{#include file="wap/footer.htm"#}
+</body>
+</html>

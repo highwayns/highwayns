@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 发布职位</div>
+
+<div class="usermain">
+<div class="leftmenu  com link_bk">
+  	 {#include file="member_company/left.htm"#}		
+</div>
+<div class="rightmain">
+	<div class="bbox1">
+  		<div class="step1succeed">
+			<div class="tip">
+			  	<div class="left"></div>
+			  	<div class="right">
+				  	<div class="h1-title">恭喜您，职位发布成功！</div>
+				              <div class="txt">
+						<p>为了吸引更多求职者应聘，提高企业招聘效率，<br />我们强烈建议您：<br /></p>
+						<p class="link"><a href="company_user.php?act=authenticate">完善企业认证 >></a> 认证通过后会明显提高企业信誉度</p>
+						<p class="link"><a href="company_info.php?act=company_map_set">开通电子地图 >></a> 方便求职者合理计划面试乘车路线</p>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>			
+		          <div class="butbox">
+				<input type="button" name="submitsave" id="submitsave" value="搜索简历"  class="but180lan" onclick="javascript:window.open('{#"QS_resumelist"|qishi_url#}')"/>
+				<input type="button" name="submitsave" id="submitsave" value="推广职位"  class="but180hui" onclick="javascript:location.href='company_promotion.php?act=promotion'"/>
+				<input type="button" name="submitsave" id="submitsave" value="继续发布"  class="but180hui" onclick="javascript:location.href='?act=addjobs'"/>
+				<!-- 分享按钮 -->
+				<div class="share" style="border-top-width: 0px; margin-top: 19px; margin-left: 310px;">
+					<div class="share_txt">告诉朋友，让大家一起帮你找人！</div>
+				           <div class="bdsharebuttonbox bdshare">
+						<a class="bds_more" href="#" data-cmd="more"></a>
+						<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+						<a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+						<a title="分享到腾讯微博" class="bds_tqq" href="#" data-cmd="tqq"></a>
+						<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+						<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+					</div>
+					<script>window._bd_share_config={"common":{"bdText":"{#$jobs.companyname#}在@{#$QISHI.site_name#}  发布了最新职位 : {#$jobs.jobs_name#}(月薪 : {#$jobs.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$QISHI.site_name#}","bdUrl":"{#$jobs.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+					</script>
+				</div>
+				<!-- 分享按钮  结束-->
+			</div>						
+			 <div class="recommend">
+				<div class="title"><div class="h2-title">为您推荐的人才</div></div>
+					{#qishi_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:"|cat:$concern_id#}
+					{#if !$resumelist#}
+					{#qishi_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc"#}
+					{#/if#}
+					{#if $resumelist#}
+					{#foreach from=$resumelist item=list#}
+				<div class="l1 link_bk"><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></div>
+				<div class="l2 link_bk">{#$list.education_cn#}</div>
+				<div class="l3">{#$list.experience_cn#}</div>
+				<div class="l4">{#$list.intention_jobs#}</div>
+				<div class="l5">{#$list.wage_cn#}</div>
+				<div class="clear"></div>
+				{#/foreach#}
+				<div class="more link_lan"><a href="{#"QS_resumelist"|qishi_url#}"  target="_blank">更多人才>></a></div>
+				{#else#}
+				<div class="emptytip">对不起！没有找到您要的信息！</div>
+				{#/if#}	
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

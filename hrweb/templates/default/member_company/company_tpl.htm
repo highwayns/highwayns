@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+ <script type="text/javascript">
+$(document).ready(function()
+{
+	$('input[name=choose_tpl_btn]').click(function() {
+		{#if ($QISHI.operation_mode=="2"||$QISHI.operation_mode=="3") && ( $setmeal.change_templates=="0" || $setmeal.change_templates=="")#}
+			{#if $setmeal.setmeal_name==""#}
+				var setmeal_name="您没有开通套餐";
+			{#else#}
+				var setmeal_name="你的套餐：{#$setmeal.setmeal_name#}";
+			{#/if#}
+			$("input[name=choose_tpl_btn]").click(function(){
+				alert(setmeal_name+",没有自由切换模板的权限！");
+				return false;
+			})
+		{#/if#}
+		$('input[name=tpl]').val($(this).attr('data'));
+		$("#Form1").submit();
+	});
+	$(".resume_box").hover(
+	  function () {
+		$(this).css({
+			borderColor:"#ccc",
+		});
+	  },
+	  function () {
+		$(this).css({
+			borderColor:"rgb(228, 244, 252)"
+		});
+	  }
+	);
+});
+</script>
+</head>
+
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 会员服务</div>
+
+<div class="usermain">
+  <div class="leftmenu com link_bk">
+   {#include file="member_company/left.htm"#}
+  </div>
+<div class="rightmain">
+  
+	<div class="bbox1">
+		<div class="topnav only">
+			<div class="titleH1"><div class="h1-title">选择模板</div></div>
+		</div>
+	  	<form id="Form1" name="Form1" method="post" action="?act=tpl_save">
+		<div class="tpl-box">
+			{#foreach  from=$comtpl item=li#}
+			<div class="tpl-block clearfix">
+				<div class="tpl-img f-left"><img src="{#$QISHI.site_dir#}templates/tpl_company/{#$li.tpl_dir#}/thumbnail.jpg" alt="{#$li.tpl_name#}" width="298" height="148" /></div>
+				<div class="tpl-ctrl f-left">
+					<div class="tpl-text">模版名称：{#$li.tpl_name#} <a href="{#$QISHI.site_dir#}company/company-show.php?id={#$com_info.id#}&style={#$li.tpl_dir#}" class="underline" target="_blank">[预览]</a></div>
+					{#if $QISHI.operation_mode=="1"#}<div class="tpl-text">模版价格：{#if $li.tpl_val=="0"#}免费{#else#}<span>{#$li.tpl_val#}</span> {#$QISHI.points_quantifier#}{#$QISHI.points_byname#}{#/if#}</div>{#/if#}
+					<div class="use-ctrl"><input name="choose_tpl_btn" data="{#$li.tpl_dir#}" type="button" value="{#if $mytpl==$li.tpl_dir#}使用中...{#else#}使用模板{#/if#}" class="{#if $mytpl==$li.tpl_dir#}but100cheng{#else#}but100lan{#/if#}" /></div>
+				</div>
+			</div>
+			{#/foreach#}
+			<input name="pid" type="hidden" value="{#$pid#}" />
+			<input name="tpl" type="hidden" value="" />
+		</div>
+		</form>
+	</div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+{#include file="user/footer.htm"#}
+</body>
+</html>

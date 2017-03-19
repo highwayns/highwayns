@@ -1,0 +1,29 @@
+﻿/*HR工具箱*/
+.hr_box{border-top:1px solid #ccc;padding-bottom:45px;}
+.hr_box .hrtools-wrap{padding-left: 50px;}
+.hr_box .function_box{float:left;width:550px;margin-top:35px;}
+.hr_box li .icon-box{width:98px;height:98px;float:left;margin-right:14px;overflow:hidden;text-indent:-9999px;}
+.hr_box li .icon-box a{display:block;width:98px;height:98px;}
+.hr_box li .icon-box .icon_1{background:url(../images/24.gif) 0px 0px no-repeat;}
+.hr_box li .icon-box .icon_2{background:url(../images/24.gif) -122px 0px no-repeat;}
+.hr_box li .icon-box .icon_3{background:url(../images/24.gif) 0px -118px no-repeat;}
+.hr_box li .icon-box .icon_4{background:url(../images/24.gif) -122px -118px no-repeat;}
+.hr_box li .icon-box .icon_5{background:url(../images/24.gif) 0px -240px no-repeat;}
+.hr_box li .icon-box .icon_6{background:url(../images/24.gif) -122px -240px no-repeat;}
+.hr_box li .icon-box .icon_7{background:url(../images/24.gif) 0px -364px no-repeat;}
+.hr_box li .icon-box .icon_8{background:url(../images/24.gif) -122px -364px no-repeat;}
+.hr_box li .icon-box .icon_9{background:url(../images/24.gif) 0px -489px no-repeat;}
+.hr_box li .icon-box .icon_10{background:url(../images/24.gif) -122px -489px no-repeat;}
+.hr_box li .icon-box .icon_11{background:url(../images/24.gif) 0px -603px no-repeat;}
+.hr_box li .hr_content{float:left;width:380px;}
+.hr_box li .hr_content h3{font-size:16px;font-weight:normal;margin:10px 0;}
+.hr_box li .hr_content h3 a{color:#0180CF;}
+.hr_box li .hr_content h3 a:hover{text-decoration:none;color:#ff9900;}
+.hr_box li .hr_content li{color:#666666;float:left;margin-right:10px;line-height:25px;font-size:14px;font-family:"microsoft yahei";}
+.hr_box li .hr_content li .more{color:#017FCF}
+/*HR工具箱 详情*/
+.hr_dateil{font-family:"microsoft yahei";margin-bottom:20px;}
+.hr_dateil h2{float:left;padding:8px 22px;background-color:#0180CF;color:#fff;font-size:16px;}
+.hr_dateil .hr_list{border:1px solid #ccc;border-top:2px solid #0180CF;padding:15px 0px 15px 70px;_background:#fff;+background-color: #fff;}
+.hr_dateil .hr_list li{float:left;width:360px;height:30px;line-height:30px;padding-left:10px;background:url(../images/33.jpg)0px 12px no-repeat;background-image:url(../images/33.jpg);background-position:0px 12px;background-repeat:no-repeat;}
+.hr_dateil .hr_list li a{color:#2970A6;_height:12px;font-size:14px;}

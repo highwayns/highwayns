@@ -1,0 +1,167 @@
+﻿<script type="text/javascript">
+$(document).ready(function()
+{
+//会员中心顶部搜索职位简历切换 
+$("#usertopselectbox").hover(
+  function () {
+  $(this).find(".#selmenu").show();
+  },
+  function () {
+    $(this).find("#selmenu").hide();
+  }
+);
+$(".leftmenu .meunbox li[class!='h']").hover(
+  function () {
+      $(this).css("background-color","#F5F5F5");
+  },
+  function () {
+     $(this).css("background-color","#FFFFFF");
+  }
+);
+//会员中心顶部搜索职位简历切换 点击选择触发事件
+$("#usertopselectbox .selmenu").click(function(){
+
+		var txt=$(this).text();
+		
+		if (txt=="简历")
+		{
+		$("#topsotype").val('2');
+		$("#seltxt").text('简历');
+		$("#selmenu").text('职位');
+		$("#selmenu").hide();
+		}
+		else
+		{
+		$("#topsotype").val('1');
+		$("#seltxt").text('职位');
+		$("#selmenu").text('简历');
+		$("#selmenu").hide();
+		}
+});
+
+//所有提交按钮效果
+$("input[type='submit'],input[type='button']").hover(
+  function () {
+    $(this).addClass("hover");
+  },
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+//所有多选按钮效果
+$(".input_checkbox,.input_checkbox_add").hover(
+  function () {
+    $(this).addClass("h");
+  },
+  function () {
+    $(this).removeClass("h");
+  }
+);
+//全选
+$('#chk').click(function(){$("#form1 :checkbox").attr('checked',$("#chk").is(':checked'))});
+$('#chk2').click(function(){$("#form1 :checkbox").attr('checked',$("#chk2").is(':checked'))});
+});
+// 右侧漂浮
+$(function(){
+	$(".guwen").click(function(){
+		$(this).hide();
+		$(".guwen_open").show();
+	});
+	$(".guwen_open .close").click(function(){
+		$(".guwen_open").hide();
+		$(".guwen").show();
+	})
+})
+$(document).ready(function() {
+	$(".guwen").click(function(){
+		$(this).hide();
+		$(".guwen_open").show();
+	});
+	$(".guwen_close").click(function(){
+		$(".guwen_open").hide();
+		$(".guwen").show();
+	});
+});
+</script>
+<div class="meun1">
+  		<div class="meun2">
+  		<div class="meunbox">
+			<div class="menu_top"><a href="company_index.php">中心首页</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;{#if $company_url#}<a target="_black" href="{#$company_url#}">预览企业</a>{#else#}<a href="company_info.php?act=company_profile" onClick="return confirm('无法预览,您没有完善企业资料,现在去完善企业资料？')">预览企业</a>{#/if#}
+			</div>
+		</div>
+		<div class="meunbox">
+		  <div class="tit"><div class="t c1">职位管理</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li {#if $smarty.get.act=="addjobs"#}class="h"{#/if#}><a href="company_jobs.php?act=addjobs">发布职位</a></li>
+				<li {#if $smarty.get.act=="jobs" || $smarty.get.act=="editjobs"#}class="h"{#/if#}><a href="company_jobs.php?act=jobs">管理职位</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="meunbox">
+		  <div class="tit"><div class="t c2">简历管理</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li {#if $smarty.get.act=="interview_list"#}class="h"{#/if#}><a href="company_recruitment.php?act=interview_list">面试邀请</a></li>
+				<li {#if $smarty.get.act=="apply_jobs"#}class="h"{#/if#}><a href="company_recruitment.php?act=apply_jobs">收到的简历</a></li>
+				<li {#if $smarty.get.act=="down_resume_list"#}class="h"{#/if#}><a href="company_recruitment.php?act=down_resume_list">已下载的简历</a></li>
+				<li {#if $smarty.get.act=="favorites_list"#}class="h"{#/if#}><a href="company_recruitment.php?act=favorites_list">收藏的简历</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="meunbox">
+		  <div class="tit"><div class="t c4">会员服务</div></div>
+		  	<div class="linktxt">
+				<ul>
+				{#if $QISHI.operation_mode=="1"#}
+				<li {#if $smarty.get.act=="j_account"#}class="h"{#/if#}><a href="company_service.php?act=j_account">我的账户</a></li>
+				{#elseif $QISHI.operation_mode=="2"#}
+				<li {#if $smarty.get.act=="t_account"#}class="h"{#/if#}><a href="company_service.php?act=t_account">我的账户</a></li>
+				{#elseif $QISHI.operation_mode=="3"#}
+				<li {#if $smarty.get.act=="j_account" || $smarty.get.act=="t_account"#}class="h"{#/if#}><a href="company_service.php?act=j_account">我的账户</a></li>
+				{#/if#}
+				{#if $QISHI.operation_mode=="1" || $QISHI.operation_mode=="3"#}
+				<li {#if $smarty.get.act=="order_add" || $smarty.get.act=="setmeal_list" || $smarty.get.act=="order_list" || $smarty.get.act=="payment" || $smarty.get.act=="setmeal_order_add" || $smarty.get.act=="gifts"#}class="h"{#/if#}><a href="company_service.php?act=order_add">充值订单</a></li>
+				{#elseif $QISHI.operation_mode=="2"#}
+				<li {#if $smarty.get.act=="setmeal_list" || $smarty.get.act=="order_list" || $smarty.get.act=="payment" || $smarty.get.act=="setmeal_order_add"#}class="h"{#/if#}><a href="company_service.php?act=setmeal_list">充值订单</a></li>
+				{#/if#}
+				<li {#if $smarty.get.act=="tpl"#}class="h"{#/if#}><a href="company_promotion.php?act=tpl">企业模板</a></li>
+				</ul>
+			</div>
+		</div>
+		
+			<div class="meunbox last">
+		  <div class="tit"><div class="t c5">账号管理</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li {#if $smarty.get.act=="company_profile" || $smarty.get.act=="company_logo" || $smarty.get.act=="company_map_set"#}class="h"{#/if#}><a href="company_info.php?act=company_profile">企业资料</a></li>
+				<li{#if $smarty.get.act=="authenticate" || $smarty.get.act=="company_auth" || $smarty.get.act=="login_log"#} class="h"{#/if#}><a href="company_user.php?act=authenticate">安全认证</a></li>
+				<li {#if $smarty.get.act=="pm"#}class="h"{#/if#}><a href="company_user.php?act=pm">我的消息</a></li>
+				<li><a href="{#"QS_login"|qishi_url#}?act=logout">退出登录</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+
+	<!-- 右侧漂浮组件 -->
+{#if $consultant#}
+<div class="guwen_bbox">
+		<div class="guwen">企业顾问</div>
+		<div class="guwen_open" style="display:none;">
+			<div class="open_box">
+				<span class="guwen_close"></span>
+				<div class="guwen_blc">企业顾问</div>
+				<div class="guwen_top">
+					<div class="guwen_avater"><img src="{#$QISHI.site_dir#}data/images/{#$consultant.pic#}" alt="" width="55" height="70"></div>
+					<p>客服：{#$consultant.name#}</p>
+				</div>
+				<div class="guwen_btn_box">
+					<a href="http://wpa.qq.com/msgrd?v=3&uin={#$consultant.qq#}&site=qq&menu=yes" class="guwen_btn">立即咨询</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{#/if#}

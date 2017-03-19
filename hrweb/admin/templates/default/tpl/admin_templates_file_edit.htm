@@ -1,0 +1,64 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script src="js/codemirror/js/codemirror.js" type="text/javascript"></script>
+  <style type="text/css">
+      .CodeMirror-line-numbers {
+        width: 2.2em;
+        color: #666666;
+        background-color: #CCCCCC;
+        text-align: right;
+        padding-right: .3em;
+        font-size: 10pt;
+        font-family: monospace;
+        padding-top: .4em;
+        line-height: normal;
+      }
+    </style>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="tpl/admin_templates_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+编辑后请更新缓存
+</p>
+</div>
+<div class="toptit">编辑模板文件：<span style="color:#003399">{#$tpl.name#}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="?act=edit&tpl_dir={#$tpl.dir#}"  >[返回上一页]</a></div>
+<form id="form1" name="form1" method="post" action="?act=do_edit">
+{#$inputtoken#}
+<div style="border-top: 1px solid  #DFEDF7; border-bottom: 1px solid #DFEDF7; width:100%">
+<textarea name="tpl_content" id="tpl_content" cols="120" rows="30"  >{#$tpl.content#}</textarea>
+</div>
+<script type="text/javascript">
+  var editor = CodeMirror.fromTextArea('tpl_content', {
+    height: "350px",
+    parserfile: ["parsexml.js", "parsecss.js", "tokenizejavascript.js", "parsejavascript.js", "parsehtmlmixed.js"],
+    stylesheet: ["js/codemirror/css/xmlcolors.css", "js/codemirror/css/jscolors.css", "js/codemirror/css/csscolors.css"],
+	lineNumbers: true,
+    path: "js/codemirror/js/"
+  });
+     $(document).bind("contextmenu",function(e){   
+            return false;   
+   });   
+
+</script>
+		  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="80" align="center" >
+			<input name="tpl_dir" type="hidden" value="{#$tpl.dir#}" />
+			<input name="tpl_dir" type="hidden" value="{#$tpl.dir#}" />
+			<input name="tpl_name" type="hidden" value="{#$tpl.name#}" />
+			<input type="submit" name="del_Submit" value="保存" class="admin_submit"   />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onClick="location.href='?act=edit&tpl_dir={#$tpl.dir#}'"/>
+			</td>
+          </tr>
+        </table>
+       
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

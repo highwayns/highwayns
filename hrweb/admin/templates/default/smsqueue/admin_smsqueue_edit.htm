@@ -1,0 +1,44 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="smsqueue/admin_smsqueue_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+短信内容不能超过70个字！
+</p>
+</div> 
+ <div class="toptit">修改短信任务</div>
+    <form id="form1" name="form1" method="post"   action="?act=smsqueue_edit_save" >
+	{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+    <tr>
+      <td width="120" height="30" align="right"  >收件人：</td>
+      <td  ><input name="s_sms" type="text" class="input_text_200"   maxlength="100" value="{#$show.s_mobile#}"/>
+       </td>
+    </tr>
+
+	
+		  <tr>
+            <td width="100" align="right">发送内容:</td>
+            <td>
+			  <textarea name="s_body" class="input_text_400" style="height:80px;">{#$show.s_body#}</textarea>
+			  <span class="admin_note">内容不能超过70个字符</span>		    </td>
+          </tr>
+	      <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  > 
+	  <input name="id" type="hidden" value="{#$show.s_id#}" />
+            <input name="submit3" type="submit" class="admin_submit"    value="修改"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>
+  </table>
+    </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

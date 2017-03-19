@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>{#$title#}</title>
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/reg.css" />
+<script src="{#$QISHI.site_template#}js/jquery.js"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script>
+$(function() {
+  $('.member-type').live('click', function(){
+    $(this).addClass('select').siblings('.member-type').removeClass('select');
+    var utype=$(this).attr("member-type");
+    $(".utype").val(utype);
+  })
+  // 表单验证
+  $("#Form1").validate({
+    success: function(lable) {
+        lable.text(" ").addClass("ver-success");
+      },
+    rules:{ 
+      password:
+      {
+        required: true,
+        minlength:6,
+        maxlength:18
+      },
+      mobile:
+      {
+        required: true,
+        ismobile : true,
+        remote:{     
+          url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+          type:"post",    
+          data:{"mobile":function (){return $("#mobile").val()},"act":"check_mobile","time":function (){return new Date().getTime()}}     
+        }
+      }
+    },
+    messages: {
+      password: 
+      {
+        required: "请填写密码",
+        minlength: jQuery.format("填写不能小于{0}个字符"),
+        maxlength: jQuery.format("填写不能大于{0}个字符")
+      },
+      mobile: {
+        required: "请填写手机号",
+        remote: jQuery.format("手机号已被注册")
+      }
+    },
+    errorPlacement: function(error, element) {
+    if ( element.is(":radio") )
+        error.appendTo( element.parent().next().next() );
+    else if ( element.is(":checkbox") )
+        error.appendTo ( element.next());
+    else
+        error.appendTo(element.parent().next());
+    }
+  });
+  // 手机
+  jQuery.validator.addMethod("ismobile", function(value, element) { 
+  var tel = /^(13|15|18|17)\d{9}$/;
+  var $cstr= false;
+  if (tel.test(value)) $cstr= true;
+  return $cstr || this.optional(element); 
+  }, "请输入正确的手机号");
+});
+</script>
+</head>
+<body>
+  <!-- 头部 -->
+  {#include file="user/reg_header.htm"#}
+  <!-- main -->
+  <div class="container">
+    <div class="third-reg-wrap">
+      <h1>只差一步，即可激活您的账号</h1>
+      <p class="t-reg-tips">快速完成账号激活<br />完成账号激活后，即可直接登录哦！</p>
+      <div class="t-reg-main clearfix">
+        <div class="reg-left-form f-left">
+          <form action="?act=activate_save" id="Form1" method="post">
+          <div class="reg-form-item clearfix">
+            <div class="reg-form-type f-left">  注册类型</div>
+            <div class="reg-form-content f-left">
+              <div class="member-type-wrap clearfix">
+                <div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>个人</div>
+                <div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企业</div>
+              </div>
+            </div>
+          </div>
+          <div class="reg-form-item clearfix">
+            <div class="reg-form-type f-left">用户名</div>
+            <div class="reg-form-content f-left">
+              {#$activate_username#}
+            </div>
+            <div class="verification f-left"  style="width: 180px;overflow: hidden;"></div>
+          </div>
+          <div class="reg-form-item clearfix">
+            <div class="reg-form-type f-left">邮箱</div>
+            <div class="reg-form-content f-left">
+              {#$activate_email#}
+              <input type="hidden" name="act_email" id="email" class="text text-lg span350" value="{#$activate_email#}" placeholder="请输入您的邮箱" />
+            </div>
+            <div class="verification f-left"  style="width: 180px;overflow: hidden;"></div>
+          </div>
+          <div class="reg-form-item clearfix">
+            <div class="reg-form-type f-left">  密码</div>
+            <div class="reg-form-content f-left">
+              <input type="password" name="pwd" id="password" class="text text-lg span350" placeholder="密码" />
+            </div>
+            <div class="verification f-left" style="width: 110px;overflow: hidden;"></div>
+          </div>
+          <div class="reg-form-item clearfix">
+            <div class="reg-form-type f-left">  手机</div>
+            <div class="reg-form-content f-left">
+              <input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
+            </div>
+            <div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
+          </div>
+          <div class="reg-form-item special clearfix">
+            <div class="reg-form-type f-left">&nbsp;</div>
+            <div class="reg-form-content f-left">
+              <input type="hidden" name="member_type" class="utype" value="2"/>
+              <input type="submit" value="立即激活" class="btn btn-lg blue span1" />
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {#include file="user/footer.htm"#}
+</body>
+</html>

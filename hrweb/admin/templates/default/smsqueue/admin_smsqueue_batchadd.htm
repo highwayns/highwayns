@@ -1,0 +1,110 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		$("#export_info").click(function(){
+		
+			$("form[id=form1]").attr("action",$(this).attr("action"));
+			$("form[id=form1]").submit();
+		})
+	})
+</script> 
+
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="smsqueue/admin_smsqueue_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+	短信内容不能超过70个字！
+</p>
+</div> 
+ <div class="toptit">新增短信任务</div>
+    <form id="form1" name="form1" method="post"   action="?act=smsqueue_batchadd_save" >
+	{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+  
+    <tr>
+      <td width="120" height="30" align="right"  >收件会员：</td>
+      <td  >
+	    <label>
+	    <input name="selutype" type="radio" value="0" checked="checked" id="noutype" />
+	    不限
+		</label>
+		&nbsp;&nbsp;&nbsp;
+		 <label>
+	    <input type="radio" name="selutype" value="1"  />
+	    企业会员
+		</label>
+		
+		&nbsp;&nbsp;&nbsp;
+		 <label>
+	    <input type="radio" name="selutype" value="2"   />
+	    个人会员
+		</label>
+		&nbsp;&nbsp;&nbsp;
+		 <label>
+	    <input type="radio" name="selutype" value="3" />
+	    猎头顾问
+		</label>
+		&nbsp;&nbsp;&nbsp;
+		 <label>
+	    <input type="radio" name="selutype" value="4" />
+	    培训机构
+		</label>
+		</td>
+    </tr>
+  	<tr>
+      <td width="120" height="30" align="right"  >验证类型：</td>
+      <td>
+	    <label> <input name="verification" type="radio" value="" checked="checked" /> 不限</label>&nbsp;&nbsp;&nbsp; 
+		<label> <input name="verification" type="radio" value="1"  /> 邮箱已验证</label>&nbsp;&nbsp;&nbsp;
+	    <label> <input name="verification" type="radio" value="2" /> 邮箱未验证</label>&nbsp;&nbsp;&nbsp;
+	    <label> <input name="verification" type="radio" value="3" /> 手机已验证</label>&nbsp;&nbsp;&nbsp;
+	    <label> <input name="verification" type="radio" value="4" /> 手机未验证</label>&nbsp;&nbsp;&nbsp;
+		</td>
+    </tr>
+	  <tr>
+      <td width="120" height="30" align="right"  >登录时间：</td>
+      <td  >
+	   <label>
+	    <input name="selsettr" type="radio" value="" checked="checked" />
+	    不限
+		</label>
+		&nbsp;&nbsp;&nbsp;
+	    <label>
+	    <input name="selsettr" type="radio" value="7"  />
+	    一周未登录
+		</label>
+		&nbsp;&nbsp;&nbsp;
+		 <label>
+	    <input type="radio" name="selsettr" value="30" />
+	    一月未登录
+		</label>
+		</td>
+    </tr>
+	
+		  <tr>
+            <td width="100" align="right">发送内容:</td>
+            <td>
+			  <textarea name="s_body" class="input_text_400" style="height:80px;"></textarea>
+			  <span class="admin_note">内容超过70个字符将自动截取</span>		    </td>
+          </tr>
+	  
+	  
+	      <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  > 
+            <input name="submit3" type="submit" class="admin_submit"    value="添加"/>
+       	    <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       	    <input name="submit22" type="button" class="admin_submit"  action="?act=export_info"  id="export_info" value="导出信息" />
+       </td>
+    </tr>
+  </table>
+    </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

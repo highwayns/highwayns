@@ -1,0 +1,77 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//全选
+	$('#categorychkAll').click(function(){$("#form1 :checkbox").attr('checked',$("#chk").attr('checked'))});
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="weixin/admin_weixin_nav.htm"#}
+  <div class="clear"></div>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=del_binding">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="categorychkAll"><input type="checkbox" name=" " title="全选/反选" id="chk" />用户名
+     </label>
+	 
+	  </td>
+	  <td width="230"   align="center"  class="admin_list_tit">OpenId</td>
+	  <td width="230"   align="center"  class="admin_list_tit">绑定时间</td>
+      <td width="260"   align="center" class="admin_list_tit">操作</td>
+    </tr>
+    {#if $userlist#}
+	  {#foreach from=$userlist item=list#}
+     <tr id="tr_{#$list.id#}">
+      <td   class="admin_list admin_list_first" >
+      <input type="checkbox" name="uid[]" value="{#$list.uid#}" id="{#$list.uid#}"  class="Bcheck"/>
+	  {#$list.username#}
+	  <span style="color:#CCCCCC">(uid:{#$list.uid#})</span>	  </td>
+	  <td align="center"  class="admin_list">
+	   {#$list.weixin_openid#}
+	  </td>
+	  <td align="center"  class="admin_list">
+		{#$list.bindingtime|date_format:"%Y-%m-%d"#}
+	  </td>
+      <td align="center" class="admin_list">
+			  <a onclick="return confirm('你确定要解除此会员绑定吗？')" href="?act=del_binding&uid={#$list.uid#}&{#$urltoken#}">解除绑定</a>
+			 </td>
+    </tr>
+      {#/foreach#}
+      {#else#}
+		  <tr >
+			  <td  class="admin_list"  style="padding-left:10px;">
+			   没有任何信息!
+			  </td>
+			   <td align="center"  class="admin_list">&nbsp;
+			  </td>
+			  <td class="admin_list"  >&nbsp;
+			  
+			    </td>
+			  <td class="admin_list"  >&nbsp;
+			  
+			    </td>
+				
+			</tr>
+			{#/if#}
+    </table>
+	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+        <input name="ButCancel" type="submit" class="admin_submit" id="ButCancel" value="解除绑定"/>
+		</td>
+        <td width="305" align="right">
+	  
+	    </td>
+      </tr>
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

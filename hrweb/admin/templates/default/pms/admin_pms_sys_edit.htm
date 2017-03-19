@@ -1,0 +1,103 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+//验证
+$(document).ready(function() {
+ $("#FormData").validate({
+ //debug: true,
+// onsubmit:false,
+//onfocusout :true,
+   rules:{
+   message:{
+    required: true,
+	minlength:1,
+    maxlength:150
+   }
+	},
+	
+    messages:
+	{
+    message: {
+    required: "请输入内容",
+    minlength: jQuery.format("内容不能小于{0}个字符"),
+	maxlength: jQuery.format("内容不能大于{0}个字符")
+   }
+  },
+  errorPlacement: function(error, element) {
+    if ( element.is(":radio") )
+        error.appendTo( element.parent().next().next() );
+    else if ( element.is(":checkbox") )
+        error.appendTo ( element.next());
+    else
+        error.appendTo(element.parent());
+	}
+    });
+});
+})
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="pms/admin_pms_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+此修改无法影响已经收到消息的用户<br />
+</p>
+</div>
+<div class="toptit">修改消息</div>
+  <form action="?act=pms_editsave" method="post"   name="FormData" id="FormData" >
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="5" cellspacing="0"  class="admin_table">
+      <tr>
+        <td width="100" align="right" >接受会员：</td>
+        <td >
+		<label><input name="spms_usertype" type="radio" value="0" {#if $pms.spms_usertype=="0"#}checked="checked"{#/if#} />全部会员</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="1"  {#if $pms.spms_usertype=="1"#}checked="checked"{#/if#}/>仅企业会员 </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="2" {#if $pms.spms_usertype=="2"#}checked="checked"{#/if#} />仅个人会员 </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="3" {#if $pms.spms_usertype=="3"#}checked="checked"{#/if#} />仅猎头顾问 </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="4" {#if $pms.spms_usertype=="4"#}checked="checked"{#/if#} />仅培训机构 </label>
+		</td>
+      </tr>
+      <tr>
+        <td align="right" >类型：</td>
+        <td >
+		<label><input name="spms_type" type="radio" value="1" {#if $pms.spms_type=="1"#}checked="checked"{#/if#}/>普通消息</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_type" value="2"  {#if $pms.spms_type=="2"#}checked="checked"{#/if#}/>注册提醒 </label>
+		</td>
+      </tr>
+	   
+      <tr>
+        <td align="right" valign="top" >消息内容：</td>
+        <td > <textarea name="message" id="message" style="width:400px; height:150px; font-size:12px; line-height:180%">{#$pms.message#}</textarea></td>
+      </tr>
+      <tr>
+        <td align="right" >&nbsp;<input name="id" type="hidden" value="{#$pms.spmid#}" /></td>
+        <td height="60" valign="top" ><input type="submit" name="Submit" value="保存" class="admin_submit"   /></td>
+      </tr>
+    </table>
+   
+  </form>
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

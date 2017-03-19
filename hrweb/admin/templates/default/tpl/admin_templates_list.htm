@@ -1,0 +1,65 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript"> 
+$(document).ready(function()
+{
+	$(".tpl_list").hover(
+  function () {
+    $(this).css("background-color","#E4F4FC");
+  },
+  function () {
+    $(this).css("background-color","");
+  }
+);
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="tpl/admin_templates_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+新增模板只需将模板文件上传至 ./templates目录下，更多模版请到 <a href="http://www.74cms.com/bbs" target="_blank" style="color:#009900">[论坛]</a> 获取。<br />
+      使用与骑士CMS不同版本的模板易产生错误<br />
+      如果您熟悉html语法，则可以参考 <a href="http://www.74cms.com/handbook" target="_blank" style="color:#009900">[模版开发手册]</a> 自定义风格模版。
+</p>
+</div>
+<div class="toptit">当前模板</div>
+<table width="460" border="0" cellspacing="12" cellpadding="0" class="link_lan"  >
+    <tr>
+      <td width="225">
+	  <a href="../" target="_blank"><img src="../templates/{#$templates.dir#}/thumbnail.jpg" alt="{#$templates.info.name#}" width="225" height="136" border="1"  style="border: #CCCCCC;" />
+	  </a>
+	  </td>
+      <td width="220" class="link_lan" style="line-height:180%">
+	  名称：{#$templates.info.name#}<br />
+        版本：{#$templates.info.version#}<br />
+        作者：<a href="{#$templates.info.authorurl#}" target="_blank">{#$templates.info.author#}</a><br />
+		模版ID：{#$templates.dir#}
+		<br />
+	  <input type="button" name="Submit22" value="备份此模板" class="admin_submit"    onclick="window.location='?act=backup&tpl_name={#$templates.dir#}&{#$urltoken#}'"  style="margin-top:10px;"/>
+	  <input type="button" name="Submit22" value="编辑模板" class="admin_submit"    onclick="window.location='?act=edit'"  style="margin-top:10px;"/>
+	  </td>
+    </tr>
+  </table>
+	<div class="toptit">可用模板</div>
+	{#foreach from=$list item=li#}
+	  <div style="float:left; width:240px;  text-align:center; padding:15px; line-height:180%"  class="link_lan tpl_list">
+	  <a href="?act=set&tpl_dir={#$li.dir#}&{#$urltoken#}" onclick="return confirm('你确定要使用此模板吗？(提示：频繁更换模版会影响网站排名)')">
+	  <img src="../templates/{#$li.dir#}/thumbnail.jpg" alt="{#$li.info.name#}" width="225" height="136" border="1"  style="border: #CCCCCC;"/>
+	  </a>
+	  <br />
+	 <strong>{#$li.info.name#}</strong>
+	 <br />
+	{#$li.info.version#} (作者:<a href="{#$li.info.authorurl#}" target="_blank">{#$li.info.author#}</a>)
+	 <br />
+	模版ID：{#$li.dir#}
+	 </div>
+	{#/foreach#}
+	<div class="clear"></div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

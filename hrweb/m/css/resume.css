@@ -1,0 +1,89 @@
+﻿/*简历搜索页*/
+.resume_so{width:92%;margin:0 auto; margin-top:12px;border:1px #CACACA solid;background-color:#FFFFFF;height:40px; position:relative}
+.resume_so .keyinput{height:25px; padding-top:6px; border:1px #FFFFFF solid; padding-left:10px; width:80%; font-size:16px; color:#333333}
+.resume_so .clearkey{ position:absolute; top:10px; right:70px;}
+.resume_so .clearkey img{ width:20px;}
+.resume_so .so_sub{position:absolute; top:0px; right:0px; width:50px; height:40px; background-color:#F6F6F6; border-left:1px #CACACA solid;}
+.resume_so .so_sub img{ margin-top:8px; margin-left:3px;}
+/*简历搜索页_更多搜索选项*/
+.resume_so_menu{border-top:1px #CACACA solid;border-bottom:1px #CACACA solid;margin-top:12px; background-color:#FFFFFF;height:40px;width:100%;}
+.resume_so_menu .menulistbox{ width:25%; float:left; height:40px;background:url(../images/20.jpg) no-repeat right center; line-height:40px; text-align:center; font-size:14px;}
+.resume_so_menu .menulistbox.last{background:url(../images/21.jpg) no-repeat right center;}
+.resume_list {padding-top:2px;width:92%;margin:0 auto;}
+.resume_list .list{ width:100%; border-bottom:1px #CACACA solid; padding-top:8px; font-size:12px; height:80px; line-height:200%; background:url(../images/14.png) no-repeat right center;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.resume_list .list span{ font-size:14px; color: #0066CC}
+.resume_list .list span a{ text-decoration: none; color: #0066CC}
+.resume_list .more{ width:100%;margin:0 auto; height:32px;line-height: 32px;background: url(../images/more_but_bg.jpg)top left repeat-x;text-align:center;border:1px #CACACA solid;margin-top:12px;font-size: 14px;color:#0180CF;}
+.resume_list .more a{font-size: 14px;color:#0180CF;}
+/*简历详细页*/
+.resume_show_box{width:92%;margin:0 auto; margin-top:12px;border:1px #CACACA solid;background-color:#FFFFFF;position:relative}
+.resume_show_box .title{ width:100%; height:35px; line-height:35px; background-color:#F6F6F6;}
+.resume_show_box .title h2{ padding-left:13px; font-size:14px; color:#333333; font-weight:normal}
+.resume_show_box .txt{ padding-left:13px; padding-top:10px; padding-bottom:13px; font-size:12px; line-height:180%; color:#666666; padding-right:13px;}
+.resume_show_box .txt_box{padding:13px;font-size: 12px;color:#666;line-height: 180%;}
+.resume_show_box .txt_box .jobname{font-size: 14px;font-weight: normal;color:#0180CF;padding-bottom: 13px;}
+.resume_show_box .txt_box .detail{font-size: 12px;color:#666;line-height: 180%;border-bottom: 1px solid #F0F0F0;padding-bottom: 13px;}
+.resume_show_box .txt_box .detail .money{color:#FD9900;font-size: 14px;}
+.resume_show_box .txt_box .welfare{margin-top: 10px;}
+.resume_show_box .txt_box .welfare ul{margin:0;padding:0;list-style: none;}
+.resume_show_box .txt_box .welfare ul li{float: left;width:33%;}
+.resume_show_box .txt_box .welfare ul li .weifare_box{padding-left: 17px;background-image: url(../images/37.gif);background-repeat: no-repeat;background-position: left center;color:#666;height:25px;line-height: 25px;overflow:hidden;white-space: nowrap;text-overflow:ellipsis;}
+.resume_show_box .txt .l{ float:left; width:50%;}
+.resume_show_box .txt.telbox{ width:70%;height:60px;}
+.resume_show_box .telimg{ width:60px; height:60px; position:absolute; right:15px; top:45px;}
+
+ /*简历预览收藏页面*/
+.resume_show_box{width:92%;margin:0 auto;border:1px solid #ccc;margin-top: 10px;background-color: #fff;}
+.top .top_box{padding:10px;}
+.top .top_box .person_info{border-bottom:1px solid #F0F0F0;padding-bottom: 10px;}
+.top .top_box .person_info h3{font-size: 14px;color:#333;font-weight: normal;}
+.top .top_box .person_info h3 span{font-size: 12px;padding-left: 5px;}
+.top .top_box .person_info .time_box{width:100%;margin-top: 5px;}
+.top .top_box .person_info .time_box .time{float: left;width:50%;text-align: left;color:#999;}
+.top .top_box .person_info .time_box .time div{background-image: url(../images/40.gif);padding-left: 11px;background-repeat: no-repeat;background-position: left center;}
+.top .top_box .person_info .time_box .watch{float: left;width:50%;text-align: right;color:#999;}
+.top .top_box .person_info .time_box .watch div{display: inline; background-image: url(../images/41.gif);padding-left: 11px;background-repeat: no-repeat;background-position: left center;}
+.top .top_box .tag_box{}
+.top .top_box .tag_box .tag_li{display: inline-block;margin-top: 10px;color:#666; height:22px;line-height: 22px;border-left: 3px solid #ffae33;padding-left: 5px;padding-right: 18px;margin-right: 12px;background: url(../images/42.png)no-repeat right center #fff5e5;}
+.resume_show_box h2{height:30px;line-height: 30px;background-color: #F6F6F6;padding-left: 10px;font-weight: normal;font-size: 14px;color:#333;}
+.resume_show_box .detail_content{padding:10px;background-color: #fff;}
+.resume_show_box .detail_content .aim{line-height: 180%;font-size: 12px;color:#666;}
+.resume_show_box .detail_content .edu_exp_box{border-bottom: 1px solid #F0F0F0;line-height: 180%;color:#666;}
+.resume_show_box .detail_content .edu_exp_box .edu_exp{padding-bottom: 7px;}
+.resume_show_box .detail_content .edu_exp_box .edu_exp .edu_li{float: left;margin-right: 20px;}
+.resume_show_box .detail_content .work_time{line-height: 180%;color:#666;margin-bottom: 5px;}
+.resume_show_box .detail_content .com{width:100%;line-height: 180%;}
+.resume_show_box .detail_content .com .com_name{float: left;width:50%;color:#666;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.resume_show_box .detail_content .com .work_name{float: left;width:50%;color:#666;/*text-align: right;*/ overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.resume_show_box .detail_content .work_content{line-height: 180%;color:#666;word-break:break-word;}
+.delivery_box{position: fixed;left:0;bottom:0; width:100%;height:45px;z-index:3;}
+.delivery_box .shadow_box{width:100%;height:45px;line-height:45px;background-color: #000;opacity: 0.5;filter:alpha(opacity=50);position: absolute;z-index:-1;}
+.delivery_box .del_box{width:80%;margin:0 auto;margin-top: 10px;}
+.delivery_box .del_box .del_box_l{float: left;width:60%;text-align: right;}
+.delivery_box .del_box .del_box_l .delivery_but{width:80%;height:25px;line-height: 25px;text-align: center;background-color: #FE9900;font-size: 14px;color:#fff;}
+.delivery_box .del_box .del_box_r{float: left;width:40%;}
+.delivery_box .del_box .del_box_r .favorites{font-size: 14px;color:#fff;padding-left: 16px;background-image: url(../images/38.png);background-repeat: no-repeat;background-position: left -21px;height:25px;line-height: 25px;cursor: pointer;}
+.delivery_box .del_box .del_box_r .favorites.done{background-position: left 5px;}
+
+
+/*新的职位搜索样式*/
+.jobs_so_menus{width:100%;background-color: #fff;margin-top: 10px;}
+.jobs_so_menus .menulistboxs{float: left;width:25%;text-align: center;height:38px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;cursor: pointer;}
+.jobs_so_menus .menulistboxs.select{border-bottom-color: #E17F00;}
+.jobs_so_menus .menulistboxs.select .so_box{color:#E17F00;}
+.jobs_so_menus .menulistboxs .so_box{margin-top: 4px;margin-bottom: 4px;border-right:1px solid #ccc;height:30px;line-height: 30px;font-size: 14px;color:#666;}
+.jobs_so_menus .menulistboxs .so_box.moneys{border-right:0;}
+.jobs_so_menus .menulistboxs .so_box img{position: relative;top:2px;left: 2px;}
+.so_complete{position: relative; width:97%;background-color: #fff;/*height:40px;line-height: 40px;*/font-size: 12px;color:#666;border-bottom: 1px solid #E6E6E6;padding:10px 0;padding-left: 3%;}
+.so_complete .so_complete_box{width:90%;float: left;line-height: 20px;}
+.so_complete span{color:#0180CF;}
+.so_complete i{font-style: normal;}
+.so_complete img{position: absolute;top:30%;right:12px;}
+
+/*地区选择框*/
+.area_choose{padding:0 10px;}
+.area_choose .area_left{float: left;width:50%;overflow-y: scroll;padding:0;background-color: #fff;height: 300px;}
+.area_choose .area_left .area_big{font-size: 12px;height:40px;line-height: 40px;color:#666;text-indent: 1em;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.area_choose .area_right{float: left;width:50%;overflow-y: scroll;padding:0;background-color: #F0F0F0;height: 300px;}
+.area_choose .area_right .area_small{font-size: 12px;height:40px;line-height: 40px;color:#666;text-indent: 1em;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+

@@ -1,0 +1,235 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#ButAudit").QSdialog({
+	DialogTitle:"请选择",
+	DialogContent:"#AuditSet",
+	DialogContentType:"id",
+	DialogAddObj:"#OpAudit",	
+	DialogAddType:"html"	
+	});
+	//删除
+	$("#ButDel").click(function(){
+		if (confirm('你确定要删除吗？'))
+		{
+			$("form[name=form1]").attr("action","?act=simple_del");
+			$("form[name=form1]").submit()
+		}
+	});
+	//刷新
+	$("#Butrefresh").click(function(){
+			$("form[name=form1]").attr("action","?act=simple_refresh");
+			$("form[name=form1]").submit()
+	});
+	
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  {#include file="simple/admin_simple_nav.htm"#}
+  <div class="clear"></div>
+</div>
+ 
+ <div class="toptip">
+	<h2>提示：</h2>
+	<p>
+系统将每天自动清除过期信息，可在计划任务中编辑清除周期。
+</p>
+</div>
+
+ 
+ 
+ 
+ 
+<div class="seltpye_y">
+
+	<div class="tit link_lan">
+	<strong>微招聘列表</strong><span>(共找到{#$total#}条)</span>
+	<a href="?act=">[恢复默认]</a>
+	<div class="pli link_bk"><u>每页显示：</u>
+	<a href="{#"perpage:10"|qishi_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
+	<a href="{#"perpage:20"|qishi_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
+	<a href="{#"perpage:30"|qishi_parse_url#}" {#if $smarty.get.perpage=="30"#}class="select"{#/if#}>30</a>
+	<a href="{#"perpage:60"|qishi_parse_url#}" {#if $smarty.get.perpage=="60"#}class="select"{#/if#}>60</a>
+	<div class="clear"></div>
+	</div>
+	</div>	
+    <div class="list">
+	  <div class="t">审核状态</div>	  
+	  <div class="txt link_lan">
+	 	<a href="{#"audit:"|qishi_parse_url#}"  {#if $smarty.get.audit==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"audit:1"|qishi_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>审核通过</a>
+		<a href="{#"audit:2"|qishi_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待审核</a>
+		<a href="{#"audit:3"|qishi_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>审核未通过</a>
+	  </div>
+    </div>
+	
+	<div class="list">
+	  <div class="t">添加时间</div>	  
+	  <div class="txt link_lan">
+	 	<a href="{#"addtime:"|qishi_parse_url#}" {#if $smarty.get.addtime==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"addtime:3"|qishi_parse_url#}" {#if $smarty.get.addtime=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"addtime:7"|qishi_parse_url#}" {#if $smarty.get.addtime=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"addtime:30"|qishi_parse_url#}" {#if $smarty.get.addtime=="30"#}class="select"{#/if#}>一月内</a>
+	  </div>
+    </div>
+	
+	<div class="list">
+	  <div class="t">到期时间</div>	  
+	  <div class="txt link_lan">
+	 	<a href="{#"deadline:"|qishi_parse_url#}" {#if $smarty.get.deadline==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"deadline:0"|qishi_parse_url#}" {#if $smarty.get.deadline=="0"#}class="select"{#/if#}>已经到期</a>
+		<a href="{#"deadline:3"|qishi_parse_url#}" {#if $smarty.get.deadline=="3"#}class="select"{#/if#}>三天内到期</a>
+		<a href="{#"deadline:7"|qishi_parse_url#}" {#if $smarty.get.deadline=="7"#}class="select"{#/if#}>一周内到期</a>
+	  </div>
+    </div>
+	
+	<div class="list">
+	  <div class="t">刷新时间</div>	  
+	  <div class="txt link_lan">
+	 	<a href="{#"refreshtime:"|qishi_parse_url#}" {#if $smarty.get.refreshtime==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"refreshtime:3"|qishi_parse_url#}" {#if $smarty.get.refreshtime=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"refreshtime:7"|qishi_parse_url#}" {#if $smarty.get.refreshtime=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"refreshtime:30"|qishi_parse_url#}" {#if $smarty.get.refreshtime=="30"#}class="select"{#/if#}>一月内</a>
+	  </div>
+    </div>
+	
+	 
+	
+	
+	<div class="clear"></div>
+</div>
+
+ 
+  
+  <form id="form1" name="form1" method="post" action="?act=jobs_perform">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="link_lan" id="list">
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>招聘职位</label>
+	  </td>
+      <td  class="admin_list_tit">公司名称</td>
+	   <td width="10%"   class="admin_list_tit"> 审核状态 </td>
+      <td width="10%"    align="center" class="admin_list_tit"> 刷新时间 </td>
+      <td width="10%"    align="center" class="admin_list_tit">发布时间</td>
+      <td width="10%"   align="center" class="admin_list_tit" >到期日期</td>
+      <td width="10%"    align="center" class="admin_list_tit" >操作</td>
+    </tr>
+	  {#foreach from=$list item=list#}
+      <tr>
+      <td  class="admin_list admin_list_first">
+        <input name="id[]" type="checkbox" id="id" value="{#$list.id#}"/>    
+		<a href="?act=simple_edit&id={#$list.id#}">{#$list.jobname#}</a>
+	    </td>
+		 <td  class="admin_list" >
+		{#$list.comname#}
+		 </td>
+		  <td  class="admin_list" >
+		{#if $list.audit=="1"#}
+		<span style="color:#009900">审核通过</span>
+		{#elseif $list.audit=="2"#}
+		等待审核
+		{#elseif $list.audit=="3"#}
+		<span style="color: #999999">审核未通过</span>
+		{#/if#}
+		 </td>
+        <td align="center"  class="admin_list">
+		{#$list.refreshtime|date_format:"%m-%d  %H:%M"#}		
+		</td>
+        <td align="center"  class="admin_list">
+		{#$list.addtime|date_format:"%m-%d  %H:%M"#}
+		</td>
+        <td align="center"  class="admin_list">
+		{#if $list.deadline=="0"#}
+		长期
+		{#else#}
+		{#$list.deadline|date_format:"%Y-%m-%d"#}
+		{#/if#}
+		</td>
+        <td align="center"  class="admin_list">
+		<a href="?act=simple_edit&id={#$list.id#}">修改</a> &nbsp;&nbsp;
+		<a href="?act=simple_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+      </tr>
+      {#/foreach#}
+    </table>
+	<span id="OpAudit"></span>
+  </form>
+	{#if !$list#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}	
+<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="新增"  onclick="window.location='?act=simple_add'"/>
+		<input name="ButAudit" type="button" class="admin_submit" id="ButAudit" value="审核" />
+		 <input name="Butrefresh" type="button" class="admin_submit" id="Butrefresh" value="刷新" />
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除"/>
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"职位"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="职位">职位</li>
+														<li id="2" title="公司">公司</li>
+														<li id="3" title="电话">电话</li>
+														<li id="4" title="联系人">联系人</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+
+<div style="display:none" id="AuditSet">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+    <tr>
+      <td width="20" height="30">&nbsp;</td>
+      <td height="30"><strong  style="color:#0066CC; font-size:14px;">将所选信息置为：</strong></td>
+    </tr>
+	      <tr>
+      <td width="27" height="25">&nbsp;</td>
+      <td>
+                      <label><input name="audit" type="radio" value="1" checked="checked"  />
+                      审核通过</label></td>
+    </tr>
+    <tr>
+      <td width="27" height="25">&nbsp;</td>
+      <td>
+                      <label><input type="radio" name="audit" value="3"  />
+                       审核未通过</label></td>
+    </tr>
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td>
+	  <input type="submit" name="set_audit" value="确定" class="admin_submit"/>
+ </td>
+    </tr>
+  </table>
+  </div>
+
+
+
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

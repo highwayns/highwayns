@@ -1,0 +1,72 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="users/admin_users_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+通过管理员设置，您可以进行编辑管理员资料、权限、密码以及删除管理员等操作；
+</p>
+</div> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
+    <tr>
+      <td class="admin_list_tit admin_list_first">用户名</td>
+      <td  class="admin_list_tit">头衔</td>
+      <td  class="admin_list_tit">创建时间</td>
+      <td  class="admin_list_tit">最后登录时间</td>
+      <td  class="admin_list_tit">最后登录ip</td>
+      <td width="230" align="center"  class="admin_list_tit">操作</td>
+    </tr>
+	 {#foreach from=$list item=li#}
+	   <tr>
+      <td  class="admin_list admin_list_first">{#$li.admin_name#}</td>
+      <td   class="admin_list">{#$li.rank#}</td>
+      <td   class="admin_list">{#$li.add_time|date_format:"%Y-%m-%d"#} </td>
+      <td   class="admin_list">
+	  {#if $li.last_login_time=="0"#}
+		从未
+		{#else#}
+		{#$li.last_login_time|date_format:"%Y-%m-%d"#}
+		{#/if#}
+	  </td>
+      <td   class="admin_list">{#$li.last_login_ip#}</td>
+      <td   class="admin_list">
+	  <a href="?act=loglist&adminname={#$li.admin_name#}" >管理员日志</a>
+		&nbsp;&nbsp;
+		<a href="?act=users_set&id={#$li.admin_id#}">权限</a>
+		&nbsp;&nbsp;
+		<a href="?act=edit_users&id={#$li.admin_id#}" >详情</a>
+		&nbsp;&nbsp;
+		<a href="?act=edit_users_pwd&id={#$li.admin_id#}" >密码</a>
+		{#if $admin_purview=="all"#}
+		&nbsp;&nbsp;
+		<a href="?act=del_users&id={#$li.admin_id#}&{#$urltoken#}" onclick="return confirm('确定要删除吗？')">删除</a>
+		{#/if#}		
+	  </td>
+    </tr>
+	  {#/foreach#}
+  </table>
+  {#if $admin_purview=="all"#}
+   <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+
+          <input type="button" name="add" value="添加管理员" class="admin_submit"   onclick="window.location.href='?act=add_users'" />
+        	
+		</td>
+        <td width="305" align="right">
+		 
+		
+	    </td>
+      </tr>
+  </table>
+  {#/if#}
+<div class="page link_bk">{#$page#}</div>
+	 
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

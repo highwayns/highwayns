@@ -1,0 +1,47 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="set_com/admin_set_com_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+积分模式是指会员每次发布信息都扣除相应的积分，通过会员充值积分来实现网站盈利，此模式简易灵活，无时间限制。<br />
+套餐模式是指会员可以购买不同等级服务，如普通会员，VIP会员等，每个等级都有不同的使用权限,此模式下不允许职位延期
+</p>
+</div>
+<div class="toptit">设置运营模式</div>
+  <form action="?act=modeselect_save" method="post"  name="form1" id="form1">
+  {#$inputtoken#}
+     <table width="400" border="0" cellspacing="0" cellpadding="10">
+      <tr>
+        <td align="center"><label>
+          <input name="operation_mode" type="radio" value="1"  {#if $QISHI.operation_mode=='1'#}checked="checked"{#/if#}/>
+          积分模式</label>
+		
+         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="operation_mode" value="2" {#if $QISHI.operation_mode=='2'#}checked="checked"{#/if#}/>
+        套餐模式</label>
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="operation_mode" value="3" {#if $QISHI.operation_mode=='3'#}checked="checked"{#/if#}/>
+        积分套餐混合模式</label><b style="color:#FF0000">&nbsp;&nbsp;推荐！</b>
+      </td>
+	 
+      </tr>
+      <tr>
+        <td align="center"><span style="font-size:14px;">
+          <input name="submit2" type="submit" class="admin_submit"    value="保存修改"/>
+        </span></td>
+      </tr>
+      <tr>
+        <td height="100" align="center">&nbsp;</td>
+      </tr>
+    </table>
+     
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

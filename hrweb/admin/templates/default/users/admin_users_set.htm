@@ -1,0 +1,887 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#selectAll").click(function()
+	{	
+		$("form :checkbox").attr("checked",true);
+		setbg();
+	});
+	$("#uncheckAll").click(function()
+	{	
+		$("form :checkbox").attr("checked",false);
+		setbg();
+	});
+	$("#opposite").click(function()
+	{	
+		$("form :checkbox").each(function()
+		{
+		$(this).attr("checked")?$(this).attr("checked",false):$(this).attr("checked",true);
+		});
+		setbg();
+	});	
+});
+</script>
+{#if $admin_purview<>"all"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#form1 :checkbox").attr("disabled","false");
+});
+</script>
+{#/if#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="users/admin_users_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+通过管理员设置，您可以进行编辑管理员资料、权限、密码以及删除管理员等操作；
+</p>
+</div> 
+<div class="toptit">管理员权限
+<span style="color: #FF3300">({#$account.admin_name#})</span>
+	  {#if $admin_purview=="all"#}
+	  &nbsp;&nbsp;&nbsp;
+	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全选]</span>
+	  &nbsp;&nbsp;&nbsp;
+	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[全不选]</span>
+	  &nbsp;&nbsp;&nbsp;
+	  <span id="opposite" style="color:#0066CC; cursor:pointer">[反选]</span>
+	  {#/if#}
+</div>
+  {#if $account.purview=="all"#}
+  <div  style="color:#009900; padding:24px;">系统超级管理员权限不允许修改！</div>
+    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+    <tr>
+      <td bgcolor="#FFFFFF"  style="padding-left:24px;" > 
+      <input name="submit22" type="button" class="admin_submit"    value="返回上一步" onclick="Javascript:window.history.go(-1)"/></td>
+    </tr>
+  </table>
+  {#else#}
+    <form id="form1" name="form1" method="post" action="?act=users_set_save">
+	{#$inputtoken#}
+	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>职位管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="jobs_show" {#if "jobs_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看职位 
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="jobs_edit" {#if "jobs_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改职位
+
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="jobs_del" {#if "jobs_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除职位
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="jobs_audit" {#if "jobs_audit"|in_array:$admin_set#}checked="checked"{#/if#} />审核职位
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+      </table>
+	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>企业管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_show" {#if "com_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看企业
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_edit" {#if "com_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改企业
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_del" {#if "com_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除企业
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_audit" {#if "com_audit"|in_array:$admin_set#}checked="checked"{#/if#} />认证企业
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_promotion" {#if "com_promotion"|in_array:$admin_set#}checked="checked"{#/if#} />企业推广
+</label>
+</li>
+<li class="clear" style="list-style:none; display:none"></li>
+</ul> 
+      </td>
+        </tr>
+      </table>
+    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>顾问管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+      <ul style="margin:0px; padding:3px; list-style:none">     
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="consultant_show" {#if "consultant_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看顾问
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="consultant_add" {#if "consultant_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加顾问
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="consultant_edit" {#if "consultant_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改顾问
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="consultant_del" {#if "consultant_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除顾问
+</label>
+</li>
+
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+      </table>	  
+
+ 
+   {#if $_PLUG.simple.p_install==2#}
+
+ <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>微招聘：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="simple_list" {#if "simple_list"|in_array:$admin_set#}checked="checked"{#/if#} />查看微招聘
+</label>
+</li>
+
+ <li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="simple_add" {#if "simple_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加微招聘
+</label>
+</li>
+
+ <li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="simple_edit" {#if "simple_edit"|in_array:$admin_set#}checked="checked"{#/if#} />编辑微招聘
+</label>
+</li>
+
+
+ <li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="simple_audit" {#if "simple_audit"|in_array:$admin_set#}checked="checked"{#/if#} />审核微招聘
+</label>
+</li>
+ <li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="simple_refresh" {#if "simple_refresh"|in_array:$admin_set#}checked="checked"{#/if#} />刷新微招聘
+</label>
+</li>
+ <li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="simple_del" {#if "simple_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除微招聘
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+      </table>
+	 {#/if#} 
+       <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+          <tr>
+            <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>移动端配置：</strong></td>
+          </tr>
+          <tr>
+            <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+              <ul style="margin:0px; padding:3px; list-style:none">
+                <li  class="user_box_li">
+                <label>
+                <input name="purview[]" type="checkbox"  value="set_weixinconnect" {#if "set_weixinconnect"|in_array:$admin_set#}checked="checked"{#/if#} />微信公众平台 
+                </label>
+                </li>
+                <li class="clear" style="list-style:none; display:none"></li>
+              </ul> 
+            </td>
+          </tr>
+        </table>
+
+	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>会员设置：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_user_show" {#if "com_user_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看企业会员
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_user_add" {#if "com_user_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加企业会员
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_user_edit" {#if "com_user_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改企业会员
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="com_user_del" {#if "com_user_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除企业会员
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+       
+		        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="per_user_show" {#if "per_user_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看个人会员
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="per_user_add" {#if "per_user_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加个人会员
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="per_user_edit" {#if "per_user_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改个人会员
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="per_user_del" {#if "per_user_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除个人会员
+</label>
+</li>
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+      </table>
+	  	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>订单管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ord_show" {#if "ord_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看订单
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ord_set" {#if "ord_set"|in_array:$admin_set#}checked="checked"{#/if#} />设置订单
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ord_del" {#if "ord_del"|in_array:$admin_set#}checked="checked"{#/if#} />取消订单
+</label>
+</li>
+<!-- -->
+<!-- -->
+		
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="meallog_del" {#if "meallog_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除套餐记录
+</label>
+</li>
+<!-- -->
+
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+      </table>
+	   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>简历管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="resume_show" {#if "resume_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看简历
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="resume_audit" {#if "resume_audit"|in_array:$admin_set#}checked="checked"{#/if#} />审核简历
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="resume_talent" {#if "resume_talent"|in_array:$admin_set#}checked="checked"{#/if#} />设置简历等级
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="resume_photo_audit" {#if "resume_photo_audit"|in_array:$admin_set#}checked="checked"{#/if#} />审核简历照片
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="resume_del" {#if "resume_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除简历
+</label>
+</li>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+		  </td>
+        </tr>
+      </table>
+	  	   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>内容管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="article_show" {#if "article_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看资讯
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="article_add" {#if "article_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加资讯
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="article_edit" {#if "article_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改资讯
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="article_del" {#if "article_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除资讯
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="article_property" {#if "article_property"|in_array:$admin_set#}checked="checked"{#/if#} />设置资讯属性
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="article_category" {#if "article_category"|in_array:$admin_set#}checked="checked"{#/if#} />设置资讯分类
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="hrtools" {#if "hrtools"|in_array:$admin_set#}checked="checked"{#/if#} />HR工具箱
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="help" {#if "help"|in_array:$admin_set#}checked="checked"{#/if#} />帮助
+</label>
+</li>
+<!-- -->
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+</td>
+  </tr>
+  <tr>
+<td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+ <ul style="margin:0px; padding:3px; list-style:none">	
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="explain_show" {#if "explain_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看说明页
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="explain_add" {#if "explain_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加说明页
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="explain_edit" {#if "explain_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改说明页
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="explain_del" {#if "explain_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除说明页
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="explain_category" {#if "explain_category"|in_array:$admin_set#}checked="checked"{#/if#} />设置说明页分类
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+	    </td>
+        </tr>
+		<tr>
+<td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+ <ul style="margin:0px; padding:3px; list-style:none">	
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="notice_show" {#if "notice_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看公告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="notice_add" {#if "notice_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加公告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="notice_edit" {#if "notice_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改公告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="notice_del" {#if "notice_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除公告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="notice_category" {#if "notice_category"|in_array:$admin_set#}checked="checked"{#/if#} />设置公告分类
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+	    </td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+      <ul style="margin:0px; padding:3px; list-style:none">     
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="report_show" {#if "report_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看举报
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="report_del" {#if "report_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除举报
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="suggest_show" {#if "suggest_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看建议
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="suggest_del" {#if "suggest_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除建议
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul> 
+</td>
+  </tr>
+      </table>
+	    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>广告管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ad_show" {#if "ad_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看广告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ad_add" {#if "ad_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加广告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ad_edit" {#if "ad_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改广告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ad_del" {#if "ad_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除广告
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="ad_category" {#if "ad_category"|in_array:$admin_set#}checked="checked"{#/if#} />广告位管理
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+</td>
+  </tr>
+      </table>
+	  	    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>友情链接管理：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">		  
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="link_show" {#if "link_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看链接
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="link_add" {#if "link_add"|in_array:$admin_set#}checked="checked"{#/if#} />添加链接
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="link_edit" {#if "link_edit"|in_array:$admin_set#}checked="checked"{#/if#} />修改链接
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="link_del" {#if "link_del"|in_array:$admin_set#}checked="checked"{#/if#} />删除链接
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="link_category" {#if "link_category"|in_array:$admin_set#}checked="checked"{#/if#} />链接分类
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="link_set" {#if "link_set"|in_array:$admin_set#}checked="checked"{#/if#} />自助友链设置
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+</td>
+  </tr>
+      </table>
+	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>工具插件：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+      <ul style="margin:0px; padding:3px; list-style:none">     
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="tpl_show" {#if "tpl_show"|in_array:$admin_set#}checked="checked"{#/if#} />查看模版
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="tpl_edit" {#if "tpl_edit"|in_array:$admin_set#}checked="checked"{#/if#} />编辑模版
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="tpl_backup" {#if "tpl_backup"|in_array:$admin_set#}checked="checked"{#/if#} />备份模版
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="tpl_company" {#if "tpl_company"|in_array:$admin_set#}checked="checked"{#/if#} />企业模版
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="tpl_resume" {#if "tpl_resume"|in_array:$admin_set#}checked="checked"{#/if#} />简历模版
+</label>
+</li>
+<!-- -->
+</ul> 
+</td>
+  </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">	 
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="database" {#if "database"|in_array:$admin_set#}checked="checked"{#/if#} />数据库
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="locoyspider" {#if "locoyspider"|in_array:$admin_set#}checked="checked"{#/if#} />火车头采集
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_payment" {#if "site_payment"|in_array:$admin_set#}checked="checked"{#/if#} />支付方式 
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_qqconnect" {#if "set_qqconnect"|in_array:$admin_set#}checked="checked"{#/if#} />QQ互联  
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_sinaconnect" {#if "set_sinaconnect"|in_array:$admin_set#}checked="checked"{#/if#} />新浪微博登录 
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_taobaoconnect" {#if "set_taobaoconnect"|in_array:$admin_set#}checked="checked"{#/if#} />淘宝帐号登录 
+</label>
+</li>
+		
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="smsqueue" {#if "smsqueue"|in_array:$admin_set#}checked="checked"{#/if#} />短信营销
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="mailqueue" {#if "mailqueue"|in_array:$admin_set#}checked="checked"{#/if#} />邮件营销  
+</label>
+</li>
+<!-- -->
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+</td>
+  </tr>
+   <tr>
+ <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+<ul style="margin:0px; padding:3px; list-style:none">  
+        <li  class="user_box_li">
+      <label>
+      <input name="purview[]" type="checkbox"  value="site_plug" {#if "site_plug"|in_array:$admin_set#}checked="checked"{#/if#} />模块管理  
+      </label>
+      </li>
+      <li  class="user_box_li">
+      </li>
+      <li class="clear" style="list-style:none; display:none"></li>
+</ul> 
+</td>
+  </tr>  
+
+      </table>
+	  	<table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+        <tr>
+          <td height="25" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed; padding-left:20px;"><strong>网站配置：</strong></td>
+        </tr>
+        <tr>
+          <td  bgcolor="#FFFFFF" style="  padding-left:14px;">
+		  <ul style="margin:0px; padding:3px; list-style:none">
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_set" {#if "site_set"|in_array:$admin_set#}checked="checked"{#/if#} />网站配置 
+</label>
+</li>
+
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_com" {#if "set_com"|in_array:$admin_set#}checked="checked"{#/if#} />企业设置 
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_per" {#if "set_per"|in_array:$admin_set#}checked="checked"{#/if#} />个人设置 
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_simple" {#if "set_simple"|in_array:$admin_set#}checked="checked"{#/if#} />微商圈设置 
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_search" {#if "set_search"|in_array:$admin_set#}checked="checked"{#/if#} />搜索设置 
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_filter" {#if "site_filter"|in_array:$admin_set#}checked="checked"{#/if#} />信息过滤
+</label>
+</li>
+
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_mail" {#if "site_mail"|in_array:$admin_set#}checked="checked"{#/if#} />邮件配置
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_sms" {#if "set_sms"|in_array:$admin_set#}checked="checked"{#/if#} />短信设置
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="set_safety" {#if "set_safety"|in_array:$admin_set#}checked="checked"{#/if#} />安全设置
+</label>
+</li>
+
+
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_page" {#if "site_page"|in_array:$admin_set#}checked="checked"{#/if#} />页面管理
+</label>
+</li>
+<!-- -->
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_navigation" {#if "site_navigation"|in_array:$admin_set#}checked="checked"{#/if#} />导航设置 
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="site_category" {#if "site_category"|in_array:$admin_set#}checked="checked"{#/if#} />系统分类设置  
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="hotword" {#if "hotword"|in_array:$admin_set#}checked="checked"{#/if#} />热门关键词  
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="syslog" {#if "syslog"|in_array:$admin_set#}checked="checked"{#/if#} />系统日志  
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="crons" {#if "crons"|in_array:$admin_set#}checked="checked"{#/if#} />计划任务  
+</label>
+</li>
+<li  class="user_box_li">
+<label>
+<input name="purview[]" type="checkbox"  value="memberslog" {#if "memberslog"|in_array:$admin_set#}checked="checked"{#/if#} />会员日志  
+</label>
+</li>
+
+<li class="clear" style="list-style:none; display:none"></li>
+</ul>	
+</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+
+  <tr>
+    <td height="50" bgcolor="#FFFFFF" style=" border-top:1px #CCCCCC dashed; padding-left:20px;">
+     {#if $admin_purview=="all"#}
+     <input name="id" type="hidden" value="{#$account.admin_id#}" />
+     <input name="submit3" type="submit" class="admin_submit"    value="修改"/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     {#/if#}
+     <input name="submit222" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+   </td>
+ </tr>
+</table>
+</form>
+  {#/if#} 
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

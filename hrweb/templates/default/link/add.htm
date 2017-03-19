@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>友情链接申请 - {#$QISHI.site_name#}</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/link.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript'></script>
+
+<script type="text/javascript">
+$(function(){
+      $(".alias").each(function(){
+        $(this).click(function(){
+          $(this).addClass("select");
+          $(this).siblings(".alias").removeClass("select");
+          $("#alias").val($(this).attr("id"));
+        })
+      })
+    });
+{#if $verify_link=="1"#}
+$(document).ready(function()
+{
+function imgcaptcha(inputID,imgdiv)
+{
+	$(inputID).focus(function(){
+		if ($(inputID).val()=="点击获取验证码")
+		{
+		$(inputID).val("");
+		$(inputID).css("color","#333333");
+		}
+		$(inputID).parent("div").css("position","relative");
+		//设置验证码DIV
+		$(imgdiv).css({ position: "absolute", left:  $(inputID).width(), "bottom": "0px" , "z-index": "10", "background-color": "#FFFFFF", "border": "1px #A3C8DC solid","display": "none","margin-left": "15px"});
+		$(imgdiv).show();
+		if ($(imgdiv).html()=='')
+		{
+		$(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		}
+		$(imgdiv+" img").click(function()
+		{
+			$(imgdiv+" img").attr("src",$(imgdiv+" img").attr("src")+"1");		
+		});
+		$(document).unbind().click(function(event)
+		{
+			var clickid=$(event.target).attr("id");
+			if (clickid!="getcode" &&  clickid!="postcaptcha")
+			{
+			$(imgdiv).hide();
+			$(inputID).parent("div").css("position","");
+			$(document).unbind();
+			}			
+		});
+	});
+}
+imgcaptcha("#postcaptcha","#imgdiv");
+});
+{#/if#}
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+  <!-- 当前位置 -->
+  <div class="page_location link_bk">
+    当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;友情链接申请
+  </div>
+  <!-- 主体内容 -->
+  <div class="container link_bk">
+    <!-- 左边内容 -->
+    <div class="left_area subscribe">
+      <div class="left_tit_box">
+        <h5>友情链接申请</h5>
+      </div>
+      <div class="company_list">
+         <form action="?act=save" method="post">
+        <div class="subscribe_box">
+          <ul>
+            <li>
+              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>申请页面：</div>
+              	<input name="alias" id="alias" type="hidden" value="QS_index" />
+	              <div class="input_box">
+	              	{#foreach from=$cat item=li#}
+	                <div class="alias {#if $li.c_alias==$cat.0.c_alias#}select{#/if#}" id="{#$li.c_alias#}">{#$li.categoryname#}</div>
+	                {#/foreach#}
+	                <div class="clear"></div>
+	              </div>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>链接名称：</div>
+              <div class="input_box"><input name="link_name" type="text" class="input_text_300" id="link_name" maxlength="20" value=""/></div>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>链接地址：</div>
+              <div class="input_box"><input name="link_url" type="text" class="input_text_300" id="link_url" maxlength="30" value=""/></div>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <div class="w83" align="right">LOGO地址：</div>
+              <div class="input_box"><input name="link_logo" type="text" class="input_text_300" id="link_logo" maxlength="30" value=""/></div>
+              <div class="clear"></div>
+            </li>
+            {#if $verify_link=="1"#}
+            <li>
+              <div class="w83" align="right"><font color="red">*</font>验证码：</div>
+              <div class="input_box">
+                <div>
+                <div id="imgdiv"></div>
+                <input  class="input_text_300"    name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+               </div>
+              </div>
+              <div class="clear"></div>
+            </li>
+             {#/if#}
+            <li>
+              <div class="w83" align="right">申请说明：</div>
+              <div class="input_box">
+              	<textarea name="app_notes" class="input_textarea_400"></textarea>
+              </div>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <div class="w83">&nbsp;</div>
+              <div class="input_box"><input type="submit" name="Submit" id="Submit" value="提交" class="but130lan" /></div>
+              <div class="clear"></div>
+            </li>
+            <div class="clear"></div>
+          </ul>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- 右边内容 -->
+    <div class="right_area">
+      <div class="right_box">
+        <div class="title_box">
+          <h5>申请说明</h5>
+        </div>
+        <div class="list sub_right">
+          <p>{#$link_application_txt#}</p>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <!-- 主体内容 结束 -->
+  {#include file="footer.htm"#}
+</body>
+</html>

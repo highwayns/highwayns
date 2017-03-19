@@ -1,0 +1,27 @@
+﻿<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+    <tr>
+		<td width="35" align="right"></td>
+		<td>
+			简历删除后无法恢复，您确认要删除此简历吗
+		</td>
+    </tr>
+    <tr>
+		<td colspan="2" align="center">
+			<input type="button" name="Submit" id="submit" value="删除"  class="but95cheng"/>
+			<input type="button" name="cancel" value="取消" class="but95cheng DialogClose" style="background-color: #E3E3E3;color:#323232"/>
+		</td>
+    </tr>
+</table>
+<input type="hidden" name="pid" id="pid" value="{#$resumeid#}">
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function(){
+		var id=$("input[name=pid]").val();
+		$.get("personal_resume.php?act=del_resume&id="+id,function(result){
+				$(".FloatBox").css("display","none");
+				$(".FloatBg").css("display","none");
+				location.reload();
+		});
+	});
+});
+</script>

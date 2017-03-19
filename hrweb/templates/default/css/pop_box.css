@@ -1,0 +1,30 @@
+﻿body {margin-left: 0px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;font-size:12px; color: #333333; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; font-family:"microsoft yahei"}
+form,p,h1,h2,h3,h4,input{ margin:0px; padding:0px;}
+ul { padding:0px; margin:0px;}
+li { padding:0px; margin:0px; line-height:180%;list-style-type:none;}
+.clear{clear:both; height:0px; font-size:0px; line-height:0px;}
+.link_lan a{color: #0066CC;text-decoration: none;}
+.link_lan a:hover {text-decoration: underline;color: #0066CC;}
+.link_bk a {color: #666666;text-decoration: none;}
+.link_bk a:hover {text-decoration: underline;color: #009900;}
+
+
+/*鏂板95瀹芥寜閽?/
+.but95cheng{width:95px;height:35px;line-height:35px;font-size:16px;color:#fff;text-align:center;cursor:pointer;border:0px;background-color:#FF9900;}
+.but95cheng.h{background-color:#FF7700;}
+.but95hui{width:95px;height:35px;line-height:35px;font-size:16px;color:#323232;border:0px;background-color:#E3E3E3;text-align:center;cursor:pointer;}
+.but95hui.h{background-color:#ccc;}
+/*缃戦〉寮瑰嚭灞?/
+.privacy{margin-top:50px;margin-left:50px;width:525px;background-color:#fff;box-shadow:0px 0px 5px 2px #D9D9D9;}
+.privacy .top_title{position:relative;height:33px;padding-top:15px;padding-left:25px;background-color:#0180CF;}
+.privacy .top_title h3{font-weight:normal;font-family:"microsoft yahei";font-size:16px;color:#fff;cursor:default;}
+.privacy .top_title .privacy_close{position:absolute;top:17px;right:30px;width:16px;height:18px;background:url(../images/20.jpg) top left no-repeat;cursor:pointer;}
+.privacy .privacy_main{margin-top:34px;padding-left:50px;padding-bottom:24px;font-family:"microsoft yahei";font-size:14px;border-bottom:1px dashed #E1E1E1;}
+.privacy .privacy_main p{line-height:32px;}
+.privacy .privacy_main p span{display:inline-block;margin-right:30px;}
+.privacy .privacy_save{padding-left:80px;padding-top:20px;}
+.privacy .privacy_save div{display:inline-block;margin-right:20px;}
+.privacy .privacy_tips{padding-left:49px;padding-top:15px;padding-bottom:25px;background-color:#F5F5F5;}
+.privacy .privacy_tips p{font-size:12px;font-family:"microsoft yahei";line-height:22px;}
+.privacy .privacy_tips p a{text-decoration:none;color:#017FCF;font-weight:bold;}
+.privacy .privacy_tips p a:hover{text-decoration:underline;}

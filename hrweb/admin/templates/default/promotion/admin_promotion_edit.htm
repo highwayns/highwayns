@@ -1,0 +1,91 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">{#$pageheader#}</div>
+	{#include file="promotion/admin_promotion_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+系统将自动取消到期的企业推广。<br />
+</p>
+</div>
+ <script type="text/javascript" src="js/jquery.iColorPicker.js"></script>
+  <div class="toptit">修改企业推广</div>
+    <form id="form1" name="form1" method="post" action="?act=promotion_edit_save">
+	{#$inputtoken#}
+	<table width="100%" border="0" cellpadding="4" cellspacing="0"  class="link_lan" >
+
+    <tr>
+      <td width="120" height="30" align="right"  style="border:0px;"  >推广职位：</td>
+      <td    >
+	  <a href="{#$jobs.jobs_url#}" target="_blank">{#$jobs.jobs_name#}</a>
+	  </td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >职位所属企业：</td>
+      <td   ><a href="{#$jobs.company_url#}" target="_blank">{#$jobs.companyname#}</a></td>
+    </tr>
+	<tr>
+      <td height="30" align="right"  >会员ID：</td>
+      <td   >{#$jobs.uid#}</td>
+	</tr>
+	  <tr>
+      <td height="30" align="right"   width="120" style="border:0px;" >推广方案：</td>
+      <td   ><span style="color:#FF0000">{#$promotion.cat_name#}</span></td>
+    </tr>
+	    <tr>
+      <td height="30" align="right"   width="120" style="border:0px;" >推广期限：</td>
+      <td  >
+	  
+	  {#if $show.cp_endtime<$time#}
+				<span style="color:#FF6600">已经到期</span>
+				{#else#}
+				{#$show.cp_starttime|date_format:"%Y年%m月%d日"#} ≈ {#$show.cp_endtime|date_format:"%Y年%m月%d日"#}
+				{#/if#}
+	  </td>
+    </tr>
+    <tr>
+      <td height="30" align="right"  >延长推广时间：</td>
+      <td   >
+	  <input name="endtime" type="hidden" value="{#$show.cp_endtime#}" />
+	  <input name="days"  id="days" type="text" class="input_text_200"   maxlength="3" value=""/>
+	  天
+	  </td>
+    </tr>
+	{#if $show.cp_promotionid=="4"#}
+	<tr>
+      <td height="30" align="right"  >颜色：</td>
+      <td   > <input id="val" name="val" type="text" value="{#$show.cp_val#}" class="iColorPicker input_text_200"  onclick="iColorShow('val','icp_val')"/></td>
+    </tr>
+	{#/if#}
+  {#if $show.cp_promotionid=="5"#}
+  <tr>
+      <td height="30" align="right"   width="120" style="border:0px;" >自动刷新时间点：</td>
+      <td   > <select name="hour">
+                <option value="8 时" {#if $show.cp_hour==8#}selected="selected"{#/if#}>8 时</option>
+                <option value="11 时" {#if $show.cp_hour==11#}selected="selected"{#/if#}>11 时</option>
+                <option value="14 时" {#if $show.cp_hour==14#}selected="selected"{#/if#}>14 时</option>
+                <option value="20 时" {#if $show.cp_hour==20#}selected="selected"{#/if#}>20 时</option>
+              </select></td>
+    </tr>
+      {#/if#}
+	  <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  >
+	  
+	  <input name="jobid" type="hidden" value="{#$show.cp_jobid#}" />
+ <input name="promotionid" type="hidden" value="{#$show.cp_promotionid#}" />
+	  <input name="id" type="hidden" value="{#$show.cp_id#}" />
+            <input name="submit3" type="submit" class="admin_submit"    value="修改"/>
+	 
+            <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>	
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

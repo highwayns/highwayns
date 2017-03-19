@@ -1,0 +1,92 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量取消	
+	$("#ButDel").click(function(){
+		
+		if (confirm('你确定要删除吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="hotword/admin_hotword_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+您可以修改关键字搜索次数来改变关键词排序；
+</p>
+</div> 
+
+  <form id="form1" name="form1" method="post" action="?act=hottype_del">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td width="45%" class="admin_list_tit admin_list_first">
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />关键词</label>
+	  </td>
+      <td   align="center" class="admin_list_tit"> 搜索次数 </td>
+
+      <td width="180" align="center"  class="admin_list_tit" >操作</td>
+    </tr>
+	 {#foreach from=$hotword item=list#}
+    <tr>
+      <td   class="admin_list admin_list_first">
+	  <input name="id[]" type="checkbox"  value="{#$list.w_id#}" />
+	  {#$list.w_word#}
+	   </td>
+      <td align="center"  class="admin_list">
+	  {#$list.w_hot#}
+	  </td>
+	
+      <td align="center"   class="admin_list">
+	  <a href="?act=edit&id={#$list.w_id#}">修改</a> <a href="?act=hottype_del&id={#$list.w_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a>	  </td>
+    </tr>
+	 {#/foreach#}
+  </table>
+  </form>
+  {#if !$hotword#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+<input type="button" class="admin_submit" id="ButAudit" value="添加词语"  onclick="window.location='?act=add'"/>
+<input type="button" class="admin_submit" id="ButDel" value="删除所选"/>
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"关键词"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												 
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+  
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>
