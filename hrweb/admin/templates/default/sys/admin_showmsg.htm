@@ -1,0 +1,63 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit">骑士人才系统管理中心</div>
+  <div class="clear"></div>
+</div>
+<div class="toptit">系统提示</div>
+<div class="showmsg">
+	  <div class="left {#if $msg_type=="0"#}m0{#elseif $msg_type=="1"#}m1{#else#}m2{#/if#}">
+	  </div>
+	   <div class="right">
+	   <h2>{#$msg_detail#}</h2>
+	   <div id="redirectionMsg">{#if $auto_redirect#}如果您不做出选择，将在 <span id="spanSeconds">{#$seconds#}</span> 秒后跳转到第一个链接地址。{#/if#}</div>
+	   <ul style="margin:0;list-style:none" >
+		{#foreach from=$links item=link#}
+		<li><a href="{#$link.href#}" {#if $link.target#} target="{#$link.target#}"{#/if#}>{#$link.text#}</a></li>
+		{#/foreach#}
+		</ul>
+	   </div>
+	   <div class="clear"></div>
+</div>
+</div>
+{#if $auto_redirect#}
+<script language="JavaScript">
+<!--
+var seconds = {#$seconds#};
+var defaultUrl = "{#$default_url#}";
+
+{#literal#}
+onload = function()
+{
+  if (defaultUrl == 'javascript:history.go(-1)' && window.history.length == 0)
+  {
+    document.getElementById('redirectionMsg').innerHTML = '';
+    return;
+  }
+
+  window.setInterval(redirection, 1000);
+}
+function redirection()
+{
+  if (seconds <= 0)
+  {
+    window.clearInterval();
+    return;
+  }
+
+  seconds --;
+  document.getElementById('spanSeconds').innerHTML = seconds;
+
+  if (seconds == 0)
+  {
+    window.clearInterval();
+    location.href = defaultUrl;
+  }
+}
+//-->
+</script>
+{#/literal#}
+{#/if#}
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

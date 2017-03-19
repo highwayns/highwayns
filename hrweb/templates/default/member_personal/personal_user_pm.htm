@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 我的消息</div>
+
+<div class="usermain">
+  <div class="leftmenu link_bk">
+   {#include file="member_personal/left.htm"#}
+  </div>
+<div class="rightmain">
+  
+	<div class="bbox1">
+	
+	<div class="message ">
+			
+ 	    	<div class="topnav">
+			  
+			<div class="titleH1">
+				<div class="h1-title">账号管理</div>
+			</div>
+					
+			<div class="navs link_bk">
+				<a href="?act=userprofile">基本资料</a>
+				  <a href="?act=authenticate">账号安全</a>
+				  <a href="?act=avatars">我的头像</a>
+				  <a href="?act=pm" class="se">我的消息{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
+				   <a href="?act=login_log">登录日志</a>
+				  <div class="clear"></div>
+			</div>
+	  	</div>
+
+	  	<div class="main">
+	  		{#if $pms#}
+	  		{#foreach from=$pms item=list#}
+		  <div class="list link_lan userliststyle">
+		  	<div class="title">系统消息<span>({#$list.dateline|date_format:"%Y-%m-%d"#})</span>{#if $list.new=='1'#}<u>[新消息]</u>{#/if#}</div>			
+			<div class="del"><a href="?act=pm_del&pmid={#$list.pmid#}">[删除]</a></div>
+			<div class="clear"></div>
+			<p>{#$list.message#}</p>
+		  </div>
+		  {#/foreach#}
+		   {#if $page#}
+		<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+          <tr>
+            <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+          </tr>
+      </table>
+      {#/if#}
+		  {#else#}
+		  <div class="emptytip">对不起！没有找到您要的信息！</div>
+		  {#/if#}
+		 
+	  	</div>
+	</div>
+	</div>
+  </div>
+	</div>
+</div>
+
+<div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

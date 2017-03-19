@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>个人会员中心</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/user.css" rel="stylesheet" type="text/css" />
+<link href="../css/user_personal.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="../js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+  //打开顶部菜单   
+  $("#topmenu_sub").click( function () { 
+    $("#topmenu").slideToggle("fast");
+  });
+
+  //性别单选
+  $("#sex_radio .input_radio").click(function(){
+      $("#sex").val($(this).val());
+  });
+
+  // 创建简历弹出框
+  function showFloatBox() {
+    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+    $(".menu_bg_layer").height($(document).height());
+    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+    $(".menu_bg_layer").css("opacity",0.3);
+  }
+
+  // 出生年份填充
+  var myDate = new Date();
+  var y = myDate.getFullYear();
+  y = y-18;
+  var ymin = y-35;
+  var yearHtm = "";
+  for (i=y; i>=ymin; i--) {
+    yearHtm+="<li title=\""+i+"\">"+i+"年</li>";
+  }
+  $("#menuYear ul").html(yearHtm);
+
+  // 出生年份点击
+  $("#year_menu").click(function(){
+    showFloatBox();
+    $("#menuYear").css({ top: ($(window).height() - $('#menuYear').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuYear").show();
+    $("#menuYear li").click(function(){
+      $("#birthdate").val($(this).attr("title"));
+      $("#year_text").html($(this).attr("title")+"年");
+      $("#menuYear").hide();
+      $(".menu_bg_layer").remove();
+    });
+  });
+
+  // 最高学历点击
+  $("#education_menu").click(function(){
+    showFloatBox();
+    $("#menuEducation").css({ top: ($(window).height() - $('#menuEducation').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuEducation").show();
+    $("#menuEducation li").click(function(){
+      $("#education").val($(this).attr("id"));
+      $("#education_cn").val($(this).attr("title"));
+      $("#education_text").html($(this).attr("title"));
+      $("#menuEducation").hide();
+      $(".menu_bg_layer").remove();
+    });
+  });
+
+  // 工作经验点击
+  $("#experience_menu").click(function(){
+    showFloatBox();
+    $("#menuExperience").css({ top: ($(window).height() - $('#menuExperience').outerHeight())/2 + $(document).scrollTop() });
+    $("#menuExperience").show();
+    $("#menuExperience li").click(function(){
+      $("#experience").val($(this).attr("id"));
+      $("#experience_cn").val($(this).attr("title"));
+      $("#experience_text").html($(this).attr("title"));
+      $("#menuExperience").hide();
+      $(".menu_bg_layer").remove();
+    });
+  });
+  // 关闭弹出框
+    $(".choose_close").click(function(event) {
+      $(this).parent().hide();
+      $(".menu_bg_layer").remove();
+    });
+
+  // ajax提交保存简历
+  $("#resume_save").click(function(event) {
+    var pid = {#$smarty.get.pid#}
+    var title = $("input[name=title]").val();
+    var fullname = $("input[name=fullname]").val();
+    var sex = $("input[name=sex]").val();
+    var sex_cn = $("input[name='sex_cn']:checked").attr("title");
+    var birthdate = $("input[name='birthdate']").val();
+    var education = $("input[name='education']").val();
+    var education_cn = $("input[name='education_cn']").val();
+    var experience = $("input[name='experience']").val();
+    var experience_cn = $("input[name='experience_cn']").val();
+    var residence = $("input[name='residence']").val();
+    var telephone = $("input[name='telephone']").val();
+    var email = $("input[name='email']").val();
+    var wage = $("input[name='wage']").val();
+    var wage_cn = $("input[name='wage_cn']").val();
+    var nature = $("input[name='nature']").val();
+    var nature_cn = $("input[name='nature_cn']").val();
+
+    $.post('?act=resume_basic_save', {"pid":pid,"title":title,"fullname":fullname,"sex":sex,"sex_cn":sex_cn,"birthdate":birthdate,"education":education,"education_cn":education_cn,"experience":experience,"experience_cn":experience_cn,"residence":residence,"telephone":telephone,"email":email,"wage":wage,"wage_cn":wage_cn,"nature":nature,"nature_cn":nature_cn}, 
+      function(data) {
+        if (data == "ok") {
+          alert("修改基本信息成功");
+          window.location.reload();
+        } else if(data == "err") {
+          alert("修改基本信息失败");
+          window.location.reload();
+        } else {
+          alert(data);
+        }
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+	<div class="title">基本信息</div>
+	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="../index.php";'>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-news-list.php";'>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+<div class="make_resume_top">
+  <p>基本信息</p>
+</div>
+
+<form id="Form1" method="post" action="?act=make_resume_save" style="padding:0 10px;" >
+    <table style="width:100%;border-collapse:collapse;">
+      
+        <tr>
+          <td class="make_resume_td_L">真实姓名</td>
+          <td class="make_resume_td_R"><input type="text" name="fullname" class="make_resume_input" value="{#$resume_basic.fullname#}"/><span style="position: absolute;top:40px"></span></td>  
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">性别</td>
+          <td class="make_resume_td_R" id="sex_radio">
+              {#if $resume_basic.sex==1 || $resume_basic.sex==""#}
+              <input class="input_radio" type="radio" name="sex_cn" value="1" title="男" checked/>男&nbsp;&nbsp;&nbsp;<input class="input_radio" type="radio" name="sex_cn" value="2" title="女"/>女
+              <input type="hidden" name="sex" id="sex" value="1"/>
+              {#else#}
+              <input type="radio" name="sex_cn" value="1" title="男"/>男&nbsp;&nbsp;&nbsp;<input type="radio" name="sex_cn" value="2"  title="女" checked/>女
+              <input type="hidden" name="sex" id="sex" value="2"/>
+              {#/if#}
+          </td>
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">出生年份</td>
+          <td class="make_resume_td_R" id="year_menu">
+            <div class="input_text_200_bg date_input" id="year_text">{#$resume_basic.birthdate#}</div>
+            <img src="../images/35.gif" alt="" />
+            <input name="birthdate" id="birthdate" type="hidden" value="{#$resume_basic.birthdate#}" />
+          </td>
+          <div class="menu choose_menu" id="menuYear" style="display:none;position:absolute;z-index:1;">
+            <div class="menu_title">出生年份</div>
+            <div class="choose_close"></div>
+            <ul></ul>
+          </div> 
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">最高学历</td>
+          <td class="make_resume_td_R" id="education_menu">
+              <div class="input_text_200_bg" id="education_text">{#$resume_basic.education_cn#}<i></i></div>  
+              <img src="../images/35.gif" alt="" />
+              <input name="education" type="hidden" id="education" value="{#$resume_basic.education#}" />
+              <input name="education_cn" type="hidden" id="education_cn" value="{#$resume_basic.education_cn#}" />
+          </td> 
+          <div class="menu choose_menu" id="menuEducation" style="display:none;position:absolute;z-index:1;">
+            <div class="menu_title">最高学历</div>
+            <div class="choose_close"></div>
+            <ul>
+              {#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+              {#foreach from=$c_education item=list#}
+              <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+              {#/foreach#}
+            </ul>
+          </div>     
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">工作经验</td>
+          <td class="make_resume_td_R" id="experience_menu">
+              <div class="input_text_200_bg" id="experience_text">{#$resume_basic.experience_cn#}</div>  
+              <img src="../images/35.gif" alt="" />
+              <input name="experience" type="hidden" id="experience" value="{#$resume_basic.experience#}" />
+              <input name="experience_cn" type="hidden" id="experience_cn" value="{#$resume_basic.experience_cn#}" />
+          </td>
+          <div class="menu choose_menu" id="menuExperience" style="display:none;position:absolute;z-index:1;">
+            <div class="menu_title">工作经验</div>
+            <div class="choose_close"></div>
+            <ul>
+              {#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+              {#foreach from=$c_experience item=list#}
+              <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+              {#/foreach#}
+            </ul>
+          </div>
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">现居住地</td>
+          <td class="make_resume_td_R">
+           <input type="text" name="residence" class="make_resume_input" value="{#$resume_basic.residence#}"/>
+          </td> 
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">手机</td>
+          <td class="make_resume_td_R"><input name="telephone" id="telephone" type="text" class="make_resume_input" value="{#$resume_basic.telephone#}" /></td> 
+        </tr>
+        <tr>
+          <td class="make_resume_td_L">邮箱</td>
+          <td class="make_resume_td_R"><input name="email" id="email" type="text" class="make_resume_input" value="{#$resume_basic.email#}" /></td>  
+        </tr>
+    </table>
+    <input type="button" id="resume_save" value="保存信息" class="personal_submit"/>
+</form>
+{#include file="wap/footer.htm"#}
+</body>
+</html>

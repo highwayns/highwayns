@@ -1,0 +1,55 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#add_form").click(function()
+	{
+	$("#html").append($("#html_tpl").html());
+	});
+	
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="explain/admin_explain_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+点击“继续添加”按钮，可同时添加多个分类！<br />
+</p>
+</div>
+<div class="toptit">新增分类</div>
+<form id="form1" name="form1" method="post" action="?act=add_category_save">
+{#$inputtoken#}
+<div id="html_tpl">
+<table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
+  <tr>
+    <td width="120" align="right">分类名称:</td>
+    <td><input name="categoryname[]" type="text" class="input_text_200"  value=""/></td>
+  </tr>
+   <tr>
+    <td width="120" align="right">排序:</td>
+    <td><input name="category_order[]" type="text" class="input_text_200"  value="0"/></td>
+  </tr>
+</table>
+</div>
+<div id="html"></div>
+<table width="100%" border="0" cellspacing="6" cellpadding="0">
+  <tr>
+    <td width="120"> </td>
+    <td>
+	<input type="submit" name="addsave" value="保存" class="admin_submit" />
+		  <input type="button" name="add_form" id="add_form" value="继续添加" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=category'"/>
+	
+	</td>
+  </tr>
+</table>
+ </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

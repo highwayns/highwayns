@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.gotoemail.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$(function() {
+		$('.four-step-bar .step:last').css({'margin-right':0});
+	});
+	// 表单验证
+	$("#Form1").validate({
+		success: function(lable) {
+				lable.text(" ").addClass("ver-success");
+		},
+		rules:{
+			password:
+			{
+				required: true,
+				minlength:6,
+			    maxlength:18
+			},
+			rpassword:
+			{
+				required: true,
+				equalTo:"#password"
+			}
+		},
+		messages: {
+			password:
+			{
+				required: "请输入密码",
+				minlength: jQuery.format("填写不能小于{0}个字符"),
+				maxlength: jQuery.format("填写不能大于{0}个字符")
+			},
+			rpassword:
+			{
+				required: "请确认密码",
+    			equalTo: "两次输入的密码不同"
+			}
+		},
+		errorPlacement: function(error, element) {
+		if ( element.is(":radio") )
+		error.appendTo( element.parent().next().next() );
+		else if ( element.is(":checkbox") )
+		error.appendTo ( element.next());
+		else
+		error.appendTo(element.parent().next());
+		}
+	});
+});
+</script>
+</head>
+<body class="login_body">
+	<!-- 头部 -->
+	{#include file="user/reg_header.htm"#}
+	<!-- main -->
+	<div class="container">
+		<div class="step_wrap">
+			<div class="four-step-bar clearfix">
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>填写账户名</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>验证身份</div>
+				<div class="step tstep3 f-left active"><i class="step-icon">3</i>设置新密码</div>
+				<div class="step tstep4 f-left"><i class="step-icon">4</i>找回成功</div>
+			</div>
+		</div>
+		<!-- 设置密码 -->
+		<div class="reg-main clearfix">
+			<form action="?act=get_pass_save" id="Form1" method="post">
+				<div class="reg-left-form f-left">
+					<div class="reg-form-item clearfix">
+						<div class="reg-form-type f-left">新密码</div>
+						<div class="reg-form-content f-left">
+							<input type="password" name="password" id="password" class="text text-lg span350" placeholder="请输入新密码" />
+						</div>
+						<div class="verification f-left"></div>
+					</div>
+					<div class="reg-form-item clearfix">
+						<div class="reg-form-type f-left">确认密码</div>
+						<div class="reg-form-content f-left">
+							<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="重复新密码" />
+						</div>
+						<div class="verification f-left"></div>
+					</div>
+					<div class="reg-form-item special clearfix">
+						<div class="reg-form-type f-left">&nbsp;</div>
+						<div class="reg-form-content f-left">
+							<input type="hidden" name="uid" value="{#$userinfo.uid#}"/>
+							<input type="hidden" name="token" value="{#$token#}"/>
+							<input type="submit" value="提交" class="btn btn-lg blue span1" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

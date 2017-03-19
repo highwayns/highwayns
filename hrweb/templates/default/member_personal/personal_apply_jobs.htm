@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta name="renderer" content="webkit"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/user_common.css" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/user_personal.css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script>
+	$(document).ready(function() {
+		// 顶部筛选
+		$('.data-filter').on('click', function(e){
+			$(this).find('.filter-down').toggle();
+			// 动态设置下拉列表宽度
+			var fWidth = $(this).find('.filter-span').outerWidth(true) - 2;
+			$(this).find(".filter-down").width(fWidth);
+			// 点击其他位置收起下拉
+			$(document).one("click",function(){
+				$('.filter-down').hide();
+			});
+			e.stopPropagation();
+			//点击下拉时收起其他下拉
+			$(".data-filter").not($(this)).find('.filter-down').hide();
+		});
+		// 删除弹出
+		delete_dialog('.ctrl-del','#form1');
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 已申请的职位</div>
+	<div class="usermain">
+		<div class="leftmenu link_bk">
+			{#include file="member_personal/left.htm"#}
+		</div>
+		<div class="rightmain">
+			<div class="bbox1">
+				<div class="topnav link_bk">
+					<div class="titleH1"><div class="h1-title">已申请职位</div></div>
+					<div class="navs">
+						<a href="?act={#$act#}&aetlook=&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}"{#if $smarty.get.aetlook==""#} class="se"{#/if#}>所有<span>({#$count.2#})</span></a>
+						<a href="?act={#$act#}&aetlook=1&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}"{#if $smarty.get.aetlook=="1"#} class="se"{#/if#}>企业未查看<span class="h">({#$count.0#})</span></a>
+						<a href="?act={#$act#}&aetlook=2&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}"{#if $smarty.get.aetlook=="2"#} class="se"{#/if#}>企业已查看<span>({#$count.1#})</span></a>
+					</div>
+				</div>
+				<form action="?act=del_jobs_apply" id="form1" name="form1" method="post">
+				<div class="personal-data-list">
+					<div class="c-data-top app-job clearfix">
+						<div class="item f-left check-item"><input type="checkbox" name="chkAll" id="chk" title="全选/反选" class="checkbox" /></div>
+						<div class="item f-left top-item1">
+							<div class="data-filter span4">
+								<span class="filter-span">{#if $smarty.get.jobs_type_cn#}{#$smarty.get.jobs_type_cn#}{#else#}普通职位{#/if#}<i class="filter-icon"></i></span>
+								<ul class="filter-down">
+									<li><a href="{#"jobs_type:,jobs_type_cn:普通职位"|qishi_parse_url#}">普通职位</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="item f-left top-item2">
+							公司名称
+						</div>
+						<div class="item f-left top-item3">
+							<div class="data-filter span4">
+								<span class="filter-span">{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}投递简历{#/if#}<i class="filter-icon"></i></span>
+								<ul class="filter-down">
+									<li><a href="{#"resume_id:,resume_cn:"|qishi_parse_url#}">全部简历</a></li>
+									{#foreach from=$resume_list item=list#}
+									<li><a href="{#"resume_id:$list.id,resume_cn:$list.title"|qishi_parse_url#}">{#$list.title#}</a></li>
+									{#/foreach#}
+								</ul>
+							</div>
+						</div>
+						<div class="item f-left top-item4">
+							<div class="data-filter span4">
+								<span class="filter-span">{#if $smarty.get.reply_cn#}{#$smarty.get.reply_cn#}{#else#}投递反馈{#/if#}<i class="filter-icon"></i></span>
+								<ul class="filter-down">
+									<li><a href="{#"reply_id:,reply_cn:"|qishi_parse_url#}">全部</a></li>
+									<li><a href="{#"reply_id:1,reply_cn:企业未查看"|qishi_parse_url#}">企业未查看</a></li>
+									<li><a href="{#"reply_id:2,reply_cn:待反馈"|qishi_parse_url#}">待反馈</a></li>
+									<li><a href="{#"reply_id:3,reply_cn:合适"|qishi_parse_url#}">合适</a></li>
+									<li><a href="{#"reply_id:4,reply_cn:不合适"|qishi_parse_url#}">不合适</a></li>
+									<li><a href="{#"reply_id:5,reply_cn:待定"|qishi_parse_url#}">待定</a></li>
+									<li><a href="{#"reply_id:6,reply_cn:未接通"|qishi_parse_url#}">未接通</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="item f-left top-item5">
+							<div class="data-filter span4">
+								<span class="filter-span">{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}投递时间{#/if#}<i class="filter-icon"></i></span>
+								<ul class="filter-down">
+									<li><a href="{#"settr:,settr_cn:"|qishi_parse_url#}">全部</a></li>
+									<li><a href="{#"settr:7,settr_cn:最近一周"|qishi_parse_url#}">最近一周</a></li>
+									<li><a href="{#"settr:14,settr_cn:最近两周"|qishi_parse_url#}">最近两周</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="item f-left top-item6">操作</div>
+					</div>
+					{#if $jobs_apply#}
+						{#foreach from=$jobs_apply item=list#}
+						{#if $list.district_cn#}
+						<div class="c-data-row">
+							<div class="c-data-content app-job clearfix">
+								<div class="c-item f-left check-item"><input type="checkbox" name="y_id[]" id="y_id" value="{#$list.did#}" class="checkbox" /></div>
+								<div class="c-item f-left content1"><a href="{#$list.jobs_url#}" title="{#$list.jobs_name#}" target="_black" class="jobs-link underline">{#$list.jobs_name#}</a></div>
+								<div class="c-item f-left content2"><a href="{#$list.belong_url#}" title="{#$list.belong_name#}" target="_black" class="com-link underline" >{#$list.belong_name#}</a></div>
+								<div class="c-item f-left content3">{#$list.resume_name#}</div>
+								<div class="c-item f-left content4">{#$list.reply_status#}</div>
+								<div class="c-item f-left content5">{#$list.apply_addtime|date_format:"%Y-%m-%d"#}</div>
+								<div class="c-item f-left content6"><a href="javascript:;" url="?act=del_jobs_apply&y_id={#$list.did#}&jobs_type={#$smarty.get.jobs_type#}" class="data-ctrl underline ctrl-del">删除</a></div>
+							</div>
+						</div>
+						{#else#}
+						<div class="c-data-row">
+							<div class="c-data-content interview36 clearfix">
+								<div class="c-item f-left check-item"><input type="checkbox" name="y_id[]" id="y_id" class="checkbox"  value="{#$list.did#}"/></div>
+								该职位 [{#$list.jobs_name#}] 可能已被删除，您可以删除本条信息。
+							</div>
+						</div>
+						{#/if#}
+						{#/foreach#}
+						<div class="c-data-row last">
+							<div class="c-data-content apply_jobs clearfix">
+								<div class="c-item f-left check-item"><input type="checkbox" name="chkAll" id="chk2" title="全选/反选" class="checkbox" /></div>
+								<div class="data-last-btn f-left">
+									<input type="button" value="删除" class="btn-65-30blue ctrl-del"  act="?act=del_jobs_apply&jobs_type={#$smarty.get.jobs_type#}"/>
+								</div>
+							</div>
+						</div>
+					{#else#}
+					<div class="emptytip" style="margin:0 15px;">对不起！没有找到您要的信息！</div>
+					{#/if#}
+				</div>
+				</form>
+				<!-- 这里加分页 -->
+				{#if $page#}
+				<table border="0" align="center" cellpadding="0" cellspacing="0">
+		          	<tr>
+		          		<td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+		          	</tr>
+		      	</table>
+				{#/if#}
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

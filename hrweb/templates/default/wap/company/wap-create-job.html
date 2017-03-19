@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>企业会员中心</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/user.css" rel="stylesheet" type="text/css" />
+<link href="../css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="../js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+
+	  // 弹出框
+	  function showFloatBox() {
+	    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+	    $(".menu_bg_layer").height($(document).height());
+	    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+	    $(".menu_bg_layer").css("opacity",0.3);
+	  }
+
+		// 职位性质点击
+		$("#nature_menu").click(function(){
+		    showFloatBox();
+		    $("#menuNature").css({ top: ($(window).height() - $('#menuNature').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuNature").show();
+		    $("#menuNature li").click(function(){
+			    $("#nature").val($(this).attr("id"));
+			    $("#nature_cn").val($(this).attr("title"));
+			    $("#nature_text").html($(this).attr("title"));
+			    $("#menuNature").hide();
+			    $(".menu_bg_layer").remove();
+		    });
+		});
+
+		// 期望职位点击
+		$("#jobs_menu").click(function(){
+		    showFloatBox();
+		    $("#menuJobs").css({ top: ($(window).height() - $('#menuJobs').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuJobs").show();
+		});
+
+		// 工作经验点击
+	  	$("#experience_menu").click(function(){
+		    showFloatBox();
+		    $("#menuExperience").css({ top: ($(window).height() - $('#menuExperience').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuExperience").show();
+		    $("#menuExperience li").click(function(){
+			    $("#experience").val($(this).attr("id"));
+			    $("#experience_cn").val($(this).attr("title"));
+			    $("#experience_text").html($(this).attr("title"));
+			    $("#menuExperience").hide();
+			    $(".menu_bg_layer").remove();
+		    });
+	  	});
+
+	  	// 月薪点击
+	  	$("#wage_menu").click(function(){
+		    showFloatBox();
+		    $("#menuWage").css({ top: ($(window).height() - $('#menuWage').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuWage").show();
+		    $("#menuWage li").click(function(){
+			    $("#wage").val($(this).attr("id"));
+			    $("#wage_cn").val($(this).attr("title"));
+			    $("#wage_text").html($(this).attr("title"));
+			    $("#menuWage").hide();
+			    $(".menu_bg_layer").remove();
+		    });
+	  	});
+
+	  	// 学历点击
+	  	$("#education_menu").click(function(){
+		    showFloatBox();
+		    $("#menuEducation").css({ top: ($(window).height() - $('#menuEducation').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuEducation").show();
+		    $("#menuEducation li").click(function(){
+			    $("#education").val($(this).attr("id"));
+			   	$("#education_cn").val($(this).attr("title"));
+			    $("#education_text").html($(this).attr("title"));
+			    $("#menuEducation").hide();
+			    $(".menu_bg_layer").remove();
+		    });
+	  	});
+	  	    
+	  	// 性别点击
+	  	$("#sex_menu").click(function(){
+		    showFloatBox();
+		    $("#menuSex").css({ top: ($(window).height() - $('#menuSex').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuSex").show();
+		    $("#menuSex li").click(function(){
+			    $("#sex").val($(this).attr("id"));
+			   	$("#sex_cn").val($(this).attr("title"));
+			    $("#sex_text").html($(this).attr("title"));
+			    $("#menuSex").hide();
+			    $(".menu_bg_layer").remove();
+		    });
+	  	});
+
+	  	// 工作地区点击
+	  	$("#district_menu").click(function(){ 
+		    showFloatBox();
+		    $("#menuDistrict").css({ top: ($(window).height() - $('#menuDistrict').outerHeight())/2 + $(document).scrollTop() });
+		    $("#menuDistrict").show();
+		});
+
+	  	// 关闭弹出框
+		  $(".choose_close").click(function(event) {
+		    $(this).parent().hide();
+		    $(".menu_bg_layer").remove();
+		  });
+	// ajax 发布职位
+	$("#create_job_but").click(function(){
+		var add_mode =$("input[name=add_mode]").val();
+		var jobs_name =$("input[name=jobs_name]").val();
+		var nature =$("input[name=nature]").val();
+		var nature_cn =$("input[name=nature_cn]").val();
+		var topclass =$("input[name=topclass]").val();
+		var category =$("input[name=category]").val();
+		var subclass =$("input[name=subclass]").val();
+		var category_cn =$("input[name=category_cn]").val();
+		var amount =$("input[name=amount]").val();
+		var district =$("input[name=district]").val();
+		var sdistrict =$("input[name=sdistrict]").val();
+		var district_cn =$("input[name=district_cn]").val();
+		var wage =$("input[name=wage]").val();
+		var wage_cn =$("input[name=wage_cn]").val();
+		var sex =$("input[name=sex]").val();
+		var sex_cn =$("input[name=sex_cn]").val();
+		var education =$("input[name=education]").val();
+		var education_cn =$("input[name=education_cn]").val();
+		var experience =$("input[name=experience]").val();
+		var experience_cn =$("input[name=experience_cn]").val();
+		var graduate =$("input[name=graduate]").val();
+		var contents =$("textarea[name=contents]").val();
+		var contact =$("input[name=contact]").val();
+		var telephone =$("input[name=telephone]").val();
+		$.post("?act=jobs_add_save",{add_mode:add_mode,jobs_name:jobs_name,nature:nature,nature_cn:nature_cn,topclass:topclass,category:category,subclass:subclass,category_cn:category_cn,amount:amount,district:district,sdistrict:sdistrict,district_cn:district_cn,wage:wage,wage_cn:wage_cn,sex:sex,sex_cn:sex_cn,education:education,education_cn:education_cn,experience:experience,experience_cn:experience_cn,graduate:graduate,contents:contents,contact:contact,telephone:telephone},function(data){
+			// alert(data);
+			var   type="^[0-9]*[1-9][0-9]*$";
+        	var   re = new RegExp(type);
+        	$("#create_job_but").hide();
+        	$("#create_job_but_no").show();
+			if(data.match(re)!=null)
+			{
+				alert("发布职位成功");
+				window.location.href='?act=addjobs_save_succeed&id='+data+'';
+			}
+			else if(data=="err")
+			{
+				alert("发布职位失败");
+				window.location.reload();
+			}else{
+				alert(data);
+				$("#create_job_but").show();
+        		$("#create_job_but_no").hide();
+			}
+		})
+	});
+});
+</script>
+</head>
+<body>
+<div class="sub_bodybg"></div>
+<div class="sub_head_top">
+	<div class="title">招聘信息</div>
+	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="../index.php";'>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-news-list.php";'>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+
+<!-- 创建职位页面 -->
+<form>
+	<table class="create_job">
+		<tbody>
+			<tr>
+				<td class="create_job_l">职位名称</td>
+				<td class="create_job_r"><input type="text" class="create_input" name="jobs_name"/></td>
+			</tr>
+			<tr>
+				<td class="create_job_l">职位性质</td>
+				<td class="create_job_r" id="nature_menu">
+					<div class="create_input" id="nature_text"></div>
+					<img src="../images/35.gif" alt="" />
+					<input name="nature" id="nature" type="hidden" value="" />
+          			<input name="nature_cn" id="nature_cn" type="hidden" value="" />
+				</td>
+				<div class="menu choose_menu" id="menuNature" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">职位性质</div>
+            		<div class="choose_close"></div>
+		            <ul>
+		              {#qishi_get_classify set="类型:QS_jobs_nature,列表名:c_nature"#}
+		              {#foreach from=$c_nature item=list#}
+		              <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+		              {#/foreach#}
+		            </ul>
+	          	</div> 
+			</tr>
+			<tr>
+				<td class="create_job_l">职位类别</td>
+				<td class="create_job_r" id="jobs_menu">
+					<div class="create_input" id="jobs_text"></div>
+					<img src="../images/35.gif" alt="" /> 
+					<input name="topclass" id="topclass" type="hidden" value="" />
+              		<input name="category" id="category" type="hidden" value="" />
+              		<input name="subclass" id="subclass" type="hidden" value="" />
+              		<input name="category_cn" id="category_cn" type="hidden" value="" />
+				</td>
+				<div class="menu choose_menu" id="menuJobs" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">职位类别</div>
+            		<div class="choose_close"></div>
+		            <div class="area_choose">
+		              <ul class="area_left" id="jobs_left_list"></ul>
+		              <ul class="area_right" id="jobs_right_list"></ul>
+		              <div class="clear"></div>
+		            </div>
+		        </div>
+			</tr>
+			<script type="text/javascript">
+	          var jobstr = '';
+	          $.each(QS_jobs_parent, function(pindex, pval) {
+	            if(pval) {
+	              var jobs = pval.split(",");
+	              var sjobsArray = QS_jobs[jobs[0]].split("|");
+	              $.each(sjobsArray, function(sindex, sval) {
+	                if(sval) {
+	                  var sjobs = sval.split(",");
+	                  jobstr += '<li class="area_big" rcoid="'+sjobs[0]+'" pid="'+jobs[0]+'.'+sjobs[0]+'" title="'+sjobs[1]+'">'+sjobs[1]+'</li>';
+	                }
+	              });
+	            }
+	          });
+	          $("#jobs_left_list").html(jobstr);
+	          $("#jobs_left_list li").unbind().click(function(){
+	            var rid = $(this).attr("rcoid");
+	            var rpid = $(this).attr("pid");
+	            var rtitle = $(this).attr("title");
+	            var sjobstr = "";
+	            if(QS_jobs[rid]) {
+	              var cjobsArray = QS_jobs[rid].split("|");
+	              sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">不限</li>';
+	              $.each(cjobsArray, function(cindex, cval) {
+	                if(cval) {
+	                  var cjobs = cval.split(",");
+	                  sjobstr += '<li class="area_small" rcoid="'+cjobs[0]+'" title="'+rtitle+'\/'+cjobs[1]+'" pid="'+rpid+'.'+cjobs[0]+'">'+cjobs[1]+'</li>';
+	                }
+	              });
+	              $("#jobs_right_list").html(sjobstr).show();
+	              $("#jobs_right_list li").click(function(){
+	              	var chid = new Array();
+	                chid = $(this).attr('pid').split(".");
+	                $("#topclass").val(chid[0]);
+	                $("#category").val(chid[1]);
+	                $("#subclass").val(chid[2]);
+	                $("#jobs_text").html($(this).attr("title"));
+	                $("#category_cn").val($(this).attr("title"));
+	                $("#menuJobs").hide();
+	                $(".menu_bg_layer").remove();
+	              });
+	            } else {
+	              var tchid = new Array();
+	              tchid = $(this).attr('pid').split(".");
+	              $("#topclass").val(tchid[0]);
+	              $("#category").val(tchid[1]);
+	              $("#subclass").val("0");
+	              $("#jobs_text").html(rtitle);
+	              $("#category_cn").val(rtitle);
+	              $("#menuJobs").hide();
+	              $(".menu_bg_layer").remove();
+	            }
+	          });
+	        </script>
+			<tr>
+				<td class="create_job_l">招聘人数</td>
+				<td class="create_job_r"><input type="text" class="create_input" name="amount" /></td>
+			</tr>
+			<tr>
+				<td class="create_job_l">工作年限</td>
+				<td class="create_job_r">
+					<span id="experience_menu">
+						<div class="create_input short_input" id="experience_text"></div>
+						<img src="../images/35.gif" alt="" />
+		                <input name="experience" type="hidden" id="experience" value="" />
+		                <input name="experience_cn" type="hidden" id="experience_cn" value="" />
+	                </span>
+					<span class="check_box"><label><input type="checkbox" name="graduate"/> 应届毕业生</label></span>
+				</td>
+				<div class="menu choose_menu" id="menuExperience" style="display:none;position:absolute;z-index:1;">
+	            <div class="menu_title">工作年限</div>
+            		<div class="choose_close"></div>
+		            <ul>
+		                {#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+		                {#foreach from=$c_experience item=list#}
+		                <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+		                {#/foreach#}
+		            </ul>
+	            </div>
+			</tr>
+			<tr>
+				<td class="create_job_l">月薪</td>
+				<td class="create_job_r" id="wage_menu">
+					<div class="create_input" id="wage_text"></div>
+					<img src="../images/35.gif" alt="" />
+		            <input name="wage" type="hidden" id="wage" value="" />
+		            <input name="wage_cn" type="hidden" id="wage_cn" value="" />
+				</td>
+				<div class="menu choose_menu" id="menuWage" style="display:none;position:absolute;z-index:1;">
+	            <div class="menu_title">月薪</div>
+            		<div class="choose_close"></div>
+		            <ul>
+			            {#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+			            {#foreach from=$c_wage item=list#}
+			            <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+			            {#/foreach#}
+		            </ul>
+	          	</div>
+			</tr>
+			<tr>
+				<td class="create_job_l">学历</td>
+				<td class="create_job_r" id="education_menu">
+					<div class="create_input" id="education_text"></div>
+					<img src="../images/35.gif" alt="" />
+	                <input name="education" type="hidden" id="education" value="" />
+	                <input name="education_cn" type="hidden" id="education_cn" value="" />
+				</td>
+				<div class="menu choose_menu" id="menuEducation" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">学历</div>
+            		<div class="choose_close"></div>
+		            <ul>
+			            {#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+			            {#foreach from=$c_education item=list#}
+			            <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+			            {#/foreach#}
+		            </ul>
+	          	</div>
+			</tr>
+			<tr>
+				<td class="create_job_l">性别</td>
+				<td class="create_job_r" id="sex_menu">
+					<div class="create_input" id="sex_text"></div>
+					<img src="../images/35.gif" alt="" />
+	                <input name="sex" type="hidden" id="sex" value="" />
+	                <input name="sex_cn" type="hidden" id="sex_cn" value="" />
+				</td>
+				<div class="menu choose_menu" id="menuSex" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">性别</div>
+            		<div class="choose_close"></div>
+		            <ul>
+		            	<li title="不限" id="3">不限</li>
+		            	<li title="男" id="1">男</li>
+		            	<li title="女" id="2">女</li>
+		            </ul>
+	          	</div>
+			</tr>
+			<tr>
+				<td class="create_job_l">工作地区</td>
+				<td class="create_job_r" id="district_menu">
+					<div class="create_input" id="district_text"></div>
+					<img src="../images/35.gif" alt="" />
+					<input type="hidden" id="district" name="district" value="" />
+					<input type="hidden" id="sdistrict" name="sdistrict" value="" />
+					<input type="hidden" id="district_cn" name="district_cn" value="" />
+				</td>
+				<div class="menu choose_menu" id="menuDistrict" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">工作地区</div>
+            		<div class="choose_close"></div>
+		            <div class="area_choose">
+			            <ul class="area_left" id="area_left"></ul>
+			            <ul class="area_right" id="area_right"></ul>
+			            <div class="clear"></div>
+		            </div>
+		        </div>
+			</tr>
+			<script type="text/javascript">
+	          var citystr = '';
+	          $.each(QS_city_parent, function(pindex, pval) {
+	            if(pval) {
+	              var citys = pval.split(",");
+	                citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
+	            }
+	          });
+	          $("#area_left").html(citystr);
+	          $("#area_left li").unbind().click(function(){
+	            var cid = $(this).attr("rcoid");
+	            var cid = $(this).attr("pid");
+	            var ctitle = $(this).attr("title");
+	            var scitystr = "";
+	            if(QS_city[cid]) {
+	              var ccitysArray = QS_city[cid].split("|");
+	              scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+	              $.each(ccitysArray, function(cindex, cval) {
+	                if(cval) {
+	                  var ccitys = cval.split(",");
+	                  scitystr += '<li class="area_small" rcoid="'+ccitys[0]+'" title="'+ctitle+'\/'+ccitys[1]+'" pid="'+cid+'.'+ccitys[0]+'">'+ccitys[1]+'</li>';
+	                }
+	              });
+	              $("#area_right").html(scitystr).show();
+	              $("#area_right li").click(function(){
+	              	var districtIds = $(this).attr("pid");
+	              	var districtIdArray = districtIds.split(".");
+	                $("#district").val(districtIdArray[0]);
+	                $("#sdistrict").val(districtIdArray[1]);
+	                $("#district_cn").val($(this).attr("title"));
+	                $("#district_text").html($(this).attr("title"));
+	                $("#menuDistrict").hide();
+	                $(".menu_bg_layer").remove();
+	              });
+	            } else {
+	              $("#district").val($(this).attr('pid'));
+	              $("#sdistrict").val("0");
+	              $("#district_cn").val(ctitle);
+	              $("#district_text").html(ctitle);
+	              $("#menuDistrict").hide();
+	              $(".menu_bg_layer").remove();
+	            }
+	          });
+	        </script>
+			<tr>
+				<td class="create_job_l">职位描述</td>
+				<td class="create_job_r"><textarea name="contents"></textarea></td>
+			</tr>
+			<tr>
+				<td class="create_job_l">联系人</td>
+				<td class="create_job_r"><input type="text" class="create_input" name="contact" value="{#$company_info.contact#}"/></td>
+			</tr>
+			<tr>
+				<td class="create_job_l">联系电话</td>
+				<td class="create_job_r"><input type="text" class="create_input" name="telephone" value="{#$company_info.telephone#}"/></td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="hidden" name="add_mode" value="{#$add_mode#}"/>
+	<div class="create_job_but" id="create_job_but">发布</div>
+	<div class="create_job_but" id="create_job_but_no" style="display: none;">发布中...</div>
+</form>
+<!-- footer -->
+{#include file="wap/footer.htm"#}
+</body>
+</html>

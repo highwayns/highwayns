@@ -1,0 +1,88 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+  $("#importnum").QSdialog({
+  DialogTitle:"请选择",
+  DialogContent:"#ImportSet",
+  DialogContentType:"id",
+  DialogAddObj:"#OpImport", 
+  DialogAddType:"html"  
+  });
+});
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="smsqueue/admin_smsqueue_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+短信内容不能超过70个字！
+</p>
+</div> 
+ <div class="toptit">新增短信任务</div>
+    <form id="form1" name="form1" method="post"   action="?act=smsqueue_add_save" >
+	{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
+    <tr>
+      <td width="120" height="30" align="right"  >收件人：</td>
+      <td  >
+	  <textarea name="s_sms" class="input_text_400" style="height:80px;">{#$import_numbers#}</textarea>   
+	   <span class="admin_note">(请用“|”隔开多个手机号码)</span>  
+	  </td>
+    </tr>
+    <tr>
+      <td width="120" height="30" align="right"  ></td>
+      <td  ><input type="button" name="importnum" class="admin_submit" id="importnum" value="导入号码"/> 
+     <span class="admin_note">(支持TXT文本，多个号码请换行)</span>  
+    </td>
+    </tr>
+	
+	
+		  <tr>
+            <td width="100" align="right">发送内容:</td>
+            <td>
+			  <textarea name="s_body" class="input_text_400" style="height:80px;" onpropertychange="if(this.value.length&gt;70){this.value=this.value.slice(0,70)}"></textarea>
+			  <span class="admin_note">内容超过70个字符将自动截取</span>		    </td>
+          </tr>
+	  
+	  
+	      <tr>
+      <td height="30" align="right"  >&nbsp;</td>
+      <td height="50"  > 
+           <input name="submit3" type="submit" class="admin_submit"    value="添加"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>
+  </table>
+    </form>
+  <span id="OpImport"></span>
+<div style="display:none" id="ImportSet">
+  <form action="?act=import_num" encType="multipart/form-data" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+    <tr>
+      <td width="20" height="30">&nbsp;</td>
+      <td height="30"><strong  style="color:#0066CC; font-size:14px;">选择TXT文件</strong></td>
+    </tr>
+        <tr>
+      <td width="27" height="25">&nbsp;</td>
+      <td>
+        <input name="number_file" type="file" id="number_file"/></td>
+    </tr>
+ 
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td>
+    <input type="submit" name="import_txt" value="确定" class="admin_submit"/>
+ </td>
+    </tr>
+  </table>
+</form>
+  </div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<div class="content link_lan spread_dialog">
+	<table width="480">
+		<tbody>
+			<tr height="50">
+				<td width="90">推广职位：</td>
+				<td>{#$jobs_name#}</td>
+			</tr>
+			<tr height="30">
+				<td>推广方案：</td>
+				<td width="120">
+					{#$promotion_name#}
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td height="50">推广期限：</td>
+				<td>{#$days#}天</td>
+			</tr>
+			{#$color_list#}
+		</tbody>
+	</table>
+	<p>您的套餐为{#$setmeal_name#}，目前{#$promotion_name#}剩余 {#$num#} 条，推广时间为 {#$days#} 天！ </p>
+</div>
+<div class="spread_but_box">
+	<input type="hidden" id="jobid" value="{#$jobid#}">
+	<input type="hidden" id="catid" value="{#$catid#}">
+	<input type="hidden" id="days" value="{#$days#}">
+	<input type="hidden" id="pro_name" value="{#$pro_name#}">
+	<input type="button" value="确定" class="but95cheng DialogSubmit"/>
+	<input type="button" value="取消" class="but95hui DialogClose"/>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	menuDown("#val_menu","#val","","#menu1","88px");
+	function menuDown(menuId,input,input_cn,menuList,width){
+		$(menuId).click(function(){
+			$(menuList).css("width",width);
+			$(menuList).slideDown('fast');
+			//生成背景
+			$(menuId).parent("div").before("<div class=\"menu_bg_layer\"></div>");
+			$(".menu_bg_layer").height($(".FloatBox").height());
+			$(".menu_bg_layer").css({ width: $(".FloatBox").width(), position: "absolute", left: "0", top: "0" , "z-index": "0", "background-color": "#ffffff"});
+			$(".menu_bg_layer").css("opacity","0");
+			$(".menu_bg_layer").click(function(){
+				$(".menu_bg_layer").remove();
+				$(menuList).slideUp("fast");
+				$(menuId).parent("div").css("position","");
+			});
+		});
+
+		$(menuList+" li").click(function(){
+			var id = $(this).attr("id");
+			var title = $(this).attr("title");
+			$(input).val(id);
+			$(input_cn).val(title);
+			$(menuId).html("&nbsp");
+			$(menuId).css("background-color",title);
+			$(menuList).slideUp('fast');
+			$(".menu_bg_layer").remove();
+		});
+	}
+});
+</script>

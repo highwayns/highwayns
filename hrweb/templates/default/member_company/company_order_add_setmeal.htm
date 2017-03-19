@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" >
+
+function chk_form()
+{
+//---
+var flag = false;
+var oRadio = document.getElementsByName("payment_name"); 
+var msglen=oRadio.length;
+	if (msglen==1)
+	{
+		if(document.form1.payment_name.checked==true)
+		{
+		flag = true;
+		}
+	}
+	else
+	{
+		for(i=0;i<msglen;i++)
+		{
+			if(document.form1.payment_name[i].checked==true)
+			{
+			flag = true;
+			}
+		}
+	}
+//----
+if (flag == false)
+{
+    alert("请选择支付方式")
+    return (false);
+}
+return (true);
+}
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
+
+<div class="usermain">
+  <div class="leftmenu  com link_bk">
+  	  {#include file="member_company/left.htm"#}		
+  </div>
+  <div class="rightmain">
+  
+ 	<div class="bbox1 link_bk my_account intrgration">
+		<div class="topnav">
+      <div class="titleH1"><div class="h1-title">充值/订单</div></div>
+      <div class="navs link_bk">
+        {#if $QISHI.operation_mode=="1" || $QISHI.operation_mode=="3"#}
+        <a href="?act=order_add">积分充值</a>
+        {#/if#}
+        {#if $QISHI.operation_mode=="2" || $QISHI.operation_mode=="3"#}
+            <a href="?act=setmeal_list" class="se">申请VIP套餐</a>
+        {#/if#}
+        <a href="?act=order_list">我的订单</a>
+        <div class="clear"></div>
+      </div>
+		</div>
+		 <div class="balance">
+  			<div class="bal_text">我的套餐：<span> {#$user_setmeal.setmeal_name#} </span>，{#if $setmeal_endtime#}{#if $setmeal_endtime=="无限期"#}无限期{#else#}还有<span> {#$setmeal_endtime#} </span>天到期{#/if#}{#else#}已经到期{#/if#}<span class="small"> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
+  		</div>
+  		<div class="bar">
+  			<div class="bar_step1">
+  				<p>填写订单</p>
+  			</div>
+  			<div class="bar_step2 hui">
+  				<p>确认订单</p>
+  			</div>
+  			<div class="bar_step3 hui">
+  				<p>提交订单</p>
+  			</div>
+  		</div> 
+  		<form id="form1" name="form1" method="post" action="?act=setmeal_order_add_save" onsubmit="return chk_form();">
+  		<input type="hidden" name="setmealid" value="{#$setmeal.id#}">
+  		<div class="intrgration_box" style="margin:0 30px;">
+  			<table>
+  				<tbody>
+  					<tr>
+  						<td height="30" width="100">套餐类型：</td>
+  						<td><span>{#$setmeal.setmeal_name#}</span>&nbsp;（服务期限：{#if $setmeal.days=="0"#}无限制{#else#}{#$setmeal.days#}天{#/if#}）</td>
+  					</tr>
+  					<tr>
+  						<td height="30" width="100">套餐价格：</td>
+  						<td>{#if $setmeal.expense=="0"#}<span>免费</span>{#else#}<span>{#$setmeal.expense#}</span> 元{#/if#} &nbsp;<span class="del">（原价 {#if $setmeal.original_price=="0"#}免费{#else#}￥ {#$setmeal.original_price#}{#/if#}）</span></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  			<table>
+  				<tbody>
+  					{#section name=payment loop=$payment#}
+  					<tr>
+  						<td height="30" width="100">{#if $smarty.section.payment.index==0#}充值方式：{#/if#}</td>
+  						<td width="150"><input type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$QISHI.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
+  						<td> <p>({#$payment[payment].p_introduction#})</p></td>
+  					</tr>
+  					{#/section#}
+  				</tbody>
+  			</table>
+  			<input class="but130lan intrgration_but" type="submit" name="submit" value="充值"/>
+  		</div> 
+  		</form>
+  	
+  	</div>
+  </div>
+  <div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

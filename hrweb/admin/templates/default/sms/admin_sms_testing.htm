@@ -1,0 +1,49 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript"> 
+$(document).ready(function()
+{
+	$("#check").click(function () {	
+	$("#submitbox").hide();
+	$("#hide").show();	
+	});
+});
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="sms/admin_sms_nav.htm"#}
+  <div class="clear"></div>
+</div>
+ 
+		  <div class="toptit">发送测试短信</div>
+    <span id="submitbox">
+		<form action="?act=sms_testing" method="post"   name="form1" id="form1">
+		{#$inputtoken#}
+		<table width="700" border="0" cellspacing="10" cellpadding="1" style=" margin-bottom:3px;">
+			<tr>
+            <td width="100" align="right">测试接口:</td>
+            <td width="560">
+			<input name="type" type="radio" value="1" checked/>验证码类&nbsp;&nbsp;&nbsp;
+			<input name="type" type="radio" value="2"/>通知类&nbsp;&nbsp;&nbsp;
+			<input name="type" type="radio" value="3"/>其他类</td>
+          </tr>
+          <tr>
+            <td width="100" align="right">接收手机:</td>
+            <td width="560">
+			<input name="mobile" type="text"  class="input_text_200"  value="" maxlength="11"/></td>
+          </tr>
+          <tr>
+            <td align="right">&nbsp;</td>
+            <td><input name="check" type="submit" class="admin_submit" id="check"    value="立即测试" /></td>
+          </tr>
+        </table>
+	    </form>
+  </span>
+<span id="hide" style="display: none; color: #009900; padding-left:30px; padding-bottom:80px;">
+ 正在发送.......<br />
+<br />
+</span>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

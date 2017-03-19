@@ -1,0 +1,175 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" src="js/jquery.userinfotip-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#Butdelay").QSdialog({
+	DialogTitle:"系统提示",
+	DialogContent:"#delayset",
+	DialogContentType:"id",
+	DialogAddObj:"#Opdelay",	
+	DialogAddType:"html"	
+	});
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="company/admin_company_nav.htm"#}
+  <div class="clear"></div>
+</div>
+  <div class="seltpye_x">
+		<div class="left">套餐类型</div>	
+		<div class="right">
+		<a href="{#"setmeal_id:"|qishi_parse_url#}" {#if $smarty.get.setmeal_id==""#}class="select"{#/if#}>不限</a>
+		{#foreach from=$setmeal item=list#}
+		<a href="{#"setmeal_id:"|cat:$list.id|qishi_parse_url#}" {#if $smarty.get.setmeal_id==$list.id#}class="select"{#/if#}>{#$list.setmeal_name#}</a>
+		{#/foreach#}
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+  <div class="seltpye_x">
+		<div class="left">到期时间</div>	
+		<div class="right">
+		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:-1"|qishi_parse_url#}" {#if $smarty.get.settr=="-1"#}class="select"{#/if#}>已经到期</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
+		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内到期</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+  </div>
+  <form id="form1" name="form1" method="post" action="?act=meal_delay">
+  {#$inputtoken#}
+		
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
+    <tr>
+      <td  class="admin_list_tit admin_list_first" >
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>公司名称</label></td>
+	   <td  class="admin_list_tit">用户名</td>
+	   <td  class="admin_list_tit">套餐名称</td>
+      <td  class="admin_list_tit">email</td>     
+      <td     class="admin_list_tit">服务开始时间</td>
+	  <td     class="admin_list_tit">服务到期时间</td>
+      <td    align="center"  class="admin_list_tit" >操作</td>
+    </tr>
+	{#foreach from=$member item=list#}
+      <tr>
+      <td class="admin_list admin_list_first">
+		<input name="tuid[]" type="checkbox"   value="{#$list.uid#}"/>
+		{#if $list.companyname#}
+ 	        {#$list.companyname#}
+		{#else#}
+		<span style="color:#FF0000">未完善企业资料</span>
+		{#/if#}
+		</td>
+
+      <td class="admin_list">
+       {#$list.username#}
+		<span style="color:#CCCCCC">(uid:{#$list.uid#})</span>
+		<a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>
+		 {#if $list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>{#/if#}
+		</td>
+		 <td class="admin_list">
+		{#$list.setmeal_name#}
+		</td>
+ 		<td class="admin_list">
+		{#$list.email#}
+		{#if $list.email_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
+		</td>
+		
+       
+		<td   class="admin_list">
+		{#$list.starttime|date_format:"%Y-%m-%d"#}
+		</td>
+		<td   class="admin_list">
+		{#if $list.endtime=="0"#}
+		不限制	
+		{#else#}
+			{#if $list.endtime>$smarty.now#}
+			{#$list.endtime|date_format:"%Y-%m-%d"#}
+			{#else#}
+			{#$list.endtime|date_format:"%Y-%m-%d"#}
+			<span style="color:#FF6600">(已到期)</span>
+			{#/if#}
+		{#/if#}
+		</td>       
+        <td align="center" class="admin_list">
+		<a href="?act=user_edit&tuid={#$list.uid#}">修改</a>
+		&nbsp;
+		<a href="?act=meal_log&key_uid={#$list.uid#}&key_type=2&key_type_cn=UID">充值记录</a>
+		&nbsp;
+		<a href="?act=management&id={#$list.uid#}"  target="_blank"  class="userinfo"  id="{#$list.uid#}">管理</a>
+		</td>
+      </tr>
+      {#/foreach#}
+    </table>
+ <span id="Opdelay"></span>
+  </form>
+	{#if !$member#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+        <input type="button" name="Butdelay"  id="Butdelay" value="延期" class="admin_submit"/>
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"用户名"#}" readonly="true"/>
+		
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="用户名">用户名</li>
+														<li id="5" title="公司名">公司名</li>
+														<li id="2" title="UID">UID</li>
+														<li id="3" title="email">email</li>
+														<li id="4" title="手机号">手机号</li>
+														</ul>
+												</div>
+						</div>	
+
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="meal_members" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+		<div style="display:none" id="delayset">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+			<tr>
+			  <td width="20" height="30">&nbsp;</td>
+			  <td height="30"><strong  style="color:#0066CC; font-size:14px;">延长服务到期时间：</strong></td>
+			</tr>
+				  <tr>
+			  <td width="27" height="25">&nbsp;</td>
+			  <td>
+				<input name="days" type="text" class="input_text_150" id="days" value="1" maxlength="3"/>&nbsp;天</td>
+			</tr>
+		 
+			<tr>
+			  <td height="25">&nbsp;</td>
+			  <td>
+			  <input type="submit" name="set_delay" value="确定" class="admin_submit"/>
+		 </td>
+			</tr>
+		  </table>
+		  </div>
+  </div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" charset="gbk" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="gbk" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="gbk" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<div class="admin_main_nr_dbox">
+  <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="set/admin_set_config_nav.htm"#}
+  <div class="clear"></div>
+</div> 
+
+<div class="toptit">会员注册协议</div>
+  <form action="?act=set_save" method="post"   name="form1" id="form1">
+  {#$inputtoken#}
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  >
+
+            <tr>
+              <td>
+                <script id="editor" name="agreement" type="text/plain" style="width:700px;height:400px;">{#$text.agreement#}</script>
+                <script type="text/javascript">
+                var ue = UE.getEditor('editor');
+                </script>
+              </td>
+            </tr>
+            <tr>
+              <td height="50">
+			  
+                <input name="submit2" type="submit" class="admin_submit"    value="保存修改"/>
+              </td>
+            </tr>
+          </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

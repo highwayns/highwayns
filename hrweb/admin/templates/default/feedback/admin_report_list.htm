@@ -1,0 +1,147 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#ButVerify").QSdialog({
+			DialogTitle:"请选择",
+			DialogContent:"#VerifySet",
+			DialogContentType:"id",
+			DialogAddObj:"#OpVerify",	
+			DialogAddType:"html"	
+		});
+		//删除
+		$("#ButDel").click(function(){
+			if (confirm('你确定要删除吗？'))
+			{
+				$("form[name=form1]").attr("action","?act=del_report");
+				$("form[name=form1]").submit()
+			}
+		});
+	});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+ <div class="seltpye_x">
+		<div class="left">举报时间</div>	
+		<div class="right">
+		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:180"|qishi_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
+		<a href="{#"settr:360"|qishi_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+ <div class="seltpye_x">
+		<div class="left">举报类型</div>	
+		<div class="right">
+		<a href="?act=report_list&type=1" class="select">职位</a>
+		<a href="?act=report_list&type=2">简历</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">投诉类型</div>	
+		<div class="right">
+		<a href="{#"reporttype:"|qishi_parse_url#}" {#if $smarty.get.reporttype==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"reporttype:1"|qishi_parse_url#}" {#if $smarty.get.reporttype=="1"#}class="select"{#/if#}>虚假信息</a>
+		<a href="{#"reporttype:2"|qishi_parse_url#}" {#if $smarty.get.reporttype=="2"#}class="select"{#/if#}>电话不通</a>
+		<a href="{#"reporttype:3"|qishi_parse_url#}" {#if $smarty.get.reporttype=="3"#}class="select"{#/if#}>其它原因</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">核实情况</div>	
+		<div class="right">
+		<a href="{#"audit:"|qishi_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"audit:1"|qishi_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>未审核</a>
+		<a href="{#"audit:2"|qishi_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>属实</a>
+		<a href="{#"audit:3"|qishi_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>不属实</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=report_perform">
+  	<input type="hidden" name="type" value="1">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td width="15%"  class="admin_list_tit admin_list_first" >
+	  <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />投诉职位</label></td>
+		    <td width="180" align="center"  class="admin_list_tit">投诉类型</td>
+            <td class="admin_list_tit">投诉内容</td>
+		    <td width="180" align="center"  class="admin_list_tit">核实情况</td>
+		    <td width="180" align="center"  class="admin_list_tit">投诉者</td>
+        <td width="160" align="center"   class="admin_list_tit">投诉时间</td>
+	
+      </tr>
+	 {#foreach from=$list item=li#}
+	 <tr> 
+      <td  class="admin_list admin_list_first">
+      <input name="id[]" type="checkbox" id="id" value="{#$li.id#}" />
+      <input name="jobs_id[]" type="hidden" id="jobs_id" value="{#$li.jobs_id#}" />
+	 
+	 <a href="{#$li.jobs_url#}" target="_blank">{#$li.jobs_name#}</a>	 </td>
+	        <td align="center"  class="admin_list">{#if $li.report_type == 1#}虚假信息{#elseif $li.report_type == 2#}电话不通{#else#}其它原因{#/if#}</td>
+            <td  class="admin_list vtip" title="{#$li.content|nl2br#}" >{#$li.content#}</td>
+	        <td align="center"  class="admin_list">{#if $li.audit == 2#}属实{#elseif $li.audit == 3#}不属实{#else#}未审核{#/if#}</td>
+			<td align="center"  class="admin_list">{#$li.username#}</td>
+        <td align="center"  class="admin_list">{#$li.addtime|date_format:"%Y-%m-%d | %H:%M"#}</td>
+	
+      </tr>
+	 {#/foreach#}
+  </table>
+	  {#if !$list#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+<input name="del" type="button" class="admin_submit" id="ButDel" value="删除所选" onclick="return confirm('你确定要删除吗？')"/>
+<input name="verify" type="button" class="admin_submit" id="ButVerify" value="审核"/>
+		</td>
+        <td width="305" align="right">		
+	    </td>
+      </tr>
+  </table>
+  <span id="OpVerify"></span>
+  </form>
+<div class="page link_bk">{#$page#}</div>
+
+<div style="display:none" id="VerifySet">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+    <tr>
+      <td width="20" height="30">&nbsp;</td>
+      <td height="30"><strong  style="color:#0066CC; font-size:14px;">将所选信息置为：</strong></td>
+    </tr>
+	      <tr>
+      <td width="27" height="25">&nbsp;</td>
+      <td>
+                      <label><input name="audit" type="radio" value="2" checked="checked"  />
+                      属实</label></td>
+    </tr>
+    <tr>
+      <td width="27" height="25">&nbsp;</td>
+      <td>
+                      <label><input type="radio" name="audit" value="3"  />
+                       不属实</label></td>
+    </tr>
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td>
+	  <input type="submit" name="set_audit" value="确定" class="admin_submit"/>
+ </td>
+    </tr>
+  </table>
+  </div>
+
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

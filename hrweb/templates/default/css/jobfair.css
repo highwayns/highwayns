@@ -1,0 +1,77 @@
+﻿
+/*招聘会详情*/
+.rec_info{position:relative;border:1px solid #ccc;padding:5px;margin-bottom:10px;_zoom:1;}
+.rec_info .info_bbox{padding:20px 40px;background-color:#F5F5F5;}
+.rec_info .info_bbox .streamer{position:absolute;top:0;right:0;width:109px;height:108px;background:url(../images/17.png) right top no-repeat;+z-index:999999;}
+/*招聘会新样式*/
+.jobfairlist {padding-bottom:15px;}
+.jobfairlist .listtit{color:#7f7f7f;font-weight:bold;font-size:14px;height:39px;}
+.jobfairlist .list{border-bottom:1px dashed #cccccc;color:#7f7f7f;height:39px;line-height:39px;overflow:hidden;}
+.jobfairlist .list img{width:12px;height:18px;vertical-align:middle;margin-left:15px;}
+.but125_35orange{width:125px;height:35px;line-height: 35px;font-size: 14px;font-family: "microsoft yahei";color:#fff;background-color: #FF6600;text-align: center;vertical-align: middle;border:0;cursor: pointer;}
+.but125_35orange.hover{ background-color:#FF3300}
+.rec_info .info_bbox .streameryet{position:absolute;top:0;right:0;width:109px;height:108px;background:url(../images/17yet.png) right top no-repeat;+z-index:999999;}
+.rec_info .info_bbox .streamerover{position:absolute;top:0;right:0;width:109px;height:108px;background:url(../images/17over.png) right top no-repeat;+z-index:999999;}
+
+.rec_info .info_bbox .calendar{margin-right:53px;float:left;width:145px;height:145px;background:url(../images/15.jpg) center center no-repeat;_margin-top:15px;}
+.rec_info .info_bbox .calendar.hui{background: url(../images/21.jpg) left top no-repeat;}
+.rec_info .info_bbox .calendar div{text-align:center;}
+.rec_info .info_bbox .calendar div.cal1{font-size:12px;color:#fff;line-height:22px;}
+.rec_info .info_bbox .calendar div.cal2{font-size:12px;color:#B22C0E;line-height:25px;}
+.rec_info .info_bbox .calendar div.cal3{font-size:50px;font-weight:bold;color:#000;line-height:60px;}
+.rec_info .info_bbox .calendar div.cal4{font-size:16px;color:#B22C0E;line-height:32px;}
+.rec_info .info_bbox .info_txt{width:500px;margin-right:33px;float:left;_width:224px;_margin-top:10px;}
+.info_txt.hui{background-image: none;}
+.rec_info .info_bbox .info_txt h3{margin-top:15px;padding-bottom:15px;margin-bottom:15px;font-size:20px;color:#017FCF;font-weight:normal;border-bottom:1px solid #ccc;}
+.rec_info .info_bbox .info_txt li{font-size:14px;font-family:"microsoft yahei";width:250px;float: left\0\9;float: left;white-space: nowrap;}
+.rec_info .info_bbox .info_txt li span{color:#333333;}
+.rec_info .info_bbox .info_but{float:left;}
+.rec_info .info_bbox .info_but input{margin-top:25px;display:block;}
+
+/*招聘会列表页*/
+.rec_banner{margin-bottom:10px;width:1000px;}
+.rec_banner p{font-size:18px;color:#fff;line-height:35px;}
+.rec_info .info_bbox .streamer.st_hui{background: url(../images/19.gif) right top no-repeat;}
+.rec_info .info_bbox .calendar.sc{margin-right: 53px;_width:145px;}
+.rec_info .info_bbox .calendar.hui{background: url(../images/21.jpg) left top no-repeat;}
+.rec_info .info_bbox .calendar.hui div.cal1{color:#fff;}
+.rec_info .info_bbox .calendar.hui div.cal2{color:#A2A2A2;}
+.rec_info .info_bbox .calendar.hui div.cal3{color:#A2A2A2;}
+.rec_info .info_bbox .calendar.hui div.cal4{color:#9C9C9C;}
+.rec_info .info_bbox .info_txt.si{margin-right:111px;float:left;_margin-right:90px;_height:148px;}
+.rec_info .info_bbox .info_txt.si h3{margin-top:13px;padding-bottom:15px;margin-bottom:13px;font-size:20px;color:#017FCF;font-weight:normal;border-bottom:1px solid #ccc;font-family: "microsoft yahei";height:27px;overflow:hidden;white-space: nowrap;text-overflow:ellipsis;}
+.rec_info .info_bbox .info_txt.si li{font-size:14px;font-family:"microsoft yahei";width:500px;line-height:30px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.rec_info .info_bbox .info_txt.si li span{color:#333333;}
+.rec_info .info_bbox .info_but.sbut{float:left;width:286px;_margin-top:15px;}
+.rec_info .info_bbox .info_but.sbut input{margin-top:25px;display:block;float: left;margin-right: 15px;_margin-right:11px;}
+.rec_info .info_bbox .info_txt.si.huit h3{color:#797979;}
+.rec_info .info_bbox .info_txt.si.huit li{color:#656565;}
+.rec_info .info_bbox .info_txt.si.huit li span{color:#797979;}
+.rec_info .info_bbox .info_but.sbut .but125_35lan.huib{background-color: #B8B8B8;}
+.rec_info .info_bbox .info_but.sbut .but125_35cheng.huib{background-color: #C8C7C7;}
+
+
+
+.present{margin-top:20px;}
+.present .present1{padding-left:26px;background:url(../images/16.gif) 0px 3px no-repeat;background-color: #fff;}
+.present .present2{padding-left:26px;background:url(../images/16.gif) 0px -27px no-repeat;background-color: #fff;}
+.present .present3{padding-left:26px;background:url(../images/16.gif) 0px -59px no-repeat;background-color: #fff;}
+.present .present4{padding-left:26px;background:url(../images/16.gif) 0px -90px no-repeat;background-color: #fff;}
+.present .present5{padding-left:26px;background:url(../images/16.gif) 0px -121px no-repeat;background-color: #fff;}
+.present .pre_tit{border-bottom:2px solid #ccc;}
+.present .pre_tit h4{ color:#333;float:left;font-size:16px;padding-left:10px;padding-right:10px;padding-bottom:10px;margin-bottom:-2px;border-bottom:2px solid #017FCF;}
+.present .pre_content{font-family:"microsoft yahei";font-size:14px;margin-top:20px;margin-bottom:30px;margin-left:22px;line-height:30px;color:#666;}
+.present p{font-family:"microsoft yahei";font-size:14px;/*margin-top:20px;margin-bottom:30px;*/margin-left:15px;line-height:30px;}
+.present .pre_content ol{margin:0;padding:0;}
+.present .pre_content .join_com{float:left;}
+.present .pre_content ul{margin-left:15px;float:left;}
+.present .pre_content ul li{line-height:30px;width:270px;float:left;}
+.present .pre_content .map{margin-top:10px;}
+/*参会企业*/
+.acceding{margin-top:20px;padding-left:23px;font-size:14px;font-family:"microsoft yahei";line-height:30px;margin-bottom:30px;color:#666;width: 100%;}
+.acceding tr{/*background:url(../images/11.jpg) repeat-x bottom;*/}
+.acceding tr th{color:#333;border-bottom:1px dashed #ccc;}
+.acceding tr td{padding-top:10px;padding-bottom:10px;border-bottom:1px dashed #ccc;}
+.rec_info .info_bbox .info_txt.ex{width:700px;}
+.rec_info .info_bbox .info_txt.ex h3{font-family: "microsoft yahei";}
+.rec_info .info_bbox .info_txt.ex li{float: left;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}

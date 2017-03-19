@@ -1,0 +1,56 @@
+﻿body{margin:0;padding:0;}
+.clear{clear:both;margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6{margin:0;padding:0;}
+.install_input_text{width:248px;height:28px;border:1px solid #ccc;padding-left: 9px;}
+
+/*瀹夎鐣岄潰澶撮儴*/
+.install_box{width:703px;margin:0 auto;margin-top:67px;background-color:#F1F7FA;border:1px solid #ccc;}
+.install_box .header{position:relative;height:85px;background:url(../images/head.jpg) left top repeat-x;border-bottom:1px solid #ccc;}
+.install_box .header .logo_img{position:absolute;width:366px;height:57px;left:28px;top:16px;}
+.install_box .header .head_txt{position:absolute;bottom:12px;right:22px;font-size:12px;font-family:"microsoft yahei";color:#656565;}
+/*鍐呭閮ㄥ垎*/
+.install_box .install_content{position:relative;padding:20px;}
+.install_box .install_content .content{width:641px;height:363px;border:1px solid #E4F2FA;background-color:#fff;padding-left:10px;padding-right:10px;overflow:auto;}
+.install_box .install_content .content h2{text-align:center;font-weight:normal;font-size:16px;font-family:"microsoft yahei";color:#333333;margin-bottom:20px;+margin-top:20px;}
+.install_box .install_content .content p{text-indent:2em;font-size:12px;font-family:"瀹嬩綋";color:#656565;margin-top:6px;margin-bottom:6px;line-height:20px;}
+.install_box .next{width:215px;margin:0 auto;margin-bottom:20px;}
+.install_box .next input{padding:0;width:78px;height:28px;border:1px solid #ccc;background-color:#F5F5F5;border-radius:3px;text-align:center;vertical-align:middle;font-family:"瀹嬩綋";font-size:12px;cursor:pointer;}
+.install_box .up{margin-right:50px;}
+/*搴曢儴*/
+.install_box .copyright{width:663px;height:17px;background: url(../images/bottom.gif)repeat-x; margin-left:20px;margin-right:20px;padding-top:16px;padding-bottom:16px;text-align:center;font-size:12px;font-family:"microsoft yahei";border-top:1px solid #ccc;color:#656565;}
+
+.install_box .step{height:113px;+height:135px;border-bottom:1px solid #ccc;}
+.install_box .step .step_show{width:404px;height:61px;margin:0 auto;margin-top:23px;}
+.install_box .step .step_show.step_1{background:url(../images/install_step.png)0px 0px no-repeat;+background:url(../images/install_step.gif) no-repeat;+background-position:0px 0px;}
+.install_box .step .step_show.step_2{background:url(../images/install_step.png)0px -81px no-repeat;+background:url(../images/install_step.gif) no-repeat;+background-position:0px -81px;}
+.install_box .step .step_show.step_3{background:url(../images/install_step.png)0px -161px no-repeat;+background:url(../images/install_step.gif) no-repeat;+background-position:0px -161px;}
+.install_box .step .step_show.step_4{background:url(../images/install_step.png)0px -239px no-repeat;+background:url(../images/install_step.gif) no-repeat;+background-position:0px -239px;}
+.install_box .step ul{width:404px;margin:0 auto;margin-top:10px;padding:0;list-style:none;}
+.install_box .step ul li{float:left;margin-right:59px;+margin-right:57px;+margin-right:60px;font-size:14px;font-family:"microsoft yahei";color:#777777;}
+.install_box .step ul li.complete{color:#017FCF;}
+.install_box .setting{padding-left:45px;padding-right:45px;+margin-bottom:20px;}
+.install_box .setting div{padding-top:20px;padding-left:15px;border-bottom:1px dashed #ccc;}
+.install_box .setting .setting_check{+padding-bottom:20px;}
+.install_box .setting div h3{font-size:14px;font-family:"microsoft yahei";color:#323232;font-weight:normal;margin-bottom:10px;}
+.install_box .setting div table{font-size:12px;padding-bottom:20px;font-family:"瀹嬩綋",verdana;color:#656565;}
+.install_box .setting div table .title{color:#017FCF;}
+.install_box .setting div table span{font-family:"microsoft yahei";font-size:14px;}
+.install_box .setting div table span.can{color:#45B800;}
+.install_box .setting div table span.cant{color:#FF0101;}
+.install_box .installing{width:572px;height:310px;margin:18px auto 20px auto;background-color:#fff;border:1px solid #E4F2FA;overflow:auto;padding-left:11px;}
+.install_box .installing p{font-size:12px;font-family:"瀹嬩綋",verdana;color:#656565;line-height:14px;+line-height:12px;}
+.install_box .installing_but{width:98px;height:28px;line-height:28px;margin:0 auto;background-color:#F5F5F5;border:1px solid #ccc;border-radius:3px;text-align:center;font-size:12px;font-family:"瀹嬩綋";color:#656565;cursor:default;margin-bottom:20px;}
+.install_box .install_complete{position:relative;height:299px;}
+.install_box .install_complete .sccueed{position:absolute;top:63px;left:153px;height:48px;padding-left:60px;line-height:48px;background:url(../images/install_complete.gif) no-repeat;font-family:"microsoft yahei";font-size:22px;color:#333333;}
+.install_box .install_complete .sccueed_but{position:absolute;bottom:107px;left:246px;}
+.install_box .install_complete .sccueed_but a{display:block;float:left;margin-right:50px;text-decoration:none;font-size:12px;font-family:"瀹嬩綋";color:#656565;width:78px;height:28px;line-height:28px;background-color:#F5F5F5;border:1px solid #ccc;border-radius:3px;text-align:center;}
+.install_box .install_complete .sccueed_but a.backstage{margin-right:0;}
+.install_box .install_complete .sccueed_but a:hover{color:#017FCF;}
+
+.install_box .install_error{position:relative;height:299px;}
+.install_box .install_error .error{position:absolute;top:63px;left:153px;height:48px;padding-left:60px;line-height:48px;background:url(../images/install_error.gif) no-repeat;font-family:"microsoft yahei";font-size:22px;color:#333333;}
+.install_box .install_error .error_but{position: absolute;bottom:107px;left: 246px;}
+.install_box .install_error .error_but input{padding:0;width:78px;height:28px;border:1px solid #ccc;background-color:#F5F5F5;border-radius:3px;text-align:center;vertical-align:middle;font-family:"瀹嬩綋";font-size:12px;cursor:pointer;}
+
+.install_tips{margin-left: 20px;margin-right: 20px;margin-top: 20px;border:1px solid #FBB68F;background-color: #FEF9E6;font-size: 12px;color:#FF5500;line-height:16px;}
+.install_tips p{line-height:16px;margin-top:5px;margin-bottom: 5px;padding-left: 10px;}

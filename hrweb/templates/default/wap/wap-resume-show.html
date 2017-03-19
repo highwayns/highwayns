@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{#$show.fullname#}的个人简历 - {#$QISHI.site_name#}</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="./css/common.css" rel="stylesheet" type="text/css" />
+<link href="./css/user.css" rel="stylesheet" type="text/css" />
+<link href="./css/resume.css" rel="stylesheet" type="text/css" />
+<script src="./js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="./js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+	// 下载简历
+	$("#down_resume").click(function(){
+		var resume_id = {#$smarty.get.id#};
+		$.post("company/wap_company_download_reusme.php?act=ajax_download_resume_add",{resume_id:resume_id},function(data){
+			if(data=="ok"){
+					$.post('company/wap_company_download_reusme.php?act=ajax_download_resume_add_save', {resume_id:{#$smarty.get.id#}}, function(data){
+						if(data=="ok"){
+							alert("下载简历成功");
+							window.location.reload();
+						}else{
+							window.location.reload();
+						}
+					});
+			}else{
+				alert(data);
+				window.location.reload();
+			}
+		});
+	});
+	// 弹出框
+	  function showFloatBox() {
+	    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+	    $(".menu_bg_layer").height($(document).height());
+	    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+	    $(".menu_bg_layer").css("opacity",0.3);
+	  }
+	// 邀请面试
+	$("#interview_resume").click(function(){
+		showFloatBox();
+		$("#choose_menu").css({ top: ($(window).height() - $('#choose_menu').outerHeight())/2 + $(document).scrollTop() });
+		$("#choose_menu").show();
+		var resume_id = {#$smarty.get.id#};
+		$("#but_left").click(function(){
+			var jobs_id=$("input[name='jobs_list']:checked").val();
+			if(jobs_id){
+				$(".choose_menu").hide();
+				$(".menu_bg_layer").remove();
+				$.post("plus/wap_ajax.php?act=invited_add",{jobs_id:jobs_id,resume_id:resume_id},function(data){
+					if(data=="ok"){
+						alert("邀请面试成功");
+						window.location.reload();
+					}else if(data=="err"){
+						alert("邀请面试失败");
+						window.location.reload();
+					}else if(data=="repeat"){
+						alert("此职位您已经邀请过该求职者");
+						window.location.reload();
+					}
+					else{
+						alert(data);
+						window.location.reload();
+					}
+				});
+			}else{
+				alert("请选择职位");
+			}
+		});
+		$("#but_right").click(function(){
+			$(".choose_menu").hide();
+			$(".menu_bg_layer").remove();
+		});
+	});
+	// 收藏简历
+	$("#collect_resume").click(function(){
+		var resume_id = {#$smarty.get.id#};
+		$.post("company/wap_company_collect_reusme.php?act=ajax_collect_resume_add",{resume_id:resume_id},function(data){
+			if(data=="ok"){
+				alert("收藏简历成功");
+				window.location.reload();
+			}else if(data=="err"){
+				alert("收藏简历失败");
+				window.location.reload();
+			}else{
+				alert(data);
+				window.location.reload();
+			}
+		});
+	});
+	$.get("plus/wap_ajax.php", { "id": {#$show.id#},"act":"resume_contact"},
+		function (data,textStatus)
+		 {			
+			$("#resuem_content").html(data);
+		 }
+	);
+});
+</script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+	<div class="title">{#$show.fullname#}的个人简历</div>
+	<div class="back" id="pageback"><img src="./images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="./images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="./index.php";'>
+    <div class="box"><img src="./images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="./wap-jobs-list.php";'>
+    <div class="box"><img src="./images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="./wap-resume-list.php";'>
+    <div class="box"><img src="./images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="./wap-news-list.php";'>
+    <div class="box"><img src="./images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+
+<!-- 个人会员中心简历预览页面 -->
+<!-- 头部 -->
+<div class="resume_show_box top">
+	<div class="top_box">
+		<div class="person_info">
+			<h3>{#$show.fullname#}<span>({#$show.sex_cn#}，{#$show.age#}岁，{#$show.education_cn#}，{#$show.experience_cn#})</span></h3>
+			<div class="time_box">
+				<div class="time">
+					<div>{#$show.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</div>
+				</div>
+				<div class="watch">
+					<div>已有{#$show.click#}人浏览</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		{#if $show.tag#}
+		<div class="tag_box">
+			{#foreach from=$show.tag_cn item=tagli#}
+				<div class="tag_li">{#$tagli#}</div>
+			{#/foreach#}
+		</div>
+		{#/if#}
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$(".tag_box .tag_li:odd").css({
+			"background-color":"#e8f5ff",
+			"border-left-color":"#3389b0",
+			"background-image":"url(../images/43.png)"
+		});
+	});
+</script>
+
+<!-- 详细内容 -->
+<div class="resume_show_box">
+	<h2>求职意向</h2>
+	<div class="detail_content">
+		<div class="aim">工作性质：{#$show.nature_cn#}</div>
+		<div class="aim">期望地区：{#$show.district_cn#}</div>
+		<div class="aim">期望薪资：{#$show.wage_cn#}</div>
+		<div class="aim">期望岗位：{#$show.intention_jobs#}</div>
+	</div>
+</div>
+
+{#if $show.education_list#}
+<div class="resume_show_box">
+	<h2>教育经历</h2>
+	<div class="detail_content">
+		{#foreach from=$show.education_list item=list#}
+		<div class="edu_exp_box">
+			<div class="times">{#$list.startyear#}.{#$list.startmonth#}-{#$list.endyear#}.{#$list.endmonth#}</div>
+			<div class="edu_exp">
+				<div class="edu_li">{#$list.school#}</div>
+				<div class="edu_li">{#$list.speciality#}</div>
+				<div class="edu_li">{#$list.education_cn#}</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		{#/foreach#}
+	</div>
+</div>
+{#/if#}
+
+{#if $show.work_list#}
+<div class="resume_show_box">
+	<h2>工作经历</h2>
+	 {#foreach from=$show.work_list item=list#}
+	<div class="detail_content">
+		<div class="work_time">{#$list.startyear#}.{#$list.startmonth#}-{#$list.endyear#}.{#$list.endmonth#}</div>
+		<div class="com">
+			<div class="com_name">{#$list.companyname#}</div>
+			<div class="work_name">{#$list.jobs#}</div>
+			<div class="clear"></div>
+		</div>
+		<p class="work_content">
+			{#$list.achievements#}
+		</p>
+	</div>
+	{#/foreach#}
+</div>
+{#/if#}
+
+{#if $show.training_list#}
+<div class="resume_show_box">
+	<h2>培训经历</h2>
+	{#foreach from=$show.training_list item=list#}
+	<div class="detail_content">
+		<div class="work_time">{#$list.startyear#}.{#$list.startmonth#}-{#$list.endyear#}.{#$list.endmonth#}</div>
+		<div class="com">
+			<div class="com_name">{#$list.agency#}</div>
+			<div class="work_name">{#$list.course#}</div>
+			<div class="clear"></div>
+		</div>
+		<p class="work_content">
+			{#$list.description#}
+		</p>
+	</div>
+	{#/foreach#}
+</div>
+{#/if#}
+{#if $show.specialty#}
+<div class="resume_show_box">
+	<h2>自我评价</h2>
+	<div class="detail_content">
+		<p class="work_content">
+			{#$show.specialty#}
+		</p>
+	</div>
+</div>
+{#/if#}
+<div id="resuem_content">
+	<!-- {#if $down_resume#}
+	<div class="resume_show_box" id="">
+		<h2>联系方式</h2>
+		<div class="txt_box">
+			联系人：{#$show.fullname#}<br />
+			联系电话：{#$show.telephone#}<br />
+			联系地址：{#$show.residence_cn#}
+		</div>
+		<div class="telimg"><a href="wtai://wp/mc;{#$show.telephone#}"><img src="./images/23.jpg" alt="" /></a></div>
+	</div>
+	{#/if#} -->
+</div>
+{#if $smarty.session.utype==1#}
+<div class="delivery_box">
+	<div class="shadow_box"></div>
+	<div class="del_box">
+		<div class="del_box_l">
+			{#if $down_resume#}
+			<div class="delivery_but" id="interview_resume">邀请面试</div>
+			{#else#}
+			<div class="delivery_but" id="down_resume">查看联系方式</div>
+			{#/if#}
+		</div>
+		<div class="del_box_r">
+			<div class="favorites done" id="collect_resume">收藏简历</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+{#/if#}
+
+<!-- 邀请面试弹出框 -->
+<div class="menu choose_menu" id="choose_menu" style="display:none;position:absolute;z-index:1;">
+	<div class="menu_title">选择职位</div>
+	<ul>
+		{#foreach from=$jobs_row item=list#}
+		<li><label for="r_{#$list.id#}"  style="width:100%;float:left;"><input type="radio" name="jobs_list" id="r_{#$list.id#}" value="{#$list.id#}"/>{#$list.jobs_name#}</label></li>
+		{#/foreach#}
+	</ul>
+	<!-- <div class="resume_jifen">邀请面试将扣除您20积分</div> -->
+	<div class="choose_but">
+		<div class="but_left" id="but_left">
+			<a>邀请</a>
+		</div>
+		<div class="but_right" id="but_right">
+			<a>取消</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div> 
+<!-- 没有职位弹出框 -->
+<div class="menu choose_menu" style="display:none;position:absolute;z-index:1;">
+	<div class="menu_title">提示</div>
+	<div class="no_deta">
+		您还没有发布职位，请<a href="">发布职位</a>
+	</div>
+	<div class="choose_but">
+		<div class="but_left">
+			<a>发布职位</a>
+		</div>
+		<div class="but_right">
+			<a>取消</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div> 
+<!-- footer -->
+{#include file="wap/footer.htm"#}
+</body>
+</html>

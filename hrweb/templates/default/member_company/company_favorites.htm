@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script>
+	$(document).ready(function() {
+		$('.name-link').toggle(function(){
+			$(this).parents('.c-data-content').next().show();
+			$(this).parents('.c-data-row').css({'border-color':'#fff'});
+		}, function(){
+			$(this).parents('.c-data-content').next().hide();
+			$(this).parents('.c-data-row').css({'border-color':'#ccc'});
+		});			
+		$('.data-detail').each(function(index){
+			$('.name-link').toggle(function(){
+				$('.data-detail')
+			}, function(){
+				$(this).parents('.c-data-content').next().hide();
+			});
+		});
+		// 顶部筛选
+		$('.data-filter').on('click', function(e){
+			$(this).find('.filter-down').toggle();
+			// 动态设置下拉列表宽度
+			var fWidth = $(this).find('.filter-span').outerWidth(true) - 2;
+			$(this).find(".filter-down").width(fWidth);
+			// 点击其他位置收起下拉
+			$(document).one("click",function(){
+				$('.filter-down').hide();
+			});
+			e.stopPropagation();
+			//点击下拉时收起其他下拉
+			$(".data-filter").not($(this)).find('.filter-down').hide();
+		})
+		// 删除弹出
+		delete_dialog('.ctrl-del','#form1');
+		// 发送到邮箱弹出
+		companySendToEmail_dialog('.db-btn.btn3','./company_ajax.php');
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 收藏的简历</div>
+<div class="usermain">
+  <div class="leftmenu  com link_bk">
+  	{#include file="member_company/left.htm"#}	
+  </div>
+  <div class="rightmain">
+  	<div class="bbox1 my_account">
+		<div class="title_h1" style="padding-bottom:10px;">收藏的简历</div>
+		<form id="form1" name="form1" method="post" action="?act=favorites_del">
+		<div class="company-data-list">
+			<div class="c-data-top favorites clearfix">
+				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" /></div>
+				<div class="item f-left top-item1">姓名</div>
+				<div class="item f-left top-item2">基本信息</div>
+				<div class="item f-left top-item3">期望职位</div>
+				<div class="item f-left top-item4">
+					<div class="data-filter span4">
+						<span class="filter-span">{#if $smarty.get.settr_cn==''#}收藏时间{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class="filter-icon"></i></span>
+						<ul class="filter-down">
+							<li><a href="{#"settr:,settr_cn:全部"|qishi_parse_url#}">全部</a></li>
+							<li><a href="{#"settr:3,settr_cn:三天内"|qishi_parse_url#}">三天内</a></li>
+							<li><a href="{#"settr:7,settr_cn:一周内"|qishi_parse_url#}">一周内</a></li>
+							<li><a href="{#"settr:30,settr_cn:一月内"|qishi_parse_url#}">一月内</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="item f-left top-item5">操作</div>
+			</div>
+			{#if $favorites#}
+			{#foreach from=$favorites item=list#}
+			{#if $list.sex_cn#}
+			<div class="c-data-row favorites_list">
+				<div class="c-data-content favorites clearfix">
+					<div class="c-item f-left check-item"><input name="y_id[]" type="checkbox" id="y_id"  value="{#$list.did#}"/></div>
+					<div class="c-item f-left content1"><a href="javascript:;" class="name-link underline">{#$list.fullname#}</a></div>
+					<div class="c-item f-left content2">{#$list.age#}岁/{#$list.education_cn#}/{#$list.experience_cn#}</div>
+					<div class="c-item f-left content3">{#$list.intention_jobs#}</div>
+					<div class="c-item f-left content4"><span class="data-time">{#$list.favoritesa_ddtime|date:"Y-m-d"#}</span></div>
+					<div class="c-item f-left content5"><a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=favorites_del&y_id={#$list.did#}">删除</a></div>
+				</div>
+				<div class="data-detail">
+					<i class="arrow"></i>
+					{#if $list.resume_education_list#}
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">教育经历：</div>
+						<div class="db-content f-left">
+							{#foreach from=$list.resume_education_list item=edu_list#}
+							<p class="db-info"><span>{#$edu_list.startyear#}年{#$edu_list.startmonth#}月-{#$edu_list.endyear#}年{#$edu_list.endmonth#}月</span><span>{#$edu_list.school#}</span><span>{#$edu_list.speciality#}</span><span>{#$edu_list.education_cn#}</span></p>
+							{#/foreach#}
+						</div>
+					</div>
+					{#/if#}
+					{#if $list.resume_work_list#}
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">工作经历：</div>
+						<div class="db-content f-left">
+							{#foreach from=$list.resume_work_list item=w_list#}
+							<p class="db-info"><span>{#$w_list.startyear#}年{#$w_list.startmonth#}月-{#$w_list.endyear#}年{#$w_list.endmonth#}月</span><span>{#$w_list.companyname#}</span><span>{#$w_list.jobs#}</span></p>
+							{#/foreach#}
+						</div>
+					</div>
+					{#/if#}
+
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">求职意向：</div>
+						<div class="db-content f-left">
+							<div class="job-flow"><span>期望工作性质 {#$list.nature_cn#}</span> | <span>期望工作地区 {#$list.district_cn#}</span> | <span>期望薪资 <em>{#$list.wage_cn#}</em></span> | <span>期望职位 {#$list.intention_jobs#}</span> | <span>期望行业 {#$list.trade_cn#}</span></div>
+						</div>
+					</div>
+
+					<div class="detail-block clearfix">
+						<div class="db-type f-left">&nbsp;</div>
+						<div class="db-btn-group f-left">
+							<a href="{#$list.resume_url#}" class="db-btn btn1 f-left" target="_blank"></a>
+							<a href="company_resume_doc.php?y_id={#$list.resume_id#}" class="db-btn btn2 f-left"></a>
+							<a href="javascript:;" class="db-btn btn3 f-left" resume_id="{#$list.resume_id#}" uid="{#$list.personal_uid#}" ></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{#else#}
+			<div class="c-data-row">
+				<div class="c-data-content interview clearfix">
+					<div class="c-item f-left check-item"><input type="checkbox" name="y_id[]" id="y_id" value="{#$list.did#}" class="checkbox" /></div>
+					[id为：{#$list.resume_id#}] 的简历可能已被删除，您可以删除本条信息.	
+				</div>
+			</div>
+			{#/if#}
+			{#/foreach#}
+			<div class="c-data-row last">
+				<div class="c-data-content apply_jobs clearfix">
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" /></div>
+					<div class="data-last-btn f-left">
+						<input type="button" name="delete" value="删除"   class="btn-65-30blue ctrl-del" act="?act=favorites_del"/>
+					</div>
+				</div>
+			</div>
+			{#else#}
+			<div class="emptytip">没有找到对应的信息！</div>
+			{#/if#}
+		</div>
+		</form>
+		{#if $page#}
+		<table border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+          </tr>
+      	</table>
+		{#/if#}
+	</div>
+
+  </div>
+  <div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

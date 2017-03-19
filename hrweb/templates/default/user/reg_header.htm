@@ -1,0 +1,18 @@
+﻿	<div id="reg-head"{#if $header_nav=="login"#}style="margin:0"{#/if#}>
+		<div class="container">
+			<div class="logo-box f-left">
+				<a href="{#$QISHI.site_dir#}" class="logo f-left"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" width="261" height="70" border="0"/></a>
+				<a href="{#$QISHI.site_dir#}" class="back-index f-left"></a>
+			</div>
+			<div class="reg-tips f-left">{#if $header_nav=="getpass"#}密码找回{#elseif $header_nav=="login"#}欢迎登录{#else#}免费注册{#/if#}</div>
+			<div class="top-right f-right">
+				{#if $header_nav=="login"#}
+				<p class="f-left">还没有帐号?</p>
+				<div class="f-left"><a href="user_reg.php" class="btn login-btn blue" style="color:#FFFFFF">立即注册</a></div>
+				{#else#}
+				<p class="f-left">我已注册，现在就</p>
+				<div class="f-left"><a href="login.php?act=login" class="btn login-btn blue" style="color:#FFFFFF">登录</a></div>
+				{#/if#}
+			</div>
+		</div>
+	</div>

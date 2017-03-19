@@ -1,0 +1,164 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+//验证
+$(document).ready(function() {
+ $("#FormData").validate({
+ //debug: true,
+// onsubmit:false,
+//onfocusout :true,
+   rules:{
+   message:{
+    required: true,
+	minlength:1,
+    maxlength:150
+   }
+	},
+	
+    messages:
+	{
+    message: {
+    required: "请输入内容",
+    minlength: jQuery.format("内容不能小于{0}个字符"),
+	maxlength: jQuery.format("内容不能大于{0}个字符")
+   }
+  },
+  errorPlacement: function(error, element) {
+    if ( element.is(":radio") )
+        error.appendTo( element.parent().next().next() );
+    else if ( element.is(":checkbox") )
+        error.appendTo ( element.next());
+    else
+        error.appendTo(element.parent());
+	}
+    });
+});
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+//验证
+$(document).ready(function() {
+ $("#FormData1").validate({
+ //debug: true,
+// onsubmit:false,
+//onfocusout :true,
+   rules:{
+   us:{
+   required: true
+   },
+   msg:{
+    required: true,
+	minlength:1,
+    maxlength:150
+   }
+	},
+	
+    messages:
+	{
+	us: {
+    required: "请输入会员名，输入多个请换行输入"
+   },
+    msg: {
+    required: "请输入消息内容",
+    minlength: jQuery.format("内容不能小于{0}个字符"),
+	maxlength: jQuery.format("内容不能大于{0}个字符")
+   }
+  },
+  errorPlacement: function(error, element) {
+    if ( element.is(":radio") )
+        error.appendTo( element.parent().next().next() );
+    else if ( element.is(":checkbox") )
+        error.appendTo ( element.next());
+    else
+        error.appendTo(element.parent());
+	}
+    });
+});
+})
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="pms/admin_pms_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptit">新增系统消息</div>
+  <form action="?act=add_pms_sys_save" method="post"   name="FormData" id="FormData" >
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="5" cellspacing="0"  class="admin_table">
+      <tr>
+        <td width="100" align="right" >接受会员：</td>
+        <td >
+		<label><input name="spms_usertype" type="radio" value="0" checked="checked" />全部会员</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="1" />仅企业会员 </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="2" />仅个人会员 </label>	
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="3" />仅猎头顾问 </label>	
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_usertype" value="4" />仅培训机构 </label>	
+		
+		</td>
+      </tr>
+      <tr>
+        <td align="right" >类型：</td>
+        <td >
+		<label><input name="spms_type" type="radio" value="1" checked="checked" />普通消息</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="spms_type" value="2" />注册提醒 </label>		</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top" >消息内容：</td>
+        <td > <textarea name="message" id="message" style="width:400px; height:150px; font-size:12px; line-height:180%"></textarea></td>
+      </tr>
+      <tr>
+        <td align="right" >&nbsp;</td>
+        <td height="60" valign="top" ><input type="submit" name="Submit" value="添加" class="admin_submit"   /></td>
+      </tr>
+    </table>
+   
+  </form>
+  
+  
+  
+  
+  <div class="toptit">发送指定会员系统消息<span class="admin_note">此信息不会在消息列表中显示</span></div>
+  <form action="?act=add_pms_sys_save" method="post"   name="FormData1" id="FormData1" >
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="5" cellspacing="0"  class="admin_table">
+	  <tr>
+    <td width="100" align="right" valign="top">接受人：</td>
+    <td>
+      <textarea name="us" id="us" style="width:400px; height:120px; font-size:12px; line-height:180%"></textarea>
+	  <br /><span class="admin_note">
+	  多个会员名请换行输入</span></td>
+    </tr>
+      <tr>
+        <td align="right" valign="top" >消息内容：</td>
+        <td > <textarea name="msg" id="msg" style="width:400px; height:120px; font-size:12px; line-height:180%"></textarea></td>
+      </tr>
+      <tr>
+        <td align="right" >&nbsp;</td>
+        <td height="100" valign="top" ><input type="submit" name="Submit" value="添加" class="admin_submit"   /></td>
+      </tr>
+    </table>
+   
+  </form>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

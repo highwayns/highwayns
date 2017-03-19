@@ -1,0 +1,69 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+
+  <form id="form1" name="form1" method="post" action="?act=consultant_del">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  class="admin_list_tit admin_list_first">
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>顾问照片</label>
+	  </td>
+	  <td    class="admin_list_tit">顾问姓名</td> 
+	  <td  width="12%" class="admin_list_tit">顾问QQ</td>  
+      <td width="15%" align="center" class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$clist item=list#}
+      <tr >
+      <td class="admin_list admin_list_first" >
+        <input name="y_id[]" type="checkbox" id="y_id" value="{#$list.id#}" />
+		<img src="../data/{#$QISHI.updir_images#}/{#$list.pic#}" width="80" height="80">
+		</td>
+		<td  class="admin_list">
+		{#$list.name#}
+		</td>
+        <td class="admin_list">
+		{#$list.qq#}
+		</td>
+     
+        <td width="15%" align="center" class="admin_list">
+        		<a href="?act=consultant_manage&id={#$list.id#}">管理</a>
+		&nbsp;&nbsp;
+		<a href="?act=consultant_edit&id={#$list.id#}">修改</a>
+		&nbsp;&nbsp;
+		<a href="?act=consultant_del&id={#$list.id#}">删除</a>
+		</td>
+      </tr>
+      {#/foreach#}
+    </table>
+  </form>
+	{#if !$clist#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+  
+	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+        <input type="button" name="" value="添加顾问" class="admin_submit"  id="ButAdd" onclick="javascript:window.location.href='?act=consultant_add'" />
+		  
+		</td>
+        <td width="305" align="right">
+		
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+<!-- -->
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

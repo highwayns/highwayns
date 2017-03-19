@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+{#qishi_pageinfo set="列表名:pageinfo,调用:QS_noticelist"#}
+{#if $pageinfo.title#}
+<title>{#$pageinfo.title#}</title>
+{#else#}
+<title>网站公告- {#$QISHI.site_name#}</title>
+{#/if#}
+<meta name="description" content="{#$pageinfo.description#}">
+<meta name="keywords" content="{#$pageinfo.keywords#}">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/news.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+<!-- 当前位置 -->
+<div class="page_location link_bk">
+当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>&nbsp;网站公告
+</div>
+	<!-- 主体内容 -->
+	<div class="container link_bk">
+		
+		<!-- 左边内容 -->
+		<div class="left_area">
+			<div class="left_tit_box">
+				<h5>网站公告</h5>
+			</div>
+			<div class="company_list">
+				<div class="com_container">
+					<!-- 企业动态 -->
+					<div class="news">
+						<ul>
+							{#qishi_notice_list set="列表名:notice,显示数目:10,标题长度:35,分类:GET[id],分页显示:1,摘要长度:100,填补字符:...,排序:id>desc"#}
+							{#foreach from=$notice item=list#}  
+							<li>
+								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
+								<p>发布时间：{#$list.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>浏览次数：{#$list.click#}</span></p>
+								<p>{#$list.briefly#}<a href="{#$list.url#}">[查看全文]</a></p>
+							</li>
+							{#/foreach#}
+						</ul>
+					</div>
+					{#if $page#}
+					<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+		              <tr>
+		                <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+		              </tr>
+		          </table>
+		          {#/if#}
+				</div>
+			</div>
+		</div>
+		<!-- 右边内容 -->
+		<div class="right_area">
+			<div class="right_box">
+				<div class="title_box">
+					<h5>最新职位</h5>
+				</div>
+				<div class="list">
+					<ul class="newest">
+						{#qishi_jobs_list set="列表名:jobslist,显示数目:5,职位名长度:14,填补字符:...,排序:rtime>desc"#}
+						{#foreach from=$jobslist item=list#}
+						<li><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a></li>
+						{#/foreach#}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- 主体内容 结束 -->
+	{#include file="footer.htm"#}
+</body>
+</html>

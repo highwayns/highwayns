@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_news"#}
+<title>{#$page.title#}</title>
+<meta name="description" content="{#$page.description#}">
+<meta name="keywords" content="{#$page.keywords#}">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/news.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".search_news").click(function(){
+		var key = $("#key").val();
+		news_search_location(key);
+	});
+	function news_search_location(key)
+	{
+		$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+		$("#pageloadingbg").css("opacity", 0.5);
+		$.get("{#$QISHI.site_dir#}plus/ajax_search_location.php", {"act":"QS_newssearch","key":key},
+				function (data,textStatus)
+				 {
+					 window.location.href=data;
+				 }
+			);
+	}
+	$(".hot li:eq(3)").css("margin-bottom", 0);
+});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+<!-- 当前位置 -->
+<div class="page_location link_bk">
+	当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"QS_news"|qishi_url#}">新闻资讯</a>
+</div>
+	<!-- 主体内容 -->
+	<div class="container link_bk">
+		
+		<!-- 左边内容 -->
+		<div class="left_area">
+			<div class="index_info">
+				{#qishi_news_list set="列表名:img_news,显示数目:1,标题长度:12,填补字符:...,图片:1,属性:2,排序:id>desc"#}
+				{#if $img_news#}
+				{#foreach from=$img_news item=list#}
+				<div class="index_img"><a target="_blank" href="{#$list.url#}"><img src="{#$list.bimg#}" alt="{#$list.title#}" width="320" height="180"/></a></div>
+				{#/foreach#}
+				{#else#}
+				<div class="index_img"><a target="_blank" href="{#$list.url#}"><img src="{#$QISHI.site_template#}images/top_news.gif" alt="{#$list.title#}" width="320" height="180"/></a></div>
+				{#/if#}
+				<div class="index_txt">
+					{#qishi_news_list set="列表名:img_news,显示数目:1,标题长度:12,摘要长度:70,填补字符:...,图片:1,属性:2,排序:id>desc"#}
+					{#if $img_news#}
+					{#foreach from=$img_news item=list#}
+					<div class="tit_txt">
+						<h3><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></h3>
+						<p>{#$list.briefly#}<a href="{#$list.url#}" target="_blank">[查看全文]</a></p>
+					</div>
+					{#/foreach#}
+					{#else#}
+					{#qishi_news_list set="列表名:img_news,显示数目:1,标题长度:12,摘要长度:70,填补字符:...,排序:id>desc"#}
+					{#foreach from=$img_news item=list#}
+					<div class="tit_txt">
+						<h3><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></h3>
+						<p>{#$list.briefly#}<a href="{#$list.url#}" target="_blank">[查看全文]</a></p>
+					</div>
+					{#/foreach#}
+					{#/if#}
+					<ul>
+					{#qishi_news_list set="列表名:news,显示数目:6,属性:3,标题长度:80,开始位置:0,排序:article_order>desc"#}
+					{#foreach from=$news item=list#}
+						<li><a href="{#$list.url#}"  target="_blank">{#$list.title#}</a></li>
+					{#/foreach#}
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<dic class="clear"></dic>
+			</div>
+		</div>
+		<!-- 右边内容 -->
+		<div class="right_area">
+			<div class="right_search">
+				<input type="text" class="input_text_180" name="key" id="key"/>
+				<input type="button" value="搜索" class="but70lan search_news" />
+			</div>
+			<div class="clear"></div>
+			<div class="right_box">
+				<div class="title_box">
+					<h5>热点推荐</h5>
+				</div>
+				<div class="list" style="height:100px;">
+					<ol class="hot">
+						{#qishi_news_list set="列表名:news,显示数目:4,属性:4,标题长度:18,排序:article_order>desc"#}
+						{#section name=list loop=$news#}
+						<li class="hot{#$smarty.section.list.index#}"><a href="{#$news[list].url#}" target="_blank">{#$news[list].title#}</a></li>
+						{#/section#}
+					</ol>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="clear"></div>
+		<!--广告位 资讯首页中间横幅2-->
+		{#qishi_ad set="显示数目:1,调用名称:QS_newsbanner2,列表名:ad"#}
+		{#foreach from=$ad item=li#}
+		<div class="ad_1000"><a target="_blank" href="{#$li.img_url#}"><img src="{#$li.img_path#}" alt="{#$li.img_explain_#}" width="1200" height="67" /></a></div>
+		{#/foreach#}
+		<!--广告位结束 -->
+		<div class="information_bbox">
+			{#qishi_news_category set="列表名:newscategory,资讯大类:1,显示数目:3"#}
+			{#section loop=$newscategory name=nclist#}
+			<div class="information_box">
+				<div class="job_box {#if $smarty.section.nclist.index==2#}r{#else#}l{#/if#}">
+					<div class="box_tit">
+						<h4>{#$newscategory[nclist].title#} </h4><a target="_blank" href="{#$newscategory[nclist].url#}">更多>></a>
+					</div>
+					<div class="box_content">
+						<div class="info_box">
+							<div class="img_box">
+								{#qishi_news_list set="列表名:img_news,显示数目:1,标题长度:12,填补字符:...,资讯小类:$newscategory[nclist].id,排序:id>desc"#}
+								{#foreach from=$img_news item=list#}
+								{#if $list.isimg == ''#}
+								<a href="javascript:void(0);"><img width="90" height="90" border="0" src="{#$QISHI.site_template#}images/index/no_pic.jpg" alt="" /></a>
+								{#else#}
+								<a href="javascript:void(0);"><img width="90" height="90" border="0" src="{#$list.bimg#}" alt="{#$list.title_#}" /></a>
+								{#/if#}
+								{#/foreach#}
+							</div>
+							<div class="info_content">
+								{#qishi_news_list set="列表名:topnews,显示数目:1,标题长度:20,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc"#}
+								{#foreach from=$topnews item=toplist#}
+								<a target="_blank" href="{#$toplist.url#}"><h5>{#$toplist.title#}</h5></a>
+								<p>{#$toplist.briefly#}<a target="_blank" href="{#$toplist.url#}">阅读全文>></a></p>
+								{#/foreach#}
+							</div>
+							<div class="clear"></div>
+							<div class="info_list">
+								<ul>
+									{#qishi_news_list set="列表名:news,显示数目:5,开始位置:1,标题长度:20,资讯小类:$newscategory[nclist].id,填补字符:...,排序:article_order>desc"#}
+									{#foreach from=$news item=list#}
+									<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
+									{#/foreach#}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{#/section#}
+			<div class="clear"></div>
+		</div>
+		<!--广告位 资讯首页中间横幅-->
+		{#qishi_ad set="显示数目:1,调用名称:QS_newsbanner,列表名:ad"#}
+		{#foreach from=$ad item=li#}
+		<div class="ad_1000 m"><a target="_blank" href="{#$li.img_url#}"><img src="{#$li.img_path#}" alt="{#$li.img_explain_#}" width="1200" height="67" /></a></div>
+		{#/foreach#}
+		<!--广告位结束 -->
+		
+		<div class="information_bbox">
+			{#qishi_news_category set="列表名:newscategory,资讯大类:1,开始位置:3,显示数目:3"#}
+			{#section loop=$newscategory name=nclist#}
+			<div class="information_box">
+				<div class="job_box {#if $smarty.section.nclist.index==2#}r{#else#}l{#/if#}">
+					<div class="box_tit">
+						<h4>{#$newscategory[nclist].title#} </h4><a target="_blank" href="{#$newscategory[nclist].url#}">更多>></a>
+					</div>
+					<div class="box_content" >
+						<div class="info_box">
+							<div class="img_box">
+								{#qishi_news_list set="列表名:img_news,显示数目:1,标题长度:12,填补字符:...,资讯小类:$newscategory[nclist].id,排序:id>desc"#}
+								{#foreach from=$img_news item=list#}
+								{#if $list.isimg == ''#}
+								<a href="javascript:void(0);"><img width="90" height="90" border="0" src="{#$QISHI.site_template#}images/index/no_pic.jpg" alt="" /></a>
+								{#else#}
+								<a href="javascript:void(0);"><img width="90" height="90" border="0" src="{#$list.bimg#}" alt="{#$list.title_#}" /></a>
+								{#/if#}
+								{#/foreach#}
+							</div>
+							<div class="info_content">
+								{#qishi_news_list set="列表名:topnews,显示数目:1,标题长度:20,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc"#}
+								{#foreach from=$topnews item=toplist#}
+								<a target="_blank" href="{#$toplist.url#}"><h5>{#$toplist.title#}</h5></a>
+								<p>{#$toplist.briefly#}<a target="_blank" href="{#$toplist.url#}">阅读全文>></a></p>
+								{#/foreach#}
+							</div>
+							<div class="clear"></div>
+							<div class="info_list">
+								<ul>
+									{#qishi_news_list set="列表名:news,显示数目:5,开始位置:1,标题长度:20,资讯小类:$newscategory[nclist].id,填补字符:...,排序:article_order>desc"#}
+									{#foreach from=$news item=list#}
+									<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
+									{#/foreach#}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{#/section#}
+			<div class="clear"></div>
+		</div>
+		
+		<div class="f_link">
+		<div class="job_box">
+				<div class="box_tit">
+					<div class="tits" style="float:left">友情链接</div> <div class="more link_bk"><a href="{#$QISHI.site_dir#}link/add_link.php" target="_blank">申请>></a></div>
+					<div class="clear"></div>
+				</div>
+				<div class="box_contents">
+					{#qishi_link set="列表名:link,显示数目:100,调用名称:QS_news,类型:1"#}
+					<div class="link_name link_bk" style="overflow:hidden;">
+							{#foreach from=$link item=list#}
+							<a style="word_link" href="{#$list.link_url#}" target="_blank">{#$list.title#}</a>
+							{#/foreach#}
+							{#qishi_link  set="列表名:imglink,显示数目:14,调用名称:QS_news,类型:2"#}
+							{#if $imglink#}
+							<div class="link_img">
+								{#foreach from=$imglink  item=list#}
+								<div class="l_img"><a href="{#$list.link_url#}" target="_blank"><img src="{#$list.link_logo#}" alt="{#$list.title#}" border="0" width="120" height="40" /></a> </div>
+								{#/foreach#}
+								<div class="clear"></div>
+							</div>
+							{#/if#}
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	
+	<!-- 主体内容 结束 -->
+	{#include file="footer.htm"#}
+</body>
+</html>

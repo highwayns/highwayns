@@ -1,0 +1,98 @@
+﻿{#qishi_help_show set="列表名:show,ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$show.title#}- 帮助 - {#$QISHI.site_name#}</title>
+<meta name="description" content="{#$show.description#}">
+<meta name="keywords" content="{#$show.keywords#}">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/help.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".nav_son").first().css("display","block");
+	$(".help_nav").first().removeClass("t");
+	$(".help_nav").first().addClass("s");
+	$(".help_nav").click(function(){
+		$(".help_nav").removeClass("s");
+		$(".help_nav").addClass("t");
+		$(".nav_son").slideUp("fast");
+		$(this).removeClass("t");
+		$(this).addClass("s");
+		$(this).next(".nav_son").slideDown("fast");
+	});
+	$("#help_searcform #search_go").click(function()
+	{
+		if ($("#help_searcform #key").val()=="" || $("#key").val()=="请输入关键字...")
+			{
+				alert("请输入关键字");
+				return false;
+			}
+	$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+	$("#pageloadingbg").css("opacity", 0.5);
+	$.get("{#$QISHI.site_dir#}plus/ajax_search_location.php", {"act":"QS_helpsearch","key":$("#help_searcform #key").val(),"page":1},
+			function (data,textStatus)
+			 {
+				 window.location.href=data;
+			 }
+		);
+	});
+	$("#help_searcform #key").focus(function(){
+	if ($("#key").val()=="请输入关键字...")
+	{
+	$("#help_searcform #key").css('color','').val('');
+	}  
+	});
+});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+<!-- 当前位置 -->
+<div class="page_location link_bk">
+	当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"QS_help"|qishi_url#}">帮助</a>&nbsp;>&nbsp;{#$show.title#}
+</div>
+	<!-- 主体内容 -->
+	<div class="container link_bk">
+		<div class="about_left">
+			<h2 class="about_tit">帮助中心</h2>
+			<ul>
+				{#qishi_help_category set="列表名:category,大类:0"#}
+				{#foreach from=$category item=list#}
+				<li class="help_nav t"><a href="javascript:void(0);">{#$list.title#}</a></li>
+				<ul class="nav_son" style="display:none;">
+					{#qishi_help_category set="列表名:sclass,大类:"|cat:$list.id#}
+					{#foreach from=$sclass item=slist#}
+					<li><a href="{#$slist.url#}">{#$slist.title#}</a></li>
+					{#/foreach#}
+					<!-- <li class="active"><a href="#">职位推广</a></li> -->
+				</ul>
+				{#/foreach#}
+			</ul>
+		</div>
+		<div class="help_sreach clearfix" id="help_searcform">
+			<div class="f-left"><input type="text" class="input_text_300" placeholder="请输入问题关键字" name="key" id="key" /></div>
+			<div class="f-left"><input type="submit" value="搜索" class="but70lan" id="search_go" /></div>
+			<div class="f-left hot-help">热门关键字：<a href="{#"QS_helpsearch"|qishi_url#}?key={#"找回密码"|escape:"url"#}">找回密码</a><a href="{#"QS_helpsearch"|qishi_url#}?key={#"置顶"|escape:"url"#}">置顶</a><a href="{#"QS_helpsearch"|qishi_url#}?key={#"推荐"|escape:"url"#}">推荐</a><a href="{#"QS_helpsearch"|qishi_url#}?key={#"模版"|escape:"url"#}">模版</a><a href="{#"QS_helpsearch"|qishi_url#}?key={#"电子地图"|escape:"url"#}">电子地图</a></div>
+		</div>
+		<div class="about_right">
+			
+			<div class="about_r_tit">
+				{#$show.title#}
+			</div>
+			<div class="about_r_content">
+				<p>
+					{#$show.content#}
+				</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- 主体内容 结束 -->
+	{#include file="footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿{#include file="sys/admin_header.htm"#}
+<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="link/admin_link_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+开启自助申请后用户可前台填写表单申请友情连接<br />
+</p>
+</div>
+
+<div class="toptit">申请状态</div>
+<form action="?act=link_set_save" method="post"  name="form1" id="form1">
+{#$inputtoken#}
+	  <table width="700" border="0" cellspacing="10" cellpadding="1"  >
+        <tr>
+          <td valign="top">
+		  <label>
+          <input name="app_link" type="radio" value="1"  {#if $QISHI.app_link=='1'#}checked="checked"{#/if#}/>
+          允许申请</label>
+          <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="app_link" value="2" {#if $QISHI.app_link=='2'#}checked="checked"{#/if#}/>
+        禁止申请</label>
+		  </td>
+        </tr>
+        
+        <tr>
+          <td><span style="font-size:14px;">
+            <input name="submit" type="submit" class="admin_submit"    value="保存修改"/>
+          </span></td>
+        </tr>
+      </table>
+  </form>
+ <div class="toptit">友情链接申请要求</div>
+ <form action="?act=link_set_save" method="post"  name="form1" id="form1">
+ {#$inputtoken#}
+	  <table width="700" border="0" cellspacing="0" cellpadding="0" style=" margin-bottom:3px;">
+        <tr>
+          <td valign="top">
+		  <textarea name="link_application_txt" style=" width:700px;height:250px; font-size:12px; line-height:180%"  id="agreement">{#$text.link_application_txt#}</textarea>
+                  <script>
+      var editor;
+      KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="link_application_txt"]', {
+          allowFileManager : true
+        });
+      });
+    </script>        
+		  </td>
+        </tr>
+        
+        <tr>
+          <td height="50"><span style="font-size:14px;">
+            <input name="submit2" type="submit" class="admin_submit"    value="保存修改"/>
+          </span></td>
+        </tr>
+      </table>
+  </form>
+
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

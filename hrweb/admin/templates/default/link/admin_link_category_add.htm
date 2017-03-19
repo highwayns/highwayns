@@ -1,0 +1,36 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="link/admin_link_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+自定义广告位调用名不可以以 “QS_”开头
+</p>
+</div>
+<div class="toptit">新增分类</div>
+<form id="form1" name="form1" method="post" action="?act=add_category_save">
+{#$inputtoken#}
+          <table width="100%" border="0" cellpadding="5" cellspacing="2" style="margin-top:10px;">
+
+            <tr>
+              <td width="80" align="right">名称：</td>
+              <td><input name="categoryname" type="text" class="input_text_200"   value="" /></td>
+            </tr>
+            <tr>
+              <td align="right">调用名：</td>
+              <td><input name="c_alias" type="text" class="input_text_200" /></td>
+            </tr>
+            <tr>
+              <td align="right">&nbsp;</td>
+              <td><input type="submit" name="Submit" value="保存" class="admin_submit"></td>
+            </tr>
+          </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

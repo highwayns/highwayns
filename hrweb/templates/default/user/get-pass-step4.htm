@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$(function() {
+		$('.four-step-bar .step:last').css({'margin-right':0});
+	});
+});
+</script>
+</head>
+<body class="login_body">
+	<!-- 头部 -->
+	{#include file="user/reg_header.htm"#}
+	<!-- main -->
+	<div class="container">
+		<div class="step_wrap">
+			<div class="four-step-bar clearfix">
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>填写账户名</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>验证身份</div>
+				<div class="step tstep3 f-left"><i class="step-icon">3</i>设置新密码</div>
+				<div class="step tstep4 f-left active"><i class="step-icon">4</i>找回成功</div>
+			</div>
+		</div>
+		<div class="common-status" style="padding:120px 0;">
+			<div class="status-main">
+				<span><img src="{#$QISHI.site_template#}images/icon-success.png" alt="成功" /></span>找回密码成功
+			</div>
+		</div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

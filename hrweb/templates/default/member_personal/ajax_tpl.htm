@@ -1,0 +1,55 @@
+﻿<div class="choose-tpl-dialog">
+	<h4>当前简历：{#$title#}</h4>
+	<input type="hidden" name="tpl_pid" id="tpl_pid" value="{#$resumeid#}">
+	<input type="hidden" name="tpl_dir" id="tpl_dir" value="{#$resume_tpl#}">
+	<div class="tpl-choose-wrap clearfix">
+		<div class="choose-left f-left">
+			<div class="resume-now">选择简历模板</div>
+			<div class="tpl-radio-choose">
+				{#$tpl_left#}
+			</div>
+		</div>
+		<div class="choose-right f-left">
+			<div class="tpl-choose-now">
+				{#$tpl_img#}
+			</div>
+			<!-- <p><a href="" class="underline">模板预览</a></p> -->
+		</div>
+	</div>
+	<div class="center-btn-wrap">
+		<input type="button" value="保存" class="btn-65-30blue btn-big-font" pid="{#$pid#}" id="save"/><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" />
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".set_tpl").click(function(){
+		$(".set_tpl").attr("checked","");
+		$(this).attr("checked","checked");
+		$("#tpl_dir").val($(this).val());
+		$(".resume_box").hide();
+		$(".tpl_img"+$(this).val()).show();
+	});
+	$("#save").click(function(){
+		var tpl_dir = $(".set_tpl:checked").val();
+		var tpl_pid = $(this).attr("pid");
+		$.post("{#$site_dir#}user/personal/personal_ajax.php?act=save_tpl",{tpl_pid:tpl_pid,tpl_dir:tpl_dir},function(result){
+			if(result=="1"){
+				dialog({
+                    title: '系统提示',
+                    content: "保存成功!",
+                    width:300,
+                }).show();
+			}else{
+				dialog({
+                    title: '系统提示',
+                    content: "参数错误！",
+                    width:300,
+                }).show();
+			}
+				
+		});
+	});
+});
+</script>

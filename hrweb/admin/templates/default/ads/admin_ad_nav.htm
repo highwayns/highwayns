@@ -1,0 +1,6 @@
+﻿<div class="topnav">
+<a href="?act=list" {#if $smarty.get.act=="list"|| $smarty.get.act==""#}class="select"{#/if#}><u>广告列表</u></a>
+<a href="?act=ad_add" {#if $smarty.get.act=="ad_add"#}class="select"{#/if#}><u>添加广告</u></a>
+<a href="?act=ad_category" {#if $smarty.get.act=="ad_category" || $smarty.get.act=="ad_category_add" || $smarty.get.act=="edit_ad_category"#}class="select"{#/if#}><u>广告位管理</u></a>
+<div class="clear"></div>
+</div>

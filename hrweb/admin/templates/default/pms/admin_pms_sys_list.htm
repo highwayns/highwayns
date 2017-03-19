@@ -1,0 +1,121 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量取消	
+	$("#ButDel").click(function(){
+		if (confirm('你确定要删除吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="pms/admin_pms_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">接收会员</div>	
+		<div class="right">
+		<a href="{#"spms_usertype:"|qishi_parse_url#}" {#if $smarty.get.spms_usertype==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"spms_usertype:0"|qishi_parse_url#}" {#if $smarty.get.spms_usertype=="0"#}class="select"{#/if#}>所有会员</a>
+		<a href="{#"spms_usertype:1"|qishi_parse_url#}" {#if $smarty.get.spms_usertype=="1"#}class="select"{#/if#}>企业会员</a>
+		<a href="{#"spms_usertype:2"|qishi_parse_url#}" {#if $smarty.get.spms_usertype=="2"#}class="select"{#/if#}>个人会员</a>
+		<a href="{#"spms_usertype:3"|qishi_parse_url#}" {#if $smarty.get.spms_usertype=="3"#}class="select"{#/if#}>猎头顾问</a>
+		<a href="{#"spms_usertype:4"|qishi_parse_url#}" {#if $smarty.get.spms_usertype=="4"#}class="select"{#/if#}>培训机构</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">消息类型</div>	
+		<div class="right">
+		<a href="{#"spms_type:"|qishi_parse_url#}" {#if $smarty.get.spms_type==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"spms_type:1"|qishi_parse_url#}" {#if $smarty.get.spms_type=="1"#}class="select"{#/if#}>普通消息</a>
+		<a href="{#"spms_type:2"|qishi_parse_url#}" {#if $smarty.get.spms_type=="2"#}class="select"{#/if#}>注册提醒</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+
+
+ 
+  <form id="form1" name="form1" method="post" action="?act=pms_sys_del">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>消息</label></td>
+      <td width="100"   align="center" class="admin_list_tit">接收会员</td>
+      <td width="100"   align="center" class="admin_list_tit">类型</td>
+      <td width="120"   align="center" class="admin_list_tit" >添加日期</td>
+	   <td width="130"   align="center" class="admin_list_tit" >操作</td>
+    </tr>
+	  {#foreach from=$pmslist item=list#}
+      <tr>
+      <td  class="admin_list admin_list_first">
+        <input name="id[]" type="checkbox" id="id" value="{#$list.spmid#}"/>
+		{#$list.message1#}		</td>
+	    <td align="center"  class="admin_list">
+		{#if $list.spms_usertype=='0'#}所有会员{#/if#}
+		{#if $list.spms_usertype=='1'#}企业会员{#/if#}
+		{#if $list.spms_usertype=='2'#}个人会员{#/if#}		
+		{#if $list.spms_usertype=='3'#}猎头顾问{#/if#}
+		{#if $list.spms_usertype=='4'#}培训机构{#/if#}		
+		
+		</td>
+        <td align="center"  class="admin_list">
+		{#if $list.spms_type=='1'#}普通消息{#/if#}
+		{#if $list.spms_type=='2'#}注册提醒{#/if#}		</td>
+        <td align="center"  class="admin_list">{#$list.dateline|date_format:"%Y-%m-%d"#}</td>
+	    <td align="center"  class="admin_list">
+		<a href="?act=pms_edit&id={#$list.spmid#}">修改</a> &nbsp;&nbsp;
+		<a href="?act=pms_sys_del&id={#$list.spmid#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+      </tr>
+      {#/foreach#}
+    </table>
+  </form>
+	{#if !$pmslist#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}	
+<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加"  onclick="window.location='?act=add_pms_sys'"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除所选"/>
+		</td>
+        <td width="305" align="right">
+		<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"消息"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="消息">消息</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	    </td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

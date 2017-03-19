@@ -1,0 +1,192 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+ //点击批量删除	
+	$("#ButDlete").click(function(){
+		if (confirm('你确定要删除吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+	//纵向列表排序
+	$(".listod .txt").each(function(i){
+	var li=$(this).children(".select");
+	var htm="<a href=\""+li.attr("href")+"\" class=\""+li.attr("class")+"\">"+li.text()+"</a>";
+	li.detach();
+	$(this).prepend(htm);
+	});
+			
+});
+</script>
+ 
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="ads/admin_ad_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+系统将自动下架到期广告。<br />
+按广告位显示广告请点击右下角按钮
+</p>
+</div>
+
+<div class="seltpye_y">
+
+	<div class="tit link_lan">
+	<strong>广告列表</strong><span>(共找到{#$total#}条)</span>
+	<a href="?act=list">[恢复默认]</a>
+	<div class="pli link_bk"><u>每页显示：</u>
+	<a href="{#"perpage:10"|qishi_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
+	<a href="{#"perpage:20"|qishi_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
+	<a href="{#"perpage:30"|qishi_parse_url#}" {#if $smarty.get.perpage=="30"#}class="select"{#/if#}>30</a>
+	<a href="{#"perpage:60"|qishi_parse_url#}" {#if $smarty.get.perpage=="60"#}class="select"{#/if#}>60</a>
+	<div class="clear"></div>
+	</div>
+	</div>	
+    <div class="list">
+	  <div class="t">到期时间</div>	  
+	  <div class="txt link_lan">
+	 	<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:0"|qishi_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>已经到期</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
+	  </div>
+    </div>
+	<div class="list">
+	  <div class="t">显示状态</div>	  
+	  <div class="txt link_lan">
+	 	<a href="{#"is_display:"|qishi_parse_url#}" {#if $smarty.get.is_display==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"is_display:1"|qishi_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>正常</a>
+		<a href="{#"is_display:0"|qishi_parse_url#}" {#if $smarty.get.is_display=="0"#}class="select"{#/if#}>停止</a>
+	  </div>
+    </div>
+	
+	<div class="list listod" style=" width:200px;">
+	  <div class="t">广告位</div>	  
+	  <div class="txt link_lan">
+	  <a href="{#"category_id:"|qishi_parse_url#}" {#if $smarty.get.category_id==""#}class="select"{#/if#}>不限</a>
+ {#foreach from=$ad_category item=cli#}
+ <a href="{#"category_id:"|cat:$cli.id|qishi_parse_url#}" {#if $smarty.get.category_id==$cli.id#}class="select"{#/if#}>{#$cli.categoryname#}</a>
+	{#/foreach#}
+	  </div>
+    </div>
+	
+	
+	<div class="clear"></div>
+</div>
+
+ 
+   <form id="form1" name="form1" method="post" action="?act=del_ad">
+    {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td   class="admin_list_tit admin_list_first">
+     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>广告标题</label>
+	 </td>
+	  <td width="16%"  class="admin_list_tit">所属广告位</td>
+	  <td width="7%" align="center"  class="admin_list_tit">类型</td>
+      <td width="9%" align="center"  class="admin_list_tit">开始时间</td>
+      <td width="9%" align="center"  class="admin_list_tit">到期时间</td>	  
+      <td width="7%" align="center"  class="admin_list_tit">状态</td>
+	  <td width="6%" align="center"  class="admin_list_tit">排序</td>
+      <td width="10%" align="center"  class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$list item=li#}
+	 <tr>
+      <td   class="admin_list admin_list_first">
+     <input type="checkbox" name="id[]"  value="{#$li.id#}"/>
+	<a href="?act=edit_ad&id={#$li.id#}" {#if $li.text_color<>""#}style="color:{#$li.text_color#}"{#/if#}  {#if $li.type_id=="1"#}class="vtip" title="{#$li.text_content#}" {#elseif $li.type_id=="2"#}class="vtip" title='<img src="{#$li.img_path#}" />'{#/if#}>{#$li.title#}</a> 
+	  {#if $li.note<>""#}
+	  <img src="images/comment_alert.gif" border="0"  class="vtip" title="{#$li.note#}"/>
+	  {#/if#}	
+	 </td>
+	  <td  class="admin_list">
+	  {#$li.categoryname#}
+	  </td>
+	  <td align="center"  class="admin_list">
+	  {#if $li.type_id=="1"#}文字
+	  {#elseif $li.type_id=="2"#}图片
+	  {#elseif $li.type_id=="3"#}代码
+	  {#elseif $li.type_id=="4"#}FLASH
+	  {#elseif $li.type_id=="5"#}浮动
+	  {#elseif $li.type_id=="6"#}视频
+	  {#/if#}	  </td>
+      <td align="center"  class="admin_list">
+	  {#if $li.starttime=="0"#}
+		无限制
+		{#else#}
+		{#$li.starttime|date_format:"%Y-%m-%d"#}
+		{#/if#}	  </td>
+      <td align="center"  class="admin_list">
+	  {#if $li.deadline=="0"#}
+		无限制
+		{#else#}
+					{#if $li.deadline < $smarty.now#}
+					<span style="color:#FF6600">已经到期</span>
+					{#else#}
+					{#$li.deadline|date_format:"%Y-%m-%d"#}
+					{#/if#}
+		{#/if#}	  </td>	  
+      <td align="center"  class="admin_list">
+	  {#if $li.is_display=="1"#}
+	正常	{#else#}
+		<span style="color:#999999">暂停</span>
+		{#/if#}	  </td>
+	  <td align="center"  class="admin_list">{#$li.show_order#}</td>
+      <td align="center"  class="admin_list">
+	  <a href="?act=edit_ad&id={#$li.id#}">修改</a>
+	  &nbsp; &nbsp; 
+	  <a href="?act=del_ad&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">删除</a>	  </td>
+    </tr>
+	{#/foreach#}
+  </table>
+    </form>
+	{#if !$list#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+   <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+      <td>
+       <input type="button" name="Submit22" value="添加广告" class="admin_submit"    onclick="window.location='?act=ad_add'"/>
+	   
+		<input type="button" name="delete" value="删除"   id="ButDlete" class="admin_submit"   />
+	  </td>
+      <td width="360" align="right">
+	  
+<form id="formseh" name="formseh" method="get" action="?act=list">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"广告标题"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="广告标题">广告标题</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input name="act" type="hidden" value="list" />
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	  
+	  </td>
+     </tr>
+  </table>
+
+<div class="page link_bk">{#$page#}</div>
+	   
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

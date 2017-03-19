@@ -1,0 +1,50 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="locoyspider/admin_locoyspider_nav.htm"#}
+  <div class="clear"></div>
+</div>
+    <div class="toptip">
+	<h2>提示：</h2>
+	<p>火车头采集规则请到论坛下载！</p>
+	</div>
+	
+   <form action="?act=set_save" method="post"  name="form1" id="form1">
+   {#$inputtoken#}
+  <div class="toptit">资讯采集设置</div>
+    <table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px; margin-top:10px;">
+      <tr>
+        <td width="180" align="right">默认显示状态：</td>
+        <td ><label >
+          <input name="article_display" type="radio" id="article_display" value="1"  {#if $show.article_display=="1"#}checked="checked"{#/if#}/>
+          显示</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label  >
+            <input type="radio" name="article_display" value="0" id="article_display"  {#if $show.article_display=="0"#}checked="checked"{#/if#}/>
+            不显示 </label></td>
+      </tr>
+      <tr>
+        <td align="right">默认属性：</td>
+        <td>
+		{#qishi_news_property set="列表名:property"#}
+		{#foreach from=$property item=list#}
+		 <label>
+          <input name="article_focos" type="radio" value="{#$list.id#}" {#if $list.id==$show.article_focos#} checked="checked"{#/if#} />
+{#$list.categoryname#}
+ </label>
+{#/foreach#}
+		</td>
+      </tr>
+      <tr>
+        <td align="right">&nbsp;</td>
+        <td height="50"><span style="font-size:14px;">
+          <input name="submit222" type="submit" class="admin_submit"    value="保存修改"/>
+        </span></td>
+      </tr>
+    </table>
+	</form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

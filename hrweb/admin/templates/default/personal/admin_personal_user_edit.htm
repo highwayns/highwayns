@@ -1,0 +1,192 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+  $(document).ready(function() {
+    jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
+      var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+      return this.optional(element) || (tel.test(value));
+  }, "请正确填写手机号码");
+      $("#form4").validate({
+         rules:{
+          mobile: {
+           isPhoneNumber:true
+        },
+           email: {
+           required:true,
+           email:true
+           }
+        },
+          messages: {
+          mobile: {
+        isPhoneNumber: jQuery.format("请正确填写手机号码")
+         },
+         email: {
+          required: jQuery.format("请填写电子邮箱"),
+        email: jQuery.format("请正确填写电子邮箱")
+         } 
+        },
+        errorPlacement: function(error, element) {
+          if ( element.is(":radio") )
+              error.appendTo( element.parent().next().next() );
+          else if ( element.is(":checkbox") )
+              error.appendTo ( element.next());
+          else
+              error.appendTo(element.next());
+        }
+      });   
+  });
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="toptit">基本信息</div>
+  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+    <tr>
+      <td width="120" height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">注册时间：</td>
+      <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#$user.reg_time|date_format:"%Y-%m-%d   %H:%M"#}</td>
+      <td width="120" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >最后登录时间：</td>
+      <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#$user.last_login_time|date_format:"%Y-%m-%d   %H:%M"#}</td>
+    </tr>
+    <tr>
+      <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">注册IP：</td>
+      <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#if $user.reg_ip#}{#$user.reg_ip#}{#else#}- - - -{#/if#}</td>
+      <td align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >最后登录IP：</td>
+      <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#if $user.last_login_ip#}{#$user.last_login_ip#}{#else#}- - - -{#/if#}</td>
+    </tr>
+    <tr>
+      <td height="30" align="right" valign="top" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">个人简历：</td>
+      <td colspan="3" bgcolor="#FFFFFF"  class="link_lan" style=" border-bottom:1px #CCCCCC dashed;" >
+	  <table border="0" cellspacing="12" cellpadding="0">
+	   {#foreach from=$resume item=list#}
+  <tr>
+    <td>
+	 {#if $list.complete=="2"#}
+		  {#$list.title#}
+		  {#else#}
+		   <a href="{#$list.resume_url#}" target="_blank"> {#$list.title#}</a>
+		  {#/if#}	</td>
+    <td  style="color:#009900">(完整指数：{#$list.complete_percent#}%)</td>
+    <td><a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm('您确定删除吗?')">[删除]</a></td>
+    </tr>
+	 {#/foreach#}
+	 {#if $resume==""#}
+  <tr> 
+    <td colspan="3"><span style="color:#999999">未创建简历</span></td>
+    </tr>
+	  {#/if#}
+</table>	  </td>
+    </tr>
+  </table>
+    <div class="toptit">基本信息</div>
+  <form id="form4" name="form4" method="post" action="?act=set_account_save">
+	{#$inputtoken#}
+	<table width="700" border="0" cellpadding="4" cellspacing="0"   >
+      <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">用户名：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="username" type="text" class="input_text_200"   maxlength="50" value="{#$user.username#}"  >
+       	</td>
+      </tr>
+	  <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邮箱：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="email" type="text" class="input_text_200"   maxlength="50" value="{#$user.email#}"  >
+		  
+		  &nbsp;&nbsp;&nbsp;
+		  <label>
+          <input name="email_audit" type="checkbox" value="1" {#if $user.email_audit=="1"#}checked="checked"{#/if#} />
+          已验证</label>	
+		</td>
+      </tr>
+	  <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">手机：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+          <input name="mobile" type="text" class="input_text_200"   maxlength="50" value="{#$user.mobile#}"  >
+		  
+		  &nbsp;&nbsp;&nbsp;
+		  <label>
+          <input type="checkbox" name="mobile_audit" value="1"  {#if $user.mobile_audit=="1"#}checked="checked"{#/if#} />
+          已验证</label>	
+		</td>
+      </tr>
+	   <tr>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">QQ绑定：</td>
+        <td  style=" border-bottom:1px #CCCCCC dashed;" >
+         {#if $user.qq_openid#}
+		 已绑定QQ账号 
+		  &nbsp;&nbsp;&nbsp; 
+		 <label>
+          <input type="checkbox" name="qq_openid" value="1"  />
+          取消绑定</label>
+		 {#else#}
+		 未绑定QQ帐号
+		 {#/if#}
+		 	
+		</td>
+      </tr>
+      <tr>
+        <td height="30" align="right"  >&nbsp;</td>
+        <td height="50"  >
+		<input type="hidden" name="thisuid"  value="{#$user.uid#}" />
+            <input type="hidden" name="url"  value="{#$url#}" />
+            <input name="submit32" type="submit" class="admin_submit"    value="确定"/>
+          <input name="submit222" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>        </td>
+      </tr>
+    </table>
+  </form>
+  
+   <div class="toptit">用户状态</div>
+	 <form id="form9" name="form9" method="post" action="?act=userstatus_edit">
+	 {#$inputtoken#}
+	<table width="100%" border="0" cellpadding="4" cellspacing="0"   > 
+		<tr>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">帐号状态：</td>
+      <td  style=" border-bottom:1px #CCCCCC dashed;" >
+	    <label>
+	    <input name="status" type="radio" value="1"  {#if $user.status=="1"#}checked="checked"{#/if#}/>
+	    正常</label> 
+		<label>&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="radio" name="status" value="2"  {#if $user.status=="2"#}checked="checked"{#/if#}/>
+	    暂停</label>
+		</td>
+    </tr>
+	    <tr>
+      <td height="30" align="right"   >&nbsp;</td>
+      <td height="60"   ><span style="font-size:14px;">
+        <input type="hidden" name="userstatus_uid"  value="{#$user.uid#}" />
+		<input type="hidden" name="url"  value="{#$url#}" />
+        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+      </span></td>
+    </tr>	
+  </table>
+  </form>
+  
+   <div class="toptit">密码修改</div>
+   <form id="form1" name="form1" method="post" action="?act=userpass_edit">
+   {#$inputtoken#}
+  <table width="700" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+		 
+	<tr>
+      <td height="30" align="right" bgcolor="#FFFFFF"  >新密码：</td>
+      <td bgcolor="#FFFFFF" >
+        <input name="password" type="text" class="input_text_200" id="password" maxlength="50" value=""  />        </td>
+    </tr>
+	    <tr>
+      <td height="30" align="right" bgcolor="#FFFFFF"  >&nbsp;</td>
+      <td  bgcolor="#FFFFFF"  > 
+	  <input type="hidden" name="memberuid"  value="{#$user.uid#}" />
+		<input type="hidden" name="url"  value="{#$url#}" />
+        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+     
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+       </td>
+    </tr>
+	
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

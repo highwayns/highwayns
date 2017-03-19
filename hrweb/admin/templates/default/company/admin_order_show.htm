@@ -1,0 +1,68 @@
+﻿{#include file="sys/admin_header.htm"#}
+
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>您可以通过添加备注来区分订单。</p>
+  </div>
+<div class="toptit">查看订单</div>
+<form id="Form1" name="Form1" method="post" action="?act=order_notes_save&id={#$payment.id#}">
+{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="4" cellspacing="0"  >
+      <tr>
+      <td width="160" height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">付款状态：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed"> {#if $payment.is_paid=="1"#}<span style="color: #FF6600">待付款...</span>{#/if#}{#if $payment.is_paid=="2"#}<span style="color: #009900">已完成{#/if#}</span></td>
+    </tr>
+    <tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">申请充值会员：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed"> {#$payment.payment_username.username#} </td>
+    </tr>
+    <tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">应付款金额：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >￥<span style="color:#0033CC; font-size:20px;">{#$payment.amount#}</span> 元</td>
+    </tr>
+	    <tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">订单说明：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" ><span style="color:#0033CC">{#$payment.description#}</span></td>
+    </tr>
+		    <tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">支付方式：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.payment_name#}</td>
+    </tr>
+	<tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">订单单号：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.oid#}<input type="hidden" name="oid"  value="{#$payment.oid#}" /></td>
+    </tr>
+		<tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">申请时间：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.addtime|date_format:"%Y-%m-%d   %H:%M"#}</td>
+    </tr>
+		<tr>
+		<tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">执行充值时间：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.payment_time|date_format:"%Y-%m-%d   %H:%M"#}</td>
+    </tr>
+		<tr>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">添加备注：</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >
+	  <textarea name="notes" style="width:300px; height:50px; font-size:12px; line-height:180%" onpropertychange="if(this.value.length>120){this.value=this.value.slice(0,120)}">{#$payment.notes#}</textarea>
+	   </td>
+    </tr>
+    <tr>
+      <td height="30" align="right" >&nbsp;</td>
+      <td height="80" ><span style="font-size:14px;">
+        <input type="hidden" name="url"  value="{#$url#}" /><br />
+        <input name="submit3" type="submit" class="admin_submit"    value="修改备注"/>
+        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location.href='{#$url#}'"/>
+      </span></td>
+    </tr>
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$(function() {
+		$('.four-step-bar .step:last').css({'margin-right':0});
+	});
+	//验证码随机
+	$("#getcode").live('click',function(){
+		$(this).attr('src','{#$QISHI.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
+	});
+
+	$("#Form1").validate({
+		submitHandler:function(form){
+			$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {"act":"get_pass_check_buding","username":$("#username").val()}, function(data){
+				if($.trim(data)=="true")
+				{
+					form.submit();  
+				}
+				else if($.trim(data)=="false")
+				{
+					$("#Form1").hide();
+					$("#buding").show();
+				}
+				else
+				{
+					$("#Form1").hide();
+					$("#buding_wx").show();
+				}
+			});
+		},
+		success: function(lable) {
+				lable.text(" ").addClass("ver-success");
+		},
+		rules:{
+			username:{
+				required: true,
+				remote:{     
+				url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+				type:"post",    
+				data:{"username":function (){return $("#username").val()},"act":"get_pass_check"}     
+				}
+			},
+			postcaptcha:{
+				required: true,
+				remote:{     
+				url:"{#$QISHI.site_dir#}include/imagecaptcha.php",     
+				type:"post",    
+				data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}     
+				}
+			}
+		},
+		messages: {
+			username: {
+				required: "请输入用户名",
+				remote: jQuery.format("输入用户名有误")
+			},
+			postcaptcha: {
+				required: "请填写验证码",
+				remote: jQuery.format("验证码错误")	
+			} 
+		},
+		errorPlacement: function(error, element) {
+		if ( element.is(":radio") )
+		error.appendTo( element.parent().next().next() );
+		else if ( element.is(":checkbox") )
+		error.appendTo ( element.next());
+		else
+		error.appendTo(element.parent().next());
+		}
+	});
+});
+</script>
+</head>
+<body class="login_body">
+	<!-- 头部 -->
+	{#include file="user/reg_header.htm"#}
+	<!-- main -->
+	<div class="container">
+		<div class="step_wrap">
+			<div class="four-step-bar clearfix">
+				<div class="step tstep1 f-left active"><i class="step-icon">1</i>填写账户名</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>验证身份</div>
+				<div class="step tstep3 f-left"><i class="step-icon">3</i>设置新密码</div>
+				<div class="step tstep4 f-left"><i class="step-icon">4</i>找回成功</div>
+			</div>
+		</div>
+		<form action="?act=get_pass_step2" id="Form1" method="post">
+		<div class="reg-main clearfix">
+			<div class="reg-left-form f-left">
+				<div class="reg-form-item clearfix">
+					<div class="reg-form-type f-left">账户名</div>
+					<div class="reg-form-content f-left">
+						<input type="text" name="username" id="username" class="text text-lg span350" placeholder="用户名/邮箱/已验证手机" />
+					</div>
+					<div class="verification f-left"></div>
+				</div>
+				<div class="reg-form-item clearfix">
+					<div class="reg-form-type f-left">验证码</div>
+					<div class="reg-form-content f-left">
+						<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
+					</div>
+					<div class="reg-form-other verification f-left" style="padding-left: 20px;">
+						<div class="ver-box f-left"><img src="{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+					</div>
+					
+				</div>
+				<div class="reg-form-item special clearfix">
+					<div class="reg-form-type f-left">&nbsp;</div>
+					<div class="reg-form-content f-left">
+						<input type="hidden" name="token" value="{#$token#}"/>
+						<input type="submit" value="提交" class="btn btn-lg blue span1" />
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+		<div class="common-status" id="buding" style="display: none;padding:120px 0;">
+			<div class="status-main">
+			<span><img src="{#$QISHI.site_template#}images/icon-error.png" alt="失败" /></span>找回密码失败
+			</div>
+			<p>您的账号没绑定手机或邮箱，请联系网站管理员或拔打{#$QISHI.site_name#}客服电话{#$QISHI.top_tel#}！</p>
+		</div>
+		<div class="common-status" id="buding_wx" style="display: none;padding:50px 0;">
+			<div class="status-main">
+				<span><img src="{#$QISHI.site_template#}images/icon-error.png" alt="失败" /></span>您的账号暂不支持找回密码
+			</div>
+			<p>您的账号已绑定微信号，可直接微信 <a href="{#"QS_login"|qishi_url#}">扫码登录>></a></p>
+		</div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

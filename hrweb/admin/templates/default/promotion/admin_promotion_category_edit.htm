@@ -1,0 +1,102 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="promotion/admin_promotion_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+系统内置方案不能删除<br />
+会员申请推广方案后，系统将自动开通，到期后自动下架。
+</p>
+</div>
+<div class="toptit">修改方案：<span style="color:#006699">{#$show.cat_name#}</span></div>
+  <form action="?act=edit_category_save" method="post"  name="form1" id="form1">
+     {#$inputtoken#}
+    <table width="100%" border="0" cellspacing="0" cellpadding="4" class="link_lan"  >
+ 
+      <tr>
+        <td style=" line-height:220%; color:#666666;"><table width="100%" border="0" cellspacing="4" cellpadding="4">
+          <tr>
+            <td width="120" align="right">方案名称：</td>
+            <td><input name="cat_name" type="text" class="input_text_200"   maxlength="15" value="{#$show.cat_name#}"/>
+			<span class="admin_note">方案名称尽量控制在5个字符左右</span>
+			</td>
+          </tr>
+		        <tr>
+            <td align="right">状态：</td>
+            <td>
+			 <label><input type="radio" name="cat_available" value="1" {#if $show.cat_available=="1" || $show.cat_available==""#}checked="checked"{#/if#}/>正常</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+ <label><input name="cat_available" type="radio" value="2" {#if $show.cat_available=="2"#}checked="checked"{#/if#}/>
+ 禁用</label>
+ 
+		  </td>
+          </tr>
+		  <tr>
+            <td align="right">推广天数最少：</td>
+            <td>
+			<input name="cat_minday" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_minday#}"/>天
+           <span class="admin_note"> “0”为不限制</span>
+		   </td>
+          </tr>
+    
+	 <tr>
+            <td align="right">推广天数最多：</td>
+            <td>
+			<input name="cat_maxday" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_maxday#}"/>天
+           <span class="admin_note"> “0”为不限制</span>
+		   </td>
+          </tr>
+	 <tr>
+            <td align="right">推广期每天消耗积分：</td>
+            <td>
+			<input name="cat_points" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_points#}"/>点
+           <span class="admin_note"> “0”不消耗</span>
+		   </td>
+          </tr>
+		   <tr>
+            <td align="right">方案排序：</td>
+            <td>
+			<input name="cat_order" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_order#}"/>
+           <span class="admin_note"> 数字越大，排序越靠前</span>
+		   </td>
+          </tr>
+		   <tr>
+            <td align="right" valign="top">方案说明：</td>
+            <td>
+<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
+			  <textarea name="cat_notes" style="width:700px; height:260px; font-size:12px; line-height:180%"  id="cat_notes">{#$show.cat_notes#}</textarea>
+	   <script>
+      var editor;
+      KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="cat_notes"]', {
+          allowFileManager : true
+        });
+      });
+    </script>
+			
+			
+			
+		   </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td height="60">
+			<input name="id" type="hidden" value="{#$show.cat_id#}" />
+			<input type="submit" name="Submit3" value="确定提交" class="admin_submit"   />
+      <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+			</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

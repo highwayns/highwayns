@@ -1,0 +1,59 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="nav/admin_nav_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+<h2>提示：</h2>
+<p>
+系统内置分类不可以编辑或者删除<br />自定义分类调用名不可以以 “QS_”开头
+</p>
+</div>
+
+		  <table width="100%" border="0" cellpadding="2" cellspacing="0" id="list" class="link_lan">
+          <tr>
+            <td width="15%" class="admin_list_tit admin_list_first">调用名称</td>
+            <td class="admin_list_tit">分类名称</td>
+            <td width="15%" align="center" class="admin_list_tit">类型</td>
+            <td width="15%" align="center" class="admin_list_tit">编辑</td>
+            </tr>
+			{#foreach from=$list item=li#}
+          <tr>
+            <td    class="admin_list admin_list_first"><strong>{#$li.alias#}</strong></td>
+            <td class="admin_list">
+			{#$li.categoryname#}			</td>
+            <td align="center" class="admin_list">			
+			{#if $li.admin_set=="1"#}
+			<span style="color:#FF6600">系统内置</span>
+			{#else#}
+			自定义
+			{#/if#}			</td>
+            <td align="center" class="admin_list">
+			{#if $li.admin_set!="1"#}
+			<a href="?act=site_navigation_category_edit&alias={#$li.alias#}"  >修改</a>
+			&nbsp;&nbsp;&nbsp;
+			<a href="?act=site_navigation_category_del&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a>
+			{#else#}
+			<span style="color:#999999">修改</span>&nbsp;&nbsp;&nbsp;
+			<span style="color:#999999">删除</span>
+			
+			{#/if#}
+&nbsp;			</td>
+          </tr>
+		  {#/foreach#}
+  </table>
+		  <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+ <input type="button" name="Submit22" value="新增类别" class="admin_submit"    onclick="window.location='?act=site_navigation_category_add'"/>
+		</td>
+        <td width="305" align="right">		
+	    </td>
+      </tr>
+  </table>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

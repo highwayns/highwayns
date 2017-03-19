@@ -1,0 +1,175 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" src="js/jquery.userinfotip-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量取消	
+	$("#ButDel").click(function(){
+		
+		if (confirm('你确定要取消推广吗？'))
+		{
+			$("form[name=form1]").submit()
+		}
+	});
+		
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="promotion/admin_promotion_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+系统将自动取消到期的企业推广。<br />
+此列表不显示到期、停止、未通过审核等职位的推广信息。<br />
+</p>
+</div>
+<div class="seltpye_x">
+		<div class="left">到期时间</div>	
+		<div class="right">
+		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:0"|qishi_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>已经到期</a>
+		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
+		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
+		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内到期</a>
+		<a href="{#"settr:90"|qishi_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>三月内到期</a>
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+<div class="seltpye_x">
+		<div class="left">推广方案</div>	
+		<div class="right">
+		<a href="{#"promotionid:"|qishi_parse_url#}" {#if $smarty.get.promotionid==""#}class="select"{#/if#}>不限</a>
+		{#foreach from=$cat item=li#}
+		<a href="{#"promotionid:"|cat:$li.cat_id|qishi_parse_url#}" {#if $smarty.get.promotionid==$li.cat_id#}class="select"{#/if#}>{#$li.cat_name#}</a>
+		{#/foreach#}
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+</div>
+   <form id="form1" name="form1" method="post" action="?act=promotion_del">
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  width="30%" class="admin_list_tit admin_list_first">
+     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>推广职位</label>	 </td>
+	  <td  width="20%" class="admin_list_tit">所属公司</td>
+	  <td  align="center"  class="admin_list_tit">会员ID</td>
+      <td align="center"  class="admin_list_tit">开始时间</td>
+      <td  align="center"  class="admin_list_tit">到期时间</td>	  
+      <td width="10%" align="center"  class="admin_list_tit">操作</td>
+    </tr>
+	{#foreach from=$list item=list#}
+	 <tr>
+      <td   class="admin_list admin_list_first">
+     <input type="checkbox" name="id[]"  value="{#$list.cp_id#}"/>
+	 <a href="{#$list.jobs_url#}" target="_blank" >{#$list.jobs_name#}</a>	&nbsp;&nbsp;	
+	 <span style="color:
+	 {#if $list.cp_promotionid=="1"#}
+	  #FF6600
+	  {#elseif $list.cp_promotionid=="2"#}
+	  #009900
+	  {#elseif $list.cp_promotionid=="3"#}
+	  #6600CC
+	   {#elseif $list.cp_promotionid=="4"#}
+	   #FF33CC 
+	   {#else#}
+	   #0099FF 
+	  {#/if#}
+	 ">[{#$list.cat_name#}]</span>
+	 </td>
+	  <td  class="admin_list">
+	  <a href="{#$list.company_url#}" target="_blank" >{#$list.companyname#}</a>
+	  </td>
+	  <td align="center"  class="admin_list">
+	  {#$list.cp_uid#}	   </td>
+      <td align="center"  class="admin_list">
+	  {#if $list.cp_starttime=="0"#}
+		无限制
+		{#else#}
+		{#$list.cp_starttime|date_format:"%Y-%m-%d"#}
+		{#/if#}	  </td>
+      <td align="center"  class="admin_list">
+	  {#if $list.cp_endtime=="0"#}
+		无限制
+		{#else#}
+					{#if $list.cp_endtime < $smarty.now#}
+					<span style="color:#FF6600">已经到期</span>
+					{#else#}
+					{#$list.cp_endtime|date_format:"%Y-%m-%d"#}
+					{#/if#}
+		{#/if#}	  </td>	  
+      <td align="center"  class="admin_list">
+	  <a href="?act=promotion_edit&id={#$list.cp_id#}">修改</a>
+	  &nbsp;
+	<a href="admin_company.php?act=management&id={#$list.cp_uid#}"  target="_blank" class="userinfo"  id="{#$list.cp_uid#}">管理</a>
+
+    </tr>
+	{#/foreach#}
+  </table>
+  
+	{#if !$list#}
+	<div class="admin_list_no_info">没有任何信息！</div>
+	{#/if#}
+  </form>
+	
+   <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+	<tr>
+      <td>
+       <input type="button" name="Submit22" value="添加推广" class="admin_submit"    onclick="window.location='?act=promotion_add'"/>
+	   
+		<input type="button" name="ButDel" id="ButDel" value="取消推广" class="admin_submit" />
+	  </td>
+      <td width="305">
+	  
+	   
+	   
+	      
+	   	<form id="formseh" name="formseh" method="get" action="?">	
+			<div class="seh">
+			    <div class="keybox"><input name="key" type="text"   value="{#$smarty.get.key#}" /></div>
+			    <div class="selbox">
+					<input name="key_type_cn"  id="key_type_cn" type="text" value="{#$smarty.get.key_type_cn|default:"职位名"#}" readonly="true"/>
+						<div>
+								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
+												<div id="sehmenu" class="seh_menu">
+														<ul>
+														<li id="1" title="职位名">职位名</li>
+														<li id="2" title="公司名">公司名</li>
+														<li id="3" title="职位ID">职位ID</li>
+														<li id="4" title="公司ID">公司ID</li>
+														<li id="5" title="会员ID">会员ID</li>
+														</ul>
+												</div>
+						</div>				
+				</div>
+				<div class="sbtbox">
+				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				</div>
+				<div class="clear"></div>
+		  </div>
+		  </form>
+		  <script type="text/javascript">$(document).ready(function(){showmenu("#key_type_cn","#sehmenu","#key_type");});	</script>
+	   
+	   
+	
+	   
+	   
+	   
+	   
+	   
+	   
+	  
+	  </td>
+     </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+	   
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

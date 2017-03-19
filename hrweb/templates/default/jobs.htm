@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_jobs"#}
+<title>{#$page.title#}</title>
+<meta name="description" content="{#$page.description#}">
+<meta name="keywords" content="{#$page.keywords#}">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<meta name="renderer" content="webkit"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript'></script>
+<script src="{#$QISHI.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
+<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		allaround("{#$QISHI.site_dir#}");
+	    // 职位类别填充数据 
+		job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$QISHI.site_dir#}");
+		// 所属行业填充数据
+		trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+		// 工作地区填充数据
+		city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+<div class="page_location link_bk">
+当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>
+</div>
+<div class="container">
+	<div id="filterSearch">
+		<div class="search-tab clearfix">
+			<a href="{#"QS_jobslist"|qishi_url#}" class="s-tab-item f-left active">高级搜索</a>
+			<a href="{#"QS_street"|qishi_url#}" class="s-tab-item f-left">道路搜索</a>
+		</div>
+		<div class="top-search clearfix">
+			<div class="t-search-box f-left">
+				<div class="type-input-box f-left">
+					<div class="key">请输入关键字</div>
+					<input type="text" name="key" id="key" style="display:none;"/>
+					<input name="jobcategory" id="jobcategory" type="hidden" value="" />
+					<input name="trade" id="trade" type="hidden" value="" />
+					<input name="citycategory" id="citycategory" type="hidden" value=""/>
+					<input type="hidden" name="wage" id="wage" value="">
+					<input type="hidden" name="jobtag" id="jobtag" value="">
+					<input type="hidden" name="education" id="education" value="">
+					<input type="hidden" name="experience" id="experience" value="">
+					<input type="hidden" name="settr" id="settr" value="">
+					<input type="hidden" name="nature" id="nature" value="">
+					<input type="hidden" name="scale" id="scale" value="">
+					<input type="hidden" name="sort" id="sort" value="">
+					<input type="hidden" name="page" id="page" value="">
+				</div>
+			</div>
+			<div class="t-search-btn f-left"><input type="button" detype="QS_jobslist" id="searcnbtn" value="搜&nbsp;索" /></div>
+		</div>
+		<div class="fliter-wrap fwnob">
+			<div class="filter-drop clearfix">
+				<div class="filter-item f-left">
+					<div class="choose-item">
+						<div class="choose-control">
+							<span class="cc-default" id="job_result_show">选择职位类别</span><i class="choose-icon"></i>
+							<!-- 职位类别弹出框 -->
+							<div class="aui_outer" id="aui_outer_job">
+								<table class="aui_border">
+									<tbody>
+										<tr>
+											<td class="aui_c">
+												<div class="aui_inner">
+													<table class="aui_dialog">
+														<tbody>
+															<tr>
+																<td class="aui_main">
+																	<div class="aui_content" style="padding: 0px;">
+																		<div class="LocalDataMultiC">
+																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning">0</strong> 项</div><div id="result-list-job" class="result-list data-row-side-ra"></div><div class="clear"></div></div><div class="cla"></div></div>
+																			<div class="data-row-list data-row-main" id="job_list">
+																				<!-- 列表内容 -->
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 职位类别弹出框 End-->
+						</div>
+					</div>
+				</div>
+				<div class="filter-item f-left">
+					<div class="choose-item">
+						<div class="choose-control">
+							<span class="cc-default" id="trade_result_show">选择行业类别</span><i class="choose-icon"></i>
+							<!-- 所属行业弹出框 -->
+							<div class="aui_outer" id="aui_outer">
+								<table class="aui_border">
+									<tbody>
+										<tr>
+											<td class="aui_c">
+												<div class="aui_inner">
+													<table class="aui_dialog">
+														<tbody>
+															<tr>
+																<td class="aui_main">
+																	<div class="aui_content">
+																		<div class="items jquery-localdata">
+																			<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="item-table">
+																				<table class="options-table options-table-7">
+																					<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
+																						<!-- 列表内容 -->
+																					</tbody></table></td></tr>
+																					</tbody>
+																				</table>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 所属行业弹出框 End-->
+						</div>
+					</div>
+				</div>
+				<div class="filter-item f-left">
+					<div class="choose-item">
+						<div class="choose-control">
+							<span class="cc-default" id="city_result_show">选择地区类别</span><i class="choose-icon"></i>
+							<!-- 工作地区弹出框 -->
+							<div class="aui_outer" style="left:-396px;" id="aui_outer_city">
+								<table class="aui_border">
+									<tbody>
+										<tr>
+											<td class="aui_c">
+												<div class="aui_inner">
+													<table class="aui_dialog">
+														<tbody>
+															<tr>
+																<td class="aui_main">
+																	<div class="aui_content" style="padding: 0px;">
+																		<div class="LocalDataMultiC" style="width:623px;">
+																			<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-list data-row-main" id="city_list">
+																				<!-- 列表内容 -->
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 工作地区弹出框 End-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="filter-list-wrap clearfix">
+				<div class="fl-type f-left">职位月薪：</div>
+				<div class="fl-content r-choice f-left">
+					{#qishi_get_classify set="列表名:wage,类型:QS_wage,显示数目:100"#}
+					{#foreach from=$wage item=list#}
+					<div class="fl-content-li" type="wage" code="{#$list.id#}">{#$list.categoryname#}</div>
+					{#/foreach#}
+				</div>
+			</div>
+			<div class="filter-list-wrap clearfix">
+				<div class="fl-type f-left">福利亮点：</div>
+				<div class="fl-content f-left forShowMore" id="fliterMore">
+					{#qishi_get_classify set="列表名:jobtag,类型:QS_jobtag,显示数目:100"#}
+					{#foreach from=$jobtag item=list#}
+					<div class="fl-content-li" type="jobtag" code="{#$list.id#}">{#$list.categoryname#}</div>
+					{#/foreach#}
+					<a href="javascript:;" class="show-more">展开</a>
+				</div>
+			</div>
+			<div class="filter-list-wrap clearfix">
+				<div class="fl-type f-left">更多筛选：</div>
+				<div class="fl-content f-left">
+					<div class="saixuan">
+						{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_education item=list#}
+							<a defvalue="{#$list.id#}" type="education" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						学历要求
+					</div>
+					<div class="saixuan">
+						{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_experience item=list#}
+							<a defvalue="{#$list.id#}" type="experience" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						工作经验
+					</div>
+					<div class="saixuan">
+						<div class="saixuans">
+							<div class="line"></div>
+							<a defvalue="3" type="settr" href="javascript:;">3天内</a>
+							<a defvalue="7" type="settr" href="javascript:;">7天内</a>
+							<a defvalue="15" type="settr" href="javascript:;">15天内</a>
+							<a defvalue="30" type="settr" href="javascript:;">30天内</a>
+						</div>
+						更新时间
+					</div>
+					<div class="saixuan">
+						{#qishi_get_classify set="列表名:c_jobsnature,类型:QS_jobs_nature"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_jobsnature item=list#}
+							<a defvalue="{#$list.id#}" type="nature" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						工作性质
+					</div>
+					<div class="saixuan">
+						{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_scale item=list#}
+							<a defvalue="{#$list.id#}" type="scale" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						企业规模
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="data-box">
+		<div class="data-title">
+			<h3>推荐职位</h3>
+			<a href="{#"QS_helplist,id:10"|qishi_url#}"  target="_blank" class="right-link">我是招聘单位，我想出现在这里</a>
+		</div>
+		<div class="job-normal-list clearfix">
+			{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc"#}
+			{#foreach from=$jobslist item=list#}
+			<div class="job-normal-item f-left">
+				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
+				<div class="job-com-pay"><a href="{#$list.company_url#}"  target="_blank" class="j-com">{#$list.companyname#}</a>|<span class="j-pay">{#$list.wage_cn#}</span></div>
+			</div>
+			{#/foreach#}
+		</div>
+	</div>
+	<div class="data-box">
+		<div class="data-title">
+			<h3>紧急招聘</h3>
+			<a href="{#"QS_helplist,id:10"|qishi_url#}"  target="_blank" class="right-link">我是招聘单位，我想出现在这里</a>
+		</div>
+		<div class="job-normal-list clearfix">
+			{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc"#}
+			{#foreach from=$jobslist item=list#}
+			<div class="job-normal-item f-left">
+				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
+				<div class="job-com-pay"><a href="{#$list.company_url#}"  target="_blank" class="j-com">{#$list.companyname#}</a>|<span class="j-pay">{#$list.wage_cn#}</span></div>
+			</div>
+			{#/foreach#}
+		</div>
+	</div>
+	<div class="data-box">
+		<div class="data-title">
+			<h3>最新职位</h3>
+			<a href="{#"QS_jobslist"|qishi_url#}" target="_blank" class="right-link">更多>></a>
+		</div>
+		<div class="job-normal-list clearfix">
+			{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc"#}
+			{#foreach from=$jobslist item=list#}
+			<div class="job-normal-item f-left">
+				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
+				<div class="job-com-pay"><a href="{#$list.company_url#}" target="_blank" class="j-com">{#$list.companyname#}</a>|<span class="j-pay">{#$list.wage_cn#}</span></div>
+			</div>
+			{#/foreach#}
+		</div>
+	</div>
+</div>
+{#include file="footer.htm"#}
+</body>
+</html>

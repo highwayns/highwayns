@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta name="renderer" content="webkit"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/user_common.css" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/user_company.css" />
+<script src="{#$QISHI.site_template#}js/jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		// 顶部筛选
+		$('.data-filter').on('click', function(e){
+			$(this).find('.filter-down').toggle();
+			// 动态设置下拉列表宽度
+			var fWidth = $(this).find('.filter-span').outerWidth(true) - 2;
+			$(this).find(".filter-down").width(fWidth);
+			// 点击其他位置收起下拉
+			$(document).one("click",function(){
+				$('.filter-down').hide();
+			});
+			e.stopPropagation();
+			//点击下拉时收起其他下拉
+			$(".data-filter").not($(this)).find('.filter-down').hide();
+		});
+		// 套餐列表
+		$('.account-item:nth-child(2n)').css({'margin-right':0});
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 会员服务</div>
+	<div class="usermain">
+		<div class="leftmenu com link_bk">
+			{#include file="member_company/left.htm"#}
+		</div>
+		<div class="rightmain">
+			<div class="bbox1 my_account">
+				<div class="topnav get_resume">
+					<div class="titleH1"><div class="h1-title">我的账户</div></div>
+					<div class="navs link_bk">
+						{#if $QISHI.operation_mode == '1' || $QISHI.operation_mode == '3'#}
+						<a href="company_service.php?act=j_account" {#if $act=='j_account'#}class="se"{#/if#}>我的积分</a>
+						{#/if#}
+						{#if $QISHI.operation_mode == '2' || $QISHI.operation_mode == '3'#}
+						<a href="company_service.php?act=t_account" {#if $act=='t_account'#}class="se"{#/if#}>我的套餐</a>
+						{#/if#}
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="account-wrap">
+					<div class="account-top-block clearfix">
+						<div class="account-state f-left">账户状态</div>
+						<div class="a-state-content f-left">
+							{#if $QISHI.operation_mode == '2' || $QISHI.operation_mode == '3'#}
+							<span class="account-type">当前套餐：<span>{#$setmeal.setmeal_name#}</span><em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em><a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a></span>
+							{#/if#}
+							{#if $QISHI.operation_mode == '1' || $QISHI.operation_mode == '3'#}
+							<span class="account-type last">当前{#$QISHI.points_byname#}：<span>{#$points#}</span>{#$QISHI.points_quantifier#}<a href="company_service.php?act=order_add" class="underline">积分充值</a></span>
+							{#/if#}
+						</div>
+					</div>
+					<div class="account-ctrl-bar clearfix">
+						<h3 class="f-left">积分规则</h3>
+						<a href="company_service.php?act=j_account&detail=1" class="f-right underline">积分消费明细</a>
+					</div>
+					<div class="account-lost clearfix">
+						{#section name=list loop=$points_rule#}
+						<div class="account-item f-left">
+							<div class="ai-text f-left">{#$points_rule[list].title#}</div>
+							<div class="ai-number {#if $points_rule[list].operation=="1"#}add{#else#}less{#/if#} f-left">
+								{#if $points_rule[list].operation=="1"#}+{#else#}-{#/if#}{#$points_rule[list].value#}
+							</div>
+						</div>
+						{#/section#}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	{#include file="user/footer.htm"#}
+</body>
+</html>

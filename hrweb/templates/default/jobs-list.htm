@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.jobcategory#}{#"QS_jobs,jobcategory:"|cat:$smarty.get.jobcategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"QS_trade,trade:"|cat:$smarty.get.trade|qishi_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"QS_district,"|cat:$smarty.get.citycategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.wage#}{#"QS_wage,"|cat:$smarty.get.wage|qishi_categoryname#} - {#/if#}{#if $smarty.get.jobtag#}{#"QS_jobtag,"|cat:$smarty.get.jobtag|qishi_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"QS_education,"|cat:$smarty.get.education|qishi_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"QS_experience,"|cat:$smarty.get.experience|qishi_categoryname#} - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}{#if $smarty.get.nature#}{#"QS_jobs_nature,"|cat:$smarty.get.nature|qishi_categoryname#} - {#/if#}{#if $smarty.get.scale#}{#"QS_scale,"|cat:$smarty.get.scale|qishi_categoryname#} - {#/if#}职位列表  - {#$QISHI.site_name#}</title>
+<meta name="description" content="{#$QISHI.site_name#}招聘岗位">
+<meta name="keywords" content="{#$QISHI.site_name#},职位信息">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<meta name="renderer" content="webkit"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript'></script>
+<script src="{#$QISHI.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
+<script src="{#$QISHI.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
+<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//详细下拉
+		$('.list-item-ctrl').each(function(){
+			if ($(this).hasClass('ishow')) {
+				$(this).parent().next().show();
+			};
+			$(this).on('click', function(){
+				if ($(this).hasClass('ishow')) {
+					$(this).removeClass('ishow');
+					$(this).parent().next().hide();
+					$('.infolist-row').removeClass('infolist-row').addClass('infolist-row');  //IE7 BUG Fix
+				}else{
+					$(this).addClass('ishow');
+					$(this).parent().next().show();
+					$('.infolist-row').removeClass('infolist-row').addClass('infolist-row');  //IE7 BUG Fix
+				};
+			});
+		});
+		allaround("{#$QISHI.site_dir#}");
+	    // 职位类别填充数据 
+		job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$QISHI.site_dir#}");
+		// 所属行业填充数据
+		trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+		// 工作地区填充数据
+		city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+		// 合并公司职位弹出
+		$(".mjob_name").hover(function(){
+			$(this).find(".merger_job_info").show();
+		}, function(){
+			$(this).find(".merger_job_info").hide();
+		})
+		//
+		var mode= $.cookie('mode');
+		if(mode==1)
+		{
+			$('#list').removeClass('select');
+			$('#detail').addClass('select');
+			$(".xiala").addClass("ishow");
+			$(".txt_detail").show();
+		}
+		else
+		{
+			$('#detail').removeClass('select');
+			$('#list').addClass('select');
+			$(".xiala").removeClass("ishow");
+			$(".txt_detail").hide();
+		}
+		$(".tab-list").die().live('click', function(event) {
+			$(this).addClass('select');
+			$(".tab-detail").removeClass('select');
+			$('.list-item-ctrl').removeClass('ishow');
+			$(".info-list-detail").hide();
+			$('.infolist-row').removeClass('infolist-row').addClass('infolist-row');
+		});
+		$(".tab-detail").die().live('click', function(event) {
+			$(this).addClass('select');
+			$(".tab-list").removeClass('select');
+			$('.list-item-ctrl').addClass('ishow');
+			$(".info-list-detail").show();
+			$('.infolist-row').removeClass('infolist-row').addClass('infolist-row');
+		});
+		$(".infolists .merger_com_box:last").css({"border-bottom":"0"});
+		//单个职位  下拉显示
+		$(".xiala").click(function(){
+			if($(this).hasClass("ishow")) {
+				$(this).parent().next().hide();
+				$(this).removeClass("ishow");
+			} else {
+				$(this).parent().next().show();
+				$(this).addClass("ishow");
+			}
+		});
+		$("#infolists .infolist-row:last").css("border-bottom","none");
+		//申请职位
+		apply_jobs("{#$QISHI.site_dir#}");
+		// 收藏职位
+		favorites("{#$QISHI.site_dir#}");
+		// 合并公司
+		var com_list= $.cookie('com_list');
+		if(com_list ==1)
+		{
+			$("#merge_com_btn").attr("checked",true);
+		}
+		
+		$("#merge_com_btn").click(function(){
+			generateBackground();
+			if($(this).attr('checked')){
+				$.cookie('com_list','1');
+				window.location.reload();
+
+			} else {
+				$.cookie("com_list", null); 
+				window.location.reload();
+			}
+		})
+		$(".jobinfolists .tit .sort a").click(function(event) {
+			generateBackground();
+		});
+		// 正在加载
+		function generateBackground() {
+			var backgroundHtm = '<div id="bonfire-pageloader"><div class="bonfire-pageloader-icon"></div></div>';
+			var html = jQuery('body');
+			html.append(backgroundHtm);
+			jQuery(window).resize(function(){
+				 resizenow();
+			});
+			function resizenow() {
+				var browserwidth = jQuery(window).width();
+				var browserheight = jQuery(window).height();
+				jQuery('.bonfire-pageloader-icon').css('right', ((browserwidth - jQuery(".bonfire-pageloader-icon").width())/2)).css('top', ((browserheight - jQuery(".bonfire-pageloader-icon").height())/2 + $(document).scrollTop() - 109));
+			};
+			resizenow();
+		}
+	});
+</script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+<div class="page_location link_bk">
+当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>
+</div>
+<div class="container">
+	<div id="filterSearch">
+		<div class="search-tab clearfix">
+			<a href="{#"QS_jobslist"|qishi_url#}" class="s-tab-item f-left active">高级搜索</a>
+			<a href="{#"QS_street"|qishi_url#}" class="s-tab-item f-left">道路搜索</a>
+		</div>
+		<div class="top-search clearfix">
+			<div class="t-search-box f-left">
+				<div class="type-input-box f-left" id="hidden_input_box">
+					<div class="key">{#$smarty.get.key|default:"请输入关键字"#}</div>
+					<input type="text" name="key" id="key" value="{#$smarty.get.key#}" style="display:none;"/>
+					<input name="jobcategory" id="jobcategory" type="hidden" value="{#$smarty.get.jobcategory#}" />
+					<input name="trade" id="trade" type="hidden" value="{#$smarty.get.trade#}" />
+					<input name="citycategory" id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}"/>
+					<input type="hidden" name="wage" id="wage" value="{#$smarty.get.wage#}">
+					<input type="hidden" name="jobtag" id="jobtag" value="{#$smarty.get.jobtag#}">
+					<input type="hidden" name="education" id="education" value="{#$smarty.get.education#}">
+					<input type="hidden" name="experience" id="experience" value="{#$smarty.get.experience#}">
+					<input type="hidden" name="settr" id="settr" value="{#$smarty.get.settr#}">
+					<input type="hidden" name="nature" id="nature" value="{#$smarty.get.nature#}">
+					<input type="hidden" name="scale" id="scale" value="{#$smarty.get.scale#}">
+					<input type="hidden" name="sort" id="sort" value="{#$smarty.get.sort#}">
+					<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
+				</div>
+			</div>
+			<div class="t-search-btn f-left"><input type="button" detype="QS_jobslist" id="searcnbtn" value="搜&nbsp;索" /></div>
+		</div>
+		<div class="fliter-wrap">
+			<div class="filter-drop clearfix">
+				<div class="filter-item f-left">
+					<div class="choose-item">
+						<div class="choose-control">
+							<span class="cc-default" id="job_result_show">选择职位类别</span><i class="choose-icon"></i>
+							<!-- 职位类别弹出框 -->
+							<div class="aui_outer" id="aui_outer_job">
+								<table class="aui_border">
+									<tbody>
+										<tr>
+											<td class="aui_c">
+												<div class="aui_inner">
+													<table class="aui_dialog">
+														<tbody>
+															<tr>
+																<td class="aui_main">
+																	<div class="aui_content" style="padding: 0px;">
+																		<div class="LocalDataMultiC">
+																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning">0</strong> 项</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-list data-row-main" id="job_list">
+																				<!-- 列表内容 -->
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 职位类别弹出框 End-->
+						</div>
+					</div>
+				</div>
+				<div class="filter-item f-left">
+					<div class="choose-item">
+						<div class="choose-control">
+							<span class="cc-default" id="trade_result_show">选择行业类别</span><i class="choose-icon"></i>
+							<!-- 所属行业弹出框 -->
+							<div class="aui_outer" id="aui_outer">
+								<table class="aui_border">
+									<tbody>
+										<tr>
+											<td class="aui_c">
+												<div class="aui_inner">
+													<table class="aui_dialog">
+														<tbody>
+															<tr>
+																<td class="aui_main">
+																	<div class="aui_content">
+																		<div class="items jquery-localdata">
+																			<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="item-table">
+																				<table class="options-table options-table-7">
+																					<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
+																						<!-- 列表内容 -->
+																					</tbody></table></td></tr>
+																					</tbody>
+																				</table>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 所属行业弹出框 End-->
+						</div>
+					</div>
+				</div>
+				<div class="filter-item f-left">
+					<div class="choose-item">
+						<div class="choose-control">
+							<span class="cc-default" id="city_result_show">选择地区类别</span><i class="choose-icon"></i>
+							<!-- 工作地区弹出框 -->
+							<div class="aui_outer" style="left:-396px;" id="aui_outer_city">
+								<table class="aui_border">
+									<tbody>
+										<tr>
+											<td class="aui_c">
+												<div class="aui_inner">
+													<table class="aui_dialog">
+														<tbody>
+															<tr>
+																<td class="aui_main">
+																	<div class="aui_content" style="padding: 0px;">
+																		<div class="LocalDataMultiC" style="width:623px;">
+																			<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-list data-row-main" id="city_list">
+																				<!-- 列表内容 -->
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 工作地区弹出框 End-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="filter-list-wrap clearfix">
+				<div class="fl-type f-left">职位月薪：</div>
+				<div class="fl-content r-choice f-left">
+					{#qishi_get_classify set="列表名:wage,类型:QS_wage,显示数目:100"#}
+					{#foreach from=$wage item=list#}
+					<div class="fl-content-li{#if $list.id == $smarty.get.wage#} select{#/if#}" type="wage" code="{#$list.id#}">{#$list.categoryname#}</div>
+					{#/foreach#}
+				</div>
+			</div>
+			<div class="filter-list-wrap clearfix">
+				<div class="fl-type f-left">福利亮点：</div>
+				<div class="fl-content f-left forShowMore" id="fliterMore">
+					{#qishi_get_classify set="列表名:jobtag,类型:QS_jobtag,显示数目:100"#}
+					{#foreach from=$jobtag item=list#}
+					<div class="fl-content-li" type="jobtag" code="{#$list.id#}">{#$list.categoryname#}</div>
+					{#/foreach#}
+					<a href="javascript:;" class="show-more">展开</a>
+				</div>
+			</div>
+			<div class="filter-list-wrap clearfix">
+				<div class="fl-type f-left">更多筛选：</div>
+				<div class="fl-content f-left">
+					<div class="saixuan{#if $smarty.get.education#} selected{#/if#}">
+						{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_education item=list#}
+							<a defvalue="{#$list.id#}"{#if $list.id == $smarty.get.education#} class="select"{#/if#} type="education" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						学历要求
+					</div>
+					<div class="saixuan{#if $smarty.get.experience#} selected{#/if#}">
+						{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_experience item=list#}
+							<a defvalue="{#$list.id#}"{#if $list.id == $smarty.get.experience#} class="select"{#/if#} type="experience" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						工作经验
+					</div>
+					<div class="saixuan{#if $smarty.get.settr#} selected{#/if#}">
+						<div class="saixuans">
+							<div class="line"></div>
+							<a defvalue="3"{#if $smarty.get.settr == 3#} class="select"{#/if#} type="settr" href="javascript:;">3天内</a>
+							<a defvalue="7"{#if $smarty.get.settr == 7#} class="select"{#/if#} type="settr" href="javascript:;">7天内</a>
+							<a defvalue="15"{#if $smarty.get.settr == 15#} class="select"{#/if#} type="settr" href="javascript:;">15天内</a>
+							<a defvalue="30"{#if $smarty.get.settr == 30#} class="select"{#/if#} type="settr" href="javascript:;">30天内</a>
+						</div>
+						更新时间
+					</div>
+					<div class="saixuan{#if $smarty.get.nature#} selected{#/if#}">
+						{#qishi_get_classify set="列表名:c_jobsnature,类型:QS_jobs_nature"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_jobsnature item=list#}
+							<a defvalue="{#$list.id#}"{#if $list.id == $smarty.get.nature#} class="select"{#/if#} type="nature" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						工作性质
+					</div>
+					<div class="saixuan{#if $smarty.get.scale#} selected{#/if#}">
+						{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+						<div class="saixuans">
+							<div class="line"></div>
+							{#foreach from=$c_scale item=list#}
+							<a defvalue="{#$list.id#}"{#if $list.id == $smarty.get.scale#} class="select"{#/if#} type="scale" href="javascript:;">{#$list.categoryname#}</a>
+							{#/foreach#}
+						</div>
+						企业规模
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fliter-result clearfix" id="has_result">
+			<div class="fr-type f-left">已选条件：</div>
+			<div class="fr-content f-left rl">
+			{#if $smarty.get.key#}
+				<div class="has-select-item f-left" type="key">{#$smarty.get.key#}<i class="fliter-clear-icon"></i></div>
+			{#/if#}
+			{#if $smarty.get.jobcategory#}
+				<div class="has-select-item f-left" type="jobcategory">职位类别<i class="fliter-clear-icon"></i></div>
+			{#/if#}
+			{#if $smarty.get.trade#}
+				<div class="has-select-item f-left" type="trade">行业类别<i class="fliter-clear-icon"></i></div>
+			{#/if#}
+			{#if $smarty.get.citycategory#}
+				<div class="has-select-item f-left" type="citycategory">地区类别<i class="fliter-clear-icon"></i></div>
+			{#/if#}
+			{#if $smarty.get.wage#}
+				{#qishi_get_classify set="列表名:wage,类型:QS_wage,显示数目:100"#}
+				{#foreach from=$wage item=list#}
+				{#if $list.id == $smarty.get.wage#}
+					<div class="has-select-item f-left" type="wage">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
+				{#/if#}
+				{#/foreach#}
+			{#/if#}
+			{#if $smarty.get.jobtag#}
+				<div class="has-select-item f-left" type="jobtag">福利亮点<i class="fliter-clear-icon"></i></div>
+			{#/if#}
+			{#if $smarty.get.education#}
+				{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+				{#foreach from=$c_education item=list#}
+				{#if $list.id == $smarty.get.education#}
+					<div class="has-select-item f-left" type="education">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
+				{#/if#}
+				{#/foreach#}
+			{#/if#}
+			{#if $smarty.get.experience#}
+				{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+				{#foreach from=$c_experience item=list#}
+				{#if $list.id == $smarty.get.experience#}
+					<div class="has-select-item f-left" type="experience">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
+				{#/if#}
+				{#/foreach#}
+			{#/if#}
+			{#if $smarty.get.settr#}
+				<div class="has-select-item f-left" type="settr">{#if $smarty.get.settr == 3#}3天内{#elseif $smarty.get.settr == 7#}7天内{#elseif $smarty.get.settr == 15#}15天内{#elseif $smarty.get.settr == 30#}30天内{#/if#}<i class="fliter-clear-icon"></i></div>
+			{#/if#}
+			{#if $smarty.get.nature#}
+				{#qishi_get_classify set="列表名:c_jobsnature,类型:QS_jobs_nature"#}
+				{#foreach from=$c_jobsnature item=list#}
+				{#if $list.id == $smarty.get.nature#}
+					<div class="has-select-item f-left" type="nature">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
+				{#/if#}
+				{#/foreach#}
+			{#/if#}
+			{#if $smarty.get.scale#}
+				{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+				{#foreach from=$c_scale item=list#}
+				{#if $list.id == $smarty.get.scale#}
+					<div class="has-select-item f-left" type="scale">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
+				{#/if#}
+				{#/foreach#}
+			{#/if#}
+			</div>
+			<div class="fliter-clear f-right" id="clear_all_selected"><a href="javascript:;" class="clear-link">清空所选</a></div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- 职位列表 -->
+{#qishi_jobs_list  set="分页显示:1,列表名:jobslist,填补字符:...,职位名长度:13,企业名长度:22,描述长度:135,关键字:GET[key],职位分类:GET[jobcategory],地区分类:GET[citycategory],行业:GET[trade],日期范围:GET[settr],学历:GET[education],工作经验:GET[experience],工资:GET[wage],职位性质:GET[nature],标签:GET[jobtag],公司规模:GET[scale],排序:GET[sort],合并:$smarty.cookie.com_list"#}
+<div class="jobinfolists">
+	<div class="tit">
+		<div class="sort">
+			<span class="job_list_type">排序</span>
+			<a href="{#"QS_jobslist,sort:-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>综合排序</a>
+			<a href="{#"QS_jobslist,sort:rtime-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新时间</a>
+			{#if $smarty.get.key==""#}
+			<a href="{#"QS_jobslist,sort:wage-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>薪资待遇</a>
+			<!-- <a href="{#"QS_jobslist,sort:hot-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort=="hot"#}class="slect"{#/if#}>热度</a> -->
+			{#/if#}
+		</div>
+		<div class="sort">
+			<span class="job_list_type">筛选</span>
+			<label class="merger_company"><input type="checkbox" name="" id="merge_com_btn" /> 合并公司</label>
+		</div>
+		<div class="pagerow">
+			<div class="pageminnav">{#$pagemin#}</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="infolists" id="infolists">
+		<div class="infolists-head clearfix">
+			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
+			<div class="all-ctrl f-left"><input type="button" value="申请职位" class="all-down-btn deliver" /></div>
+			<div class="all-ctrl f-left"><a href="javascript:;" class="collect-link collecter">收藏职位</a></div>
+			{#if $smarty.cookie.com_list!='1'#}
+			<div class="list-tab f-right">
+				<a href="javascript:;" id="list" class="tab-item tab-list">列表</a>
+				<a href="javascript:;" id="detail" class="tab-item tab-detail">详细</a>
+			</div>
+			{#/if#}
+		</div>
+		{#if $jobslist#}
+		<div class="info-list-wrap">
+			{#foreach from=$jobslist item=list#}
+			{#if $smarty.cookie.com_list=='1'#}
+			<!-- 合并公司 -->
+			<div class="merger_com_box">
+				<h2><a href="{#$list.0.company_url#}" target="_black">{#$list.0.companyname#}</a> 
+					{#if $list.0.company_audit=="1"#}
+					<img src="{#$QISHI.site_template#}images/yan.gif" alt="" class="vtip" title="企业已认证"/>
+					{#/if#}
+				</h2>
+				<div class="merger_job_list">
+					{#foreach from=$list item=job_list#}
+					<div class="merger_job_item clearfix">
+						<div class="merger_job_type mjob_name">
+							<div class="m_jobname_box">
+								<input type="checkbox" name="jid" value="{#$job_list.id#}" class="checkbox" /><a target="_black" href="{#$job_list.jobs_url#}" class="mjob_name_link">{#$job_list.jobs_name#}</a>
+								{#if $job_list.stick=="1"#}<img title="置顶信息" src="{#$QISHI.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
+					            {#if $job_list.emergency=="1"#}<img title="紧急招聘" src="{#$QISHI.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.recommend=="1"#}<img title="推荐职位" src="{#$QISHI.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$QISHI.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+					            <!-- 弹出框 -->
+								<div class="merger_job_info">
+									<div class="merger_sanjiao"></div>
+									<div class="mjob_pop_top">
+										<div class="pop_top_left">
+											<h3><a target="_black" href="{#$job_list.company_url#}">{#$job_list.companyname#}</a>
+												{#if $job_list.company_audit=="1"#}
+						                      	<img src="{#$QISHI.site_template#}images/yan.gif" alt="" title="企业已认证" class="vtip" />
+						                     	{#/if#}
+											</h3>
+											<div class="pop_job_name"><a target="_black" href="{#$job_list.jobs_url#}">{#$job_list.jobs_name#}</a></div>
+										</div>
+										<div class="pop_top_right">
+											<input type="button" value="申请职位" jobs_id="{#$job_list.id#}" id="{#$job_list.id#}" class="merger_btn app_jobs" />
+											<a href="javascript:void(0);" jobs_id="{#$job_list.id#}" class="pop_collect add_favorites">收藏</a>
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="pop_job_description">
+										<div class="description_item">职位类别：{#$job_list.category_cn#}</div>
+										<div class="description_item">招聘人数：{#$job_list.amount#} 人</div>
+										<div class="description_item">薪资待遇：{#$job_list.wage_cn#}</div>
+										<div class="description_item">学历要求：{#$job_list.education_cn#}</div>
+										<div class="description_item">工作经验：{#$job_list.experience_cn#}</div>
+										<div class="description_item">工作地点：{#$job_list.district_cn#}</div>
+										<div class="clear"></div>
+									</div>
+									<div class="pop_fuli">
+										{#foreach from=$job_list.tag_cn item=tag_list#}
+						                <span class="pop_fuli_item">{#$tag_list#}</span>
+						                {#/foreach#}
+									</div>
+									<div class="pop_job_detail">
+										<p>岗位职责：</p>
+										<p>
+											{#$job_list.contents#}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="merger_job_type mjob_area">地区：{#$job_list.district_cn#}</div>
+						<div class="merger_job_type mjob_money">月薪： {#$job_list.wage_cn#}</div>
+						<div class="merger_job_type mjob_xueli">经验：{#$job_list.experience_cn#}</div>
+						<div class="merger_job_type mjob_exp">学历：{#$job_list.education_cn#}</div>
+						<div class="merger_job_type mjob_time">{#$job_list.refreshtime_cn#}</div>
+						<div class="clear"></div>
+					</div>
+					{#/foreach#}
+					<div class="another_job link_lan">该企业共发布了 <span>{#$list.0.count#}</span> 个职位。<a target="_blank" href="{#$list.0.count_url#}">立即查看&gt;&gt;</a></div>
+				</div>
+			</div>
+			<!-- 合并公司结束 -->
+			{#else#}
+			<!-- 职位模式 -->
+			<div class="infolist-row">
+				<div class="info-list-block job clearfix">
+					<div class="list-item item1 f-left">
+						<input type="checkbox" name="jid" value="{#$list.id#}" id="" class="checkbox" /><a href="{#$list.jobs_url#}" target="_blank" class="underline">{#$list.jobs_name#}</a>
+						{#if $list.emergency=="1"#}<img title="紧急招聘" src="{#$QISHI.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.recommend=="1"#}<img title="推荐职位" src="{#$QISHI.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$QISHI.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+					</div>
+					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$QISHI.site_template#}images/yan.gif" alt="已验证" />{#/if#}{#if $QISHI.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$QISHI.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
+					<div class="list-item item3 f-left"><span>{#$list.wage_cn#}</span></div>
+					<div class="list-item item4 f-left">{#$list.district_cn#}</div>
+					<div class="list-item item5{#if $list.stick=='1'#} pt{#/if#} f-left" style="line-height:50px;">
+						{#if $list.stick=='1'#}
+							<img  src="{#$QISHI.site_template#}images/stick.gif" alt="" title="置顶职位"  style="display: inline-bock;" />
+						{#else#}
+							{#$list.refreshtime_cn#}
+						{#/if#}
+					</div>
+					<a href="javascript:;" class="list-item-ctrl f-left"></a>
+				</div>
+				<div class="info-list-detail clearfix">
+					<div class="info-text f-left">
+						<p>学历要求：{#$list.education_cn|default:"不限"#}&nbsp;&nbsp;|&nbsp;&nbsp;工作经验：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;职位性质：{#$list.nature_cn|default:"全职"#}&nbsp;&nbsp;|&nbsp;&nbsp;招聘人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:"不限"#}</p>
+						<div>岗位职责：{#$list.briefly#}</div>
+					</div>
+					<div class="info-control f-left">
+						<input type="button" value="申请职位" jobs_id="{#$list.id#}" class="apply-job-btn app_jobs" />
+						<p><a href="javascript:;" class="collect-btn add_favorites" jobs_id="{#$list.id#}"></a></p>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- 职位模式结束 -->
+			{#/if#}
+			{#/foreach#}
+		</div>
+		<div class="infolists-head clearfix" style="border-top:1px solid #cccccc;border-bottom:none;">
+			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
+			<div class="all-ctrl f-left"><input type="button" value="申请职位" class="all-down-btn deliver" /></div>
+			<div class="all-ctrl f-left"><a href="javascript:;" class="collect-link collecter">收藏职位</a></div>
+		</div>
+			{#if $page#}
+			<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+			        	<tr>
+			          		<td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+			          	</tr>
+	      		</table>
+			{#/if#}
+		{#else#}
+		<div class="emptytip">抱歉，没有符合此条件的信息！</div>
+		{#/if#}
+	</div>
+</div>
+<script src="{#$QISHI.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
+{#include file="footer.htm"#}
+</body>
+</html>

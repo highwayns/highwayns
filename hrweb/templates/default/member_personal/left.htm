@@ -1,0 +1,204 @@
+﻿<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//会员中心顶部搜索职位简历切换 
+	$("#usertopselectbox").hover(
+	  function () {
+	  $(this).find(".#selmenu").show();
+	  },
+	  function () {
+	    $(this).find("#selmenu").hide();
+	  }
+	);
+	$(".leftmenu .meunbox li[class!='h']").hover(
+	  function () {
+	      $(this).css("background-color","#F5F5F5");
+	  },
+	  function () {
+	     $(this).css("background-color","#FFFFFF");
+	  }
+	);
+	//会员中心顶部搜索职位简历切换 点击选择触发事件
+	$("#usertopselectbox .selmenu").click(function(){
+
+			var txt=$(this).text();
+			
+			if (txt=="简历")
+			{
+			$("#topsotype").val('2');
+			$("#seltxt").text('简历');
+			$("#selmenu").text('职位');
+			$("#selmenu").hide();
+			}
+			else
+			{
+			$("#topsotype").val('1');
+			$("#seltxt").text('职位');
+			$("#selmenu").text('简历');
+			$("#selmenu").hide();
+			}
+	});
+	//所有提交按钮效果
+	$("input[type='submit'],input[type='button']").hover(
+	  function () {
+	    $(this).addClass("hover");
+	  },
+	  function () {
+	    $(this).removeClass("hover");
+	  }
+	);
+	//所有多选按钮效果
+	$(".input_checkbox,.input_checkbox_add").hover(
+	  function () {
+	    $(this).addClass("h");
+	  },
+	  function () {
+	    $(this).removeClass("h");
+	  }
+	);
+	//多选
+	$('#chk').click(function(){
+		$(this).parents("form").find("input[type=checkbox]").attr('checked',$("#chk").is(':checked'))
+	});
+	$('#chk2').click(function(){
+		$(this).parents("form").find("input[type=checkbox]").attr('checked',$("#chk2").is(':checked'))
+	});
+	//信息列表背景变色
+	$(".userliststyle").hover(
+	  function () {
+	    $(this).css('background-color','#FCFCFC');
+	  },
+	  function () {
+	    $(this).css('background-color','#FFFFFF');
+	  }
+	);
+	// 预览简历
+	$("#reade_resume").click(function () {
+		dialog({
+	        title: '选择预览简历',
+	        content: $("#previewbox"),
+	        width:380
+	    }).showModal();
+	});
+	// 第一次登录 刷新简历
+	var personal_login_first="{#$personal_login_first#}";
+	if(personal_login_first)
+	{
+		dialog({
+	        title: '刷新简历',
+	        content: $(".first_refresh_box"),
+	        width:380
+	    }).showModal();
+	    $(".first_refresh").live('click',function() 
+	    {
+	    	var pid = $(this).attr("pid");
+			$.get("personal_ajax.php?act=refresh_resume&id="+pid,function(result){
+				if(result=="1"){
+					dialog({
+					  title: '温馨提示',
+					  content: "刷新成功",
+					  width:'300px'
+					}).showModal();
+				}else{
+					dialog({
+					  title: '温馨提示',
+					  content: ""+result+"",
+					  width:'300px'
+					}).showModal();
+				}
+			});
+	    });
+	}
+	// 没有简历时弹窗提示创建简历
+	$(".no-resume").click(function(event) {
+		var mynrDialog=dialog(),
+		url = $(this).attr("url");
+		mynrDialog.title('系统提示');
+		mynrDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">您还没有创建简历，建议您立即创建。</span></div></div><div class="center-btn-wrap"><input type="button" value="创建" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+	    mynrDialog.width('320');
+	    mynrDialog.showModal();
+	    /* 关闭 */
+	    $(".DialogClose").live('click',function() {
+	      mynrDialog.close().remove();
+	    });
+	    // 确定
+	    $(".DialogSubmit").click(function() {
+	    	if (url) {window.location.href=url};
+	    });
+	});
+});
+</script>
+
+<div class="meun1">
+  	<div class="meun2">
+  		<div class="meunbox">
+			<div class="menu_top"><a href="personal_index.php">中心首页</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;{#if $auditresume#}<a href="javascript:void(0)" id="reade_resume">预览简历</a>{#else#}<a class="no-resume" url="personal_resume.php?act=make1" href="javascript:;">预览简历</a>{#/if#}
+			</div>
+			<div class="previewbox" id="previewbox" style="display:none;">
+				<table width="90%" border="0" cellspacing="0" cellpadding="5" style="margin: 0 auto;padding-bottom: 10px;">
+				<tr>
+				<td bgcolor="#F3F7FC"><strong>简历名称</strong></td>
+				<td width="130" align="center" bgcolor="#F3F7FC"><strong>刷新时间</strong></td>
+				<td width="50" bgcolor="#F3F7FC"><strong>点击</strong></td>
+				</tr>
+				{#foreach from=$auditresume item=list#}
+				<tr>
+				<td class="us_list" title="{#$list.title_#}"><a class="co01" href="{#$list.resume_url#}" target="_blank">{#$list.title_#}</a></td>
+				<td align="center" class="us_list">{#$list.refreshtime|date_format:"%m/%d %H:%M"#}</td>
+				<td class="us_list">{#$list.click#}次</td>
+				</tr>
+				{#/foreach#}
+				</table>
+			</div>
+		</div>
+		<div class="meunbox">
+		  <div class="tit"><div class="t i1">简历管理</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li{#if $smarty.get.act=="make1"#} class="h"{#/if#}><a href="personal_resume.php?act=make1">创建简历</a></li>
+				<li{#if $smarty.get.act=="resume_list"#} class="h"{#/if#}><a href="personal_resume.php?act=resume_list">我的简历</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="meunbox">
+		  <div class="tit"><div class="t i2">求职管理</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li{#if $smarty.get.act=="interview"#} class="h"{#/if#}><a href="personal_apply.php?act=interview">面试邀请</a></li>
+				<li{#if $smarty.get.act=="apply_jobs"#} class="h"{#/if#}><a href="personal_apply.php?act=apply_jobs">已申请职位</a></li>
+				<li{#if $smarty.get.act=="favorites"#} class="h"{#/if#}><a href="personal_apply.php?act=favorites">职位收藏夹</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="meunbox last">
+		  <div class="tit"><div class="t i3">账号管理</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li{#if $smarty.get.act=="userprofile"#} class="h"{#/if#}><a href="personal_user.php?act=userprofile">基本资料</a></li>
+				<li{#if $smarty.get.act=="authenticate"#} class="h"{#/if#}><a href="personal_user.php?act=authenticate">账号安全</a></li>
+				<li{#if $smarty.get.act=="pm"#} class="h"{#/if#}><a href="personal_user.php?act=pm">我的消息</a></li>
+				<li><a href="{#"QS_login"|qishi_url#}?act=logout">安全退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 第一次登录 刷新简历  -->
+<div class="first_refresh_box" style="display:none;">
+	<table width="90%" border="0" cellspacing="0" cellpadding="5" style="margin: 0 auto;padding-bottom: 10px;">
+	<tr>
+	<td bgcolor="#F3F7FC"><strong>简历名称</strong></td>
+	<td width="130" align="center" bgcolor="#F3F7FC"><strong>刷新时间</strong></td>
+	<td width="50" bgcolor="#F3F7FC"><strong>操作</strong></td>
+	</tr>
+	{#foreach from=$auditresume item=list#}
+	<tr>
+	<td class="us_list" title="{#$list.title_#}"><a class="co01" href="{#$list.resume_url#}" target="_blank">{#$list.title_#}</a></td>
+	<td align="center" class="us_list">{#$list.refreshtime|date_format:"%m/%d %H:%M"#}</td>
+	<td class="us_list"><a class="co01 first_refresh" href="javascript:;" pid="{#$list.id#}">刷新</a></td>
+	</tr>
+	{#/foreach#}
+	</table>
+</div>

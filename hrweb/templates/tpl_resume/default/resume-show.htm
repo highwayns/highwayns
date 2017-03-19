@@ -1,0 +1,307 @@
+﻿{#qishi_resume_show set="列表名:show,简历ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta name="renderer" content="webkit"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+<title>{#$show.fullname#}的个人简历 - {#$QISHI.site_name#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$user_tpl#}css/css.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{#$QISHI.site_template#}css/datepicker.css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="{#$QISHI.site_template#}js/jquery.datepicker.js"></script>
+<!--[if lte IE 7]>
+<style type="text/css">
+.resume-block-detail .folder-item{
+    position:relative;
+    overflow:hidden;
+}
+.resume-block-detail .folder-item span{
+    position:absolute;
+    left:50%;top:50%;
+}
+.resume-block-detail .folder-item img{
+    position:relative;
+    left:-50%;top:-50%;
+}
+</style>
+<![endif]-->
+<script type="text/javascript">
+$(document).ready(function()
+{
+	var id="{#$show.id#}";
+	var tsTimeStamp= new Date().getTime();
+	$.get("{#$QISHI.site_dir#}plus/ajax_click.php", { "id": id,"time":tsTimeStamp,"act":"resume_click"},
+		function (data,textStatus)
+		{			
+			$(".click").html(data);
+		}
+	);
+	{#if $show.isminesee != '1'#}
+	$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"act":"resume_contact"},
+	function (data,textStatus)
+	{      
+		$("#resume_contact").html(data);
+		var user_utype = "{#$smarty.session.utype#}";
+		if(user_utype=='3')
+		{
+			//下载简历
+			downResume_dialog(".download","{#$QISHI.site_dir#}user/user_hunter_download_resume.php","{#$show.id#}");
+			//邀请面试
+			inviteJob_dialog("#invited","{#$QISHI.site_dir#}user/user_hunter_invited.php",user_utype);
+		}
+		else 
+		{
+			//下载简历
+			downResume_dialog(".download","{#$QISHI.site_dir#}user/user_download_resume.php","{#$show.id#}");
+			//邀请面试
+			inviteJob_dialog("#invited","{#$QISHI.site_dir#}user/user_invited.php",user_utype);
+		}
+		//简历标记
+		$(".interview-state").live('click',function() {
+			var resume_state= $(this).attr('state');
+			var resume_state_cn =$(this).val();
+			var resume_id =$(this).attr('resume_id');
+			var myDialog=dialog();
+			$.post('{#$QISHI.site_dir#}user/user_label_resume.php', {"resume_state":resume_state,"resume_state_cn":resume_state_cn,"resume_id":resume_id}, function(data) 
+			{
+				if(data=="ok")
+				{
+					window.location.reload();
+				}
+				else
+				{
+					myDialog.title('系统提示');
+					myDialog.content(data); 
+					myDialog.width('350'); 
+					myDialog.showModal();
+				}
+			});
+		});
+    });
+    //添加到人才库
+    favoritesResume_dialog(".add_resume_pool","{#$QISHI.site_dir#}user/user_favorites_resume.php?id="+id+"&act=add&t="+tsTimeStamp);
+    //举报信息
+    reportResume_dialog(".report_button","{#$QISHI.site_dir#}user/user_report_resume.php");
+    {#else#}
+    // 更换模板
+    $(".tpl").live("click",function(){
+		var pid = $(this).attr("pid");
+		var url = "{#$QISHI.site_dir#}user/personal/personal_ajax.php?act=tpl&pid="+pid;
+		var myDialog = dialog();
+		myDialog.content("加载中...");
+	    myDialog.title('更换模板');
+	    myDialog.showModal();
+	    $.get(url, function(data){
+		    myDialog.content(data);
+		    /* 关闭 */
+		    $(".DialogClose").live('click',function() {
+		      myDialog.close().remove();
+		    });
+		});
+	});
+	// 隐私设置
+	$(".resume_privacy").live("click",function(){
+		var pid = $(this).attr("pid");
+		var url = "{#$QISHI.site_dir#}user/personal/personal_ajax.php?act=privacy&pid="+pid;
+		var myDialog = dialog();
+		myDialog.content("加载中...");
+	    myDialog.title('隐私设置');
+	    myDialog.width('550');
+	    myDialog.showModal();
+	    $.get(url, function(data){
+	        myDialog.content(data);
+	        /* 关闭 */
+	        $(".DialogClose").live('click',function() {
+	          myDialog.close().remove();
+	        });
+	    });
+	});
+    {#/if#}
+});
+$(function(){
+	$("input[type='button']").hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	})
+})
+// 用户登录
+$(".ajax_user_login").live('click',function(){
+  var myDialog = dialog();// 初始化一个带有loading图标的空对话框
+  jQuery.ajax({
+      url: '{#$QISHI.site_dir#}user/user_ajax_login.php',
+      success: function (data) {
+     	 	myDialog.width(475);
+		myDialog.content(data);// 填充对话框内容
+		myDialog.title('用户登录');// 填充对话框内容
+		myDialog.showModal();
+      }
+  });
+});
+</script>
+</head>
+<body class="default">
+	<div id="header">
+		<div class="header-wrap"><a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" height="70" /></a></div>
+	</div>
+	<div id="wrap" class="clearfix">
+		<div class="left-main f-left">
+			{#if $show.message#}
+			<div class="top-streamer"><i class="streamer-angle"></i>{#$show.message#}</div>
+			{#/if#}
+			{#if $show.isminesee == '1'#}
+			<div class="top-streamer"><i class="streamer-angle"></i>简历名称：<font style="font-weight:bold">{#$show.title#}</font>   &nbsp;公开状态：<font style="font-weight:bold"><span id="showDisplayName">{#if $show.display == '1'#}公开{#else#}保密{#/if#}</span></font></div>
+			{#/if#}
+			<div class="personal-info clearfix">
+				<div class="personal-pic f-left"><img src="{#$show.photosrc#}" alt="" width="160" height="178" /></div>
+				<div class="info-text f-left">
+					<h2>{#$show.fullname#} <span>（{#$show.sex_cn#}，{#$show.age#}岁）</span></h2>
+					<div class="resume-time">更新时间：{#$show.refreshtime|date_format:"%Y-%m-%d"#}</div>
+					<div class="resonal-auth clearfix">
+						{#if $show.is_audit_mobile == 1#}<div class="auth-item phone f-left">手机已认证</div>{#/if#}
+						{#if $show.is_audit_weixin#}<div class="auth-item weichat f-left">微信已认证</div>{#/if#}
+						{#if $show.is_audit_email == 1#}<div class="auth-item email f-left">邮箱已认证</div>{#/if#}
+						{#if $show.resume_from_pc!='1'#}
+						<span class="f-left">（该简历由手机发布）</span>
+						{#/if#}
+					</div>
+					<div class="info-detail">
+						<p>{#if $show.education_cn#}<span>最高学历：{#$show.education_cn#}</span>{#/if#}{#if $show.experience_cn#}&nbsp;|&nbsp;<span>工作经验：{#$show.experience_cn#}</span>{#/if#}{#if $show.major_cn#}&nbsp;|&nbsp;<span>专业：{#$show.major_cn#}</span>{#/if#}</p>
+						<p>{#if $show.marriage_cn#}<span>婚姻状况：{#$show.marriage_cn#}</span>{#/if#}{#if $show.height#}&nbsp;|&nbsp;<span>身&nbsp;&nbsp;高：{#$show.height#} cm</span>{#/if#}</p>
+						<p>{#if $show.householdaddress#}<span>籍&nbsp;&nbsp;贯：{#$show.householdaddress#}</span>&nbsp;|&nbsp;{#/if#}<span>现居住地：{#$show.residence#}</span></p>
+						{#if $show.current_cn#}<p><span>求职状态：{#$show.current_cn#}</span></p>{#/if#}
+					</div>
+					{#if $show.tag_cn#}
+					<div class="personal-tag clearfix">
+						{#foreach from=$show.tag_cn item=t_li#}
+						<div class="tag-item f-left">{#$t_li#}<i class="tag-angle"></i></div>
+						{#/foreach#}
+					</div>
+					{#/if#}
+				</div>
+			</div>
+			<div class="job-item">
+				<h3>两周内求职情况</h3>
+				<div class="percent clearfix">
+					<i class="right-top-angle"></i>
+					<div class="percent-block f-left">
+						<div class="percent-star f-left star-{#$show.vitality#}">活跃度：</div>
+						<div class="star-state f-left">
+							<p><span>{#$show.refreshtime_cn#}</span>更新</p>
+							<p>主动申请 <span>{#$show.apply_jobs#}</span> 个职位</p>
+						</div>
+					</div>
+					<div class="percent-block last f-left">
+						<div class="percent-star f-left star-{#$show.attention#}">企业关注度：</div>
+						<div class="star-state f-left">
+							<p>简历被浏览 <span>{#$show.com_view#}</span> 次</p>
+							<p>简历被下载 <span>{#$show.com_down#}</span> 次</p>
+							<p>收到面试邀请 <span>{#$show.com_invite#}</span> 次</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{#if $show.isminesee != '1'#}
+			<div class="contact-block" id="resume_contact"></div>
+			{#else#}
+			<div class="contact-block">
+				<div class="contact-text">联系方式：<span>{#$show.telephone#}<em>|</em>{#$show.email#}</span></div>
+			</div>
+			{#/if#}
+			<div class="resume-title">求职意向</div>
+			<div class="resume-block-detail">
+				<div class="rb-content">{#if $show.wage_cn#}期望月薪：{#$show.wage_cn#}{#/if#}{#if $show.nature_cn#}<span>|</span>工作性质：{#$show.nature_cn#}{#/if#}</div>
+				<div class="rb-content">{#if $show.district_cn#}期望地区：{#$show.district_cn#}{#/if#}{#if $show.trade_cn#}<span>|</span>期望行业：{#$show.trade_cn#}{#/if#}</div>
+				{#if $show.intention_jobs#}<div class="rb-content">期望岗位：{#$show.intention_jobs#}</div>{#/if#}
+			</div>
+			{#if $show.specialty#}
+			<div class="resume-title">自我描述</div>
+			<div class="resume-block-detail">
+				<div class="rb-content-more">{#$show.specialty|nl2br#}</div>
+			</div>
+			{#/if#}
+			{#if $show.education_list#}
+			<div class="resume-title">教育经历</div>
+			<div class="resume-block-detail">
+				{#foreach from=$show.education_list item=list#}
+				<div class="rb-content">{#$list.startyear#}年{#$list.startmonth#}月-{#if $list.todate!='1'#}{#$list.endyear#}年{#$list.endmonth#}月{#else#}至今{#/if#}<span>|</span>{#$list.school#}<span>|</span>{#$list.speciality#}<span>|</span>{#$list.education_cn#}</div>
+				{#/foreach#}
+			</div>
+			{#/if#}
+			{#if $show.work_list#}
+			<div class="resume-title">工作经历</div>
+			<div class="resume-block-detail">
+				{#foreach from=$show.work_list item=list#}
+				<div class="work-item">
+					<div class="rb-content">{#$list.startyear#}年{#$list.startmonth#}月-{#if $list.todate!='1'#}{#$list.endyear#}年{#$list.endmonth#}月{#else#}至今{#/if#}<span>|</span>{#$list.jobs#}<span>|</span>{#$list.companyname#}</div>
+					<p>{#$list.achievements|nl2br#}</p>
+				</div>
+				{#/foreach#}
+			</div>
+			{#/if#}
+			{#if $show.training_list#}
+			<div class="resume-title">培训经历</div>
+			<div class="resume-block-detail">
+				{#foreach from=$show.training_list item=list#}
+				<div class="rb-content">{#$list.startyear#}年{#$list.startmonth#}月-{#if $list.todate!='1'#}{#$list.endyear#}年{#$list.endmonth#}月{#else#}至今{#/if#}<span>|</span>{#$list.agency#}<span>|</span>{#$list.course#}</div>
+				{#/foreach#}
+			</div>
+			{#/if#}
+			{#if $show.language_list#}
+			<div class="resume-title">语言能力</div>
+			<div class="resume-block-detail">
+				{#foreach from=$show.language_list item=list#}
+				<div class="rb-content">{#$list.language_cn#}<span>|</span>{#$list.level_cn#}</div>
+				{#/foreach#}
+			</div>
+			{#/if#}
+			{#if $show.credent_list#}
+			<div class="resume-title">获得证书</div>
+			<div class="resume-block-detail">
+				{#foreach from=$show.credent_list item=list#}
+				<div class="rb-content">{#$list.name#}<span>|</span>{#$list.year#}年{#$list.month#}月</div>
+				{#/foreach#}
+			</div>
+			{#/if#}
+			{#if $show.img_list#}
+			<div class="resume-title">附件</div>
+			<div class="resume-block-detail clearfix">
+				{#foreach from=$show.img_list item=list#}
+				<div class="folder-item f-left"><span><img src="{#$QISHI.site_dir#}data/photo/{#$list.img#}" alt="{#$list.title#}" /></span></div>
+				{#/foreach#}
+			</div>
+			{#/if#}
+		</div>
+		<div class="fix-control">
+			<div class="fix-wrap">
+				<div class="code-box"><img src="{#$QISHI.site_dir#}plus/url_qrcode.php?url={#$QISHI.wap_domain#}/wap-resume-show.php?id={#$show.id#}" alt="二维码" width="74" height="74" /></div>
+				<div class="download">{#if $show.isminesee != '1'#}<a href="javascript:;" class="download-btn">下载简历</a>{#else#}<a href="javascript:;" pid="{#$show.id#}" class="download-btn tpl">更换模板</a>{#/if#}</div>
+				<div class="ctrl-text"></div>
+				<div class="ctrl-bar">
+					{#if $show.isminesee != '1'#}<a href="javascript:;" class="resume-ctrl add_resume_pool">加入人才库</a>{#/if#}
+					<a href="javascript:window.print();" class="resume-ctrl">简历打印</a>
+					<a href="{#$QISHI.site_domain#}{#$QISHI.site_dir#}resume/resume-doc.php?resume_id={#$show.id#}&uid={#$show.uid#}&apply={#$show.apply#}" class="resume-ctrl">导出word简历</a>
+					{#if $show.isminesee != '1'#}<a href="javascript:;" class="resume-ctrl report_button" resume_id="{#$smarty.get.id#}" fullname="{#$show.fullname#}" resume_addtime="{#$show.addtime#}">投诉简历</a>{#/if#}
+					{#if $show.isminesee == '1'#}<a href="javascript:;" pid="{#$show.id#}" class="resume-ctrl resume_privacy">隐私设置</a>{#/if#}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		联系地址：{#$QISHI.address#} 联系电话：{#$QISHI.bootom_tel#} 网站备案：{#$QISHI.icp#}{#$QISHI.statistics#} <br />
+		{#$QISHI.bottom_other#} <br />
+		Powered by <a href="http://www.74cms.com/" style="color:#009900"><em> 74cms v{#$QISHI.version#}</em></a>
+	</div>
+<div class="resume_foot">
+<script type="text/javascript">
+	$('.work-item:first').css({'margin-top':-10});
+	$('.work-item:last').css({'border-bottom':0, 'padding-bottom':0});
+	$('.folder-item:nth-child(2n)').css({'margin-right':0});
+</script>
+</body>
+</html>

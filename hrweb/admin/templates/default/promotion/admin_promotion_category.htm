@@ -1,0 +1,87 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="promotion/admin_promotion_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+系统内置方案不能删除<br />
+会员申请推广方案后，系统将自动开通，到期后自动取消。
+</p>
+</div>
+ 
+		  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
+          <tr>
+            <td  class="admin_list_tit admin_list_first">方案名称</td>
+			<td width="15%" align="center" class="admin_list_tit">积分</td>
+            <td width="15%" align="center" class="admin_list_tit">状态</td>
+            <td width="15%" align="center" class="admin_list_tit" >类型</td>
+            <td width="15%" align="center" class="admin_list_tit">排序</td>
+
+			
+            <td width="15%" align="center" class="admin_list_tit">编辑</td>
+            </tr>
+			{#foreach from=$list item=li#}
+			
+			  <tr>
+            <td  class="admin_list admin_list_first">
+		 
+			 <a href="?act=edit_category&id={#$li.cat_id#}">{#$li.cat_name#}</a>
+			</td>
+			 <td align="center" class="admin_list">
+			{#$li.cat_points#}/天
+			</td>
+            <td class="admin_list" align="center">
+			{#if $li.cat_available=="1"#}
+			正常
+			{#else#}
+			<span style="color:#999999">禁用</span>
+			{#/if#}
+			</td>
+            <td align="center" class="admin_list" >	
+			
+			{#if $li.cat_type=="1"#}
+			<span style="color:#FF6600">内置</span>
+			{#else#}
+			自定义
+			{#/if#}					
+			
+			</td>
+            <td align="center" class="admin_list">
+			{#$li.cat_order#}
+			</td>
+		 
+			
+            <td align="center" class="admin_list">
+	 <a href="?act=edit_category&id={#$li.cat_id#}">修改</a>
+	 
+	  {#if $li.cat_type=="1"#}
+	  <span style="color:#999999">删除</span>
+	  {#else#}
+		 <a href="?act=del_ad&id={#$li.id#}"  onclick="return confirm('你确定要删除吗？')">删除</a>
+			{#/if#}	
+				</td>
+            </tr>
+			{#/foreach#}
+  </table>
+  <br />
+<br />
+<br />
+
+<!--		<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+      <td>
+       <input type="button" name="Submit22" value="新增方案" class="admin_submit"    onclick="window.location='?act=ad_category_add'"/> 
+	  </td>
+      <td width="360">	  
+	  </td>
+     </tr>
+  </table> -->
+ 
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

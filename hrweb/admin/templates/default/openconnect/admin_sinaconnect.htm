@@ -1,0 +1,62 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	 {#include file="openconnect/admin_openconnect_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip link_lan"  >
+	<h2>提示：</h2>
+	<p>
+网站接入新浪微博帐号登录后，用户只需要使用微博账号密码就可登录，简化用户注册流程，更有效率的提高转化用户流量；
+<br />
+接入新浪微博登录前，网站需首先进行申请，获得对应的AppKey与AppSecret，以保证后续流程中可正确对网站与用户进行验证与授权。 
+现在就去<a href="http://open.weibo.com/" target="_blank">申请</a></p>
+</div>
+
+<div class="toptit">新浪微博帐号登录设置</div>
+ 
+    <form action="?act=set_sina_save" method="post" name="form1" id="form1">
+ {#$inputtoken#}
+    <table width="700" border="0" cellspacing="6" cellpadding="1" style=" margin-bottom:3px;">
+	<tr>
+      <td width="150" align="right">开启微博帐号登录：</td>
+      <td  >
+	  <label>
+        <input name="sina_apiopen" type="radio"  value="1"  {#if $config.sina_apiopen=="1"#}checked=checked {#/if#}/>开启</label>
+&nbsp;&nbsp;
+<label>
+        <input name="sina_apiopen" type="radio"  value="0"  {#if $config.sina_apiopen=="0"#}checked=checked {#/if#}/>关闭</label>
+		&nbsp;&nbsp;
+</td>
+    </tr>
+	 
+	<tr>
+      <td width="150" align="right">AppKey：</td>
+      <td  >
+	 <input name="sina_appkey" type="text"  class="input_text_400"  value="{#$config.sina_appkey#}"  />
+</td>
+    </tr>
+	<tr>
+      <td width="150" align="right">AppSecret：</td>
+      <td  >
+	 <input name="sina_appsecret" type="text"  class="input_text_400"  value="{#$config.sina_appsecret#}"  />
+</td>
+    </tr>
+	<tr>
+	  <td align="right" valign="top">&nbsp;</td>
+	  <td> 
+	    <input name="submit" type="submit" class="admin_submit"    value="保存"/>
+	  </td>
+	  </tr>
+  </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

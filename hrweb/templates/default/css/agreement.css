@@ -1,0 +1,7 @@
+﻿.about_right{float:right;width:1200px;margin-bottom:10px;border:1px solid #ccc;font-family:"microsoft yahei";}
+.about_right .about_r_tit{padding:16px 20px 18px 20px;font-size:14px;font-weight:bold;border-bottom:1px solid #ccc;background-color:#F5F5F5;}
+.about_right .about_r_content{padding:20px;font-size:14px;}
+.about_right .about_r_content p{text-indent:2em;line-height:25px;}
+.about_right .about_r_content .about_con{line-height:26px;}
+.about_right .about_r_content td span{margin-right:15px;}
+.about_right .about_r_content td textarea{width:615px;height:131px;padding:10px;resize:none;border:1px solid #ccc;}

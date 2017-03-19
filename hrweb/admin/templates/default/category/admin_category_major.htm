@@ -1,0 +1,213 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$(".leftimg").click(function()
+	{
+		$(".Sclass_"+$(this).attr("id")).toggle();
+		SetCat($(this).attr("id"));
+		if ($(".Sclass_"+$(this).attr("id")).css("display")=="none")
+		{
+		$(this).attr("src","images/left_e.gif");
+		$(".Sclasst_"+$(this).attr("id")).hide();
+		}
+	});
+	//全选
+	$('#categorychkAll').click(function(){$("#form1 :checkbox").attr('checked',$("#chk").attr('checked'))});
+	//点击大类，选择小类
+	$(".Bcheck").click(function()
+	{
+		SetCat($(this).attr("id"));
+		$(".Scheck_"+$(this).attr("id")).attr("checked",$(this).attr("checked"));
+		$(".Scheck_"+$(".Scheck_"+$(this).attr("id")).val()).attr("checked",$(this).attr("checked"));
+	});
+	$(".mid").live('click', function()
+	{
+		SetCat($(this).attr("id"));
+		$(".Scheck_"+$(this).val()).attr("checked",$(this).attr("checked"));
+		$(".Scheck_"+$(this).val()).attr("checked",$(this).attr("checked"));
+	});
+	//点击子类 释放父级的勾选
+	$(":checkbox[class^='Scheck_']").live('click', function()
+	{
+		if ($(this).attr("checked")==false)
+		{
+			var pid=$(this).attr("id");
+			$(".Bcheck[id="+pid+"]").attr("checked","");
+			$(".middle_"+pid).attr("checked","");
+			$(".Bcheck[id="+$(".middle_"+pid).attr("id")+"]").attr("checked","");
+		}
+	});
+	//添加子分类
+	$('.AddCat').live('click', function()
+	{
+		var pid=$(this).attr("id");
+		 var html="<tr class=\"Sclass_"+pid+"\"  >";
+		html+="<td  class=\"admin_list\"  style=\"padding-left:53px; color:#FF6600\">";
+		html+="<img src=\"images/cat_left1.gif\" border=\"0\" align=\"absmiddle\" />";
+		html+=" <input type=\"checkbox\" name=\"add_id[]\" value=\"\" class=\"Scheck_"+pid+"\"/>";
+		html+="<input name=\"add_pid[]\" type=\"hidden\" value="+pid+" />";
+		html+=" <input name=\"add_categoryname[]\" type=\"text\"  value=\"\" class=\"input_text_150\"/>";
+		html+="</td>";
+		html+="<td align=\"center\"  class=\"admin_list\">";
+		html+="<input name=\"add_category_order[]\" type=\"text\"  value=\"0\" class=\"input_text_50\"/>";
+		html+="</td>";
+		html+="<td class=\"admin_list\"  >";
+		html+="&nbsp;";
+		html+="</td>";				
+		html+="</tr>";
+		$(this).parent().parent().before(html);
+		//$(this).parent("tr").before(html);		
+	});	
+		//添加顶层分类
+	$(".AddCatPid").click(function()
+	{
+		 var html="<tr>";
+		html+="<td  class=\"admin_list admin_list_first\">";
+		html+=" <input type=\"checkbox\" name=\"add_id[]\" value=\"\" class=\"Bcheck\"/>  ";
+		html+=" <img src=\"images/left_d.gif\" border=\"0\" align=\"absmiddle\"  /> ";
+		html+=" <input name=\"add_pid[]\" type=\"hidden\" value\"0\" />";
+		html+=" <input name=\"add_categoryname[]\" type=\"text\"  value=\"\" class=\"input_text_150\"/> ";
+		html+="</td>";
+		html+="<td align=\"center\"  class=\"admin_list\">";
+		html+="<input name=\"add_category_order[]\" type=\"text\"  value=\"0\" class=\"input_text_50\"/>";
+		html+="</td>";
+		html+="<td class=\"admin_list\"  >";
+		html+="&nbsp;";
+		html+="</td>";				
+		html+="</tr>";
+		$(this).parent().parent().before(html);		
+	});	
+	//删除
+	$("#ButDel").click(function(){
+		var num=$(":checkbox[checked][id!='chk']").length;
+		if (num==0)
+		{
+			alert("您没有选择项目");
+			return false;
+		}
+		if (confirm("你选择了"+num+"个分类，删除顶级分类同时将删除其子类，确定都要删除吗？"))
+		{
+			$("form[name=form1]").attr("action","?act=del_major_category");
+			$("form[name=form1]").submit()
+		}
+	});
+	function SetCat(pid)
+	{
+		if ($(".Sclass_"+pid).length == 0)
+		{
+		MakeCat(pid);
+		}
+	}
+	function MakeCat(pid)
+	{
+		var tsTimeStamp= new Date().getTime();
+		$.get("admin_ajax.php", {"act":"get_cat_major","tstime":tsTimeStamp,"pid":pid},
+			function (data,textStatus)
+			 {	
+			 	if (data)
+				{	
+				 var str=data.split("|");
+				 var i=1;
+				 var html="";
+				 	for (x in str)
+					{
+					var val=str[x].split(",");
+					html+="<tr class=\"Sclass_"+pid+"\" id=\"Sclass_"+val[0]+"\">";
+			  		html+="<td  class=\"admin_list\"  style=\"padding-left:53px;\">";
+			  		html+="<img src=\"images/cat_left1.gif\" border=\"0\" align=\"absmiddle\" />";
+			  		html+="<input type=\"checkbox\" name=\"id[]\" value=\""+val[0]+"\" class=\"Scheck_"+pid+" middle_"+val[0]+" mid\" id=\""+pid+"\"/>";
+					html+="<input name=\"save_id[]\" type=\"hidden\" value=\""+val[0]+"\" />";
+			  		html+="<input name=\"categoryname[]\" type=\"text\"  value=\""+val[1]+"\" class=\"input_text_150\"/>";
+			 		html+="<span style=\"color: #CCCCCC\">(id:"+val[0]+")</span></td>";
+			   		html+="<td align=\"center\"  class=\"admin_list\">";
+			  		html+="<input name=\"category_order[]\" type=\"text\"  value=\""+val[2]+"\" class=\"input_text_50\"/>";
+			  		html+="</td>";
+			  		html+="<td class=\"admin_list\">";	  	  
+			 		html+="<a href=\"?act=edit_major_category&id="+val[0]+"\">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
+					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_major_category&id="+val[0]+"&{#$urltoken#}\">删除</a>";
+					html+="</td>";	
+					html+="</tr>";
+					i++;
+					}
+					html+="<tr class=\"Sclass_"+pid+"\">";
+					html+="<td  class=\"admin_list\"  style=\"padding-left:53px; color:#FF6600\">";
+					html+="<img src=\"images/cat_left2.gif\" border=\"0\" align=\"absmiddle\" />";
+					html+="<img src=\"images/act_add.gif\" border=\"0\" align=\"absmiddle\"  style=\" margin:5px;\" />";
+					html+="<span class=\"AddCat\" id=\""+pid+"\" style=\" text-decoration:underline; cursor:pointer\">增加分类</span>";
+					html+="</td>";
+					html+="<td align=\"center\"  class=\"admin_list\">&nbsp;";					   
+					html+="</td>";
+					html+="<td class=\"admin_list\"  >&nbsp;";
+					html+="</td>	";					
+					html+="</tr>";
+					$("#tr_"+pid).after(html);
+					//如果大类已经选择，则小类也勾选
+					if ($(".Bcheck[id="+pid+"]").attr("checked"))
+					{
+					$(".Scheck_"+pid).attr("checked","true");
+					}
+				}
+			 }
+		);
+	}
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="category/admin_category_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+正式运营后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。<br />
+删除顶级级分类将会自动删除此分类下的子分类。<br />
+</p>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=major_all_save">
+  {#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="categorychkAll"><input type="checkbox" name=" " title="全选/反选" id="chk" />
+      职位分类</label>
+	 
+	  </td>
+	  <td width="160"   align="center"  class="admin_list_tit">排序</td>
+      <td width="260"   align="center" class="admin_list_tit">操作</td>
+    </tr>
+	  {#foreach from=$district item=list#}
+     <tr id="tr_{#$list.id#}">
+      <td   class="admin_list admin_list_first" >
+      <input type="checkbox" name="id[]" value="{#$list.id#}" id="{#$list.id#}"  class="Bcheck"/>
+      <img src="images/left_e.gif" border="0" align="absmiddle"  id="{#$list.id#}" class="leftimg pointer"/>
+	  {#$list.categoryname#}
+	  <span style="color:#CCCCCC">(id:{#$list.id#})</span>	  </td>
+	   <td align="center"  class="admin_list">
+	   <input name="category_order[]" type="text"  value="{#$list.category_order#}" class="input_text_50"/>
+	  </td>
+      <td class="admin_list">
+	  <a href="?act=add_category_major&parentid={#$list.id#}">此类下加子类</a>
+			 </td>
+    </tr>
+      {#/foreach#}
+    </table>
+	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+		<input name="ButSave" type="submit" class="admin_submit" id="ButSave" value="保存分类"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加分类"  onclick="window.location='?act=add_category_major'"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除所选" />
+		</td>
+        <td width="305" align="right">
+	  
+	    </td>
+      </tr>
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿
+<div class="foot">
+	<div class="footer_box">
+		<div class="box link_bk">
+				<div class="list">
+					<h4>关于我们</h4>
+					<div class="foot_list">
+						<ul>
+						{#qishi_explain_list set="列表名:explain,显示数目:3,标题长度:6,分类ID:1"#}
+						{#foreach from=$explain item=list#}
+							<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
+						{#/foreach#}
+							<li><a target="_blank" href="{#$QISHI.site_dir#}suggest">意见反馈</a></li>
+						</ul>
+						<ul>
+							{#qishi_explain_list set="列表名:explain,显示数目:3,开始位置:3,标题长度:6,分类ID:1"#}
+							{#foreach from=$explain item=list#}
+								<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
+							{#/foreach#}
+						</ul>
+					</div>
+				</div>
+				<div class="list">
+					<h4>帮助中心</h4>
+					<div class="foot_list">
+						<ul>
+							<li><a target="_blank" href="{#"QS_helplist,id:4"|qishi_url#}">注册与登录</a></li>
+							<li><a target="_blank" href="{#"QS_helplist,id:5"|qishi_url#}">密码找回</a></li>
+							<li><a target="_blank" href="{#"QS_helplist,id:8"|qishi_url#}">认证管理</a></li>
+							<li><a target="_blank" href="{#"QS_helplist,id:10"|qishi_url#}">招聘管理 </a></li>
+						</ul>
+						<ul>
+							<li><a target="_blank" href="{#"QS_helplist,id:17"|qishi_url#}">求职管理</a></li>
+							<li><a target="_blank" href="{#"QS_helplist,id:13"|qishi_url#}">充值消费 </a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="list">
+					<h4>个人求职</h4>
+					<div class="foot_list">
+						<ul>
+							<li><a target="_blank" href="{#"QS_jobslist"|qishi_url#}">职位搜索</a></li>
+							<li><a target="_blank" href="{#$QISHI.site_dir#}explain/explain-show.php?id=6">职场指南</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="list">
+					<h4>企业服务</h4>
+					<div class="foot_list">
+						<ul>
+							<li><a target="_blank" href="{#$QISHI.site_dir#}user/company/company_jobs.php?act=addjobs">发布职位</a></li>
+							<li><a target="_blank" href="{#"QS_resumelist"|qishi_url#}">简历搜索</a></li>
+							<li><a target="_blank" href="{#"QS_hrtoolslist"|qishi_url#}">HR工具箱</a></li>
+						</ul>
+						<ul>
+							<li><a target="_blank" href="{#"QS_login"|qishi_url#}">企业注册</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+				
+				
+		        <div class="weixin">
+		        	<div class="weixin_con">
+		        		<div class="weixin_img">
+		        			<span>官方微信</span><br />
+		        			<img src="{#$QISHI.upfiles_dir#}{#$QISHI.weixin_img#}" width="64" height="65">
+		        		</div>
+		        		<div class="clear"></div>
+		        	</div>
+		        	<div class="weixin_cons" style="display:none;">
+		        		<div class="w_txt">官方微信</div>
+		        		<img src="{#$QISHI.upfiles_dir#}{#$QISHI.weixin_img#}" alt="" width="64" height="65">
+		        		<div class="clear"></div>
+		        	</div>
+		        	<div class="comment">
+		        		<p>服务热线</p>
+		        		<p class="phone_number">{#$QISHI.bootom_tel#}</p>
+		        	</div>
+			</div>
+		</div>
+	</div>
+		
+  
+  <div class="copyright">
+联系地址：{#$QISHI.address#} 联系电话：{#$QISHI.bootom_tel#} 网站备案：{#$QISHI.icp#}{#$QISHI.statistics#}<br />
+{#$QISHI.bottom_other#}<br />
+Powered by <a href="http://www.74cms.com/" target="_blank" style="color:#009900"><em> 74cms v{#$QISHI.version#} 迅易科技版权所有</em></a><br />
+</div>
+</div>
+<!-- 回到顶部组件 -->
+<div class="back_to_top" id="back_to_top">
+	<div class="back" style="display:none;">
+		<div>回到顶部</div>
+	</div>
+	<div class="steer">
+		<div onclick="javascript:location.href='{#$QISHI.site_dir#}suggest'">我要建议</div>
+	</div>
+</div>
+<script>
+	$(function(){
+		//回到顶部组件出现设置
+		$(window).scroll(function(){
+			if($(window).scrollTop()>200){
+				$(".back").fadeIn(400);
+			}else{
+				$(".back").fadeOut(400);
+			}
+		})
+
+		//回到顶部hover效果
+		$(".back_to_top .back, .steer, .sub").hover(function(){
+			$(this).find("div").css("display","block");
+		},function(){
+			$(this).find("div").css("display","none");
+		})
+
+		//设置滚回顶部方法
+		$(".back").click(function(){
+			$("body,html").animate({scrollTop:0}, 500);
+			return false;
+		})
+	});
+	$(function(){
+		$(".foot_list ul:odd li").css("width", 62);
+		$(".weixin_img:last").css("margin-right", 0);
+	})
+</script>

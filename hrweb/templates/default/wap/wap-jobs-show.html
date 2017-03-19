@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{#$show.jobs_name#} - {#$QISHI.site_name#}</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="./css/common.css" rel="stylesheet" type="text/css" />
+<link href="./css/user.css" rel="stylesheet" type="text/css" />
+<link href="./css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="./js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="./js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+	// 收藏职位
+	$("#collect_job").click(function(){
+		var id = {#$smarty.get.id#};
+		$.post("personal/wap_user.php?act=add_favorites",{id:id},function(data){
+			if(data=="ok"){
+				alert("收藏职位成功");
+				window.location.reload();
+			}else if(data=="err"){
+				alert("收藏职位失败");
+				window.location.reload();
+			}else{
+				alert(data);
+				window.location.reload();
+			}
+		});
+	});
+	// 弹出框
+	  function showFloatBox() {
+	    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+	    $(".menu_bg_layer").height($(document).height());
+	    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+	    $(".menu_bg_layer").css("opacity",0.3);
+	  }
+	// 申请职位
+	$("#jobs_apply").click(function(){
+		showFloatBox();
+		$(".choose_menu").css({ top: ($(window).height() - $('.choose_menu').outerHeight())/2 + $(document).scrollTop() });
+		$(".choose_menu").show();
+		var jobs_id = {#$show.id#};
+		var jobs_name = "{#$show.jobs_name#}";
+		var company_id = {#$show.company_id#};
+		var company_name = "{#$show.companyname#}";
+		var company_uid = {#$show.uid#};
+		// alert(resume_id);
+		$("#but_left").click(function(){
+			var resume_id=$("input[name='resume_list']:checked").val();
+			var resume_title=$("input[name='resume_list']:checked").attr("title");
+			if(resume_id){
+				$(".choose_menu").hide();
+				$(".menu_bg_layer").remove();
+				$.post("personal/wap_apply.php?act=apply_add",{jobs_id:jobs_id,jobs_name:jobs_name,company_id:company_id,company_name:company_name,company_uid:company_uid,resume_id:resume_id,resume_title:resume_title},function(data){
+					if(data=="ok"){
+						alert("申请职位成功");
+						window.location.reload();
+					}else if(data=="err"){
+						alert("申请职位失败");
+						window.location.reload();
+					}else{
+						alert(data);
+						window.location.reload();
+					}
+				});
+			}else{
+				alert("请选择简历");
+			}
+		});
+		$("#but_right").click(function(){
+			$(".choose_menu").hide();
+			$(".menu_bg_layer").remove();
+		})
+
+	});
+	$.get("plus/wap_ajax.php", { "id": {#$show.id#},"act":"jobs_contact"},
+		function (data,textStatus)
+		 {			
+			$("#jobs_contact").html(data);
+		 }
+	);
+});
+</script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+	<div class="title">{#$show.jobs_name#}</div>
+	<div class="back" id="pageback"><img src="./images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="./images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="./index.php";'>
+    <div class="box"><img src="./images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="./wap-jobs-list.php";'>
+    <div class="box"><img src="./images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="./wap-resume-list.php";'>
+    <div class="box"><img src="./images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="./wap-news-list.php";'>
+    <div class="box"><img src="./images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+
+<!-- 职位详情收藏投递页面 -->
+<div class="job_show_combox" onclick="window.location.href='{#$show.company_url#}'">
+	<h1>{#$show.companyname#}</h1>
+	<div class="show"></div>
+</div>
+
+<div class="job_show_box">
+	<div class="txt_box">
+		<h4 class="jobname">{#$show.jobs_name#}</h4>
+		<div class="detail">
+			薪资待遇：<span class="money">{#$show.wage_cn#}</span><br />
+			刷新日期：{#$show.refreshtime|date_format:"%Y-%m-%d"#}<br />
+			招聘人数：{#$show.amount#}人<br />
+			职位类别：{#$show.category_cn#}<br />
+			招聘条件：{#$show.sex_cn#}&nbsp;|&nbsp;{#$show.education_cn#}&nbsp;|&nbsp;{#$show.experience_cn#}<br />
+			工作地点：{#$show.district_cn#}
+		</div>
+		<div class="welfare">
+			<ul>
+				{#foreach from=$show.tag_cn item=tagli#}
+				<li><div class="weifare_box">{#$tagli#}</div></li>
+				{#/foreach#}
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="job_show_box">
+	<h2>职位描述</h2>
+	<div class="txt_box">
+		{#$show.contents|nl2br#}
+	</div>
+</div>
+
+<div id="jobs_contact"></div>
+
+{#if $smarty.session.utype==2#}
+<div class="delivery_box">
+	<div class="shadow_box"></div>
+	<div class="del_box">
+		<div class="del_box_l">
+			<div class="delivery_but" id="jobs_apply">投递简历</div>
+		</div>
+		<div class="del_box_r">
+			<div class="favorites done" id="collect_job">收藏职位</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+{#/if#}
+
+<!-- 弹出框 -->
+<div class="menu choose_menu" style="display:none;position:absolute;z-index:1;">
+	<div class="menu_title">请选择简历</div>
+	<ul>
+		{#foreach from=$resume_list item=list#}
+		<li ><label for="r_{#$list.id#}" ><input type="radio" name="resume_list" id="r_{#$list.id#}" value="{#$list.id#}" title="{#$list.title#}"/>{#$list.title#}</label></li>
+		{#/foreach#}
+	</ul>
+	<div class="choose_but">
+		<div class="but_left" id="but_left">
+			<a>投递</a>
+		</div>
+		<div class="but_right" id="but_right">
+			<a>取消</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div> 
+
+<!-- footer -->
+{#include file="wap/footer.htm"#}
+</body>
+</html>

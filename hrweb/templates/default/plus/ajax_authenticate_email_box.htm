@@ -1,0 +1,132 @@
+﻿<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+    <tr>
+		<td width="120" align="right">您的邮箱：</td>
+		<td class="email">{#$email#}<input type="hidden" name="email" id="email_" value="{#$email#}"> </td>
+    </tr>
+    <tr id="displayemailsend" style="display:none">
+		<td width="120" align="right">验证码：</td>
+		<td><input name="email_verifycode" id="email_verifycode" type="text" class="input_text_200" value="" /></td>
+    </tr>
+    <tr id="emailsenddiv">
+		<td></td>
+		<td>
+			<input type="button" name="emailsend" id="emailsend" value="发送验证邮件"  class="but130lan"/>
+		</td>
+    </tr>
+    <tr id="postverify" style="display:none">
+		<td align="right"></td>
+		<td><div class="but95cheng postverify_submit">确定</div></td>
+	</tr>
+</table>
+<table width="100%" border="0" style="border-top:1px #CCCCCC dotted;background-color: #EEEEEE; line-height: 200%;padding: 10px 15px; margin-top: 10px; color:#666666;"  >
+    <tr>
+    	<td class="dialog_bottom">
+	    	<span class="dialog_tip"></span><span class="dialog_text">
+	    	提示：邮箱用于登录、{#$notice#}。修改成功后，请使用新邮箱登录{#$site_name#}。</span>
+	    	<div class="clear"></div>
+	    </td>
+    </tr>
+</table>
+<script type="text/javascript">
+$(document).ready(function(){
+	if("{#$email#}"){
+		$(".email").html('<input type="text" name="email" id="email_" class="input_text_200" value="{#$email#}" />');
+	}else{
+		$(".email").html('<input name="email" id="email_" type="text" class="input_text_200" value="{#$email#}" />');
+	}
+	//发送邮箱验证
+	$("#emailsend").click(function()
+	{
+		var str =/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]w+)*$/; 
+		if($("#email_").val()=='')
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '请输入邮箱',
+			    width:'300px'
+			}).showModal();
+		}
+		else if(!str.test($("#email_").val()))
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '邮箱填写错误',
+			    width:'300px'
+			}).showModal();
+		}
+		else
+		{
+			 $("#emailsenddiv").hide();
+			 var email = $("#email_").val();
+			 $("#email_").attr("disabled","disabled");
+			 $.post("../../plus/ajax_verify_email.php", {"email": $("#email_").val(),"send_key": "{#$send_email_key#}","time":new Date().getTime(),"act":"send_code"},
+	 	function (data,textStatus)
+	 	 {
+			if (data=="success")
+			{	
+				$("#emailsenddiv").hide();
+				$("#emailsendsucceed").show();
+				$("#displayemailsend").show();
+				$("#postverify").show();
+			}
+			else
+			{
+				$("#email_").removeAttr('disabled');
+				$("#emailsenddiv").show();
+				$("#emailsend").html("发送验证邮件");
+				$("#displayemailsend").hide();
+				$("#emailsendsucceed").hide();
+				if(data.indexOf("邮箱配置出错，请联系网站管理员") > 0 ){
+					dialog({
+					    title: '系统提示',
+					    content: '邮箱配置出错，请联系网站管理员',
+					    width:'300px'
+					}).showModal();
+				}else{
+					dialog({
+					    title: '系统提示',
+					    content: ''+data+'',
+					    width:'300px',
+					    cancelDisplay: false,
+	                    cancel: function () {
+					        $("#email_").removeAttr('disabled');
+					    }
+					}).showModal();
+				}
+			}
+	 	 }
+		 ,"text"
+		 )				 
+		}
+	});
+	$(".postverify_submit").click(function()
+	{
+		if($("#email_verifycode").val()=='')
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '请填写效验码',
+			}).showModal();
+		}
+		else
+		{
+			$.post("../../plus/ajax_verify_email.php", {"verifycode": $("#email_verifycode").val(),"send_key": "{#$send_email_key#}","time":new Date().getTime(),"act":"verify_code"},
+			function (data,textStatus)
+			 {
+				if (data=="success")
+				{	
+					 window.location.reload();
+				}
+				else
+				{
+					$("#email_verifycode").removeAttr('disabled');
+					dialog({
+					    title: '系统提示',
+					    content: '验证码填写错误',
+					}).showModal();
+				}
+			 })		
+		}
+	});
+});
+</script>

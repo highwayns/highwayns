@@ -1,0 +1,97 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript" src="js/jquery.userinfotip-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//点击批量重置顾问
+      $("#ButResetting").click(function(){
+        $("form[name=form1]").submit()
+      });
+});
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+重置顾问是指：对已有顾问企业会员删除其顾问并进行重新设置。<br />
+</p>
+</div>
+<div class="toptip">
+  <h2>顾问姓名：{#$consultant.name#}&nbsp;&nbsp;&nbsp;&nbsp;顾问QQ：{#$consultant.qq#}</h2>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=resetting">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+    <tr>
+      <td  class="admin_list_tit admin_list_first" >
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>用户名</label></td>
+      <td  class="admin_list_tit">email</td>
+    <td  class="admin_list_tit">手机</td>
+      <td  class="admin_list_tit">企业信息</td>
+      <td width="13%"   align="center"   class="admin_list_tit">注册时间</td>
+    <td width="13%"   align="center"   class="admin_list_tit">最后登录时间</td>
+      <td width="13%"  align="center"  class="admin_list_tit" >操作</td>
+    </tr>
+  {#foreach from=$members item=list#}
+      <tr>
+      <td class="admin_list admin_list_first">
+        <input name="tuid[]" type="checkbox"  value="{#$list.uid#}"/>{#$list.username#}
+    </td>
+    <td class="admin_list">
+    {#$list.email#}
+    
+    {#if $list.email_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
+    <a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>   
+    </td>
+     <td  class="admin_list">
+     {#if $list.mobile#}{#$list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>
+{#else#}未填写{#/if#}
+    {#if $list.mobile_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
+    </td>
+        <td class="admin_list">
+    {#if $list.companyname#}
+    <a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
+    {#else#}<span style="color: #999999">未完善企业资料</span>
+    {#/if#}
+    </td>
+    <td align="center" class="admin_list">
+    {#$list.reg_time|date_format:"%Y-%m-%d"#}
+    </td>
+    <td align="center" class="admin_list">
+    {#if $list.last_login_time#}
+    {#$list.last_login_time|date_format:"%Y-%m-%d"#}
+    {#else#}
+    从未登录
+    {#/if#}
+    </td>       
+        <td align="center" class="admin_list">
+    <a href="?act=resetting&uid={#$list.uid#}"  id="{#$list.uid#}">重置</a>
+    </td>
+      </tr>
+      {#/foreach#}
+    </table>
+  <span id="OpAudit"></span>
+  <span id="OpTalent"></span>
+  <span id="OpPhotoresume"></span>
+ </form>
+{#if !$list#}
+<div class="admin_list_no_info">没有任何信息！</div>
+{#/if#}
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+          <input name="ButResetting" type="button" class="admin_submit" id="ButResetting"    value="重置"  />
+		</td>
+      </tr>
+  </table>
+<div class="page link_bk">{#$page#}</div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+<div id="AuditSet" style="display: none" >
+</div>
+</body>
+</html>

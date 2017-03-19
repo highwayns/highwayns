@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>企业会员中心</title>
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/user.css" rel="stylesheet" type="text/css" />
+<link href="../css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="../js/jquery.common.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	//打开顶部菜单
+	$("#topmenu_sub").click( function () { 
+		$("#topmenu").slideToggle("fast");
+	});
+
+	  // 创建简历弹出框
+	  function showFloatBox() {
+	    $("body").prepend("<div class=\"menu_bg_layer\"></div>");
+	    $(".menu_bg_layer").height($(document).height());
+	    $(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"1","background-color":"#000000"});
+	    $(".menu_bg_layer").css("opacity",0.3);
+	  }
+
+	  // 企业性质点击
+	  $("#nature_menu").click(function(){
+	    showFloatBox();
+	    $("#menuNature").css({ top: ($(window).height() - $('#menuNature').outerHeight())/2 + $(document).scrollTop() });
+	    $("#menuNature").show();
+	    $("#menuNature li").click(function(){
+	      $("#nature").val($(this).attr("id"));
+	      $("#nature_cn").val($(this).attr("title"));
+	      $("#nature_text").html($(this).attr("title"));
+	      $("#menuNature").hide();
+	      $(".menu_bg_layer").remove();
+	    });
+	  });
+	     
+	  // 所属行业点击
+	  $("#trad_menu").click(function(){
+	    showFloatBox();
+	    $("#menuTrad").css({ top: ($(window).height() - $('#menuTrad').outerHeight())/2 + $(document).scrollTop() });
+	    $("#menuTrad").show();
+	  });
+	     
+	  // 企业规模点击
+	  $("#scale_menu").click(function(){
+	    showFloatBox();
+	    $("#menuScale").css({ top: ($(window).height() - $('#menuScale').outerHeight())/2 + $(document).scrollTop() });
+	    $("#menuScale").show();
+	    $("#menuScale li").click(function(){
+	      $("#scale").val($(this).attr("id"));
+	      $("#scale_cn").val($(this).attr("title"));
+	      $("#scale_text").html($(this).attr("title"));
+	      $("#menuScale").hide();
+	      $(".menu_bg_layer").remove();
+	    });
+	  });
+
+	  // 现居住地点击
+	  $("#district_menu").click(function(){ 
+	    showFloatBox();
+	    $("#menuDistrict").css({ top: ($(window).height() - $('#menuDistrict').outerHeight())/2 + $(document).scrollTop() });
+	    $("#menuDistrict").show();
+	  });
+	  // 关闭弹出框
+	  $(".choose_close").click(function(event) {
+	    $(this).parent().hide();
+	    $(".menu_bg_layer").remove();
+	  });
+	//  修改企业信息
+	$(".com_info_save").click(function(){
+		// var id={#$company_info.id#};
+		var companyname=$("input[name=companyname]").val();
+		var nature_cn=$("input[name=nature_cn]").val();
+		var nature=$("input[name=nature]").val();
+		var trade_cn=$("input[name=trade_cn]").val();
+		var trade=$("input[name=trade]").val();
+		var scale_cn=$("input[name=scale_cn]").val();
+		var scale=$("input[name=scale]").val();
+		var district_cn=$("input[name=district_cn]").val();
+		var district=$("input[name=district]").val();
+		var sdistrict=$("input[name=sdistrict]").val();
+		var contact=$("input[name=contact]").val();
+		var telephone=$("input[name=telephone]").val();
+		var email=$("input[name=email]").val();
+		var address=$("input[name=address]").val();
+		var contents=$("textarea[name=contents]").val();
+		$.post("?act=company_info_save",{companyname:companyname,nature_cn:nature_cn,nature:nature,trade_cn:trade_cn,trade:trade,scale_cn:scale_cn,scale:scale,district_cn:district_cn,district:district,sdistrict:sdistrict,contact:contact,telephone:telephone,email:email,address:address,contents:contents},function(data){
+			if(data=="1"){
+				alert("保存企业信息成功");
+				window.location.href="wap_user.php";
+			}else{
+				alert(data);
+			}
+		})
+	})
+
+});
+</script>
+</head>
+<body>
+<div class="sub_bodybg"></div>
+<div class="sub_head_top">
+	<div class="title">公司信息</div>
+	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
+	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
+</div>
+
+
+<!--快捷按钮 -->
+<div class="topnav" id="topmenu">
+  <div class="list" onclick='window.location.href="../index.php";'>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+  </div>
+  <div class="list" onclick='window.location.href="../wap-news-list.php";'>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--快捷按钮 -->
+
+
+<!-- 编辑公司信息页面 -->
+<form action="">
+	<table class="com_info_table">
+		<tbody>
+			<tr>
+				<td class="com_info_l">公司名称</td>
+				<td class="com_info_r"><input type="text" class="com_info_input" name="companyname" value="{#$company_info.companyname#}"/></td>
+			</tr>
+			<tr>
+				<td class="com_info_l">企业性质</td>
+				<td class="com_info_r" id="nature_menu">
+					<label><div id="nature_text" type="text" class="com_info_input" name="nature_cn">{#$company_info.nature_cn#}</div><img src="../images/35.gif" alt="" /></label>
+				</td>
+				<input type="hidden" id="nature" name="nature" value="{#$company_info.nature#}" />
+				<input type="hidden" id="nature_cn" name="nature_cn" value="{#$company_info.nature_cn#}" />
+				<div class="menu choose_menu" id="menuNature" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">企业性质</div>
+            		<div class="choose_close"></div>
+		            <ul>
+		              {#qishi_get_classify set="列表名:c_nature,类型:QS_company_type"#}
+		              {#foreach from=$c_nature item=list#}
+		              <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+		              {#/foreach#}
+		            </ul>
+		        </div> 
+			</tr>
+			<tr>
+				<td class="com_info_l">所属行业</td>
+				<td class="com_info_r" id="trad_menu">
+					<label><div id="trad_text" class="com_info_input" name="trade_cn">{#$company_info.trade_cn#}</div><img src="../images/35.gif" alt="" /></label>
+				</td>
+				<input type="hidden" id="trade" name="trade" value="{#$company_info.trade#}" />
+				<input type="hidden" id="trade_cn" name="trade_cn" value="{#$company_info.trade_cn#}" />
+				<div class="menu choose_menu" id="menuTrad" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">所属行业</div>
+            		<div class="choose_close"></div>
+		            <ul id="trad_list"></ul>
+		        </div>
+		        <script type="text/javascript">
+		        	var tradli = '';
+					$.each(QS_trade, function(index, val) {
+						if(val) {
+							var trads = val.split(",");
+						 	tradli += '<li id="'+trads[0]+'" title="'+trads[1]+'">'+trads[1]+'</li>';
+						}
+					});
+					$("#trad_list").html(tradli);
+					$("#trad_list li").unbind().click(function(event) {
+						var tradId = $(this).attr("id");
+						var tradTitle = $(this).attr("title");
+						$("#trade").val(tradId);
+						$("#trade_cn").val(tradTitle);
+						$("#trad_text").html(tradTitle);
+						$("#menuTrad").hide();
+                		$(".menu_bg_layer").remove();
+					});
+		        </script>
+			</tr>
+			<tr>
+				<td class="com_info_l">企业规模</td>
+				<td class="com_info_r" id="scale_menu">
+					<label><div id="scale_text" class="com_info_input" name="scale_cn">{#$company_info.scale_cn#}</div><img src="../images/35.gif" alt="" /></label>
+				</td>
+				<input type="hidden" id="scale" name="scale" value="{#$company_info.scale#}" />
+				<input type="hidden" id="scale_cn" name="scale_cn" value="{#$company_info.scale_cn#}" />
+				<div class="menu choose_menu" id="menuScale" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">企业规模</div>
+            		<div class="choose_close"></div>
+		            <ul>
+		              	{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+	              		{#foreach from=$c_scale item=list#}
+		              	<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
+		              	{#/foreach#}
+		            </ul>
+		        </div> 
+			</tr>
+			<tr>
+				<td class="com_info_l">所在地区</td>
+				<td class="com_info_r" id="district_menu">
+					<label><div id="district_text" class="com_info_input" name="district_cn">{#$company_info.district_cn#}</div><img src="../images/35.gif" alt="" /></label>
+				</td>
+				<input type="hidden" id="district" name="district" value="{#$company_info.district#}" />
+				<input type="hidden" id="sdistrict" name="sdistrict" value="{#$company_info.sdistrict#}" />
+				<input type="hidden" id="district_cn" name="district_cn" value="{#$company_info.district_cn#}" />
+				<div class="menu choose_menu" id="menuDistrict" style="display:none;position:absolute;z-index:1;">
+		            <div class="menu_title">所在地区</div>
+            		<div class="choose_close"></div>
+		            <div class="area_choose">
+			            <ul class="area_left" id="area_left"></ul>
+			            <ul class="area_right" id="area_right"></ul>
+			            <div class="clear"></div>
+		            </div>
+		        </div>
+			</tr>
+			<script type="text/javascript">
+	          var citystr = '';
+	          $.each(QS_city_parent, function(pindex, pval) {
+	            if(pval) {
+	              var citys = pval.split(",");
+	                citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
+	            }
+	          });
+	          $("#area_left").html(citystr);
+	          $("#area_left li").unbind().click(function(){
+	            var cid = $(this).attr("rcoid");
+	            var cid = $(this).attr("pid");
+	            var ctitle = $(this).attr("title");
+	            var scitystr = "";
+	            if(QS_city[cid]) {
+	              var ccitysArray = QS_city[cid].split("|");
+	              scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+	              $.each(ccitysArray, function(cindex, cval) {
+	                if(cval) {
+	                  var ccitys = cval.split(",");
+	                  scitystr += '<li class="area_small" rcoid="'+ccitys[0]+'" title="'+ctitle+'\/'+ccitys[1]+'" pid="'+cid+'.'+ccitys[0]+'">'+ccitys[1]+'</li>';
+	                }
+	              });
+	              $("#area_right").html(scitystr).show();
+	              $("#area_right li").click(function(){
+	              	var districtIds = $(this).attr("pid");
+	              	var districtIdArray = districtIds.split(".");
+	                $("#district").val(districtIdArray[0]);
+	                $("#sdistrict").val(districtIdArray[1]);
+	                $("#district_cn").val($(this).attr("title"));
+	                $("#district_text").html($(this).attr("title"));
+	                $("#menuDistrict").hide();
+	                $(".menu_bg_layer").remove();
+	              });
+	            } else {
+	              $("#district").val($(this).attr('pid'));
+	              $("#sdistrict").val("0");
+	              $("#district_cn").val(ctitle);
+	              $("#district_text").html(ctitle);
+	              $("#menuDistrict").hide();
+	              $(".menu_bg_layer").remove();
+	            }
+	          });
+	        </script>
+			<tr>
+				<td class="com_info_l">联系人</td>
+				<td class="com_info_r"><input type="text" class="com_info_input" name="contact" value="{#$company_info.contact#}"/></td>
+			</tr>
+			<tr>
+				<td class="com_info_l">联系电话</td>
+				<td class="com_info_r"><input type="text" class="com_info_input" name="telephone" value="{#$company_info.telephone#}"/></td>
+			</tr>
+			<tr>
+				<td class="com_info_l">联系邮箱</td>
+				<td class="com_info_r"><input type="text" class="com_info_input" name="email" value="{#$company_info.email#}"/></td>
+			</tr>
+			<tr>
+				<td class="com_info_l">公司地址</td>
+				<td class="com_info_r"><input type="text" class="com_info_input" name="address" value="{#$company_info.address#}"/></td>
+			</tr>
+			<tr>
+				<td class="com_info_l">公司简介</td>
+				<td class="com_info_r"><textarea name="contents">{#$company_info.contents#}</textarea></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="com_info_save">保存</div>
+	<div class="company_user_main_loginout"><a href="../wap_login.php?act=logout">退出登录</a></div>
+</form>
+
+
+<!-- footer -->
+{#include file="wap/footer.htm"#}
+</body>
+</html>

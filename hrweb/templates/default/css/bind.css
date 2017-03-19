@@ -1,0 +1,72 @@
+﻿body{background-image:none;
+}
+/*娉ㄥ唽椤甸潰*/
+.sign_up_box .sign_centent{border:2px solid #E8E8E8;border-radius:5px;margin-top:18px;background-color:#fff;padding:29px 36px 29px 46px;font-family: "microsoft yahei";}
+.sign_up_box .sign_centent .sign_left{float:left;width:608px;padding-right:22px;border-right:1px solid #DADADA;}
+.sign_left .sign_nav{border-bottom:1px solid #DADADA;width:608px;}
+.sign_left .sign_nav li{float:left;margin-bottom:-1px;}
+.sign_left .sign_nav li a{display:block;padding:15px 23px;color:#CDCDCD;background-color:#fff;text-decoration:none;font-size:18px;}
+.sign_left .sign_nav li a.select{border:1px solid #CDCDCD;border-bottom:0;color:#2C2C2C;}
+.sign_left .sign_nav li a:focus{outline:none;}
+.sign_left .sign_form{margin-top:40px;font-size:16px;}
+.sign_left .sign_form .w99{line-height:36px;float:left;width:99px;}
+.sign_left .sign_form .w99 span{margin-right:5px;color:#E94F8B}
+.sign_left .sign_form li{margin-bottom:25px;}
+/*娉ㄥ唽椤甸潰杈撳叆妗?鎸夐挳鏍峰紡*/
+
+.sign_up_input_name{width:225px;font-size:14px;padding:10px 32px 10px 13px;border:1px solid #ccc;border-radius:3px;background:url(../images/48.gif) 235px 8px no-repeat;}
+.sign_up_input_pwd{width:225px;font-size:14px;padding:10px 32px 10px 13px;border:1px solid #ccc;border-radius:3px;background:url(../images/49.gif) 240px 8px no-repeat;}
+.sign_up_input_mail{width:225px;font-size:14px;padding:10px 32px 10px 13px;border:1px solid #ccc;border-radius:3px;background:url(../images/50.gif) 240px 10px no-repeat;}
+.sign_up_but_sign{width:270px;height:40px;color:#fff;line-height:40px;font-size:16px;font-weight:bold;font-family:"microsoft yahei";background-color:#017FCF;border:0;text-align:center;cursor:pointer;}
+.sign_up_but_sign.hover{background-color: #0070BD;}
+.sign_up_but_login{width:120px;height:32px;color:#fff;line-height:32px;font-size:14px;font-family:"microsoft yahei";background-color:#017FCF;border:0;text-align:center;cursor:pointer;}
+.sign_up_but_login.hover{background-color: #0070BD;}
+.sign_left .sign_form .input_box{float: left;}
+.sign_left .sign_form .input_box .sp_label{line-height: 36px;color:#009900;}
+.sign_left .sign_form .input_box .sign_up_input_varcode{display:block;float:left;width:100px;margin-right:14px;font-size:14px;padding:10px 8px 10px 8px;border:1px solid #ccc;border-radius:3px;}
+.sign_left .sign_form .input_box .var_code{float:left;margin-top:2px;margin-right:8px;width:75px;height:32px;border:1px solid #ccc;}
+.sign_left .sign_form .input_box p{float:left;font-size:12px;margin-top:2px;line-height:18px;color:#848484;}
+.sign_left .sign_form .input_box p a{color:#848484;text-decoration:none;}
+.sign_left .sign_form .input_box.user_agree{font-size:14px;color:#2D3134;line-height:20px;}
+.sign_left .sign_form .input_box.user_agree a{color:#0180CF;text-decoration:none;}
+.sign_left .sign_form .input_box.user_agree a:hover{text-decoration: underline;}
+.sign_left .sign_form .input_box.user_agree input{margin-right:5px;}
+
+.sign_left .bind_top{}
+.sign_up_box .sign_centent .sign_left.bind{width: 590px;}
+.sign_left .bind_top h2{font-size: 28px;margin-bottom: 30px;font-weight: normal;}
+.sign_left .bind_top p{font-size: 16px;line-height: 24px;color:#999999;}
+.sign_left .bind_top p span{color:#009900;}
+.sign_left .sign_form .input_box .bind_radio{cursor: pointer; float: left;padding-left: 12px;padding-right: 13px;height:34px;line-height: 34px;background-color: #E3E3E3;border:2px solid #E3E3E3;color:#666666;margin-right: 15px;font-size: 14px;font-family: "microsoft yahei"}
+.sign_left .sign_form .input_box .bind_radio.select{border-color:#4095EF;background-color: #fff;color:#4095EF;background-image: url(../images/13.gif);background-position: right -230px;background-repeat: no-repeat;}
+.sign_up_input_varcode{display:block;float:left;width:100px;margin-right:14px;font-size:14px;padding:10px 8px 10px 8px;border:1px solid #ccc;border-radius:3px;}
+.var_code{float:left;margin-top:2px;margin-right:8px;width:75px;height:32px;border:1px solid #ccc;}
+
+
+/*缁戝畾鍙宠竟鏍峰紡*/
+.bind_right{float: left;width:250px;padding-left: 25px;padding-right: 25px;margin-top: 50px;}
+.bind_right .fast_bind{}
+.bind_right .fast_bind h3{font-size: 20px;color:#333;font-weight: normal;}
+.bind_right .fast_bind .fast_bind_form{margin-top:10px;}
+.bind_right .fast_bind .fast_bind_form .f_bind_box{padding-top: 20px;}
+.bind_right .fast_bind .fast_bind_form .f_bind_box .f_bind_input{margin-top:6px;}
+.bind_right .fast_bind .fast_bind_form .f_bind_box .f_bind_input .sign_up_input_name{width:200px;background-position: 210px 8px;}
+.bind_right .fast_bind .fast_bind_form .f_bind_box .f_bind_input .sign_up_input_pwd{width:200px;background-position: 215px 8px;}
+.bind_right .fast_bind .fast_bind_form .bind_up{padding-top: 20px;}
+.bind_right .fast_bind .fast_bind_form .bind_up .bind_but{cursor: pointer; width:85px;height:30px;line-height:30px;font-family: "microsoft yahei";border:0; background-color: #0180CF;color:#fff;}
+.bind_right .fast_bind .fast_bind_form .bind_up .bind_but.hover{background-color: #0070BD;}
+.bind_right .fast_bind .fast_bind_form .bind_up a{color:#0180CF;text-decoration: none;margin-left: 10px;line-height: 30px;font-size: 12px;}
+.bind_right .fast_bind .fast_bind_form .bind_tip{padding-top: 20px;font-size: 12px;color:#999;line-height: 20px;}
+
+.sign_up_box .sign_centent .sign_right{float:left;font-size:14px;padding-left:25px;}
+.sign_right .fast_login .title{font-size:16px;margin-bottom:20px;}
+.sign_right .other_sign{margin-top:30px;}
+.sign_right .other_sign p{line-height:30px;padding-left:10px;background:url(../images/41.gif)left center no-repeat;}
+.sign_right .other_sign p a{margin-left:10px;text-decoration:none;color:#1877AF;}
+.content_box p{margin-top:25px;margin-bottom:20px;color:#ADADAD;}
+.content_box li{text-indent:-9999px;float:left;margin-right:20px;*margin-right:7px;}
+.content_box li a{display:block;width:63px;height:24px;}
+.content_box li a.qq{background:url(../images/47.gif) 0px 0px no-repeat;}
+.content_box li a.weibo{background:url(../images/47.gif) 0px -38px no-repeat;}
+.content_box li a.taobao{background:url(../images/47.gif) 0px -76px no-repeat;}
+.content_box a{color: #1877af;text-decoration: none;}

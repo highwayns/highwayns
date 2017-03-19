@@ -1,0 +1,46 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="category/admin_category_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+调用名不能以“QS_”开头。
+</p>
+</div>
+<div class="toptit">修改分类组</div>
+<form id="form1" name="form1" method="post" action="?act=edit_group_save">
+{#$inputtoken#}
+<div id="html_tpl">
+<table width="100%" border="0" cellspacing="6" cellpadding="0" >
+  <tr>
+    <td width="120" align="right">分类组名称:</td>
+    <td><input name="g_name" type="text" class="input_text_200"  value="{#$group.g_name#}"/></td>
+  </tr>
+   <tr>
+    <td width="120" align="right">调用名:</td>
+    <td><input name="g_alias" type="text" class="input_text_200"  value="{#$group.g_alias#}"/></td>
+  </tr>
+</table>
+</div>
+<div id="html"></div>
+<table width="100%" border="0" cellspacing="6" cellpadding="0">
+  <tr>
+    <td width="120"> </td>
+    <td>
+	<input name="g_id" type="hidden" value="{#$group.g_id#}" />
+	<input name="old_g_alias" type="hidden" value="{#$group.g_alias#}" />
+	<input type="submit" name="addsave" value="保存" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=grouplist'"/>
+	
+	</td>
+  </tr>
+</table>
+ </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

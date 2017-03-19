@@ -1,0 +1,87 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#selectAll").click(function()
+	{	
+		$("form :checkbox").attr("checked",true);
+		setbg();
+	});
+	$("#uncheckAll").click(function()
+	{	
+		$("form :checkbox").attr("checked",false);
+		setbg();
+	});
+	$("#opposite").click(function()
+	{	
+		$("form :checkbox").each(function()
+		{
+		$(this).attr("checked")?$(this).attr("checked",false):$(this).attr("checked",true);
+		});
+		setbg();
+	});
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="database/admin_database_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+数据表优化可以去除数据文件中的碎片，使记录排列紧密，提高读写速度。
+</p>
+</div>
+<form id="form1" name="form1" method="post" action="?act=optimize_table">
+{#$inputtoken#}
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan" >
+    <tr>
+      <td    class="admin_list_tit admin_list_first">
+	   <label id="chkAll">
+	   <input name=" " type="checkbox" id="chk" title="全选/反选" checked="checked"/>
+	   数据表</label>
+	   </td>
+      <td class="admin_list_tit"  width="18%" align="center">类型</td>           
+	  <td class="admin_list_tit" width="18%" align="center">记录数</td>
+	  <td class="admin_list_tit" width="18%"  align="center">数据大小</td> 
+	  <td width="18%" align="center" class="admin_list_tit"> 碎片byte</td>
+    </tr>
+	{#foreach from=$list item=list#}
+      <tr>
+      <td class="admin_list admin_list_first">	 
+	 <label> <input name="tablename[]" type="checkbox"   value="{#$list.Name#}" checked="checked"/>{#$list.Name#}</label>
+	   </td>
+        <td class="admin_list" align="center">{#$list.Engine#}</td>        
+		<td class="admin_list"  align="center">
+		{#$list.Rows#}
+		</td>   
+		<td class="admin_list" align="center" >{#$list.Data_length#}</td>     
+		<td align="center" class="admin_list">
+
+		{#$list.Data_free#}
+
+		</td>
+      </tr>
+      {#/foreach#}
+  </table>
+	{#if !$list#}
+	<div class="admin_list_no_info">数据表没有碎片，不需要再优化。</div>
+	{#/if#}
+ 
+  <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
+      <tr>
+        <td>
+          <input name="ButAudit" type="submit" class="admin_submit" id="ButDelOrder"  value="优化表"  />
+		</td>
+        <td width="305" align="right">
+	 
+	    </td>
+      </tr>
+  </table>
+   </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$title#}</title>
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="user/header.htm"#}
+<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 我预定的展位</div>
+
+<div class="usermain">
+  <div class="leftmenu com link_bk">
+  	 {#include file="member_company/left.htm"#}		
+  </div>
+  <div class="rightmain">
+  
+ 	<div class="bbox1 link_bk my_account intrgration">
+		<div class="title_h1">我预定的展位</div>
+		<div class="data resume">
+			{#if $list#}
+		  	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+		  		<tbody>
+		  			<tr bgcolor="#F5F5F5" align="left" height="44">
+		  				<th class="left" width="178" align="left">招聘会标题</th>
+		  				<th width="140" align="left">举办日期</th>
+		  				<th width="80" align="left">预定方式</th>
+		  				<th width="80" align="left">预订时间</th>
+		  				<th width="101" align="center">状态</th>
+		  			</tr>
+		  			{#foreach from=$list item=li#}
+		  			<tr class="data_content" height="54">
+		  				<td class="left" width="178" align="left" style="white-space:nowrap;"><a style="color:#0180cf" href="{#$li.url#}" target="_blank">{#$li.title#}</a></td>
+		  				<td width="140" align="left">
+		  					{#$li.holddate_start|date_format:"%Y-%m-%d"#} 至 {#$li.holddate_end|date_format:"%Y-%m-%d"#}
+				   		</td>
+		  				<td width="80" align="left">
+		  					{#if $li.etypr=="1"#}
+							  在线预定
+							  {#/if#}
+							  {#if $li.etypr=="2"#}
+							  电话预定
+							  {#/if#}
+							  {#if $li.etypr=="3"#}
+							  其他方式
+							  {#/if#}			
+						</td>
+		  				<td width="80" align="left">{#$li.eaddtime|date_format:"%Y-%m-%d"#}</a></td>
+		  				<td width="101" align="center">{#if $li.audit=="0"#}
+						  <span style="color:#FF3300" class="vtip"  title="请耐心等待管理员确认...">等待确认</span>
+						  {#/if#}
+						  {#if $li.audit=="1"#}
+						  <span style="color:#009900" >预定成功</span>
+						  {#/if#}</td>
+		  			</tr>
+		  			{#/foreach#}
+		  		</tbody>
+		  	</table>
+  			{#if $page#}
+			<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+	          <tr>
+	            <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+	          </tr>
+	      </table>
+	      {#/if#}
+			{#else#}
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+		  		<tbody>
+		  			<tr bgcolor="#F5F5F5" align="left" height="44">
+		  				<th width="100" class="left">添加时间</th>
+		  				<th width="178">招聘会标题</th>
+		  				<th width="100" align="center">举办日期</th>
+		  				<th width="100" align="center">预定方式</th>
+		  				<th width="101" align="center">状态</th>
+		  			</tr>
+		  		</tbody>
+		  	</table>
+			<div class="emptytip">没有找到对应的信息！</div>
+			{#/if#}
+		  </div>
+
+  	</div>
+  </div>
+  <div class="clear"></div>
+</div>
+{#include file="user/footer.htm"#}
+</body>
+</html>

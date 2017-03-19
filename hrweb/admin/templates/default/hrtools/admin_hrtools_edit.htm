@@ -1,0 +1,86 @@
+﻿{#include file="sys/admin_header.htm"#}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	showmenu("#h_typeid_cn","#menu1","#h_typeid");
+});
+</script>
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="hrtools/admin_hrtools_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptit">修改文档</div>
+  <form action="?act=editsave" method="post" enctype="multipart/form-data" name="FormData" id="FormData" >
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="3" cellspacing="0" class="admin_table">
+      <tr>
+        <td width="120" align="right" style="border:0px" >文档名称：</td>
+        <td style="border:0px">
+		<input name="h_filename" type="text"  class="input_text_200" maxlength="45" value="{#$show.h_filename#}"/>		</td>
+      </tr>
+      <tr>
+        <td align="right" >所属分类：</td>
+        <td >
+		
+		<div>		
+		<input type="text" value="{#$show.c_name#}"  readonly="readonly" name="h_typeid_cn" id="h_typeid_cn" class="input_text_200 input_text_selsect"/>
+		<input name="h_typeid" id="h_typeid" type="hidden" value="{#$show.c_id#}" />
+		<div id="menu1" class="menu">
+			<ul>	
+			{#foreach from=$category item=list#}		
+			<li id="{#$list.c_id#}" title="{#$list.c_name#}" >{#$list.c_name#}</li>
+			{#/foreach#}
+			</ul>
+		</div>
+		  </div>		 </td>
+      </tr>
+      <tr>
+        <td align="right" ><span style="border:0px">颜色：</span></td>
+        <td > 
+		  <script type="text/javascript" src="js/jquery.iColorPicker.js"></script>
+          <input name="h_color"  id="h_color" type="text"  class="iColorPicker input_text_200" onclick="iColorShow('h_color','icp_h_color')"  value="{#$show.h_color#}"/>
+		
+        </td>
+      </tr>
+      <tr>
+        <td align="right" >加粗：</td>
+        <td ><label>
+          <input name="h_strong" type="checkbox" value="1" {#if $show.h_strong=="1"#}checked="checked"{#/if#} />
+        </label></td>
+      </tr>
+      <tr>
+        <td align="right" >上传文件：</td>
+        <td ><input type="file" name="upfile"    onkeydown="alert('请点击右侧“浏览”选择您电脑上的文件！');return false"   style="height:21px; width:210px; border:1px #999999 solid" />
+		<span class="admin_note">只能上传doc/ppt/xls/rtf文件</span>
+		</td>
+      </tr>
+      <tr>
+        <td align="right" >或填写文件路径：</td>
+        <td > 
+          <input name="url" type="text"  class="input_text_200" maxlength="200" value="{#$show.h_fileurl#}"/>
+		  <span class="admin_note">如:http://www.123.com/abc/123.doc</span>
+         </td>
+      </tr>
+	   <tr>
+        <td align="right" >排序：</td>
+        <td > 
+          <input name="h_order" type="text"  class="input_text_200" maxlength="3" value="{#$show.h_order#}"/>
+		  
+		  <span class="admin_note">数字越大，排序越靠前</span>
+         </td>
+      </tr>
+      <tr>
+        <td align="right" >&nbsp;</td>
+        <td height="50" >
+		<input name="id" type="hidden" value="{#$show.h_id#}" />
+		
+		<input type="submit" name="Submit" value="保存" class="admin_submit"   />&nbsp;</td>
+      </tr>
+    </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

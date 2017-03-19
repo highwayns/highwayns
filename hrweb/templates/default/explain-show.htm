@@ -1,0 +1,47 @@
+﻿{#qishi_explain_show set="说明页ID:GET[id],列表名:show"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$show.title#} - {#$QISHI.site_name#}</title>
+<meta name="description" content="{#$show.description#}">
+<meta name="keywords" content="{#$show.keywords#}">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/explain.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+</head>
+<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+{#include file="header.htm"#}
+<!-- 当前位置 -->
+<div class="page_location link_bk">
+  当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;{#$show.title#}
+</div>
+  <!-- 主体内容 -->
+  <div class="container link_bk">
+    <div class="about_left">
+      {#qishi_explain_list set="列表名:explain,分类ID:1"#}
+      <h2 class="about_tit">关于我们</h2>
+      <ul>
+        {#foreach from=$explain item=list#}
+        <li {#if $smarty.get.id==$list.id#}class="active"{#/if#}><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
+        {#/foreach#}
+        <li><a href="{#$QISHI.site_dir#}suggest">意见反馈</a></li>
+      </ul>
+    </div>
+    <div class="about_right">
+      <div class="about_r_tit">
+        {#$show.title#}
+      </div>
+      <div class="about_r_content">
+        <p>{#$show.content#}</p>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+  <!-- 主体内容 结束 -->
+   {#include file="footer.htm"#}
+</body>
+</html>

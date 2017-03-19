@@ -1,0 +1,43 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="safety/admin_safety_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+多个关键字请用 “|” 隔开。<br />
+      关键字支持使用正则表达式。<br />
+
+</p>
+</div>
+
+<div class="toptit">垃圾信息过滤</div>
+<form action="?act=setsave" method="post"  name="form1" id="form1">
+{#$inputtoken#}
+	  <table width="700" border="0" cellspacing="10" cellpadding="1"  >
+        <tr>
+          <td width="162" align="right" valign="top" style="padding:3px;">垃圾信息关键字<br />
+            (请用“|”隔开关键字)</td>
+          <td valign="top"><textarea name="filter" class="input_text_400" id="filter" style="height:100px;">{#$config.filter#}</textarea></td>
+        </tr>
+        <tr>
+          <td align="right">出错提示</td>
+          <td><input name="filter_tips" type="text"  class="input_text_400" id="filter_tips" value="{#$config.filter_tips#}" maxlength="150"/></td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td><span style="font-size:14px;">
+            <input name="submit" type="submit" class="admin_submit"    value="保存修改"/>
+          </span></td>
+        </tr>
+      </table>
+	    </form>
+  
+
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+	{#include file="article/admin_article_nav.htm"#}
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+系统默认分类不能删除！<br />
+</p>
+</div>
+  <form id="form1" name="form1" method="post" action="?act=del_property">
+  {#$inputtoken#}
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
+    <tr>
+      <td height="26" class="admin_list_tit admin_list_first" >
+      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>属性名称</label></td>
+	  <td width="160"   align="center"  class="admin_list_tit">类型</td>
+      <td width="160"   align="center"  class="admin_list_tit">排序</td>
+      <td width="100"   class="admin_list_tit">操作</td>
+    </tr>
+	{#qishi_news_property set="列表名:property"#}
+	  {#foreach from=$property item=list#}
+     <tr>
+      <td   class="admin_list admin_list_first" >
+      <input type="checkbox" name="id[]" value="{#$list.id#}" id="{#$list.id#}"  class="Bcheck"/>
+	  {#$list.categoryname#}
+	  <span style="color:#CCCCCC">(id:{#$list.id#})</span>
+	  </td>
+	   <td align="center"  class="admin_list">
+	    {#if $list.admin_set=="1"#}
+			   系统分类
+			   {#else#}
+			     自定义属性
+			   {#/if#}
+	   </td>
+      <td align="center"  class="admin_list">
+	  {#$list.category_order#}
+	  </td>
+      <td class="admin_list">
+	 <a href="?act=edit_property&id={#$list.id#}">修改</a>&nbsp;&nbsp;
+			  {#if $list.admin_set<>"1"#}
+			  |&nbsp;&nbsp;<a onclick="return confirm('你确定要删除吗？')" href="?act=del_property&id={#$list.id#}&{#$urltoken#}">删除</a>
+			  {#/if#}	  </td>
+    </tr>
+	 {#/foreach#}
+	</table>
+	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
+<tr>
+        <td>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加属性"  onclick="window.location='?act=property_add'"/>
+		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="删除所选" onclick="return confirm('你确定要删除吗？')"/>
+		</td>
+        <td width="305" align="right">
+	  
+	    </td>
+      </tr>
+  </table>
+  </form>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

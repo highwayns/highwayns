@@ -1,0 +1,142 @@
+﻿/*130瀹?0楂樻寜閽?/
+.but130lan{
+	width:130px;
+	height:40px;
+	line-height:40px;
+	font-size: 14px;
+	color:#FFFFFF;
+	border:0px;
+	background: #4095EF;
+	font-family: "microsoft yahei","microsoft yahei";
+	cursor: pointer;
+}
+.but130lan.hover{
+	background: #1478DC;
+}
+
+
+/*涓汉浼氬憳涓績 瀹夊叏璁よ瘉*/
+.authenticate{}
+.authenticate .main{
+	margin-top: 15px;
+	padding-left: 15px;
+	padding-right:15px;
+}
+.authenticate .mail_authenticate{
+	height:75px;
+	border-top: 1px solid #E0E0E0;
+	border-bottom:1px solid #E0E0E0;
+	margin-top: 20px;
+	padding-top:25px;
+	padding-left: 31px;
+	padding-right:31px;
+	padding-bottom:20px;
+}
+.authenticate .phone_authenticate{
+	height:75px;
+	border-bottom: 1px solid #E0E0E0;
+	padding-top: 25px;
+	padding-left:31px;
+	padding-right: 31px;
+	padding-bottom: 20px;
+
+}
+.authenticate .mail_authenticate .mail_img{
+	width:62px;
+	height:44px;
+	float:left;
+	margin-right: 100px;
+	margin-top: 15px;
+	background: url(../images/19.jpg) 0px 0px no-repeat;
+}
+.authenticate .mail_authenticate .mail_img.not_certified{
+	background: url(../images/19.jpg) 0px -46px no-repeat;
+}
+.authenticate .phone_authenticate .phone_img{
+	width:62px;
+	height:64px;
+	float: left;
+	margin-right:100px;
+	margin-top: 5px;
+	background: url(../images/19.jpg) right -99px no-repeat;
+}
+.authenticate .phone_authenticate .phone_img.not_certified{
+	background: url(../images/19.jpg) 0px -167px no-repeat;
+}
+.authenticate .mail_authenticate .mail_content{
+	float:left;
+}
+.authenticate .phone_authenticate .phone_content{
+	float:left;
+}
+.authenticate .mail_authenticate .mail_content h4{
+	padding-bottom: 14px;
+}
+.authenticate .phone_authenticate .phone_content h4{
+	padding-bottom: 14px;
+}
+.authenticate .mail_authenticate .mail_content .warning{
+	color:#656565;
+}
+.authenticate .phone_authenticate .phone_content .warning{
+	color:#656565;
+}
+.authenticate .mail_authenticate .mail_content p{
+	font-size: 12px;
+	padding-bottom: 10px;
+}
+.authenticate .phone_authenticate .phone_content p{
+	font-size:12px;
+	padding-bottom:10px;
+}
+.authenticate .mail_authenticate .mail_content p span{
+	font-weight: bold;
+	color:#12B409;
+}
+.authenticate .mail_authenticate .mail_content p span.no_authenticate{
+	font-weight: bold;
+	color:#FF0101;
+}
+.authenticate .phone_authenticate .phone_content p span.no_authenticate{
+	font-weight: bold;
+	color:#FF0101;
+}
+.authenticate .mail_authenticate .mail_content p a{
+	display:inline-block;
+	padding-left: 10px;
+	color:#017FCF;
+	font-weight: bold;
+}
+.authenticate .phone_authenticate .phone_content p a{
+	display:inline-block;
+	padding-left: 10px;
+	color:#017FCF;
+	font-weight:bold;
+}
+.authenticate .mail_authenticate input{
+	float:right;
+	margin-top: 15px;
+}
+.authenticate .phone_authenticate input{
+	float:right;
+	margin-top:15px;
+}
+
+/*璐村＋*/
+.authenticate .tips{
+	margin-top: 20px;
+	padding-top: 20px;
+	padding-left: 15px;
+	padding-bottom:30px;
+	background-color: #F8F8F8;
+}
+.authenticate .tips h3{
+	margin-bottom: 14px;
+	font-size: 16px;
+	font-weight: normal;
+	font-family: "microsoft yahei";
+}
+.authenticate .tips p{
+	text-indent: 30px;
+	line-height: 30px;
+}

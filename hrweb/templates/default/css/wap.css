@@ -1,0 +1,12 @@
+﻿.index{ width:983px;margin:0 auto; margin-top:8px; background-color:#F9F8F9; border:1px #D5D5D5 solid}
+.index .left{ width:300px; height:400px; margin-left:30px; margin-top:30px; background-image:url(../images/67.jpg); background-repeat:no-repeat; float:left; padding-left:33px; padding-top:74px;}
+.index .right{width:560px;float:left; margin-top:30px;}
+.index .right .title{ background-image:url(../images/68.gif); background-repeat:no-repeat; background-position:center 0px; height:80px; margin-top:20px; width:500px;}
+.index .right .title1{ background-image:url(../images/68.gif); background-repeat:no-repeat; background-position:0px -170px; height:26px;}
+.index .right .urlbox{ width:510px;  font-size:26px;  background-color: #FF6600; border:1px  #990000 solid; padding:5px; color: #FFFFFF}
+.index .right .txt{ line-height:180%; margin-top:20px; width:510px; text-indent: 2em;}
+.wap_login{ padding:5px;}
+.wap_tit{ padding-left:5px; background-color:#0066CC; color:#FFFFFF; height:20px; line-height:20px;}
+.wap_txt{ padding:5px; line-height:180%}
+.wap_txt .link_cname{ color: #000000}
+.wap_footer {padding:5px;}

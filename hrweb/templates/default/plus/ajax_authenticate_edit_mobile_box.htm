@@ -1,0 +1,117 @@
+﻿<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
+    <tr>
+		<td width="120" align="right">手机号：</td>
+		<td class="mobile"><input class="input_text_200" type="text" id="mobile_" value=""> </td>
+    </tr>
+    <tr id="displaymobilesend" style="display:none">
+		<td width="120" align="right">验证码：</td>
+		<td><input name="mobile_verifycode" id="mobile_verifycode" type="text" class="input_text_200" value="" /></td>
+    </tr>
+    <tr id="mobilesenddiv">
+		<td></td>
+		<td>
+			<input type="button" name="mobilesend" id="mobilesend" value="发送验证短信"  class="but130lan"/>
+		</td>
+    </tr>
+    <tr id="postverify" style="display:none">
+		<td align="right"></td>
+		<td><div class="but95cheng">确定</div></td>
+	</tr>
+</table>
+<table width="100%" border="0" style="border-top:1px #CCCCCC dotted;background-color: #EEEEEE; line-height: 200%;padding: 10px 15px; margin-top: 10px; color:#666666;"  >
+    <tr>
+	    <td class="dialog_bottom">
+	    	<span class="dialog_tip"></span><span class="dialog_text">提示：当您的手机通过认证后，可以用手机号直接登录；可以用手机修改密码；{#$notice#}</span>
+	    	<div class="clear"></div>
+	    </td>
+    </tr>
+</table>
+<script type="text/javascript">
+$(document).ready(function(){
+	//发送短信验证
+	$("#mobilesend").click(function(){
+		var tel = /^(13|15|14|18)\d{9}$/; 
+		if($("#mobile_").val()=='')
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '请填写手机号',
+			    width:'300px'
+			}).showModal();
+		}
+		else if(!tel.test($("#mobile_").val()))
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '手机号错误',
+			    width:'300px'
+			}).showModal();
+		}
+		else
+		{
+		$("#mobilesend").html("正在发送...");
+		var mobile = $("#mobile_").val();
+		$("#Form1").append("<input type='hidden' name='mobile' id='mobile_' value='"+mobile+"'>");
+		$.post("../../plus/ajax_verify_mobile.php", {"mobile": $("#mobile_").val(),"send_key": "{#$send_mobile_key#}","time":new Date().getTime(),"act":"send_code"},
+	 	function (data,textStatus)
+	 	 {
+			if (data=="success")
+			{	
+				$("#mobilesend").hide();
+				$("#mobilesendsucceed").show();
+				$("#displaymobilesend").show();
+				$("#postverify").show();				 
+			}
+			else
+			{
+				$("#mobilesenddiv").show();
+				$("#mobilesend").html("发送验证短信");
+				$("#displaymobilesend").hide();
+				$("#mobilesendsucceed").hide();
+				dialog({
+				    title: '系统提示',
+				    content: ''+data+'',
+				    width:'300px',
+				    cancelDisplay: false,
+                    cancel: function () {
+				        $("#mobile_").removeAttr('disabled');
+				    }
+				}).showModal();
+			}
+	 	 }
+		 ,"text"
+		 )				 
+		}
+	});
+	$("#postverify").click(function()
+	{
+		if($("#mobile_verifycode").val()=='')
+		{
+			dialog({
+			    title: '系统提示',
+			    content: '请填写效验码',
+			    width:'300px'
+			}).showModal();
+		}
+		else
+		{
+				$.post("../../plus/ajax_verify_mobile.php", {"verifycode": $("#mobile_verifycode").val(),"send_key": "{#$send_mobile_key#}","time":new Date().getTime(),"act":"verify_code"},
+				function (data,textStatus)
+				 {
+					if (data=="success")
+					{	
+						 window.location.reload();
+					}
+					else
+					{
+						dialog({
+						    title: '系统提示',
+						    content: '验证码填写错误',
+						    width:'300px'
+						}).showModal();
+					}
+				 })		
+		}
+	});
+});
+</script>
