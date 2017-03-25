@@ -1,0 +1,24 @@
+
+<html>
+<head></head>
+<body>
+
+2nd page.
+
+<a href='#' onclick='closeWin()'>click here</a>
+
+<script>
+function closeWin() {
+//  alert("closeWin() called");
+//  alert(opener);
+
+//  window.opener.location.href = "z.html";
+//  window.opener.location.reload(true);
+  window.opener.sayhi();
+  self.close();
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QWeiboSDK</name>
+    </assembly>
+    <members>
+        <member name="T:QWeiboSDK.t">
+            <summary>微博相关
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>构造函数
+             <see cref="T:QWeiboSDK.t"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.show(System.Int32)">
+            <summary>获取一条微博数据
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.add(System.String,System.String,System.String,System.String)">
+            <summary>发表一条微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.del(System.String)">
+            <summary>删除一条微博
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.re_add(System.String,System.String,System.String,System.String,System.String)">
+            <summary>转播一条微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="reid">The reid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.reply(System.String,System.String,System.String,System.String,System.String)">
+            <summary>回复一条微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="reid">The reid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.add_pic(System.String,System.String,System.String,System.String,System.String)">
+            <summary>发表一条带图片的微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="pic">The pic.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.re_count(System.String,System.Int32)">
+            <summary>转播数或点评数
+            
+            </summary>
+            <param name="ids">The ids.</param>
+            <param name="flag">The flag.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.re_list(System.Int32,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>获取单条微博的转发或点评列表
+            
+            </summary>
+            <param name="flag">The flag.</param>
+            <param name="rootid">The rootid.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="twitterid">The twitterid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.comment(System.String,System.String,System.String,System.String,System.String)">
+            <summary>点评一条微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="reid">The reid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.add_music(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>发表音乐微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="url">The URL.</param>
+            <param name="title">The title.</param>
+            <param name="author">The author.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.add_video(System.String,System.String,System.String,System.String,System.String)">
+            <summary>发表视频微博
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="url">The URL.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.getvideoinfo(System.String)">
+            <summary>获取视频信息
+            
+            </summary>
+            <param name="url">The URL.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.t.list(System.String)">
+            <summary>根据微博ID批量获取微博内容（与索引合起来用）
+            
+            </summary>
+            <param name="ids">The ids.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.search.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary> 搜索相关 需要 合作伙伴权限
+            构造函数 <see cref="T:QWeiboSDK.search"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.search.user(System.String,System.Int32,System.Int32)">
+            <summary> 搜索用户
+            Users the specified keyword.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="pagesize">The pagesize.</param>
+            <param name="page">The page.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.search.t(System.String,System.Int32,System.Int32)">
+            <summary> 搜索微博
+            
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="pagesize">The pagesize.</param>
+            <param name="page">The page.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.search.userbytag(System.String,System.Int32,System.Int32)">
+            <summary> 通过标签搜索用户
+            
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="pagesize">The pagesize.</param>
+            <param name="page">The page.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.private.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary> 私信相关
+            构造函数 <see cref="T:QWeiboSDK.private"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.private.add(System.String,System.String,System.String,System.String,System.String)">
+            <summary> 发私信
+            
+            </summary>
+            <param name="content">The content.</param>
+            <param name="clientip">The clientip.</param>
+            <param name="jing">The jing.</param>
+            <param name="wei">The wei.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.private.del(System.String)">
+            <summary> 删除私信
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.private.recv(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary> 收件箱
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.private.send(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary> 发件箱
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.GenerateSignature(System.Uri,System.String,System.String,System.String,System.Collections.Generic.List{QWeiboSDK.Parameter},System.String@,System.String@)">
+            <summary>
+            Generates a signature using the HMAC-SHA1 algorithm
+            </summary>		
+            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
+            <param name="consumerKey">The consumer key</param>
+            <param name="consumerSecret">The consumer seceret</param>
+            <param name="token">The token, if available. If not available pass null or an empty string</param>
+            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
+            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
+            <returns>A base64 string of the hash value</returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.GenerateSignatureBase(System.Uri,System.String,System.Collections.Generic.List{QWeiboSDK.Parameter},System.String@,System.String@)">
+            <summary>
+            Generate the signature base that is used to produce the signature
+            </summary>
+            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
+            <param name="consumerKey">The consumer key</param>        
+            <param name="token">The token, if available. If not available pass null or an empty string</param>
+            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
+            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
+            <param name="signatureType">The signature type. To use the default values use <see cref="!:OAuthBase.SignatureTypes">OAuthBase.SignatureTypes</see>.</param>
+            <returns>The signature base</returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.GenerateSignatureUsingHash(System.String,System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            Generate the signature value based on the given signature base and hash algorithm
+            </summary>
+            <param name="signatureBase">The signature based as produced by the GenerateSignatureBase method or by any other means</param>
+            <param name="hash">The hash algorithm used to perform the hashing. If the hashing algorithm requires initialization or a key it should be set prior to calling this method</param>
+            <returns>A base64 string of the hash value</returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.ComputeHash(System.Security.Cryptography.HashAlgorithm,System.String)">
+            <summary>
+            Helper function to compute a hash value
+            </summary>
+            <param name="hashAlgorithm">The hashing algoirhtm used. If that algorithm needs some initialization, like HMAC and its derivatives, they should be initialized prior to passing it to this function</param>
+            <param name="data">The data to hash</param>
+            <returns>a Base64 string of the hash value</returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.UrlEncode(System.String)">
+            <summary>
+            This is a different Url Encode implementation since the default .NET one outputs the percent encoding in lower case.
+            While this is not a problem with the percent encoding spec, it is used in upper case throughout OAuth
+            </summary>
+            <param name="value">The value to Url encode</param>
+            <returns>Returns a Url encoded string</returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.NormalizeRequestParameters(System.Collections.Generic.List{QWeiboSDK.Parameter})">
+            <summary>
+            Normalizes the request parameters according to the spec
+            </summary>
+            <param name="parameters">The list of parameters already sorted</param>
+            <returns>a string representing the normalized parameters</returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.GenerateTimeStamp">
+            <summary>
+            Generate the timestamp for the signature        
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QWeiboSDK.Oauth.GenerateNonce">
+            <summary>
+            Generate a nonce
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QWeiboSDK.user">
+            <summary>用户相关
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>
+            构造函数 <see cref="T:QWeiboSDK.user"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.info">
+            <summary>获取自己的详细资料
+            
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.update(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>更新用户信息
+            
+            </summary>
+            <param name="nick">The nick.</param>
+            <param name="sex">The sex.</param>
+            <param name="year">The year.</param>
+            <param name="month">The month.</param>
+            <param name="day">The day.</param>
+            <param name="countrycode">The countrycode.</param>
+            <param name="provincecode">The provincecode.</param>
+            <param name="citycode">The citycode.</param>
+            <param name="introduction">The introduction.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.update_head(System.String)">
+            <summary>更新用户头像信息
+            
+            </summary>
+            <param name="pic">The pic.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.update_edu(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>更新用户教育信息
+            
+            </summary>
+            <param name="feildid">The feildid.</param>
+            <param name="year">The year.</param>
+            <param name="schoolid">The schoolid.</param>
+            <param name="departmentid">The departmentid.</param>
+            <param name="level">The level.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.other_info(System.String)">
+            <summary>获取其他人资料
+            
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.user.infos(System.String)">
+            <summary>获取一批人的简单资料
+            
+            </summary>
+            <param name="names">The names.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:QWeiboSDK.trends">
+            <summary>热度趋势
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.trends.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>
+            构造函数<see cref="T:QWeiboSDK.trends"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.trends.ht(System.Int32,System.Int32,System.Int32)">
+            <summary>话题热榜
+            
+            </summary>
+            <param name="type">The type.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="pos">The pos.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.trends.t(System.Int32,System.Int32)">
+            <summary>转播热榜
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="pos">The pos.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary> 时间线相关
+            构造函数<see cref="T:QWeiboSDK.statuses"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.home_timeline(System.Int32,System.Int32,System.Int32)">
+            <summary> 主时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.public_timeline(System.Int32,System.Int32)">
+            <summary> 广播大厅时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pos">The pos.</param>
+            <param name="reqnum">The reqnum.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.user_timeline(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>其他用户发表时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.mentions_timeline(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>用户提及时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.ht_timeline(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>话题时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="httext">The httext.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pageinfo">The pageinfo.</param>
+            <param name="reqnum">The reqnum.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.broadcast_timeline(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>我发表时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.special_timeline(System.Int32,System.Int32,System.Int32)">
+            <summary>特别收听的人发表时间线
+            
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.area_timeline(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>地区发表时间线
+            Area_timelines the specified format.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.home_timeline_ids(System.Int32,System.Int32,System.Int32)">
+            <summary>主页时间线索引
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.user_timeline_ids(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>其他用户发表时间线索引
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.broadcast_timeline_ids(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>我发表时间线索引
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.mentions_timeline_ids(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>用户提及时间线索引
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.users_timeline(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>多用户发表时间线
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <param name="names">The names.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.statuses.users_timeline_ids(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>多用户发表时间线索引
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <param name="names">The names.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.other.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary> 其他api 接口
+            Initializes a new instance of the <see cref="T:QWeiboSDK.other"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.other.kownperson">
+            <summary>可能认识的人
+            
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.other.shorturl(System.String)">
+            <summary>短url变长url
+            
+            </summary>
+            <param name="url">短url.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.other.videokey">
+            <summary>获取上传视频的key
+            
+            </summary>
+            <returns>key</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.info.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>数据更新相关 
+            构造函数 <see cref="T:QWeiboSDK.info"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.info.update">
+            <summary>查看数据更新条数 只请求更新数，不清除更新数
+            
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.info.update(System.Int32)">
+            <summary>查看数据更新条数  请求更新数，并对更新数清零
+            
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:QWeiboSDK.HttpMethod">
+            <summary>
+            枚举类型，标识post 或者 get
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:QWeiboSDK.TypeOption">
+            <summary>
+            api的类型
+            </summary>
+            <remarks>命名根据api的uri进行的</remarks>
+        </member>
+        <member name="F:QWeiboSDK.ApiType.uri">
+            <summary>
+            各个api对应的uri ，与 上面的type option 对应
+            </summary>
+        </member>
+        <member name="T:QWeiboSDK.ApiTypeInfo">
+            <summary>
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.ApiInfoConfig.ReadConfig">
+            <summary>
+            Reads the config.
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.ApiInfoConfig.TypeArray">
+            <summary>
+            Gets the type array.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.ApiInfoConfig.TypeCollection">
+            <summary>
+            Gets the type collection.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.ht.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>话题类  构造函数
+             <see cref="T:QWeiboSDK.ht"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.ht.ids(System.String)">
+            <summary>根据话题名称查询话题ID
+            
+            </summary>
+            <param name="httexts">The httexts.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.ht.info(System.String)">
+            <summary>根据话题ID获取话题相关微博
+            
+            </summary>
+            <param name="ids">The ids.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:QWeiboSDK.ParameterComparer">
+            <summary>
+            Comparer class used to perform the sorting of the query parameters
+            </summary>
+        </member>
+        <member name="T:QWeiboSDK.OauthKey">
+            <summary>
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:QWeiboSDK.OauthKey.urlRequesToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:QWeiboSDK.OauthKey.urlUserAuthrize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:QWeiboSDK.OauthKey.urlAccessToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:QWeiboSDK.OauthKey.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QWeiboSDK.OauthKey"/> class.
+            </summary>
+            <param name="pcustomkey">The pcustomkey.</param>
+            <param name="pcustomsecret">The pcustomsecret.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.OauthKey.GetRequestToken(System.String)">
+            <summary> 获取request token
+            Gets the request token.
+            </summary>
+            <param name="callback">The callback.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.OauthKey.GetRequestToken(System.String,System.String)">
+            <summary>获取request token 重载
+            
+            </summary>
+            <param name="requesturl">The requesturl.</param>
+            <param name="callback">The callback.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.OauthKey.GetAccessToken(System.String)">
+            <summary> 获取access token
+            Gets the access token.
+            </summary>
+            <param name="verifier">The verifier.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.OauthKey.GetAccessToken(System.String,System.String)">
+            <summary>获取access token 重载
+            Gets the access token.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="verifier">The verifier.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.OauthKey.ParseToken(System.String)">
+            <summary> 解析返回结果
+            Parses the token.
+            </summary>
+            <param name="response">The response.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.customKey">
+            <summary>
+            Gets or sets the custom key.
+            </summary>
+            <value>The custom key.</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.customSecret">
+            <summary>
+            Gets or sets the custom secret.
+            </summary>
+            <value>The custom secret.</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.tokenKey">
+            <summary>
+            Gets or sets the token key.
+            </summary>
+            <value>The token key.</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.tokenSecret">
+            <summary>
+            Gets or sets the token secret.
+            </summary>
+            <value>The token secret.</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.verify">
+            <summary>
+            Gets or sets the verify.
+            </summary>
+            <value>The verify.</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.callbackUrl">
+            <summary>
+            Gets or sets the callback URL.
+            </summary>
+            <value>The callback URL.</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:QWeiboSDK.OauthKey.Charset">
+            <summary>
+            Gets or sets the charset.
+            </summary>
+            <value>The charset.</value>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary> 数据收藏类的 构造函数
+             <see cref="T:QWeiboSDK.fav"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.addt(System.String)">
+            <summary>收藏一条微博.
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.delt(System.String)">
+            <summary>从收藏夹删除一条微博.
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.list_t(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>收藏的微博列表.
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="nexttime">The nexttime.</param>
+            <param name="prevtime">The prevtime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.addht(System.String)">
+            <summary>订阅话题.
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.delht(System.String)">
+            <summary>删除话题从收藏.
+            
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.fav.list_t(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>获取已订阅话题列表.
+            
+            </summary>
+            <param name="pageflag">The pageflag.</param>
+            <param name="pagetime">The pagetime.</param>
+            <param name="reqnum">The reqnum.</param>
+            <param name="lastid">The lastid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:QWeiboSDK.tag">
+            <summary>标签相关
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.tag.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>
+            构造函数 <see cref="T:QWeiboSDK.tag"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.tag.add(System.String)">
+            <summary> 添加标签
+            
+            </summary>
+            <param name="tag">The tag.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.tag.del(System.String)">
+            <summary>删除标签
+            
+            </summary>
+            <param name="tagid">The tagid.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.#ctor(QWeiboSDK.OauthKey,System.String)">
+            <summary>构造函数 
+            <see cref="T:QWeiboSDK.friends"/> class.
+            </summary>
+            <param name="okey">The okey.</param>
+            <param name="format">The format.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.fanslist(System.Int32,System.Int32)">
+            <summary>我的听众列表.
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.idollist(System.Int32,System.Int32)">
+            <summary>我收听的人列表.
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.blacklist(System.Int32,System.Int32)">
+            <summary>黑名单列表.
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.speciallist(System.Int32,System.Int32)">
+            <summary>
+            特别收听列表.
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.add(System.String,System.String)">
+            <summary> 收听某个用户
+            </summary>
+            <param name="name">The name.</param>
+            <param name="clientip">The clientip.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.del(System.String)">
+            <summary>取消收听某个用户.
+            
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.addspecial(System.String)">
+            <summary>特别收听某个用户.
+            
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.delspecial(System.String)">
+            <summary>取消特别收听某个用户.
+            
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.addblacklist(System.String)">
+            <summary>添加某个用户到黑名单.
+            
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.delblacklist(System.String)">
+            <summary>从黑名单中删除某个用户.
+            
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.check(System.String,System.Int32)">
+            <summary>检测是否我的听众或收听的人.
+            
+            </summary>
+            <param name="names">The names.</param>
+            <param name="flag">The flag.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.user_fanslist(System.Int32,System.Int32,System.String)">
+            <summary>其他帐户听众列表.
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.user_idollist(System.Int32,System.Int32,System.String)">
+            <summary>其他帐户收听的人列表
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:QWeiboSDK.friends.user_speciallist(System.Int32,System.Int32,System.String)">
+            <summary>其他帐户特别收听的人列表.
+            
+            </summary>
+            <param name="reqnum">The reqnum.</param>
+            <param name="startindex">The startindex.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+    </members>
+</doc>

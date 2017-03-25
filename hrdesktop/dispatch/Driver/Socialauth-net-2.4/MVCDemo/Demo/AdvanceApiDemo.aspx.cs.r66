@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Script.Services;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Brickred.SocialAuth.NET.Core.BusinessObjects;
+using Brickred.SocialAuth.NET.Core;
+using Brickred.SocialAuth.NET.Core.Wrappers;
+using System.Web.Services;
+
+namespace Brickred.SocialAuth.NET.Demo
+{
+    public partial class AdvanceApiDemo : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        if(!IsPostBack)
+        {
+            var enumIterator = Enum.GetValues(typeof (PROVIDER_TYPE)).GetEnumerator();
+            while (enumIterator.MoveNext())
+            {
+                this.lstProviders.Items.Add(enumIterator.Current.ToString());
+            }
+        }
+        }
+
+        protected void btnGetLoginUrl_Click(object sender, EventArgs e)
+        {
+            SocialAuthManager manager = new SocialAuthManager(SocialAuth.NET.Core.Utility.GetSocialAuthConfiguration());
+            Session["socialauth"] = manager;
+
+            string url = (manager.GetLoginRedirectUrl((PROVIDER_TYPE)Enum.Parse(typeof(PROVIDER_TYPE),lstProviders.SelectedItem.Text),
+                                                       "http://opensource.brickred.com/socialauthdemo/socialauth/validate.sauth"));
+            redirectUrl.NavigateUrl = url;
+            redirectUrl.Text = url;
+        }
+
+        protected void btnConnect_Click(object sender, EventArgs e)
+        {
+            SocialAuthManager manager = Session["socialauth"] as SocialAuthManager;
+            manager.Connect((PROVIDER_TYPE)Enum.Parse(typeof(PROVIDER_TYPE), lstProviders.SelectedItem.Text), Server.UrlDecode(txtRedirectResponse.Value.Replace("#_=_", "")));
+            lblAccessToken.Text = manager.GetConnectionToken((PROVIDER_TYPE)Enum.Parse(typeof(PROVIDER_TYPE),lstProviders.SelectedItem.Text)).AccessToken;
+        }
+
+        protected void btnGetProfile_Click(object sender, EventArgs e)
+        {
+            SocialAuthManager manager = Session["socialauth"] as SocialAuthManager;
+            var selectedProvider = (PROVIDER_TYPE) Enum.Parse(typeof (PROVIDER_TYPE),lstProviders.SelectedItem.Text);
+            var response =  manager.ExecuteFeed(selectedProvider, ProviderFactory.GetProvider(selectedProvider,null).ProfileEndpoint);
+            lblProfileData.Text = new StreamReader(response.GetResponseStream()).ReadToEnd();
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public static string GetFriends()
+        {
+            PROVIDER_TYPE provider  = PROVIDER_TYPE.FACEBOOK;
+            SocialAuthManager manager = HttpContext.Current.Session["socialauth"] as SocialAuthManager;
+            var response = manager.ExecuteFeed(PROVIDER_TYPE.FACEBOOK, "https://graph.facebook.com/me/friends");
+            return new StreamReader(response.GetResponseStream()).ReadToEnd();
+        }
+    }
+}

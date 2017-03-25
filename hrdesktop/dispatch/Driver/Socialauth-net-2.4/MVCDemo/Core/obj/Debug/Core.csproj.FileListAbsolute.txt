@@ -1,0 +1,16 @@
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\SocialAuth-net.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\SocialAuth-net.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\log4net.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\Microsoft.IdentityModel.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\obj\Debug\SocialAuth-net.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\obj\Debug\SocialAuth-net.pdb
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\SocialAuth-net.dll
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\SocialAuth-net.pdb
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\log4net.dll
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\Microsoft.IdentityModel.dll
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\obj\Debug\SocialAuth-net.dll
+C:\Users\gun\Documents\HPS\CJW\Driver\Socialauth-net-2.4\MVCDemo\Core\obj\Debug\SocialAuth-net.pdb

@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DemoWeb", "DemoWeb\", "{EF48BD24-1289-4406-A941-F62F9171D290}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{ADD81DE4-667B-4808-89DF-678D6E9FD34E}|WeiBeeCommon.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/DemoWeb"
+		Debug.AspNetCompiler.PhysicalPath = "DemoWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\DemoWeb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/DemoWeb"
+		Release.AspNetCompiler.PhysicalPath = "DemoWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\DemoWeb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60001"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeiBeeCommon", "WeiBeeCommon\WeiBeeCommon.csproj", "{ADD81DE4-667B-4808-89DF-678D6E9FD34E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{142C6ADC-83C2-4958-954E-AEEFC9D4DE2B}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		WeiBeeWeb.vsmdi = WeiBeeWeb.vsmdi
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = WeiBeeWeb.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF48BD24-1289-4406-A941-F62F9171D290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF48BD24-1289-4406-A941-F62F9171D290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF48BD24-1289-4406-A941-F62F9171D290}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF48BD24-1289-4406-A941-F62F9171D290}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{ADD81DE4-667B-4808-89DF-678D6E9FD34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD81DE4-667B-4808-89DF-678D6E9FD34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD81DE4-667B-4808-89DF-678D6E9FD34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD81DE4-667B-4808-89DF-678D6E9FD34E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

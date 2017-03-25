@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="xmlrpc">
+</Property><Property Name="解决方案文件" Value="C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\src\xmlrpc.sln">
+</Property><Property Name="Date" Value="2014年3月21日">
+</Property><Property Name="Time" Value="16:49">
+</Property></Properties><Event ErrorLevel="1" Project="xmlrpc" Source="xmlrpc.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="xmlrpc" Source="xmlrpc.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="xmlrpc" Source="xmlrpc.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="ntest" Source="..\ntest\ntest.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="ntest" Source="..\ntest\ntest.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="ntest" Source="..\ntest\ntest.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="AsyncBettyApplication" Source="..\samples\AsyncBettyApplication\AsyncBettyApplication.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="AsyncBettyApplication" Source="..\samples\AsyncBettyApplication\AsyncBettyApplication.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="AsyncBettyApplication" Source="..\samples\AsyncBettyApplication\AsyncBettyApplication.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="BettyApplication" Source="..\samples\BettyApplication\BettyApplication.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="BettyApplication" Source="..\samples\BettyApplication\BettyApplication.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="BettyApplication" Source="..\samples\BettyApplication\BettyApplication.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="LoggingExample" Source="..\samples\LoggingExample\LoggingExample.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="LoggingExample" Source="..\samples\LoggingExample\LoggingExample.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="LoggingExample" Source="..\samples\LoggingExample\LoggingExample.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="MathApp" Source="..\samples\MathApp\MathApp.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="MathApp" Source="..\samples\MathApp\MathApp.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="MathApp" Source="..\samples\MathApp\MathApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="MathService" Source="..\samples\MathService\MathService.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="MathService" Source="..\samples\MathService\MathService.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="MathService" Source="..\samples\MathService\MathService.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="client" Source="..\samples\StateNameServer\client\client.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="client" Source="..\samples\StateNameServer\client\client.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="client" Source="..\samples\StateNameServer\client\client.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="interface" Source="..\samples\StateNameServer\interface\interface.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="interface" Source="..\samples\StateNameServer\interface\interface.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="interface" Source="..\samples\StateNameServer\interface\interface.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="server" Source="..\samples\StateNameServer\server\server.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="server" Source="..\samples\StateNameServer\server\server.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="server" Source="..\samples\StateNameServer\server\server.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="xmlrpcCF" Source="..\xmlrpcCF\xmlrpcCF.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="xmlrpcCF" Source="..\xmlrpcCF\xmlrpcCF.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Wordpress" Source="..\Wordpress\Wordpress.csproj" Description="项目文件不需要转换。">
+</Event><Event ErrorLevel="3" Project="Wordpress" Source="..\Wordpress\Wordpress.csproj" Description="无需转换">
+</Event><Event ErrorLevel="0" Project="xmlrpc" Source="xmlrpc.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="ntest" Source="..\ntest\ntest.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="" Source="xmlrpc.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="xmlrpc.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="client" Source="..\samples\StateNameServer\client\client.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="interface" Source="..\samples\StateNameServer\interface\interface.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="server" Source="..\samples\StateNameServer\server\server.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="AsyncBettyApplication" Source="..\samples\AsyncBettyApplication\AsyncBettyApplication.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="BettyApplication" Source="..\samples\BettyApplication\BettyApplication.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="LoggingExample" Source="..\samples\LoggingExample\LoggingExample.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="MathApp" Source="..\samples\MathApp\MathApp.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="MathService" Source="..\samples\MathService\MathService.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="xmlrpc" Source="xmlrpc.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="ntest" Source="..\ntest\ntest.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

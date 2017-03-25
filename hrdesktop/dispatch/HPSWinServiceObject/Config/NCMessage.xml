@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MessageInfo>
+  <!--
+	==================================
+	メッセージ構成説明
+
+	id:メッセージID
+
+	msg:メッセージ
+
+	==================================
+	-->
+  <Message id="CM0000I" msg="Please Select Customer Data。" />
+  <Message id="CM0001I" msg="Add Customer Success" />
+  <Message id="CM0002I" msg="Add Customer Failure" />
+  <Message id="CM0003I" msg="Update Customer Success" />
+  <Message id="CM0004I" msg="Update Customer Failure" />
+  <Message id="CM0005I" msg="Delete Customer Success" />
+  <Message id="CM0006I" msg="Delete Customer Failure" />
+  <Message id="CM0007I" msg="Customer Data Check Completed!" />
+  <Message id="CM0008I" msg="Customer Data Not exists!" />
+  <Message id="CM0009I" msg="import invalid customer Data completed!" />
+  <Message id="CM0010I" msg="imported {0} invalid data." />
+
+  <Message id="CM0011I" msg="User name or password is not correct！" />
+  <Message id="CM0012I" msg="To activate the new language setting ,you must restart the system！Do you want to restart？" />
+  <Message id="CM0013I" msg="Super Admin" />
+  <Message id="CM0014I" msg="Customer Admin" />
+  <Message id="CM0015I" msg="Mag Admin" />
+  <Message id="CM0016I" msg="User Admin" />
+  <Message id="CM0017I" msg="Server Admin" />
+  <Message id="CM0018I" msg="Common User" />
+
+  <Message id="CM0019I" msg="Please Select FTP Server Data。" />
+  <Message id="CM0020I" msg="Add FTP Server Success" />
+  <Message id="CM0021I" msg="Add FTP Server Failure" />
+  <Message id="CM0022I" msg="Update FTP Server Success" />
+  <Message id="CM0023I" msg="Update FTP Server Failure" />
+  <Message id="CM0024I" msg="Delete FTP Server Success" />
+  <Message id="CM0025I" msg="Delete FTP Server Failure" />
+  <Message id="CM0026I" msg="Please select a test file." />
+  <Message id="CM0027I" msg="Test upload success." />
+  <Message id="CM0028I" msg="Test upload failure." />
+
+  <Message id="CM0029I" msg="Please Select Mag Data。" />
+  <Message id="CM0030I" msg="Add Mag Success" />
+  <Message id="CM0031I" msg="Add Mag Failure" />
+  <Message id="CM0032I" msg="Update Mag Success" />
+  <Message id="CM0033I" msg="Update Mag Failure" />
+  <Message id="CM0034I" msg="Delete Mag Success" />
+  <Message id="CM0035I" msg="Delete Mag Failure" />
+  <Message id="CM0036I" msg="Delete Mag Publish Data Success" />
+  <Message id="CM0037I" msg="Delete Mag Publish Data Failure" />
+  <Message id="CM0038I" msg="Delete Mag Publish history Success" />
+  <Message id="CM0039I" msg="Delete Mag Publish history Failure" />
+  <Message id="CM0040I" msg="Delete Mag Publish Success" />
+  <Message id="CM0041I" msg="Delete Mag Publish Failure" />
+
+  <Message id="CM0042I" msg="Please Select User Data。" />
+  <Message id="CM0043I" msg="Add User Success" />
+  <Message id="CM0044I" msg="Add User Failure" />
+  <Message id="CM0045I" msg="Update User Success" />
+  <Message id="CM0046I" msg="Update User Failure" />
+  <Message id="CM0047I" msg="Delete User Success" />
+  <Message id="CM0048I" msg="Delete User Failure" />
+  <Message id="CM0049E" msg="No User Type for {0}。" />
+
+  <Message id="CM0050I" msg="Please Select Media Data。" />
+  <Message id="CM0051I" msg="Add Media Success" />
+  <Message id="CM0052I" msg="Add Media Failure" />
+  <Message id="CM0053I" msg="Update Media Success" />
+  <Message id="CM0054I" msg="Update Media Failure" />
+  <Message id="CM0055I" msg="Delete Media Success" />
+  <Message id="CM0056I" msg="Delete Media Failure" />
+  <Message id="CM0057I" msg="Test Publish success." />
+  <Message id="CM0058I" msg="Test Publish failure." />
+
+  <Message id="CM0059I" msg="Please Select Mail Server Data。" />
+  <Message id="CM0060I" msg="Add Mail Server Success" />
+  <Message id="CM0061I" msg="Add Mail Server Failure" />
+  <Message id="CM0062I" msg="Update Mail Server Success" />
+  <Message id="CM0063I" msg="Update Mail Server Failure" />
+  <Message id="CM0064I" msg="Delete Mail Server Success" />
+  <Message id="CM0065I" msg="Delete Mail Server Failure" />
+  <Message id="CM0066I" msg="Please in put a correct user mail." />
+  <Message id="CM0067I" msg="Test mail send success." />
+  <Message id="CM0068I" msg="Test mail send failure." />
+
+  <Message id="CM0069I" msg="Please select mag publish data。" />
+  <Message id="CM0070I" msg="Add mag publish success" />
+  <Message id="CM0071I" msg="Add mag publish failure" />
+  <Message id="CM0072I" msg="update mag publish success" />
+  <Message id="CM0073I" msg="update mag publish failure" />
+  <Message id="CM0074I" msg="no subscript customer!" />
+  <Message id="CM0075I" msg="Backup mag publish success。" />
+  <Message id="CM0076I" msg="Backup mag publish failure。" />
+  <Message id="CM0077I" msg="no mag publish data!" />
+  <Message id="CM0078I" msg="no mail server for publish test!" />
+  <Message id="CM0079I" msg="no test customer for publish test!" />
+  <Message id="CM0080I" msg="{0} List" />
+  <Message id="CM0081I" msg="mag publish success" />
+  <Message id="CM0082I" msg="mag publish failure" />
+  <Message id="CM0083I" msg="the mag status is {0}" />
+
+  <Message id="CM0084I" msg="No Usable FTP Server!" />
+  <Message id="CM0085I" msg="Please select a merge file。" />
+  <Message id="CM0086I" msg="No usable PDF File!" />
+  <Message id="CM0087I" msg="PDF file {0} is not exists!" />
+  <Message id="CM0088I" msg="PDF file merge success!" />
+  <Message id="CM0089I" msg="PDF file merge failure!" />
+  <Message id="CM0090I" msg="Please select PDF file。" />
+  <Message id="CM0091I" msg="Delete PDF file  success！。" />
+  <Message id="CM0092I" msg="Delete PDF file failure！。" />
+  <Message id="CM0093I" msg="Fail to get PDF page numbers！。" />
+  <Message id="CM0094I" msg="Add PDF file success！。" />
+  <Message id="CM0095I" msg="Add PDF file failure！。" />
+  <Message id="CM0096I" msg="update PDF file success！。" />
+  <Message id="CM0097I" msg="update PDF file failure！。" />
+  <Message id="CM0098I" msg="Open PPT file {0} failure！" />
+  <Message id="CM0099I" msg="Write to PPT file {0} failure！" />
+  <Message id="CM0100I" msg="Save PPT file {0} to PDF failure！" />
+
+  <Message id="CM0101I" msg="Mag Management System！" />
+  <Message id="CM0102I" msg="{0} start to send mail！" />
+  <Message id="CM0103I" msg="{0} end to send mail！" />
+
+  <Message id="CM0104I" msg="Product regist success！" />
+  <Message id="CM0105I" msg="License is not correct,Please contact the author！" />
+  <Message id="CM0106I" msg="Fail to get Product Id ,Please contact the author！" />
+  <Message id="CM0107I" msg="Fail to send mail,Please contact the author！" />
+  <Message id="CM0108I" msg="Mail send Success，Please wait for payment notice and license ID！" />
+
+  <Message id="CM0109I" msg="Data Backup success！" />
+  <Message id="CM0110I" msg="The file is already exists,please select another！" />
+  <Message id="CM0111I" msg="The file can not be written,please select anther folder！" />
+  <Message id="CM0112I" msg="Backup file (*.bak)|*.bak|All (*.*)|*.*" />
+  <Message id="CM0113I" msg="Data Restore success！" />
+  <Message id="CM0114I" msg="Data Resotre failure！" />
+  <Message id="CM0115I" msg="Manual file {0} is not exists！" />
+
+  <Message id="CM0116I" msg="Please set password of magzine！" />
+  <Message id="CM0117I" msg="Encrypt success！" />
+  <Message id="CM0118I" msg="Encrypt faailure！" />
+
+  <Message id="CM0119I" msg="Please select Customer DB data。" />
+  <Message id="CM0120I" msg="Add Customer DB success" />
+  <Message id="CM0121I" msg="Add Customer DB failure" />
+  <Message id="CM0122I" msg="update Customer DB success" />
+  <Message id="CM0123I" msg="update Customer DB failure" />
+  <Message id="CM0124I" msg="Delete Customer DB Success" />
+  <Message id="CM0125I" msg="Delete Customer DB Failure" />
+  <Message id="CM0126I" msg="{0} Customers searched,{1} Customers insert to db success!" />
+  <Message id="CM0127I" msg="Message Posted successfully" />
+
+  <Message id="CM0136I" msg="Delete FTP Upload Success" />
+  <Message id="CM0137I" msg="Delete FTP Upload Failure" />
+  <Message id="CM0138I" msg="Delete FTP Upload history Success" />
+  <Message id="CM0139I" msg="Delete FTP Upload history Failure" />
+  <Message id="CM0146I" msg="Delete Media Publish Success" />
+  <Message id="CM0147I" msg="Delete Media Publish Failure" />
+  <Message id="CM0148I" msg="Delete Media Publish history Success" />
+  <Message id="CM0149I" msg="Delete Media Publish history Failure" />
+
+  <Message id="CM0152I" msg="Please Select Tool Config。" />
+  <Message id="CM0153I" msg="Add Tool Success" />
+  <Message id="CM0154I" msg="Add Tool Failure" />
+  <Message id="CM0155I" msg="Update Tool Success" />
+  <Message id="CM0156I" msg="Update Tool Failure" />
+  <Message id="CM0157I" msg="Delete Tool Success" />
+  <Message id="CM0158I" msg="Delete Tool Failure" />
+  <Message id="CM0159E" msg="{0} is Not exists。" />
+
+  <Message id="CM0160I" msg="Installing Database ..." />
+  <Message id="CM0161I" msg="Create Database Success!" />
+  <Message id="CM0161E" msg="Create Database Failure!" />
+  <Message id="CM0162I" msg="Restore Database Success!" />
+  <Message id="CM0162E" msg="Restore Database Failure!" />
+  <Message id="CM0163I" msg="Execute Script Success!" />
+  <Message id="CM0163E" msg="Execute Script Failure!" />
+  <Message id="CM0164I" msg="DB Install File is not exists! Please download SQLEXPRESS or insert CJW Disk to install." />
+
+  <Message id="CM0169I" msg="Please Select Resume。" />
+  <Message id="CM0170I" msg="Add Resume Success" />
+  <Message id="CM0171I" msg="Add Resume Failure" />
+  <Message id="CM0172I" msg="Update Resume Success" />
+  <Message id="CM0173I" msg="Update Resume Failure" />
+  <Message id="CM0174I" msg="Delete Resume Success" />
+  <Message id="CM0175I" msg="Delete Resume Failure" />
+  <Message id="CM0176E" msg="{0} is Not exists。" />
+
+  <Message id="CM0179I" msg="Please Select Work History。" />
+  <Message id="CM0180I" msg="Add Work History Success" />
+  <Message id="CM0181I" msg="Add Work History Failure" />
+  <Message id="CM0182I" msg="Update Work History Success" />
+  <Message id="CM0183I" msg="Update Work History Failure" />
+  <Message id="CM0184I" msg="Delete Work History Success" />
+  <Message id="CM0185I" msg="Delete Work History Failure" />
+  <Message id="CM0186E" msg="{0} is Not exists。" />
+
+  <Message id="CM0189I" msg="Please Select Dispatch History。" />
+  <Message id="CM0190I" msg="Add Dispatch History Success" />
+  <Message id="CM0191I" msg="Add Dispatch History Failure" />
+  <Message id="CM0192I" msg="Update Dispatch History Success" />
+  <Message id="CM0193I" msg="Update Dispatch History Failure" />
+  <Message id="CM0194I" msg="Delete Dispatch History Success" />
+  <Message id="CM0195I" msg="Delete Dispatch History Failure" />
+  <Message id="CM0196E" msg="{0} is Not exists。" />
+
+  <Message id="CM0460I" msg="Begin to write configure。" />
+  <Message id="CM0470I" msg="End to write configure。" />
+  <Message id="CM0480I" msg="Begin to start service。" />
+  <Message id="CM0490I" msg="End to start service" />
+  <Message id="CM0500I" msg="Begin to start process module。" />
+  <Message id="CM0510I" msg="End to start process module。" />
+  
+  <Message id="CM0520I" msg="Chojo Magzine Management System" />
+  <Message id="CM0521I" msg="1.0.0" />
+  <Message id="CM0522I" msg="Copyright ©  2013" />
+  <Message id="CM0523I" msg="Chojo Co,.Ltd" />
+  <Message id="CM0524I" msg="This is a greate notification system to manage you document,customer,public media." />
+
+  <Message id="CM0410W" msg="Service is not exists。" />
+  <Message id="CM0420W" msg="DB connection error。" />
+  <Message id="CM0430W" msg="SQLServer connection error。" />
+  <Message id="CM0440E" msg="{0} is not exists in configure file。" />
+  <Message id="CM0450E" msg="{0} is not correct in configure file。" />
+  <Message id="CM0480W" msg="There are something wrong with configure file。" />
+
+</MessageInfo>

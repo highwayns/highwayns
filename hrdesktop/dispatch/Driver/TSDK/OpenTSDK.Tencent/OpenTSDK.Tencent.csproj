@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{31AADDB4-BE12-4B89-A807-3EBFB3B5D20C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenTSDK.Tencent</RootNamespace>
+    <AssemblyName>OpenTSDK.Tencent</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\OpenTSDK.Tencent.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\DataSearch.cs" />
+    <Compile Include="API\Favorite.cs" />
+    <Compile Include="API\Friends.cs" />
+    <Compile Include="API\HT.cs" />
+    <Compile Include="API\PrivateMessage.cs" />
+    <Compile Include="API\Trends.cs" />
+    <Compile Include="API\User.cs" />
+    <Compile Include="Objects\Files.cs" />
+    <Compile Include="Objects\HTCheckData.cs" />
+    <Compile Include="Objects\HTData.cs" />
+    <Compile Include="Objects\HTInfo.cs" />
+    <Compile Include="Objects\UserCheck.cs" />
+    <Compile Include="Objects\UserCheckData.cs" />
+    <Compile Include="Objects\UserData.cs" />
+    <Compile Include="Objects\UserInfo.cs" />
+    <Compile Include="Objects\PersonData.cs" />
+    <Compile Include="Objects\Person.cs" />
+    <Compile Include="Objects\ResponseDataFormat.cs" />
+    <Compile Include="Objects\ResponseData.cs" />
+    <Compile Include="Objects\ResponseObject.cs" />
+    <Compile Include="Objects\Sex.cs" />
+    <Compile Include="Objects\HTTrendsType.cs" />
+    <Compile Include="Objects\StatisticsData.cs" />
+    <Compile Include="Objects\StatisticsOperate.cs" />
+    <Compile Include="Objects\TimelineData.cs" />
+    <Compile Include="Objects\Tweet.cs" />
+    <Compile Include="Objects\TweetContent.cs" />
+    <Compile Include="Objects\PageFlag.cs" />
+    <Compile Include="Objects\Parameters.cs" />
+    <Compile Include="Http\HttpUtil.cs" />
+    <Compile Include="Http\SyncHttpRequest.cs" />
+    <Compile Include="OAuth.cs" />
+    <Compile Include="Objects\TweetData.cs" />
+    <Compile Include="Objects\TweetOperateResult.cs" />
+    <Compile Include="Objects\TweetSummary.cs" />
+    <Compile Include="Objects\UploadFile.cs" />
+    <Compile Include="Objects\UserProfile.cs" />
+    <Compile Include="Objects\UserProfileData.cs" />
+    <Compile Include="Objects\UserSearchData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="API\RequestBase.cs" />
+    <Compile Include="API\Timeline.cs" />
+    <Compile Include="API\Twitter.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

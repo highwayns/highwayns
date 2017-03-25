@@ -1,0 +1,5 @@
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\TSDK\OpenTSDK.Tencent\bin\Debug\OpenTSDK.Tencent.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\TSDK\OpenTSDK.Tencent\bin\Debug\OpenTSDK.Tencent.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\TSDK\OpenTSDK.Tencent\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\TSDK\OpenTSDK.Tencent\obj\Debug\OpenTSDK.Tencent.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\TSDK\OpenTSDK.Tencent\obj\Debug\OpenTSDK.Tencent.pdb

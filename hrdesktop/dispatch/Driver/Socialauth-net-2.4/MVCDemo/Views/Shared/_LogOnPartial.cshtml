@@ -1,0 +1,18 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>Welcome <strong>
+        @if (Brickred.SocialAuth.NET.Core.BusinessObjects.SocialAuthUser.IsLoggedIn())
+        {
+            @User.Identity.GetProfile().FullName;
+        }
+        else
+        {
+            @User.Identity.Name ;
+        }
+    </strong>! [ @Html.ActionLink("Log Off", "LogOff", "Account")
+    ]</text>
+}
+else
+{
+    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+}

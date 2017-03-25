@@ -1,0 +1,8 @@
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\bin\Debug\DotNetOpenAuth.ApplicationBlock.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\bin\Debug\DotNetOpenAuth.ApplicationBlock.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\bin\Debug\DotNetOpenAuth.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\bin\Debug\DotNetOpenAuth.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\bin\Debug\DotNetOpenAuth.xml
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\obj\Debug\DotNetOpenAuth.ApplicationBlock.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\DotNetOpenAuth-4.3.1.13153\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\obj\Debug\DotNetOpenAuth.ApplicationBlock.pdb

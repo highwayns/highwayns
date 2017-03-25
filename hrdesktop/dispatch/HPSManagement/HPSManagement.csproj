@@ -1,0 +1,1518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C90661B9-A298-4A39-A8F4-6530A047880E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HPSManagement</RootNamespace>
+    <AssemblyName>HPSManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>AC37FAA87E008ADAA380839F2DA7557883E25219</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\xml-rpc.net.2.5.0\bin\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\DotNetOpenAuth-4.3.1.13153\Bin-net4.0\DotNetOpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.ApplicationBlock, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\DotNetOpenAuth-4.3.1.13153\Samples\DotNetOpenAuth.ApplicationBlock\bin\Debug\DotNetOpenAuth.ApplicationBlock.dll</HintPath>
+    </Reference>
+    <Reference Include="EPocalipse.IFilter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\EPocalipse.IFilter.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\facebook-winforms-sample-master\src\fb-csharp-sdk-winforms\bin\Debug\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock.Mono, Version=1.0.5089.25318, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\Hammock.Mono.dll</HintPath>
+    </Reference>
+    <Reference Include="HgCo.WindowsLive.SkyDriveServiceClient, Version=2.0.3.29707, Culture=neutral, PublicKeyToken=956852a28dcd1e2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\HgCo.WindowsLive.SkyDriveServiceClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\皮肤控件\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock, Version=0.9.8316.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\myspace\samples\MySpaceID-OAuth\bin\Jayrock.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock.Json, Version=0.9.8316.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\myspace\samples\MySpaceID-OAuth\bin\Jayrock.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\Socialauth-net-2.4\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Magick.NET-AnyCPU, Version=6.0.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\Magick.NET-Q8-AnyCPU.7.0.0.0002\lib\net40-client\Magick.NET-AnyCPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\Socialauth-net-2.4\Lib\Microsoft.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySpaceID-OAuth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\myspace\samples\MySpaceID-OAuth\bin\MySpaceID-OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="MySpaceID.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\myspace\samples\MySpaceID-OAuth\bin\MySpaceID.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenStack">
+      <HintPath>..\packages\OpenStack-SDK-DotNet.0.9.1.0\lib\net40\OpenStack.dll</HintPath>
+    </Reference>
+    <Reference Include="QWeiboSDK">
+      <HintPath>..\Driver\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QWeiboSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="SocialAuth-net, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Driver\Socialauth-net-2.4\MVCDemo\Core\bin\Debug\SocialAuth-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TweetSharp.Mono">
+      <HintPath>..\Driver\TweetSharp.Mono.dll</HintPath>
+    </Reference>
+    <Reference Include="Winzip">
+      <HintPath>..\..\Driver\Winzip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage1.Designer.cs">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage2.Designer.cs">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage3.Designer.cs">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage4.Designer.cs">
+      <DependentUpon>WizardPage4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateMagzine\WizardPage5.Designer.cs">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataBase.Designer.cs">
+      <DependentUpon>FormDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFacebookLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFacebookLogin.Designer.cs">
+      <DependentUpon>FormFacebookLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuthSocialLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuthSocialLogin.Designer.cs">
+      <DependentUpon>FormAuthSocialLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFactory.cs" />
+    <Compile Include="FormFileConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFileConverter.Designer.cs">
+      <DependentUpon>FormFileConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMediaPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMediaPublish.Designer.cs">
+      <DependentUpon>FormMediaPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReader.Designer.cs">
+      <DependentUpon>FormReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegist.Designer.cs">
+      <DependentUpon>FormRegist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSubscript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSubscript.Designer.cs">
+      <DependentUpon>FormSubscript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormToolConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToolConfig.Designer.cs">
+      <DependentUpon>FormToolConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPublish.Designer.cs">
+      <DependentUpon>FormPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMailServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMailServer.Designer.cs">
+      <DependentUpon>FormMailServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMag.Designer.cs">
+      <DependentUpon>FormMag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFaceBookPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFaceBookPublish.Designer.cs">
+      <DependentUpon>FormFaceBookPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQWeiboLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQWeiboLogin.Designer.cs">
+      <DependentUpon>FormQWeiboLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQWeiboPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQWeiboPublish.Designer.cs">
+      <DependentUpon>FormQWeiboPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MetaWeblogAPI.cs" />
+    <Compile Include="OAuth1.cs" />
+    <Compile Include="OAuth1Base.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerDB.Designer.cs">
+      <DependentUpon>FormCustomerDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedia.Designer.cs">
+      <DependentUpon>FormMedia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditor.Designer.cs">
+      <DependentUpon>FormEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFTPServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFTPServer.Designer.cs">
+      <DependentUpon>FormFTPServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage1.Designer.cs">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage2.Designer.cs">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage3.Designer.cs">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage40.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage40.Designer.cs">
+      <DependentUpon>WizardPage40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage5.Designer.cs">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage41.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage41.Designer.cs">
+      <DependentUpon>WizardPage41.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage42.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage42.Designer.cs">
+      <DependentUpon>WizardPage42.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage43.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PublishMagzine\WizardPage43.Designer.cs">
+      <DependentUpon>WizardPage43.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkQueue.cs" />
+    <Compile Include="FormWordpressPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWordpressPublish.Designer.cs">
+      <DependentUpon>FormWordpressPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuthSocialPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuthSocialPublish.Designer.cs">
+      <DependentUpon>FormAuthSocialPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTwitterLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTwitterLogin.Designer.cs">
+      <DependentUpon>FormTwitterLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTwitterPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTwitterPublish.Designer.cs">
+      <DependentUpon>FormTwitterPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMySpaceLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMySpaceLogin.Designer.cs">
+      <DependentUpon>FormMySpaceLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMySpacePublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMySpacePublish.Designer.cs">
+      <DependentUpon>FormMySpacePublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreateMagzineWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateMagzineWizard.Designer.cs">
+      <DependentUpon>FormCreateMagzineWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPublishMagzineWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPublishMagzineWizard.Designer.cs">
+      <DependentUpon>FormPublishMagzineWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPassword.Designer.cs">
+      <DependentUpon>FormPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSendMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSendMail.Designer.cs">
+      <DependentUpon>FormSendMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFTPUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFTPUpload.Designer.cs">
+      <DependentUpon>FormFTPUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerSync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerSync.Designer.cs">
+      <DependentUpon>FormCustomerSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLinkedInLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLinkedInLogin.Designer.cs">
+      <DependentUpon>FormLinkedInLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLinkedInPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLinkedInPublish.Designer.cs">
+      <DependentUpon>FormLinkedInPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormToolInstall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToolInstall.Designer.cs">
+      <DependentUpon>FormToolInstall.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutBox1.ja-JP.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.zh-CN.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage1.ja-JP.resx">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage1.resx">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage1.zh-CN.resx">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage2.ja-JP.resx">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage2.resx">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage2.zh-CN.resx">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage3.ja-JP.resx">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage3.resx">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage3.zh-CN.resx">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage4.ja-JP.resx">
+      <DependentUpon>WizardPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage4.resx">
+      <DependentUpon>WizardPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage4.zh-CN.resx">
+      <DependentUpon>WizardPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage5.ja-JP.resx">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage5.resx">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMagzine\WizardPage5.zh-CN.resx">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateMagzineWizard.ja-JP.resx">
+      <DependentUpon>FormCreateMagzineWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateMagzineWizard.zh-CN.resx">
+      <DependentUpon>FormCreateMagzineWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataBase.ja-JP.resx">
+      <DependentUpon>FormDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataBase.resx">
+      <DependentUpon>FormDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataBase.zh-CN.resx">
+      <DependentUpon>FormDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFacebookLogin.ja-JP.resx">
+      <DependentUpon>FormFacebookLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFacebookLogin.resx">
+      <DependentUpon>FormFacebookLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.ja-JP.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.zh-CN.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerDB.ja-JP.resx">
+      <DependentUpon>FormCustomerDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerDB.zh-CN.resx">
+      <DependentUpon>FormCustomerDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditor.ja-JP.resx">
+      <DependentUpon>FormEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditor.zh-CN.resx">
+      <DependentUpon>FormEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFacebookLogin.zh-CN.resx">
+      <DependentUpon>FormFacebookLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFaceBookPublish.ja-JP.resx">
+      <DependentUpon>FormFaceBookPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFaceBookPublish.zh-CN.resx">
+      <DependentUpon>FormFaceBookPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFileConverter.resx">
+      <DependentUpon>FormFileConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFTPServer.ja-JP.resx">
+      <DependentUpon>FormFTPServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFTPServer.zh-CN.resx">
+      <DependentUpon>FormFTPServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuthSocialLogin.resx">
+      <DependentUpon>FormAuthSocialLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.en-US.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMag.ja-JP.resx">
+      <DependentUpon>FormMag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMag.zh-CN.resx">
+      <DependentUpon>FormMag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMailServer.ja-JP.resx">
+      <DependentUpon>FormMailServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMailServer.zh-CN.resx">
+      <DependentUpon>FormMailServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.ja-JP.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.zh-CN.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.zh-Hans.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedia.ja-JP.resx">
+      <DependentUpon>FormMedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedia.zh-CN.resx">
+      <DependentUpon>FormMedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMediaPublish.ja-JP.resx">
+      <DependentUpon>FormMediaPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMediaPublish.resx">
+      <DependentUpon>FormMediaPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMediaPublish.zh-CN.resx">
+      <DependentUpon>FormMediaPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMySpaceLogin.zh-CN.resx">
+      <DependentUpon>FormMySpaceLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMySpacePublish.zh-CN.resx">
+      <DependentUpon>FormMySpacePublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPublish.ja-JP.resx">
+      <DependentUpon>FormPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPublish.resx">
+      <DependentUpon>FormPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMailServer.resx">
+      <DependentUpon>FormMailServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMag.resx">
+      <DependentUpon>FormMag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPublish.zh-CN.resx">
+      <DependentUpon>FormPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQWeiboLogin.zh-CN.resx">
+      <DependentUpon>FormQWeiboLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQWeiboPublish.zh-CN.resx">
+      <DependentUpon>FormQWeiboPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReader.resx">
+      <DependentUpon>FormReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReader.zh-CN.resx">
+      <DependentUpon>FormReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegist.ja-JP.resx">
+      <DependentUpon>FormRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegist.resx">
+      <DependentUpon>FormRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegist.zh-CN.resx">
+      <DependentUpon>FormRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSubscript.ja-JP.resx">
+      <DependentUpon>FormSubscript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSubscript.resx">
+      <DependentUpon>FormSubscript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSubscript.zh-CN.resx">
+      <DependentUpon>FormSubscript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolConfig.ja-JP.resx">
+      <DependentUpon>FormToolConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolConfig.resx">
+      <DependentUpon>FormToolConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolConfig.zh-CN.resx">
+      <DependentUpon>FormToolConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTwitterLogin.zh-CN.resx">
+      <DependentUpon>FormTwitterLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTwitterPublish.ja-JP.resx">
+      <DependentUpon>FormTwitterPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTwitterPublish.zh-CN.resx">
+      <DependentUpon>FormTwitterPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.ja-JP.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.zh-CN.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.en.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.ja-JP.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.zh-CN.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFaceBookPublish.resx">
+      <DependentUpon>FormFaceBookPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQWeiboLogin.resx">
+      <DependentUpon>FormQWeiboLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQWeiboPublish.resx">
+      <DependentUpon>FormQWeiboPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWordpressPublish.ja-JP.resx">
+      <DependentUpon>FormWordpressPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWordpressPublish.zh-CN.resx">
+      <DependentUpon>FormWordpressPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerDB.resx">
+      <DependentUpon>FormCustomerDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedia.resx">
+      <DependentUpon>FormMedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditor.resx">
+      <DependentUpon>FormEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFTPServer.resx">
+      <DependentUpon>FormFTPServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWordpressPublish.resx">
+      <DependentUpon>FormWordpressPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuthSocialPublish.resx">
+      <DependentUpon>FormAuthSocialPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTwitterLogin.resx">
+      <DependentUpon>FormTwitterLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTwitterPublish.resx">
+      <DependentUpon>FormTwitterPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMySpaceLogin.resx">
+      <DependentUpon>FormMySpaceLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMySpacePublish.resx">
+      <DependentUpon>FormMySpacePublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateMagzineWizard.resx">
+      <DependentUpon>FormCreateMagzineWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage1.ja-JP.resx">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage1.resx">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage1.zh-CN.resx">
+      <DependentUpon>WizardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage2.ja-JP.resx">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage2.resx">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage2.zh-CN.resx">
+      <DependentUpon>WizardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage3.ja-JP.resx">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage3.resx">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage3.zh-CN.resx">
+      <DependentUpon>WizardPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage40.ja-JP.resx">
+      <DependentUpon>WizardPage40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage40.resx">
+      <DependentUpon>WizardPage40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage40.zh-CN.resx">
+      <DependentUpon>WizardPage40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage5.ja-JP.resx">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage5.resx">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage5.zh-CN.resx">
+      <DependentUpon>WizardPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPublishMagzineWizard.ja-JP.resx">
+      <DependentUpon>FormPublishMagzineWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPublishMagzineWizard.resx">
+      <DependentUpon>FormPublishMagzineWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPublishMagzineWizard.zh-CN.resx">
+      <DependentUpon>FormPublishMagzineWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage41.ja-JP.resx">
+      <DependentUpon>WizardPage41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage41.resx">
+      <DependentUpon>WizardPage41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage41.zh-CN.resx">
+      <DependentUpon>WizardPage41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage42.ja-JP.resx">
+      <DependentUpon>WizardPage42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage42.resx">
+      <DependentUpon>WizardPage42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage42.zh-CN.resx">
+      <DependentUpon>WizardPage42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage43.ja-JP.resx">
+      <DependentUpon>WizardPage43.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage43.resx">
+      <DependentUpon>WizardPage43.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishMagzine\WizardPage43.zh-CN.resx">
+      <DependentUpon>WizardPage43.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPassword.ja-JP.resx">
+      <DependentUpon>FormPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPassword.resx">
+      <DependentUpon>FormPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPassword.zh-CN.resx">
+      <DependentUpon>FormPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendMail.ja-JP.resx">
+      <DependentUpon>FormSendMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendMail.resx">
+      <DependentUpon>FormSendMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendMail.zh-CN.resx">
+      <DependentUpon>FormSendMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFTPUpload.ja-JP.resx">
+      <DependentUpon>FormFTPUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFTPUpload.resx">
+      <DependentUpon>FormFTPUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFTPUpload.zh-CN.resx">
+      <DependentUpon>FormFTPUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerSync.ja-JP.resx">
+      <DependentUpon>FormCustomerSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerSync.resx">
+      <DependentUpon>FormCustomerSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerSync.zh-CN.resx">
+      <DependentUpon>FormCustomerSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLinkedInLogin.resx">
+      <DependentUpon>FormLinkedInLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLinkedInLogin.zh-CN.resx">
+      <DependentUpon>FormLinkedInLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLinkedInPublish.ja-JP.resx">
+      <DependentUpon>FormLinkedInPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLinkedInPublish.resx">
+      <DependentUpon>FormLinkedInPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLinkedInPublish.zh-CN.resx">
+      <DependentUpon>FormLinkedInPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolInstall.ja-JP.resx">
+      <DependentUpon>FormToolInstall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolInstall.resx">
+      <DependentUpon>FormToolInstall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolInstall.zh-CN.resx">
+      <DependentUpon>FormToolInstall.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="db\hps.sql" />
+    <Content Include="db\HPS2008.bak">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="db\HPS2005.bak">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="gw.jpg" />
+    <Content Include="db\hpsscript.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="db\SqlSetup.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="manual.en.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="manual.ja-JP.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="manual.zh-CN.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PDFC&amp;S\pdfsam.for.windows.v2.2.0.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PDFEditor\fpdfcjk.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="PDFEditor\PDFEdit.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PDFEditor\pedkey.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PDFEditor\软件简介.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Carlmness\calmness.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Carlmness\calmness_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Carlmness\calmness_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Deep\deepcyan.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Deep\deepgreen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Deep\deeporange.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Diamond\diamondblue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Diamond\diamondgreen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Eighteen\eighteen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Eighteen\eighteen_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Eighteen\eighteen_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\emerald.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\emerald_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\emerald_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\emerald_color3.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Glass\glassbrown.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Glass\glassgreen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Glass\glassorange.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Longhorn\longhorn.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\MacOS\macos.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\midsummer.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\midsummer_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\midsummer_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\midsummer_color3.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\MP10\mp10.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\MSN\msn.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\oneblue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\onecyan.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\onegreen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\oneorange.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Page\page.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Page\page_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Page\page_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\RealOne\realone.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Silver\silver.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Silver\silver_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Silver\silver_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\sportsblack.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\sportsblue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\sportscyan.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\sportsgreen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\sportsorange.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Steel\steelblack.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Steel\steelblue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista1\vista1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista1\vista1_green.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color3.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color4.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color5.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color6.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\vista2_color7.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\warm.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\warm_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\warm_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\warm_color3.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Wave\wave.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Wave\wave_color1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Wave\wave_color2.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\xpblue.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\xpgreen.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\xporange.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\xpsilver.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="version.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Carlmness\Calmness.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Carlmness\CalmnessColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Carlmness\CalmnessColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Deep\DeepCyan.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Deep\DeepGreen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Deep\DeepOrange.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Diamond\DiamondBlue.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Diamond\DiamondGreen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Eighteen\Eighteen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Eighteen\EighteenColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Eighteen\EighteenColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\Emerald.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\EmeraldColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\EmeraldColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Emerald\EmeraldColor3.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Glass\GlassBrown.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Glass\GlassGreen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Glass\GlassOrange.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Longhorn\Longhorn.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\MacOS\MacOS.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\Midsummer.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\MidsummerColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\MidsummerColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\MidsummerColor3.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\MP10\MP10.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\MSN\MSN.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\OneBlue.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\OneCyan.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\OneGreen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\OneOrange.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Page\Page.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Page\PageColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Page\PageColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\RealOne\RealOne.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Silver\Silver.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Silver\SilverColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Silver\SilverColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\SportsBlack.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\SportsBlue.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\SportsCyan.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\SportsGreen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Sports\SportsOrange.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Steel\SteelBlack.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Steel\SteelBlue.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista1\vista1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista1\vista1_green.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color3.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color4.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color5.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color6.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Vista2\Vista2_color7.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\Warm.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\WarmColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\WarmColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Warm\WarmColor3.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Wave\Wave.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Wave\WaveColor1.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Wave\WaveColor2.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\XPBlue.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\XPGreen.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\XPOrange.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\WinXP\XPSilver.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugin.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Outlook">
+      <Guid>{00062FFF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Content Include="icon\customer.ico" />
+    <Content Include="icon\customer.png" />
+    <Content Include="icon\customerdb.ico" />
+    <Content Include="icon\customerdb.png" />
+    <Content Include="icon\exit.ico" />
+    <Content Include="icon\exit.png" />
+    <Content Include="icon\export.ico" />
+    <Content Include="icon\export.png" />
+    <Content Include="icon\ftp.ico" />
+    <Content Include="icon\ftp.png" />
+    <Content Include="icon\internet.ico" />
+    <Content Include="icon\internet.png" />
+    <Content Include="icon\mag.ico" />
+    <Content Include="icon\mag.png" />
+    <Content Include="icon\mail.ico" />
+    <Content Include="icon\mail.png" />
+    <Content Include="icon\main.ico" />
+    <Content Include="icon\main.png" />
+    <Content Include="icon\operator.ico" />
+    <Content Include="icon\operator.png" />
+    <Content Include="icon\refresh.ico" />
+    <Content Include="icon\refresh.png" />
+    <Content Include="icon\restore.ico" />
+    <Content Include="icon\restore.png" />
+    <Content Include="icon\setting.ico" />
+    <Content Include="icon\setting.png" />
+    <Content Include="MFC80U.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcr80.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SeRSFC60.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SeRSFCWrap60.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HPSWinServiceObject\HPSWinServiceObject.csproj">
+      <Project>{35C6FDAB-A005-4056-BD58-D6E9D9D74098}</Project>
+      <Name>HPSWinServiceObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HPSWizard\HPSWizard.csproj">
+      <Project>{88B8AF73-300C-4E35-9C2E-021D87D896A5}</Project>
+      <Name>HPSWizard</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

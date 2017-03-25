@@ -1,0 +1,3661 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HgCo.WindowsLive.SkyDriveServiceClient</name>
+    </assembly>
+    <members>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebAuthenticationManager">
+            <summary>
+            Represents the Authentication Manager that manages the authentication modules 
+            called during HttpWebClient authentication process.
+            </summary>
+            <remarks>Custom AuthenticationManager is required, 
+            otherwise Authorization token cannot be saved in HttpWebSession.</remarks>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebAuthenticationManager.lAuthenticationModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebAuthenticationManager.Register(System.Net.IAuthenticationModule)">
+            <summary>
+            Registers the specified authentication module.
+            </summary>
+            <param name="authenticationModule">The authentication module.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebAuthenticationManager.Authenticate(System.String,System.Net.WebRequest,System.Net.ICredentials)">
+            <summary>
+            Calls each registered authentication module to find the first module 
+            that can respond to the authentication request.
+            </summary>
+            <param name="challenge">The challenge.</param>
+            <param name="request">The request.</param>
+            <param name="credentials">The credentials.</param>
+            <returns></returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebAuthenticationManager.RegisteredModules">
+            <summary>
+            Gets the registered modules.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebDriveInfo">
+            <summary>
+            Provides SkyDrive storage secific data.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebDriveInfo.TotalDiskSpace">
+            <summary>
+            Gets or sets the total disk space in bytes.
+            </summary>
+            <value>
+            The total disk space in bytes.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebDriveInfo.UsedDiskSpace">
+            <summary>
+            Gets or sets the used disk space in bytes.
+            </summary>
+            <value>
+            The used disk space in bytes.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebDriveInfo.FreeDiskSpace">
+            <summary>
+            Gets the free disk space in bytes.
+            </summary>
+            <value>
+            The free disk space in bytes.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebDriveInfo.MaxFileSize">
+            <summary>
+            Gets or sets the maximum file size.
+            </summary>
+            <value>
+            The maximum file size.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.OperationFailedException">
+            <summary>
+            The exception is thrown when an operation is failed.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.OperationFailedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.OperationFailedException"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.OperationFailedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.OperationFailedException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.OperationFailedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.OperationFailedException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.OperationFailedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.OperationFailedException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.PropStat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.PropStat.Prop">
+            <summary>Gets or sets the prop.</summary>
+            <value>The prop.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.PropStat.Status">
+            <summary>Gets or sets the status.</summary>
+            <value>The status.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.PropStat.Description">
+            <summary>Gets or sets the description.</summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScope.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ExclusiveLockScope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ExclusiveLockScope.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.SharedLockScope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.SharedLockScope.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LocalLockScope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LocalLockScope.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.RegexHelper">
+            <summary>
+            Provides methods for handling Regex synchronized (thread safe).
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.RegexHelper.IsMatch(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Indicates whether the regular expression finds a match in the input string.
+            </summary>
+            <param name="regex">The regular expression.</param>
+            <param name="input">The string to search for a match.</param>
+            <returns><c>true</c> if the regular expression finds a match; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.RegexHelper.Match(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Searches an input string for an occurrence of a regular expression and returns the precise result as a single Match object.
+            </summary>
+            <param name="regex">The regular expression.</param>
+            <param name="input">The string to search for a match.</param>
+            <returns>A regular expression Match object.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.RegexHelper.Matches(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Searches an input string for all occurrences of a regular expression and returns all the successful matches as if Match were called numerous times.
+            </summary>
+            <param name="regex">The regular expression.</param>
+            <param name="input">The string to search for a match.</param>
+            <returns>A MatchCollection of the Match objects found by the search.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.RegexHelper.Replace(System.Text.RegularExpressions.Regex,System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Within a specified input string, replaces strings that match a regular expression pattern with a specified replacement string. 
+            </summary>
+            <param name="regex">The regular expression.</param>
+            <param name="input">The string to search for a match.</param>
+            <param name="evaluator">A custom method that examines each match and returns either the original matched string or a replacement string.</param>
+            <returns>A new string that is identical to the input string, except that a replacement string takes the place of each matched string.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetProductInfoRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.OperationRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebRequest.SoapAction">
+            <summary>
+            Gets or sets the SOAP action.
+            </summary>
+            <value>The SOAP action.</value>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.OperationRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.OperationRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.OperationRequest.Info">
+            <summary>
+            Gets or sets the service info.
+            </summary>
+            <value>The service info.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetProductInfoRequest.SoapAction">
+            <summary>
+            Gets or sets the SOAP action.
+            </summary>
+            <value>The SOAP action.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.WebFolderHelper">
+            <summary>
+            Provides methods for handling <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderInfo"/> specific properties and tasks.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.WebFolderHelper.ParseCategoryType(HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse)">
+            <summary>
+            Parses the CategoryType.
+            </summary>
+            <param name="folderItem">The folder item.</param>
+            <returns>The parsed CategoryType.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockEntry">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockEntry.LockScopeContainer">
+            <summary>Gets or sets the lock scope.</summary>
+            <value>The lock scope.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockEntry.LockTypeContainer">
+            <summary>Gets or sets the lock type.</summary>
+            <value>The lock type.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient">
+            <summary>
+            
+            </summary>
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.CreateSkyDocsService">
+            <summary>Creates the sky docs service.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.CreateUsersServiceClient">
+            <summary>Creates the users service client.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.CreateWebDavWebClient">
+            <summary>
+            Creates the web dav web client.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.CreateHttpWebClient">
+            <summary>
+            Creates the HTTP web client.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.PickWebDavHost">
+            <summary>
+            Picks the web dav host.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.GetWebFolderItemWebDavUrl(HgCo.WindowsLive.SkyDrive.WebFolderItemInfo)">
+            <summary>
+            Gets the web folder item web dav URL.
+            </summary>
+            <param name="webFolderItem">The web folder item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.EncodeWebFolderItemPath(System.String)">
+            <summary>
+            Encodes the web folder item path.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ParseCid(HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse)">
+            <summary>Parses the cid.</summary>
+            <param name="response">The response.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ParseWebFolderItem(HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse,HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Parses the web folder item.
+            </summary>
+            <param name="folderItem">The folder item.</param>
+            <param name="webFolderParent">The web folder parent.</param>
+            <returns></returns>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.WebDavHosts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.#ctor(HgCo.WindowsLive.SkyDrive.SkyDriveSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.LogOn(System.String,System.String)">
+            <summary>
+            Logs on to a specified user account.
+            </summary>
+            <param name="userName">The name of the user.</param>
+            <param name="userPassword">The user password.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.GetWebAccountInfo">
+            <summary>
+            Gets the web account info.
+            </summary>
+            <returns></returns>
+            <remarks>This method does not work for unauthenticated users.</remarks>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.GetWebDriveInfo">
+            <summary>
+            Gets the web drive info.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ListRootWebFolders">
+            <summary>
+            Lists webfolders located in SkyDrive's root.
+            </summary>
+            <returns>The list of webfolders in SkyDrive's root.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ListRootWebFolderItems">
+            <summary>
+            Lists webfolderitems located in SkyDrive's root.
+            </summary>
+            <returns>The list of webfolderitems in SkyDrive's root.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ListSubWebFolders(HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Lists webfolders located in a sub webfolder.
+            </summary>
+            <param name="webFolderParent">The webfolder which webfolders are to be listed.</param>
+            <returns>The list of webfolders in the sub webfolder.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ListSubWebFiles(HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Lists webfiles located in a sub webfolder.
+            </summary>
+            <param name="webFolderParent">The webfolder which webfiles are to be listed.</param>
+            <returns>The list of webfiles in the sub webfolder.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.ListSubWebFolderItems(HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Lists webfolderitems located in a sub webfolder.
+            </summary>
+            <param name="webFolderParent">The webfolder of which webfolderitems are to be listed.</param>
+            <returns>The list of webfolderitems in the sub webfolder.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.CreateRootWebFolder(System.String,HgCo.WindowsLive.SkyDrive.WebFolderCategoryType,HgCo.WindowsLive.SkyDrive.WebFolderItemShareType)">
+            <summary>
+            Creates a webfolder in SkyDrive's root.
+            </summary>
+            <param name="name">The name of the webfolder.</param>
+            <param name="categoryType">Type of the category.</param>
+            <param name="shareType">The ShareType of the webfolder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.CreateSubWebFolder(System.String,HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Creates a webfolder in a sub webfolder.
+            </summary>
+            <param name="name">The name of the webfolder.</param>
+            <param name="webFolderParent">The webfolder where the new webfolder is to be created.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.DeleteWebFolder(HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Deletes a webfolder.
+            </summary>
+            <param name="webFolder">The webfolder to be deleted.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.DeleteWebFile(HgCo.WindowsLive.SkyDrive.WebFileInfo)">
+            <summary>
+            Deletes the web file.
+            </summary>
+            <param name="webFile">The web file.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.UploadWebFile(System.String,HgCo.WindowsLive.SkyDrive.WebFolderInfo)">
+            <summary>
+            Uploads a webfile to the specified webfolder.
+            </summary>
+            <param name="fileName">The name of the file (including path) to upload.</param>
+            <param name="webFolderParent">The webfolder where webfile is to be uploaded.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.DownloadWebFile(HgCo.WindowsLive.SkyDrive.WebFileInfo)">
+            <summary>
+            Downloads a webfile.
+            </summary>
+            <param name="webFile">The webfile to download.</param>
+            <returns>A readable stream that contains the webfile's content.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.RenameWebFolderItem(HgCo.WindowsLive.SkyDrive.WebFolderItemInfo,System.String)">
+            <summary>
+            Renames a webfolderitem.
+            </summary>
+            <param name="webFolderItem">The webfolderitem to be renamed.</param>
+            <param name="newName">The new name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.OnUploadWebFileProgressChanged(HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:UploadWebFileProgressChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="E:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.UploadWebFileProgressChanged">
+            <summary>
+            Occurs when a webfile upload operation successfully transfers some or all of the data.
+            </summary>
+            <remarks>
+            This event is raised each time a webfile upload make progress.
+            This event is raised when uploads are started by calling UploadWebFile(string, WebFolderInfo) method.
+            </remarks>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.Session">
+            <summary>Gets the session.</summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.Timeout">
+            <summary>
+            Gets or sets the time-out value in milliseconds.
+            </summary>
+            <value>The number of milliseconds to wait before a request times out. The default is 100,000 milliseconds (100 seconds).</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient.Proxy">
+            <summary>
+            Gets or sets the proxy information used for SkyDrive communication.
+            </summary>
+            <value>The <see cref="T:System.Net.IWebProxy"/> object to use to proxy the SkyDrive communication.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.WebFileHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.WebFileHelper.ParseCategoryType(HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse)">
+            <summary>
+            Parses the category type.
+            </summary>
+            <param name="folderItem">The folder item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.WebFileHelper.ParseContentType(HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse)">
+            <summary>
+            Parses the content type.
+            </summary>
+            <param name="folderItem">The folder item.</param>
+            <returns></returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:WebUploadProgressChanged"/> event of a <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient"/>.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs"/> class.
+            </summary>
+            <param name="bytesSent">The number of bytes sent.</param>
+            <param name="totalBytesToSend">The total number of bytes to send.</param>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs.BytesSent">
+            <summary>
+            Gets the number of bytes sent.
+            </summary>
+            <value>The number of bytes sent.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs.TotalBytesToSend">
+            <summary>
+            Gets the total number of bytes to send.
+            </summary>
+            <value>The total number of bytes to send.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs.ProgressPercentage">
+            <summary>
+            Gets the upload operation progress percentage.
+            </summary>
+            <value>The upload operation progress percentage.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ResourceTypeContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ResourceTypeContainer.ResourceType">
+            <summary>Gets or sets the type of the resource.</summary>
+            <value>The type of the resource.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.WlidClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.#cctor">
+            <summary>
+            Initializes the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.#ctor(HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.LogOn(System.String)">
+            <summary>
+            Logs on.
+            </summary>
+            <param name="cid">The cid.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.ListRootFolderItems(System.String)">
+            <summary>
+            Lists the root folder items.
+            </summary>
+            <param name="cid">The cid.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.ListSubFolderItems(System.String,System.String)">
+            <summary>
+            Lists the sub folder items.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="parentResourceId">The parent resource id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.GetFile(System.String,System.String)">
+            <summary>
+            Gets the file.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="resourceId">The resource id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.CreateRootFolder(System.String,System.String,System.String,HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel)">
+            <summary>
+            Creates the root folder.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="name">The name.</param>
+            <param name="category">The category.</param>
+            <param name="sharingLevel">The sharing level.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.CreateSubFolder(System.String,System.String,System.String)">
+            <summary>
+            Creates the sub folder.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="parentResourceId">The parent resource id.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.DeleteFolder(System.String,System.String)">
+            <summary>
+            Deletes the folder.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="resourceId">The resource id.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.DeleteFile(System.String,System.String)">
+            <summary>
+            Deletes the file.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="resourceId">The resource id.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.UploadFile(System.String,System.String,System.String)">
+            <summary>
+            Uploads the file.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="parentResourceId">The parent resource id.</param>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.RenameFolder(System.String,System.String,System.String)">
+            <summary>
+            Renames the folder.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="resourceId">The resource id.</param>
+            <param name="newName">The new name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.RenameFile(System.String,System.String,System.String)">
+            <summary>
+            Renames the file.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="resourceId">The resource id.</param>
+            <param name="newName">The new name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.GetRootUri(System.String)">
+            <summary>Gets the root folder item URI.</summary>
+            <param name="cid">The cid.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.GetFolderUri(System.String,System.String)">
+            <summary>
+            Gets the sub folder item URI.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="parentResourceId">The parent resource id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.GetFileUri(System.String,System.String)">
+            <summary>
+            Gets the file URI.
+            </summary>
+            <param name="cid">The cid.</param>
+            <param name="resourceId">The resource id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.CreateXmlWebClient">
+            <summary>Creates the XML web client.</summary>
+            <returns></returns>
+        </member>
+        <member name="E:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.UploadProgressChanged">
+            <summary>
+            Occurs when an upload operation successfully transfers some or all of the data.
+            </summary>
+            <remarks>
+            This event is raised each time upload values make progress.
+            This event is raised when uploads are started by calling UploadFile method.
+            </remarks>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.Credentials">
+            <summary>
+            Gets or sets authentication information for the SOAP Web client.
+            </summary>
+            <value>
+            An <see cref="T:System.Net.ICredentials"/> that contains the authentication credentials 
+            associated with the SOAP Web Client. The default is null.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.Proxy">
+            <summary>
+            Gets or sets proxy information for <see cref="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient"/>.
+            </summary>
+            <value>The <see cref="T:System.Net.IWebProxy"/> object to use to proxy the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient"/></value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.Session">
+            <summary>
+            Gets the session.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceClient.Timeout">
+            <summary>
+            Gets or sets the time-out value in milliseconds for HTTP requests.
+            </summary>
+            <value>The number of milliseconds to wait before a request times out. The default is 100,000 milliseconds (100 seconds).</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevel.Public">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevel.Private">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevel.Shared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevel.PublicUnlisted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServiceInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServiceInfo.ClientAppId">
+            <summary>
+            Gets or sets the client app id.
+            </summary>
+            <value>The client app id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServiceInfo.Market">
+            <summary>
+            Gets or sets the market.
+            </summary>
+            <value>The market.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServiceInfo.SkyDocsServiceVersion">
+            <summary>
+            Gets or sets the sky docs service version.
+            </summary>
+            <value>The sky docs service version.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoRequest.WebDavUrl">
+            <summary>
+            Gets or sets the web dav URL.
+            </summary>
+            <value>
+            The web dav URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoRequest.SoapAction">
+            <summary>
+            Gets or sets the SOAP action.
+            </summary>
+            <value>
+            The SOAP action.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.LogOnFailedException">
+            <summary>
+            The exception is thrown when log on operation is failed.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.LogOnFailedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.LogOnFailedException"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.LogOnFailedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.LogOnFailedException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.LogOnFailedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.LogOnFailedException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.LogOnFailedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.LogOnFailedException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.DisplayName">
+            <summary>Gets or sets the display name.</summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.LockDiscovery">
+            <summary>Gets or sets the lock discovery.</summary>
+            <value>The lock discovery.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.SupportedLock">
+            <summary>Gets or sets the supported lock.</summary>
+            <value>The supported lock.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.IsFolder">
+            <summary>Gets or sets the is folder.</summary>
+            <value>The is folder.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.IsCollection">
+            <summary>Gets or sets the is collection.</summary>
+            <value>The is collection.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.IsHidden">
+            <summary>Gets or sets the is hidden.</summary>
+            <value>The is hidden.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.ContentType">
+            <summary>Gets or sets the type of the content.</summary>
+            <value>The type of the content.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.ContentLength">
+            <summary>Gets or sets the length of the content.</summary>
+            <value>The length of the content.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.CreationDate">
+            <summary>Gets or sets the creation date.</summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.ModifiedDate">
+            <summary>Gets or sets the modified date.</summary>
+            <value>The modified date.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.Win32LastModifiedTime">
+            <summary>Gets or sets the win32 last modified time.</summary>
+            <value>The win32 last modified time.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.Win32CreationTime">
+            <summary>Gets or sets the win32 creation time.</summary>
+            <value>The win32 creation time.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.Win32LastAccessTime">
+            <summary>Gets or sets the win32 last access time.</summary>
+            <value>The win32 last access time.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.ResourceTypeContainer">
+            <summary>Gets or sets the type of the resource.</summary>
+            <value>The type of the resource.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.AuthoritativeDirectory">
+            <summary>Gets or sets the authoritative directory.</summary>
+            <value>The authoritative directory.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Prop.ProgId">
+            <summary>Gets or sets the prog id.</summary>
+            <value>The prog id.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScopeCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScopeCode.Exclusive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScopeCode.Shared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScopeCode.Local">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.Content">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Content.Type">
+            <summary>Gets or sets the type.</summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Content.Url">
+            <summary>Gets or sets the URL.</summary>
+            <value>The URL.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharedLibrary">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.Library">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.Library.AccessLevel">
+            <summary>
+            Gets or sets the access level.
+            </summary>
+            <value>The access level.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.Library.WebDavUrl">
+            <summary>
+            Gets or sets the URL used to access the library via WebDAV.
+            </summary>
+            <value>the URL used to access the library via WebDAV.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.Library.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.Library.SharingLevelInfo">
+            <summary>
+            Gets or sets the sharing level.
+            </summary>
+            <value>The sharing level.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.Library.WebUrl">
+            <summary>
+            Gets or sets the URL used to access the library via HTTP or HTTPS.
+            </summary>
+            <value>the URL used to access the library via HTTP or HTTPS.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharedLibrary.Owner">
+            <summary>
+            Gets or sets the name of the user who shared the folder.
+            </summary>
+            <value>The owner.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.HomePageUrl">
+            <summary>
+            Gets or sets the home page URL.
+            </summary>
+            <value>
+            The home page URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.LearnMoreUrl">
+            <summary>
+            Gets or sets the learn more URL.
+            </summary>
+            <value>
+            The learn more URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.ProductName">
+            <summary>
+            Gets or sets the name of the product.
+            </summary>
+            <value>
+            The name of the product.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.ServiceDisabledErrorMessage">
+            <summary>
+            Gets or sets the service disabled error message.
+            </summary>
+            <value>
+            The service disabled error message.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.ShortProductName">
+            <summary>
+            Gets or sets the short name of the product.
+            </summary>
+            <value>
+            The short name of the product.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.SignInMessage">
+            <summary>
+            Gets or sets the sign in message.
+            </summary>
+            <value>
+            The sign in message.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.SignUpMessage">
+            <summary>
+            Gets or sets the sign up message.
+            </summary>
+            <value>
+            The sign up message.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.SignUpUrl">
+            <summary>
+            Gets or sets the sign up URL.
+            </summary>
+            <value>
+            The sign up URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.IsSoapEnabled">
+            <summary>
+            Gets or sets a value indicating whether this instance is SOAP enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is SOAP enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ProductInfo.IsSyncEnabled">
+            <summary>
+            Gets or sets a value indicating whether this instance is sync enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is sync enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetProductInfoResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.OperationResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetProductInfoResponse.ProductInfo">
+            <summary>
+            Gets or sets the product info.
+            </summary>
+            <value>
+            The product info.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo">
+            <summary>
+            Provides webfolderitemicon specific data. An icon is built from several webfolderitemimages.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ContentTypeWebImage">
+            <summary>
+            Gets or sets the webfolderitemimage, which represents ContentType.
+            </summary>
+            <value>The ContentType webfolderitemimage.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ContentWebImage">
+            <summary>
+            Gets or sets the webfolderitemimage, which represents the content itself.
+            </summary>
+            <value>The content webfolderitemimage.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ShareTypeWebImage">
+            <summary>
+            Gets or sets the webfolderitemimage, which represents ShareType.
+            </summary>
+            <value>The ShareType webfolderitemimage.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ContentWebImageOffsetX">
+            <summary>
+            Gets or sets the horizontal offset of the content webfolderitemimage inside the icon.
+            </summary>
+            <value>The horiozontal offset of the content webfolderitemimage.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ContentWebImageOffsetY">
+            <summary>
+            Gets or sets the vertical offset of the content webfolderitemimage inside the icon.
+            </summary>
+            <value>The vertical offset of the content webfolderitemimage.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ShareTypeWebImageOffsetX">
+            <summary>
+            Gets or sets the horizontal offset of the ShareType webfolderitemimage inside the icon.
+            </summary>
+            <value>The horiozontal offset of the ShareType webfolderitemimage.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemIconInfo.ShareTypeWebImageOffsetY">
+            <summary>
+            Gets or sets the vertical offset of the ShareType webfolderitemimage inside the icon.
+            </summary>
+            <value>The vertical offset of the ShareType webfolderitemimage.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.SoapResponseRegex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.wcHttp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.#ctor(HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.SendRequest``1(HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebRequest)">
+            <summary>
+            Sends the request.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="request">The request.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.SerializeRequest(HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebRequest,System.Xml.Serialization.XmlSerializerNamespaces)">
+            <summary>
+            Serializes the request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="namespaces">The namespaces.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.DeserializeResponse``1(System.String)">
+            <summary>
+            Deserializes the response.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="strResponse">The response in string.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.AutomaticDecompression">
+            <summary>
+            Gets or sets the type of decompression that is used.
+            </summary>
+            <value>The type of decompression that is used. The default value is GZip.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.Credentials">
+            <summary>
+            Gets or sets authentication information for the SOAP Web client.
+            </summary>
+            <value>
+            An <see cref="T:System.Net.ICredentials"/> that contains the authentication credentials 
+            associated with the SOAP Web Client. The default is null.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.Proxy">
+            <summary>
+            Gets or sets proxy information for <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient"/>.
+            </summary>
+            <value>The <see cref="T:System.Net.IWebProxy"/> object to use to proxy the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient"/></value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.Session">
+            <summary>
+            Gets the session.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.Timeout">
+            <summary>
+            Gets or sets the time-out value in milliseconds for HTTP requests.
+            </summary>
+            <value>The number of milliseconds to wait before a request times out. The default is 100,000 milliseconds (100 seconds).</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.Uri">
+            <summary>
+            Gets or sets the URI of the SOAP Web service the client is requesting.
+            </summary>
+            <value>The URI of the SOAP Web service.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebClient.Namespaces">
+            <summary>
+            Gets the namespaces.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.Url">
+            <summary>Gets or sets the URL.</summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.PartnerUrl">
+            <summary>Gets or sets the partner URL.</summary>
+            <value>The partner URL.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.Width">
+            <summary>Gets or sets the width.</summary>
+            <value>The width.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.Height">
+            <summary>Gets or sets the height.</summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.MaxWidth">
+            <summary>Gets or sets the width of the max.</summary>
+            <value>The width of the max.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.MaxHeight">
+            <summary>Gets or sets the height of the max.</summary>
+            <value>The height of the max.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.StreamSize">
+            <summary>Gets or sets the size of the stream.</summary>
+            <value>The size of the stream.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.ResourceId">
+            <summary>Gets or sets the resource id.</summary>
+            <value>The resource id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaThumbnail.IsCropped">
+            <summary>
+            Gets or sets a value indicating whether this instance is cropped.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is cropped; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaContent.Url">
+            <summary>Gets or sets the URL.</summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaContent.Width">
+            <summary>Gets or sets the width.</summary>
+            <value>The width.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaContent.Height">
+            <summary>Gets or sets the height.</summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.MediaContent.FileSize">
+            <summary>Gets or sets the size of the file.</summary>
+            <value>The size of the file.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Title">
+            <summary>Gets or sets the title.</summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Subtitle">
+            <summary>Gets or sets the subtitle.</summary>
+            <value>The subtitle.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Id">
+            <summary>Gets or sets the id.</summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Updated">
+            <summary>Gets or sets the updated.</summary>
+            <value>The updated.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Author">
+            <summary>Gets or sets the author.</summary>
+            <value>The author.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Links">
+            <summary>Gets or sets the links.</summary>
+            <value>The links.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Created">
+            <summary>Gets or sets the published.</summary>
+            <value>The published.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.OwnerCid">
+            <summary>Gets or sets the owner cid.</summary>
+            <value>The owner cid.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.ResourceId">
+            <summary>Gets or sets the resource id.</summary>
+            <value>The resource id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.ParentId">
+            <summary>Gets or sets the parent id.</summary>
+            <value>The parent id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Size">
+            <summary>Gets or sets the size.</summary>
+            <value>The size.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.StorageVersion">
+            <summary>Gets or sets the storage version.</summary>
+            <value>The storage version.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Type">
+            <summary>Gets or sets the type.</summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.UserRole">
+            <summary>Gets or sets the user role.</summary>
+            <value>The user role.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.CommentCount">
+            <summary>Gets or sets the comment count.</summary>
+            <value>The comment count.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.IsCommentEnabled">
+            <summary>
+            Gets or sets a value indicating whether this instance is comment enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is comment enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.ItemCount">
+            <summary>Gets or sets the item count.</summary>
+            <value>The item count.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.SharingLevel">
+            <summary>Gets or sets the sharing level.</summary>
+            <value>The sharing level.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.SortOrder">
+            <summary>Gets or sets the sort order.</summary>
+            <value>The sort order.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.SortReverse">
+            <summary>Gets or sets the sort reverse.</summary>
+            <value>The sort reverse.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.QuotaUsed">
+            <summary>Gets or sets the quota used.</summary>
+            <value>The quota used.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.EmailKeyword">
+            <summary>Gets or sets the item count.</summary>
+            <value>The item count.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.Category">
+            <summary>Gets or sets the category.</summary>
+            <value>The category.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.IsHidden">
+            <summary>
+            Gets or sets a value indicating whether this instance is hidden.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is hidden; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.IsSpecial">
+            <summary>
+            Gets or sets a value indicating whether this instance is special.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is special; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.TotalQuota">
+            <summary>Gets or sets the total quota.</summary>
+            <value>The total quota.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.MaxFileSize">
+            <summary>Gets or sets the size of the max file.</summary>
+            <value>The size of the max file.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.ListFolderItemsResponse.FolderItems">
+            <summary>Gets or sets the folder items.</summary>
+            <value>The folder items.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.SkyDriveSession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.SkyDriveSession.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.SkyDriveSession"/> class.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveSession.Credentials">
+            <summary>Gets or sets the credentials.</summary>
+            <value>The credentials.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveSession.Cid">
+            <summary>
+            Gets or sets the Windows Live Identifier (CID).
+            </summary>
+            <value>The CID.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveSession.SkyDocsServiceSession">
+            <summary>
+            Gets the sky docs service session.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveSession.UsersServiceSession">
+            <summary>
+            Gets the users service session.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.SkyDriveSession.WebDavWebClientSession">
+            <summary>
+            Gets the WebDAV web client session.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFileCategoryType">
+            <summary>
+            Specifies the category type of a webfile.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFileCategoryType.None">
+            <summary>
+            The specified webfile's category type cannot be determined.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFileCategoryType.Document">
+            <summary>
+            The specified webfile is a document.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFileCategoryType.Favorite">
+            <summary>
+            The specified webfile is a favorite.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFileCategoryType.Photo">
+            <summary>
+            The specified webfile is a photo.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFileCategoryType.Video">
+            <summary>
+            The specified webfile is a video.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.SupportedLock">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.SupportedLock.LockEntry">
+            <summary>Gets or sets the lock entry.</summary>
+            <value>The lock entry.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper">
+            <summary>
+            Provides methods for mapping FileName into the appropriate MIME Content-Type.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper.DefaultContentType">
+            <summary>
+            Represents the default (fall-back) Content-Type.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper.dicMimeType">
+            <summary>
+            The dictionary containing the MIME Types.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper.InitMimeTypeDictionary">
+            <summary>
+            Initializes the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper.GetContentType(System.String)">
+            <summary>
+            Gets the type of the content.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.MimeHelper.MimeTypeDictionary">
+            <summary>
+            Gets the dictionary containing the MIME Types.
+            </summary>
+            <value>The MIME Type dictionary (Dictionary[FileExtension:string, Content-Type:string]).</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceSession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceSession.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceSession"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceSession.Clone">
+            <summary>
+            Creates a new UsersServiceSession object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new UsersServiceSession object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.UsersServiceSession.HttpSession">
+            <summary>
+            Gets the HTTP session.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Extensions">
+            <summary>
+            Provides extensions methods for various data types.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Iterates through a collection and executes the action for each item.
+            </summary>
+            <typeparam name="T">The type of items in the collection.</typeparam>
+            <param name="collection">The collection to iterate.</param>
+            <param name="action">The action to execute.</param>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebPhotoInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFileInfo">
+            <summary>
+            Provides webfile content specific data.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo">
+            <summary>
+            Provides webfolderitem content specific data. This is an <c>abstract</c> class.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.PathUrlSegmentDelimiter">
+            <summary>
+            The delimiter character used in path URL.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.GetPathUrlSegments(System.String)">
+            <summary>
+            Gets an array containing the path segments that make up the specified path URL.
+            </summary>
+            <param name="pathUrl">The path URL.</param>
+            <returns>The segments of the path URL.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.ResourceId">
+            <summary>
+            Gets or sets the resource id.
+            </summary>
+            <value>The resource id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.ItemType">
+            <summary>
+            Gets or sets the ItemType.
+            </summary>
+            <value>The ItemType.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.OwnerCid">
+            <summary>
+            Gets or sets the CID of the item's owner.
+            </summary>
+            <value>The CID of the item's owner.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.ShareType">
+            <summary>
+            Gets or sets the ShareType.
+            </summary>
+            <value>The ShareType.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.Size">
+            <summary>
+            Gets or sets the size in bytes.
+            </summary>
+            <value>The size.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.DateAdded">
+            <summary>
+            Gets or sets the date when item was added.
+            </summary>
+            <value>The date when item was added.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.DateModified">
+            <summary>
+            Gets or sets the date when item was modified.
+            </summary>
+            <value>The date when item was modified.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.Path">
+            <summary>
+            Gets or sets the path.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo.WebDavHost">
+            <summary>
+            Gets or sets the WebDAV host.
+            </summary>
+            <value>
+            The WebDAV host.
+            </value>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFileInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.WebFileInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFileInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFileInfo.CategoryType">
+            <summary>
+            Gets or sets ContentType.
+            </summary>
+            <value>The ContentType.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFileInfo.ContentType">
+            <summary>
+            Gets or sets ContentType.
+            </summary>
+            <value>The ContentType.</value>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebPhotoInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.WebPhotoInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebPhotoInfo.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebPhotoInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebAccountInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebAccountInfo.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebAccountInfo.ProductName">
+            <summary>
+            Gets or sets the name of the product.
+            </summary>
+            <value>
+            The name of the product.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebAccountInfo.ProductShortName">
+            <summary>
+            Gets or sets the short name of the product.
+            </summary>
+            <value>
+            The short name of the product.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebAccountInfo.UserInfo">
+            <summary>
+            Gets or sets the user info.
+            </summary>
+            <value>
+            The user info.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebAccountInfo.DriveInfo">
+            <summary>
+            Gets or sets the drive info.
+            </summary>
+            <value>
+            The drive info.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession">
+            <summary>
+            Provides methods for handling HTTP web session information.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.syncObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.lCookie">
+            <summary>
+            The list of cookies.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.lAuthorization">
+            <summary>
+            The list of authorizations.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.lProxyAuthorization">
+            <summary>
+            The list of proxy authorizations.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.Apply(System.Net.WebRequest)">
+            <summary>
+            Applies session information on the given web request.
+            </summary>
+            <param name="webRequest">The web request.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.Read(System.Net.WebResponse)">
+            <summary>
+            Reads session information out of the specified web response.
+            </summary>
+            <param name="webResponse">The web response.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.AddAuthorization(System.Net.Authorization)">
+            <summary>
+            Adds the authorization.
+            </summary>
+            <param name="authorization">The authorization.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.AddProxyAuthorization(System.Net.Authorization)">
+            <summary>
+            Adds the proxy authorization.
+            </summary>
+            <param name="authorization">The authorization.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.AddCookie(System.String,System.String,System.String)">
+            <summary>
+            Adds a cookie to the session.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <param name="domain">The domain.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.AddCookie(System.Net.Cookie)">
+            <summary>
+            Adds a cookie to the session.
+            </summary>
+            <param name="cookie">The cookie to add.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.Reset">
+            <summary>
+            Resets the session.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.Clone">
+            <summary>
+            Creates a new HttpWebSession object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new HttpWebSession object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.Cookies">
+            <summary>
+            Gets the cookies.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.Authorizations">
+            <summary>
+            Gets the authorizations.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession.ProxyAuthorizations">
+            <summary>
+            Gets the proxy authorizations.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ResourceTypeCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ResourceTypeCode.Collection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.GetResourceInfosResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.GeneralResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.GetResourceInfosResponse.Responses">
+            <summary>Gets or sets the response.</summary>
+            <value>The response.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.GetResourceInfosResponse.Description">
+            <summary>Gets or sets the description.</summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevelInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevelInfo.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SharingLevelInfo.Level">
+            <summary>
+            Gets or sets the level.
+            </summary>
+            <value>The level.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServerError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServerError.FailureDetail">
+            <summary>
+            Gets or sets the failure detail.
+            </summary>
+            <value>The failure detail.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.ServerError.MachineName">
+            <summary>
+            Gets or sets the name of the machine.
+            </summary>
+            <value>The name of the machine.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter.#ctor(System.IFormatProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter"/> class.
+            </summary>
+            <param name="formatProvider">An <see cref="T:System.IFormatProvider"/> object that controls formatting.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter.#ctor(System.Text.StringBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter"/> class.
+            </summary>
+            <param name="sb">The sb.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter.#ctor(System.Text.StringBuilder,System.IFormatProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter"/> class.
+            </summary>
+            <param name="sb">The StringBuilder to write to.</param>
+            <param name="formatProvider">An <see cref="T:System.IFormatProvider"/> object that controls formatting.</param>
+            <exception cref="T:System.ArgumentNullException">
+              <paramref name="sb"/> is null.
+              </exception>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Utf8StringWriter.Encoding">
+            <summary>
+            Gets the <see cref="T:System.Text.Encoding"/> in which the output is written.
+            </summary>
+            <returns>
+            The Encoding in which the output is written.
+              </returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart.MimeVersion">
+            <summary>
+            Gets or sets the MIME version.
+            </summary>
+            <value>The MIME version.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart.ContentType">
+            <summary>
+            Gets or sets the type of the content.
+            </summary>
+            <value>The type of the content.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart.ContentDisposition">
+            <summary>
+            Gets or sets the content disposition.
+            </summary>
+            <value>The content disposition.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart.ContentStream">
+            <summary>
+            Gets or sets the content stream.
+            </summary>
+            <value>The content stream.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateSubFolderItemRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateSubFolderItemRequest.Title">
+            <summary>Gets or sets the title.</summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateSubFolderItemRequest.Type">
+            <summary>Gets or sets the type.</summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateSubFolderItemRequest.ResolveNameConflict">
+            <summary>
+            Gets or sets a value indicating whether [resolve name conflict].
+            </summary>
+            <value><c>true</c> if [resolve name conflict]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderItemImageInfo">
+            <summary>
+            Provides webfolderitemimage specific data.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemImageInfo.WebAddress">
+            <summary>
+            Gets or sets the web address.
+            </summary>
+            <value>The web address.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemImageInfo.Width">
+            <summary>
+            Gets or sets the width.
+            </summary>
+            <value>The width.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemImageInfo.Height">
+            <summary>
+            Gets or sets the height.
+            </summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemImageInfo.LocationX">
+            <summary>
+            Gets or sets the horizontal location inside a striped image.
+            </summary>
+            <value>The horizontal location.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderItemImageInfo.LocationY">
+            <summary>
+            Gets or sets the vertical location inside a striped image.
+            </summary>
+            <value>The vertical location.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockTypeCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockTypeCode.Write">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockTypeCode.Transaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.RenameFolderItemRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.RenameFolderItemRequest.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.RenameFolderItemRequest.Title">
+            <summary>Gets or sets the title.</summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.RenameFolderItemRequest.Type">
+            <summary>Gets or sets the type.</summary>
+            <value>The type.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient.SkyDocsServiceUri">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient.#ctor(HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient.GetProductInfo(HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetProductInfoRequest)">
+            <summary>
+            Gets the product info.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient.GetWebAccountInfo(HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoRequest)">
+            <summary>
+            Gets the web account info.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.SkyDocsServiceClient.GetItemInfo(HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoRequest)">
+            <summary>
+            Gets the item info.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:UploadValuesProgressChanged"/> event of a <see cref="T:HgCo.WindowsLive.SkyDrive.SkyDriveServiceClient"/>.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs"/> class.
+            </summary>
+            <param name="bytesSent">The number of bytes sent.</param>
+            <param name="totalBytesToSend">The total number of bytes to send.</param>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs.BytesSent">
+            <summary>
+            Gets the number of bytes sent.
+            </summary>
+            <value>The number of bytes sent.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs.TotalBytesToSend">
+            <summary>
+            Gets the total number of bytes to send.
+            </summary>
+            <value>The total number of bytes to send.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.UploadWebFileProgressChangedEventArgs.ProgressPercentage">
+            <summary>
+            Gets the uploading task progress percentage.
+            </summary>
+            <value>The uploading task progress percentage.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ResourceType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.ResourceType.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.CollectionResourceType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.CollectionResourceType.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockTypeContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockTypeContainer.LockType">
+            <summary>Gets or sets the lock scope.</summary>
+            <value>The lock scope.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse.AccountTitle">
+            <summary>
+            Gets or sets the account title.
+            </summary>
+            <value>
+            The account title.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse.Libraries">
+            <summary>
+            Gets or sets the libraries.
+            </summary>
+            <value>
+            The libraries.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse.NewLibraryUrl">
+            <summary>
+            Gets or sets the new library URL.
+            </summary>
+            <value>
+            The new library URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse.ProductInfo">
+            <summary>
+            Gets or sets the product info.
+            </summary>
+            <value>
+            The product info.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoResponse.SignedInUser">
+            <summary>
+            Gets or sets the signed in user.
+            </summary>
+            <value>
+            The signed in user.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebVideoInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebVideoInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.WebVideoInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebVideoInfo.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebVideoInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods.PROPFIND">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods.MKCOL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods.PUT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods.DELETE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods.MOVE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavMethods.COPY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockType.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WriteLockType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WriteLockType.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockType.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockType.Location">
+            <summary>Gets or sets the location.</summary>
+            <value>The location.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockTypeLocationCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockTypeLocationCode.Local">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockTypeLocation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.TransactionLockTypeLocation.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LocalTransactionLockTypeLocation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LocalTransactionLockTypeLocation.Code">
+            <summary>Gets the code.</summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Id">
+            <summary>Gets or sets the id.</summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Title">
+            <summary>Gets or sets the title.</summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Subtitle">
+            <summary>Gets or sets the subtitle.</summary>
+            <value>The subtitle.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Summary">
+            <summary>Gets or sets the summary.</summary>
+            <value>The summary.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Published">
+            <summary>Gets or sets the published.</summary>
+            <value>The published.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Updated">
+            <summary>Gets or sets the updated.</summary>
+            <value>The updated.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Author">
+            <summary>Gets or sets the author.</summary>
+            <value>The author.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Links">
+            <summary>Gets or sets the links.</summary>
+            <value>The links.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.OwnerCid">
+            <summary>Gets or sets the owner cid.</summary>
+            <value>The owner cid.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.ResourceId">
+            <summary>Gets or sets the resource id.</summary>
+            <value>The resource id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.ParentId">
+            <summary>Gets or sets the parent id.</summary>
+            <value>The parent id.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Size">
+            <summary>Gets or sets the size.</summary>
+            <value>The size.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.StorageVersion">
+            <summary>Gets or sets the storage version.</summary>
+            <value>The storage version.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Type">
+            <summary>Gets or sets the type.</summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.UserRole">
+            <summary>Gets or sets the user role.</summary>
+            <value>The user role.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.CommentCount">
+            <summary>Gets or sets the comment count.</summary>
+            <value>The comment count.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.IsCommentEnabled">
+            <summary>
+            Gets or sets a value indicating whether this instance is comment enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is comment enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.SequenceNumber">
+            <summary>Gets or sets the sequence number.</summary>
+            <value>The sequence number.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.ItemCount">
+            <summary>Gets or sets the item count.</summary>
+            <value>The item count.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.SharingLevel">
+            <summary>Gets or sets the sharing level.</summary>
+            <value>The sharing level.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.SortOrder">
+            <summary>Gets or sets the sort order.</summary>
+            <value>The sort order.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.SortReverse">
+            <summary>Gets or sets the sort reverse.</summary>
+            <value>The sort reverse.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Category">
+            <summary>Gets or sets the category.</summary>
+            <value>The category.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.IsSpecial">
+            <summary>
+            Gets or sets a value indicating whether this instance is special.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is special; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.CanonicalName">
+            <summary>Gets or sets the name of the canonical.</summary>
+            <value>The name of the canonical.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Content">
+            <summary>Gets or sets the content.</summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.Thumbnails">
+            <summary>Gets or sets the thumbnail.</summary>
+            <value>The thumbnail.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.MediaContent">
+            <summary>Gets or sets the content.</summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.WhenTaken">
+            <summary>Gets or sets the when taken.</summary>
+            <value>The when taken.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.TagCount">
+            <summary>Gets or sets the tag count.</summary>
+            <value>The tag count.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse.IsTagEnabled">
+            <summary>
+            Gets or sets a value indicating whether this instance is tag enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is tag enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateRootFolderRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateRootFolderRequest.Title">
+            <summary>Gets or sets the title.</summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateRootFolderRequest.Type">
+            <summary>Gets or sets the type.</summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateRootFolderRequest.Category">
+            <summary>Gets or sets the category.</summary>
+            <value>The category.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.CreateRootFolderRequest.SharingLevel">
+            <summary>Gets or sets the sharing level.</summary>
+            <value>The sharing level.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoRequest.GetReadWriteLibrariesOnly">
+            <summary>
+            Gets or sets a value indicating whether [get read write libraries only].
+            </summary>
+            <value>
+            	<c>true</c> if [get read write libraries only]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetWebAccountInfoRequest.SoapAction">
+            <summary>
+            Gets or sets the SOAP action.
+            </summary>
+            <value>The SOAP action.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.AccessLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.AccessLevel.Read">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.AccessLevel.ReadWrite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.AccessLevel.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderItemShareType">
+            <summary>
+            Specifies the share type of a webfolderitem.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemShareType.None">
+            <summary>
+            The specified webfolderitem's share type cannot be determined.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemShareType.Public">
+            <summary>
+            The specified webfolderitem is shared with public.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemShareType.MyNetwork">
+            <summary>
+            The specified webfolderitem is shared with my network.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemShareType.PeopleSelected">
+            <summary>
+            The specified webfolderitem is shared with people I selected.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemShareType.Private">
+            <summary>
+            The specified webfolderitem is not shared, it's private.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.WebFolderItemHelper">
+            <summary>
+            Provides methods for handling <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/> specific properties and tasks.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.WebFolderItemHelper.RegexPathUrl">
+            <summary>
+            The regular expression to parse a webfolderitem's path URL from HTML.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.WebFolderItemHelper.UrlEncodedPlusCharacter">
+            <summary>
+            The URL encoded representation of '+'.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.WebFolderItemHelper.ParseShareType(HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel)">
+            <summary>
+            Parses the ShareType from UsersService.SharingLevel.
+            </summary>
+            <param name="sharingLevel">The sharing level.</param>
+            <returns>
+            The parsed ShareType.
+            </returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.WebFolderItemHelper.ParseType(HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse)">
+            <summary>
+            Parses the type.
+            </summary>
+            <param name="folderItem">The folder item.</param>
+            <returns></returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient">
+            <summary>
+            Provides methods for sending data to and receiving data from a resource identified by a URI via HTTP, 
+            while maintaining session (cookies).
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.PassportClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.#cctor">
+            <summary>
+            Initializes the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.#ctor(HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.DownloadString(System.Uri)">
+            <summary>
+            Downloads the requested resource as a string.
+            </summary>
+            <param name="address">The address of the resource to download.</param>
+            <returns>The requested resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.DownloadString(System.String,System.Uri)">
+            <summary>
+            Downloads the requested resource as a string.
+            </summary>
+            <param name="method">The method to use to contact the resource.</param>
+            <param name="address">The address of the resource to download.</param>
+            <returns>The requested resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.DownloadData(System.Uri)">
+            <summary>
+            Downloads the requested resource as a byte array.
+            </summary>
+            <param name="address">The address of the resource to download.</param>
+            <returns>The requested resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.DownloadData(System.String,System.Uri)">
+            <summary>
+            Downloads the requested resource as a byte array.
+            </summary>
+            <param name="method">The method to use to contact the resource.</param>
+            <param name="address">The address of the resource to download.</param>
+            <returns>The requested resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.DownloadStream(System.Uri)">
+            <summary>
+            Downloads the requested resource.
+            </summary>
+            <param name="address">The address of the resource to download.</param>
+            <returns>The requested resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.DownloadStream(System.String,System.Uri)">
+            <summary>
+            Downloads the requested resource.
+            </summary>
+            <param name="method">The method to use to contact the resource.</param>
+            <param name="address">The address of the resource to download.</param>
+            <returns>The requested resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadString(System.Uri,System.String)">
+            <summary>
+            Uploads the specified string to the specified resource, using the POST method.
+            </summary>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="data">The data to be uploaded.</param>
+            <returns>The response from the resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadString(System.String,System.Uri,System.String)">
+            <summary>
+            Uploads the specified string to the specified resource.
+            </summary>
+            <param name="method">The method to use to contact the resource.</param>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="data">The data to be uploaded.</param>
+            <returns>The response from the resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadData(System.Uri,System.Byte[])">
+            <summary>
+            Uploads the specified data to the specified resource.
+            </summary>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="data">The data to be uploaded.</param>
+            <returns>The response from the resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadData(System.String,System.Uri,System.Byte[])">
+            <summary>
+            Uploads the specified data to the specified resource.
+            </summary>
+            <param name="method">The method to use to contact the resource.</param>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="data">The data to be uploaded.</param>
+            <returns>The response from the resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadStream(System.Uri,System.IO.Stream)">
+            <summary>
+            Uploads the specified data to the specified resource.
+            </summary>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="data">The data to be uploaded.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadStream(System.String,System.Uri,System.IO.Stream)">
+            <summary>
+            Uploads the specified data to the specified resource.
+            </summary>
+            <param name="method">The method to use to contact the resource.</param>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="data">The data to be uploaded.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadMultipartEncoded(System.String,System.Uri,HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart[])">
+            <summary>
+            Uploads the multipart encoded.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="address">The address.</param>
+            <param name="messageParts">The message parts.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadFormUrlEncoded(System.Uri,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Uploads a name/value collection in URL encoded format to a resource with the specified URI.
+            </summary>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="parameters">The parameters to upload to the resourece.</param>
+            <returns>The response from the resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadFormMultipartEncoded(System.Uri,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Uploads a name/value collection in Multipart encoded format to a resource with the specified URI.
+            </summary>
+            <param name="address">The address of the resource to upload to.</param>
+            <param name="parameters">The parameters to upload to the resourece.</param>
+            <returns>The response from the resource.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.OnUploadProgressChanged(HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:UploadProgressChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebUploadProgressChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.ValidateServerCertificateCallback(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            Verifies the remote Secure Sockets Layer (SSL) certificate used for authentication.
+            </summary>
+            <param name="sender">An object that contains state information for this validation.</param>
+            <param name="cert">The certificate used to authenticate the remote party.</param>
+            <param name="chain">The chain of certificate authorities associated with the remote certificate.</param>
+            <param name="error">One or more errors associated with the remote certificate.</param>
+            <returns>A boolean value that determines whether the specified certificate is accepted for authentication.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.ReadString(System.Net.WebResponse)">
+            <summary>
+            Reads the content of a web response as a string.
+            </summary>
+            <param name="webResponse">The web response to read.</param>
+            <returns>The web response's content in string.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.ReadData(System.Net.WebResponse)">
+            <summary>
+            Reads the content of a web response.
+            </summary>
+            <param name="webResponse">The web response to read.</param>
+            <returns>The web response's content.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.GenerateMultiPartFormFieldHeaderBytes(System.String,System.String)">
+            <summary>
+            Generates the header bytes of a form field for a multi part request.
+            </summary>
+            <param name="fieldName">The name of the field.</param>
+            <param name="multipartBoundary">The boundary of the multi part request.</param>
+            <returns>The list of bytes representing the form field's header.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.GenerateMultiPartFormFieldHeaderBytes(System.String,System.String,System.String)">
+            <summary>
+            Generates the header bytes of a form file field for a multi part request.
+            </summary>
+            <param name="fieldName">The name of the field.</param>
+            <param name="fileName">The name of the file.</param>
+            <param name="multipartBoundary">The boundary of the multi part request.</param>
+            <returns>The list of bytes representing the form file field's header.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.GenerateMultipartHeaderBytes(HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebMessagePart,System.String)">
+            <summary>
+            Generates the multipart header bytes.
+            </summary>
+            <param name="messagePart">The message part.</param>
+            <param name="multipartBoundary">The multipart boundary.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.GenerateMultiPartFormFieldContentBytes(System.Object)">
+            <summary>
+            Generates the content bytes of a form field for a multi part request.
+            </summary>
+            <param name="fieldValue">The value of the field.</param>
+            <returns>The list of bytes representing the form field's content.</returns>
+        </member>
+        <member name="E:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UploadProgressChanged">
+            <summary>
+            Occurs when an upload operation successfully transfers some or all of the data.
+            </summary>
+            <remarks>
+            This event is raised each time upload values make progress.
+            This event is raised when uploads are started using any of the following methods:
+            - UploadString
+            - UploadData
+            - UploadStream
+            - UploadValuesUrlEncoded
+            - UploadValuesMultipartEncoded
+            </remarks>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Accept">
+            <summary>
+            Gets or sets the value of the Accept HTTP header,
+            which specifies the MIME types that are acceptable for the response.
+            </summary>
+            <value>The value of the Accept HTTP header.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.AcceptLanguage">
+            <summary>
+            Gets or sets the Accept-Langauge HTTP header, 
+            which specifies that natural languages that are preferred for the response.
+            </summary>
+            <value>The value of the Accept-Langauge HTTP header.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.AllowAutoRedirect">
+            <summary>
+            Gets or sets a value that indicates whether web client should follow redirection responses.
+            </summary>
+            <value>
+            <c>true</c> if web client should automatically follow redirection responses from the Internet resource; 
+            otherwise, <c>false</c>. The default value is true.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.AutomaticDecompression">
+            <summary>
+            Gets or sets the type of decompression that is used.
+            </summary>
+            <value>The type of decompression that is used. The default value is GZip.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.ContentType">
+            <summary>
+            Gets or sets the value of the Content-type HTTP header,
+            which specifies the MIME type of the accompanying body data.
+            </summary>
+            <value>The value of the Content-type HTTP header. The default value is null.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Credentials">
+            <summary>
+            Gets or sets authentication information for the HTTP Web client.
+            </summary>
+            <value>
+            An <see cref="T:System.Net.ICredentials"/> that contains the authentication credentials 
+            associated with the HTTP Web Client. The default is null.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Headers">
+            <summary>
+            Gets the collection of the name/value pairs that make up the HTTP headers.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.KeepAlive">
+            <summary>
+            Gets or sets a value that indicates whether to make a persistent connection to the Internet resource.
+            </summary>
+            <value>
+            <c>true</c> if the request to the Internet resource should contain a Connection HTTP header 
+            with the value Keep-alive; otherwise, <c>false</c>. The default is true.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Proxy">
+            <summary>
+            Gets or sets proxy information for <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient"/>.
+            </summary>
+            <value>The <see cref="T:System.Net.IWebProxy"/> object to use to proxy the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient"/></value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Referer">
+            <summary>
+            Gets or sets the value of the Referer HTTP header,
+            which specifies the URI of the resource from which the request URI was obtained.
+            </summary>
+            <value>The value of the Referer HTTP header. The default value is null.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Session">
+            <summary>
+            Gets or sets the session.
+            </summary>
+            <value>The session.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.Timeout">
+            <summary>
+            Gets or sets the time-out value in milliseconds for HTTP requests.
+            </summary>
+            <value>The number of milliseconds to wait before a request times out. The default is 100,000 milliseconds (100 seconds).</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebClient.UserAgent">
+            <summary>
+            Gets or sets the value of User-agent HTTP header,
+            which specifies information about the client agent.
+            </summary>
+            <value>The User-agent HTTP header.</value>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.#ctor(HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.SendRequest(System.String,System.Uri,HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebRequest)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="address">The address.</param>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.SendRequest``1(System.Uri)">
+            <summary>
+            Sends the request.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="address">The address.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.SendRequest``1(System.String,System.Uri)">
+            <summary>
+            Sends the request.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="method">The method.</param>
+            <param name="address">The address.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.SendRequest``1(System.String,System.Uri,HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebRequest)">
+            <summary>
+            Sends the request.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="method">The method.</param>
+            <param name="address">The address.</param>
+            <param name="request">The request.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.SerializeRequest(HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebRequest,System.Xml.Serialization.XmlSerializerNamespaces)">
+            <summary>
+            Serializes the request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="namespaces">The namespaces.</param>
+            <returns>The serialized request.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.DeserializeResponse``1(System.String)">
+            <summary>
+            Deserializes the response.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="strResponse">The response in string.</param>
+            <returns>The response.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.XmlWebClient.Namespaces">
+            <summary>
+            Gets the namespaces.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.WebFavoriteHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.WebFavoriteHelper.ParseUrl(HgCo.WindowsLive.SkyDrive.Services.UsersService.FolderItemResponse)">
+            <summary>
+            Parses the URL.
+            </summary>
+            <param name="folderItem">The folder item.</param>
+            <returns></returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScopeContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.LockScopeContainer.LockScope">
+            <summary>Gets or sets the lock scope.</summary>
+            <value>The lock scope.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderItemType">
+            <summary>
+            Specifies the item type of a webfolderitem.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemType.None">
+            <summary>
+            The specified webfolderitem's item type cannot be determined.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemType.Folder">
+            <summary>
+            The specified webfolderitem is a webfolder.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderItemType.File">
+            <summary>
+            The specified webfolderitem is a webfile.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderInfo">
+            <summary>
+            Provides webfolder content specific data.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderInfo.GetSubFolders">
+            <summary>
+            Gets the webfolders from the list of SubItems.
+            </summary>
+            <returns>The list of webfolders.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderInfo.GetFiles">
+            <summary>
+            Gets the webfiles from the list of SubItems.
+            </summary>
+            <returns>The list of webfiles.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderInfo.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFolderInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderInfo.CategoryType">
+            <summary>
+            Gets or sets CategoryType.
+            </summary>
+            <value>The CategoryType.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderInfo.IsSpecial">
+            <summary>
+            Gets or sets a value indicating whether this instance is special.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is special; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderInfo.IsRoot">
+            <summary>
+            Gets a value indicating whether this webfolder is a root webfolder.
+            </summary>
+            <value><c>true</c> if this webfolder is root; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFolderInfo.SubItems">
+            <summary>
+            Gets or sets the sub webfolderitems.
+            </summary>
+            <value>The sub webfolderitems.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFolderCategoryType">
+            <summary>
+            Specifies the category type of a webfolder.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderCategoryType.None">
+            <summary>
+            The specified webfolder's category type cannot be determined.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderCategoryType.Documents">
+            <summary>
+            The specified webfolder contains documents.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderCategoryType.Favorites">
+            <summary>
+            The specified webfolder contains favorites.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFolderCategoryType.Photos">
+            <summary>
+            The specified webfolder contains photos.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.#ctor(HgCo.WindowsLive.SkyDrive.Support.Net.HttpWebSession)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient"/> class.
+            </summary>
+            <param name="session">The session.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.GetResourceInfos(System.Uri,System.String)">
+            <summary>Gets the resource infos.</summary>
+            <param name="address">The address.</param>
+            <param name="depthLevel">The depth level.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.CreateCollectionResource(System.Uri,System.String)">
+            <summary>Creates the collection resource.</summary>
+            <param name="addressParent">The address parent.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.CreateResource(System.Uri,System.String)">
+            <summary>Creates the resource.</summary>
+            <param name="addressParent">The address parent.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.UploadResource(System.Uri,System.IO.Stream)">
+            <summary>Uploads the resource.</summary>
+            <param name="address">The address.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.DownloadResource(System.Uri)">
+            <summary>
+            Downloads the resource.
+            </summary>
+            <param name="address">The address.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.MoveResource(System.Uri,System.Uri,System.Boolean)">
+            <summary>Moves the resource.</summary>
+            <param name="addressOld">The address old.</param>
+            <param name="addressNew">The address new.</param>
+            <param name="overwrite">if set to <c>true</c> [overwrite].</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.CopyResource(System.Uri,System.Uri,System.Boolean)">
+            <summary>Copies the resource.</summary>
+            <param name="addressOld">The address old.</param>
+            <param name="addressNew">The address new.</param>
+            <param name="overwrite">if set to <c>true</c> [overwrite].</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.DeleteResource(System.Uri)">
+            <summary>Deletes the resource.</summary>
+            <param name="address">The address.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.LockResource(System.Uri)">
+            <summary>Locks the resource.</summary>
+            <param name="address">The address.</param>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.CreateXmlWebClient">
+            <summary>Creates the XML web client.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.CreateHttpWebClient">
+            <summary>Creates the HTTP web client.</summary>
+            <returns></returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.Credentials">
+            <summary>
+            Gets or sets authentication information for the WebDAV Web client.
+            </summary>
+            <value>
+            An <see cref="T:System.Net.ICredentials"/> that contains the authentication credentials 
+            associated with the WebDAV Web Client. The default is null.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.Proxy">
+            <summary>
+            Gets or sets proxy information for <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient"/>.
+            </summary>
+            <value>The <see cref="T:System.Net.IWebProxy"/> object to use to proxy the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient"/></value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.Session">
+            <summary>
+            Gets the session.
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.WebDavWebClient.Timeout">
+            <summary>
+            Gets or sets the time-out value in milliseconds for HTTP requests.
+            </summary>
+            <value>The number of milliseconds to wait before a request times out. The default is 100,000 milliseconds (100 seconds).</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.DepthLevels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.DepthLevels.Zero">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.DepthLevels.One">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.DepthLevels.OneExcludingRoot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.DepthLevels.Infinity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.DepthLevels.InfinityExcludingRoot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo">
+            <summary>
+            Provides favorite webfile content specific data.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo.WebFavoriteContentType">
+            <summary>
+            The content type of a webfavorite.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebFavoriteInfo.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.UnixDateTimeHelper">
+            <summary>
+            Provides methods for converting UNIX time to/from .Net datetime.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.UnixDateTimeHelper.UnixDateTimeOrigin">
+            <summary>
+            The starting datetime (origin) of the UNIX time representation.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.UnixDateTimeHelper.ConvertToDateTime(System.Int32)">
+            <summary>
+            Converts the UNIX time to its .Net datetime equivalent.
+            </summary>
+            <param name="value">The UNIX time.</param>
+            <returns>The .Net datetime.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.UnixDateTimeHelper.ConvertToDateTime(System.String)">
+            <summary>
+            Converts UNIX time string to its .Net datetime equivalent.
+            </summary>
+            <param name="value">The UNIX time string.</param>
+            <returns>The .Net datetime.</returns>
+            <remarks>If UNIX time string cannot be converted to .Net datetime, null is returned.</remarks>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.UnixDateTimeHelper.Parse(System.DateTime)">
+            <summary>
+            Converts .Net datetime to its UNIX time equivalent.
+            </summary>
+            <param name="date">The .Net datetime.</param>
+            <returns>The UNIX time.</returns>
+            <remarks>If .Net datetime cannot be converted to UNIX time, zero is returned.</remarks>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.UnixDateTimeHelper.Parse(System.Nullable{System.DateTime})">
+            <summary>
+            Converts .Net datetime to its UNIX time equivalent.
+            </summary>
+            <param name="date">The .Net datetime.</param>
+            <returns>The UNIX time.</returns>
+            <remarks>If .Net datetime cannot be converted to UNIX time, zero is returned.</remarks>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.Link">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Link.Rel">
+            <summary>Gets or sets the rel.</summary>
+            <value>The rel.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Link.Url">
+            <summary>Gets or sets the URL.</summary>
+            <value>The URL.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoResponse.ItemViewUrl">
+            <summary>
+            Gets or sets the item view URL.
+            </summary>
+            <value>
+            The item view URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoResponse.ItemWebUrl">
+            <summary>
+            Gets or sets the itemweb URL.
+            </summary>
+            <value>
+            The itemweb URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoResponse.Library">
+            <summary>
+            Gets or sets the library.
+            </summary>
+            <value>
+            The library.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.SkyDocsService.GetItemInfoResponse.SignedInUser">
+            <summary>
+            Gets or sets the signed in user.
+            </summary>
+            <value>
+            The signed in user.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebDocumentInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebDocumentInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.WebDocumentInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebDocumentInfo.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.WebDocumentInfo.Clone``1">
+            <summary>
+            Creates a new object of T that is a copy of the current instance.
+            </summary>
+            <typeparam name="T">The type of the new object, it has to be derived from <see cref="T:HgCo.WindowsLive.SkyDrive.WebFolderItemInfo"/>.</typeparam>
+            <returns>A new object of T that is a copy of this instance.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel.Public">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel.PublicShared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel.PublicUnlisted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel.Shared">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.SharingLevel.Private">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.WlidClient">
+            <summary>
+            Represents the Windows Live Identity (WLID) authentication module.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient">
+            <summary>
+            Represents the Passport authentication module.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient.PassportAuthenticationRegex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient.Authenticate(System.String,System.Net.WebRequest,System.Net.ICredentials)">
+            <summary>
+            Returns an instance of the <see cref="T:System.Net.Authorization"/> class in respose to an authentication challenge from a server.
+            </summary>
+            <param name="challenge">The authentication challenge sent by the server.</param>
+            <param name="request">The <see cref="T:System.Net.WebRequest"/> instance associated with the challenge.</param>
+            <param name="credentials">The credentials associated with the challenge.</param>
+            <returns>
+            An <see cref="T:System.Net.Authorization"/> instance containing the authorization message for the request, or null if the challenge cannot be handled.
+            </returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient.PreAuthenticate(System.Net.WebRequest,System.Net.ICredentials)">
+            <summary>
+            Returns an instance of the <see cref="T:System.Net.Authorization"/> class for an authentication request to a server.
+            </summary>
+            <param name="request">The <see cref="T:System.Net.WebRequest"/> instance associated with the authentication request.</param>
+            <param name="credentials">The credentials associated with the authentication request.</param>
+            <returns>
+            An <see cref="T:System.Net.Authorization"/> instance containing the authorization message for the request.
+            </returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient.ParsePassportParameters(System.String)">
+            <summary>
+            Parses the passport parameters.
+            </summary>
+            <param name="passportParameters">The passport parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient.AuthenticationType">
+            <summary>
+            Gets the authentication type provided by this authentication module.
+            </summary>
+            <returns>A string indicating the authentication type provided by this authentication module.</returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.PassportClient.CanPreAuthenticate">
+            <summary>
+            Gets a value indicating whether the authentication module supports preauthentication.
+            </summary>
+            <returns><c>true</c> if the authorization module supports preauthentication; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.WlidClient.WlidAuthenticationRegex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Services.UsersService.WlidClient.AuthorizationTokenRegex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Services.UsersService.WlidClient.Authenticate(System.String,System.Net.WebRequest,System.Net.ICredentials)">
+            <summary>
+            Returns an instance of the <see cref="T:System.Net.Authorization"/> class in respose to an authentication challenge from a server.
+            </summary>
+            <param name="challenge">The authentication challenge sent by the server.</param>
+            <param name="request">The <see cref="T:System.Net.WebRequest"/> instance associated with the challenge.</param>
+            <param name="credentials">The credentials associated with the challenge.</param>
+            <returns>
+            An <see cref="T:System.Net.Authorization"/> instance containing the authorization message for the request, or null if the challenge cannot be handled.
+            </returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.WlidClient.AuthenticationType">
+            <summary>
+            Gets the authentication type provided by this authentication module.
+            </summary>
+            <returns>A string indicating the authentication type provided by this authentication module.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Response.Urls">
+            <summary>Gets or sets the URL.</summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Response.Status">
+            <summary>Gets or sets the status.</summary>
+            <value>The status.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Response.PropStats">
+            <summary>Gets or sets the prop stat.</summary>
+            <value>The prop stat.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.WebDav.Response.Description">
+            <summary>Gets or sets the description.</summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession"/> class.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession.Clone">
+            <summary>
+            Creates a new SoapWebSession object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new SoapWebSession object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Support.Net.Soap.SoapWebSession.HttpSession">
+            <summary>
+            Gets the HTTP session.
+            </summary>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.WebUserInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebUserInfo.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebUserInfo.PictureUrl">
+            <summary>
+            Gets or sets the picture URL.
+            </summary>
+            <value>
+            The picture URL.
+            </value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.WebUserInfo.SmallPictureUrl">
+            <summary>
+            Gets or sets the small picture URL.
+            </summary>
+            <value>
+            The small picture URL.
+            </value>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper">
+            <summary>
+            Provides methods for parsing WebResponse's Headers.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartDomain">
+            <summary>
+            The regular expression to parse Set-Cookie's part Domain.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartPath">
+            <summary>
+            The regular expression to parse Set-Cookie's part Path.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartExpires">
+            <summary>
+            The regular expression to parse Set-Cookie's part Expires.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartHttpOnly">
+            <summary>
+            The regular expression to parse Set-Cookie's part HttpOnly.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartSecure">
+            <summary>
+            The regular expression to parse Set-Cookie's part Secure.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartVersion">
+            <summary>
+            The regular expression to parse Set-Cookie's part Version.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookiePartNameValue">
+            <summary>
+            The regular expression to parse Set-Cookie's part Name and Value.
+            </summary>
+        </member>
+        <member name="F:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.RegexCookieIsBroken">
+            <summary>
+            The regular expression to determine whether a splitted response cookie is broken.
+            </summary>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.ParseCookies(System.Net.WebResponse)">
+            <summary>
+            Parses the cookies from the given webresponse's header.
+            </summary>
+            <param name="webResponse">The web response to parse.</param>
+            <returns>The list of cookies.</returns>
+        </member>
+        <member name="M:HgCo.WindowsLive.SkyDrive.Support.Net.WebResponseHelper.ParseCookie(System.String,System.Uri)">
+            <summary>
+            Parses a cookie from Set-Cookie string.
+            </summary>
+            <param name="setCookie">The Set-Cookie string.</param>
+            <param name="host">The host.</param>
+            <returns>The parsed cookie.</returns>
+        </member>
+        <member name="T:HgCo.WindowsLive.SkyDrive.Services.UsersService.Author">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Author.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Author.PhotoUrl">
+            <summary>Gets or sets the photo URL.</summary>
+            <value>The photo URL.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Author.SmallPhotoUrl">
+            <summary>Gets or sets the small photo URL.</summary>
+            <value>The small photo URL.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Author.CID">
+            <summary>Gets or sets the CID.</summary>
+            <value>The CID.</value>
+        </member>
+        <member name="P:HgCo.WindowsLive.SkyDrive.Services.UsersService.Author.MenuCodes">
+            <summary>Gets or sets the menu codes.</summary>
+            <value>The menu codes.</value>
+        </member>
+    </members>
+</doc>

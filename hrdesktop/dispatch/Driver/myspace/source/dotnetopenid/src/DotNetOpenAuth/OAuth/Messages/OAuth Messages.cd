@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Comment CommentText="Messages from Service Provider">
+    <Position X="7.912" Y="0.715" Height="0.291" Width="2.02" />
+  </Comment>
+  <Comment CommentText="Messages from Consumer">
+    <Position X="4.36" Y="0.683" Height="0.291" Width="2.02" />
+  </Comment>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.UnauthorizedTokenRequest">
+    <Position X="4.25" Y="1" Width="3" />
+    <Compartments>
+      <Compartment Name="Internal" Collapsed="true" />
+      <Compartment Name="Private" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\UnauthorizedTokenRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.UnauthorizedTokenResponse">
+    <Position X="7.5" Y="1.5" Width="3" />
+    <Members>
+      <Property Name="ITokenContainingMessage.Token" Hidden="true" />
+      <Property Name="ITokenSecretContainingMessage.TokenSecret" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAEAAAAAAIAAIAAAIAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\UnauthorizedTokenResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.SignedMessageBase">
+    <Position X="0.5" Y="1.5" Width="3.5" />
+    <Members>
+      <Property Name="ITamperResistantOAuthMessage.ConsumerSecret" Hidden="true" />
+      <Property Name="ITamperResistantOAuthMessage.HttpMethod" Hidden="true" />
+      <Property Name="ITamperResistantOAuthMessage.SignatureMethod" Hidden="true" />
+      <Property Name="ITamperResistantOAuthMessage.TokenSecret" Hidden="true" />
+      <Property Name="ITamperResistantProtocolMessage.Signature" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIAAFAAAAIAAAAACgICAAgAAAgAAIAQAAAEAIgAQAAE=</HashCode>
+      <FileName>OAuth\Messages\SignedMessageBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.UserAuthorizationRequest">
+    <Position X="4.25" Y="3" Width="3" />
+    <Members>
+      <Property Name="ITokenContainingMessage.Token" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAIAAAAAAAQAA=</HashCode>
+      <FileName>OAuth\Messages\UserAuthorizationRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.UserAuthorizationResponse">
+    <Position X="7.5" Y="4.5" Width="3" />
+    <Members>
+      <Property Name="ITokenContainingMessage.Token" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\UserAuthorizationResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.AuthorizedTokenResponse">
+    <Position X="7.5" Y="6.25" Width="3" />
+    <Members>
+      <Property Name="ITokenContainingMessage.Token" Hidden="true" />
+      <Property Name="ITokenSecretContainingMessage.TokenSecret" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAEAAAIAAAIAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\AuthorizedTokenResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.AuthorizedTokenRequest">
+    <Position X="4.25" Y="5.5" Width="3" />
+    <Members>
+      <Property Name="ITokenContainingMessage.Token" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACQAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\AuthorizedTokenRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.AccessProtectedResourceRequest">
+    <Position X="4.25" Y="7.75" Width="3" />
+    <Members>
+      <Property Name="ITokenContainingMessage.Token" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\AccessProtectedResourceRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotNetOpenAuth.OAuth.Messages.MessageBase">
+    <Position X="11" Y="1" Width="3.5" />
+    <Members>
+      <Field Name="extraData" Hidden="true" />
+      <Property Name="IDirectedProtocolMessage.Recipient" Hidden="true" />
+      <Method Name="IMessage.EnsureValidMessage" Hidden="true" />
+      <Property Name="IMessage.ExtraData" Hidden="true" />
+      <Property Name="IMessage.Version" Hidden="true" />
+      <Property Name="IProtocolMessage.RequiredProtection" Hidden="true" />
+      <Property Name="IProtocolMessage.Transport" Hidden="true" />
+      <Field Name="protectionRequired" Hidden="true" />
+      <Field Name="recipient" Hidden="true" />
+      <Field Name="transport" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ICAMAAQAYAAAgAkEAIAIAAYACgAEYBAAIECBACAAAAA=</HashCode>
+      <FileName>OAuth\Messages\MessageBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DotNetOpenAuth.ChannelElements.ITamperResistantOAuthMessage">
+    <Position X="11.25" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAIAAAgAAAAAAIAQAAAAAAAAAAAA=</HashCode>
+      <FileName>ChannelElements\ITamperResistantOAuthMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DotNetOpenAuth.OAuth.Messages.ITokenContainingMessage">
+    <Position X="1" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>OAuth\Messages\ITokenContainingMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DotNetOpenAuth.OAuth.Messages.ITokenSecretContainingMessage">
+    <Position X="1" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OAuth\Messages\ITokenSecretContainingMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

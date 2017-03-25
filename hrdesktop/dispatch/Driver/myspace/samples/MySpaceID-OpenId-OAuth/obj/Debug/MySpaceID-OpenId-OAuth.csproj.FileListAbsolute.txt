@@ -1,0 +1,90 @@
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.dll
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.pdb
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.dll
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.dll
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.Json.dll
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.dll
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.xml
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.pdb
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.xml
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.pdb
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.xml
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.dll
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.pdb
+D:\Projects\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.pdb
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.Json.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.xml
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.pdb
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.xml
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.pdb
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.xml
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.dll
+D:\Project\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.pdb
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.pdb
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.Json.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.xml
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.pdb
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.xml
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.pdb
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.xml
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\ResolveAssemblyReference.cache
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.dll
+D:\c# SDK\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.Json.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.xml
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.xml
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.xml
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.pdb
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.pdb
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.Json.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.xml
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.pdb
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.xml
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.pdb
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.xml
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.dll
+C:\Users\ushabbir\Desktop\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.pdb
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID-OpenId-OAuth.pdb
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\Jayrock.Json.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\log4net.xml
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.pdb
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\MySpaceID.SDK.xml
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.pdb
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\bin\DotNetOpenAuth.xml
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\samples\MySpaceID-OpenId-OAuth\obj\Debug\MySpaceID-OpenId-OAuth.pdb
