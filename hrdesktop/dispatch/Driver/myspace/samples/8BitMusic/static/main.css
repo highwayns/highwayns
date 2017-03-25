@@ -1,0 +1,65 @@
+
+html { background: #5b82f3 url(/mock/background.png) scroll repeat-x top left; }
+body { padding: 0 0 50px 60px; width: 860px; font-family: ArcadeClassic, Tahoma; }
+#branding { text-align: center; background-color: #fff; width: 160px; line-height: 200%;}
+
+#nav { margin-top: 25px; float: left; }
+#nav li { display: inline; margin-right: 20px; }
+#nav a { color: #fff; text-decoration: none; font-size: 110%; } 
+
+#login {padding-bottom:15px; padding-top:15px; background-color: #e6e6e6; text-align:center; width: 260px; float: right; }
+#login .logout a { font-size: 22px; line-height: 22px; color:#aaa; text-decoration: none; }
+
+#login .logout .logout_isSignedin { display: block; }
+#login .logout .logout_isSignedout { display: none; }
+
+#login .login .login_isSignedin { display: none; }
+#login .login .login_isSignedout { display: block; }
+
+#cols { margin-top: 80px; overflow: auto; }
+#cols>li { display: block; float: left; width: 260px; padding: 15px; padding-top:20px; background-color: #fff; height: 500px; overflow: auto; }
+#cols>li h1 { font-size: 140%; font-weight: normal; }
+#cols>li h2 { font-size: 120%; }
+#cols #profile { background-color: #e6e6e6; width: 250px; }
+
+#content p { font-size: 90%; }
+#content h2 { margin-top: 15px; }
+
+#profile-view { text-align: center; }
+#profile-view a { text-decoration: none; }
+#profile-pic { border: 2px solid #a9a9a9; }
+#caption { overflow: auto; }
+#caption-left { width: 66%; float: left; }
+#caption-right { width: 32%; float: right; }
+
+#profile h1 { color: #000; margin-top: 15px; }
+#basic-info h1 { color: #6da54a; }
+#activities>h1 { color: #2665ac; }
+#activities>li { width:115px; }
+#activities>li>h1 { color: #2665ac; }
+#activities>li content{ display:block; width:100%; }
+#activities>li div{ width:100%; text-align:center; margin:5px; padding:5px; }
+#activities>li h5 {}
+#activities>li img {height:85px;}
+#profile h2 { color: #000; }
+#profile h3 { color: #a9a9a9; font-size: 110%; margin-top: 10px;  }
+#member-since { color: #000; font-size: 110%; }
+#headline { color: #424242; }
+#about-me { margin-top: 20px; color: #424242; font-size: 90%; }
+
+/* li#activities-map {width:600px;} */
+div#copyright { text-align: center; margin-top: 30px; color: #FFFFFF;}
+
+.content_loggedOut { display: none; }
+.content_loggedIn { display: block; }
+
+.welcome_LoggedOut { display: block; margin-top: 90px; width: 450px; font-size: large; font-weight: bold; padding-left: 210px; }
+.welcome_LoggedIn { display: none; }
+
+.rounded-corner-top {-moz-border-radius-topleft:5px; -webkit-border-top-left-radius:5px; -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px;}
+.rounded-corner-left {-moz-border-radius-topleft:5px;  -moz-border-radius-bottomleft:5px; -webkit-border-top-left-radius:5px; -webkit-border-bottom-left-radius:5px; }
+.rounded-corner-right {-moz-border-radius-topright:5px;  -moz-border-radius-bottomright:5px; -webkit-border-top-right-radius:5px; -webkit-border-bottom-right-radius:5px; }
+.rounded-corner-bottom {-moz-border-radius-bottomleft:5px; -webkit-border-bottom-left-radius:5px; -moz-border-radius-bottomright:5px; -webkit-border-bottom-right-radius:5px;}
+
+.activitiesContainer{margin:0px; margin-top:15px; font-size:85%;}
+.activitiesContainer .activityItem {margin:0px; margin-bottom:20px;}

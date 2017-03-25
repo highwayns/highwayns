@@ -1,0 +1,10 @@
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\GPlusQuickstartCsharp.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\GPlusQuickstartCsharp.pdb
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\DotNetOpenAuth.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\Google.Apis.Authentication.OAuth2.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\Google.Apis.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\Google.Apis.Plus.v1.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\bin\Newtonsoft.Json.Net35.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\obj\Debug\GPlusQuickstartCsharp.dll
+C:\Users\zjxd th\Downloads\gplus-quickstart-csharp-master (1)\gplus-quickstart-csharp\obj\Debug\GPlusQuickstartCsharp.pdb

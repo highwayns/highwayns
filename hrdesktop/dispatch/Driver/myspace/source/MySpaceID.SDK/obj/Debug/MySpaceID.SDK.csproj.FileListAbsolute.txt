@@ -1,0 +1,56 @@
+D:\Projects\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+D:\Projects\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+D:\Projects\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+D:\Projects\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+D:\Projects\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+D:\Projects\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb
+D:\Projects\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+D:\Project\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+D:\Project\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+D:\Project\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+D:\Project\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+D:\Project\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+D:\Project\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb
+D:\Project\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb
+D:\c# SDK\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+\\192.168.1.23\Common\Farhan\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb
+C:\Documents and Settings\farhang\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb
+C:\Users\ushabbir\Desktop\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.XML
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\bin\Debug\MySpaceID.SDK.pdb
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\bin\Debug\Jayrock.Json.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.dll
+C:\Users\ushabbir\Desktop\c# SDK without constants\c# SDK\source\MySpaceID.SDK\obj\Debug\MySpaceID.SDK.pdb

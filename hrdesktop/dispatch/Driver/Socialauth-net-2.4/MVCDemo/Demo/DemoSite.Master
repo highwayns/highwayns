@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DemoSite.master.cs" Inherits="Brickred.SocialAuth.NET.Demo.DemoSite" %>
+
+<%@ Register Src="SocialAuthLogin.ascx" TagName="SocialAuthLogin" TagPrefix="uc1" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="default.css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form2" runat="server">
+    <div class="header">
+        <div style="font-size: 20px; float: left; width: 15%; font-weight: bold;margin-top:15px">
+            <center><a href="http://code.google.com/p/socialauth-net/">SocialAuth 2.4</a></center></div>
+        <div style="width: 85%; float: left;">
+            <div style="float: left;">
+                <uc1:SocialAuthLogin ID="SocialAuthLogin1" runat="server" Width="710px" Height="60px" BackgroundColor="purple" />
+            </div>
+            <span id="logoutspan" runat="server" style="float: right; vertical-align: top; height: 50px;">
+             
+                <asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Text="Logout"
+                   Font-Bold="true" Visible="false" />
+            </span>
+        </div>
+    </div>
+    <div class="leftNav">
+        <ul>
+            <li><a href="Default.aspx">Demo Home</a></li>
+            <li><a href="GetToken.aspx">Save/Load Token</a></li>
+            <li><a href="ManualLogin.aspx">Supported Controls Demo</a></li>
+            <li><a href="popupdemo.aspx">Pop-up Login Demo</a></li>
+            <li><a href="welcome.aspx">Detailed Profile & Contacts of Current Connection</a></li>
+            <li><a href="CustomFeedDemo.aspx">Custom Feeds Demo</a></li>
+            <li><a href="Protocols.aspx">Supported Protocols<small><sup>updated!</sup></small></a></li>
+            <li><a href="postdemo.aspx">Tweets Post Demo</a></li>
+            <li><a href="FbStatusUpdateDemo.aspx">Facebook Status update Demo</a></li>
+
+            
+        </ul>
+        <br />
+        <center>
+    <a href="http://www.3pillarglobal.com" target="_blank"><img src="images/logo.png" alt="Passionate about technology" border="0" /></a></center>
+    </div>
+    <div class="content" id="divContent" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

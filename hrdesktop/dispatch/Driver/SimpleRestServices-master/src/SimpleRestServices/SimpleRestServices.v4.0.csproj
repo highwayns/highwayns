@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A44EB7C-06D5-43F0-B660-F684CBAAC99F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSIStudios.SimpleRESTServices</RootNamespace>
+    <AssemblyName>SimpleRESTServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseIntermediateOutputPath>obj\v4.0\</BaseIntermediateOutputPath>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\v4.0\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\v4.0\Debug\SimpleRESTServices.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\v4.0\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\v4.0\Release\SimpleRESTServices.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\keys\simplerestservices.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Socialauth-net-2.4\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\HttpHeader.cs" />
+    <Compile Include="Client\HttpMethod.cs" />
+    <Compile Include="Client\IStringSerializer.cs" />
+    <Compile Include="Client\Json\JsonStringSerializer.cs" />
+    <Compile Include="Client\ResponseOfT.cs" />
+    <Compile Include="Client\RestServiceBase.cs" />
+    <Compile Include="Core\IRestService.cs" />
+    <Compile Include="Core\IUrlBuilder.cs" />
+    <Compile Include="Core\IRequestLogger.cs" />
+    <Compile Include="Client\Json\JsonRequestSettings.cs" />
+    <Compile Include="Client\Json\JsonRestService.cs" />
+    <Compile Include="Client\UrlBuilder.cs" />
+    <Compile Include="Client\RequestSettings.cs" />
+    <Compile Include="Client\Response.cs" />
+    <Compile Include="Client\WebResponseRetryLogic.cs" />
+    <Compile Include="Core\ITextCleaner.cs" />
+    <Compile Include="Core\IRetryLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Exceptions\BadWebRequestException.cs" />
+    <Compile Include="Server\FullHtmlTagCleaner.cs" />
+    <Compile Include="Server\HtmlTagReplacerAndCleaner.cs" />
+    <Compile Include="Core\IRequestProcessor.cs" />
+    <Compile Include="Core\Exceptions\HttpHeaderNotFoundException.cs" />
+    <Compile Include="Core\Exceptions\HttpResourceNotFoundException.cs" />
+    <Compile Include="Core\Exceptions\HttpResourceNotModifiedException.cs" />
+    <Compile Include="Server\EventArgs\RESTRequestCompletedEventArgs.cs" />
+    <Compile Include="Server\EventArgs\RESTRequestErrorEventArgs.cs" />
+    <Compile Include="Server\RESTRequestProcessor.cs" />
+    <Compile Include="Server\EventArgs\RESTRequestStartedEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.SimpleRestServices.v4.0.config" />
+    <None Include="SimpleRestServices.nuspec" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

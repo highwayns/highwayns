@@ -1,0 +1,19 @@
+E:\workspace\C#-SDK\Source\bin\Debug\QWeiboSDK.dll
+E:\workspace\C#-SDK\Source\bin\Debug\QWeiboSDK.pdb
+E:\workspace\C#-SDK\Source\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\C#-SDK\Source\obj\Debug\QWeiboSDK.dll
+E:\workspace\C#-SDK\Source\obj\Debug\QWeiboSDK.pdb
+E:\workspace\C#SDK2\Source\bin\Debug\QWeiboSDK.XML
+E:\workspace\C#SDK2\Source\bin\Debug\QWeiboSDK.dll
+E:\workspace\C#SDK2\Source\bin\Debug\QWeiboSDK.pdb
+E:\workspace\C#SDK2\Source\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\C#SDK2\Source\obj\Debug\QWeiboSDK.dll
+E:\workspace\C#SDK2\Source\obj\Debug\QWeiboSDK.pdb
+E:\workspace\C#SDK\Source\bin\Debug\QWeiboSDK.dll
+E:\workspace\C#SDK\Source\bin\Debug\QWeiboSDK.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\Source\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QWeiboSDK.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QWeiboSDK.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QWeiboSDK.XML
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\Source\obj\Debug\QWeiboSDK.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\Source\obj\Debug\QWeiboSDK.pdb

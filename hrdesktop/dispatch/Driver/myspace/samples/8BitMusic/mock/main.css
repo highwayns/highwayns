@@ -1,0 +1,36 @@
+
+html { background: #5b82f3 url(/mock/background.png) scroll repeat-x top left; }
+body { padding: 0 0 50px 60px; width: 860px; font-family: ArcadeClassic, Tahoma; }
+#branding { text-align: center; background-color: #fff; width: 160px; line-height: 200%;}
+
+#nav { margin-top: 50px; }
+#nav li { display: inline; margin-right: 20px; }
+#nav a { color: #fff; text-decoration: none; font-size: 110%; } 
+
+#login { background-color: #e6e6e6; text-align:center; height: 80px; width: 260px; float: right; }
+#login a { font-size: 60px; line-height: 60px; }
+
+#cols { margin-top: 60px; overflow: auto; }
+#cols li { display: block; float: left; width: 240px; padding: 15px; background-color: #fff; height: 460px; overflow: auto; }
+#cols li h1 { font-size: 140%; font-weight: normal; }
+#cols li h2 { font-size: 120%; }
+#cols #profile { background-color: #e6e6e6; width: 180px; }
+
+#content p { font-size: 90%; }
+#content h2 { margin-top: 15px; }
+
+#profile-view { text-align: center; }
+#profile-view a { text-decoration: none; }
+#profile-pic { border: 2px solid #a9a9a9; }
+#caption { overflow: auto; }
+#caption-left { width: 48%; float: left; }
+#caption-right { width: 48%; float: right; }
+
+#profile h1 { color: #000; margin-top: 15px; }
+#basic-info h1 { color: #6da54a; }
+#activities h1 { color: #2665ac; }
+#profile h2 { color: #000; }
+#profile h3 { color: #a9a9a9; font-size: 110%; margin-top: 10px;  }
+#member-since { color: #000; font-size: 110%; }
+#headline { color: #424242; }
+#about-me { margin-top: 20px; color: #424242; font-size: 90%; }

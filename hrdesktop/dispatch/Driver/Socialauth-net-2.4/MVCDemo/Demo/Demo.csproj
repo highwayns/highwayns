@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07DC51B3-27A9-4867-A0D7-033D51A5F822}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Brickred.SocialAuth.NET.Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel">
+      <HintPath>..\..\Lib\Microsoft.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdvanceApiDemo.aspx" />
+    <Content Include="CustomFeedDemo.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="default.css" />
+    <Content Include="Demo.sln" />
+    <Content Include="FbStatusUpdateDemo.aspx" />
+    <Content Include="GetToken.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\brickred-logo.jpg" />
+    <Content Include="images\err.gif" />
+    <Content Include="images\hybrid_small.png" />
+    <Content Include="images\notavailable.png" />
+    <Content Include="images\OAuth2_small.png" />
+    <Content Include="images\OAuth_small.png" />
+    <Content Include="images\SocialAuthIcons\currentyes.png" />
+    <Content Include="images\SocialAuthIcons\facebook.png" />
+    <Content Include="images\SocialAuthIcons\google.png" />
+    <Content Include="images\SocialAuthIcons\googlehybrid.png" />
+    <Content Include="images\SocialAuthIcons\linkedin.png" />
+    <Content Include="images\SocialAuthIcons\linkedin1.png" />
+    <Content Include="images\SocialAuthIcons\msn.png" />
+    <Content Include="images\SocialAuthIcons\myspace.png" />
+    <Content Include="images\SocialAuthIcons\twitter.png" />
+    <Content Include="images\SocialAuthIcons\yahoo.png" />
+    <Content Include="images\SocialAuthIcons\yes.png" />
+    <Content Include="images\waiting.gif" />
+    <Content Include="jquery.ui.all.css" />
+    <Content Include="ManualLogin.aspx" />
+    <Content Include="PopupDemo.aspx" />
+    <Content Include="PopupProcess.aspx" />
+    <Content Include="POSTdemo.aspx" />
+    <Content Include="Protocols.aspx" />
+    <Content Include="scripts\jquery-ui.min.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="SocialAuthLogin.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Welcome.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvanceApiDemo.aspx.cs">
+      <DependentUpon>AdvanceApiDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdvanceApiDemo.aspx.designer.cs">
+      <DependentUpon>AdvanceApiDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomFeedDemo.aspx.cs">
+      <DependentUpon>CustomFeedDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomFeedDemo.aspx.designer.cs">
+      <DependentUpon>CustomFeedDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoSite.Master.cs">
+      <DependentUpon>DemoSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoSite.Master.designer.cs">
+      <DependentUpon>DemoSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FbStatusUpdateDemo.aspx.cs">
+      <DependentUpon>FbStatusUpdateDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FbStatusUpdateDemo.aspx.designer.cs">
+      <DependentUpon>FbStatusUpdateDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetToken.aspx.cs">
+      <DependentUpon>GetToken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetToken.aspx.designer.cs">
+      <DependentUpon>GetToken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ManualLogin.aspx.cs">
+      <DependentUpon>ManualLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManualLogin.aspx.designer.cs">
+      <DependentUpon>ManualLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupDemo.aspx.cs">
+      <DependentUpon>PopupDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupDemo.aspx.designer.cs">
+      <DependentUpon>PopupDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupProcess.aspx.cs">
+      <DependentUpon>PopupProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupProcess.aspx.designer.cs">
+      <DependentUpon>PopupProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="POSTdemo.aspx.cs">
+      <DependentUpon>POSTdemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="POSTdemo.aspx.designer.cs">
+      <DependentUpon>POSTdemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocols.aspx.cs">
+      <DependentUpon>Protocols.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Protocols.aspx.designer.cs">
+      <DependentUpon>Protocols.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SocialAuthLogin.ascx.cs">
+      <DependentUpon>SocialAuthLogin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SocialAuthLogin.ascx.designer.cs">
+      <DependentUpon>SocialAuthLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DemoSite.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tempTokens\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{B714ED7C-65ED-4E2F-907E-FAF3C64D6660}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>28924</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Demo</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://opensource.brickred.com/Demo</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

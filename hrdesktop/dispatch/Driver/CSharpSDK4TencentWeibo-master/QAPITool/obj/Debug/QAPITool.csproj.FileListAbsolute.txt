@@ -1,0 +1,41 @@
+E:\workspace\C#-SDK\QAPITool\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\C#-SDK\QAPITool\obj\Debug\QAPITool.InputForm.resources
+E:\workspace\C#-SDK\QAPITool\obj\Debug\QAPITool.LoginForm.resources
+E:\workspace\C#-SDK\QAPITool\obj\Debug\QAPITool.MainForm.resources
+E:\workspace\C#-SDK\QAPITool\obj\Debug\QAPITool.Properties.Resources.resources
+E:\workspace\C#-SDK\QAPITool\obj\Debug\GenerateResource.read.1.tlog
+E:\workspace\C#-SDK\QAPITool\obj\Debug\GenerateResource.write.1.tlog
+E:\workspace\C#-SDK\QAPITool\bin\Debug\QAPITool.exe.config
+E:\workspace\C#-SDK\QAPITool\bin\Debug\QAPITool.exe
+E:\workspace\C#-SDK\QAPITool\bin\Debug\QAPITool.pdb
+E:\workspace\C#-SDK\QAPITool\obj\Debug\QAPITool.exe
+E:\workspace\C#-SDK\QAPITool\obj\Debug\QAPITool.pdb
+E:\workspace\C#SDK2\QAPITool\bin\Debug\QAPITool.exe.config
+E:\workspace\C#SDK2\QAPITool\bin\Debug\QAPITool.exe
+E:\workspace\C#SDK2\QAPITool\bin\Debug\QAPITool.pdb
+E:\workspace\C#SDK2\QAPITool\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\C#SDK2\QAPITool\obj\Debug\QAPITool.InputForm.resources
+E:\workspace\C#SDK2\QAPITool\obj\Debug\QAPITool.LoginForm.resources
+E:\workspace\C#SDK2\QAPITool\obj\Debug\QAPITool.MainForm.resources
+E:\workspace\C#SDK2\QAPITool\obj\Debug\QAPITool.Properties.Resources.resources
+E:\workspace\C#SDK2\QAPITool\obj\Debug\GenerateResource.read.1.tlog
+E:\workspace\C#SDK2\QAPITool\obj\Debug\GenerateResource.write.1.tlog
+E:\workspace\C#SDK2\QAPITool\obj\Debug\QAPITool.exe
+E:\workspace\C#SDK2\QAPITool\obj\Debug\QAPITool.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QAPITool.exe.config
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.InputForm.resources
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.LoginForm.resources
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.MainForm.resources
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.Properties.Resources.resources
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QAPITool.exe
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QAPITool.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QWeiboSDK.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QWeiboSDK.xml
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.exe
+C:\Users\zjxd th\项目\长城咨询\受注开发\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\CSharpSDK4TencentWeibo-master\QAPITool\bin\Debug\QAPITool.exe.config
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.exe
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\CSharpSDK4TencentWeibo-master\QAPITool\obj\Debug\QAPITool.pdb

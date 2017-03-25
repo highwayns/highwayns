@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnRenhe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnTaobao.Name" xml:space="preserve">
+    <value>btnTaobao</value>
+  </data>
+  <data name="&gt;&gt;btnMyspace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnOpenpne.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFaceBook.Text" xml:space="preserve">
+    <value>Login to Facebook</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnWitkey.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;btnWordpress.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnYahoo.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnJingdong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnAlibaba.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 36</value>
+  </data>
+  <data name="&gt;&gt;btnYahooJapan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRakuten.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnFaceBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSalesforce.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>613, 351</value>
+  </data>
+  <data name="&gt;&gt;btnYoutube.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOpenpne.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSohu.Text" xml:space="preserve">
+    <value>Login to Sohu</value>
+  </data>
+  <data name="btnTencent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 22</value>
+  </data>
+  <data name="&gt;&gt;btnTwitter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnFaceBook.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnJingdong.Text" xml:space="preserve">
+    <value>Login to JingDong</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnMyspace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnExit.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnRenhe.Text" xml:space="preserve">
+    <value>Login to Renhe</value>
+  </data>
+  <data name="btnTencent.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;btnWitkey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLinkedin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSalesforce.Name" xml:space="preserve">
+    <value>btnSalesforce</value>
+  </data>
+  <data name="&gt;&gt;btnmixi.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnTwitter.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btnBaidu.Text" xml:space="preserve">
+    <value>Login to Baidu</value>
+  </data>
+  <data name="btnRakuten.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRakuten.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 66</value>
+  </data>
+  <data name="&gt;&gt;btnSina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnMSN.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Media Publish</value>
+  </data>
+  <data name="btnSalesforce.Text" xml:space="preserve">
+    <value>Login to Salesforce</value>
+  </data>
+  <data name="btnYahooJapan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnmixi.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnmixi.Name" xml:space="preserve">
+    <value>btnmixi</value>
+  </data>
+  <data name="btnSohu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 66</value>
+  </data>
+  <data name="&gt;&gt;btnYahoo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnMSN.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 110</value>
+  </data>
+  <data name="&gt;&gt;btnWordpress.Name" xml:space="preserve">
+    <value>btnWordpress</value>
+  </data>
+  <data name="btnAlibaba.Text" xml:space="preserve">
+    <value>Login to Alibaba</value>
+  </data>
+  <data name="btnSalesforce.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 198</value>
+  </data>
+  <data name="btnTwitter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnYahoo.Text" xml:space="preserve">
+    <value>Login to Yahoo</value>
+  </data>
+  <data name="&gt;&gt;btnYoutube.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnYahooJapan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 110</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="btnmixi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 22</value>
+  </data>
+  <data name="&gt;&gt;btnYoutube.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnBaidu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFaceBook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 22</value>
+  </data>
+  <data name="&gt;&gt;btnAlibaba.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnTwitter.Text" xml:space="preserve">
+    <value>Login to Twitter</value>
+  </data>
+  <data name="&gt;&gt;btnJingdong.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBaidu.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btnMSN.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;btnFaceBook.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="btnTaobao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 349</value>
+  </data>
+  <data name="&gt;&gt;btnTwitter.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="btnWordpress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnYahoo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 286</value>
+  </data>
+  <data name="btnJingdong.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="btnAlibaba.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnBaidu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="&gt;&gt;btnWitkey.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnTwitter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSalesforce.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTencent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnOpenpne.Text" xml:space="preserve">
+    <value>Login to OpenPNE</value>
+  </data>
+  <data name="&gt;&gt;btnRenhe.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnRenhe.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;btnMyspace.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;btnWitkey.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnTwitter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 66</value>
+  </data>
+  <data name="btnMyspace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 242</value>
+  </data>
+  <data name="&gt;&gt;btnSalesforce.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnGoogle.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;btnMSN.Name" xml:space="preserve">
+    <value>btnMSN</value>
+  </data>
+  <data name="&gt;&gt;btnYoutube.Name" xml:space="preserve">
+    <value>btnYoutube</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormMediaPublish</value>
+  </data>
+  <data name="btnGoogle.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="btnRakuten.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;btnTencent.Name" xml:space="preserve">
+    <value>btnTencent</value>
+  </data>
+  <data name="btnSina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnRenhe.Name" xml:space="preserve">
+    <value>btnRenhe</value>
+  </data>
+  <data name="btnFaceBook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnYoutube.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="btnTencent.Text" xml:space="preserve">
+    <value>Login to Tencent</value>
+  </data>
+  <data name="&gt;&gt;btnTwitter.Name" xml:space="preserve">
+    <value>btnTwitter</value>
+  </data>
+  <data name="&gt;&gt;btnGoogle.Name" xml:space="preserve">
+    <value>btnGoogle</value>
+  </data>
+  <data name="btnGoogle.Text" xml:space="preserve">
+    <value>Login to Google</value>
+  </data>
+  <data name="btnAlibaba.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 242</value>
+  </data>
+  <data name="btnLinkedin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 154</value>
+  </data>
+  <data name="btnWordpress.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="btnWordpress.Text" xml:space="preserve">
+    <value>Login to Wordpress</value>
+  </data>
+  <data name="btnRenhe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 198</value>
+  </data>
+  <data name="btnLinkedin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnAlibaba.Name" xml:space="preserve">
+    <value>btnAlibaba</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="&gt;&gt;btnLinkedin.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="btnJingdong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 349</value>
+  </data>
+  <data name="btnMSN.Text" xml:space="preserve">
+    <value>Login to MSN</value>
+  </data>
+  <data name="btnLinkedin.Text" xml:space="preserve">
+    <value>Login to Linkedin</value>
+  </data>
+  <data name="btnWitkey.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnTaobao.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBaidu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnYahooJapan.Name" xml:space="preserve">
+    <value>btnYahooJapan</value>
+  </data>
+  <data name="&gt;&gt;btnGoogle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="btnTencent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnRakuten.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnJingdong.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnTaobao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOpenpne.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnYahoo.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="btnTaobao.Text" xml:space="preserve">
+    <value>Login to Taobao</value>
+  </data>
+  <data name="&gt;&gt;btnBaidu.Name" xml:space="preserve">
+    <value>btnBaidu</value>
+  </data>
+  <data name="btnRakuten.Text" xml:space="preserve">
+    <value>Login to Rakuten</value>
+  </data>
+  <data name="btnSalesforce.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;btnOpenpne.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRakuten.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnmixi.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;btnMSN.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnFaceBook.Name" xml:space="preserve">
+    <value>btnFaceBook</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSohu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnMyspace.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnYahoo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRakuten.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnTaobao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnWitkey.Name" xml:space="preserve">
+    <value>btnWitkey</value>
+  </data>
+  <data name="btnYahooJapan.Text" xml:space="preserve">
+    <value>Login to Yahoo Japan</value>
+  </data>
+  <data name="btnWordpress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 242</value>
+  </data>
+  <data name="&gt;&gt;btnBaidu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnWordpress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnTaobao.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnmixi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnMyspace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnWordpress.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnWitkey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 286</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnOpenpne.Name" xml:space="preserve">
+    <value>btnOpenpne</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnTaobao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnYahoo.Name" xml:space="preserve">
+    <value>btnYahoo</value>
+  </data>
+  <data name="&gt;&gt;btnYahooJapan.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnJingdong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="btnTwitter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnWordpress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRenhe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAlibaba.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;btnSina.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnJingdong.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnSohu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnTencent.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;btnSalesforce.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSina.Name" xml:space="preserve">
+    <value>btnSina</value>
+  </data>
+  <data name="&gt;&gt;btnMSN.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="btnExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 36</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="btnBaidu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 154</value>
+  </data>
+  <data name="btnOpenpne.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 154</value>
+  </data>
+  <data name="btnYoutube.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 286</value>
+  </data>
+  <data name="btnYoutube.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnSina.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLinkedin.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;btnSohu.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;btnTencent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLinkedin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSina.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="btnSohu.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;btnmixi.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnSohu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnMyspace.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btnYoutube.Text" xml:space="preserve">
+    <value>Login to Youtube</value>
+  </data>
+  <data name="&gt;&gt;btnGoogle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnAlibaba.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnMSN.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnGoogle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 110</value>
+  </data>
+  <data name="btnGoogle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnYahoo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnMyspace.Name" xml:space="preserve">
+    <value>btnMyspace</value>
+  </data>
+  <data name="btnYahooJapan.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="btnmixi.Text" xml:space="preserve">
+    <value>Login to Mixi</value>
+  </data>
+  <data name="btnWitkey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnSohu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnYoutube.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnYahoo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnFaceBook.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
+    <value>btnExit</value>
+  </data>
+  <data name="btnBaidu.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="btnMSN.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 198</value>
+  </data>
+  <data name="btnOpenpne.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 351</value>
+  </data>
+  <data name="&gt;&gt;btnAlibaba.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnMyspace.Text" xml:space="preserve">
+    <value>Login to Myspace</value>
+  </data>
+  <data name="&gt;&gt;btnSina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnLinkedin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnJingdong.Name" xml:space="preserve">
+    <value>btnJingdong</value>
+  </data>
+  <data name="btnWitkey.Text" xml:space="preserve">
+    <value>Login to Witkey</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>703, 399</value>
+  </data>
+  <data name="btnGoogle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnRenhe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="&gt;&gt;btnRakuten.Name" xml:space="preserve">
+    <value>btnRakuten</value>
+  </data>
+  <data name="&gt;&gt;btnTencent.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSalesforce.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSina.Text" xml:space="preserve">
+    <value>Login to Sina</value>
+  </data>
+  <data name="btnTaobao.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;btnRenhe.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;btnLinkedin.Name" xml:space="preserve">
+    <value>btnLinkedin</value>
+  </data>
+  <data name="btnYahooJapan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnSohu.Name" xml:space="preserve">
+    <value>btnSohu</value>
+  </data>
+  <data name="&gt;&gt;btnYahooJapan.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnmixi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOpenpne.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>zh-CN</value>
+  </metadata>
+</root>

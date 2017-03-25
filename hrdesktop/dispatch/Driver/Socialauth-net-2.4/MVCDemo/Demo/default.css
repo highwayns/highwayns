@@ -1,0 +1,99 @@
+﻿body
+{
+    margin: 0px 0px 0px 0px;
+    height: 100%;
+    width: 100%;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.leftNav
+{
+    background: #EEEEE7;
+    height: 85%;
+    width: 15%;
+    float: left;
+    color: #ffffff;
+}
+
+.leftNav a
+{
+    font-size: 12px;
+    text-decoration: none;
+}
+
+ul
+{
+    margin-left: 19px;
+    margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+}
+
+li
+{
+    padding-bottom: 20px;
+}
+
+.liheading
+{
+    list-style-type: square;
+    background: darkgray;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+    padding: 0px;
+}
+
+.content
+{
+    width: 85%;
+    margin-left: 200px;
+    margin-top: 10px;
+    height: 15%;
+}
+
+.header
+{
+    background: #EEEEE7;
+    width: 100%;
+    height: 63px;
+}
+TH
+{
+    border-bottom: #c0c0c0 1px solid;
+    border-left: #c0c0c0 1px solid;
+    font-size: 12px;
+    border-top: #c0c0c0 1px solid;
+    border-right: #c0c0c0 1px solid;
+}
+TD
+{
+    border-bottom: #c0c0c0 1px solid;
+    border-left: #c0c0c0 1px solid;
+    font-size: 12px;
+    border-top: #c0c0c0 1px solid;
+    border-right: #c0c0c0 1px solid;
+}
+TD
+{
+}
+TH
+{
+    background: purple;
+    color: #ffffff;
+    font-weight: bold;
+}
+.altTr
+{
+    width: 100px;
+}
+
+
+form
+{
+    height: 100%;
+    width: 100%;
+}
+error
+{
+    color: red;
+}

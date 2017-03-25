@@ -1,0 +1,8 @@
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\bin\ntest.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\bin\ntest.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\bin\CookComputing.XmlRpcV2.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\bin\nunit.framework.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\bin\CookComputing.XmlRpcV2.pdb
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\obj\Debug\ntest.dll
+C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\ntest\obj\Debug\ntest.pdb
