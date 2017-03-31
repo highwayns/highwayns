@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIIMList.cpp 2014\8\12 9:07:50 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -476,7 +476,7 @@ Node* UIIMList::GetItemBySId(IN const std::string& sId)
 			if (child->has_children())
 			{
 				Node*	subRoot = child;
-				for (int p = 0; p < subRoot->num_children(); ++p)	//ֻ�����㣬���Ҫ�õݹ�
+				for (int p = 0; p < subRoot->num_children(); ++p)	//只有两层，多层要用递归
 				{
 					child = subRoot->child(p);
 					CString strID = child->data().sId;
@@ -524,7 +524,7 @@ std::vector<std::string> UIIMList::GetAllItemsSId()
 			if (child->has_children())
 			{
 				Node*	subRoot = child;
-				for (int p = 0; p < subRoot->num_children(); ++p)	//ֻ�����㣬���Ҫ�õݹ�
+				for (int p = 0; p < subRoot->num_children(); ++p)	//只有两层，多层要用递归
 				{
 					child = subRoot->child(p);
 					if (child&& !child->data().sId.IsEmpty())
@@ -586,12 +586,12 @@ void UIIMList::MKOForUserListModuleCallback(const std::string& keyId, MKO_TUPLE_
 {
 	if (module::KEY_USERLIST_DOWNAVATAR_SUCC == keyId)
 	{
-		//ˢ��ͷ��
+		//刷新头像
 		_freshAvatarBySId(std::get<MKO_SHARED_VOIDPTR>(mkoParam));
 	}
 	else if (module::KEY_USERLIST_ALLUSERLINESTATE == keyId)
 	{
-		//ˢ�¸�������״̬��Ⱥ��ˢ��
+		//刷新个人在线状态，群不刷新
 		std::vector<std::string>vecSIds = GetAllItemsSId();
 		for (std::string sId : vecSIds)
 		{
@@ -606,7 +606,7 @@ void UIIMList::MKOForUserListModuleCallback(const std::string& keyId, MKO_TUPLE_
 	}
 	else if (module::KEY_USERLIST_USERLINESTATE == keyId)
 	{
-		//ˢ�¸�������״̬��Ⱥ��ˢ��
+		//刷新个人在线状态，群不刷新
 		std::string& sId = std::get<MKO_STRING>(mkoParam);
 		if (!IsExistSId(sId))
 		{
@@ -646,7 +646,7 @@ void UIIMList::_freshAvatarBySId(std::shared_ptr<void> pParam)
 			btnLogo->SetBkImage(util::stringToCString(user.getAvatarPath()));
 
 		
-		//���������ֵ�������ɫ
+		//更新下名字的字体颜色
 		CLabelUI* nick_name = static_cast<CLabelUI*>(paint_manager_.FindSubControlByName(pListElement, kNickNameControlName));
 		PTR_VOID(nick_name);
 
@@ -677,10 +677,10 @@ void UIIMList::MKOForTcpClientModuleCallback(const std::string& keyId, MKO_TUPLE
 {
 	if (module::KEY_TCPCLIENT_STATE == keyId)
 	{
-		//TCP�����Ͽ�����
+		//TCP长连断开处理
 		if (module::TCPCLIENT_STATE_DISCONNECT == module::getTcpClientModule()->getTcpClientNetState())
 		{
-			//ˢ�¸�������״̬��Ⱥ��ˢ��
+			//刷新个人在线状态，群不刷新
 			std::vector<std::string>vecSIds = GetAllItemsSId();
 			for (std::string sId : vecSIds)
 			{
@@ -709,7 +709,7 @@ void UIIMList::_updateCount(IN const UInt32 nCount, OUT CString& strContent)
 void UIIMList::SetTextUICount(IN CControlUI* pCTextUI, IN UInt32 nCount)
 {
     PTR_VOID(pCTextUI);
-    if (0 == nCount)//û����Ϣ
+    if (0 == nCount)//没有消息
     {
         pCTextUI->SetVisible(false);
     }

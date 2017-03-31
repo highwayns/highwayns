@@ -6,7 +6,7 @@
 NAMESPACE_BEGIN(imcore)
 
 #ifdef ANDROID
-	//ȫ�ֱ���
+	//全局变量
 	JavaVM *g_jvm = NULL;
 	jobject g_obj = NULL;
 #endif
@@ -91,7 +91,7 @@ NAMESPACE_BEGIN(imcore)
 		if (NULL == cls) {
 			LOGE("FindClass() Error.....");
 
-			//Detach���߳�
+			//Detach主线程
 			if (g_jvm->DetachCurrentThread() != JNI_OK) {
 				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
 			}
@@ -100,7 +100,7 @@ NAMESPACE_BEGIN(imcore)
 		mid = env->GetStaticMethodID(cls, "onRead", "(ILjava/lang/String;)V");
 		if (NULL == mid) {
 			LOGE("GetMethodID() Error.....");
-			//Detach���߳�
+			//Detach主线程
 			if (g_jvm->DetachCurrentThread() != JNI_OK) {
 				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
 			}
@@ -126,7 +126,7 @@ NAMESPACE_BEGIN(imcore)
 		if (NULL == cls) {
 			LOGE("FindClass() Error.....");
 
-			//Detach���߳�
+			//Detach主线程
 			if (g_jvm->DetachCurrentThread() != JNI_OK) {
 				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
 			}
@@ -135,7 +135,7 @@ NAMESPACE_BEGIN(imcore)
 		mid = env->GetStaticMethodID(cls, "onClose", "(I)V");
 		if (NULL == mid) {
 			LOGE("GetMethodID() Error.....");
-			//Detach���߳�
+			//Detach主线程
 			if (g_jvm->DetachCurrentThread() != JNI_OK) {
 				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
 			}
@@ -162,7 +162,7 @@ NAMESPACE_BEGIN(imcore)
 		if (NULL == cls) {
 			LOGE("FindClass() Error.....");
 
-			//Detach���߳�
+			//Detach主线程
 			if (g_jvm->DetachCurrentThread() != JNI_OK) {
 				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
 			}
@@ -171,7 +171,7 @@ NAMESPACE_BEGIN(imcore)
 		mid = env->GetStaticMethodID(cls, "onConnect", "(I)V");
 		if (NULL == mid) {
 			LOGE("GetMethodID() Error.....");
-			//Detach���߳�
+			//Detach主线程
 			if (g_jvm->DetachCurrentThread() != JNI_OK) {
 				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
 			}
@@ -212,7 +212,7 @@ NAMESPACE_BEGIN(imcore)
 		return pStr;
 	}
 
-	//C�ַ���תjava�ַ���
+	//C字符串转java字符串
 	jstring strToJstring(JNIEnv* env, const char* pStr) {
 		int strLen = strlen(pStr);
 		jclass jstrObj = env->FindClass("java/lang/String");
@@ -229,7 +229,7 @@ NAMESPACE_BEGIN(imcore)
 	JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 		JNIEnv* env = NULL;
 		jint result = -1;
-		//��ȡJNI�汾
+		//获取JNI版本
 		if (vm->GetEnv((void**)&env, JNI_VERSION_1_4) != JNI_OK) {
 			LOGE("GetEnv failed!");
 			return result;

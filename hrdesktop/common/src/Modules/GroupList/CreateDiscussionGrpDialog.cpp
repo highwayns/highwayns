@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MakeGroupWnd.cpp 2014\7\24 17:42:25 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -69,7 +69,7 @@ void CreateDiscussionGrpDialog::OnFinalMessage(HWND hWnd)
 
 LRESULT CreateDiscussionGrpDialog::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	if (WM_NCLBUTTONDBLCLK != uMsg)//����˫�����������
+	if (WM_NCLBUTTONDBLCLK != uMsg)//禁用双击标题栏最大化
 	{
 		return WindowImplBase::HandleMessage(uMsg, wParam, lParam);
 	}
@@ -94,13 +94,13 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 
 		item.folder = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("���");
+		item.nick_name = _T("大佛");
 		item.description = _T("153787916");
 		pGroupsList->AddNode(item, root_parent);
 
 		item.folder = false;
 		item.logo = _T("groups.png");
-		item.nick_name = _T("�쵶");
+		item.nick_name = _T("快刀");
 		item.description = _T("79145400");
 		pGroupsList->AddNode(item, root_parent);
 
@@ -108,12 +108,12 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 		item.id = _T("3");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("�ͷ�");
+		item.nick_name = _T("客服");
 		Node* root_parent2 = pGroupsList->AddNode(item, NULL);
 
 		item.folder = false;
 		item.logo = _T("groups.png");
-		item.nick_name = _T("��Ī");
+		item.nick_name = _T("提莫");
 		item.description = _T("79145400");
 		pGroupsList->AddNode(item, root_parent2);
 
@@ -121,7 +121,7 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 		{
 			item.folder = false;
 			item.logo = _T("groups.png");
-			item.nick_name = _T("����");
+			item.nick_name = _T("荡荡");
 			item.description = _T("79145400");
 			pGroupsList->AddNode(item, root_parent2);
 		}
@@ -141,7 +141,7 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 		item.folder = false;
 		item.empty = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("����");
+		item.nick_name = _T("子烨");
 		item.description.Format(_T("%d"), item.Time);
 
 		pRecentlyList->AddNode(item, NULL);
@@ -149,37 +149,37 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("���");
-		//item.description = _T("��˧��");
+		item.nick_name = _T("麦克");
+		//item.description = _T("大帅哥");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("��Ҷ");
-		//item.description = _T("��ɧ������");
+		item.nick_name = _T("四叶");
+		//item.description = _T("闷骚的少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL, 2);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("����");
-		//item.description = _T("��һ�������");
+		item.nick_name = _T("独嘉");
+		//item.description = _T("风一般的少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("��Ҷ");
-		//item.description = _T("��ɧ������");
+		item.nick_name = _T("四叶");
+		//item.description = _T("闷骚的少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("ǧ��");
-		//item.description = _T("��è�ĺ�ֽ");
+		item.nick_name = _T("千凡");
+		//item.description = _T("养猫的孩纸");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL, 3);
 

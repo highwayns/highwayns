@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      ReloginManager.cpp 2013\9\4 16:44:21 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -69,7 +69,7 @@ void ReloginManager::doRelogin()
             return;
         }
 
-        //������������ δ���͵� ��Ϣ�Ѷ�ȷ�� Operation����������ܻ���������Ϣ��
+        //清理掉队列里面 未发送的 消息已读确认 Operation《不处理可能会引发丢消息》
         imcore::IMLibCoreClearOperationByName(imcore::OPERATION_NAME_MSG_READ_ACK);
 
         LoginParam param;
@@ -102,13 +102,13 @@ void ReloginManager::OnOperationCallback(std::shared_ptr<void> param)
 
 		module::getSessionModule()->setTime(pLoginParam->serverTime);
 
-		//֪ͨ�������ͻ��˳�ʼ�����,��ȡ��֯�ܹ���Ϣ��Ⱥ�б�
+		//通知服务器客户端初始化完毕,获取组织架构信息和群列表
 		module::getLoginModule()->notifyLoginDone();
 
-		//��մ��ڿͻ��˵�δ����Ϣ����Ϊ������ֻὫ�����Ϣ�͹����������ظ�
+		//清空存在客户端的未读消息，因为服务端又会将这个消息送过来，避免重复
 		module::getMessageModule()->removeAllMessage();
 
-		//��ȡ�����ϵ�Ự
+		//获取最近联系会话
 		UInt32 updateTime = module::getSessionModule()->getGlobalUpdateTime();
 		LOG__(APP, _T("IMRecentContactSessionReq after relogin done, local update time = %d"), updateTime);
 		IM::Buddy::IMRecentContactSessionReq imRecentContactSessionReq;
@@ -118,7 +118,7 @@ void ReloginManager::OnOperationCallback(std::shared_ptr<void> param)
 			, IM::BaseDefine::BuddyListCmdID::CID_BUDDY_LIST_RECENT_CONTACT_SESSION_REQUEST
 			, &imRecentContactSessionReq);
 
-		//֪ͨ�����Ѿ��ָ����������Խ��и��ֲ�����
+		//通知网络已经恢复正常，可以进行各种操作了
 		module::getLoginModule()->asynNotifyObserver(module::KEY_LOGIN_RELOGINOK, pLoginParam->mySelectedStatus);
 	}
 	else
@@ -126,10 +126,10 @@ void ReloginManager::OnOperationCallback(std::shared_ptr<void> param)
 		LOG__(ERR, _T("ReloginManager regloin failed!!!"));
 		module::getTcpClientModule()->shutdown();
 
-		//TCP\IP��֤tokenʧЧ,�������»�ȡtoken��task
+		//TCP\IP验证token失效,开启重新获取token的task
 		//if (LOGIN_TOKEN_FAILED == pLoginParam->result)
 		{
-			//�����ʱ��ȡtoken�Ķ�ʱ��
+			//开启定时获取token的定时器
 		}
 		if (IM::BaseDefine::REFUSE_REASON_VERSION_TOO_OLD == pLoginParam->result)
 		{

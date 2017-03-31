@@ -158,7 +158,7 @@ namespace DuiLib
 		}
 	}
 
-	void CTextUI::SetText(LPCTSTR pstrText)//�޸������ֱ�Ĭ�����ֳ���ʱ�򣬲���ˢ�µ�bug
+	void CTextUI::SetText(LPCTSTR pstrText)//修复当文字比默认文字长的时候，不能刷新的bug
 	{
 		CControlUI::SetText(pstrText);
 		NeedParentUpdate();

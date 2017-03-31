@@ -1,4 +1,4 @@
-﻿#ifndef __UIOPTION_H__
+#ifndef __UIOPTION_H__
 #define __UIOPTION_H__
 
 #pragma once

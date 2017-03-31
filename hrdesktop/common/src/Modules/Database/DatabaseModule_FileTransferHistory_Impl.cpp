@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DatabaseModule_FileTransferHistory_Impl.cpp 2015\1\13 9:26:59 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 

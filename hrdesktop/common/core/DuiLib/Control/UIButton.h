@@ -1,4 +1,4 @@
-﻿#ifndef __UIBUTTON_H__
+#ifndef __UIBUTTON_H__
 #define __UIBUTTON_H__
 
 #pragma once

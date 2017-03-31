@@ -1,11 +1,11 @@
 ﻿/*================================================================
 *   Copyright (C) 2015 All rights reserved.
 *   
-*   文件名称：security.h
-*   �?�?者：Zhang Yuanhao
-*   �?   箱：bluefoxah@gmail.com
-*   创建日期�?015�?1�?9�?
-*   �?   述：
+*   鏂囦欢鍚嶇О锛歴ecurity.h
+*   鍒?寤?鑰咃細Zhang Yuanhao
+*   閭?   绠憋細bluefoxah@gmail.com
+*   鍒涘缓鏃ユ湡锛?015骞?1鏈?9鏃?
+*   鎻?   杩帮細
 *
 #pragma once
 ================================================================*/
@@ -25,46 +25,46 @@ extern "C" {
 
 #else
     /**
-     *  对消息加�?
+     *  瀵规秷鎭姞瀵?
      *
-     *  @param pInData  待加密的消息内容指针
-     *  @param nInLen   待加密消息内容长�?
-     *  @param pOutData 加密后的文本
-     *  @param nOutLen  加密后的文本长度
+     *  @param pInData  寰呭姞瀵嗙殑娑堟伅鍐呭鎸囬拡
+     *  @param nInLen   寰呭姞瀵嗘秷鎭唴瀹归暱搴?
+     *  @param pOutData 鍔犲瘑鍚庣殑鏂囨湰
+     *  @param nOutLen  鍔犲瘑鍚庣殑鏂囨湰闀垮害
      *
-     *  @return 返回 0-成功; 其他-失败
+     *  @return 杩斿洖 0-鎴愬姛; 鍏朵粬-澶辫触
      */
     int EncryptMsg(const char* pInData, uint32_t nInLen, char** pOutData, uint32_t& nOutLen);
     
     /**
-     *  对消息解�?
+     *  瀵规秷鎭В瀵?
      *
-     *  @param pInData  待解密的消息内容指针
-     *  @param nInLen   待解密消息内容长�?
-     *  @param pOutData 解密后的文本
-     *  @param nOutLen  解密后的文本长度
+     *  @param pInData  寰呰В瀵嗙殑娑堟伅鍐呭鎸囬拡
+     *  @param nInLen   寰呰В瀵嗘秷鎭唴瀹归暱搴?
+     *  @param pOutData 瑙ｅ瘑鍚庣殑鏂囨湰
+     *  @param nOutLen  瑙ｅ瘑鍚庣殑鏂囨湰闀垮害
      *
-     *  @return 返回 0-成功; 其他-失败
+     *  @return 杩斿洖 0-鎴愬姛; 鍏朵粬-澶辫触
      */
     int DecryptMsg(const char* pInData, uint32_t nInLen, char** pOutData, uint32_t& nOutLen);
     
     /**
-     *  对密码进行加�?
+     *  瀵瑰瘑鐮佽繘琛屽姞瀵?
      *
-     *  @param pInData  待解密的消息内容指针
-     *  @param nInLen   待解密消息内容长�?
-     *  @param pOutData 解密后的文本
-     *  @param nOutLen  解密后的文本长度
-     *  @param pKey     32位密�?
+     *  @param pInData  寰呰В瀵嗙殑娑堟伅鍐呭鎸囬拡
+     *  @param nInLen   寰呰В瀵嗘秷鎭唴瀹归暱搴?
+     *  @param pOutData 瑙ｅ瘑鍚庣殑鏂囨湰
+     *  @param nOutLen  瑙ｅ瘑鍚庣殑鏂囨湰闀垮害
+     *  @param pKey     32浣嶅瘑閽?
      *
-     *  @return 返回 0-成功; 其他-失败
+     *  @return 杩斿洖 0-鎴愬姛; 鍏朵粬-澶辫触
      */
     int EncryptPass(const char* pInData, uint32_t nInLen, char** pOutData, uint32_t& nOutLen);
     
     /**
-     *  释放资源
+     *  閲婃斁璧勬簮
      *
-     *  @param pOutData 需要释放的资源
+     *  @param pOutData 闇€瑕侀噴鏀剧殑璧勬簮
      */
     void Free(char* pOutData);
     

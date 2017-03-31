@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      LoginModule_Impl.cpp 2014\7\17 19:51:47 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -67,7 +67,7 @@ void LoginModule_Impl::notifyLoginDone()
 	imcore::IMLibCoreStartOperationWithLambda(
 		[]
 	{
-		//��ȡ������Ϣ
+		//获取部门信息
 		UInt32 lastTime = module::getSysConfigModule()->getDepartmentInfoLatestUpdateTime();
 		IM::Buddy::IMDepartmentReq imDepartmentReq;
 		imDepartmentReq.set_user_id(module::getSysConfigModule()->userId());
@@ -77,8 +77,8 @@ void LoginModule_Impl::notifyLoginDone()
 			, &imDepartmentReq);
 		LOG__(APP, _T("IMDepartmentReq,latest update time :%d"), lastTime);
 
-		//������ȡ��������Ϣ
-		lastTime = module::getSysConfigModule()->getUserInfoLatestUpdateTime();//��ȡ���һ�θ�����Ա��Ϣ��ʱ��
+		//增量获取所有人信息
+		lastTime = module::getSysConfigModule()->getUserInfoLatestUpdateTime();//获取最后一次更新人员信息的时间
 		IM::Buddy::IMAllUserReq imAllUserReq;
 		imAllUserReq.set_user_id(module::getSysConfigModule()->userId());
 		imAllUserReq.set_latest_update_time(lastTime);
@@ -87,7 +87,7 @@ void LoginModule_Impl::notifyLoginDone()
 			,&imAllUserReq);
 		LOG__(APP, _T("IMAllUserReq,latest update time :%d"), lastTime);
 
-		//������ȡȺ�б�
+		//增量获取群列表
 		IM::Group::IMNormalGroupListReq imNormalGroupListReq;
 		imNormalGroupListReq.set_user_id(module::getSysConfigModule()->userId());
 		module::getTcpClientModule()->sendPacket(IM::BaseDefine::ServiceID::SID_GROUP

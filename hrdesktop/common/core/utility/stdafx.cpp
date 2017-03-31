@@ -1,6 +1,6 @@
-﻿// stdafx.cpp : ֻ������׼�����ļ���Դ�ļ�
-// utility.pch ����ΪԤ����ͷ
-// stdafx.obj ������Ԥ����������Ϣ
+﻿// stdafx.cpp : 只包括标准包含文件的源文件
+// utility.pch 将作为预编译头
+// stdafx.obj 将包含预编译类型信息
 
 #include "stdafx.h"
 

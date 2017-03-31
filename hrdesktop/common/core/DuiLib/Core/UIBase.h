@@ -77,7 +77,7 @@ public:
     void ShowWindow(bool bShow = true, bool bTakeFocus = true);
     UINT ShowModal();
     void Close(UINT nRet = IDOK);
-    void CenterWindow();	// ���У�֧����չ��Ļ
+    void CenterWindow();	// 居中，支持扩展屏幕
     void SetIcon(UINT nRes);
 	void BringToTop();
 

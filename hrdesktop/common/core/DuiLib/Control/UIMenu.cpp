@@ -700,7 +700,7 @@ void CMenuElementUI::DoEvent(TEventUI& event)
 			{
 				CreateMenuWnd();
 			}
-			else//û���Ӳ˵�������£���Ϊѡ���˱���
+			else//没有子菜单的情况下，视为选择了本项
 			{
 				LPCTSTR p = GetClass();
 				ContextMenuParam param;

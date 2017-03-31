@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2006 Jean-Marc Valin 
+ï»¿/* Copyright (C) 2002-2006 Jean-Marc Valin 
    File: speexdec.c
 
    Redistribution and use in source and binary forms, with or without
@@ -267,7 +267,7 @@ DWORD playSpeexAudio(LPVOID pParam)
     free(inFile);
     if (!fin)
         return 0;
-    fseek(fin,4L,SEEK_SET);//µ±Ç°¶à¶àĞèÒª½«Ö¸ÕëÒÆ¶¯µ½Àë¿ª¿ªÍ·4¸ö×Ö½Ú´¦
+    fseek(fin,4L,SEEK_SET);//å½“å‰å¤šå¤šéœ€è¦å°†æŒ‡é’ˆç§»åŠ¨åˆ°ç¦»å¼€å¼€å¤´4ä¸ªå­—èŠ‚å¤„
 
     /*Main decoding loop*/
     while (1)

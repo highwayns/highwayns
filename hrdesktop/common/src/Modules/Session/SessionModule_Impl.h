@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      SessionModule_Impl.h 2014\12\31 11:41:27 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -38,14 +38,14 @@ public:
 
 	virtual BOOL startup();
 
-	/**@name ͬ��������ʱ��*/
+	/**@name 同步服务器时间*/
 	//@{
 	virtual UInt32 getTime()const;
 	virtual void setTime(UInt32 time);
 	virtual void startSyncTimeTimer();
 	//@}
 
-	/**@name SessionEntityManagerί�ɰ�װ*/
+	/**@name SessionEntityManager委派包装*/
 	//@{
 	virtual void setSessionEntity(IN const module::SessionEntity& sessionInfo);
 	virtual void getRecentSessionList(OUT std::vector<std::string>& vecRecentSession);
@@ -57,7 +57,7 @@ public:
 	//@}
 
 private:
-	/**@name �������˲��*/
+	/**@name 服务器端拆包*/
 	//@{
 	void _sessionMsgData(IN std::string& pbBody);
 	void _sessionMsgACK(IN const UInt16 seqNo, IN std::string& pbBody);
@@ -67,9 +67,9 @@ private:
 	void _sessionUnReadMsgListResponse(IN std::string& pbBody);
 	void _sessionHistoryMsgListResponse(IN UInt16 reserved, IN std::string& pbBody);
 	//@}
-	BOOL _checkMsgFromStranger(IN MessageEntity& msg);//��Ϣ��Դ��ID�Ǵ��ڵ�ǰ�ỰID�б��У������ڣ���Ҫȥ��ȡ
-	BOOL _banGroupMSG(IN MessageEntity msg);//Ⱥ��Ϣ����
-	BOOL _prase2LocalMsg(OUT MessageEntity& msg);//�����ɱ��ؿ�չʾ����Ϣ
+	BOOL _checkMsgFromStranger(IN MessageEntity& msg);//消息来源的ID是存在当前会话ID列表中，不存在，则要去获取
+	BOOL _banGroupMSG(IN MessageEntity msg);//群消息屏蔽
+	BOOL _prase2LocalMsg(OUT MessageEntity& msg);//解析成本地可展示的消息
 private:
 	SyncTimeTimer*              m_pSyncTimer;
 };

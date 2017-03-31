@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      HttpPoolModule_Impl.cpp 2014\7\25 11:20:58 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief	   http operation thread pool 
  ******************************************************************************/
 

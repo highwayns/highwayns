@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      IHttpPoolModule.h 2014\7\25 11:18:16 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief   һ���򵥵�HTTP���س�
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief   一个简单的HTTP下载池
  ******************************************************************************/
 
 #ifndef IHTTPPOOLMODULE_3ABB1077_8BD7_44DC_90B6_FEB35B03F6CF_H__
@@ -44,16 +44,16 @@ class MODULE_API IHttpPoolModule : public module::ModuleBase
 {
 public:
 	/**
-	* ���http�������̳߳�
+	* 添加http操作到线程池
 	*
-	* @param   IHttpOperation	 * pOperaion    ����Ԫ
-	* @param   BOOL bHighPriority       ������һ���򵥵����ȼ�����ʱ�����������
+	* @param   IHttpOperation	 * pOperaion    任务单元
+	* @param   BOOL bHighPriority       给任务一个简单的优先级（暂时先这样处理）
 	* @return
 	* @exception there is no any exception to throw.
 	*/
 	virtual void    pushHttpOperation(IHttpOperation * pOperaion, BOOL bHighPriority = FALSE) = 0;
 	/**
-	* �ر��̹߳�����
+	* 关闭线程管理器
 	*
 	* @param
 	* @return

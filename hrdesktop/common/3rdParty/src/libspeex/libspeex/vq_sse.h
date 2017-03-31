@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2004 Jean-Marc Valin */
+/* Copyright (C) 2004 Jean-Marc Valin */
 /**
    @file vq_sse.h
    @brief SSE-optimized vq routine

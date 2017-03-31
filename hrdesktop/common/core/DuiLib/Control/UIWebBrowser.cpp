@@ -375,7 +375,7 @@ LRESULT DuiLib::CWebBrowserUI::TranslateAccelerator( MSG *pMsg )
 	if( m_pWebBrowser2 == NULL )
         return E_NOTIMPL;
 
-    // ��ǰWeb���ڲ��ǽ���,��������ټ�
+    // 当前Web窗口不是焦点,不处理加速键
     BOOL bIsChild = FALSE;
     HWND hTempWnd = NULL;
     HWND hWndFocus = ::GetFocus();
@@ -417,7 +417,7 @@ STDMETHODIMP DuiLib::CWebBrowserUI::GetDropTarget( IDropTarget* pDropTarget, IDr
 	{
 		return m_pWebBrowserEventHandler->GetDropTarget(pDropTarget,ppDropTarget);
 	}
-	return S_FALSE;	// ʹ��ϵͳ��ק
+	return S_FALSE;	// 使用系统拖拽
 }
 
 STDMETHODIMP DuiLib::CWebBrowserUI::GetExternal( IDispatch** ppDispatch )
@@ -511,7 +511,7 @@ bool DuiLib::CWebBrowserUI::CallJScript(const CDuiString& strFunc, const CDuiStr
 
 	if (pHtmlDoc2 == NULL)
 		return false;
-	//��ȡ�ű�����
+	//获取脚本对象
 	pHtmlDoc2->get_Script(&pScript);
 	if (NULL == pScript)
 	{
@@ -539,7 +539,7 @@ bool DuiLib::CWebBrowserUI::CallJScript(const CDuiString& strFunc, const CDuiStr
 	CComVariant vaResult;
 	// initialize to invalid arg
 	UINT nArgErr = (UINT)-1;
-	// ִ��js����
+	// 执行js代码
 	hr = pScript->Invoke(dispid, IID_NULL, 0
 		, DISPATCH_METHOD, &dispparams, &vaResult, &excepInfo, &nArgErr);
 	delete[] dispparams.rgvarg;

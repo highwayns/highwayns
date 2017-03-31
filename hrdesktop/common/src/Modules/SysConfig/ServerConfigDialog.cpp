@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      ServerConfigDialog.cpp 2014\9\16 13:27:30 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -86,7 +86,7 @@ DuiLib::CDuiString ServerConfigDialog::GetSkinFolder()
 
 void ServerConfigDialog::_InitlizeSetting()
 {
-	LOG__(ERR, _T("_InitlizeSetting,��ȡ����ʧ��"));
+	LOG__(ERR, _T("_InitlizeSetting,读取设置失败"));
 	module::TTConfig* pTTConfig = module::getSysConfigModule()->getSystemConfig();
 	if (!pTTConfig)
 	{

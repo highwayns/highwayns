@@ -1,4 +1,4 @@
-﻿#ifndef __UIDLGBUILDER_H__
+#ifndef __UIDLGBUILDER_H__
 #define __UIDLGBUILDER_H__
 
 #pragma once

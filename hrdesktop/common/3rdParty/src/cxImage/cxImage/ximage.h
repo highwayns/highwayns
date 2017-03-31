@@ -53,7 +53,7 @@
 #endif 
 
 /////////////////////////////////////////////////////////////////////////////
-#include "ximacfg.h"	//���ԣ��ļ���ʽ��֧�ֿ���
+#include "ximacfg.h"	//特性，文件格式的支持开关
 
 #include "xfile.h"
 #include "xiofile.h"

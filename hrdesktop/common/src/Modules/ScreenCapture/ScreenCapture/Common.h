@@ -1,7 +1,7 @@
 ﻿
 /*******************************************************************************
  *  @file      Common.h 2015\5\5 15:56:19 $
- *  @author    ����<nansong@mogujie.com>
+ *  @author    南松<nansong@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -51,7 +51,7 @@ namespace ScreenCommon
 {
 	inline LPWORD makeWORDAlign(LPWORD lpIn)
 	{
-		//��ַ2�ֽڶ���
+		//地址2字节对齐
 		ULONG ul;
 		ul = (ULONG)lpIn;
 		ul++;

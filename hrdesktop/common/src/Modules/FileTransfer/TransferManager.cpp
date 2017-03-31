@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      TransferManager.cpp 2014\9\3 11:20:03 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -21,7 +21,7 @@ TransferFileEntity::TransferFileEntity()
 {
 	sSavePath.Empty();
 }
-CString TransferFileEntity::getSaveFilePath()//�����ı����ļ�·��
+CString TransferFileEntity::getSaveFilePath()//完整的保存文件路径
 {
 	if (sSavePath.IsEmpty())
 	{
@@ -32,7 +32,7 @@ CString TransferFileEntity::getSaveFilePath()//�����ı����ļ�
 	else
 		return sSavePath;
 }
-CString TransferFileEntity::getSaveFloderFilePath()//������ļ���λ��
+CString TransferFileEntity::getSaveFloderFilePath()//保存的文件夹位置
 {
 	CString strFloderPath;
 	if (sSavePath.IsEmpty())
@@ -141,7 +141,7 @@ BOOL TransferFileEntityManager::updateFileInfoBysTaskID(IN const TransferFileEnt
 
 BOOL TransferFileEntityManager::openFileByFileID(IN const std::string& sID)
 {
-	std::vector<TransferFileEntity>::iterator it = m_VecFinishedFile.begin();//�Ѿ���������ļ�,�κβ��������ļ����ᱻ�ӵ�����
+	std::vector<TransferFileEntity>::iterator it = m_VecFinishedFile.begin();//已经传输完的文件,任何操作过的文件都会被扔到这里
 	for (; it != m_VecFinishedFile.end(); ++it)
 	{
 		if (sID == it->sTaskID)
@@ -164,17 +164,17 @@ BOOL TransferFileEntityManager::openFileByFileID(IN const std::string& sID)
 	return FALSE;
 }
 
-BOOL TransferFileEntityManager::openFileFolderByTaskID(IN const std::string& sID)//���ļ��У���ͬʱѡ��ָ���ļ�
+BOOL TransferFileEntityManager::openFileFolderByTaskID(IN const std::string& sID)//打开文件夹，并同时选中指定文件
 {
-	std::vector<TransferFileEntity>::iterator it = m_VecFinishedFile.begin();//�Ѿ���������ļ�,�κβ��������ļ����ᱻ�ӵ�����
+	std::vector<TransferFileEntity>::iterator it = m_VecFinishedFile.begin();//已经传输完的文件,任何操作过的文件都会被扔到这里
 	for (; it != m_VecFinishedFile.end(); ++it)
 	{
 		if (sID == it->sTaskID)
 		{
 			CString strPath = it->getSaveFilePath();
-			if (TRUE)//�ж��ļ����ܲ����ҵ�
+			if (TRUE)//判断文件夹能不能找到
 			{
-				strPath.Replace(_T("/"), _T("\\"));//Explorer.exe������Ŀ¼����ʶ��/��
+				strPath.Replace(_T("/"), _T("\\"));//Explorer.exe打开所在目录，不识别“/”
 				HINSTANCE hr = ShellExecute(NULL, _T("open"), _T("Explorer.exe"), _T("/select,") + strPath, NULL, SW_SHOWDEFAULT);
 				if ((long)hr < 32)
 				{

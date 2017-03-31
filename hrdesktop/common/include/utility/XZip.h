@@ -83,9 +83,9 @@
 //    4. Info-ZIP retains the right to use the names "Info-ZIP", "Zip", "UnZip",
 //       "UnZipSFX", "WiZ", "Pocket UnZip", "Pocket Zip", and "MacZip" for its 
 //       own source and binary releases.
-//	��CodeProject�ϻ�õĴ��룬��л����Mark Adler���������޸���һ�����ݣ���Ϊԭ����
-//	�����������������ϲ�������ִ�У�ԭ����GetFileInformationByHandle����������������
-//	�ϱ��ֵò�����(MSDN)��
+//	从CodeProject上获得的代码，感谢作者Mark Adler，另外我修改了一点内容，因为原来的
+//	代码在网络驱动器上不能正常执行，原因是GetFileInformationByHandle函数在网络驱动器
+//	上表现得不正常(MSDN)。
 //
 ///////////////////////////////////////////////////////////////////////////////
 

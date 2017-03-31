@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MainDialog_Event.cpp 2014\8\20 15:43:48 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -22,7 +22,7 @@ void MainDialog::OnClick(TNotifyUI& msg)
 	PTR_VOID(msg.pSender);
 	if (msg.pSender == m_pbtnSysConfig)
 	{
-		//ϵͳ����
+		//系统设置
 		module::getSysConfigModule()->showSysConfigDialog(m_hWnd);
 	}
 	else if (msg.pSender == m_pbtnOnlineStatus)
@@ -51,17 +51,17 @@ void MainDialog::MKOForTcpClientModuleCallBack(const std::string& keyId, MKO_TUP
 {
 	if (module::KEY_TCPCLIENT_STATE == keyId)
 	{
-		//TCP�����Ͽ�����
+		//TCP长连断开处理
 		if (module::TCPCLIENT_STATE_DISCONNECT == module::getTcpClientModule()->getTcpClientNetState())
 		{
 			LOG__(ERR, _T("TCPCLIENT_STATE_DISCONNECT:TCP Client link broken!!!"));
 
-			//������ͼ��Ҷȵ�
+			//托盘区图标灰度掉
 			CString csTip = util::getMultilingual()->getStringById(_T("STRID_MAINDIALOG_TIP_DISCONNECT"));
 			SetTrayTooltipText(csTip);
 			UpdateLineStatus(IM::BaseDefine::UserStatType::USER_STATUS_OFFLINE);
 
-			//��������ҵ��
+			//开启重连业务
 			module::getTcpClientModule()->shutdown();
 			if (!module::getLoginModule()->isOfflineByMyself())
 				module::getLoginModule()->relogin(FALSE);
@@ -87,7 +87,7 @@ void MainDialog::MKOForLoginModuleCallBack(const std::string& keyId, MKO_TUPLE_P
 		SetTrayTooltipText(sText);
 		UpdateLineStatus(IM::BaseDefine::UserStatType::USER_STATUS_ONLINE);
 	}
-	else if (module::KEY_LOGIN_KICKOUT == keyId)//�˻����߳��ˣ������Լ�����
+	else if (module::KEY_LOGIN_KICKOUT == keyId)//账户被踢出了，设置自己离线
 	{
 		Int32 nRes = std::get<MKO_INT>(mkoParam);
 		LOG__(APP, _T("Offline by kickout,%d"), nRes);
@@ -109,7 +109,7 @@ void MainDialog::OnMenuClicked(IN const CString& itemName, IN const CString& str
 	{
 		module::getMiscModule()->quitTheApplication();
 	}
-	else if (_T("LogDir") == itemName)//����־Ŀ¼
+	else if (_T("LogDir") == itemName)//打开日志目录
 	{
 		CString strLogDir = util::getParentAppPath() + _T("bin\\log\\ttlog.log");
 		if (PathFileExists(strLogDir))
@@ -146,7 +146,7 @@ void MainDialog::OnMenuClicked(IN const CString& itemName, IN const CString& str
 	}
 	else if (_T("SysSettingMenuItem") == itemName)
 	{
-		//ϵͳ����
+		//系统设置
 		module::getSysConfigModule()->showSysConfigDialog(m_hWnd);
 	}
 	else if (_T("serverAddressSetting") == itemName)
@@ -155,7 +155,7 @@ void MainDialog::OnMenuClicked(IN const CString& itemName, IN const CString& str
 	}
     else if (_T("showFileTransferDialog") == itemName)
     {
-        //���ļ��������
+        //打开文件传输面板
         module::getFileTransferModule()->showFileTransferDialog();
     }
 	else if (_T("UserDetailInfo") == itemName)
@@ -176,7 +176,7 @@ void MainDialog::MKOForUserListModuleCallBack(const std::string& keyId, MKO_TUPL
 		std::shared_ptr<void> p = std::get<MKO_SHARED_VOIDPTR>(mkoParam);
 		std::tuple<std::string, std::string>* pTuple = (std::tuple<std::string, std::string>*)p.get();
 		std::string& sId = std::get<1>(*pTuple);
-		//ˢ��ͷ��
+		//刷新头像
 		module::UserInfoEntity myInfo;
 		module::getUserListModule()->getMyInfo(myInfo);
 		if (sId == myInfo.sId)
@@ -187,7 +187,7 @@ void MainDialog::MKOForUserListModuleCallBack(const std::string& keyId, MKO_TUPL
 	}
     else if (module::KEY_USERLIST_USERSIGNINFO_CHANGED == keyId)
     {
-        //�����Լ���ǩ������ʧ����Ļ�ȥ��
+        //更新自己的签名，若失败则改回去。
         std::string& sId = std::get<MKO_STRING>(mkoParam);
         if (sId != module::getSysConfigModule()->userID())
         {
@@ -208,7 +208,7 @@ void MainDialog::MKOForSessionModuleCallBack(const std::string& keyId, MKO_TUPLE
 	}
     else if (module::KEY_SESSION_UPDATE_TOTAL_UNREADMSG_COUNT == keyId)
     {
-        _UpdateTotalUnReadMsgCount();//������δ������
+        _UpdateTotalUnReadMsgCount();//更新总未读计数
     }
 }
 

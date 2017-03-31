@@ -1,17 +1,17 @@
-﻿// DuiLibEx.h : DuiLibEx DLL ����ͷ�ļ�
+﻿// DuiLibEx.h : DuiLibEx DLL 的主头文件
 //
 
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error "�ڰ������ļ�֮ǰ������stdafx.h�������� PCH �ļ�"
+	#error "在包含此文件之前包含“stdafx.h”以生成 PCH 文件"
 #endif
 
-#include "resource.h"		// ������
+#include "resource.h"		// 主符号
 
 
 // CDuiLibExApp
-// �йش���ʵ�ֵ���Ϣ������� DuiLibEx.cpp
+// 有关此类实现的信息，请参阅 DuiLibEx.cpp
 //
 
 class CDuiLibExApp : public CWinApp
@@ -19,7 +19,7 @@ class CDuiLibExApp : public CWinApp
 public:
 	CDuiLibExApp();
 
-// ��д
+// 重写
 public:
 	virtual BOOL InitInstance();
 

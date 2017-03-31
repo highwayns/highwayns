@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      utilStrCoding.h 2014\7\15 20:22:14 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -23,9 +23,9 @@ UTILITY_API std::string	cStringToUtf8(const CString& src);
 UTILITY_API std::string	cStringToString(const CString& src, UINT codepage = CP_UTF8);
 UTILITY_API CString		stringToCString(const std::string& src, UINT codepage = CP_UTF8);
 
-UTILITY_API BOOL		isIncludeChinese(const std::string& str);//�Ƿ��������
-UTILITY_API CString		HZ2FirstPY(IN  std::string szHZ);//����ת��ƴ������ĸ
-UTILITY_API CString		HZ2AllPY(IN  CString szHZ);//����ת��ȫƴ
+UTILITY_API BOOL		isIncludeChinese(const std::string& str);//是否包含中文
+UTILITY_API CString		HZ2FirstPY(IN  std::string szHZ);//汉字转成拼音首字母
+UTILITY_API CString		HZ2AllPY(IN  CString szHZ);//汉字转成全拼
 
 UTILITY_API const std::string ws2s(const std::wstring& src);
 UTILITY_API const std::wstring s2ws(const std::string& src);

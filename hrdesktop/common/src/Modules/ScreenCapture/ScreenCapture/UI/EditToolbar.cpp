@@ -1,7 +1,7 @@
 ﻿
 /******************************************************************************* 
  *  @file      EditToolbar.cpp 2015\5\5 16:05:04 $
- *  @author    ����<nansong@mogujie.com>
+ *  @author    南松<nansong@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -232,7 +232,7 @@ void EditToolbarUI::onAdjustToolbarPosition(__in HWND hWnd, __in WPARAM wParam, 
 	RECT rcToolbarRect = { 0 };
 	if (lpRect->bottom + toolBarHeight + toolBarFloatingGap <= cyScreen)
 	{
-		//ѡ�����·����Ը���
+		//选择框的下方可以浮动
 		rcToolbarRect.left = lpRect->left;
 		rcToolbarRect.top = lpRect->bottom + toolBarFloatingGap;
 		rcToolbarRect.right = rcToolbarRect.left + toolBarWidth;
@@ -240,7 +240,7 @@ void EditToolbarUI::onAdjustToolbarPosition(__in HWND hWnd, __in WPARAM wParam, 
 	}
 	else if (lpRect->top - toolBarHeight - toolBarFloatingGap >= 0)
 	{
-		//�·������ط��ˣ��Ϸ��пտ��Ը���
+		//下方不够地方了，上方有空可以浮动
 		rcToolbarRect.left = lpRect->left;
 		rcToolbarRect.right = rcToolbarRect.left + toolBarWidth;
 		rcToolbarRect.bottom = lpRect->top - toolBarFloatingGap;
@@ -248,7 +248,7 @@ void EditToolbarUI::onAdjustToolbarPosition(__in HWND hWnd, __in WPARAM wParam, 
 	}
 	else
 	{
-		//ʵ��û�ط��ˣ�ֻ�ܷŵ���������,�������½�ȥ��ͬʱ֧���û��Լ��϶�����������
+		//实在没地方了，只能放到框里面了,贴到右下角去，同时支持用户自己拖动浮动工具条
 		rcToolbarRect.right = lpRect->right;
 		rcToolbarRect.bottom = lpRect->bottom;
 		rcToolbarRect.left = rcToolbarRect.right - toolBarWidth;

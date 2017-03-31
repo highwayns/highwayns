@@ -148,7 +148,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("1");
 		item.folder = false;		
 		item.logo = _T("man_big.png");
-		item.nick_name = _T("���");
+		item.nick_name = _T("大佛");
 		item.description = _T("dafo@mogujie.com");
 
 		myself_info_ = item;
@@ -159,7 +159,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("2");
 		item.folder = false;
 		item.logo = _T("default.png");
-		item.nick_name = _T("�쵶");
+		item.nick_name = _T("快刀");
 		item.description = _T("kuaidao@mogujie.com");
 		pFriendsList->AddNode(item, root_parent);
 		friends_.push_back(item);
@@ -167,8 +167,8 @@ void MainFrame::UpdateFriendsList()
         item.id = _T("2");
         item.folder = false;
         item.logo = _T("default.png");
-        item.nick_name = _T("����");
-        item.description = _T("���ĵ���");
+        item.nick_name = _T("子烨");
+        item.description = _T("万恶的地主");
         pFriendsList->AddNode(item, root_parent);
         friends_.push_back(item);
 
@@ -186,14 +186,14 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("3");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("��ҵ����");
+		item.nick_name = _T("企业好友");
 		Node* root_parent2 = pFriendsList->AddNode(item, NULL);
 		friends_.push_back(item);
 
 		item.id = _T("4");
 		item.folder = false;
 		item.logo = _T("icon_home.png");
-		item.nick_name = _T("��Ѷ��ҵQQ�Ĺٷ�չʾ��");
+		item.nick_name = _T("腾讯企业QQ的官方展示号");
 		item.description = _T("");
 		pFriendsList->AddNode(item, root_parent2);
 		friends_.push_back(item);
@@ -201,7 +201,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("5");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("İ����");
+		item.nick_name = _T("陌生人");
 		Node* root_parent3 = pFriendsList->AddNode(item, NULL);
 		friends_.push_back(item);
 
@@ -209,7 +209,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("6");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("������");
+		item.nick_name = _T("黑名单");
 		Node* root_parent4 = pFriendsList->AddNode(item, NULL);
 		friends_.push_back(item);
 	}
@@ -227,19 +227,19 @@ void MainFrame::UpdateGroupsList()
 
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("�ҵ�QQȺ");
+		item.nick_name = _T("我的QQ群");
 
 		Node* root_parent = pGroupsList->AddNode(item, NULL);
 
 		item.folder = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("Duilib�ٷ�����Ⱥ");
+		item.nick_name = _T("Duilib官方交流群");
 		item.description = _T("153787916");
 		pGroupsList->AddNode(item, root_parent);
 
 		item.folder = false;
 		item.logo = _T("groups.png");
-		item.nick_name = _T("Duilib�ٷ�����Ⱥ2");
+		item.nick_name = _T("Duilib官方交流群2");
 		item.description = _T("79145400");
 		pGroupsList->AddNode(item, root_parent);
 	}
@@ -260,7 +260,7 @@ void MainFrame::UpdateRecentlyList()
 		item.folder = false;
 		item.empty = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("����");
+		item.nick_name = _T("子烨");
 		item.description.Format(_T("%d"),item.Time);
 
 		pRecentlyList->AddNode(item, NULL);
@@ -268,44 +268,44 @@ void MainFrame::UpdateRecentlyList()
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("���");
-		//item.description = _T("��˧��");
+		item.nick_name = _T("麦克");
+		//item.description = _T("大帅哥");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("��Ҷ");
-		//item.description = _T("��ɧ������");
+		item.nick_name = _T("四叶");
+		//item.description = _T("闷骚的少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL, 2);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("����");
-		//item.description = _T("��һ�������");
+		item.nick_name = _T("独嘉");
+		//item.description = _T("风一般的少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("��Ҷ");
-		//item.description = _T("��ɧ������");
+		item.nick_name = _T("四叶");
+		//item.description = _T("闷骚的少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("ǧ��");
-		//item.description = _T("��è�ĺ�ֽ");
+		item.nick_name = _T("千凡");
+		//item.description = _T("养猫的孩纸");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL,3);
 
 		pRecentlyList->sort();
 
-		// List�ؼ����������
-		// ע�⣺���List�б����ݣ�������Add(pListElement)���Ԫ�أ���SetText����Ԫ��ֵ������
+		// List控件中添加数据
+		// 注意：添加List列表内容，必须先Add(pListElement)添加元素，再SetText进行元素值的设置
 		//for (int i = 0; i < 10; i++)
 		//{
 		//	CListTextElementUI* pListElement = new CListTextElementUI;
@@ -313,14 +313,14 @@ void MainFrame::UpdateRecentlyList()
 		//	pRecentlyList->Add(pListElement);
 
 		//	pListElement->SetText(0, _T("WHO1753"));
-		//	pListElement->SetText(1, _T("�������"));
+		//	pListElement->SetText(1, _T("程序设计"));
 		//	pListElement->SetText(2, _T("100"));
 		//}
 
 		//UserListItemInfo item;
 		//item.folder = true;
 		//item.empty = false;
-		//item.nick_name = _T("�ҵ�QQȺ");
+		//item.nick_name = _T("我的QQ群");
 
 		//pRecentlyList->addItem(item);
 	}
@@ -383,7 +383,7 @@ void MainFrame::ShowSearchResList()
 		item.id = _T("1");
 		item.folder = false;
 		item.logo = _T("man_big.png");
-		item.nick_name = _T("���");
+		item.nick_name = _T("大佛");
 		item.description = _T("dafo@mogujie.com");
 
 		myself_info_ = item;
@@ -394,7 +394,7 @@ void MainFrame::ShowSearchResList()
 		item.id = _T("2");
 		item.folder = false;
 		item.logo = _T("default.png");
-		item.nick_name = _T("�쵶");
+		item.nick_name = _T("快刀");
 		item.description = _T("kuaidao@mogujie.com");
 		pSearchUserList->AddNode(item, root_parent);
 		friends_.push_back(item);
@@ -402,8 +402,8 @@ void MainFrame::ShowSearchResList()
 		item.id = _T("2");
 		item.folder = false;
 		item.logo = _T("default.png");
-		item.nick_name = _T("����");
-		item.description = _T("���ĵ���");
+		item.nick_name = _T("子烨");
+		item.description = _T("万恶的地主");
 		pSearchUserList->AddNode(item, root_parent);
 		friends_.push_back(item);
 	}

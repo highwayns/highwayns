@@ -1,17 +1,17 @@
-﻿// utility.h : utility DLL ����ͷ�ļ�
+﻿// utility.h : utility DLL 的主头文件
 //
 
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error "�ڰ������ļ�֮ǰ������stdafx.h�������� PCH �ļ�"
+	#error "在包含此文件之前包含“stdafx.h”以生成 PCH 文件"
 #endif
 
-#include "resource.h"		// ������
+#include "resource.h"		// 主符号
 
 
 // CutilityApp
-// �йش���ʵ�ֵ���Ϣ������� utility.cpp
+// 有关此类实现的信息，请参阅 utility.cpp
 //
 
 class CutilityApp : public CWinApp
@@ -19,7 +19,7 @@ class CutilityApp : public CWinApp
 public:
 	CutilityApp();
 
-// ��д
+// 重写
 public:
 	virtual BOOL InitInstance();
 

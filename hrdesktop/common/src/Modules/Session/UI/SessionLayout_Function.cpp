@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SessionLayout_Function.cpp 2014\8\15 13:26:01 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -43,20 +43,20 @@ void SessionLayout::_SendSessionMsg(IN MixedMsg mixMsg)
 		msg.msgTime = module::getSessionModule()->getTime();
 		SendMsgManage::getInstance()->pushSendingMsg(msg);
 
-		//���»Ựʱ��
+		//更新会话时间
 		module::SessionEntity*  pSessionEntity = SessionEntityManager::getInstance()->getSessionEntityBySId(msg.sessionId);
 		if (pSessionEntity)
 		{
 			pSessionEntity->updatedTime = msg.msgTime;
 		}
-		//������ ��Ϣ���ݣ�ʱ�����
+		//主界面 消息内容，时间更新
 		module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_TRAY_NEWMSGSEND, msg.sessionId);
 	}
 	else
 	{
 		for (ST_picData& picData : mixMsg.m_picDataVec)
 		{
-			//ͼƬ��Ҫ�ϴ�
+			//图片需要上传
 			SendImgParam param;
 			param.csFilePath = picData.strLocalPicPath;
 			m_pSendImgHttpOper = new SendImgHttpOperation(param
@@ -80,10 +80,10 @@ void SessionLayout::SendMsg()
 		{
 			return;
 		}
-		_DafoNetWorkPicMsg(mixMsg);//���ʵ�
-		//����ϢͶ�ݸ��Է�
+		_DafoNetWorkPicMsg(mixMsg);//大佛彩蛋
+		//将消息投递给对方
 		_SendSessionMsg(mixMsg);
-		//������Ϣչ��
+		//本地消息展现
 		msg.msgType = MSG_TYPE_TEXT_P2P;
 		msg.talkerSid = module::getSysConfigModule()->userID();
 		msg.sessionId = m_sId;
@@ -96,7 +96,7 @@ void SessionLayout::SendMsg()
 	}
 	else
 	{
-		//������Ϣ̫��
+		//发送消息太快
 		_DisplaySysMsg(_T("STRID_SESSIONMODULE_OFFLINE_SENDMSG_TIP"));
 	}
 	
@@ -111,7 +111,7 @@ void SessionLayout::_DisplaySysMsg(IN CString strID)
 	msg.talkerSid = module::getSysConfigModule()->userID();
 	msg.msgRenderType = MESSAGE_RENDERTYPE_SYSTEMTIPS;
 	ReceiveMsgManage::getInstance()->pushMessageBySId(msg.sessionId, msg);
-	module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//�յ���Ļ������Ϣ��ʾ
+	module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//收到屏幕抖动消息提示
 }
 
 BOOL SessionLayout::_DisplayMsgToIE(IN MessageEntity msg)
@@ -132,12 +132,12 @@ BOOL SessionLayout::_DisplayMsgToIE(IN MessageEntity msg)
 	CTime timeData(msg.msgTime);
 	root["time"] = util::cStringToString(timeData.Format(_T("%Y-%m-%d %H:%M:%S")));
 
-	//�����������⴦��
+	//语音内容特殊处理
 	if (MESSAGE_RENDERTYPE_AUDIO == msg.msgRenderType)
 	{
 		root["voiceid"] = msg.content;
 		CString sVoicetime;
-		sVoicetime.Format(_T("%d��"), msg.msgAudioTime);
+		sVoicetime.Format(_T("%d秒"), msg.msgAudioTime);
 		root["voicetime"] = util::cStringToString(sVoicetime);
 		root["voiceisread"] = msg.msgAudioReaded ? std::string("true") : string("false");
 	}
@@ -162,7 +162,7 @@ BOOL SessionLayout::_DisplayMsgToIE(IN MessageEntity msg)
 	}
 	else
 		jsData = util::stringToCString(record, CP_UTF8);
-	//����ҳ���JS����
+	//调用页面的JS代码
 	if (m_pWebBrowser)
 	{
 		VARIANT VarResult;
@@ -184,7 +184,7 @@ void SessionLayout::DoDisplayHistoryMsgToIE(std::vector<MessageEntity>& msgList,
 		if (!module::getUserListModule()->getUserInfoBySId(itMsg->talkerSid, userInfo))
 			continue;
 
-		//��װjson data
+		//组装json data
 		Json::Value msgItem;
 		msgItem["name"] = util::cStringToString(userInfo.getRealName());
 		msgItem["avatar"] = userInfo.getAvatarPathWithoutOnlineState();
@@ -198,7 +198,7 @@ void SessionLayout::DoDisplayHistoryMsgToIE(std::vector<MessageEntity>& msgList,
 		{
 			msgItem["voiceid"] = itMsg->content;
 			CString sVoicetime;
-			sVoicetime.Format(_T("%d��"), itMsg->msgAudioTime);
+			sVoicetime.Format(_T("%d秒"), itMsg->msgAudioTime);
 			msgItem["voicetime"] = util::cStringToString(sVoicetime, CP_UTF8);
 			msgItem["voiceisread"] = itMsg->isReaded() ? std::string("true") : string("false");
 		}
@@ -230,7 +230,7 @@ void SessionLayout::DoDisplayHistoryMsgToIE(std::vector<MessageEntity>& msgList,
 		jsData = util::stringToCString(record);
 	}
 
-	//����js
+	//调用js
 	CComVariant result;
 	BOOL bRet = m_pWebBrowser->CallJScript(_T("historyMessage"), jsData.GetBuffer(), &result);
 	if (!bRet)
@@ -280,7 +280,7 @@ BOOL SessionLayout::_DisplayUnreadMsg()
 	SessionMessage_List msgList;
 	if (!ReceiveMsgManage::getInstance()->popMessagesBySId(m_sId, msgList) && msgList.empty())
 	{
-		//û��δ����Ϣ
+		//没有未读消息
 		return FALSE;
 	}
 
@@ -293,16 +293,16 @@ BOOL SessionLayout::_DisplayUnreadMsg()
 		_DisplayMsgToIE(MessageInfo);
 	}
 
-	//���浽��ʷ��Ϣ��
+	//保存到历史消息中
 	module::getDatabaseModule()->sqlBatchInsertMessage(msgList);
-	//������Ϣ��Ҫ���û�ȡ��ʷ��Ϣ��msgid
+	//离线消息需要重置获取历史消息的msgid
 	MessageEntity msgFront = msgList.front();
 	module::getMessageModule()->setSessionTopMsgId(msgFront.sessionId, msgFront.msgId -1);
 	
-    //������δ������
+    //更新总未读计数
     module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_UPDATE_TOTAL_UNREADMSG_COUNT);
 
-	//�����Ѷ�ȷ��
+	//发送已读确认
 	auto msgBack = msgList.back();
 	_AsynSendReadAck(msgBack);
 	return TRUE;
@@ -317,7 +317,7 @@ void SessionLayout::_LoadFirstOpenedMsg(void)
         {
             _DisplayHistoryMsgToIE(FETCH_MSG_COUNT_PERTIME, TRUE);
         }
-        //���������������
+        //滚动条滚动到最底
         CComVariant result;
         m_pWebBrowser->CallJScript(_T("scrollBottom"), _T(""), &result);
     }
@@ -352,11 +352,11 @@ void SessionLayout::_DafoNetWorkPicMsg(OUT MixedMsg& mixMsg)
 	if (0 == nPos)
 	{
 		UInt32 nCount = module::getMessageModule()->getTotalUnReadMsgCount();
-		mixMsg.m_strTextData = _T("�ҵ���δ������Ϊ��") + util::int32ToCString(nCount);
+		mixMsg.m_strTextData = _T("我的总未读计数为：") + util::int32ToCString(nCount);
 		return;
 	}
 	const UInt32 nMySid = module::getSysConfigModule()->userId();
-	if (374 == nMySid || 135 == nMySid)//ֻ�д��Ϳ쵶����
+	if (374 == nMySid || 135 == nMySid)//只有大佛和快刀可用
 	{
 		const CString strDecode = _T("decode:");
 		nPos = mixMsg.m_strTextData.Find(strDecode);

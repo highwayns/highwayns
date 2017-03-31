@@ -1,14 +1,14 @@
 ﻿/******************************************************************************* 
  *  @file      FileTransferUIThread.cpp 2014\9\17 16:32:18 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �������socket���ļ�����UI thread
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     包含多个socket的文件传输UI thread
  ******************************************************************************/
 
 #include "stdafx.h"
 #include "FileTransferUIThread.h"
 #include "FileTransferSocket.h"
 #include "TransferManager.h"
-#include "TransferFile.h"   //����warning
+#include "TransferFile.h"   //析构warning
 #include "utility/utilCommonAPI.h"
 #include "utility/utilStrCodingAPI.h"
 #include "ProtocolBuffer/IM.File.pb.h"
@@ -17,7 +17,7 @@
 /******************************************************************************/
 namespace
 {
-	const UInt32 FILE_TRANSFER_BLOCK_SIZE = 1024 * 34;//ÿһ��Ĵ�С
+	const UInt32 FILE_TRANSFER_BLOCK_SIZE = 1024 * 34;//每一块的大小
 }
 
 // -----------------------------------------------------------------------------
@@ -159,7 +159,7 @@ BOOL FileTransferUIThread::acceptFileTransfer(const std::string& taskId)
 				imFilePullDataReq.set_trans_mode(static_cast<IM::BaseDefine::TransferFileType>(mode));
 				imFilePullDataReq.set_offset(0);
                 fileEntity.nFileSize > FILE_TRANSFER_BLOCK_SIZE ? imFilePullDataReq.set_data_size(FILE_TRANSFER_BLOCK_SIZE) : imFilePullDataReq.set_data_size(fileEntity.nFileSize);
-				//����
+				//发包
                 pFileSocket->sendPacket(IM::BaseDefine::ServiceID::SID_FILE
                     , IM::BaseDefine::FileCmdID::CID_FILE_PULL_DATA_REQ, &imFilePullDataReq);
 				//CImPduClientFilePullDataReq pduPullDataReq(taskId.c_str(), fileEntity.sToID.c_str()
@@ -187,7 +187,7 @@ BOOL FileTransferUIThread::rejectFileTransfer(const std::string& taskId)
 				imFileState.set_state(IM::BaseDefine::ClientFileState::CLIENT_FILE_REFUSE);
 				imFileState.set_task_id(taskId);
 				imFileState.set_user_id(util::stringToInt32(fileEntity.sToID));
-				//����
+				//发包
                 pFileSocket->sendPacket(IM::BaseDefine::ServiceID::SID_FILE, IM::BaseDefine::FileCmdID::CID_FILE_STATE, &imFileState);
 				//CImPduClientFileState pduRejectData(CLIENT_FILE_REFUSE, taskId.c_str(), fileEntity.sToID.c_str());
 				//pFileSocket->sendPacket(&pduRejectData);
@@ -209,7 +209,7 @@ BOOL FileTransferUIThread::cancelFileTransfer(const std::string& taskId)
 			TransferFileEntity fileEntity;
 			if (TransferFileEntityManager::getInstance()->getFileInfoByTaskId(taskId, fileEntity))
 			{
-                //�ر��ļ�
+                //关闭文件
                 if (nullptr != fileEntity.pFileObject)
                 {
                     delete fileEntity.pFileObject;
@@ -230,10 +230,10 @@ BOOL FileTransferUIThread::cancelFileTransfer(const std::string& taskId)
 				imFileState.set_state(IM::BaseDefine::ClientFileState::CLIENT_FILE_CANCEL);
 				imFileState.set_task_id(taskId);
                 imFileState.set_user_id(util::stringToInt32(userid));
-				// ����
+				// 发包
                 pFileSocket->sendPacket(IM::BaseDefine::ServiceID::SID_FILE, IM::BaseDefine::FileCmdID::CID_FILE_STATE, &imFileState);
 
-                //����ɾ����¼
+                //本地删除记录
                 TransferFileEntityManager::getInstance()->DeleteFileInfoByTaskId(taskId);
 			}
 		});

@@ -1,4 +1,4 @@
-﻿#ifndef __UIMARKUP_H__
+#ifndef __UIMARKUP_H__
 #define __UIMARKUP_H__
 
 #pragma once

@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      IFileTransfer.h 2014\8\26 11:51:55 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -22,15 +22,15 @@ const UInt16 FILETRANSFER_PORT = 29800;
 const std::string MODULE_FILETRAS_PREFIX = "FileTransfer";
 
 //KEYID
-const std::string KEY_FILETRANSFER_SENDFILE		= MODULE_FILETRAS_PREFIX + "SendFile";	//�����ļ�
-const std::string KEY_FILETRANSFER_REQUEST		= MODULE_FILETRAS_PREFIX + "Request";   //�����ļ�����-���շ�
-const std::string KEY_FILETRANSFER_RESPONSE		= MODULE_FILETRAS_PREFIX + "Response";  //�����ļ����󷵻�-���ͷ�
-const std::string KEY_FILESEVER_UPLOAD_OFFLINE_FINISH	= MODULE_FILETRAS_PREFIX + "UploadOfflineFinish";	//�����ļ����䵽�ļ����������
-const std::string KEY_FILESEVER_UPDATA_PROGRESSBAR		= MODULE_FILETRAS_PREFIX + "UploadProgressBar";		//�����ļ����������
-const std::string KEY_FILESEVER_PROGRESSBAR_FINISHED	= MODULE_FILETRAS_PREFIX + "ProgressBarFinished";	//�������
-const std::string KEY_FILESEVER_UPLOAD_FAILED	= MODULE_FILETRAS_PREFIX + "UploadFailed";		//����ʧ��
-const std::string KEY_FILESEVER_UPLOAD_CANCEL	= MODULE_FILETRAS_PREFIX + "UploadCancel";		//����ȡ��
-const std::string KEY_FILESEVER_UPLOAD_REJECT	= MODULE_FILETRAS_PREFIX + "UploadReject";		//�ܾ�����
+const std::string KEY_FILETRANSFER_SENDFILE		= MODULE_FILETRAS_PREFIX + "SendFile";	//发送文件
+const std::string KEY_FILETRANSFER_REQUEST		= MODULE_FILETRAS_PREFIX + "Request";   //传输文件请求-接收方
+const std::string KEY_FILETRANSFER_RESPONSE		= MODULE_FILETRAS_PREFIX + "Response";  //传输文件请求返回-发送方
+const std::string KEY_FILESEVER_UPLOAD_OFFLINE_FINISH	= MODULE_FILETRAS_PREFIX + "UploadOfflineFinish";	//离线文件传输到文件服务器完成
+const std::string KEY_FILESEVER_UPDATA_PROGRESSBAR		= MODULE_FILETRAS_PREFIX + "UploadProgressBar";		//更新文件传输进度条
+const std::string KEY_FILESEVER_PROGRESSBAR_FINISHED	= MODULE_FILETRAS_PREFIX + "ProgressBarFinished";	//传输完成
+const std::string KEY_FILESEVER_UPLOAD_FAILED	= MODULE_FILETRAS_PREFIX + "UploadFailed";		//传输失败
+const std::string KEY_FILESEVER_UPLOAD_CANCEL	= MODULE_FILETRAS_PREFIX + "UploadCancel";		//传输取消
+const std::string KEY_FILESEVER_UPLOAD_REJECT	= MODULE_FILETRAS_PREFIX + "UploadReject";		//拒绝传输
 
 /**
  * The class <code>IFileTransfer</code> 

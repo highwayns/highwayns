@@ -1,6 +1,6 @@
 ﻿ /*******************************************************************************
  *  @file      UIIMList.h 2014\8\12 9:07:38 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -65,11 +65,11 @@ public:
 	virtual void DoInit();
 
 public:
-	/**@name sId��item��Ӧ���*/
+	/**@name sId和item对应相关*/
 	//@{
 	BOOL IsExistSId(IN const std::string& sId);
 	/**
-	 * ��ȡ�б���������Ŀ��SID��������Ⱥʹ��
+	 * 获取列表里所有项目的SID，给创建群使用
 	 *
 	 * @return  std::vector<std::string>
 	 * @exception there is no any exception to throw.
@@ -79,7 +79,7 @@ public:
 	//@}
 
 	/**
-	 * ��setһ��Item·������addnod
+	 * 先set一个Item路径，再addnod
 	 *
 	 * @param   CString IitemXml
 	 * @return  void

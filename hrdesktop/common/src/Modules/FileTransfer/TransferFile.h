@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      TransferFile.h 2014\9\5 13:18:03 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     ������ļ��Ĳ���
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     传输的文件的操作
  ******************************************************************************/
 
 #ifndef TRANSFERFILE_4DABC92A_C413_4E6C_9C7C_5B43437B7076_H__
@@ -17,7 +17,7 @@ enum Position
 };
 
 /**
- * The class <code>�����ļ�����</code> 
+ * The class <code>传输文件操作</code> 
  *
  */
 class TransferFile final

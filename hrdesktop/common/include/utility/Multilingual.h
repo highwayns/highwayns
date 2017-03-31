@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      Multilingual.h 2014\11\25 21:14:44 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     ������֧�ֹ����࣬����windows ini apiʵ��
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     多语言支持工具类，利用windows ini api实现
  ******************************************************************************/
 
 #ifndef MULTILINGUAL_93AF83ED_9E20_45F1_8C1A_48CA7C6D3FF9_H__

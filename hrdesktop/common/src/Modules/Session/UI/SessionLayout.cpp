@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SessionLayout.cpp 2014\12\31 14:04:38 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -40,7 +40,7 @@ namespace
 		CDuiString node1 = pListElement1->GetUserData();
 		CDuiString node2 = pListElement2->GetUserData();
 
-		//��ȡ�Ự�ķ�����ʱ��
+		//获取会话的服务器时间
 
 		CString s1 = node1;
 		CString s2 = node2;
@@ -69,7 +69,7 @@ namespace
 	}
 }
 SessionLayout::SessionLayout(const std::string& sId, CPaintManagerUI& paint_manager)
-:m_pWebBrowser(nullptr)//������ʾ��
+:m_pWebBrowser(nullptr)//聊天显示框
 , m_pInputRichEdit(nullptr)
 , m_pBtnSendMsg(nullptr)
 , m_pBtnClose(nullptr)
@@ -77,7 +77,7 @@ SessionLayout::SessionLayout(const std::string& sId, CPaintManagerUI& paint_mana
 , m_pBtnSendImage(nullptr)
 , m_pBtnshock(nullptr)
 , m_pBtnsendfile(nullptr)
-, m_pBtnadduser(nullptr)//����������Ա
+, m_pBtnadduser(nullptr)//添加讨论组成员
 , m_sId(sId)
 , m_paint_manager(paint_manager)
 , m_bGroupSession(false)
@@ -179,7 +179,7 @@ void SessionLayout::OnWindowInitialized(TNotifyUI& msg)
 		m_pBtnshock->SetVisible(false);
 		m_pBtnsendfile->SetVisible(false);
 		m_pBtnadduser->SetToolTip(util::getMultilingual()->getStringById(_T("STRID_GROUPLISTMODULE_DELETEORADDMEMBER")));
-		if (groupInfo.type == 1)//�̶�Ⱥ
+		if (groupInfo.type == 1)//固定群
 		{
 			m_pBtnadduser->SetVisible(false); 
 		}		
@@ -261,7 +261,7 @@ void SessionLayout::_AddGroupMemberToList(IN const std::string& sID, IN const BO
 	CListContainerElementUI* pListElement = (CListContainerElementUI*)dlgBuilder.Create(_T("SessionDialog\\groupMembersListItem.xml"), (UINT)0, NULL, &m_paint_manager);
 	if (!pListElement)
 	{
-		LOG__(ERR, _T("Ⱥitem����ʧ��"));
+		LOG__(ERR, _T("群item创建失败"));
 		return;
 	}
 	CButtonUI* pLogo = static_cast<CButtonUI*>(pListElement->FindSubControl(_T("AvatarInfo")));
@@ -407,16 +407,16 @@ void SessionLayout::_UpdateSearchRsultList(IN const std::vector<std::string>& na
 
 void SessionLayout::_SendImage(CString& csFilePath)
 {
-	//���촿ͼƬ��Ϣ
+	//构造纯图片消息
 	ST_picData picData;
 	picData.nPos = 0;
 	picData.strLocalPicPath = csFilePath;
 	MixedMsg mixMsg;
 	mixMsg.m_picDataVec.push_back(picData);
-	//����ͼƬ
+	//发送图片
 	_SendSessionMsg(mixMsg);
 
-	//������Ϣչ��
+	//本地消息展现
 	MessageEntity msg;
 	msg.msgType = MSG_TYPE_TEXT_P2P;
 	msg.talkerSid = module::getSysConfigModule()->userID();

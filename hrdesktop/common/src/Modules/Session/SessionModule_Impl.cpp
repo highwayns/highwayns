@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SessionModule_Impl.cpp 2014\12\31 11:41:09 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 #include "stdafx.h"
@@ -116,7 +116,7 @@ BOOL SessionModule_Impl::_banGroupMSG(IN MessageEntity msg)
 		return FALSE;
 	}
 	if (!(IM::BaseDefine::MsgType::MSG_TYPE_GROUP_TEXT == msg.msgType
-		|| IM::BaseDefine::MsgType::MSG_TYPE_GROUP_AUDIO == msg.msgType))//��Ⱥ��Ϣ������
+		|| IM::BaseDefine::MsgType::MSG_TYPE_GROUP_AUDIO == msg.msgType))//非群消息无屏蔽
 	{
 		return FALSE;
 	}
@@ -128,7 +128,7 @@ BOOL SessionModule_Impl::_banGroupMSG(IN MessageEntity msg)
 	}
 	if (groupInfo.shieldStatus)
 	{
-		//���Ѷ�ȷ�ϣ�֪ͨ����������Ⱥ��Ϣ�Ѷ�
+		//发已读确认，通知服务器，该群消息已读
 		imcore::IMLibCoreStartOperationWithLambda(
 			[=]()mutable
 		{
@@ -151,7 +151,7 @@ BOOL SessionModule_Impl::_prase2LocalMsg(OUT MessageEntity& msg)
 {
 	if (IM::BaseDefine::MsgType::MSG_TYPE_SINGLE_AUDIO == msg.msgType)
 	{
-		//ʵʱ������Ϣ��Ҫ���ͬ��
+		//实时个人消息需要多端同步
 		if (MESSAGE_TYPE_RUNTIME == msg.msgStatusType
 			&& msg.talkerSid != module::getSysConfigModule()->userID())
 			msg.sessionId = msg.talkerSid;
@@ -167,9 +167,9 @@ BOOL SessionModule_Impl::_prase2LocalMsg(OUT MessageEntity& msg)
 		//msg.content = msgEncrypt;
 		msg.content = fileName;
 	}
-	else if (IM::BaseDefine::MsgType::MSG_TYPE_SINGLE_TEXT == msg.msgType)//������Ϣ
+	else if (IM::BaseDefine::MsgType::MSG_TYPE_SINGLE_TEXT == msg.msgType)//个人消息
 	{
-		//ʵʱ������Ϣ��Ҫ���ͬ��
+		//实时个人消息需要多端同步
 		if (MESSAGE_TYPE_RUNTIME == msg.msgStatusType
 			&& msg.talkerSid != module::getSysConfigModule()->userID())
 			msg.sessionId = msg.talkerSid;
@@ -177,7 +177,7 @@ BOOL SessionModule_Impl::_prase2LocalMsg(OUT MessageEntity& msg)
 		msg.msgSessionType = MESSAGETYPE_FROM_FRIEND;
 		msg.msgRenderType = MESSAGE_RENDERTYPE_TEXT;
 	}
-	else if (IM::BaseDefine::MsgType::MSG_TYPE_GROUP_TEXT == msg.msgType)//Ⱥ��Ϣ
+	else if (IM::BaseDefine::MsgType::MSG_TYPE_GROUP_TEXT == msg.msgType)//群消息
 	{
 		msg.msgRenderType = MESSAGE_RENDERTYPE_TEXT;
 		msg.msgSessionType = MESSAGETYPE_FROM_GROUP;
@@ -223,11 +223,11 @@ void SessionModule_Impl::_sessionMsgData(IN std::string& pbBody)
 	msg.msgId = imMsgData.msg_id();
 	msg.content = imMsgData.msg_data();
 
-	_prase2LocalMsg(msg);//�����ɱ��ص���Ϣ
+	_prase2LocalMsg(msg);//解析成本地的消息
 
 	if (ReceiveMsgManage::getInstance()->checkIsReduplicatedMsg(msg, imMsgData.msg_id()))
 	{
-		LOG__(ERR, _T("checkIsReduplicatedMsg,��Ϣ�ظ�"));
+		LOG__(ERR, _T("checkIsReduplicatedMsg,消息重复"));
 		return;
 	}
 
@@ -243,8 +243,8 @@ void SessionModule_Impl::_sessionMsgData(IN std::string& pbBody)
 		else
 			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);
 
-		//֪ͨ�������յ�����Ϣ
-		if (MESSAGETYPE_FROM_FRIEND == msg.msgSessionType)//ֻ�и�����ϢҪ������ȷ��,Ⱥ��Ϣ�ǲ�������ȷ�ϵ�
+		//通知服务器收到该消息
+		if (MESSAGETYPE_FROM_FRIEND == msg.msgSessionType)//只有个人消息要发已收确认,群消息是不发已收确认的
 		{
 			imcore::IMLibCoreStartOperationWithLambda(
 				[=]()
@@ -271,32 +271,32 @@ void SessionModule_Impl::_sessionUnReadMsgListResponse(IN std::string& pbBody)
 	IM::Message::IMGetMsgListRsp imGetMsgListRsp;
 	if (!imGetMsgListRsp.ParseFromString(pbBody))
 	{
-		LOG__(ERR, _T("ParseFromString failed��%s"), util::stringToCString(pbBody));
+		LOG__(ERR, _T("ParseFromString failed：%s"), util::stringToCString(pbBody));
 		return;
 	}
 	MessageEntity msg;
 	msg.msgStatusType = MESSAGE_TYPE_OFFLINE;
 	const UInt32 msgCnt = imGetMsgListRsp.msg_list_size();
-	LOG__(APP, _T("IMGetMsgListRsp msgCnt��%d,sessionId =%s"), msgCnt, util::int32ToCString(imGetMsgListRsp.session_id()));
+	LOG__(APP, _T("IMGetMsgListRsp msgCnt：%d,sessionId =%s"), msgCnt, util::int32ToCString(imGetMsgListRsp.session_id()));
 	for (UInt32 i = msgCnt; i > 0; --i)
 	{
 		const IM::BaseDefine::MsgInfo& msgInfo = imGetMsgListRsp.msg_list(i - 1);
 		msg.msgTime = msgInfo.create_time();
-		msg.talkerSid = util::uint32ToString(msgInfo.from_session_id());//˵������
-		msg.sessionId = util::uint32ToString(imGetMsgListRsp.session_id());//�ỰID
+		msg.talkerSid = util::uint32ToString(msgInfo.from_session_id());//说话的人
+		msg.sessionId = util::uint32ToString(imGetMsgListRsp.session_id());//会话ID
 		msg.msgType = msgInfo.msg_type();
 		msg.msgId = msgInfo.msg_id();
 		msg.content = msgInfo.msg_data();
 		int nsize = msg.content.length();
 		_prase2LocalMsg(msg);
-		if (i == imGetMsgListRsp.msg_list_size())//��һ����Ϣ
+		if (i == imGetMsgListRsp.msg_list_size())//第一条消息
 		{
 			//module::getMessageModule()->removeMessageBySId(msg.sessionId);
-			_checkMsgFromStranger(msg);//��һ�β�����Ϣ��¼ǰ����ȥȷ�����Ƿ�Ҫ�����û��б�	
+			_checkMsgFromStranger(msg);//第一次插入消息记录前，先去确认下是否要创建用户列表	
 		}
-		if (1 == i)//���һ����Ϣ
+		if (1 == i)//最后一条消息
 		{
-			updateSessionEntityByMsg(msg);//���»Ự	
+			updateSessionEntityByMsg(msg);//更新会话	
 		}
 		if (MESSAGETYPE_FROM_FRIEND == msg.msgSessionType)
 		{
@@ -319,11 +319,11 @@ void SessionModule_Impl::_sessionHistoryMsgListResponse(IN UInt16 reserved, IN s
 	IM::Message::IMGetMsgListRsp imGetMsgListRsp;
 	if (!imGetMsgListRsp.ParseFromString(pbBody))
 	{
-		LOG__(ERR, _T("ParseFromString failed��%s"), util::stringToCString(pbBody));
+		LOG__(ERR, _T("ParseFromString failed：%s"), util::stringToCString(pbBody));
 		return;
 	}
 	const UInt32 msgCnt = imGetMsgListRsp.msg_list_size();
-	LOG__(APP, _T("IMGetMsgListRsp log begin,sessionid��%d,last msgId:%d,msg count:%d,sessionType:%d")
+	LOG__(APP, _T("IMGetMsgListRsp log begin,sessionid：%d,last msgId:%d,msg count:%d,sessionType:%d")
 		, imGetMsgListRsp.session_id(), imGetMsgListRsp.msg_id_begin(),msgCnt,imGetMsgListRsp.session_type());
 	std::string sId = util::uint32ToString(imGetMsgListRsp.session_id());
 	if (IM::BaseDefine::SESSION_TYPE_GROUP == imGetMsgListRsp.session_type())
@@ -333,7 +333,7 @@ void SessionModule_Impl::_sessionHistoryMsgListResponse(IN UInt16 reserved, IN s
 	if (msgCnt <= 0 )
 	{
 		LOG__(ERR, _T("IMGetMsgListRsp msgCnt:%d <= 0"),msgCnt);
-		return;//������Ϣ��Ϊ0,�����ؿ��ܻᵼ��UIˢ��crash��
+		return;//返回消息数为0,不返回可能会导致UI刷新crash。
 	}
 	MessageEntity msg;
 	for (UInt32 i = 0; i < msgCnt; ++i)
@@ -341,8 +341,8 @@ void SessionModule_Impl::_sessionHistoryMsgListResponse(IN UInt16 reserved, IN s
 		const IM::BaseDefine::MsgInfo& msgInfo = imGetMsgListRsp.msg_list(i);
 		msg.msgStatusType = MESSAGE_TYPE_HISTORY;
 		msg.msgTime = msgInfo.create_time();
-		msg.talkerSid = util::uint32ToString(msgInfo.from_session_id());//˵������
-		msg.sessionId = util::uint32ToString(imGetMsgListRsp.session_id());//�ỰID
+		msg.talkerSid = util::uint32ToString(msgInfo.from_session_id());//说话的人
+		msg.sessionId = util::uint32ToString(imGetMsgListRsp.session_id());//会话ID
 		msg.msgType = msgInfo.msg_type();
 		msg.msgId = msgInfo.msg_id();
 		msg.content = msgInfo.msg_data();
@@ -355,7 +355,7 @@ void SessionModule_Impl::_sessionHistoryMsgListResponse(IN UInt16 reserved, IN s
 
 		if (MESSAGE_RENDERTYPE_AUDIO == msg.msgRenderType)
 		{
-			msg.msgAudioReaded = 1;//������ʷ��ϢĬ�϶���Ϊ�Ѷ�
+			msg.msgAudioReaded = 1;//语音历史消息默认都置为已读
 		}
 
 		module::getMessageModule()->pushMessageBySId(msg.sessionId, msg);
@@ -370,10 +370,10 @@ void SessionModule_Impl::_sessionMsgACK(IN const UInt16 seqNo, IN std::string& p
 	IM::Message::IMMsgDataAck imMsgDataAck;
 	if (!imMsgDataAck.ParseFromString(pbBody))
 	{
-		LOG__(ERR, _T("ParseFromString failed��%s"), util::stringToCString(pbBody));
+		LOG__(ERR, _T("ParseFromString failed：%s"), util::stringToCString(pbBody));
 		return;
 	}
-	//������Ϣ�ɹ���ɾ�����س�ʱ����
+	//发送消息成功，删除本地超时机制
 	SendMsgManage::getInstance()->popUpSendingMsgByAck(seqNo,imMsgDataAck.msg_id());
 }
 
@@ -385,9 +385,9 @@ BOOL SessionModule_Impl::_checkMsgFromStranger(IN MessageEntity& msg)
 		if (!module::getUserListModule()->getUserInfoBySId(msg.sessionId, info))
 		{
 			
-			//���ʱ����Ҫȥ�������û��ĺ�����Ϣ
+			//这个时候需要去请求下用户的好友信息
 			CString csUId = util::stringToCString(msg.sessionId);
-			LOG__(DEBG, _T("userinfo not exist,tcpGetUserFriendInfo now sId��%s"), csUId);
+			LOG__(DEBG, _T("userinfo not exist,tcpGetUserFriendInfo now sId：%s"), csUId);
 			module::getUserListModule()->tcpGetUserInfo(msg.sessionId);
 			return FALSE;
 		}
@@ -398,9 +398,9 @@ BOOL SessionModule_Impl::_checkMsgFromStranger(IN MessageEntity& msg)
 		if (!module::getGroupListModule()->getGroupInfoBySId(msg.sessionId, info))
 		{
 			
-			//���ʱ����Ҫȥ������Ⱥ��Ϣ
+			//这个时候需要去请求下群信息
 			CString csUId = util::stringToCString(msg.sessionId);
-			LOG__(DEBG, _T("groupinfo not exist,tcpGetGroupInfo now sId��%s"), csUId);
+			LOG__(DEBG, _T("groupinfo not exist,tcpGetGroupInfo now sId：%s"), csUId);
 			module::getGroupListModule()->tcpGetGroupInfo(msg.getOriginSessionId());
 			return FALSE;
 		}
@@ -413,7 +413,7 @@ void SessionModule_Impl::_sessionMsgTimeResponse(IN string& pbBody)
 	IM::Message::IMClientTimeRsp imClientTimeRsp;
 	if (!imClientTimeRsp.ParseFromString(pbBody))
 	{
-		LOG__(ERR, _T("ParseFromString failed��%s"), util::stringToCString(pbBody));
+		LOG__(ERR, _T("ParseFromString failed：%s"), util::stringToCString(pbBody));
 		return;
 	}
 	LOG__(APP, _T("IMClientTimeRsp,time = %d"), imClientTimeRsp.server_time());
@@ -425,7 +425,7 @@ void SessionModule_Impl::_sessionMsgUnreadCntResponse(IN string& pbBody)
 	IM::Message::IMUnreadMsgCntRsp imUnreadMsgCntRsp;
 	if (!imUnreadMsgCntRsp.ParseFromString(pbBody))
 	{
-		LOG__(ERR, _T("ParseFromString failed��%s"), util::stringToCString(pbBody));
+		LOG__(ERR, _T("ParseFromString failed：%s"), util::stringToCString(pbBody));
 		return;
 	}
 	const int nSize = imUnreadMsgCntRsp.unreadinfo_list_size();
@@ -433,7 +433,7 @@ void SessionModule_Impl::_sessionMsgUnreadCntResponse(IN string& pbBody)
 	for (int i = 0; i < nSize; ++i)
 	{
 		const IM::BaseDefine::UnreadInfo& unReadInfo = imUnreadMsgCntRsp.unreadinfo_list(i);
-		//ֱ�ӿ����ȡ����������Ϣ��task
+		//直接开启获取具体离线消息的task
 		imcore::IMLibCoreStartOperationWithLambda(
 			[=]()
 		{
@@ -447,7 +447,7 @@ void SessionModule_Impl::_sessionMsgUnreadCntResponse(IN string& pbBody)
 
 			UInt32 nUnReadCnt = unReadInfo.unread_cnt();
 			if (nUnReadCnt >100)
-			{//��δ����Ϣ����100��,ֻ��ȡ�����100��������ᵼ��UIˢ������
+			{//当未读消息大于100条,只读取最近的100条，否则会导致UI刷新问题
 				LOG__(APP, _T("nUnReadCnt > 100, realCount = %d"),nUnReadCnt);
 				nUnReadCnt = 100;
 			}
@@ -466,7 +466,7 @@ void SessionModule_Impl::_sessionMsgReadNotify(IN string& pbBody)
 	IM::Message::IMMsgDataReadNotify imMsgDataReadNotify;
 	if (!imMsgDataReadNotify.ParseFromString(pbBody))
 	{
-		LOG__(ERR, _T("ParseFromString failed��%s"), util::stringToCString(pbBody));
+		LOG__(ERR, _T("ParseFromString failed：%s"), util::stringToCString(pbBody));
 		return;
 	}
 	std::string sessionId = util::uint32ToString(imMsgDataReadNotify.session_id());
@@ -476,19 +476,19 @@ void SessionModule_Impl::_sessionMsgReadNotify(IN string& pbBody)
 	}
 	UInt32 maxMsgId = imMsgDataReadNotify.msg_id();
 	LOG__(APP, _T("IMMsgDataReadNotify sessionid = %s,msgId = %d"), util::stringToCString(sessionId), maxMsgId);
-	//���session��С��msgId����Ϣȫ������ȡ����
+	//这个session的小于msgId的消息全部被读取过了
 	SessionMessage_List msgOffLineList,msgRunTimeList;
 	ReceiveMsgManage::getInstance()->popMessagesBySId(sessionId, msgOffLineList, MESSAGE_TYPE_OFFLINE, maxMsgId);
 	if (!msgOffLineList.empty())
 	{
-		//���浽��ʷ��Ϣ��
+		//保存到历史消息中
 		module::getDatabaseModule()->sqlBatchInsertMessage(msgOffLineList);
 		updateSessionEntityByMsg(msgOffLineList.back());
 	}
 	ReceiveMsgManage::getInstance()->popMessagesBySId(sessionId, msgRunTimeList, MESSAGE_TYPE_RUNTIME, maxMsgId);
 	if (!msgRunTimeList.empty())
 	{
-		//���浽��ʷ��Ϣ��
+		//保存到历史消息中
 		module::getDatabaseModule()->sqlBatchInsertMessage(msgRunTimeList);
 		updateSessionEntityByMsg(msgRunTimeList.back());
 	}
@@ -555,7 +555,7 @@ void SessionModule_Impl::updateSessionEntityByMsg(IN const MessageEntity& msg)
 		std::string sYuYing = util::cStringToString(
 			util::getMultilingual()->getStringById(_T("STRID_SESSIONMODULE_RENDERTYPE_AUDIO")));
 		std::string msgEncrypt;
-		ENCRYPT_MSG(sYuYing, msgEncrypt);//����Ự��Ҫ����
+		ENCRYPT_MSG(sYuYing, msgEncrypt);//最近会话需要加密
 		sessionInfo.latestMsgContent = msgEncrypt;
 	}
 	else

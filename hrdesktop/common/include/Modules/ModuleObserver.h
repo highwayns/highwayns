@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      ModuleObserver.h 2014\7\23 13:52:44 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief
  ******************************************************************************/
 
@@ -51,7 +51,7 @@ public:
 	std::string						m_mkoString;
 	std::shared_ptr<void>			m_pmkoShardVoid;
 
-	ModuleSubject*					m_pMko;        //Ϊ�˵���ModuleSubject�Ľӿڣ������һ��ӳ��ָ��
+	ModuleSubject*					m_pMko;        //为了调用ModuleSubject的接口，这里放一个映射指针
 };
 
 class ModuleObserverCtx

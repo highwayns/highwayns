@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      FileTransferUIThread.h 2014\9\17 16:32:15 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �������socket���ļ�����UI thread
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     包含多个socket的文件传输UI thread
  ******************************************************************************/
 
 #ifndef FILETRANSFERUITHREAD_16C2B941_3E94_4B6F_B488_0B82EC2B3F26_H__
@@ -17,7 +17,7 @@ class FileTransferSocket;
 #define WM_FILE_TRANSFER		WM_USER + 888
 
 /**
- * The class <code>�������socket���ļ�����UI thread</code> 
+ * The class <code>包含多个socket的文件传输UI thread</code> 
  *
  */
 class FileTransferUIThread : public TTThread
@@ -42,23 +42,23 @@ public:
 
 public:
 	/**
-	 * ��UI thread���첽�����ļ�����socket
+	 * 在UI thread中异步创建文件传输socket
 	 *
-	 * @param   std::string & taskId �ļ���������id
+	 * @param   std::string & taskId 文件传输任务id
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */	
 	void openFileSocketByTaskId(std::string& taskId);
 	/**
-	* ��UI thread�йر��ļ�����socket
+	* 在UI thread中关闭文件传输socket
 	*
-	* @param   std::string & taskId �ļ���������id
+	* @param   std::string & taskId 文件传输任务id
 	* @return  void
 	* @exception there is no any exception to throw.
 	*/
 	void closeFileSocketByTaskId(std::string& taskId);
 	/**
-	 * ���ļ�������������ͽ����ļ�����
+	 * 向文件传输服务器发送接收文件信令
 	 *
 	 * @param   std::string & taskId
 	 * @return  BOOL

@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2002 Jean-Marc Valin */
+/* Copyright (C) 2002 Jean-Marc Valin */
 /**
    @file ltp_sse.h
    @brief Long-Term Prediction functions (SSE version)

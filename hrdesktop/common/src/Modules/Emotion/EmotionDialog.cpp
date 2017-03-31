@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIEmotion.cpp 2014\7\16 16:29:00 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -76,7 +76,7 @@ void EmotionDialog::Notify(TNotifyUI& msg)
 	}
 	else if (0 == _tcsicmp(msg.sType, DUI_MSGTYPE_CLICK))
 	{
-		if (_tcsicmp(msg.pSender->GetName(), _T("prev_page")) == 0)  //��һҳ
+		if (_tcsicmp(msg.pSender->GetName(), _T("prev_page")) == 0)  //上一页
 		{
 			CEmotionButton *pEmotionButton = static_cast<CEmotionButton*>(m_PaintManager.FindControl(_T("emotion_button")));
 			if (pEmotionButton != NULL && pEmotionButton->GetCurrentPage() > 0)
@@ -84,7 +84,7 @@ void EmotionDialog::Notify(TNotifyUI& msg)
 				pEmotionButton->SetPage(pEmotionButton->GetCurrentPage() - 1);
 			}
 		}
-		else if (_tcsicmp(msg.pSender->GetName(), _T("next_page")) == 0)  //��һҳ
+		else if (_tcsicmp(msg.pSender->GetName(), _T("next_page")) == 0)  //下一页
 		{
 			CEmotionButton *pEmotionButton = static_cast<CEmotionButton*>(m_PaintManager.FindControl(_T("emotion_button")));
 
@@ -132,7 +132,7 @@ LONG EmotionDialog::GetStyle()
 
 LRESULT EmotionDialog::OnNcHitTest(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	return HTCLIENT; //������������
+	return HTCLIENT; //这个窗体标题栏
 }
 
 void EmotionDialog::ShowWindow(IN POINT pt, bool bShow)

@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      GroupListModule_Impl.cpp 2014\8\6 15:30:42 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -77,8 +77,8 @@ BOOL GroupListModule_Impl::startup()
 	{
 		m_mapGroups[groupInfo.gId] = groupInfo;
 	}
-	_downloadAllGroupAvatarImg();//��������Ⱥ��ͷ��
-	module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_GROUPLIST);//֪ͨUI���½���
+	_downloadAllGroupAvatarImg();//下载所有群的头像
+	module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_GROUPLIST);//通知UI更新界面
 	return TRUE;
 }
 BOOL GroupListModule_Impl::getGroupInfoBySId(IN const std::string& sID, OUT module::GroupInfoEntity& groupInfo)
@@ -261,7 +261,7 @@ void GroupListModule_Impl::_groupNormalListResponse(IN std::string& body)
 		{
 			groupinfo.gId = groupId;
 			IM::BaseDefine::GroupVersionInfo* pGroupVersionInfo = imGroupInfoListReq.add_group_version_list();
-			pGroupVersionInfo->set_group_id(util::stringToInt32(getOriginalSId(groupinfo.gId)));//�����ر����Ⱥ�İ汾��
+			pGroupVersionInfo->set_group_id(util::stringToInt32(getOriginalSId(groupinfo.gId)));//传本地保存的群的版本号
 			pGroupVersionInfo->set_version(groupinfo.version);
 			{
 				CAutoLock lock(&m_lock);
@@ -270,7 +270,7 @@ void GroupListModule_Impl::_groupNormalListResponse(IN std::string& body)
 		}
 	}
 
-	if (0 != imGroupInfoListReq.group_version_list_size())//����Ⱥ��Ϣ
+	if (0 != imGroupInfoListReq.group_version_list_size())//请求群信息
 	{
 		imGroupInfoListReq.set_user_id(module::getSysConfigModule()->userId());
 		module::getTcpClientModule()->sendPacket(IM::BaseDefine::ServiceID::SID_GROUP
@@ -309,14 +309,14 @@ void GroupListModule_Impl::_groupInfoResponse(IN std::string& body)
 			std::string userId = util::uint32ToString(groupDetailInfo.group_member_list(j));
 			_safePushBack(userId, groupinfo.groupMemeberList);
 		}
-		if (!groupinfo.groupMemeberList.empty())//���ܴ�����Ч�Ŀ�Ⱥ
+		if (!groupinfo.groupMemeberList.empty())//可能存在无效的空群
 		{
 			{
 				CAutoLock lock(&m_lock);
 				m_mapGroups[groupId] = groupinfo;
 			}
 			pGroupIDs->push_back(groupId);
-			if (!bExist)//��������İ��Ⱥ���յ�İ��Ⱥ��Ϣ���أ���Ҫ�����Ự
+			if (!bExist)//被加入了陌生群，收到陌生群消息返回，需要创建会话
 			{
 				_creatAndSaveSessionToDB(groupinfo);
 			}
@@ -331,7 +331,7 @@ void GroupListModule_Impl::_groupInfoResponse(IN std::string& body)
 	{
 		module::getDatabaseModule()->sqlBatchInsertGroupInfos(m_mapGroups);
 		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_GROUPINFO_UPDATE, std::shared_ptr<void>(pGroupIDs));
-		//��������Ⱥ��ͷ��
+		//下载所有群的头像
 		_downloadAllGroupAvatarImg();
 	}
 	else
@@ -372,11 +372,11 @@ void GroupListModule_Impl::_groupCreateDiscussGroupResponse(IN std::string& body
 		CAutoLock lock(&m_lock);
 		m_mapGroups[groupId] = groupInfo;
 	}
-	//����Ⱥ��Ϣ��sqllite
+	//保存群信息到sqllite
 	module::getDatabaseModule()->sqlInsertOrReplaceGroupInfoEntity(groupInfo);
 	_creatAndSaveSessionToDB(groupInfo);
-	module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_CREATNEWGROUP, groupInfo.gId);//֪ͨUI����������
-	//��������Ⱥ��ͷ��
+	module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_CREATNEWGROUP, groupInfo.gId);//通知UI更新讨论组
+	//下载所有群的头像
 	_downloadAllGroupAvatarImg();
 }
 void GroupListModule_Impl::_groupChangedGroupMembersResponse(IN std::string& body)
@@ -426,11 +426,11 @@ void GroupListModule_Impl::_groupChangedGroupMembersResponse(IN std::string& bod
 			LOG__(ERR, _T("Unknown Modify Type:%d"), imGroupChangeMemberRsp.group_id());
 			return;
 		}
-		//����Ⱥ��Ϣ��sqllite
+		//保存群信息到sqllite
 		module::getDatabaseModule()->sqlInsertOrReplaceGroupInfoEntity(groupInfo);
 
-		//֪ͨ
-		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_MEMBER_CHANGED, groupID);//֪ͨUI����
+		//通知
+		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_MEMBER_CHANGED, groupID);//通知UI更新
 	}
 	else
 	{
@@ -457,10 +457,10 @@ void GroupListModule_Impl::_groupShieldResponse(IN std::string& body)
 			LOG__(ERR, _T("Can't find the group:%s"), util::stringToCString(groupId));
 			return;
 		}
-		itGroupInfo->second.shieldStatus = !(itGroupInfo->second.shieldStatus);//�ɹ��Ļ�������ȡ��
-		//����Ⱥ��Ϣ��sqllite
+		itGroupInfo->second.shieldStatus = !(itGroupInfo->second.shieldStatus);//成功的话，就是取反
+		//保存群信息到sqllite
 		module::getDatabaseModule()->sqlInsertOrReplaceGroupInfoEntity(itGroupInfo->second);
-		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_SHIELD_SUCCEED, groupId);//֪ͨUI����
+		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_SHIELD_SUCCEED, groupId);//通知UI更新
 	}
 	else 
 		LOG__(ERR, _T("group Shield failed groupId:%s,result:%d"), util::stringToCString(groupId), nRes);
@@ -480,9 +480,9 @@ void GroupListModule_Impl::_groupChangeMemberNotify(IN std::string& body)
 	if (!getGroupInfoBySId(groupID, groupInfo))
 	{
 		LOG__(APP, _T("can't find the group id:%s"), util::stringToCString(groupID));
-		if (IM::BaseDefine::GroupModifyType::GROUP_MODIFY_TYPE_ADD == imGroupChangeMemberNotify.change_type())//ֻ��������ʱ����Ҫȥ����
+		if (IM::BaseDefine::GroupModifyType::GROUP_MODIFY_TYPE_ADD == imGroupChangeMemberNotify.change_type())//只有新增的时候需要去请求
 		{
-			IM::Group::IMGroupInfoListReq imGroupInfoListReq;//����û�����Ⱥ����Ϣ
+			IM::Group::IMGroupInfoListReq imGroupInfoListReq;//本地没有这个群的信息
 			imGroupInfoListReq.set_user_id(module::getSysConfigModule()->userId());
 			IM::BaseDefine::GroupVersionInfo* pGroupVersionInfo = imGroupInfoListReq.add_group_version_list();
 			pGroupVersionInfo->set_group_id(imGroupChangeMemberNotify.group_id());
@@ -495,7 +495,7 @@ void GroupListModule_Impl::_groupChangeMemberNotify(IN std::string& body)
 	}
 	const UInt32 nChangeType = imGroupChangeMemberNotify.change_type();
 	BOOL bExistMySelf = FALSE;
-	if (IM::BaseDefine::GroupModifyType::GROUP_MODIFY_TYPE_ADD == imGroupChangeMemberNotify.change_type())//���ӳɻ�Ա
+	if (IM::BaseDefine::GroupModifyType::GROUP_MODIFY_TYPE_ADD == imGroupChangeMemberNotify.change_type())//增加成会员
 	{
 		for (int n = 0; n < imGroupChangeMemberNotify.chg_user_id_list_size();++n)
 		{
@@ -507,12 +507,12 @@ void GroupListModule_Impl::_groupChangeMemberNotify(IN std::string& body)
 		}
 		if (0 != imGroupChangeMemberNotify.chg_user_id_list_size())
 		{
-			//����Ⱥ��Ϣ��sqllite
+			//保存群信息到sqllite
             module::getDatabaseModule()->sqlInsertOrReplaceGroupInfoEntity(m_mapGroups[groupID]);
 			_creatAndSaveSessionToDB(m_mapGroups[groupID]);
 		}
 	}
-	else if (IM::BaseDefine::GroupModifyType::GROUP_MODIFY_TYPE_DEL == imGroupChangeMemberNotify.change_type())//ɾ����Ա
+	else if (IM::BaseDefine::GroupModifyType::GROUP_MODIFY_TYPE_DEL == imGroupChangeMemberNotify.change_type())//删除成员
 	{
 		std::list<string>& groupMemeberList = m_mapGroups[groupID].groupMemeberList;
 		for (int n = 0; n < imGroupChangeMemberNotify.chg_user_id_list_size(); ++n)
@@ -536,11 +536,11 @@ void GroupListModule_Impl::_groupChangeMemberNotify(IN std::string& body)
 			{
 				module::getSessionModule()->deleteSessionEntity(groupID);
 				module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_MYSELF_KICKED, groupID);
-				return;//֪ͨUI�Լ����߳���Ⱥ
+				return;//通知UI自己被踢出了群
 			}
 			else
 			{
-				//����Ⱥ��Ϣ��sqllite
+				//保存群信息到sqllite
 				module::getDatabaseModule()->sqlInsertOrReplaceGroupInfoEntity(m_mapGroups[groupID]);
 			}
 		}
@@ -548,7 +548,7 @@ void GroupListModule_Impl::_groupChangeMemberNotify(IN std::string& body)
 
 	if (0 != imGroupChangeMemberNotify.chg_user_id_list_size())
 	{
-		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_MEMBER_CHANGED, groupID);//֪ͨUI����
+		module::getGroupListModule()->asynNotifyObserver(module::KEY_GROUPLIST_UPDATE_MEMBER_CHANGED, groupID);//通知UI更新
 	}
 }
 
@@ -562,7 +562,7 @@ void GroupListModule_Impl::GetSearchGroupNameListByShortName(IN const CString& s
 		module::GroupInfoEntity& groupInfo = kvp.second;
 		CString RealName = groupInfo.csName;
 
-		if (util::isIncludeChinese(util::cStringToString(sShortName, CP_ACP)))//��������
+		if (util::isIncludeChinese(util::cStringToString(sShortName, CP_ACP)))//检索中文
 		{
 			if (RealName.Find(sShortName) != -1)
 			{
@@ -572,13 +572,13 @@ void GroupListModule_Impl::GetSearchGroupNameListByShortName(IN const CString& s
 		else
 		{
 			CString firstPY = util::HZ2FirstPY(util::cStringToString(groupInfo.csName, CP_ACP));
-			if (firstPY.Find(strUpName) != -1)//�ȼ�����ƴ
+			if (firstPY.Find(strUpName) != -1)//先检索简拼
 			{
 				gidList.push_back(groupInfo.gId);
 			}
 			else
 			{
-				CString allPY = util::HZ2AllPY(groupInfo.csName);//�ټ���ȫƴ
+				CString allPY = util::HZ2AllPY(groupInfo.csName);//再检索全拼
 				if (allPY.Find(strUpName) != -1)
 				{
 					gidList.push_back(groupInfo.gId);
@@ -601,12 +601,12 @@ void GroupListModule_Impl::_downloadAllGroupAvatarImg()
 			CString csLocalPath = module::getMiscModule()->getDownloadDir() + util::stringToCString(imageEntity.filename);
 			if (!imageEntity.filename.empty()&& PathFileExists(csLocalPath))
 			{
-				//������ֱ�Ӹ�ֵ
+				//存在则直接赋值
 				group.avatarLocalPath = imageEntity.filename;
 			}
 			else
 			{
-				//��������ȥ����������
+				//不存在则去服务器下载
 				DownloadAvatarHttpOperation* pOper = new DownloadAvatarHttpOperation(group.gId, group.avatarUrl, TRUE
 					, AVATAR_FORMAT_48X48, BIND_CALLBACK_1(GroupListModule_Impl::onCallbackOperation));
 				module::getHttpPoolModule()->pushHttpOperation(pOper);
@@ -624,7 +624,7 @@ void GroupListModule_Impl::onCallbackOperation(std::shared_ptr<void> param)
 		if (groupIter != m_mapGroups.end())
 		{
 			groupIter->second.avatarLocalPath = pDownParam->m_imgEntity.filename;
-			//��ʾUI����
+			//提示UI更新
 			std::tuple<std::string, std::string>* pTuple = new std::tuple<std::string, std::string>;
 			*pTuple = std::tie(module::MODULE_GROUPLIST_PREFIX, pDownParam->m_sId);
 			module::getUserListModule()->asynNotifyObserver(module::KEY_USERLIST_DOWNAVATAR_SUCC, shared_ptr<void>(pTuple));
@@ -637,7 +637,7 @@ void GroupListModule_Impl::_creatAndSaveSessionToDB(IN module::GroupInfoEntity& 
 	module::SessionEntity recentSessionInfo;
 	if (!module::getSessionModule()->getSessionEntityBySId(groupInfo.gId, recentSessionInfo))
 	{
-		//����session�������浽db
+		//创建session，并保存到db
 		recentSessionInfo.sessionID = groupInfo.gId;
 		recentSessionInfo.sessionType = IM::BaseDefine::SessionType::SESSION_TYPE_GROUP;
 		recentSessionInfo.updatedTime = static_cast<UInt32>(time(0));
@@ -664,13 +664,13 @@ void GroupListModule_Impl::_safePushBack(IN const std::string& Id, OUT std::list
 
 BOOL GroupListModule_Impl::deleteGroupInfoById(IN const std::string& sGroupId)
 {
-	//ɾ���ڴ�����
+	//删除内存数据
 	CAutoLock lock(&m_lock);
 	module::GroupInfoMap::iterator it = m_mapGroups.find(sGroupId);
 	if (it != m_mapGroups.end())
 	{
 		m_mapGroups.erase(it);
-		//ɾ�����ݿ�����
+		//删除数据库数据
 		return module::getDatabaseModule()->sqlDeleteGroupInfoEntity(sGroupId);
 	}
 	return FALSE;

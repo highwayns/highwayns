@@ -29,9 +29,9 @@ namespace DuiLib
 			/* [in] */ IDispatch __RPC_FAR *pdispReserved)
 		{
 			//return E_NOTIMPL;
-			//���� E_NOTIMPL ��������ϵͳ�Ҽ��˵�
+			//返回 E_NOTIMPL 正常弹出系统右键菜单
 			return S_OK;
-			//����S_OK �������ϵͳ�Ҽ��˵�
+			//返回S_OK 则可屏蔽系统右键菜单
 		}
 
 		virtual HRESULT STDMETHODCALLTYPE GetHostInfo(

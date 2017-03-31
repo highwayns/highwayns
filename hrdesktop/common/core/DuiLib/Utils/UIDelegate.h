@@ -1,4 +1,4 @@
-﻿#ifndef __UIDELEGATE_H__
+#ifndef __UIDELEGATE_H__
 #define __UIDELEGATE_H__
 
 #pragma once

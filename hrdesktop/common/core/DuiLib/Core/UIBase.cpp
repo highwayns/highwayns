@@ -193,7 +193,7 @@ LDispatch:
 
 void CNotifyPump::NotifyPump(TNotifyUI& msg)
 {
-	///�������ⴰ��
+	///遍历虚拟窗口
 	if( !msg.sVirtualWnd.IsEmpty() ){
 		for( int i = 0; i< m_VirtualWndMap.GetSize(); i++ ) {
 			if( LPCTSTR key = m_VirtualWndMap.GetAt(i) ) {
@@ -207,7 +207,7 @@ void CNotifyPump::NotifyPump(TNotifyUI& msg)
 	}
 
 	///
-	//����������
+	//遍历主窗口
 	LoopDispatch( msg );
 }
 
@@ -332,7 +332,7 @@ void CWindowWnd::CenterWindow()
 	if (hWndCenter!=NULL)
 		hWnd=hWndCenter;
 
-	// �������ʾ��ģʽ����Ļ����
+	// 处理多显示器模式下屏幕居中
 	MONITORINFO oMonitor = {};
 	oMonitor.cbSize = sizeof(oMonitor);
 	::GetMonitorInfo(::MonitorFromWindow(hWnd, MONITOR_DEFAULTTONEAREST), &oMonitor);
@@ -361,13 +361,13 @@ void CWindowWnd::CenterWindow()
 void CWindowWnd::SetIcon(UINT nRes)
 {
 	HICON hIcon = (HICON)::LoadImage(CPaintManagerUI::GetInstance(), MAKEINTRESOURCE(nRes), IMAGE_ICON,
-		(::GetSystemMetrics(SM_CXICON) + 15) & ~15, (::GetSystemMetrics(SM_CYICON) + 15) & ~15,	// ��ֹ��DPI��ͼ��ģ��
+		(::GetSystemMetrics(SM_CXICON) + 15) & ~15, (::GetSystemMetrics(SM_CYICON) + 15) & ~15,	// 防止高DPI下图标模糊
 		LR_DEFAULTCOLOR);
 	ASSERT(hIcon);
 	::SendMessage(m_hWnd, WM_SETICON, (WPARAM) TRUE, (LPARAM) hIcon);
 
 	hIcon = (HICON)::LoadImage(CPaintManagerUI::GetInstance(), MAKEINTRESOURCE(nRes), IMAGE_ICON,
-		(::GetSystemMetrics(SM_CXICON) + 15) & ~15, (::GetSystemMetrics(SM_CYICON) + 15) & ~15,	// ��ֹ��DPI��ͼ��ģ��
+		(::GetSystemMetrics(SM_CXICON) + 15) & ~15, (::GetSystemMetrics(SM_CYICON) + 15) & ~15,	// 防止高DPI下图标模糊
 		LR_DEFAULTCOLOR);
 	ASSERT(hIcon);
 	::SendMessage(m_hWnd, WM_SETICON, (WPARAM) FALSE, (LPARAM) hIcon);

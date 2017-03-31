@@ -111,7 +111,7 @@ LRESULT WindowImplBase::OnNcCalcSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 	}
 
 	if ( ::IsZoomed(m_hWnd))
-	{	// ���ʱ�����㵱ǰ��ʾ�����ʺϿ�߶�
+	{	// 最大化时，计算当前显示器最适合宽高度
 		MONITORINFO oMonitor = {};
 		oMonitor.cbSize = sizeof(oMonitor);
 		::GetMonitorInfo(::MonitorFromWindow(*this, MONITOR_DEFAULTTONEAREST), &oMonitor);
@@ -185,7 +185,7 @@ LRESULT WindowImplBase::OnGetMinMaxInfo(UINT uMsg, WPARAM wParam, LPARAM lParam,
 	CDuiRect rcMonitor = oMonitor.rcMonitor;
 	rcWork.Offset(-oMonitor.rcMonitor.left, -oMonitor.rcMonitor.top);
 
-	// �������ʱ����ȷ��ԭ������
+	// 计算最大化时，正确的原点坐标
 	lpMMI->ptMaxPosition.x	= rcWork.left;
 	lpMMI->ptMaxPosition.y	= rcWork.top;
 
@@ -249,13 +249,13 @@ LRESULT WindowImplBase::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 	LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
 	if( ::IsZoomed(*this) != bZoomed )
 	{
-		CControlUI* pbtnMax     = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("maxbtn")));       // ��󻯰�ť
-		CControlUI* pbtnRestore = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("restorebtn")));   // ��ԭ��ť
+		CControlUI* pbtnMax     = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("maxbtn")));       // 最大化按钮
+		CControlUI* pbtnRestore = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("restorebtn")));   // 还原按钮
 
-		// �л���󻯰�ť�ͻ�ԭ��ť��״̬
+		// 切换最大化按钮和还原按钮的状态
 		if (pbtnMax && pbtnRestore)
 		{
-			pbtnMax->SetVisible(TRUE == bZoomed);       // �˴��ñ��ʽ��Ϊ�˱��������BOOLת���ľ���
+			pbtnMax->SetVisible(TRUE == bZoomed);       // 此处用表达式是为了避免编译器BOOL转换的警告
 			pbtnRestore->SetVisible(FALSE == bZoomed);
 		}
 		
@@ -263,7 +263,7 @@ LRESULT WindowImplBase::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 #else
 	LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
 #endif
-	//if (SC_RESTORE == (wParam & 0xfff0))//����޸�������С�����ٻظ��޷�����ԭʼ���ڵ�����
+	//if (SC_RESTORE == (wParam & 0xfff0))//大佛：修复窗口最小化后，再回复无法返回原始窗口的问题
 	//{
 	//	bHandled = FALSE;
 	//}
@@ -286,7 +286,7 @@ LRESULT WindowImplBase::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 
 	CDialogBuilder builder;
 	if (m_PaintManager.GetResourcePath().IsEmpty())
-	{	// �����������Դ·������
+	{	// 允许更灵活的资源路径定义
 		CDuiString strResourcePath=m_PaintManager.GetInstancePath();
 		strResourcePath+=GetSkinFolder().GetData();
 		m_PaintManager.SetResourcePath(strResourcePath.GetData());
@@ -338,7 +338,7 @@ LRESULT WindowImplBase::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 	ASSERT(pRoot);
 	if (pRoot==NULL)
 	{
-		MessageBox(NULL,_T("������Դ�ļ�ʧ��"),_T("Duilib"),MB_OK|MB_ICONERROR);
+		MessageBox(NULL,_T("加载资源文件失败"),_T("Duilib"),MB_OK|MB_ICONERROR);
 		ExitProcess(1);
 		return 0;
 	}

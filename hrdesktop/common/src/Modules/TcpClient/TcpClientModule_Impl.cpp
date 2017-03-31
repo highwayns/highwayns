@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      TcpClientModule_Impl.cpp 2014\7\29 13:16:48 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -51,7 +51,7 @@ namespace
 		case IM::BaseDefine::SID_GROUP:
 			pRet = module::getGroupListModule();
 			break;
-        case IM::BaseDefine::SID_FILE: //�ļ�����
+        case IM::BaseDefine::SID_FILE: //文件传输
             pRet = module::getFileTransferModule();
             break;
 		default:
@@ -108,7 +108,7 @@ void TcpClientModule_Impl::onReceiveData(const char* data, int32_t size)
 	header.unSerialize((byte*)data, imcore::HEADER_LENGTH);	
 	if (IM::BaseDefine::CID_OTHER_HEARTBEAT == header.getCommandId() && IM::BaseDefine::SID_OTHER == header.getModuleId())
 	{
-		//ģ�����˹�������������������ҵ����ɷ�
+		//模块器端过来的心跳包，不跳到业务层派发
 		return;
 	}
 
@@ -122,7 +122,7 @@ void TcpClientModule_Impl::onReceiveData(const char* data, int32_t size)
 		return;
 	}
 
-	//���������װ������ŵ��߼������������ȥ
+	//将网络包包装成任务放到逻辑任务队列里面去
 	_handlePacketOperation(data, size);
 }
 

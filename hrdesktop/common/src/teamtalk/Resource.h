@@ -1,4 +1,4 @@
-﻿
+
 #define IDR_MAINFRAME					128
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS

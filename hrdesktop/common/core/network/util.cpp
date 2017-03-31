@@ -138,7 +138,7 @@ uint32_t string2int(const string& value)
     return (uint32_t)atoi(value.c_str());
 }
 
-// ���ڱ��滻�����ݿ��ܰ���?�ţ�������Ҫ���¿�ʼ��Ѱ��λ����Ϣ�������滻�ող����?��
+// 由于被替换的内容可能包含?号，所以需要更新开始搜寻的位置信息来避免替换刚刚插入的?号
 void replace_mark(string& str, string& new_value, uint32_t& begin_pos)
 {
 	string::size_type pos = str.find('?', begin_pos);

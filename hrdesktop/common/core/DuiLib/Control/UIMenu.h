@@ -1,4 +1,4 @@
-﻿#ifndef __UIMENU_H__
+#ifndef __UIMENU_H__
 #define __UIMENU_H__
 
 #include "observer_impl_base.hpp"

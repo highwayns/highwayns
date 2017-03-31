@@ -38,7 +38,7 @@ BOOL CteamtalkApp::InitInstance()
 	// compatible with the version of the headers we compiled against.
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-	LOG__(APP, _T("===================================VersionNO:%d======BulidTime��%s--%s==========================")
+	LOG__(APP, _T("===================================VersionNO:%d======BulidTime：%s--%s==========================")
 		, TEAMTALK_VERSION, util::utf8ToCString(__DATE__), util::utf8ToCString(__TIME__));
 	if (!__super::InitInstance())
 	{
@@ -75,13 +75,13 @@ BOOL CteamtalkApp::InitInstance()
 	//create user folders
 	_CreateUsersFolder();
 	
-	//duilib��ʼ��
+	//duilib初始化
 	CPaintManagerUI::SetInstance(AfxGetInstanceHandle());
-	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath() + _T("..\\gui\\"));//track���������·�����ᵼ��base�����õ���Ч��
+	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath() + _T("..\\gui\\"));//track这个设置了路径，会导致base里设置的无效。
 	::CoInitialize(NULL);
 	::OleInitialize(NULL);
 
-	//��������server
+	//无需配置server
 	module::TTConfig* pCfg = module::getSysConfigModule()->getSystemConfig();
 	if (pCfg && pCfg->loginServIP.IsEmpty())
 	{
@@ -99,7 +99,7 @@ BOOL CteamtalkApp::InitInstance()
 	}
 	LOG__(APP,_T("login success"));
 
-	//����������
+	//创建主窗口
 	if (!_CreateMainDialog())
 	{
 		LOG__(ERR, _T("Create MianDialog failed"));
@@ -167,13 +167,13 @@ BOOL CteamtalkApp::ExitInstance()
 BOOL CteamtalkApp::_CreateUsersFolder()
 {
 	module::IMiscModule* pModule = module::getMiscModule();
-	//usersĿ¼
+	//users目录
 	if (!util::createAllDirectories(pModule->getUsersDir()))
 	{
 		LOG__(ERR, _T("_CreateUsersFolder users direcotry failed!"));
 		return FALSE;
 	}
-	//����Ŀ¼
+	//下载目录
 	if (!util::createAllDirectories(pModule->getDownloadDir()))
 	{
 		LOG__(ERR, _T("_CreateUsersFolder download direcotry failed!"));
@@ -189,11 +189,11 @@ BOOL CteamtalkApp::_CreateUsersFolder()
 #endif
 BOOL CteamtalkApp::_IsHaveInstance()
 {
-	// ��ʵ������
+	// 单实例运行
 	HANDLE hMutex = ::CreateMutex(NULL, TRUE, AppSingletonMutex);
 	if (hMutex != NULL && GetLastError() == ERROR_ALREADY_EXISTS)
 	{
-		MessageBox(0, _T("�ϴγ������л�û��ȫ�˳������Ժ��������"), _T("TeamTalk"), MB_OK);
+		MessageBox(0, _T("上次程序运行还没完全退出，请稍后再启动！"), _T("TeamTalk"), MB_OK);
 		return TRUE;
 	}
 

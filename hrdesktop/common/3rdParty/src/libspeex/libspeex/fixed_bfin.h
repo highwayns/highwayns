@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2005 Analog Devices
+/* Copyright (C) 2005 Analog Devices
    Author: Jean-Marc Valin */
 /**
    @file fixed_bfin.h

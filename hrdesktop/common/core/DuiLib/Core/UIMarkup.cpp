@@ -561,13 +561,13 @@ void CMarkup::_SkipWhitespace(LPTSTR& pstr) const
 
 void CMarkup::_SkipIdentifier(LPCTSTR& pstr) const
 {
-    // ����ֻ����Ӣ�ģ�������������û������
+    // 属性只能用英文，所以这样处理没有问题
     while( *pstr != _T('\0') && (*pstr == _T('_') || *pstr == _T(':') || _istalnum(*pstr)) ) pstr = ::CharNext(pstr);
 }
 
 void CMarkup::_SkipIdentifier(LPTSTR& pstr) const
 {
-    // ����ֻ����Ӣ�ģ�������������û������
+    // 属性只能用英文，所以这样处理没有问题
     while( *pstr != _T('\0') && (*pstr == _T('_') || *pstr == _T(':') || _istalnum(*pstr)) ) pstr = ::CharNext(pstr);
 }
 

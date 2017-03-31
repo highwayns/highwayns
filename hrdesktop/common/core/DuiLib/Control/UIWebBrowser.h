@@ -18,7 +18,7 @@ namespace DuiLib
 		, public ITranslateAccelerator
 	{
 	public:
-		/// ���캯��
+		/// 构造函数
 		CWebBrowserUI();
 		virtual ~CWebBrowserUI();
 
@@ -36,7 +36,7 @@ namespace DuiLib
 		void GoForward();
 		void NavigateHomePage();
 		void NavigateUrl(LPCTSTR lpszUrl);
-		bool CallJScript(const CDuiString& strFunc, const CDuiString& paramArray, VARIANT* pVarResult);//����JS
+		bool CallJScript(const CDuiString& strFunc, const CDuiString& paramArray, VARIANT* pVarResult);//调用JS
 		virtual bool DoCreateControl();
 		IWebBrowser2* GetWebBrowser2(void);
 		IDispatch*		   GetHtmlWindow();
@@ -46,16 +46,16 @@ namespace DuiLib
 		static HRESULT SetProperty(IDispatch *pObj, LPOLESTR pName, VARIANT *pValue);
 
 	protected:
-		IWebBrowser2*			m_pWebBrowser2; //�����ָ��
+		IWebBrowser2*			m_pWebBrowser2; //浏览器指针
 		IHTMLWindow2*		_pHtmlWnd2;
 		LONG m_dwRef;
 		DWORD m_dwCookie;
 		virtual void ReleaseControl();
 		HRESULT RegisterEventHandler(BOOL inAdvise);
 		virtual void SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue);
-		CDuiString m_sHomePage;	// Ĭ��ҳ��
-		bool m_bAutoNavi;	// �Ƿ����ʱ��Ĭ��ҳ��
-		CWebBrowserEventHandler* m_pWebBrowserEventHandler;	//������¼�����
+		CDuiString m_sHomePage;	// 默认页面
+		bool m_bAutoNavi;	// 是否启动时打开默认页面
+		CWebBrowserEventHandler* m_pWebBrowserEventHandler;	//浏览器事件处理
 
 		// DWebBrowserEvents2
 		void BeforeNavigate2( IDispatch *pDisp,VARIANT *&url,VARIANT *&Flags,VARIANT *&TargetFrameName,VARIANT *&PostData,VARIANT *&Headers,VARIANT_BOOL *&Cancel );
@@ -92,7 +92,7 @@ namespace DuiLib
 		STDMETHOD(OnDocWindowActivate)(BOOL fActivate);
 		STDMETHOD(OnFrameWindowActivate)(BOOL fActivate);
 		STDMETHOD(ResizeBorder)(LPCRECT prcBorder, IOleInPlaceUIWindow* pUIWindow, BOOL fFrameWindow);
-		STDMETHOD(TranslateAccelerator)(LPMSG lpMsg, const GUID* pguidCmdGroup, DWORD nCmdID);	//�������Ϣ����
+		STDMETHOD(TranslateAccelerator)(LPMSG lpMsg, const GUID* pguidCmdGroup, DWORD nCmdID);	//浏览器消息过滤
 		STDMETHOD(GetOptionKeyPath)(LPOLESTR* pchKey, DWORD dwReserved);
 		STDMETHOD(GetDropTarget)(IDropTarget* pDropTarget, IDropTarget** ppDropTarget);
 		STDMETHOD(GetExternal)(IDispatch** ppDispatch);
@@ -118,7 +118,7 @@ namespace DuiLib
 			/* [in] */ UINT uiCP);
 
 		// ITranslateAccelerator
-		// Duilib��Ϣ�ַ���WebBrowser
+		// Duilib消息分发给WebBrowser
 		virtual LRESULT TranslateAccelerator( MSG *pMsg );
 	};
 } // namespace DuiLib

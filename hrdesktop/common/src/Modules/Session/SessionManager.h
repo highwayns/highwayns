@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      SessionManager.h 2015\1\8 12:58:01 $
- *  @author    ���<dafo@mogujie.com>
- *  @brief     �Ự����
+ *  @author    大佛<dafo@mogujie.com>
+ *  @brief     会话管理
  ******************************************************************************/
 
 #ifndef SESSIONMANAGER_863FBDB8_F00A_4A46_8F57_1AECBC9D277E_H__
@@ -13,7 +13,7 @@
 /******************************************************************************/
 class SessionDialog;
 /**
- * The class <code>�Ự��Ϣ����</code> 
+ * The class <code>会话信息管理</code> 
  *
  */
 class SessionEntityManager
@@ -42,11 +42,11 @@ private:
 private:
 	CLock							m_lock;
 	std::map<std::string, module::SessionEntity*>		m_mapSessionEntity;
-	std::vector<std::string>		m_vecRecentSession;//�����ϵ��ID�б�
+	std::vector<std::string>		m_vecRecentSession;//最近联系人ID列表
 	UInt32							m_globalUpdatedTime = 0;
 };
 
-//�Ѿ��򿪵ĻỰ
+//已经打开的会话
 class SessionDialogManager
 {
 public:

@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      PHPConectOperation.cpp 2014\9\17 20:01:16 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -46,7 +46,7 @@ void GetServConfigHttpOperation::processOpertion()
 	}
 	std::string body = response.getBody();
 	client.killSelf();
-	//json����
+	//json解析
 	try
 	{
 		Json::Reader reader;

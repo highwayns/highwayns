@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      EmoCfgParseTool.cpp 2015\3\17 17:33:01 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -50,7 +50,7 @@ void EmoCfgParseTool::loadCfgFile(IN LPCTSTR strFilePath)
 		return;
 	}
 	
-	//��ȡ�����ļ����ڴ�
+	//读取配置文件到内存
 	std::string strData;
 	CFile f;
 	f.Open(strFilePath,
@@ -66,7 +66,7 @@ void EmoCfgParseTool::loadCfgFile(IN LPCTSTR strFilePath)
 	buf = nullptr;
 	f.Close();
 
-	//json��������
+	//json解析内容
 	Json::Reader reader;
 	Json::Value root;
 	if (!reader.parse(strData, root)

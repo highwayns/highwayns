@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIGroupsTreelist.cpp 2014\8\7 15:45:20 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -41,7 +41,7 @@ static bool OnButtonEvent(void* event) {
 			CListContainerElementUI* pListElement = (CListContainerElementUI*)(pButton->GetTag());
 			if (pButton->GetName() == kcreatGroupControlName)
 			{
-				//����������
+				//创建讨论组
 				std::string sid;
 				module::getGroupListModule()->onCreateDiscussionGrpDialog(sid);
 			}
@@ -258,9 +258,9 @@ BOOL CGroupsTreelistUI::UpdateItemBySId(const std::string& sId)
 	CControlUI* pListElement = pNode->data().list_elment_;
 	PTR_FALSE(pListElement);
 
-	if (!SessionDialogManager::getInstance()->findSessionDialogBySId(sId))//���ڲ����ڵ�ʱ����¼���
+	if (!SessionDialogManager::getInstance()->findSessionDialogBySId(sId))//窗口不存在的时候更新计数
 	{
-		//����δ������
+		//更新未读计数
 		CLabelUI* Unreadcnt_button = static_cast<CLabelUI*>(paint_manager_.FindSubControlByName(pListElement, kUnreadcntControlName));
 		if (!Unreadcnt_button)
 		{
@@ -280,7 +280,7 @@ void CGroupsTreelistUI::ClearItemMsgCount(IN const std::string& sId)
 	CControlUI* pListElement = pNode->data().list_elment_;
 	PTR_VOID(pListElement);
 
-	//���δ������
+	//清除未读计数
 	CLabelUI* Unreadcnt_button = static_cast<CLabelUI*>(paint_manager_.FindSubControlByName(pListElement, kUnreadcntControlName));
 	if (!Unreadcnt_button)
 	{

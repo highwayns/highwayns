@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SysConfigModule_Impl.cpp 2014\8\4 10:56:41 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -37,7 +37,7 @@ namespace
 SysConfigModule_Impl::SysConfigModule_Impl()
 :m_bSysConfigDialogFlag(FALSE)
 {
-	//m_Config.sysBaseFlag |= module::BASE_FLAG_NOTIPWHENNEWMSG;//TODO������Ʈ���������㣬Ĭ�ϲ���Ʈ��
+	//m_Config.sysBaseFlag |= module::BASE_FLAG_NOTIPWHENNEWMSG;//TODO：由于飘窗会抢焦点，默认不打开飘窗
 	m_Config.sysBaseFlag |= module::BASE_FLAG_NOSOUNDWHENMSG;
 
 	_loadData();
@@ -129,7 +129,7 @@ void SysConfigModule_Impl::_unMarshal(CArchive& ar)
 	ar >> m_Config.loginServIP;
 	ar >> m_Config.sysBaseFlag;
 	ar >> m_Config.sysSoundTypeBaseFlag;
-	//������demo
+	//向后兼容demo
 	//if (m_pConfig.version >= 2)
 	//{
 	//	ar >> m_pConfig.a2;
@@ -156,7 +156,7 @@ void SysConfigModule_Impl::_marshal(CArchive& ar)
 	ar << m_Config.loginServIP;
 	ar << m_Config.sysBaseFlag;
 	ar << m_Config.sysSoundTypeBaseFlag;
-	//������demo
+	//向后兼容demo
 	//ar << m_pConfig.a2;
 	//ar << m_pConfig.a3;
 	//ar << m_pConfig.a4;
@@ -210,7 +210,7 @@ BOOL SysConfigModule_Impl::showServerConfigDialog(HWND hParentWnd)
 	BOOL bRet = FALSE;
 	ServerConfigDialog* pServerConfigDialog = new ServerConfigDialog();
 	PTR_FALSE(pServerConfigDialog);
-	pServerConfigDialog->Create(hParentWnd, _T("����������")
+	pServerConfigDialog->Create(hParentWnd, _T("服务器配置")
 		, UI_CLASSSTYLE_DIALOG, WS_EX_STATICEDGE | WS_EX_APPWINDOW, 0, 0, 0, 0);
 	pServerConfigDialog->CenterWindow();
 	bRet = (IDOK == pServerConfigDialog->ShowModal());
@@ -263,13 +263,13 @@ BOOL SysConfigModule_Impl::getImage(IN std::string sid, IN std::string url, IN B
 	CString csLocalPath = module::getMiscModule()->getDownloadDir() + util::stringToCString(imageEntity.filename);
 	if (!imageEntity.filename.empty() && PathFileExists(csLocalPath))
 	{
-		//���ش��̴���
+		//本地磁盘存在
 		sLocalPath = util::cStringToString(csLocalPath);
 		return TRUE;
 	}
 	else
 	{
-		////��������ȥ����������
+		////不存在则去服务器下载
 		//if (module::getSysConfigModule()->userID() == sid)
 		//{
 		//	format = "_60x60";

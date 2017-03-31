@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      FileTransferDialog.cpp 2014\8\29 11:34:13 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief
  ******************************************************************************/
 
@@ -19,7 +19,7 @@
 
 namespace
 {
-	const TCHAR* const ktextFileName = _T("TextfileName");//�ļ���
+	const TCHAR* const ktextFileName = _T("TextfileName");//文件名
 	const TCHAR* const kTextTimeName = _T("TextTime");//
 	const TCHAR* const kTextFileStatusName = _T("TextFileStatus");
 	const TCHAR* const ktransProgressName = _T("transProgress");
@@ -83,7 +83,7 @@ void FileTransferDialog::OnWindowInitialized(TNotifyUI& msg)
 	std::vector<TransferFileEntity> historyfileList;
 	module::getDatabaseModule()->sqlGetFileTransferHistory(historyfileList);
 	for (std::vector<TransferFileEntity>::reverse_iterator reit = historyfileList.rbegin();
-		reit != historyfileList.rend();++reit)//�����������ʷ��¼�ǰ�ʱ���ŵ�
+		reit != historyfileList.rend();++reit)//倒序输出，历史记录是按时间排的
 	{
 		TransferFileEntity& fileInfo = *reit;
 		CListContainerElementUI*  pListElement = AddTransderItemToList(fileInfo);
@@ -191,7 +191,7 @@ CListContainerElementUI* FileTransferDialog::AddTransderItemToList(IN TransferFi
 		pBtnCancel->SetTag((UINT_PTR(pListElement)));
 	}
 
-	//���ͷ�
+	//发送方
 	if (IM::BaseDefine::ClientFileRole::CLIENT_REALTIME_SENDER == fileInfo.nClientMode
 		|| IM::BaseDefine::ClientFileRole::CLIENT_OFFLINE_UPLOAD == fileInfo.nClientMode)
 	{
@@ -353,7 +353,7 @@ void FileTransferDialog::MKOForFileTransferModuleCallBack(const std::string& key
 		module::getDatabaseModule()->sqlInsertFileTransferHistory(FileInfo);
 		TransferFileEntityManager::getInstance()->kickMapFileItemToVecFile(sFileId);
 	}
-	else if (module::KEY_FILESEVER_UPDATA_PROGRESSBAR == keyId)//���½�����
+	else if (module::KEY_FILESEVER_UPDATA_PROGRESSBAR == keyId)//更新进度条
 	{
 		std::string& sFileId = std::get<MKO_STRING>(mkoParam);
 		TransferFileEntity FileInfo;

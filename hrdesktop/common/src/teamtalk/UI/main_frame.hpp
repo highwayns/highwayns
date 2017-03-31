@@ -22,7 +22,7 @@ namespace
 
 	const TCHAR* const kFriendsListControlName = _T("friends");
 	const TCHAR* const kGroupsListControlName = _T("groups");
-	const TCHAR* const kRecentlyListControlName = _T("RecentlyList");//�����ϵ��
+	const TCHAR* const kRecentlyListControlName = _T("RecentlyList");//最近联系人
 
 	const TCHAR* const kHideLeftMainPannelControlName = _T("btnleft");
 	const TCHAR* const kShowLeftMainPannelControlName = _T("btnright");

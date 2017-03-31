@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIEAUserTreelist.cpp 2014\8\7 15:47:34 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -195,9 +195,9 @@ BOOL CEAUserTreelistUI::UpdateItemBySId(const std::string& sId)
 
 	CControlUI* pListElement = pNode->data().list_elment_;
 	PTR_FALSE(pListElement);
-	if (!SessionDialogManager::getInstance()->findSessionDialogBySId(sId))//���ڲ����ڵ�ʱ����¼���
+	if (!SessionDialogManager::getInstance()->findSessionDialogBySId(sId))//窗口不存在的时候更新计数
 	{
-		//����δ������
+		//更新未读计数
 		CLabelUI* Unreadcnt_button = static_cast<CLabelUI*>(paint_manager_.FindSubControlByName(pListElement, kUnreadcntControlName));
 		if (!Unreadcnt_button)
 		{
@@ -216,7 +216,7 @@ void CEAUserTreelistUI::ClearItemMsgCount(IN const std::string& sId)
 	if (nullptr == pNode)return;
 	CControlUI* pListElement = pNode->data().list_elment_;
 	PTR_VOID(pListElement);
-	//���δ������
+	//清除未读计数
 	CLabelUI* Unreadcnt_button = static_cast<CLabelUI*>(paint_manager_.FindSubControlByName(pListElement, kUnreadcntControlName));
 	if (!Unreadcnt_button)
 	{
@@ -233,7 +233,7 @@ int CALLBACK IMEAListItemCompareFunc(UINT_PTR pa, UINT_PTR pb, UINT_PTR pUser)
 	Node* node1 = (Node*)pListElement1->GetTag();
 	Node* node2 = (Node*)pListElement2->GetTag();
 
-	//��ȡ�Ự�ķ�����ʱ��
+	//获取会话的服务器时间
 
 	CString s1 = node1->data().sId;
 	CString s2 = node2->data().sId;

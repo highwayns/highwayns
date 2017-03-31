@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      HistoryMsgModule_Impl.cpp 2014\8\3 11:14:33 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -75,7 +75,7 @@ BOOL MessageModule_Impl::getHistoryMessage(IN const std::string& sId, IN UInt32 
 	//step 2 compare the topMsgId to latest local db msgId and check which is sequential
 	if (!msgListTemp.empty())
 	{
-		//todo �����Ż�����أ�ȡ���ı�msgCount+1�����������Ƿ������ġ�
+		//todo 还有优化的余地，取出的比msgCount+1的数量，看是否连续的。
 		MessageEntity& latestMsgEntity = msgListTemp.front();
 		MessageEntity& firstMsgEntity = msgListTemp.back();
 		if ((topMsgId == latestMsgEntity.msgId) && ((firstMsgEntity.msgId + nMsgCount - 1) == latestMsgEntity.msgId))
@@ -98,7 +98,7 @@ BOOL MessageModule_Impl::getHistoryMessage(IN const std::string& sId, IN UInt32 
 		imGetMsgListReq.set_user_id(module::getSysConfigModule()->userId());
 		imGetMsgListReq.set_session_type((IM::BaseDefine::SessionType)sessEntity.sessionType);
 		imGetMsgListReq.set_session_id(sessEntity.getOriginIntegerSessionId());
-		imGetMsgListReq.set_msg_id_begin(topMsgId);//������ǰ�����ǰ����һ����
+		imGetMsgListReq.set_msg_id_begin(topMsgId);//服务端是包含当前的那一条的
 		imGetMsgListReq.set_msg_cnt(nMsgCount);
 
 		UInt16 reserved = (TRUE == scrollBottom) ? imcore::RESERVED_TYPE_HISTORY_SCROLLBOTTOM_MESSAGE : imcore::RESERVED_TYPE_HISTORY_MESSAGE;

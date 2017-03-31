@@ -407,7 +407,7 @@ public:
     static void Write(P_FILE pFile, const char *pBuf, unsigned int bufSize, bool bFlushBuffer);
     static void Close(P_FILE pFile);
     static bool Valid(P_FILE pFile);
-	static P_FILE HalfSizeOfFile(P_FILE pFile,const std::string& path_);//��־�ļ�̫���ʱ����Ҫɾ�����ļ���ǰ�벿��
+	static P_FILE HalfSizeOfFile(P_FILE pFile,const std::string& path_);//日志文件太大的时候需要删除，文件的前半部分
 
 };
 

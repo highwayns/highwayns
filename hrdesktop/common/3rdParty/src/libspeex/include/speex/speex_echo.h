@@ -1,4 +1,4 @@
-﻿/* Copyright (C) Jean-Marc Valin */
+/* Copyright (C) Jean-Marc Valin */
 /**
    @file speex_echo.h
    @brief Echo cancellation

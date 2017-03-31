@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      DownloadImgHttpOperation.h 2014\8\14 10:18:26 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     ����ͼƬ����
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     下载图片操作
  ******************************************************************************/
 
 #ifndef DOWNLOADIMGHTTPOPERATION_4BB88F5E_5D0E_4FBA_9530_72972EB7647C_H__
@@ -21,8 +21,8 @@ class DownloadImgParam
 public:
 	enum
 	{
-		DOWNLOADIMG_OK = 0,             //���سɹ�
-		DOWNLOADIMG_ERROR,				//�������
+		DOWNLOADIMG_OK = 0,             //下载成功
+		DOWNLOADIMG_ERROR,				//网络错误
 	};
 
 public:
@@ -32,7 +32,7 @@ public:
 };
 
 /**
- * The class <code>����ͼƬ����</code> 
+ * The class <code>下载图片操作</code> 
  *
  */
 class DownloadAvatarHttpOperation : public module::IHttpOperation
