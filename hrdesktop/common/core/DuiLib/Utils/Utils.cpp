@@ -882,7 +882,7 @@ namespace DuiLib
 					pItem->pPrev = NULL;
 					pItem->pNext = m_aT[slot];
 					pItem->pNext->pPrev = pItem;
-					//��item�ƶ�������ͷ��
+					//将item移动至链条头部
 					m_aT[slot] = pItem;
 				}
 				return pItem->Data;

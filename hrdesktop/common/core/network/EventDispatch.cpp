@@ -1,4 +1,4 @@
-﻿#include "EventDispatch.h"
+#include "EventDispatch.h"
 #include "BaseSocket.h"
 
 #define MIN_TIMER_DURATION	100	// miliseconds

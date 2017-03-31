@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      CreateDiscussionGrpDialog.cpp 2015\1\14 19:37:01 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -80,7 +80,7 @@ void CreateDiscussionGrpDialog::OnFinalMessage(HWND hWnd)
 
 LRESULT CreateDiscussionGrpDialog::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	if (WM_NCLBUTTONDBLCLK != uMsg)//����˫�����������
+	if (WM_NCLBUTTONDBLCLK != uMsg)//禁用双击标题栏最大化
 	{
 		return WindowImplBase::HandleMessage(uMsg, wParam, lParam);
 	}
@@ -216,7 +216,7 @@ void CreateDiscussionGrpDialog::OnClick(TNotifyUI& msg)
 			}
 		}
 		std::string strGroupName = util::cStringToString(CString(groupName));
-		imcore::IMLibCoreStartOperationWithLambda(		//����������
+		imcore::IMLibCoreStartOperationWithLambda(		//创建讨论组
 			[=]()
 		{
 
@@ -224,7 +224,7 @@ void CreateDiscussionGrpDialog::OnClick(TNotifyUI& msg)
 			imGroupCreateReq.set_user_id(module::getSysConfigModule()->userId());
 			imGroupCreateReq.set_group_type(IM::BaseDefine::GroupType::GROUP_TYPE_TMP);
 			imGroupCreateReq.set_group_name(strGroupName);
-			imGroupCreateReq.set_group_avatar(std::string(""));//Ⱥͷ���Ȳ���
+			imGroupCreateReq.set_group_avatar(std::string(""));//群头像先不传
 			for (auto sid : vecMembers)
 			{
 				imGroupCreateReq.add_member_id_list(util::stringToInt32(sid));
@@ -254,7 +254,7 @@ void CreateDiscussionGrpDialog::_AddToGroupMemberList(std::string sid)
 	{
 		return;
 	}
-	//ȷ��û���ظ�����
+	//确认没有重复的项
 	for (int n = 0; n < m_pListGroupMembers->GetCount();n++)
 	{
 		CControlUI* pItem = m_pListGroupMembers->GetItemAt(n);
@@ -271,7 +271,7 @@ void CreateDiscussionGrpDialog::_AddToGroupMemberList(std::string sid)
 			}
 		}
 	}
-	//����ITEM
+	//插入ITEM
 	module::UserInfoEntity userInfo;
 	if (!module::getUserListModule()->getUserInfoBySId(sid, userInfo))
 	{
@@ -282,7 +282,7 @@ void CreateDiscussionGrpDialog::_AddToGroupMemberList(std::string sid)
 	CListContainerElementUI* pListElement = (CListContainerElementUI*)dlgBuilder.Create(_T("CreateDiscussionGrpDialog\\ListGroupMembersItem.xml"), (UINT)0, NULL, &m_PaintManager);
 	if (!pListElement)
 	{
-		LOG__(ERR, _T("Ⱥitem����ʧ��"));
+		LOG__(ERR, _T("群item创建失败"));
 		return;
 	}
 	CControlUI* pLogo = static_cast<CControlUI*>(pListElement->FindSubControl(_T("AvatarInfo")));
@@ -302,11 +302,11 @@ void CreateDiscussionGrpDialog::_AddToGroupMemberList(std::string sid)
 	CButtonUI* pRemoveBtn = static_cast<CButtonUI*>(pListElement->FindSubControl(_T("removebtn")));
 	if (pRemoveBtn)
 	{
-		//���ɾ����ť��ʱ�����������ж����ĸ���
+		//点击删除按钮的时候根据这个来判断是哪个项
 		pRemoveBtn->SetTag(UINT_PTR(pListElement));
 	}
 
-	if (module::getSysConfigModule()->userID() == userInfo.sId)//�Լ�����ɾ��
+	if (module::getSysConfigModule()->userID() == userInfo.sId)//自己不能删除
 	{
 		pRemoveBtn->SetVisible(false);
 	}
@@ -359,7 +359,7 @@ void CreateDiscussionGrpDialog::_updateSearchResultList(IN const std::vector<std
 		CListContainerElementUI* pListElement = (CListContainerElementUI*)dlgBuilder.Create(_T("CreateDiscussionGrpDialog\\ListGroupMembersItem.xml"), (UINT)0, NULL, &m_PaintManager);
 		if (!pListElement)
 		{
-			LOG__(ERR, _T("Ⱥitem����ʧ��"));
+			LOG__(ERR, _T("群item创建失败"));
 			return;
 		}
 		pListElement->SetName(_T("SearchResultItem"));

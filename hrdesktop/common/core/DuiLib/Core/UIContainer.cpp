@@ -193,15 +193,15 @@ namespace DuiLib
 		}
 	}
 
-	// �߼��ϣ�����Container�ؼ��������˷���
-	// ���ô˷����Ľ���ǣ��ڲ��ӿؼ����أ��ؼ�������Ȼ��ʾ��������Ч������
+	// 逻辑上，对于Container控件不公开此方法
+	// 调用此方法的结果是，内部子控件隐藏，控件本身依然显示，背景等效果存在
 	void CContainerUI::SetInternVisible(bool bVisible)
 	{
 		CControlUI::SetInternVisible(bVisible);
 		if( m_items.IsEmpty() ) return;
 		for( int it = 0; it < m_items.GetSize(); it++ ) {
-			// �����ӿؼ���ʾ״̬
-			// InternVisible״̬Ӧ���ӿؼ��Լ�����
+			// 控制子控件显示状态
+			// InternVisible状态应由子控件自己控制
 			static_cast<CControlUI*>(m_items[it])->SetInternVisible(IsVisible());
 		}
 	}
@@ -498,7 +498,7 @@ namespace DuiLib
 			m_pVerticalScrollBar = new CScrollBarUI;
 			m_pVerticalScrollBar->SetOwner(this);
 			m_pVerticalScrollBar->SetManager(m_pManager, NULL, false);
-//			m_pVerticalScrollBar->SetVisible(false);    //���ﱻ�޸���  Redrain
+//			m_pVerticalScrollBar->SetVisible(false);    //这里被修改了  Redrain
 			if ( m_pManager ) {
 				LPCTSTR pDefaultAttributes = m_pManager->GetDefaultAttributeList(_T("VScrollBar"));
 				if( pDefaultAttributes ) {
@@ -516,7 +516,7 @@ namespace DuiLib
 			m_pHorizontalScrollBar->SetHorizontal(true);
 			m_pHorizontalScrollBar->SetOwner(this);
 			m_pHorizontalScrollBar->SetManager(m_pManager, NULL, false);
-//			m_pHorizontalScrollBar->SetVisible(false);    //���ﱻ�޸���  Redrain
+//			m_pHorizontalScrollBar->SetVisible(false);    //这里被修改了  Redrain
 
 			if ( m_pManager ) {
 				LPCTSTR pDefaultAttributes = m_pManager->GetDefaultAttributeList(_T("HScrollBar"));
@@ -583,7 +583,7 @@ namespace DuiLib
 				SetFloatPos(it);
 			}
 			else {
-				pControl->SetPos(rc); // ���з�float�ӿؼ��Ŵ������ͻ���
+				pControl->SetPos(rc); // 所有非float子控件放大到整个客户区
 			}
 		}
 	}
@@ -754,7 +754,7 @@ namespace DuiLib
 
 	void CContainerUI::SetFloatPos(int iIndex)
 	{
-		// ��ΪCControlUI::SetPos��float�Ĳ���Ӱ�죬���ﲻ�ܶ�float�����ӹ�������Ӱ��
+		// 因为CControlUI::SetPos对float的操作影响，这里不能对float组件添加滚动条的影响
 		if( iIndex < 0 || iIndex >= m_items.GetSize() ) return;
 
 		CControlUI* pControl = static_cast<CControlUI*>(m_items[iIndex]);

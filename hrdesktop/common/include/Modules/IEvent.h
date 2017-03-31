@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      IEvent.h 2014\7\18 15:04:19 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -33,7 +33,7 @@ public:
 };
 
 /**
-* The class <code>Timer��Event��Ŀǰֻ�ǵ���tag</code>
+* The class <code>Timer的Event，目前只是当做tag</code>
 *
 */
 struct ITimerEvent : public IEvent

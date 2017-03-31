@@ -19,19 +19,19 @@ CDlgBase::~CDlgBase()
 
 LRESULT CDlgBase::SendMsg( UINT Msg, WPARAM wParam, LPARAM lParam )
 {
-	//������Ϣ���Լ��Ĵ��ں���
+	//发送消息给自己的窗口函数
 	return ::SendMessage( m_hwnd, Msg, wParam, lParam );
 }
 
 void CDlgBase::DoModal( int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc )
 {
-	InitMsgMap();//��ʼ����Ϣ����
+	InitMsgMap();//初始化消息机制
 	m_DialogRet = DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( iIDD_DLG ), hParant, pDialogProc );
 }
 
 void CDlgBase::DoModal( HINSTANCE hInstance, int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc )
 {
-	InitMsgMap();//��ʼ����Ϣ����
+	InitMsgMap();//初始化消息机制
 	m_DialogRet = DialogBox( hInstance, MAKEINTRESOURCE( iIDD_DLG ), hParant, pDialogProc );
 	//DWORD dwErr = GetLastError();
 
@@ -40,26 +40,26 @@ void CDlgBase::DoModal( HINSTANCE hInstance, int iIDD_DLG, HWND hParant, DIALOGP
 
 void CDlgBase::DoModal( int iIDD_DLG, HWND hParant, LPARAM lParam, DIALOGPROC pDialogProc )
 {
-	InitMsgMap();//��ʼ����Ϣ����
+	InitMsgMap();//初始化消息机制
 	m_DialogRet = DialogBoxParam( GetModuleHandle( NULL ), MAKEINTRESOURCE( iIDD_DLG ), hParant, pDialogProc, lParam );
 }
 
 void CDlgBase::DoModal( HINSTANCE hInstance, int iIDD_DLG, HWND hParant, LPARAM lParam, DIALOGPROC pDialogProc )
 {
-	InitMsgMap();//��ʼ����Ϣ����
+	InitMsgMap();//初始化消息机制
 	m_DialogRet = DialogBoxParam( hInstance, MAKEINTRESOURCE( iIDD_DLG ), hParant, pDialogProc, lParam );
 }
 
 
 HWND CDlgBase::CreateDialogX( int iIDD_DLG, HWND hParent, DIALOGPROC pDialogProc )
 {
-	InitMsgMap();//��ʼ����Ϣ����
+	InitMsgMap();//初始化消息机制
 	m_hwnd = CreateDialog( GetModuleHandle( NULL ), MAKEINTRESOURCE( iIDD_DLG ), hParent, pDialogProc );
 	return m_hwnd;
 }
 HWND CDlgBase::CreateDialogX( HINSTANCE hInstance, int iIDD_DLG, HWND hParent, DIALOGPROC pDialogProc )
 {
-	InitMsgMap();//��ʼ����Ϣ����
+	InitMsgMap();//初始化消息机制
 	m_hwnd = CreateDialog( hInstance, MAKEINTRESOURCE( iIDD_DLG ), hParent, pDialogProc );
 	return m_hwnd;
 }
@@ -127,7 +127,7 @@ INT_PTR CDlgBase::DialogProc_Internal( HWND hwndDlg, UINT uMsg, WPARAM wParam, L
 			}
 		}
 
-		//Command��Ϣ
+		//Command消息
 		if( !bHandled )
 		{
 			iSize = m_Cmd_MsgMap.size();
@@ -148,7 +148,7 @@ INT_PTR CDlgBase::DialogProc_Internal( HWND hwndDlg, UINT uMsg, WPARAM wParam, L
 	}
 	else if( WM_NOTIFY == uMsg )
 	{
-		//Notify ��Ϣ
+		//Notify 消息
 		int iSize = m_Notify_MsgMap.size();
 		for( int i = 0; i < iSize; i ++ )
 		{
@@ -160,7 +160,7 @@ INT_PTR CDlgBase::DialogProc_Internal( HWND hwndDlg, UINT uMsg, WPARAM wParam, L
 				{
 					if( pHandler )
 					{
-						return ( this->*pHandler )( hwndDlg, pHeader->hwndFrom, wParam, lParam );//NotifyHander���з��ؽ����
+						return ( this->*pHandler )( hwndDlg, pHeader->hwndFrom, wParam, lParam );//NotifyHander是有返回结果的
 					}
 					break;
 				}
@@ -169,7 +169,7 @@ INT_PTR CDlgBase::DialogProc_Internal( HWND hwndDlg, UINT uMsg, WPARAM wParam, L
 	}
 	else
 	{
-		//��ͨ��Ϣ
+		//普通消息
 		int iSize = m_WM_MsgMap.size();
 		for( int i = 0; i < iSize; i ++ )
 		{

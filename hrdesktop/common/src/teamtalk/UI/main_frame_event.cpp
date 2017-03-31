@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      main_frame_event.cpp 2014\7\24 16:04:42 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -180,7 +180,7 @@ void MainFrame::OnClick(TNotifyUI& msg)
 		STRINGorID xml(_T("menutest.xml"));
 		pMenu->Init(NULL, xml, _T("xml"), point);
 	}
-	else if (0 == _tcsicmp(msg.pSender->GetName(), _T("ToolsBtn")))//���ð�ť
+	else if (0 == _tcsicmp(msg.pSender->GetName(), _T("ToolsBtn")))//设置按钮
 	{
 		MakeGroupWnd* pFrame = new MakeGroupWnd();
 		if (pFrame == NULL) return;
@@ -189,10 +189,10 @@ void MainFrame::OnClick(TNotifyUI& msg)
 		pFrame->ShowWindow(true);
 
 	}
-	else if (0 == _tcsicmp(msg.pSender->GetName(), _T("QQSafeBtn")))//��ȫ����
+	else if (0 == _tcsicmp(msg.pSender->GetName(), _T("QQSafeBtn")))//安全中心
 	{
 	}
-	else if (0 == _tcsicmp(msg.pSender->GetName(), _T("messageCenterBtn")))//��Ϣ����
+	else if (0 == _tcsicmp(msg.pSender->GetName(), _T("messageCenterBtn")))//消息中心
 	{
 		FloatWnd* pFloatWnd = new FloatWnd();
 		if (pFloatWnd == NULL) return;

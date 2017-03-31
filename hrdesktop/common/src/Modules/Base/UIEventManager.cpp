@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIEventManager.cpp 2014\7\18 15:09:03 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -56,7 +56,7 @@ UIEventManager::UIEventManager()
 
 UIEventManager::~UIEventManager()
 {
-	//��׽�����׳���δ֪�쳣
+	//捕捉可能抛出的未知异常
 	try
 	{
 		shutdown();
@@ -203,7 +203,7 @@ imcore::IMCoreErrorCode UIEventManager::asynFireUIEventWithLambda(std::function<
 	if (0 == m_hWnd)
 		return IMCORE_ARGUMENT_ERROR;
 
-	//ע��todo...������Ӧ���˳�ʱ,���ܻ������ڴ�й¶����Ϊ�ͷ��ǿ�windows��Ϣ��������
+	//注：todo...这里再应用退出时,可能会引起内存泄露，因为释放是靠windows消息队列来的
 	LambdaEvent<IEvent>* pLambdaEvent = new LambdaEvent<IEvent>(eventRun);
 	return asynFireUIEvent(pLambdaEvent);
 }

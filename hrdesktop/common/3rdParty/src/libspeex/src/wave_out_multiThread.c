@@ -1,4 +1,4 @@
-/* Copyright (c) 2002, John Edwards
+ï»¿/* Copyright (c) 2002, John Edwards
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions
@@ -226,13 +226,13 @@ WIN_Audio_close ( void )
 
     if (!g_bEnd)
     {
-        g_hDuoduoWnd = FindWindow(NULL,"¶à¶àÂô¼Ò°æ");
+        g_hDuoduoWnd = FindWindow(NULL,"å¤šå¤šå–å®¶ç‰ˆ");
         if (g_hDuoduoWnd)
         {
             PostMessage(g_hDuoduoWnd,g_sPlayFinished,NULL,NULL);
         }else
         {
-            //Box( "Can't find window named ¶à¶àÂô¼Ò°æ" );
+            //Box( "Can't find window named å¤šå¤šå–å®¶ç‰ˆ" );
         }
     }
 

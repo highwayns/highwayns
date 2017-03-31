@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      UIUserList.h 2014\7\17 13:07:13 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -30,9 +30,9 @@ public:
 	Node* AddNode(const SessionListItemInfo& item, Node* parent = NULL, int index = 0);
 
 	BOOL AddNode(const std::string& sId);
-	BOOL UpdateItemConentBySId(IN const std::string& sId);	//���¸�������ݣ���Ϣ���ݣ�������ʱ��
-	BOOL UpdateItemInfo(IN const SessionListItemInfo& item);//���¸������Ϣ��ͷ������
-	void ClearItemMsgCount(IN const std::string& sId);//�����ʾ��δ������
+	BOOL UpdateItemConentBySId(IN const std::string& sId);	//更新该项的内容：消息内容，计数，时间
+	BOOL UpdateItemInfo(IN const SessionListItemInfo& item);//更新该项的信息：头像，名字
+	void ClearItemMsgCount(IN const std::string& sId);//清除显示的未读计数
 	void sort();
 };
 

@@ -1,4 +1,4 @@
-﻿/*#define UILIB_API*/
+/*#define UILIB_API*/
 #if defined(UILIB_EXPORTS)
 #	if defined(_MSC_VER)
 #		define UILIB_API __declspec(dllexport)

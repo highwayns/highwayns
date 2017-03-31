@@ -1,7 +1,7 @@
 ﻿ /*******************************************************************************
  *  @file      SendMsgManage.h 2014\8\7 13:48:25 $
- *  @author    ���<dafo@mogujie.com>
- *  @brief     ����Ϣʱ����й���
+ *  @author    大佛<dafo@mogujie.com>
+ *  @brief     发消息时序队列管理
  ******************************************************************************/
 
 #ifndef SENDMSGMANAGE_5545E32E_5320_4A45_ABD0_5AC0F09EE7AF_H__
@@ -28,9 +28,9 @@ struct SendingMsg
 
 	}
 	MSG_SENDSTATUS		status;
-	long				sendtime;		//�����Ͷ��е�ʱ�䣬������Ϣ��ļ�����̫С�����Ʒ���ϢƵ��
-	UInt8               retrySendCnt;	//���Դ���
-	UInt8               waitSeconds;	//�����д��ڵ�ʱ��
+	long				sendtime;		//进发送队列的时间，两条消息间的间隔不能太小，控制发消息频率
+	UInt8               retrySendCnt;	//重试次数
+	UInt8               waitSeconds;	//队列中存在的时间
 	UInt16              seqNo;			//
 	MessageEntity		msg;			//
 };
@@ -39,7 +39,7 @@ typedef std::list<SendingMsg>  SendingMsgList;
 /******************************************************************************/
 
 /**
- * The class <code>����Ϣʱ����й���</code> 
+ * The class <code>发消息时序队列管理</code> 
  *
  */
 class SendMsgManage
@@ -75,7 +75,7 @@ private:
 };
 
 /**
-* The class <code>��ʱcheck��Ϣ�����Ƿ�ʱ</code>
+* The class <code>定时check消息队列是否超时</code>
 *
 */
 class CheckSendMsgTimer : public module::ITimerEvent

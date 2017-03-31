@@ -310,7 +310,7 @@ namespace DuiLib
 		}
 		else
 		{
-			//��ʹ��GDI+����ʹ����Ч
+			//不使用GDI+，不使用特效
 			ASSERT(FALSE);
 		}
 		//		else

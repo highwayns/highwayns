@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SearchLayout.cpp 2014\8\11 16:31:05 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -79,20 +79,20 @@ void SearchLayout::Notify(TNotifyUI& msg)
 				module::UserInfoEntityVec userList;
 				module::getUserListModule()->getSearchUserNameListByShortName(inputText.GetData(), userList);
 
-				//�����ʵ�,�����ȡһ������
+				//搜索彩蛋,随机获取一个异性
 				if (inputText == _T("-random"))
 				{
 					std::string sid = module::getUserListModule()->randomGetUser();
 					userList.push_back(sid);
 				}
 
-				_updateSearchResultList(userList,1);//�����������ϵ��
+				_updateSearchResultList(userList,1);//搜索结果：联系人
 
 				module::GroupVec gidList;
 				module::getGroupListModule()->GetSearchGroupNameListByShortName(inputText.GetData(), gidList);
-				_updateSearchResultList(gidList,2);//��������������飬Ⱥ
+				_updateSearchResultList(gidList,2);//搜索结果：讨论组，群
 
-				_updateSearchResultListForDepartMent(inputText.GetData());//�������������
+				_updateSearchResultListForDepartMent(inputText.GetData());//搜索结果：部门
 
 				if (0 != GetHeight())
 				{
@@ -107,7 +107,7 @@ void SearchLayout::Notify(TNotifyUI& msg)
 			if (m_SearchResultList->GetFirstChildItemSId(sId))
 			{
 				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sId);
-				//�ָ�ԭ�б�
+				//恢复原列表
 				m_edit->SetText(_T(""));
 				m_pManager->SendNotify(m_edit, DUI_MSGTYPE_TEXTCHANGED, 0, 0);
 			}
@@ -130,7 +130,7 @@ void SearchLayout::Notify(TNotifyUI& msg)
 		if (!m_SearchResultList->CanExpand(node)&& node)
 		{
 			std::string sid = util::cStringToString(CString(node->data().sId));
-			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sid);//֪ͨ�����ڴ����Ự
+			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sid);//通知主窗口创建会话
 		}
 	}
 	else if (msg.sType == DUI_MSGTYPE_ITEMCLICK
@@ -157,7 +157,7 @@ void SearchLayout::_updateSearchResultList(IN const std::vector<std::string>& na
 
 	item.folder = true;
 	item.empty = false;
-	//item.description = _T("�������1");
+	//item.description = _T("搜索结果1");
 	if (1 == IdType)
 	{
 		item.nickName = util::getMultilingual()->getStringById(_T("STRID_SEARCHLAYOUT_GROUP_USERSITEM")); 

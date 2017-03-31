@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SessionLayout_Event.cpp 2014\8\15 13:03:04 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -56,7 +56,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
 		}
 		else if (msg.pSender == m_pBtnEmotion)
 		{
-			//�����Ȳ�չʾ
+			//表情先不展示
 			POINT pt = { 0 };
 			CDuiRect rcEmotionBtn = msg.pSender->GetPos();
 			CDuiRect rcWindow;
@@ -70,7 +70,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
 		else if (msg.pSender == m_pBtnSendImage)
 		{
 			CFileDialog	fileDlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST
-				, _T("ͼƬ �ļ�|*.png;*.jpeg;*.jpg;*.gif;*.bmp||"), AfxGetMainWnd());
+				, _T("图片 文件|*.png;*.jpeg;*.jpg;*.gif;*.bmp||"), AfxGetMainWnd());
 			fileDlg.m_ofn.Flags |= OFN_NOCHANGEDIR;
 			fileDlg.DoModal();
 
@@ -120,7 +120,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
 		}
         else if (msg.pSender == m_pBtnScreenShot)
         {
-            //ֱ��ģ�������ݼ�
+            //直接模拟截屏快捷键
             for (HWND hWnd = GetTopWindow(NULL); hWnd != NULL; hWnd = GetWindow(hWnd, GW_HWNDNEXT))
             {
                 wchar_t szWndName[MAX_PATH] = { 0 };
@@ -145,13 +145,13 @@ void SessionLayout::Notify(TNotifyUI& msg)
 		else if (msg.pSender == m_pBtnadduser)
 		{
 			if (m_bGroupSession)
-			{//�������޸ĳ�Ա
+			{//讨论组修改成员
 				module::getGroupListModule()->onChangeDiscussionGrpMemberDialog(m_sId);
 			}
-			else//����Ⱥ
+			else//创建群
 				module::getGroupListModule()->onCreateDiscussionGrpDialog(m_sId);
 		}   
-        else if (msg.pSender == m_pBtnsendfile) //�ļ�����
+        else if (msg.pSender == m_pBtnsendfile) //文件传输
         {
             module::UserInfoEntity userInfo;
             if (!module::getUserListModule()->getUserInfoBySId(m_sId, userInfo))
@@ -161,7 +161,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
             }
 
             CFileDialog	fileDlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST
-                , _T("�ļ�|*.*||"), AfxGetMainWnd());
+                , _T("文件|*.*||"), AfxGetMainWnd());
             fileDlg.m_ofn.Flags |= OFN_NOCHANGEDIR;
             fileDlg.DoModal();
 
@@ -192,7 +192,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
 			if (!pListElement->GetUserData().IsEmpty())
 			{
 				std::string sid = util::cStringToString(CString(pListElement->GetUserData()));
-				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sid);//֪ͨ�����ڴ����Ự
+				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sid);//通知主窗口创建会话
 			}
 		}
 	}
@@ -289,23 +289,23 @@ void SessionLayout::_GetGroupNameListByShortName(IN const CString& sShortName, O
 			CString Name = pNameLable->GetText();
 			std::string sid = util::cStringToString(CString(pListElement->GetUserData()));
 
-			if (util::isIncludeChinese(util::cStringToString(sShortName, CP_ACP)))//��������
+			if (util::isIncludeChinese(util::cStringToString(sShortName, CP_ACP)))//检索中文
 			{
 				if (Name.Find(sShortName) != -1)
 				{
 					nameList.push_back(sid);
 				}
 			}
-			else//������ĸ
+			else//检索字母
 			{
 				CString firstPY = util::HZ2FirstPY(util::cStringToString(Name, CP_ACP));
-				if (firstPY.Find(sShortName) != -1)//�ȼ�����ƴ
+				if (firstPY.Find(sShortName) != -1)//先检索简拼
 				{
 					nameList.push_back(sid);
 				}
 				else
 				{
-					CString allPY = util::HZ2AllPY(Name);//�ټ���ȫƴ
+					CString allPY = util::HZ2AllPY(Name);//再检索全拼
 					if (allPY.Find(sShortName) != -1)
 					{
 						nameList.push_back(sid);
@@ -339,7 +339,7 @@ void SessionLayout::DoEvent(TEventUI& event)
 	}
 	else if (event.Type == UIEVENT_SCROLLWHEEL)
 	{
-		//TODO ��������Ϣ�����͸�IE��Ϣչʾ
+		//TODO 滚动条消息，发送给IE消息展示
 		//PTR_VOID(m_pWebBrowser);
 		//HWND hwnd = m_pWebBrowser->GetHostWindow();
 		//PTR_VOID(hwnd);
@@ -370,39 +370,39 @@ HRESULT STDMETHODCALLTYPE SessionLayout::TranslateUrl( /* [in] */ DWORD dwTransl
 	{
 		return S_OK;
 	}
-	//��ʷ��Ϣ����
+	//历史消息内容
 	CString csUrl = pchURLIn;
-	if (csUrl.Find(_T("moguim/:history")) > -1)//��ʾ��ʷ��Ϣ
+	if (csUrl.Find(_T("moguim/:history")) > -1)//显示历史消息
 	{
 		_DisplayHistoryMsgToIE(FETCH_MSG_COUNT_PERTIME, FALSE);
 	}
-	else if (csUrl.Find(_T("moguim/:playvoice")) > -1)//���������ļ�
+	else if (csUrl.Find(_T("moguim/:playvoice")) > -1)//播放语音文件
 	{
 		int npos = csUrl.Find(_T("?"));
 		if (-1 != npos)
 		{
-			//��ͣ��ǰ��һ���Ĳ��Ŷ���
+			//先停掉前面一个的播放动画
 			AudioMessageMananger::getInstance()->popPlayingAudioMsg();
 
-			//���ŵ�ǰѡ�������
+			//播放当前选择的声音
 			string sAudioID = util::cStringToString(csUrl.Mid(npos + 1, csUrl.GetLength() - npos));
 			AudioMessageMananger::getInstance()->playAudioMsgByAudioSid(m_sId, sAudioID);
 
-			//���ڲ���ͬһ���ļ����Σ��ڵڶ��ε�ʱ��gif�����Ͳ������ˣ����ʱ����Ҫ�ֶ��ٵ�һ��
+			//由于播放同一个文件两次，在第二次的时候，gif动画就不出来了，这个时候需要手动再调一下
 			StartPlayingAnimate(sAudioID);
 		}
 	}
-	else if (csUrl.Find(_T("moguim/:chat2")) > -1)//�������ϵĳ����
+	else if (csUrl.Find(_T("moguim/:chat2")) > -1)//点击了联系某个人
 	{
 		int npos = csUrl.Find(_T("?"));
 		if (-1 != npos)
 		{
 			string sUesrID = util::cStringToString(csUrl.Mid(npos + 1, csUrl.GetLength() - npos));
 			if (!sUesrID.empty()
-				&& sUesrID != module::getSysConfigModule()->userID())//���ܺ��Լ���ϵ
+				&& sUesrID != module::getSysConfigModule()->userID())//不能和自己联系
 			{
-				//�����Ự����
-				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sUesrID);//֪ͨ�����ڴ����Ự
+				//创建会话窗口
+				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sUesrID);//通知主窗口创建会话
 			}
 		}
 	}
@@ -430,7 +430,7 @@ void SessionLayout::NewWindow2(VARIANT_BOOL *&Cancel, BSTR bstrUrl)
 }
 void SessionLayout::MKOForGroupModuleCallBack(const std::string& keyId, MKO_TUPLE_PARAM mkoParam)
 {
-	if (keyId == module::KEY_GROUPLIST_UPDATE_SHIELD_SUCCEED)//����Ⱥ���ΰ�ť
+	if (keyId == module::KEY_GROUPLIST_UPDATE_SHIELD_SUCCEED)//更新群屏蔽按钮
 	{
 		std::string sGroupId = std::get<MKO_STRING>(mkoParam);
 		if (sGroupId != m_sId)
@@ -447,7 +447,7 @@ void SessionLayout::MKOForGroupModuleCallBack(const std::string& keyId, MKO_TUPL
 			m_pBtndisplayGroupMsg->SetVisible(!bShow);
 		}
 	}
-	else if (keyId == module::KEY_GROUPLIST_UPDATE_MEMBER_CHANGED)//Ⱥ��Ա�䶯
+	else if (keyId == module::KEY_GROUPLIST_UPDATE_MEMBER_CHANGED)//群成员变动
 	{
 		std::string sGroupId = std::get<MKO_STRING>(mkoParam);
 		if (m_sId != sGroupId)
@@ -557,17 +557,17 @@ void SessionLayout::OnSendImageCallback(std::shared_ptr<void> param)
 					{
 						msg.msgType = MSG_TYPE_TEXT_GROUP;
 					}
-					msg.msgSessionType = pSessionInfo->sessionType;	//sessionType��FromType����һ��
+					msg.msgSessionType = pSessionInfo->sessionType;	//sessionType和FromType定义一致
 					msg.msgTime = module::getSessionModule()->getTime();
 					SendMsgManage::getInstance()->pushSendingMsg(msg);
 					m_SendingMixedMSGList.erase(mixedMsgIt);
-					//���»Ựʱ��
+					//更新会话时间
 					module::SessionEntity*  pSessionEntity = SessionEntityManager::getInstance()->getSessionEntityBySId(msg.sessionId);
 					if (pSessionEntity)
 					{
 						pSessionEntity->updatedTime = msg.msgTime;
 					}
-					//������ ��Ϣ���ݣ�ʱ�����
+					//主界面 消息内容，时间更新
 					module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_TRAY_NEWMSGSEND, msg.sessionId);
 				}
 			}
@@ -581,7 +581,7 @@ void SessionLayout::OnSendImageCallback(std::shared_ptr<void> param)
 				msg.talkerSid = module::getSysConfigModule()->userID();
 				msg.msgRenderType = MESSAGE_RENDERTYPE_SYSTEMTIPS;
 				ReceiveMsgManage::getInstance()->pushMessageBySId(m_sId, msg);
-				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//��ͼʧ��
+				module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//传图失败
 			}
 			return;
 		}

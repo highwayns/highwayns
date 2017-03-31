@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      P2PCmdModule_Impl.cpp 2015\1\5 15:57:26 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -59,7 +59,7 @@ void P2PCmdModule_Impl::_p2pCmdNotifyResponse(std::string& pbBody)
 
 	if (module::KEY_P2PCMD_SHAKEWINDOW == nServiceID && module::KEY_P2PCMD_SHAKEWINDOW_NOTIFY == nCmdID)
 	{
-		//���ڶ�������һ��ϵͳ��Ϣ����ʾ�û�
+		//窗口抖动生成一条系统消息，提示用户
 		module::UserInfoEntity userInfo;
 		if (module::getUserListModule()->getUserInfoBySId(sFromId, userInfo))
 		{
@@ -74,9 +74,9 @@ void P2PCmdModule_Impl::_p2pCmdNotifyResponse(std::string& pbBody)
 			msg.msgSessionType = MESSAGETYPE_FROM_FRIEND;
 			msg.msgTime = (UInt32)time(0);
 			ReceiveMsgManage::getInstance()->pushMessageBySId(msg.sessionId, msg);
-			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, sFromId);//�յ���Ļ������Ϣ��ʾ	
+			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, sFromId);//收到屏幕抖动消息提示	
 		}
-		module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_SHAKEWINDOW_MSG, sFromId);//��������
+		module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_SHAKEWINDOW_MSG, sFromId);//抖动窗口
 	}
 	else if (module::KEY_P2PCMD_WRITING == nServiceID)
 	{

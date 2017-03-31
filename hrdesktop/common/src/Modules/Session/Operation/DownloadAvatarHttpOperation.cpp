@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DownloadImgHttpOperation.cpp 2014\8\14 10:19:07 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -49,7 +49,7 @@ void DownloadAvatarHttpOperation::processOpertion()
 	if (isCanceled())
 		return;
 
-	//������Դ
+	//下载资源
 	CString csFileName = util::int32ToCString(hashcode) + extName;
 	CString csLocalPath = module::getMiscModule()->getDownloadDir() + csFileName;
 	std::wstring cs = csLocalPath;
@@ -69,13 +69,13 @@ void DownloadAvatarHttpOperation::processOpertion()
 		pParam->m_sId = m_sId;
 		pParam->m_result = DownloadImgParam::DOWNLOADIMG_OK;
 
-		//����ImImage��
+		//存入ImImage表
 		std::string localPath = util::cStringToString(csFileName);
 		module::ImImageEntity imgTemp;
 		module::ImImageEntity imgEntity = { hashcode, localPath, m_downUrl };
 		module::getDatabaseModule()->sqlInsertImImageEntity(imgEntity);
 
-		//��ͷ�����Ҷȴ�������ұ��浽����
+		//会头像做灰度处理，并且保存到本地
 		if (m_bGrayScale)
 		{
 			CxImage cximage;
@@ -93,7 +93,7 @@ void DownloadAvatarHttpOperation::processOpertion()
 
 		if (!isCanceled())
 		{
-			//�ص�
+			//回调
 			pParam->m_imgEntity = imgEntity;
 			asyncCallback(std::shared_ptr<void>(pParam));
 		}

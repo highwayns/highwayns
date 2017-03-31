@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      ImCore.h 2014\11\28 13:28:49 $
- *  @author    ����<lanhu@mogujie.com>
- *  @brief     im cross platform library,currently include network��opertion manager
+ *  @author    蓝狐<lanhu@mogujie.com>
+ *  @brief     im cross platform library,currently include network、opertion manager
  ******************************************************************************/
 
 #ifndef IMCORE_A19CD639_91DF_4383_9D8F_4698959A8FD1_H__
@@ -51,7 +51,7 @@ class Operation;
 	/**@name operation*/
 	//@{
 	/**
-	* ����һ��Operation���������β��(����������Operation����ʵ������Ҫ�Լ��ͷ�)
+	* 发起一个Operation到任务队列尾部(放入容器的Operation对象实例不需要自己释放)
 	*
 	* @param   IOperation * pOperation
 	* @param   int delay = 0
@@ -59,7 +59,7 @@ class Operation;
 	*/
 	NETWORK_DLL void IMLibCoreStartOperation(IN Operation* pOperation, Int32 delay = 0);
 	/**
-	* ��Operation ��lambda���ʽ��ʽ���뵽���������
+	* 将Operation 以lambda表达式方式放入到任务队列中
 	*
 	* @param   std::function<void()> operationRun
 	* @return  void
@@ -68,7 +68,7 @@ class Operation;
         , Int32 delay = 0
         , std::string oper_name = "_common_operation_name");
     /**
-    * �����������ɾ��
+    * 从任务队列中删除
     *
     * @param   std::function<void()> operationRun
     * @return  void

@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2002 Jean-Marc Valin */
+/* Copyright (C) 2002 Jean-Marc Valin */
 /**
    @file quant_lsp.h
    @brief LSP vector quantization

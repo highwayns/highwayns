@@ -31,7 +31,7 @@
 
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
 
-#define _USING_V110_SDK71_					//���:����XPƽ̨��
+#define _USING_V110_SDK71_					//大佛:兼容XP平台，
 
 #include <atlbase.h>
 #include <atlcom.h>

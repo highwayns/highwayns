@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  a wrap for non-block socket class for Windows, LINUX and MacOS X platform
  */
 

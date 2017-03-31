@@ -82,12 +82,12 @@ public:
 		return ReturnT();
 	}
 
-	virtual ReturnT RBroadcast(ParamT param)//����㲥
+	virtual ReturnT RBroadcast(ParamT param)//反序广播
 	{
 		ReceiversMap::reverse_iterator it = receivers_.rbegin();
 		for (; it != receivers_.rend(); ++it)
 		{
-			if (it->second)//���;��Ҫ�п�
+			if (it->second)//大佛;需要判空
 			{
 				it->second->Receive(param);
 			}

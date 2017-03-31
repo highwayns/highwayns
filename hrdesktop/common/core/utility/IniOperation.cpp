@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      IniOperation.cpp 2014\12\30 15:27:52 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     Source: http://www.codeproject.com/Articles/10809/A-Small-Class-to-Read-INI-File ////
  ******************************************************************************/
 

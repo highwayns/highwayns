@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      TcpClientModule_Impl.h 2014\7\29 13:16:06 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �ͻ���TCP���糤����ģ��ʵ��
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     客户端TCP网络长连接模块实现
  ******************************************************************************/
 
 #ifndef TCPCLIENTMODULE_IMPL_7C021D09_7902_44DE_BE96_F22561B99198_H__
@@ -15,7 +15,7 @@ class TcpClientModule_Impl;
 using namespace module;
 
 /**
-* The class <code>ģ�����˵�һ��������ά��</code>
+* The class <code>模块器端的一个心跳的维护</code>
 *
 */
 class ServerPingTimer : public module::ITimerEvent
@@ -31,7 +31,7 @@ public:
 };
 
 /**
- * The class <code>�ͻ���TCP���糤����ģ��ʵ�֣���TcpClientScoket��һ������</code> 
+ * The class <code>客户端TCP网络长连接模块实现，对TcpClientScoket做一个适配</code> 
  *
  */
 class TcpClientModule_Impl final : public ITcpClientModule

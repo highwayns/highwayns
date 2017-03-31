@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      IEmotionModule.h 2014\8\6 20:03:22 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �������ģ��
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     表情管理模块
  ******************************************************************************/
 
 #ifndef IEMOTIONMODULE_8E431B43_8F05_4934_8B5B_BB839730F3A6_H__
@@ -15,10 +15,10 @@ NAMESPACE_BEGIN(module)
 const std::string MODULE_EMOTION_PREFIX = "Emotion";
 
 //KEYID
-const std::string KEY_EMOTION_SELECTED = MODULE_EMOTION_PREFIX + "selected";      //ѡ����ĳ������
+const std::string KEY_EMOTION_SELECTED = MODULE_EMOTION_PREFIX + "selected";      //选择了某个表情
 
 /**
- * The class <code>�������ģ��</code> 
+ * The class <code>表情管理模块</code> 
  *
  */
 
@@ -33,9 +33,9 @@ class MODULE_API IEmotionModule : public module::ModuleBase
 {
 public:
 	/**
-	 * ��ʾ���鴰��
+	 * 显示表情窗口
 	 *
-	 * @param   POINT pt ��ʾ��λ��
+	 * @param   POINT pt 显示的位置
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */
@@ -43,9 +43,9 @@ public:
 	virtual BOOL getEmotionNameByID(IN CString ID, OUT CString& csPath) = 0;
 	virtual BOOL getEmotionIDByName(IN CString csPath, OUT CString& ID) = 0;
 	/**
-	* ��ȡ��ǰ��ʾ���ڵĻỰID
+	* 获取当前显示窗口的会话ID
 	*
-	* @param   POINT pt ��ʾ��λ��
+	* @param   POINT pt 显示的位置
 	* @return  void
 	* @exception there is no any exception to throw.
 	*/

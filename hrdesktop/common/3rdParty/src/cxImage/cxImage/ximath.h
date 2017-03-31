@@ -1,4 +1,4 @@
-﻿#if !defined(__ximath_h)
+#if !defined(__ximath_h)
 #define __ximath_h
 
 #include "ximadef.h"

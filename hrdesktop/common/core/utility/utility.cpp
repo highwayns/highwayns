@@ -1,4 +1,4 @@
-﻿// utility.cpp : ���� DLL �ĳ�ʼ�����̡�
+﻿// utility.cpp : 定义 DLL 的初始化例程。
 //
 
 #include "stdafx.h"
@@ -9,28 +9,28 @@
 #endif
 
 //
-//TODO:  ����� DLL ����� MFC DLL �Ƕ�̬���ӵģ�
-//		��Ӵ� DLL �������κε���
-//		MFC �ĺ������뽫 AFX_MANAGE_STATE ����ӵ�
-//		�ú�������ǰ�档
+//TODO:  如果此 DLL 相对于 MFC DLL 是动态链接的，
+//		则从此 DLL 导出的任何调入
+//		MFC 的函数必须将 AFX_MANAGE_STATE 宏添加到
+//		该函数的最前面。
 //
-//		����: 
+//		例如: 
 //
 //		extern "C" BOOL PASCAL EXPORT ExportedFunction()
 //		{
 //			AFX_MANAGE_STATE(AfxGetStaticModuleState());
-//			// �˴�Ϊ��ͨ������
+//			// 此处为普通函数体
 //		}
 //
-//		�˺������κ� MFC ����
-//		������ÿ��������ʮ����Ҫ��  ����ζ��
-//		��������Ϊ�����еĵ�һ�����
-//		���֣������������ж������������
-//		������Ϊ���ǵĹ��캯���������� MFC
-//		DLL ���á�
+//		此宏先于任何 MFC 调用
+//		出现在每个函数中十分重要。  这意味着
+//		它必须作为函数中的第一个语句
+//		出现，甚至先于所有对象变量声明，
+//		这是因为它们的构造函数可能生成 MFC
+//		DLL 调用。
 //
-//		�й�������ϸ��Ϣ��
-//		����� MFC ����˵�� 33 �� 58��
+//		有关其他详细信息，
+//		请参阅 MFC 技术说明 33 和 58。
 //
 
 // CutilityApp
@@ -39,21 +39,21 @@ BEGIN_MESSAGE_MAP(CutilityApp, CWinApp)
 END_MESSAGE_MAP()
 
 
-// CutilityApp ����
+// CutilityApp 构造
 
 CutilityApp::CutilityApp()
 {
-	// TODO:  �ڴ˴���ӹ�����룬
-	// ��������Ҫ�ĳ�ʼ�������� InitInstance ��
+	// TODO:  在此处添加构造代码，
+	// 将所有重要的初始化放置在 InitInstance 中
 }
 
 
-// Ψһ��һ�� CutilityApp ����
+// 唯一的一个 CutilityApp 对象
 
 CutilityApp theApp;
 
 
-// CutilityApp ��ʼ��
+// CutilityApp 初始化
 
 BOOL CutilityApp::InitInstance()
 {

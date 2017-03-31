@@ -11,21 +11,21 @@
 CEmotionButton::CEmotionButton(void)
 {
 	m_CxImages=NULL;
-	  //���ڴ�С
+	  //窗口大小
 	QQFACEDLG_WIDTH = 446;
 	QQFACEDLG_HEIGHT = 239;  
 
-		//�������Ͻ�����
+		//网格左上角坐标
 	CELLS_LEFT = 6;
 	CELLS_TOP =3;
 	CELLS_RIGHT = 441;	//(6  + 29*15)
 	CELLS_BOTTOM = 259;	//(28 + 29*8)
 
-	CELLSIZE = 29; //ÿ������= 29*30����ͼƬ�ߴ���24*24��
+	CELLSIZE = 29; //每个网格= 29*30，（图片尺寸是24*24）
 
-	CELLCOUNT_LINE = 15;	//ÿ��
-	CELLCOUNT_COLUMN = 8;	//ÿ��
-	CELLCOUNT_PAGE = 120; //ÿҳ120������
+	CELLCOUNT_LINE = 15;	//每行
+	CELLCOUNT_COLUMN = 8;	//每列
+	CELLCOUNT_PAGE = 120; //每页120个表情
 
 
 	rcLeft.left = CELLS_LEFT+1;
@@ -37,18 +37,18 @@ CEmotionButton::CEmotionButton(void)
 	rcRight.top = CELLS_TOP+1;
 	rcRight.right = rcRight.left + (CELLSIZE*3-1);
 	rcRight.bottom = rcRight.top + (CELLSIZE*3-1);
-	//��ʼʱ���ض�������
+	//开始时隐藏动画窗口
 	pvstatus = _PVStatus::Hide;
 
 	TCHAR facepath[MAX_PATH];
 	GetFaceFolderPath(facepath, _T("..\\data\\Emotion\\Face"));
-	//�������б��飡
+	//加载所有表情！
 	m_ImageCount = LoadImages(facepath);
-	//����ҳ����
+	//表情页数量
 	m_PageCount = (m_ImageCount + CELLCOUNT_PAGE - 1) / CELLCOUNT_PAGE;
 	curPage=0;
 
-	//�����ڴ�DC
+	//创建内存DC
 	HDC hdc = GetDC(NULL);
 	m_hMemDC = CreateCompatibleDC(hdc);
 	m_hMemDCBkGnd = CreateCompatibleDC(hdc);	
@@ -60,7 +60,7 @@ CEmotionButton::CEmotionButton(void)
 	SelectObject(m_hMemDCBkGnd, m_hMemBitmapBkGnd);
 
 	TCHAR szPageInfo[16];
-		//����ҳ��Ϣ
+		//设置页信息
 	wsprintf(szPageInfo, _T("%d/%d"), curPage+1, m_PageCount);
 
 	SwitchPage(curPage);
@@ -77,7 +77,7 @@ int CEmotionButton::GetPageCount()
     return m_PageCount;
 }
 
-//�ͷ�ͼƬ��Դ
+//释放图片资源
 void CEmotionButton::FreeImages()
 {
 	if(m_CxImages != NULL)
@@ -88,18 +88,18 @@ void CEmotionButton::FreeImages()
 	m_ImageCount = 0;
 }
 
-//��ȡ�����ļ�������·����
+//获取表情文件夹完整路径！
 void CEmotionButton::GetFaceFolderPath(TCHAR* path, TCHAR* folderName)
 {
 	TCHAR *pChar;
 	TCHAR temp[MAX_PATH];
 	GetModuleFileName(NULL, temp, MAX_PATH);
 
-	//���ҵ�����һ����б��λ��
+	//查找倒数第一个反斜杠位置
 	
 	pChar=_tcsrchr(temp,'\\');
 	if(pChar != NULL)
-		*pChar = 0;//�ڷ�б�ܴ��ض��ַ���
+		*pChar = 0;//在反斜杠处截断字符串
 
 	wsprintf(path, _T("%s\\%s"), temp, folderName);
 }
@@ -129,25 +129,25 @@ void CEmotionButton::DoEvent(TEventUI& event)
 				RECT rc1, rc2, invalidRect;
 				int lastCol = -1, curCol = -1;
 
-				unsigned char changetype = _PosChangeType::NoChange; //Ԥ�������Ƿ���Ҫ�ı�
+				unsigned char changetype = _PosChangeType::NoChange; //预览矩形是否需要改变
 
 				POINT pt = event.ptMouse;
 				int tmpSel = GetCellIndex(pt.x, pt.y);
 
-				//�Ƿ񳬳���ͼƬ����
+				//是否超出了图片数量
 				if((tmpSel + curPage * CELLCOUNT_PAGE) >= m_ImageCount)
 					tmpSel = -1;
 
 				if(tmpSel != curSel)
 				{
-					//����cell �����н�
+					//两个cell 索引行进
 					lastSel = curSel;
 					curSel = tmpSel;
 					curFrame = 0;
 
-					//Ԥ��������Ҫ�ƶ���
+					//预览矩形需要移动吗？
 					lastCol = (lastSel % 15);
-					curCol = (curSel % 15); //ÿ��15��
+					curCol = (curSel % 15); //每行15个
 
 					GetBlueRect(lastSel, &rc1);
 					GetBlueRect(curSel, &rc2);
@@ -155,7 +155,7 @@ void CEmotionButton::DoEvent(TEventUI& event)
 					invalidRect.right++;
 					invalidRect.bottom++;
 
-					//�ж����Ծ����Ƿ���λ�øı䣿
+					//判断缩略矩形是否发生位置改变？
 					if(pvstatus == _PVStatus::Hide)
 					{
 						if(curSel >= 0)
@@ -199,13 +199,13 @@ void CEmotionButton::DoEvent(TEventUI& event)
 						}
 					}
 
-					//ˢ����ɫ���ο�
+					//刷新蓝色矩形框
 					UpdateSelectedFace(curPage, curSel, curFrame, pvstatus);
 					this->Invalidate();
 					 					
 					if(changetype == _PosChangeType::NoChange)
 					{
-						//ˢ��Ԥ��ͼƬ
+						//刷新预览图片
 						if(pvstatus == _PVStatus::Left)
 						{
 							this->Invalidate();
@@ -227,7 +227,7 @@ void CEmotionButton::DoEvent(TEventUI& event)
 						rc2.right++;
 						rc2.bottom++; 
 
-						//����ԭλ�õ�����ͼ
+						//擦除原位置的缩略图
 						switch(changetype & 0xf0)
 						{
 						case 0x00:
@@ -241,7 +241,7 @@ void CEmotionButton::DoEvent(TEventUI& event)
 							//InvalidateRect(hDlg, &rc2, FALSE);
 							break;
 						}
-						//��ʾ��λ���ϵ�����ͼ
+						//显示新位置上的缩略图
 						switch(changetype & 0x0f)
 						{
 						case 0x00:
@@ -258,14 +258,14 @@ void CEmotionButton::DoEvent(TEventUI& event)
 						}
 					}
 
-					//��װ��ʱ������ʾ������
+					//安装定时器（显示动画）
 					if(curSel >= 0)
 					{
 						UINT frameDelay = 200;
 						CxImage* pImg = GetSelectedImage(curPage, curSel);
 						CxImage* pFrame = pImg->GetFrame(curFrame);
 
-						//QQ�����֡��ʱͨ����10���룬��ʾ�ٶȹ��죬�������50����
+						//QQ表情的帧延时通常是10毫秒，显示速度过快，因此增大到50毫秒
 						if(pFrame != NULL) frameDelay = max(frameDelay, pFrame->GetFrameDelay());
 
 						frameCount = pImg->GetNumFrames();
@@ -278,8 +278,8 @@ void CEmotionButton::DoEvent(TEventUI& event)
 					}
 				}
 				
-				//ʹϵͳ֪ͨ���� WM_MOUSELEAVE ;
-				TrackMouseEvent(&m_tme); //ע��汾����_WIN32_WINNT 0x0510
+				//使系统通知我们 WM_MOUSELEAVE ;
+				TrackMouseEvent(&m_tme); //注意版本需求：_WIN32_WINNT 0x0510
 		 }
 		 break;
 		 case UIEVENT_MOUSELEAVE:
@@ -310,10 +310,10 @@ void CEmotionButton::DoEvent(TEventUI& event)
 
 				LPRECT lpRect = (pvstatus == _PVStatus::Left)? &rcLeft:&rcRight;
 				
-				//�ƶ�����һ֡��
+				//移动到下一帧！
 				curFrame = (curFrame + 1) % frameCount;
 
-				//QQ�����֡��ʱͨ����10���룬��ʾ�ٶȹ��죬�������100����
+				//QQ表情的帧延时通常是10毫秒，显示速度过快，因此增大到100毫秒
 				pFrame = pImg->GetFrame(curFrame);
 				
 				if(pFrame) frameDelay = max(frameDelay, pFrame->GetFrameDelay());
@@ -322,7 +322,7 @@ void CEmotionButton::DoEvent(TEventUI& event)
 				this->Invalidate();
 				//InvalidateRect(hDlg, lpRect, FALSE);
 
-				//��һ֡�Ķ�ʱʱ��
+				//下一帧的定时时间
 				this->m_pManager->SetTimer(this, TIMER_SHOWGIF, frameDelay);
 			} 
 		 }
@@ -331,7 +331,7 @@ void CEmotionButton::DoEvent(TEventUI& event)
 		{
 			POINT pt = event.ptMouse;
 			int curSel = GetCellIndex(pt.x, pt.y);
-			int index = curPage * CELLCOUNT_PAGE + curSel; //��ҳ������������������������
+			int index = curPage * CELLCOUNT_PAGE + curSel; //从页内相对索引计算出绝对索引。
 			if (index > -1 && index < (int)m_mapImagePath.size())
 			{
 				CString strPath = m_mapImagePath[index];
@@ -354,7 +354,7 @@ void CEmotionButton::Notify(TNotifyUI& msg)
 	}
 }
 
-//�л���ǰҳʱ��Ҫ���еĸ���
+//切换当前页时需要进行的更新
 void CEmotionButton::SwitchPage(int curPage)
 {
 	if(NULL == m_CxImages)
@@ -363,7 +363,7 @@ void CEmotionButton::SwitchPage(int curPage)
 	RECT rc; 
 
     this->Invalidate();	
-	//�Ȼ�����
+	//先画背景
 	TCHAR szBKImg[MAX_PATH] = {0};
 	_sntprintf(szBKImg, MAX_PATH - 1, _T("file='bg.png' corner='4,4,2,2' fade='100'"));
 	  
@@ -382,11 +382,11 @@ void CEmotionButton::SwitchPage(int curPage)
 	DeleteDC(hTempDC);
 	DeleteObject(hBlankBkGnd);
 	 
-	//���Ƶ�ǰҳ������б���
-	//���Ʊ�ҳ������ͼƬ
+	//绘制当前页面的所有表情
+	//绘制本页内所有图片
 	for(index = (curPage * CELLCOUNT_PAGE), count = 0; (index< m_ImageCount && count < CELLCOUNT_PAGE); index++, count++)
 	{
-		//���л���
+		//居中绘制
 		GetBlueRect(count, &rc);
 
 		long leftB = 0, topB = 0;
@@ -407,11 +407,11 @@ void CEmotionButton::SwitchPage(int curPage)
 		m_CxImages[index].GetFrame(0)->Draw(m_hMemDCBkGnd, left, top, width, height);
 	}
 
-	//���͵��ڴ�λͼ	
+	//传送到内存位图	
 	BitBlt(m_hMemDC, 0, 0, QQFACEDLG_WIDTH, QQFACEDLG_HEIGHT, m_hMemDCBkGnd, 0, 0, SRCCOPY); 
 }
 
-//����ڴ������ƶ�ʱ��Ҫ���еĸ���
+//鼠标在窗口上移动时需要进行的更新
 void CEmotionButton::UpdateSelectedFace(int curPage, int curSel, int curFrame, int pvstatus)
 {
 	HGDIOBJ hOldBrush = NULL, hOldPen = NULL, hTempPen, hTempBrush;
@@ -421,10 +421,10 @@ void CEmotionButton::UpdateSelectedFace(int curPage, int curSel, int curFrame, i
 	RECT rc;
 	int index;
 
-	//������
+	//贴背景
 	BitBlt(m_hMemDC, 0, 0, QQFACEDLG_WIDTH, QQFACEDLG_HEIGHT, m_hMemDCBkGnd, 0, 0, SRCCOPY);
 
-	//������ɫѡ�п�
+	//绘制蓝色选中框
 	if(curSel >= 0)
 	{
 		hPen1 = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
@@ -437,18 +437,18 @@ void CEmotionButton::UpdateSelectedFace(int curPage, int curSel, int curFrame, i
 		if(hOldBrush == NULL) hOldBrush = hTempBrush;
 	}
 
-	//�����������Ҳ��Ԥ��ͼ
+	//绘制左侧或者右侧的预览图
 	if(pvstatus == _PVStatus::Left) lpRect = &rcLeft;
 	else if(pvstatus == _PVStatus::Right) lpRect = &rcRight;
 
 	if(lpRect != NULL)
 	{
-		index = curPage * CELLCOUNT_PAGE + curSel; //��ҳ������������������������		
-		hPen2 = CreatePen(PS_SOLID, 1, RGB(0, 138, 255)); //����ɫ����		
+		index = curPage * CELLCOUNT_PAGE + curSel; //从页内相对索引计算出绝对索引。		
+		hPen2 = CreatePen(PS_SOLID, 1, RGB(0, 138, 255)); //淡蓝色画笔		
 		hTempPen = SelectObject(m_hMemDC, hPen2);
-		hTempBrush = SelectObject(m_hMemDC, GetStockObject(WHITE_BRUSH)); //��ɫ��ˢ
+		hTempBrush = SelectObject(m_hMemDC, GetStockObject(WHITE_BRUSH)); //白色画刷
 		Rectangle(m_hMemDC, lpRect->left, lpRect->top, lpRect->right, lpRect->bottom);
-		//���л���
+		//居中绘制
 		int left = 0, top = 0;
 		if ((lpRect->left + lpRect->right) > (long)m_CxImages[index].GetWidth())
 		{
@@ -459,7 +459,7 @@ void CEmotionButton::UpdateSelectedFace(int curPage, int curSel, int curFrame, i
 			top = (lpRect->top + lpRect->bottom - m_CxImages[index].GetHeight()) / 2;
 		}
 
-		//����֡
+		//设置帧
 		if(curFrame < m_CxImages[index].GetNumFrames())
 		{
 			CxImage* pFrame = m_CxImages[index].GetFrame(curFrame);
@@ -481,7 +481,7 @@ void CEmotionButton::UpdateSelectedFace(int curPage, int curSel, int curFrame, i
 		if(hOldPen == NULL) hOldPen = hTempPen;
 	}
 	
-	//�ָ���ˢ������
+	//恢复画刷，画笔
 	if(hOldBrush != NULL) SelectObject(m_hMemDC, hOldBrush);
 	if(hOldPen != NULL)	SelectObject(m_hMemDC, hOldPen);
 
@@ -491,19 +491,19 @@ void CEmotionButton::UpdateSelectedFace(int curPage, int curSel, int curFrame, i
 
 
 
-//�ṩ�ͻ������꣬��ȡ��ǰ����·�����������
+//提供客户区坐标，获取当前鼠标下方的网格索引
 int  CEmotionButton::GetCellIndex(int x, int y)
 {
-	//���Ƿ�������Χ�ڣ�
-	//ע��x >= CELLS_RIGHT (��������)
+	//点是否在网格范围内？
+	//注意x >= CELLS_RIGHT (包含等于)
 	if(x < CELLS_LEFT || x >= CELLS_RIGHT || y < CELLS_TOP || y >= CELLS_BOTTOM)
 		return -1;
 
-	//ÿ�� 15  �� CELL
+	//每行 15  个 CELL
 	return (y - CELLS_TOP) / CELLSIZE * 15 + (x - CELLS_LEFT) / CELLSIZE;
 }
 
-//��ȡĳ��Cell����ɫ���ο�ѡ��ʱ���ƣ�
+//获取某个Cell的蓝色矩形框（选中时绘制）
 void  CEmotionButton::GetBlueRect(int cellIndex, LPRECT pRect)
 {
 	pRect->left = CELLS_LEFT + CELLSIZE * (cellIndex % 15) + 1;
@@ -512,7 +512,7 @@ void  CEmotionButton::GetBlueRect(int cellIndex, LPRECT pRect)
 	pRect->bottom = pRect->top + (CELLSIZE - 1);
 }
 
-//��ָ�����ļ��м���ͼƬ
+//从指定的文件夹加载图片
 int CEmotionButton::LoadImages(LPTSTR folder)
 {
 	TCHAR filter[MAX_PATH], filename[MAX_PATH];
@@ -520,7 +520,7 @@ int CEmotionButton::LoadImages(LPTSTR folder)
 	HANDLE hFind;
 	int index = 0, count = 0;
 
-	//������ȡ���ļ���Ŀ
+	//遍历获取到文件数目
 	wsprintf(filter, _T("%s\\*.gif"), folder);
 	hFind = FindFirstFile(filter, &FindFileData);
 	if (hFind == INVALID_HANDLE_VALUE) 

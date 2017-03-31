@@ -127,7 +127,7 @@ m_bUseGdiplusText(false)
     }
 
 	m_pGdiplusStartupInput = new Gdiplus::GdiplusStartupInput;
-	Gdiplus::GdiplusStartup( &m_gdiplusToken, m_pGdiplusStartupInput, NULL); // ����GDI�ӿ�
+	Gdiplus::GdiplusStartup( &m_gdiplusToken, m_pGdiplusStartupInput, NULL); // 加载GDI接口
 
     m_szMinWindow.cx = 0;
     m_szMinWindow.cy = 0;
@@ -150,7 +150,7 @@ CPaintManagerUI::~CPaintManagerUI()
     m_mNameHash.Resize(0);
     delete m_pRoot;
 
-	Gdiplus::GdiplusShutdown( m_gdiplusToken );	//  ж��GDI�ӿ�
+	Gdiplus::GdiplusShutdown( m_gdiplusToken );	//  卸载GDI接口
 	delete m_pGdiplusStartupInput;
 
     ::DeleteObject(m_DefaultFontInfo.hFont);
@@ -536,7 +536,7 @@ CRichEditUI* CPaintManagerUI::GetCurrentCaretObject()
 bool CPaintManagerUI::CreateCaret(HBITMAP hBmp, int nWidth, int nHeight)
 {
 	::CreateCaret(m_hWndPaint, hBmp, nWidth, nHeight);
-	//TODO hBmp����λͼ���
+	//TODO hBmp处理位图光标
 	m_rtCaret.right = m_rtCaret.left + nWidth;
 	m_rtCaret.bottom = m_rtCaret.top + nHeight;
 	return true;
@@ -749,7 +749,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
 				   {
 					   if(m_pRoot->IsUpdateNeeded())
 					   {
- 						   if( !::IsIconic(m_hWndPaint))  //redrain�޸�bug
+ 						   if( !::IsIconic(m_hWndPaint))  //redrain修复bug
 								m_pRoot->SetPos(rcClient);
 						   if(m_hDcBackground != NULL) ::DeleteDC(m_hDcBackground);
 						   if(m_hbmpBackground != NULL) ::DeleteObject(m_hbmpBackground);
@@ -835,7 +835,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
 			   {
 				   if(m_pRoot->IsUpdateNeeded())
 				   {
-					   if( !::IsIconic(m_hWndPaint))  //redrain�޸�bug
+					   if( !::IsIconic(m_hWndPaint))  //redrain修复bug
 						   m_pRoot->SetPos(rcClient);
 					   if(m_hDcOffscreen != NULL) ::DeleteDC(m_hDcOffscreen);
 					   if(m_hbmpOffscreen != NULL) ::DeleteObject(m_hbmpOffscreen);
@@ -1525,7 +1525,7 @@ bool CPaintManagerUI::SetTimer(CControlUI* pControl, UINT nTimerID, UINT uElapse
         }
     }
 
-    m_uTimerID = (++m_uTimerID) % 0xF0; //0xf1-0xfe������;
+    m_uTimerID = (++m_uTimerID) % 0xF0; //0xf1-0xfe特殊用途
     if( !::SetTimer(m_hWndPaint, m_uTimerID, uElapse, NULL) ) return FALSE;
     TIMERINFO* pTimer = new TIMERINFO;
     if( pTimer == NULL ) return FALSE;

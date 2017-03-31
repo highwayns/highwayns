@@ -1,6 +1,6 @@
 ﻿ /*******************************************************************************
  *  @file      SendImgOperation.h 2014\8\8 9:39:42 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -14,9 +14,9 @@ class SendImgParam
 public:
 	enum
 	{
-		SENDIMG_OK = 0,             //���ͳɹ�
-		SENDIMG_ERROR_UP,           //�ϴ�����
-		SENDIMG_ERROR_NETWORK,      //�������
+		SENDIMG_OK = 0,             //发送成功
+		SENDIMG_ERROR_UP,           //上传有误
+		SENDIMG_ERROR_NETWORK,      //网络错误
 	};
 public:
 	CString         csFilePath;

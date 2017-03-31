@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      LoginOperation.cpp 2014\7\30 15:32:28 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -40,7 +40,7 @@ void LoginOperation::processOpertion()
 	pParam->csUserName = m_loginParam.csUserName;
 	pParam->mySelectedStatus = m_loginParam.mySelectedStatus;
 
-	//������Ϣ������
+	//连接消息服务器
 	module::TTConfig* pCfg = module::getSysConfigModule()->getSystemConfig();
 	CString server = util::stringToCString(pCfg->msgSevPriorIP);
 	LOG__(APP, _T("MsgServeIp:%s,Port:%d"), server, pCfg->msgServPort);
@@ -49,7 +49,7 @@ void LoginOperation::processOpertion()
 	if (0 == pImLoginResp || pImLoginResp->result_code() != IM::BaseDefine::REFUSE_REASON_NONE 
 		|| !pImLoginResp->has_user_info())
 	{
-		//TODO,��ʧ�ܣ����Ա���IP
+		//TODO,若失败，尝试备用IP
 		LOG__(ERR,_T("add:%s:%d,uname:%s,login for msg server failed"),server,pCfg->msgServPort, m_loginParam.csUserName);
 		if (pImLoginResp)
 		{
@@ -62,7 +62,7 @@ void LoginOperation::processOpertion()
 		else
 		{
 			pParam->result = IM::BaseDefine::REFUSE_REASON_NO_MSG_SERVER;
-			LOG__(ERR, _T("login msg server faild��"));
+			LOG__(ERR, _T("login msg server faild！"));
 		}
 		asyncCallback(std::shared_ptr<void>(pParam));
 		return;
@@ -71,12 +71,12 @@ void LoginOperation::processOpertion()
 	pParam->serverTime = pImLoginResp->server_time();
 	pParam->mySelectedStatus = pImLoginResp->online_status();
 
-	//�洢�������˷��ص�userId
+	//存储服务器端返回的userId
 	IM::BaseDefine::UserInfo userInfo = pImLoginResp->user_info();
 	pCfg->userId = util::uint32ToString(userInfo.user_id());
 	pCfg->csUserId = util::stringToCString(pCfg->userId);
 
-	//��½�ɹ��������Լ�����Ϣ
+	//登陆成功，创建自己的信息
 	module::UserInfoEntity myInfo;
 	myInfo.sId = pCfg->userId;
 	myInfo.csName = m_loginParam.csUserName;
@@ -102,7 +102,7 @@ void LoginOperation::processOpertion()
 		, module::getSysConfigModule()->UserID()
 		, m_loginParam.mySelectedStatus);
 
-	//��ʼ����������
+	//开始发送心跳包
 	module::getTcpClientModule()->startHeartbeat();
 }
 

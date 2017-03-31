@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      HttpPoolModule_Impl.h 2014\7\25 11:20:55 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief	   http operation thread pool 
  ******************************************************************************/
 
@@ -43,7 +43,7 @@ public:
 
 private:
 	/**
-	* �����߳�
+	* 加载线程
 	*
 	* @param
 	* @return  TRUE : success FALSE : fail
@@ -51,7 +51,7 @@ private:
 	*/
 	virtual BOOL  _launchThread();
 	/**
-	* ȡ����������
+	* 取消所有任务
 	*
 	* @param
 	* @return

@@ -285,39 +285,39 @@ public:
     virtual ~CppSQLite3DB();
 
     /**
-     * ��sqlite���ݿ��ļ������û�оʹ�������ļ�.
+     * 打开sqlite数据库文件，如果没有就创建这个文件.
      *
-     * @param     const char * szFile �ļ�����(UTF8).
+     * @param     const char * szFile 文件名称(UTF8).
      * @return    void
-     * @exception ����򿪴����׳��쳣:CppSQLite3Exception.
+     * @exception 如果打开错误，抛出异常:CppSQLite3Exception.
      */
     void open(const char* szFile);
 
     /**
-     * �ر�sqlite���ݿ��ļ�
+     * 关闭sqlite数据库文件
      *
      * @return    void
-     * @exception ����رմ���,�׳��쳣 CppSQLite3Exception.
+     * @exception 如果关闭错误,抛出异常 CppSQLite3Exception.
      */
     void close();
 
     bool isOpen() const;
 
 	/**
-	 * ѯ�����ݿ��ڵı��Ƿ����
+	 * 询问数据库内的表是否存在
 	 *
-	 * @param   const char * szTable ������
-	 * @return  bool                 �������ڷ���ture�������ڷ���false.
-	 * @exception ���������������,�׳��쳣 CppSQLite3Exception.
+	 * @param   const char * szTable 表名称
+	 * @return  bool                 如果表存在返回ture，不存在返回false.
+	 * @exception 如果出现其它错误,抛出异常 CppSQLite3Exception.
 	 */
 	bool tableExists(const char* szTable);
 
     /**
-     * ִ��SQL��DML����
+     * 执行SQL的DML语言
      *
-     * @param   const char * szSQL    sql����ַ���
-     * @return  int                   ������
-     * @exception ���������������,�׳��쳣 CppSQLite3Exception.
+     * @param   const char * szSQL    sql语句字符串
+     * @return  int                   返回码
+     * @exception 如果出现其它错误,抛出异常 CppSQLite3Exception.
      */
     int execDML(const char* szSQL);
 

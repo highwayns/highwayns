@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MainDialog.cpp 2014\7\31 15:24:26 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -106,7 +106,7 @@ void MainDialog::OnHotkey(__in WPARAM wParam, __in LPARAM lParam)
 
 LRESULT MainDialog::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	//����˫�����������
+	//禁用双击标题栏最大化
 	if (WM_NCLBUTTONDBLCLK == uMsg)
 	{
 		return 0;
@@ -192,11 +192,11 @@ void MainDialog::OnWindowInitialized(TNotifyUI& msg)
 		strVersion.Format(_T("V.%d"), TEAMTALK_VERSION);
 		m_ptxtUname->SetToolTip(strVersion);
 	}
-	//����ͼ��
+	//加载图标
 	LoadIcons();
-	//����ϵͳ����
+	//创建系统托盘
 	CreateTrayIcon();
-	//��ʼ��
+	//初始化
 	Initilize();
 }
 
@@ -360,7 +360,7 @@ void MainDialog::_UpdateTotalUnReadMsgCount(void)
 {
     PTR_VOID(m_pTextUnreadMsgCount);
     UInt32 nCount = module::getMessageModule()->getTotalUnReadMsgCount();
-    if (0 == nCount)//û����Ϣ
+    if (0 == nCount)//没有消息
     {
         m_pTextUnreadMsgCount->SetVisible(false);
     }
@@ -398,15 +398,15 @@ void MainDialog::Notify(TNotifyUI& msg)
             CString strSign = m_pEditSignature->GetText();
             module::UserInfoEntity myInfo;
             module::getUserListModule()->getMyInfo(myInfo);
-            if (/*!strSign.IsEmpty() &&*/  //�յ�Ҳ�ǿ��Ե�
-                strSign != util::stringToCString(myInfo.signature))//�иĶ�
+            if (/*!strSign.IsEmpty() &&*/  //空的也是可以的
+                strSign != util::stringToCString(myInfo.signature))//有改动
             {
                 module::getUserListModule()->tcpChangeMySignInfo(util::cStringToString(strSign));
             }
         }
         else if (msg.sType == DUI_MSGTYPE_RETURN)
         {         
-            m_PaintManager.SetFocus(m_pbtnMyFace);//����������õ�ͷ����
+            m_PaintManager.SetFocus(m_pbtnMyFace);//将焦点的设置到头像上
         }
     }
     __super::Notify(msg);
@@ -420,7 +420,7 @@ void MainDialog::_FreshMySignature(void)
         m_pEditSignature->SetText(util::stringToCString(myInfo.signature));
         if (myInfo.signature.empty())
         {
-            m_pEditSignature->SetToolTip(_T("�༭����ǩ��"));
+            m_pEditSignature->SetToolTip(_T("编辑个性签名"));
         }
         else
         {

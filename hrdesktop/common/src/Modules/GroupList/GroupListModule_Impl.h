@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      GroupListModule_Impl.h 2014\8\6 15:30:37 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -47,8 +47,8 @@ public:
 	virtual CString getDefaultAvatartPath();
 
 	virtual void tcpGetGroupInfo(IN const std::string& groupId);
-	virtual void tcpGetGroupsInfo(IN const module::GroupVec& VecGroupId);//��ȡ��Ⱥ����Ϣ
-	virtual void tcpShieldGroup(IN const std::string& groupId, IN UInt32 shieldStatus);//����Ⱥ�����Ͳ�����
+	virtual void tcpGetGroupsInfo(IN const module::GroupVec& VecGroupId);//获取新群的信息
+	virtual void tcpShieldGroup(IN const std::string& groupId, IN UInt32 shieldStatus);//设置群的推送不推送
 
 	virtual void GetSearchGroupNameListByShortName(IN const CString& sShortName, OUT	module::GroupVec & gidList);
 	virtual void onCreateDiscussionGrpDialog(const std::string& currentSessionId);
@@ -57,7 +57,7 @@ public:
 	virtual std::string makeGroupSId(const std::string& sid);
 	virtual std::string getOriginalSId(const std::string& sid);
 private:
-	/**@name �������˲��*/
+	/**@name 服务器端拆包*/
 	//@{
 	void _groupNormalListResponse(IN std::string& body);
 	void _groupInfoResponse(IN std::string& body);
@@ -75,7 +75,7 @@ private:
 private:
 	CLock					m_lock;
 
-	module::GroupInfoMap                m_mapGroups;       //ÿ��Ⱥ����ϸ��Ϣ
+	module::GroupInfoMap                m_mapGroups;       //每个群的详细信息
 
 	std::map<std::string, module::UserInfoEntityVec> m_mapAddedMember;
 	std::map<std::string, module::UserInfoEntityVec> m_mapRemovedMember;

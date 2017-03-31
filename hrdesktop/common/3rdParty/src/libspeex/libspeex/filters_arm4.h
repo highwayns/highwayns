@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2004 Jean-Marc Valin */
+/* Copyright (C) 2004 Jean-Marc Valin */
 /**
    @file filters_arm4.h
    @brief Various analysis/synthesis filters (ARM4 version)

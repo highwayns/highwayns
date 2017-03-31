@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MainListLayout_Event.cpp 2014\8\11 14:16:22 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -37,14 +37,14 @@ void MainListLayout::MKOForUserlistModuleCallback(const std::string& keyId, MKO_
 {
 	if (module::KEY_USERLIST_UPDATE_DEPARTMENTLIST == keyId)
 	{
-//#ifndef DEBUG	//TODO ��֯�ܹ����ӣ��᱾�ص��Կ�
+//#ifndef DEBUG	//TODO 组织架构复杂，会本地调试卡
 		_LoadAllDepartment();
 		//LOG__(DEBG, _T("_LoadAllDepartment"));
 //#endif
 	}
 	else if (module::KEY_USERLIST_UPDATE_RECENTLIST == keyId)
 	{
-		//�����е��û������Ự��Ϣ
+		//给所有的用户创建会话信息
 		module::UserInfoEntityMap mapUserInfos;
 		module::getUserListModule()->getAllUsersInfo(mapUserInfos);
 		for (auto kv: mapUserInfos)
@@ -55,7 +55,7 @@ void MainListLayout::MKOForUserlistModuleCallback(const std::string& keyId, MKO_
 
 		_AddRecentSessionListToUI();
 
-		//��ȡ�Ự������Ϣ
+		//获取会话离线消息
 		imcore::IMLibCoreStartOperationWithLambda(
 			[]()
 		{
@@ -67,7 +67,7 @@ void MainListLayout::MKOForUserlistModuleCallback(const std::string& keyId, MKO_
 				,&imUnreadMsgCntReq);
 		});
 
-        //��ȡ�����ļ� todo
+        //获取离线文件 todo
         imcore::IMLibCoreStartOperationWithLambda(
             []()
         {
@@ -76,12 +76,12 @@ void MainListLayout::MKOForUserlistModuleCallback(const std::string& keyId, MKO_
             imFileHasOfflineReq.set_user_id(module::getSysConfigModule()->userId());
             module::getTcpClientModule()->sendPacket(IM::BaseDefine::ServiceID::SID_FILE
                 , IM::BaseDefine::FileCmdID::CID_FILE_HAS_OFFLINE_REQ
-                , &imFileHasOfflineReq);//��ȡ���˻Ự�����ļ�
+                , &imFileHasOfflineReq);//获取个人会话离线文件
         });
 	}
 	else if (module::KEY_USERLIST_UPDATE_NEWUSESADDED == keyId)
 	{
-		//TODO:�µ��û�������һ���û�����
+		//TODO:新的用户，或者一堆用户更新
 	}
 }
 
@@ -91,7 +91,7 @@ void MainListLayout::MKOForGrouplistModuleCallback(const std::string& keyId, MKO
 	{
 		_AddGroupList();
 		_AddDiscussGroupList();
-		//�����е�Ⱥ/�����鴴���ỰԪ��Ϣ
+		//给所有的群/讨论组创建会话元信息
 		module::GroupInfoMap mapGroupInfo;
 		module::getGroupListModule()->getAllGroupListInfo(mapGroupInfo);
 		for (auto kv : mapGroupInfo)
@@ -101,7 +101,7 @@ void MainListLayout::MKOForGrouplistModuleCallback(const std::string& keyId, MKO
 		}
 	}
 	else if (module::KEY_GROUPLIST_UPDATE_MYSELF_KICKED == keyId)
-	{//�Լ����߳���������
+	{//自己被踢出了讨论组
 		std::string sGroupId = std::get<MKO_STRING>(mkoParam);
 		_MySelfKickedFromDiscusGrp(sGroupId);
 	}
@@ -109,7 +109,7 @@ void MainListLayout::MKOForGrouplistModuleCallback(const std::string& keyId, MKO
 	{
 		_NewGroupsUpdate(std::get<MKO_SHARED_VOIDPTR>(mkoParam));
 	}
-	else if (module::KEY_GROUPLIST_UPDATE_CREATNEWGROUP == keyId)//�������鴴��
+	else if (module::KEY_GROUPLIST_UPDATE_CREATNEWGROUP == keyId)//新讨论组创建
 	{
 		_CreatNewDiscussGroupRes(std::get<MKO_STRING>(mkoParam));
 	}
@@ -156,7 +156,7 @@ void MainListLayout::MKOForSessionModuleCallback(const std::string& keyId, MKO_T
 		{
 			SessionEntityManager::getInstance()->createSessionEntity(sId);
 			SessionDialogManager::getInstance()->openSessionDialog(sId);
-			m_UIRecentConnectedList->ClearItemMsgCount(sId);//�����ʾ��δ������
+			m_UIRecentConnectedList->ClearItemMsgCount(sId);//清除显示的未读计数
 			m_GroupList->ClearItemMsgCount(sId);
 			m_EAuserTreelist->ClearItemMsgCount(sId);
 		}
@@ -178,10 +178,10 @@ void MainListLayout::MKOForSessionModuleCallback(const std::string& keyId, MKO_T
 			msg.talkerSid = module::getSysConfigModule()->userID(); 
 			msg.msgRenderType = MESSAGE_RENDERTYPE_SYSTEMTIPS;
 			ReceiveMsgManage::getInstance()->pushMessageBySId(sId, msg);
-			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//������Ϣ̫��
+			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//发送消息太快
 		}
 	}
-	else if (module::KEY_SESSION_SENDMSG_FAILED == keyId)//��Ϣ����ʧ�ܵ���ʾ
+	else if (module::KEY_SESSION_SENDMSG_FAILED == keyId)//消息发送失败的提示
 	{
 		SendingMsgList FailedMsgList;
 		SendMsgManage::getInstance()->getSendFailedMsgs(FailedMsgList);
@@ -189,7 +189,7 @@ void MainListLayout::MKOForSessionModuleCallback(const std::string& keyId, MKO_T
 		for (SendingMsg failedmsg:FailedMsgList)
 		{
 			std::string msgDecrptyCnt;
-			DECRYPT_MSG(failedmsg.msg.content, msgDecrptyCnt);//������Ϣ�������ȫ�Ǽ��ܹ���
+			DECRYPT_MSG(failedmsg.msg.content, msgDecrptyCnt);//发送消息队列里的全是加密过的
 			CString csContent = util::stringToCString(msgDecrptyCnt);
 			CString csErrorTip;
 			MessageEntity msg;
@@ -199,7 +199,7 @@ void MainListLayout::MKOForSessionModuleCallback(const std::string& keyId, MKO_T
 			msg.talkerSid = module::getSysConfigModule()->userID();
 			msg.msgRenderType = MESSAGE_RENDERTYPE_SYSTEMTIPS;
 			ReceiveMsgManage::getInstance()->pushMessageBySId(msg.sessionId, msg);
-			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//������Ϣʧ��
+			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//发送消息失败
 		}
 	}
 	else if (module::KEY_SESSION_TRAY_NEWMSGSEND == keyId)
@@ -216,7 +216,7 @@ void MainListLayout::MKOForSessionModuleCallback(const std::string& keyId, MKO_T
 	{
 		int	nParam = std::get<MKO_INT>(mkoParam);
 		LOG__(DEBG, _T("Receive KEY_SESSION_TRAY_COPYDATA,nParam:%d"),nParam);
-		if (0 == nParam)    //��ʾ�����������
+		if (0 == nParam)    //表示结束语音播放
 		{
 			AudioMessageMananger::getInstance()->autoplayNextUnReadAudioMsg();
 		}
@@ -270,8 +270,8 @@ void MainListLayout::MKOForSysConfigModuleCallback(const std::string& keyId, MKO
 		module::UserInfoEntity userInfo;
 		if (!module::getUserListModule()->getUserInfoBySId(sId, userInfo))
 		{
-			LOG__(APP, _T("Only Show user information!"));//TODO �����Ⱥ�Ļ�����ʱ�ȴ�Ⱥ�Ự
-			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sId);//֪ͨ�����ڴ����Ự
+			LOG__(APP, _T("Only Show user information!"));//TODO 如果是群的话，暂时先打开群会话
+			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, sId);//通知主窗口创建会话
 			return;
 		}
 		UserDetailInfoDialog* pFloatWnd = new UserDetailInfoDialog(sId);
@@ -313,7 +313,7 @@ void MainListLayout::MKOForFileTransferModuleCallback(const std::string& keyId, 
         msg.talkerSid = module::getSysConfigModule()->userID();
         msg.msgRenderType = MESSAGE_RENDERTYPE_SYSTEMTIPS;
         ReceiveMsgManage::getInstance()->pushMessageBySId(FileInfo.sFromID, msg);
-        module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//���㷢�����ļ�
+        module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_NEWMESSAGE, msg.sessionId);	//给你发送了文件
     }
 }
 void MainListLayout::_CreatSessionDialog(IN UIIMList* pList, IN CControlUI* pMsgSender)
@@ -335,13 +335,13 @@ void MainListLayout::_CreatSessionDialog(IN UIIMList* pList, IN CControlUI* pMsg
 			SessionEntityManager::getInstance()->createSessionEntity(sId);
 			SessionDialogManager::getInstance()->openSessionDialog(sId);
 
-			m_UIRecentConnectedList->ClearItemMsgCount(sId);//�����ʾ��δ������
+			m_UIRecentConnectedList->ClearItemMsgCount(sId);//清除显示的未读计数
 			m_GroupList->ClearItemMsgCount(sId);
 			m_EAuserTreelist->ClearItemMsgCount(sId);
 
-            //������δ������
+            //更新总未读计数
             module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_UPDATE_TOTAL_UNREADMSG_COUNT);
-			//ֹͣ������˸
+			//停止托盘闪烁
 			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_TRAY_STOPEMOT);
 		}
 	}
@@ -471,15 +471,15 @@ void MainListLayout::_MySelfKickedFromDiscusGrp(IN const std::string& groupID)
 	{
 		Node* pRecentNode = m_UIRecentConnectedList->GetItemBySId(groupID);
 		if (pRecentNode)
-		{//ɾ�������ϵ���е�������
+		{//删除最近联系人中的讨论组
 			m_UIRecentConnectedList->Remove(pRecentNode->data().list_elment_);
 		}		
 		Node* pGroupNode = m_GroupList->GetItemBySId(groupID);
 		if (pGroupNode)
-		{//ɾ��Ⱥ�б��е�������
+		{//删除群列表中的讨论组
 			m_GroupList->Remove(pGroupNode->data().list_elment_);
 		}
-		//�ر��Ѿ��򿪵ĶԻ���
+		//关闭已经打开的对话框
 		SessionDialog* pSessionDialog = SessionDialogManager::getInstance()->findSessionDialogBySId(groupID);
 		if (pSessionDialog)
 		{

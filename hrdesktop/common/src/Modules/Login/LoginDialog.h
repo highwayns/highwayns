@@ -1,6 +1,6 @@
 ﻿ /*******************************************************************************
  *  @file      LoginDialog.h 2014\7\31 12:22:19 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -65,7 +65,7 @@ private:
 	CCheckBoxUI*				m_pChkRememberPWD;
 
 	BOOL						m_bPassChanged;
-	//CWndShadow					m_WndShadow;//��Ӱ����
+	//CWndShadow					m_WndShadow;//阴影窗口
 };
 /******************************************************************************/
 #endif// LOGINWND_8DCB20F9_062A_47AC_8C5C_7DD1ED11C9E8_H__

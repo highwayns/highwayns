@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      IMiscModule.h 2014\8\4 9:51:53 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -14,7 +14,7 @@ class FloatInfo;
 NAMESPACE_BEGIN(module)
 
 /**
- * The class <code>һЩ�Ƚ��ӵĹ��õĽӿں���</code> 
+ * The class <code>一些比较杂的公用的接口函数</code> 
  *
  */
 class MODULE_API IMiscModule
@@ -28,24 +28,24 @@ public:
 	virtual CString getDefaultAvatar() = 0;
 	virtual CString getUserTempDir() = 0;
 	virtual CString getDumpDir() = 0;
-	virtual CString getTTCommonAppdataUserDir() = 0;//��ϵͳ����Ŀ¼��
+	virtual CString getTTCommonAppdataUserDir() = 0;//在系统公共目录下
 	virtual CString GetAudioFileSavedPath() = 0;
 	virtual CString getEmotionFilesDir() = 0;
 	virtual CString getFileRecvDir() = 0;
 	/**
-	 * ת������ʾ��ʱ��
+	 * 转换成显示的时间
 	 *
 	 * @param   IN UInt32 time
 	 * @return  CString
-	 * @exception �����ʱ����ʾΪ Сʱ������
-				  ����1�����ʾΪ ����
-				  ����2�����ʾΪ ��-��
-				  ����1�����ʾΪ ȥ��
-				  ����2�����ʾΪ Զ��
+	 * @exception 当天的时间显示为 小时：分钟
+				  大于1天的显示为 昨天
+				  大于2天的显示为 月-日
+				  大于1年的显示为 去年
+				  大于2年的显示为 远古
 	 */
 	virtual CString makeShortTimeDescription(IN UInt32 time) = 0;
 	/**
-	* �������õ�����
+	* 播放设置的声音
 	*
 	* @param   void
 	* @return  void
@@ -53,7 +53,7 @@ public:
 	*/
 	virtual void playSysConfigSound() = 0;	//
 	/**
-	* ����wav��ʽ����Ƶ�ļ�
+	* 播放wav格式的音频文件
 	*
 	* @param   const CString & path
 	* @return  void
@@ -61,14 +61,14 @@ public:
 	*/
 	virtual void playSound(IN const CString& path) = 0;
 	/**
-	 * �˳�Ӧ�ó���
+	 * 退出应用程序
 	 *
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */	
 	virtual void quitTheApplication() = 0;
 	/**
-	 * ��ȡӦ�ó������
+	 * 获取应用程序标题
 	 *
 	 * @return  CString
 	 * @exception there is no any exception to throw.
@@ -76,7 +76,7 @@ public:
 	virtual CString getAppTitle() = 0;
 
 	/**
-	 * �첽�����������
+	 * 异步打开浏览器窗口
 	 *
 	 * @param   const CString & strURL
 	 * @param   INT nFlag
@@ -86,11 +86,11 @@ public:
 	virtual void asynOpenWebBrowser(CString& url, INT nFlag = SW_SHOWMAXIMIZED) = 0;
 
 	/**
-	* ��Ϣ��/���ܺ�����ע�������Ʋ���ȡ��̫����,�㶮��~��
+	* 消息加/解密函数（注：该名称不能取的太明显,你懂得~）
 	*
 	* @param   std::string& pData
 	* @param   std::string& pOutData
-	* @return  BOOL �ɹ� true ʧ�� false
+	* @return  BOOL 成功 true 失败 false
 	* @exception there is no any exception to throw.
 	*/
 	virtual void doProcess1(IN std::string& pData,OUT std::string& pOutData) = 0;

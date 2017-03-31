@@ -39,7 +39,7 @@ public:
     static void DrawColor(HDC hDC, const RECT& rc, DWORD color);
     static void DrawGradient(HDC hDC, const RECT& rc, DWORD dwFirst, DWORD dwSecond, bool bVertical, int nSteps);
 
-    // ���º����е���ɫ����alphaֵ��Ч
+    // 以下函数中的颜色参数alpha值无效
     static void DrawLine(HDC hDC, const RECT& rc, int nSize, DWORD dwPenColor,int nStyle = PS_SOLID);
     static void DrawRect(HDC hDC, const RECT& rc, int nSize, DWORD dwPenColor);
     static void DrawRoundRect(HDC hDC, const RECT& rc, int width, int height, int nSize, DWORD dwPenColor);

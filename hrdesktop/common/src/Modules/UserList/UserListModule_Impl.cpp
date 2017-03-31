@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      IUserListModule_Impl.cpp 2014\8\6 15:28:35 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -95,7 +95,7 @@ void UserListModule_Impl::_allUserlistResponse(IN string& pbBody)
 	}
 	const UInt32 time = module::getSysConfigModule()->getUserInfoLatestUpdateTime();
 	LOG__(APP, _T("IMAllUserRsp,latest_update_time = %d,Local_update_time = %d"), imAllUserRsp.latest_update_time(), time);
-	if (imAllUserRsp.latest_update_time() != time)//�Ƚ�latest_update_time
+	if (imAllUserRsp.latest_update_time() != time)//比较latest_update_time
 	{
 		LOG__(APP, _T("IMAllUserRsp,user_list_size = %d"), imAllUserRsp.user_list_size());
 		for (int n = 0; n < imAllUserRsp.user_list_size(); ++n)
@@ -120,18 +120,18 @@ void UserListModule_Impl::_allUserlistResponse(IN string& pbBody)
 				CAutoLock lock(&m_lock);
 				m_mapUsers[userInfoEntity.sId] = userInfoEntity;
 			}
-			_pushUserIdToDepartment(userInfoEntity.sId, userInfoEntity.department);//���ɲ�����Ϣ
+			_pushUserIdToDepartment(userInfoEntity.sId, userInfoEntity.department);//生成部门信息
 		}
-		module::getDatabaseModule()->sqlBatchInsertUserInfos(m_mapUsers);//�����û���Ϣ
-		module::getSysConfigModule()->saveUserInfoLatestUpdateTime(imAllUserRsp.latest_update_time());//�������һ�θ���ʱ��
+		module::getDatabaseModule()->sqlBatchInsertUserInfos(m_mapUsers);//保存用户信息
+		module::getSysConfigModule()->saveUserInfoLatestUpdateTime(imAllUserRsp.latest_update_time());//保存最后一次更新时间
 	}
 
 	imcore::IMLibCoreStartOperationWithLambda(
 		[=]()
 	{
-		//todo incremental updating processing ��enhancement
+		//todo incremental updating processing —enhancement
 		_tcpGetAllUsersOnlineStatus();
-		_downloadAllUserAvatarImg();//�����û���ͷ��
+		_downloadAllUserAvatarImg();//更新用户的头像
 	});
 
 	module::getUserListModule()->asynNotifyObserver(module::KEY_USERLIST_UPDATE_DEPARTMENTLIST);
@@ -151,7 +151,7 @@ void UserListModule_Impl::_usersLineStatusResponse(IN string& pbBody)
 	{
 		IM::BaseDefine::UserStat userStat = imUsersStatRsp.user_stat_list(i);
 		std::string sId = util::uint32ToString(userStat.user_id());
-		//��������״̬
+		//更新在线状态
 		module::UserInfoEntityMap::iterator iter = m_mapUsers.find(sId);
 		if (iter != m_mapUsers.end())
 		{
@@ -201,7 +201,7 @@ void UserListModule_Impl::_removeSessionNotify(IN std::string& pbBody)
 			, imRemoveSessionNotify.session_type(),id);
 	}
 
-	//TODO::֪ͨɾ���Ự
+	//TODO::通知删除会话
 }
 
 void UserListModule_Impl::_departmentResponse(IN std::string& pbBody)
@@ -214,7 +214,7 @@ void UserListModule_Impl::_departmentResponse(IN std::string& pbBody)
 	}
 	const UInt32 time = module::getSysConfigModule()->getDepartmentInfoLatestUpdateTime();
 	LOG__(APP, _T("IMDepartmentRsp,latest_update_time = %d,Local_update_time = %d"), imDepartmentRsp.latest_update_time(), time);
-	if (imDepartmentRsp.latest_update_time() != time)//�Ƚ�latest_update_time
+	if (imDepartmentRsp.latest_update_time() != time)//比较latest_update_time
 	{
 		LOG__(APP, _T("IMDepartmentRsp,user_list_size = %d"), imDepartmentRsp.dept_list_size());
 		for (int n = 0; n < imDepartmentRsp.dept_list_size(); ++n)
@@ -239,13 +239,13 @@ void UserListModule_Impl::_departmentResponse(IN std::string& pbBody)
 					itMap->second = departmentEntity;
 				}				
 			}
-			module::getDatabaseModule()->sqlBatchInsertDepartmentInfos(m_mapDepartment);//���沿����Ϣ
-			module::getSysConfigModule()->saveDepartmentInfoLatestUpdateTime(time);//�������һ�θ���ʱ��
+			module::getDatabaseModule()->sqlBatchInsertDepartmentInfos(m_mapDepartment);//保存部门信息
+			module::getSysConfigModule()->saveDepartmentInfoLatestUpdateTime(time);//保存最后一次更新时间
 		}
 	}
 }
 
-void UserListModule_Impl::_recentlistResponse(IN string& pbBody)//�����ϵ��Ⱥ��Ϣ
+void UserListModule_Impl::_recentlistResponse(IN string& pbBody)//最近联系人群信息
 {	
 	IM::Buddy::IMRecentContactSessionRsp imRecentContactSessionRsp;
 	if (!imRecentContactSessionRsp.ParseFromString(pbBody))
@@ -277,7 +277,7 @@ void UserListModule_Impl::_recentlistResponse(IN string& pbBody)//�����
 		if (recentSessionInfo.updatedTime > Globaltime)
 		{
 			module::getSessionModule()->setGlobalUpdateTime(recentSessionInfo.updatedTime);
-            //�����������Ļ�����Ҫ�������������Ϣ
+            //如果是讨论组的话，需要更新讨论组的信息
             if (IM::BaseDefine::SessionType::SESSION_TYPE_GROUP == recentSessionInfo.sessionType)
             {
                 LOG__(APP, _T("discs group update:%d"), contactSessionInfo.session_id());
@@ -304,7 +304,7 @@ void UserListModule_Impl::_userStatusNotify(IN string& pbBody)
 	}
 	IM::BaseDefine::UserStat userStat = imUserStatNotify.user_stat();
 	std::string sid = util::uint32ToString(userStat.user_id());
-	LOG__(DEBG, _T("IMUserStatNotify,sid=%s,status=%d"), util::stringToCString(sid), userStat.status());//������־����ʱ����ӡ
+	LOG__(DEBG, _T("IMUserStatNotify,sid=%s,status=%d"), util::stringToCString(sid), userStat.status());//扰乱日志，暂时不打印
 	module::UserInfoEntityMap::iterator itUser = m_mapUsers.find(sid);
 	if (itUser != m_mapUsers.end())
 	{
@@ -339,14 +339,14 @@ void UserListModule_Impl::_usersInfoResponse(IN string& pbBody)
 		userInfoEntity.user_domain = userInfo.user_domain();
 		userInfoEntity.telephone = userInfo.user_tel();
 		userInfoEntity.status = userInfo.status();
-        userInfoEntity.signature = userInfo.sign_info();//����ǩ��
+        userInfoEntity.signature = userInfo.sign_info();//个性签名
 		if (userInfoEntity.sId != module::getSysConfigModule()->userID())
 		{
 			CAutoLock lock(&m_lock);
 			m_mapUsers[userInfoEntity.sId] = userInfoEntity;
 		}
-		_downloadAvatarImgBySId(sId);//�����û���ͷ��
-		_pushUserIdToDepartment(userInfoEntity.sId, userInfoEntity.department);//���ɲ�����Ϣ
+		_downloadAvatarImgBySId(sId);//更新用户的头像
+		_pushUserIdToDepartment(userInfoEntity.sId, userInfoEntity.department);//生成部门信息
 	}
 	module::getDatabaseModule()->sqlBatchInsertUserInfos(m_mapUsers);
 	_tcpGetAllUsersOnlineStatus();
@@ -369,11 +369,11 @@ void UserListModule_Impl::_removeSessionResponse(IN string& pbBody)
 		return;
 	}
 	
-	if (IM::BaseDefine::SessionType::SESSION_TYPE_GROUP == imRemoveSessionRsp.session_type())//Ⱥ
+	if (IM::BaseDefine::SessionType::SESSION_TYPE_GROUP == imRemoveSessionRsp.session_type())//群
 	{
 		
 	}
-	else if (IM::BaseDefine::SessionType::SESSION_TYPE_SINGLE == imRemoveSessionRsp.session_type())//��
+	else if (IM::BaseDefine::SessionType::SESSION_TYPE_SINGLE == imRemoveSessionRsp.session_type())//人
 	{
 
 	}
@@ -391,7 +391,7 @@ void UserListModule_Impl::getAllUsersInfo(module::UserInfoEntityMap& MapUsers)co
 BOOL UserListModule_Impl::getUserInfoBySId(IN std::string sid, OUT module::UserInfoEntity& userInfo)
 {
 	CAutoLock lock(&m_lock);
-	//��˵map��find֮ǰ��Ҫ�п�
+	//据说map在find之前需要判空
 	if (m_mapUsers.empty())
 		return FALSE;
 	module::UserInfoEntityMap::iterator iter = m_mapUsers.find(sid);
@@ -411,7 +411,7 @@ UInt8 UserListModule_Impl::getMyLineStatus()
 {
 	module::UserInfoEntity myInfo;
 	getMyInfo(myInfo);
-	if (myInfo.isOnlne())//TODO:�뿪��״̬Ҳ��Ҫ��������״̬��
+	if (myInfo.isOnlne())//TODO:离开的状态也是要考虑网络状态的
 	{
 		return IM::BaseDefine::USER_STATUS_ONLINE;
 	}
@@ -461,7 +461,7 @@ void UserListModule_Impl::tcpGetUserOnlieStatus(const module::UserInfoEntityVec&
 		return;
 	}
 
-	const UInt32 nMax = 300;		//��𣺷�����ȡ,һ���Ի�ȡ̫���ʧ��
+	const UInt32 nMax = 300;		//大佛：分批获取,一次性获取太多会失败
 	int nTime = static_cast<int>(VecId.size() / nMax);
 	if (nTime > 0)
 	{
@@ -498,7 +498,7 @@ void UserListModule_Impl::_tcpGetAllUsersOnlineStatus(void)
 	module::UserInfoEntityVec allUserVec;
 	for (auto& kvp : m_mapUsers)
 	{
-		//if (kvp.second.sId != module::getSysConfigModule()->userID())//�Լ���״̬�Լ�ά��
+		//if (kvp.second.sId != module::getSysConfigModule()->userID())//自己的状态自己维护
 		{
 			allUserVec.push_back(kvp.second.sId);
 		}
@@ -521,7 +521,7 @@ void UserListModule_Impl::tcpGetUserInfo(IN const std::string& sId)
 
 void UserListModule_Impl::tcpGetUsersInfo(IN const module::UserInfoEntityVec& VecUnKnowUserInfo)
 {
-	////һ�����ȡ200������ȡ�����ˣ��ס� ---- ���
+	////一次最多取200，多了取不到了，亲。 ---- 大佛
 	//const UInt32 nMax = 200;
 	//m_tcpGetUserFriendInfoListBackTime = 0;
 	//m_tcpGetUserFriendInfoListTime = static_cast<int>(VecUnKnowUserInfo.size() / nMax);
@@ -590,12 +590,12 @@ void UserListModule_Impl::_pushUserIdToDepartment(const std::string& sId, const 
 {
 	CAutoLock lock(&m_lock);
 	module::DepartmentMap::iterator itDepartment = m_mapDepartment.find(dId);
-	if (itDepartment != m_mapDepartment.end())//�ò����Ѵ���
+	if (itDepartment != m_mapDepartment.end())//该部门已存在
 	{
 		module::DepartmentEntity& entity = itDepartment->second;
 		entity.members.push_back(sId);
 	}
-	else//��ò��Ų�����
+	else//若该部门不存在
 	{
 		module::DepartmentEntity entity;
 		entity.dId = dId;
@@ -612,25 +612,25 @@ void UserListModule_Impl::getSearchUserNameListByShortName(IN const CString& sSh
 
 		CString RealName = userInfo.getRealName();
 
-		if (util::isIncludeChinese(util::cStringToString(sShortName, CP_ACP)))//��������
+		if (util::isIncludeChinese(util::cStringToString(sShortName, CP_ACP)))//检索中文
 		{
 			if (RealName.Find(sShortName) != -1)
 			{
 				nameList.push_back(userInfo.sId);
 			}
 		}
-		else//������ĸ
+		else//检索字母
 		{
 			CString strLowName = sShortName;
 			strLowName.MakeLower();
 			CString firstPY = util::HZ2FirstPY(util::cStringToString(RealName, CP_ACP));
-			if (firstPY.Find(strLowName) != -1)//�ȼ�����ƴ
+			if (firstPY.Find(strLowName) != -1)//先检索简拼
 			{
 				nameList.push_back(userInfo.sId);
 			}
 			else
 			{
-				//CString allPY = util::HZ2AllPY(RealName);//�ټ���ȫƴ
+				//CString allPY = util::HZ2AllPY(RealName);//再检索全拼
 				CString allPY = util::stringToCString(userInfo.user_domain);
 				if (allPY.Find(strLowName) != -1)
 				{
@@ -679,13 +679,13 @@ BOOL UserListModule_Impl::_downloadAvatarImgBySId(IN const std::string& sId)
 		CString csLocalPath = module::getMiscModule()->getDownloadDir() + util::stringToCString(imageEntity.filename);
 		if (!imageEntity.filename.empty() && PathFileExists(csLocalPath))
 		{
-			//���ش��̴���
+			//本地磁盘存在
 			user.avatarLocalPath = util::cStringToString(csLocalPath);
 			user.avatarGrayLocalPath = _getGrayLocalPathFromFilename(imageEntity.filename);
 		}
 		else
 		{
-			//��������ȥ����������
+			//不存在则去服务器下载
 			DownloadAvatarHttpOperation* pOper = new DownloadAvatarHttpOperation(user.sId, user.avatarUrl, TRUE
 				, strFormat, BIND_CALLBACK_1(UserListModule_Impl::onCallbackOperation));
 			module::getHttpPoolModule()->pushHttpOperation(pOper);
@@ -707,14 +707,14 @@ std::string UserListModule_Impl::_getGrayLocalPathFromFilename(std::string& fine
 {
 	CString csFileName = util::stringToCString(finename);
 	CString csGrayAvatarPath = module::getMiscModule()->getDownloadDir() + PREFIX_GRAY_AVATAR + csFileName;
-	//���ش��̴���
+	//本地磁盘存在
 	if (PathFileExists(csGrayAvatarPath))
 	{
 		return util::cStringToString(csGrayAvatarPath);
 	}
 	else
 	{
-		//���������ͼƬ���Ҷȴ�����ұ��浽����
+		//不存在则对图片做灰度处理并且保存到本地
 		CxImage cximage;
 		CString csAvatarPath = module::getMiscModule()->getDownloadDir() + csFileName;
 		bool bSucc = cximage.Load(csAvatarPath);
@@ -753,7 +753,7 @@ BOOL UserListModule_Impl::createUserInfo(IN const module::UserInfoEntity& info)
 		return FALSE;
 	m_mapUsers[info.sId] = info;
 
-	//����ͷ��
+	//下载头像
 	_downloadAvatarImgBySId(info.sId);
 
 	return TRUE;
@@ -784,7 +784,7 @@ BOOL UserListModule_Impl::startup()
 		if (userInfo.sId != module::getSysConfigModule()->userID())
 		{
 			m_mapUsers[userInfo.sId] = userInfo;
-			_pushUserIdToDepartment(userInfo.sId, userInfo.department);//���ɲ�����Ϣ
+			_pushUserIdToDepartment(userInfo.sId, userInfo.department);//生成部门信息
 		}
 	}
 
@@ -792,7 +792,7 @@ BOOL UserListModule_Impl::startup()
 		[=]()
 	{
 		_tcpGetAllUsersOnlineStatus();
-		_downloadAllUserAvatarImg();//�����û���ͷ��
+		_downloadAllUserAvatarImg();//更新用户的头像
 	}
 	);
 	module::getUserListModule()->asynNotifyObserver(module::KEY_USERLIST_UPDATE_DEPARTMENTLIST);
@@ -809,12 +809,12 @@ std::string UserListModule_Impl::randomGetUser(void)
 	CAutoLock lock(&m_lock);
 	for (auto kvp : m_mapUsers)
 	{
-		if (kvp.second.gender != myInfo.gender)//ֻ��ȡ���Լ��Ա�ͬ��
+		if (kvp.second.gender != myInfo.gender)//只获取跟自己性别不同的
 		{
 			allUserVec.push_back(kvp.second.sId);
 		}
 	}
-	//ȡ�����
+	//取随机数
 	std::default_random_engine generator(time(0));
 	std::uniform_int_distribution<int> dis(0, allUserVec.size()-1);
 	auto dice = std::bind(dis, generator);
@@ -839,7 +839,7 @@ void UserListModule_Impl::_changeSignInfoResponse(IN std::string& pbBody)
     {
         LOG__(ERR, _T("result_code isn't succeed:%d"), imChangeSignInfoRsp.result_code());
         module::getUserListModule()->asynNotifyObserver(module::KEY_USERLIST_USERSIGNINFO_CHANGED
-            , module::getSysConfigModule()->userID());//�޸�ʧ�ܣ�
+            , module::getSysConfigModule()->userID());//修改失败？
         return;
     }
     std::string sid = util::uint32ToString(imChangeSignInfoRsp.user_id());
@@ -859,7 +859,7 @@ void UserListModule_Impl::_changeSignInfoResponse(IN std::string& pbBody)
     }
     module::getUserListModule()->asynNotifyObserver(module::KEY_USERLIST_USERSIGNINFO_CHANGED, sid);
 }
-void UserListModule_Impl::_avatarChangeNotify(IN std::string& pbBody)//�޸�ͷ��ǩ��֪ͨ
+void UserListModule_Impl::_avatarChangeNotify(IN std::string& pbBody)//修改头像签名通知
 {
     IM::Buddy::IMAvatarChangedNotify imAvatarChangedNotify;
     if (!imAvatarChangedNotify.ParseFromString(pbBody))
@@ -882,9 +882,9 @@ void UserListModule_Impl::_avatarChangeNotify(IN std::string& pbBody)//�޸��
         userInfo.avatarUrl = sAvatarUrl;
         m_mapUsers[userInfo.sId] = userInfo;
     }
-    _downloadAvatarImgBySId(sid);//����ͷ��
+    _downloadAvatarImgBySId(sid);//下载头像
 }
-void UserListModule_Impl::_signInfoChangedNotify(IN std::string& pbBody)//�޸ĸ���ǩ��֪ͨ
+void UserListModule_Impl::_signInfoChangedNotify(IN std::string& pbBody)//修改个性签名通知
 {
     IM::Buddy::IMSignInfoChangedNotify imSignInfoChangedNotify;
     if (!imSignInfoChangedNotify.ParseFromString(pbBody))
@@ -912,7 +912,7 @@ void UserListModule_Impl::_signInfoChangedNotify(IN std::string& pbBody)//�޸�
 }
 void UserListModule_Impl::tcpChangeMySignInfo(IN const std::string sSignInfo)
 {
-    if (sSignInfo.empty())//�յģ���ȡ��ǩ��
+    if (sSignInfo.empty())//空的，是取消签名
     {
         LOG__(APP, _T("sSignInfo empty"));
     }

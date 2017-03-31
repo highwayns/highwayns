@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2002 Jean-Marc Valin */
+/* Copyright (C) 2002 Jean-Marc Valin */
 /**
    @file math_approx.h
    @brief Various math approximation functions for Speex

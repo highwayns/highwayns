@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SessionManager.cpp 2015\1\8 12:57:31 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -208,7 +208,7 @@ SessionDialog* SessionDialogManager::findSessionDialogBySId(IN const std::string
 	SessionDialog* pChatDialog = 0;
 	if (iterDialog == m_lstSessionDialog.end())
 	{
-		//������
+		//不创建
 		return nullptr;
 	}
 	else

@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      OperationManager.h 2014\12\18 19:14:27 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -54,8 +54,8 @@ private:
 	std::list<Operation*>      m_vecDelayOperations;
 	std::list<Operation*>      m_vecRealtimeOperations;
 
-	std::mutex					m_cvMutex; // ������.
-	std::condition_variable		m_CV; // ��������
+	std::mutex					m_cvMutex; // 互斥锁.
+	std::condition_variable		m_CV; // 条件变量
 
 	std::mutex					m_mutexOperation;
 

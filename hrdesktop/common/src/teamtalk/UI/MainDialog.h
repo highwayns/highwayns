@@ -1,7 +1,7 @@
 ﻿ /*******************************************************************************
  *  @file      MainDialog.h 2014\7\31 15:23:22 $
- *  @author    ���<dafo@mogujie.com>
- *  @brief     ������
+ *  @author    大佛<dafo@mogujie.com>
+ *  @brief     主窗口
  ******************************************************************************/
 
 #ifndef MAINDIALOG_8BE12371_DCA1_4FC5_8E32_D74B82D2399B_H__
@@ -32,7 +32,7 @@ enum BalloonStyle
 
 #define WM_TRAYICON_NOTIFY	WM_USER+1002
 
-const UInt16  TIMER_TRAYEMOT = 1;//ϵͳ������˸timer
+const UInt16  TIMER_TRAYEMOT = 1;//系统托盘闪烁timer
 
 
 class CNotifyIconData : public NOTIFYICONDATA
@@ -102,7 +102,7 @@ public:
 	void MKOForSessionModuleCallBack(const std::string& keyId, MKO_TUPLE_PARAM mkoParam);
 	//@}
 	
-	/**@name ������ͼ����ز���*/
+	/**@name 托盘区图标相关操作*/
 	//@{
 	BOOL InstallIcon(LPCTSTR lpszToolTip, HICON hIcon, UINT nID, BOOL bReInstall = FALSE);
 	BOOL RemoveIcon();
@@ -115,17 +115,17 @@ public:
 	BOOL SetVersion(UINT uVersion);
 	DWORD GetShellVersion(void);
 
-    void _UpdateTotalUnReadMsgCount(void);//�����ܵ�δ������
+    void _UpdateTotalUnReadMsgCount(void);//更新总的未读计数
     void _FreshMySignature(void);
 	/**
-	 * ��ʼϵͳ������˸
+	 * 开始系统托盘闪烁
 	 *
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */	
 	void StartNewMsgTrayEmot();
 	/**
-	* ֹͣϵͳ������˸
+	* 停止系统托盘闪烁
 	*
 	* @return  void
 	* @exception there is no any exception to throw.
@@ -140,11 +140,11 @@ private:
 	CButtonUI*				m_pbtnClose;
 	CButtonUI*				m_pbtnMinMize;
 	CTextUI*				m_ptxtUname;
-    CTextUI*				m_pTextUnreadMsgCount;//�ܵ�δ������
-    CEditUI*	            m_pEditSignature;//����ǩ��
+    CTextUI*				m_pTextUnreadMsgCount;//总的未读计数
+    CEditUI*	            m_pEditSignature;//个性签名
 
 
-	HICON                   m_hIcons[ICON_COUNT];                       //Icon��������	
+	HICON                   m_hIcons[ICON_COUNT];                       //Icon对象数组	
 	CNotifyIconData			m_niData;
 	BOOL					m_bInstalled;
 	BOOL					m_bHidden;

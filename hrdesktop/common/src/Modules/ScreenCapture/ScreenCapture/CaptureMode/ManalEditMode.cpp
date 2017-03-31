@@ -1,7 +1,7 @@
 ﻿
 /******************************************************************************* 
  *  @file      ManalEditMode.cpp 2015\5\5 16:13:13 $
- *  @author    ����<nansong@mogujie.com>
+ *  @author    南松<nansong@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -130,15 +130,15 @@ void ManalEditMode::onMouseMove(__in int x, __in int y)
 		}
 	}
 
-	if (0 == m_iSelectIdx) //����
+	if (0 == m_iSelectIdx) //矩形
 	{
 		onRectangle(x, y);
 	}
-	else if (1 == m_iSelectIdx)//��Բ
+	else if (1 == m_iSelectIdx)//椭圆
 	{
 		onPolyRegion(x, y);
 	}
-	else if (2 == m_iSelectIdx)//���ɻ�
+	else if (2 == m_iSelectIdx)//自由画
 	{
 		onFreeRegion(x, y);
 	}

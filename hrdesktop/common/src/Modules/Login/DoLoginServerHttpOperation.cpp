@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DoLoginServerHttpOperation.cpp 2014\12\23 10:10:54 $
- *  @author    ���<���@mogujie.com>
+ *  @author    大佛<大佛@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -41,7 +41,7 @@ void DoLoginServerHttpOperation::processOpertion()
 	}
 	std::string body = response.getBody();
 	client.killSelf();
-	//json����
+	//json解析
 	try
 	{
 		Json::Reader reader;
@@ -55,7 +55,7 @@ void DoLoginServerHttpOperation::processOpertion()
 			goto End;
 		}
 		int nCode = root.get("code", "").asInt();
-		if (0 == nCode)//��½�ɹ�
+		if (0 == nCode)//登陆成功
 		{
 			LOG__(APP, _T("get msgSvr IP succeed!"));
 			pCfg->msgSevPriorIP = root.get("priorIP", "").asString();

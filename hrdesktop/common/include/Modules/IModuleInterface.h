@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      IModuleInterface.h 2014\12\18 13:37:56 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -25,7 +25,7 @@ NAMESPACE_BEGIN(module)
 typedef std::function<void(std::shared_ptr<void>)> IOperationDelegate;
 
 /**
-* The class <code>�����ص��¼�����Ҫ����������ִ�й�����֪ͨ�ص�</code>
+* The class <code>操作回调事件，主要用于在任务执行过程中通知回调</code>
 *
 */
 class CallbackOperationEvent : public module::IEvent
@@ -52,7 +52,7 @@ private:
 };
 
 /**
-* The class <code>����֪ͨ�ص����첽����</code>
+* The class <code>具有通知回调的异步操作</code>
 *
 */
 class MODULE_CLASS ICallbackOpertaion : public imcore::Operation
@@ -66,7 +66,7 @@ public:
 
 protected:
 	/**
-	* ͬ���ص�
+	* 同步回调
 	*
 	* @param   std::shared_ptr<void> param
 	* @return  void
@@ -78,7 +78,7 @@ protected:
 		m_callback(param);
 	}
 	/**
-	* �첽�ص�������UIEvent
+	* 异步回调，借助UIEvent
 	*
 	* @param   std::shared_ptr<void> param
 	* @return  void
@@ -103,7 +103,7 @@ struct IPduPacketParse
 {
 public:
 	/**
-	* �յ�TcpClient�������İ������ص��ӿ�
+	* 收到TcpClient网络包后的包解析回调接口
 	*
 	* @param   std::auto_ptr<CImPdu> pdu
 	* @return  void

@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DatabaseModule_MessageDB_Impl.cpp 2015\1\6 14:53:10 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -81,7 +81,7 @@ BOOL DatabaseModule_Impl::sqlGetHistoryMessage(IN const std::string& sId, IN con
 			msg.msgType = MESSAGE_TYPE_HISTORY;
 			msg.msgId = query.getIntField(1);
 			msg.msgRenderType = query.getIntField(5);
-			//��������Ϣ�������⴦���content�洢����json��ʽ�ַ���
+			//对语音消息做个特殊处理，content存储的是json格式字符串
 			if (MESSAGE_RENDERTYPE_AUDIO == msg.msgRenderType)
 			{
 				std::string jsonAudioContent = query.getStringField(4);
@@ -91,7 +91,7 @@ BOOL DatabaseModule_Impl::sqlGetHistoryMessage(IN const std::string& sId, IN con
 				{
 					msg.msgAudioTime = (root.get("msgAudioTime", "")).asUInt();
 					msg.content = (root.get("msgAudioId", "")).asString();
-					msg.msgAudioReaded = 1;//��ʷ������ϢĬ��Ϊ�Ѷ�
+					msg.msgAudioReaded = 1;//历史语音消息默认为已读
 				}
 			}
 			else
@@ -103,7 +103,7 @@ BOOL DatabaseModule_Impl::sqlGetHistoryMessage(IN const std::string& sId, IN con
 			msg.talkerSid = query.getStringField(3);
 			msg.msgAudioReaded = TRUE;
 			msgList.push_back(msg);
-			//msgList.insert(msgList.begin(), msg);//��Ҫ
+			//msgList.insert(msgList.begin(), msg);//需要
 			query.nextRow();
 		}
 	}
@@ -174,7 +174,7 @@ BOOL DatabaseModule_Impl::sqlInsertMessage(IN MessageEntity& msg)
 		stmt.bind(1, (Int32)msg.msgId);
 		stmt.bind(2, msg.sessionId.c_str());
 		stmt.bind(3, msg.talkerSid.c_str());
-		//��������Ϣ�������⴦���content�洢����json��ʽ�ַ���
+		//对语音消息做个特殊处理，content存储的是json格式字符串
 		if (MESSAGE_RENDERTYPE_AUDIO == msg.msgRenderType)
 		{
 			Json::Value root;
@@ -237,7 +237,7 @@ BOOL DatabaseModule_Impl::sqlBatchInsertMessage(IN std::list<MessageEntity>& msg
 		for (; iter != msgList.end(); ++iter)
 		{
 			MessageEntity msg = *iter;
-			if (msg.msgId <= 0)//�Ƿ���msg��Ϣ���ô洢
+			if (msg.msgId <= 0)//非法的msg消息不用存储
 			{
 				std::string msgDecrptyCnt;
 				DECRYPT_MSG(msg.content,msgDecrptyCnt);
@@ -249,7 +249,7 @@ BOOL DatabaseModule_Impl::sqlBatchInsertMessage(IN std::list<MessageEntity>& msg
 			stmt.bind(1, (Int32)msg.msgId);
 			stmt.bind(2, msg.sessionId.c_str());
 			stmt.bind(3, msg.talkerSid.c_str());
-			//��������Ϣ�������⴦���content�洢����json��ʽ�ַ���
+			//对语音消息做个特殊处理，content存储的是json格式字符串
 			if (MESSAGE_RENDERTYPE_AUDIO == msg.msgRenderType)
 			{
 				Json::Value root;

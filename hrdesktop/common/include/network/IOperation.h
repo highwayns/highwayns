@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      IOperation.h 2014\7\16 19:10:09 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief	   �첽����ִ�е�λ
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief	   异步操作执行单位
  ******************************************************************************/
 
 #ifndef IOPERATION123_D8CF1B19_B95A_4A75_82FB_7572A1BB9A30_H__
@@ -23,7 +23,7 @@ public:
 	virtual void process() = 0;
 //private:
 	/**
-	* �������������ͷ��Լ�
+	* 必须让容器来释放自己
 	*
 	* @return  void
 	* @exception there is no any exception to throw.

@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      FileTransferSocket.h 2014\8\30 13:31:33 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �ļ�����socket
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     文件传输socket
  ******************************************************************************/
 
 #ifndef FILETRANSFERSOCKET_612C0628_0BB6_4FF0_BE0F_F5DE2C35836D_H__
@@ -35,7 +35,7 @@ private:
 };
 
 /**
-* The class <code>�ļ�����socket</code>
+* The class <code>文件传输socket</code>
 *
 */
 class FileTransferSocket :public ITcpSocketCallback
@@ -50,11 +50,11 @@ public:
     void sendPacket(IN UInt16 moduleId, IN UInt16 cmdId,IN google::protobuf::MessageLite* pbBody);
 
 private:
-	//��������
+	//创建连接
 	virtual BOOL connect(const CString &linkaddr, UInt16 port);
 	virtual BOOL shutdown();
 
-	//������
+	//心跳包
 	virtual void startHeartbeat();
 	virtual void stopHeartbeat();
 
@@ -65,7 +65,7 @@ private:
 
 
 private:
-	/**@name �������˲��*/
+	/**@name 服务器端拆包*/
 	//@{
     void _fileLoginResponse(IN std::string& body);
     void _filePullDataReqResponse(IN std::string& body);

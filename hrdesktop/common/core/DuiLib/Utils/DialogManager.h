@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      DialogManager.h 2014\9\9 10:51:47 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     duilib���ڹ�����
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     duilib窗口管理器
  ******************************************************************************/
 
 #ifndef DIALOGMANAGER_1119417E_2736_419F_B096_964E2676382E_H__
@@ -14,7 +14,7 @@
 NAMESPACE_BEGIN(DuiLib)
 
 /**
- * The class <code>duilib���ڹ�����</code> 
+ * The class <code>duilib窗口管理器</code> 
  *
  */
 class UILIB_API DialogManager

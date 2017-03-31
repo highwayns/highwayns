@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DatabaseModule_GroupInfoDB_Impl.cpp 2014\12\30 16:12:41 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     group info db manage
  ******************************************************************************/
 
@@ -22,10 +22,10 @@ namespace
 		"    [desc]							TEXT DEFAULT NULL,"						//3.group descripe
 		"    [avatarUrl]					TEXT DEFAULT NULL,"						//4.group avatar url path
 		"    [creatorId]					TEXT DEFAULT NULL,"						//5.group creator user id
-		"    [type]							INTEGER DEFAULT 2,"						//6.group type,1���̶�Ⱥ 2,������
+		"    [type]							INTEGER DEFAULT 2,"						//6.group type,1，固定群 2,讨论组
 		"    [version]						INTEGER DEFAULT 0,"						//7.group info version
 		"    [lastUpdateTime]				INTEGER DEFAULT 0,"						//8.last update time
-		"    [shieldStatus]					INTEGER DEFAULT 0,"						//9.Ⱥ��Ϣ�����Ƿ����� 0: ������ 1: ����
+		"    [shieldStatus]					INTEGER DEFAULT 0,"						//9.群消息推送是否屏蔽 0: 不屏蔽 1: 屏蔽
 		"    [memberlist]					TEXT NOT NULL,"							//10.group member list which storage by json format
 		"    [reserve1]                     TEXT DEFAULT NULL,"
 		"    [reserve2]                     INTEGER DEFAULT NULL,"

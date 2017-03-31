@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #ifndef DUILIBEX_DLL
 	#define DUILIBEX_API		__declspec( dllimport )

@@ -266,7 +266,7 @@ bool CxImageGIF::Decode(CxFile *fp)
 					previousFrame->SetRetreiveAllFrames(false);
 				}
 
-				//hoodlum1980�޸���CXImage�Ĵ��룬Ϊ�˼�������֡��2010-1-28 23:49:32
+				//hoodlum1980修改了CXImage的代码，为了加载所有帧！2010-1-28 23:49:32
 				if (!info.bGetAllFrames && info.nFrame==iImage) bContinue=false; 
 				else iImage++;
 
@@ -293,7 +293,7 @@ bool CxImageGIF::Decode(CxFile *fp)
 
 	delete previousFrame;
 
-	//��ʵ��ͼ�����ݿ�Ϊָ����nFrame��
+	//令实际图像数据块为指定的nFrame！
 	//if(info.bGetAllFrames && info.nFrame < info.nNumFrames && ppFrames)
 	//{
 	//	info.pImage = (ppFrames[info.nFrame]->info.pImage);

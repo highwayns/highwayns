@@ -1,4 +1,4 @@
-﻿// GifSmileyCtrl.cpp : Implementation of CGifSmileyCtrl
+// GifSmileyCtrl.cpp : Implementation of CGifSmileyCtrl
 #include "stdafx.h"
 #include "GifSmileyCtrl.h"
 #include "tom.h"

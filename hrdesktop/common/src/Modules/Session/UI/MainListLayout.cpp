@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MainListLayout.cpp 2014\8\4 10:15:46 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -77,10 +77,10 @@ void MainListLayout::DoInit()
 	m_GroupList = static_cast<CGroupsTreelistUI*>(m_pManager->FindSubControlByName(this, _T("groupsList")));
 	m_UIRecentConnectedList = static_cast<CUIRecentSessionList*>(m_pManager->FindSubControlByName(this, _T("recentlyList")));
 
-	//Ĭ��ѡ�������ϵ���б�
+	//默认选中最近联系人列表
 	m_Tab->SelectItem(2);
 
-	//����ҵ��ģ��ı��ػ����ݼ���
+	//所有业务模块的本地化数据加载
 	imcore::IMLibCoreStartOperationWithLambda(
 		[]()
 	{
@@ -99,7 +99,7 @@ void MainListLayout::DoInit()
 			LOG__(ERR, _T("session module local db datas start failed!"));
 		}
 		LOG__(APP, _T("session module local db datas start done"));
-		//��ȡ�����ϵ�Ự
+		//获取最近联系会话
 		UInt32 updateTime = module::getSessionModule()->getGlobalUpdateTime();
 		LOG__(APP, _T("IMRecentContactSessionReq , local update time = %d"), updateTime);
 		IM::Buddy::IMRecentContactSessionReq imRecentContactSessionReq;
@@ -117,7 +117,7 @@ void MainListLayout::_LoadAllDepartment()
 	m_EAuserTreelist->RemoveAll();
 	const module::DepartmentMap mapDeparments
 		= module::getUserListModule()->getAllDepartments();
-	std::vector<module::DepartmentEntity> vecDepart;//����õĲ���
+	std::vector<module::DepartmentEntity> vecDepart;//排序好的部门
 	for (auto dep : mapDeparments)
 	{
 		vecDepart.push_back(dep.second);
@@ -130,7 +130,7 @@ void MainListLayout::_LoadAllDepartment()
 	for (auto depart : vecDepart)
 	{
 		EAUserTreeListItemInfo item;
-		//item.id = util::stringToCString(depart.dId);//������Ϣ���ô洢id������˵��ж�
+		//item.id = util::stringToCString(depart.dId);//部门信息不用存储id，方便菜单判断
 		item.folder = true;
 		item.empty = false;
 		item.nickName = depart.name;
@@ -195,7 +195,7 @@ void MainListLayout::_AddGroupList()
 			}
 		}
 	}
-	//TODO չ��Ⱥ�б�
+	//TODO 展开群列表
 	//if (m_GroupList->CanExpand(rootParent))
 	//{
 	//	m_GroupList->SetChildVisible(rootParent, true);
@@ -241,7 +241,7 @@ void MainListLayout::_AddDiscussGroupList()
 			}
 		}
 	}
-	//TODO չ���������б�
+	//TODO 展开讨论组列表
 	//if (m_GroupList->CanExpand(rootParent))
 	//{
 	//	m_GroupList->SetChildVisible(rootParent, true);
@@ -284,7 +284,7 @@ void MainListLayout::_AddRecentSessionListToUI()
 					m_UIRecentConnectedList->AddNode(item, NULL);
 				}		
 			}
-			else//İ��Ⱥ,��İ��Ⱥ��ȡ��Ϣ������
+			else//陌生群,走陌生群获取信息的流程
 			{
 				LOG__(APP, _T("Can't get the GroupInfoEntity,Need to get Unkonw GroupInfo:%s"), util::stringToCString(sessionEntity.sessionID));
 				std::string sAvatarPath = util::cStringToString(module::getMiscModule()->getDefaultAvatar());
@@ -314,7 +314,7 @@ void MainListLayout::_AddRecentSessionListToUI()
 					m_UIRecentConnectedList->AddNode(item, NULL);
 				}				
 			}
-			else//İ����,��İ���˻�ȡ��Ϣ������
+			else//陌生人,走陌生人获取信息的流程
 			{
 				LOG__(APP, _T("Can't get the UserInfoEntity:%s"), util::stringToCString(sessionEntity.sessionID));
 				std::string sAvatarPath = util::cStringToString(module::getMiscModule()->getDefaultAvatar());
@@ -327,7 +327,7 @@ void MainListLayout::_AddRecentSessionListToUI()
 		}
 		m_UIRecentConnectedList->UpdateItemConentBySId(sessionEntity.sessionID);
 	}
-	//��ȡδ֪��ϵ�ˡ�Ⱥ
+	//获取未知联系人、群
 	module::getGroupListModule()->tcpGetGroupsInfo(UnKnowGroupVec);
 	module::getUserListModule()->tcpGetUsersInfo(UnKnowUserVec);
 }
@@ -337,7 +337,7 @@ void MainListLayout::_GroupMembersChanged(std::shared_ptr<void> pMembers)
 	std::tuple<UInt32, std::list<std::string>>* pTuple = (std::tuple<UInt32, std::list<std::string>>*)pMembers.get();
 	BOOL bChangeType = std::get<0>(*pTuple);
 	std::list<std::string>& memberList = std::get<1>(*pTuple);
-	//TODO ����Ⱥ��Ա�б�
+	//TODO 更新群成员列表
 }
 void MainListLayout::_NewMsgUpdate(std::string& sId)
 {
@@ -348,7 +348,7 @@ void MainListLayout::_NewMsgUpdate(std::string& sId)
 		return;
 	}	
 
-	if (m_UIRecentConnectedList)//���������ϵ���б�
+	if (m_UIRecentConnectedList)//更新最近联系人列表
 	{
 		if (!m_UIRecentConnectedList->IsExistSId(sId))
 			m_UIRecentConnectedList->AddNode(sId);
@@ -356,7 +356,7 @@ void MainListLayout::_NewMsgUpdate(std::string& sId)
 			m_UIRecentConnectedList->UpdateItemConentBySId(sId);
 	}
 
-	//�Ự�����Ѿ����ڣ���ʱ��ʾ��Ϣ(������Ϣ���ص�ʱ�򣬿϶�û�д���)
+	//会话窗口已经存在，则即时显示消息(离线消息返回的时候，肯定没有窗口)
 	SessionDialog* pDialog = SessionDialogManager::getInstance()->findSessionDialogBySId(sId);
 	if (pDialog)
 	{
@@ -368,9 +368,9 @@ void MainListLayout::_NewMsgUpdate(std::string& sId)
 		ReceiveMsgManage::getInstance()->frontMessageBySId(sId, msg);
 		if (msg.msgStatusType == MESSAGE_TYPE_RUNTIME)
 		{
-			//����ͼ����˸
+			//托盘图标闪烁
 			module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_TRAY_STARTEMOT);
-			//Ʈ����ʾ
+			//飘窗提示
 			module::TTConfig* pTTConfig = module::getSysConfigModule()->getSystemConfig();
 			if (pTTConfig && pTTConfig->sysBaseFlag & module::BASE_FLAG_NOTIPWHENNEWMSG)
 			{
@@ -378,16 +378,16 @@ void MainListLayout::_NewMsgUpdate(std::string& sId)
 			}
 		}
 	}
-    //������δ������
+    //更新总未读计数
     module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_UPDATE_TOTAL_UNREADMSG_COUNT);
 
-	//��������
+	//播放声音
 	module::getMiscModule()->playSysConfigSound();
 }
 
 void MainListLayout::_NewGroupAdded(std::string& gId)
 {
-	//�൱���յ��˸�Ⱥ����Ϣ
+	//相当于收到了该群的消息
 	_NewMsgUpdate(gId);
 }
 
@@ -401,9 +401,9 @@ void MainListLayout::_NewGroupsUpdate(std::shared_ptr<void> pGroupIDs)
 	std::list<std::string>* p = (std::list<std::string>*)pGroupIDs.get();
 	for (std::string sGroupID : *p)
 	{
-		_UpdateGroupList(sGroupID);//����Ⱥ
+		_UpdateGroupList(sGroupID);//更新群
 
-		if (m_UIRecentConnectedList->IsExistSId(sGroupID))//���������ϵ��
+		if (m_UIRecentConnectedList->IsExistSId(sGroupID))//更新最近联系人
 		{
 			_UpdateRecentSessionItem(sGroupID, module::SESSION_GROUPTYPE);
 		}
@@ -415,7 +415,7 @@ void MainListLayout::_CreatNewDiscussGroupRes(std::string& sId)
 	module::GroupInfoEntity GroupInfo;
 	if (module::getGroupListModule()->getGroupInfoBySId(sId, GroupInfo))
 	{
-		SessionEntityManager::getInstance()->createSessionEntity(GroupInfo.gId);//�����Ự�������ʾ��Ϊϵͳʱ��
+		SessionEntityManager::getInstance()->createSessionEntity(GroupInfo.gId);//创建会话管理，显示的为系统时间
 
 		SessionListItemInfo item;
 		item.folder = false;
@@ -481,7 +481,7 @@ void MainListLayout::_UpdateGroupList(IN const std::string& groupID)
 	module::GroupInfoEntity groupInfo;
 	if (module::getGroupListModule()->getGroupInfoBySId(groupID, groupInfo))
 	{
-		//����UI
+		//更新UI
 		GroupsListItemInfo groupItem;
 		groupItem.folder = false;
 		groupItem.empty = false;

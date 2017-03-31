@@ -352,7 +352,7 @@ TImageInfo* CRenderEngine::LoadImage(STRINGorID bitmap, LPCTSTR type, DWORD mask
 
 	while (!pData)
 	{
-		//������ͼƬ, ��ֱ��ȥ��ȡbitmap.m_lpstrָ���·��
+		//读不到图片, 则直接去读取bitmap.m_lpstr指向的路径
 		HANDLE hFile = ::CreateFile(bitmap.m_lpstr, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, \
 			FILE_ATTRIBUTE_NORMAL, NULL);
 		if( hFile == INVALID_HANDLE_VALUE ) break;
@@ -372,7 +372,7 @@ TImageInfo* CRenderEngine::LoadImage(STRINGorID bitmap, LPCTSTR type, DWORD mask
 	}
 	if (!pData)
 	{
-		//::MessageBox(0, _T("��ȡͼƬ����ʧ�ܣ�"), _T("ץBUG"), MB_OK);
+		//::MessageBox(0, _T("读取图片数据失败！"), _T("抓BUG"), MB_OK);
 		return NULL;
 	}
 
@@ -381,7 +381,7 @@ TImageInfo* CRenderEngine::LoadImage(STRINGorID bitmap, LPCTSTR type, DWORD mask
     pImage = stbi_load_from_memory(pData, dwSize, &x, &y, &n, 4);
     delete[] pData;
 	if( !pImage ) {
-		//::MessageBox(0, _T("����ͼƬʧ��"), _T("ץBUG"), MB_OK);
+		//::MessageBox(0, _T("解析图片失败"), _T("抓BUG"), MB_OK);
 		return NULL;
 	}
 
@@ -399,7 +399,7 @@ TImageInfo* CRenderEngine::LoadImage(STRINGorID bitmap, LPCTSTR type, DWORD mask
     LPBYTE pDest = NULL;
     HBITMAP hBitmap = ::CreateDIBSection(NULL, &bmi, DIB_RGB_COLORS, (void**)&pDest, NULL, 0);
 	if( !hBitmap ) {
-		//::MessageBox(0, _T("CreateDIBSectionʧ��"), _T("ץBUG"), MB_OK);
+		//::MessageBox(0, _T("CreateDIBSection失败"), _T("抓BUG"), MB_OK);
 		return NULL;
 	}
 
@@ -934,8 +934,8 @@ bool CRenderEngine::DrawImageString(HDC hDC, CPaintManagerUI* pManager, const RE
 {
 	if ((pManager == NULL) || (hDC == NULL)) return false;
 
-    // 1��aaa.jpg
-    // 2��file='aaa.jpg' res='' restype='0' dest='0,0,0,0' source='0,0,0,0' corner='0,0,0,0' 
+    // 1、aaa.jpg
+    // 2、file='aaa.jpg' res='' restype='0' dest='0,0,0,0' source='0,0,0,0' corner='0,0,0,0' 
     // mask='#FF0000' fade='255' hole='false' xtiled='false' ytiled='false'
 
     CDuiString sImageName = pStrImage;
@@ -1056,7 +1056,7 @@ void CRenderEngine::DrawColor(HDC hDC, const RECT& rc, DWORD color)
 
 	graphics.FillRectangle(&brush, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
 	
-// ԭ���Ĵ��룬���ı���ɫ������͸��ͨ������͸��ģʽ�������ͼƬ�����ֻ�������⣬���Ը�Ϊgdi+��䱳��ɫ
+// 原来的代码，填充的背景色不包含透明通道，在透明模式下输出的图片和文字会出现问题，所以改为gdi+填充背景色
 // 	if( color <= 0x00FFFFFF ) return;
 // 	if( color >= 0xFF000000 )
 // 	{
@@ -1264,7 +1264,7 @@ void CRenderEngine::DrawText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, LPCTS
 			Gdiplus::RectF bounds;
 			graphics.MeasureString(pstrText, -1, &font, rectF, &stringFormat, &bounds);
 
-			// MeasureString���ڼ����������һ����
+			// MeasureString存在计算误差，这里加一像素
 			rc.bottom = rc.top + (long)bounds.Height + 1;
 			rc.right = rc.left + (long)bounds.Width + 1;
 		}
@@ -1288,8 +1288,8 @@ void CRenderEngine::DrawText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, LPCTS
 
 void CRenderEngine::DrawHtmlText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, LPCTSTR pstrText, DWORD dwTextColor, RECT* prcLinks, CDuiString* sLinks, int& nLinkRects, UINT uStyle)
 {
-    // ���ǵ���xml�༭����ʹ��<>���Ų����㣬����ʹ��{}���Ŵ���
-    // ֧�ֱ�ǩǶ�ף���<l><b>text</b></l>�������ǽ���Ƕ����Ӧ�ñ���ģ���<l><b>text</l></b>��
+    // 考虑到在xml编辑器中使用<>符号不方便，可以使用{}符号代替
+    // 支持标签嵌套（如<l><b>text</b></l>），但是交叉嵌套是应该避免的（如<l><b>text</l></b>）
     // The string formatter supports a kind of "mini-html" that consists of various short tags:
     //
     //   Bold:             <b>text</b>
@@ -1375,7 +1375,7 @@ void CRenderEngine::DrawHtmlText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, L
     bool bInSelected = false;
     int iLineLinkIndex = 0;
 
-    // �Ű�ϰ����ͼ�ĵײ����룬����ÿ�л��ƶ�Ҫ���������ȼ���߶ȣ��ٻ���
+    // 排版习惯是图文底部对齐，所以每行绘制都要分两步，先计算高度，再绘制
     CStdPtrArray aLineFontArray;
     CStdPtrArray aLineColorArray;
     CStdPtrArray aLinePIndentArray;
@@ -1384,7 +1384,7 @@ void CRenderEngine::DrawHtmlText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, L
     bool bLineInLink = false;
     bool bLineInSelected = false;
     int cyLineHeight = 0;
-    bool bLineDraw = false; // �еĵڶ��׶Σ�����
+    bool bLineDraw = false; // 行的第二阶段：绘制
     while( *pstrText != _T('\0') ) {
         if( pt.x >= rc.right || *pstrText == _T('\n') || bLineEnd ) {
             if( *pstrText == _T('\n') ) pstrText++;
@@ -1497,7 +1497,7 @@ void CRenderEngine::DrawHtmlText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, L
                     while( *pstrText > _T('\0') && *pstrText <= _T(' ') ) pstrText = ::CharNext(pstrText);
                     LPCTSTR pstrTemp = pstrText;
                     int iFont = (int) _tcstol(pstrText, const_cast<LPTSTR*>(&pstrText), 10);
-                    //if( isdigit(*pstrText) ) { // debug�汾�������쳣
+                    //if( isdigit(*pstrText) ) { // debug版本会引起异常
                     if( pstrTemp != pstrText ) {
                         TFontInfo* pFontInfo = pManager->GetFontInfo(iFont);
                         aFontArray.Add(pFontInfo);
@@ -1784,7 +1784,7 @@ void CRenderEngine::DrawHtmlText(HDC hDC, CPaintManagerUI* pManager, RECT& rc, L
                     if( pTm->tmItalic && pFontInfo->bItalic == false ) {
                         ABC abc;
                         ::GetCharABCWidths(hDC, _T(' '), _T(' '), &abc);
-                        pt.x += abc.abcC / 2; // ������һ��б����ŵ�����, ��ȷ����Ӧ����http://support.microsoft.com/kb/244798/en-us
+                        pt.x += abc.abcC / 2; // 简单修正一下斜体混排的问题, 正确做法应该是http://support.microsoft.com/kb/244798/en-us
                     }
                     pTm = &pFontInfo->tm;
                     ::SelectObject(hDC, pFontInfo->hFont);
@@ -2022,9 +2022,9 @@ SIZE CRenderEngine::GetTextSize( HDC hDC, CPaintManagerUI* pManager , LPCTSTR ps
 
 void CRenderEngine::CheckAlphaColor(DWORD& dwColor)
 {
-	//RestoreAlphaColor��Ϊ0x00000000��������͸������������GDI���Ƶ��µ�
-	//������GDI�����в�����0xFF000000�����ɫֵ�����ڴ������������RGB(0,0,1)
-	//RGB(0,0,1)��RGB(0,0,0)���ѷֳ���
+	//RestoreAlphaColor认为0x00000000是真正的透明，其它都是GDI绘制导致的
+	//所以在GDI绘制中不能用0xFF000000这个颜色值，现在处理是让它变成RGB(0,0,1)
+	//RGB(0,0,1)与RGB(0,0,0)很难分出来
 	if((0x00FFFFFF & dwColor) == 0)
 	{
 		dwColor += 1;

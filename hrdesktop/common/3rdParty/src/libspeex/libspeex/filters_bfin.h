@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2005 Analog Devices */
+/* Copyright (C) 2005 Analog Devices */
 /**
    @file filters_bfin.h
    @brief Various analysis/synthesis filters (Blackfin version)

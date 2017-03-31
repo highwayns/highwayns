@@ -178,11 +178,11 @@ namespace DuiLib
 	}
 
 		//************************************
-	// ��������: AddAt
-	// ��������: bool
-	// ������Ϣ: CControlUI * pControl
-	// ������Ϣ: int iIndex				�ò�������Ե�ǰ�ڵ��µ��ֵ������������б���ͼ����
-	// ����˵��: TreeNodeָ������λ�ò����ӽڵ�(edit by joe 2014/7/28)
+	// 函数名称: AddAt
+	// 返回类型: bool
+	// 参数信息: CControlUI * pControl
+	// 参数信息: int iIndex				该参数仅针对当前节点下的兄弟索引，并非列表视图索引
+	// 函数说明: TreeNode指定索引位置插入子节点(edit by joe 2014/7/28)
 	//************************************
 	bool CTreeNodeUI::AddAt( CControlUI* pControl, int iIndex )
 	{
@@ -192,7 +192,7 @@ namespace DuiLib
         if(_tcsicmp(pControl->GetClass(), _T("TreeNodeUI")) != 0)
             return false;
 
-		if (!GetFolderButton()->IsSelected())    //add by��Redrain   2014.8.8
+		if (!GetFolderButton()->IsSelected())    //add by：Redrain   2014.8.8
 		{
 			m_pManager->SendNotify(this, DUI_MSGTYPE_ITEMDBCLICK);
 		}
@@ -321,7 +321,7 @@ namespace DuiLib
 		if (_tcsicmp(_pTreeNodeUI->GetClass(), _T("TreeNodeUI")) != 0)
 			return false;
 
-		if (!GetFolderButton()->IsSelected())    //add by��Redrain   2014.8.8
+		if (!GetFolderButton()->IsSelected())    //add by：Redrain   2014.8.8
 		{
 			m_pManager->SendNotify(this, DUI_MSGTYPE_ITEMDBCLICK);
 		}
@@ -621,11 +621,11 @@ namespace DuiLib
 	}
 
 	//************************************
-	// ��������: AddAt
-	// ��������: long
-	// ������Ϣ: CTreeNodeUI * pControl
-	// ������Ϣ: int iIndex
-	// ����˵��: �÷������Ὣ������Ľڵ������λ�������������Ľڵ�Ϊ�Ǹ��ڵ㣬��ʹ��AddAt(CTreeNodeUI* pControl,CTreeNodeUI* _IndexNode) ����
+	// 函数名称: AddAt
+	// 返回类型: long
+	// 参数信息: CTreeNodeUI * pControl
+	// 参数信息: int iIndex
+	// 函数说明: 该方法不会将待插入的节点进行缩位处理，若打算插入的节点为非根节点，请使用AddAt(CTreeNodeUI* pControl,CTreeNodeUI* _IndexNode) 方法
 	//************************************
 	long CTreeViewUI::AddAt( CTreeNodeUI* pControl, int iIndex )
 	{
@@ -702,10 +702,10 @@ namespace DuiLib
 	}
 
 	//************************************
-	// ��������: Remove
-	// ��������: bool
-	// ������Ϣ: CTreeNodeUI * pControl
-	// ����˵��: pControl �����Լ��µ����нڵ㽫��һ���Ƴ�
+	// 函数名称: Remove
+	// 返回类型: bool
+	// 参数信息: CTreeNodeUI * pControl
+	// 函数说明: pControl 对象以及下的所有节点将被一并移除
 	//************************************
 	bool CTreeViewUI::Remove( CTreeNodeUI* pControl )
 	{
@@ -725,10 +725,10 @@ namespace DuiLib
 	}
 
 	//************************************
-	// ��������: RemoveAt
-	// ��������: bool
-	// ������Ϣ: int iIndex
-	// ����˵��: iIndex �����Լ��µ����нڵ㽫��һ���Ƴ�
+	// 函数名称: RemoveAt
+	// 返回类型: bool
+	// 参数信息: int iIndex
+	// 函数说明: iIndex 索引以及下的所有节点将被一并移除
 	//************************************
 	bool CTreeViewUI::RemoveAt( int iIndex )
 	{
