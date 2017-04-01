@@ -28,5 +28,10 @@ namespace highwayns
             return false;
         }
 
+        private void btnTranslate_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
     }
 }
