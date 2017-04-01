@@ -32,6 +32,12 @@
             this.txtPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTranslate = new System.Windows.Forms.Button();
+            this.txtExt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnGetTranslate = new System.Windows.Forms.Button();
+            this.btnSelectMiddleFile = new System.Windows.Forms.Button();
+            this.txtMiddleFile = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -42,6 +48,7 @@
             this.btnSelect.TabIndex = 6;
             this.btnSelect.Text = "...";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // txtPath
             // 
@@ -61,7 +68,7 @@
             // 
             // btnTranslate
             // 
-            this.btnTranslate.Location = new System.Drawing.Point(50, 126);
+            this.btnTranslate.Location = new System.Drawing.Point(419, 166);
             this.btnTranslate.Name = "btnTranslate";
             this.btnTranslate.Size = new System.Drawing.Size(75, 23);
             this.btnTranslate.TabIndex = 7;
@@ -69,11 +76,70 @@
             this.btnTranslate.UseVisualStyleBackColor = true;
             this.btnTranslate.Click += new System.EventHandler(this.btnTranslate_Click);
             // 
+            // txtExt
+            // 
+            this.txtExt.Location = new System.Drawing.Point(101, 93);
+            this.txtExt.Name = "txtExt";
+            this.txtExt.Size = new System.Drawing.Size(338, 19);
+            this.txtExt.TabIndex = 9;
+            this.txtExt.Text = "cpp,c,hpp,h,ini,xml";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(48, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 12);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "ext";
+            // 
+            // btnGetTranslate
+            // 
+            this.btnGetTranslate.Location = new System.Drawing.Point(50, 166);
+            this.btnGetTranslate.Name = "btnGetTranslate";
+            this.btnGetTranslate.Size = new System.Drawing.Size(84, 23);
+            this.btnGetTranslate.TabIndex = 10;
+            this.btnGetTranslate.Text = "GetTranslate";
+            this.btnGetTranslate.UseVisualStyleBackColor = true;
+            this.btnGetTranslate.Click += new System.EventHandler(this.btnGetTranslate_Click);
+            // 
+            // btnSelectMiddleFile
+            // 
+            this.btnSelectMiddleFile.Location = new System.Drawing.Point(446, 122);
+            this.btnSelectMiddleFile.Name = "btnSelectMiddleFile";
+            this.btnSelectMiddleFile.Size = new System.Drawing.Size(48, 23);
+            this.btnSelectMiddleFile.TabIndex = 13;
+            this.btnSelectMiddleFile.Text = "...";
+            this.btnSelectMiddleFile.UseVisualStyleBackColor = true;
+            this.btnSelectMiddleFile.Click += new System.EventHandler(this.btnSelectMiddleFile_Click);
+            // 
+            // txtMiddleFile
+            // 
+            this.txtMiddleFile.Location = new System.Drawing.Point(115, 122);
+            this.txtMiddleFile.Name = "txtMiddleFile";
+            this.txtMiddleFile.Size = new System.Drawing.Size(324, 19);
+            this.txtMiddleFile.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(48, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 12);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Middle File";
+            // 
             // FormTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 218);
+            this.Controls.Add(this.btnSelectMiddleFile);
+            this.Controls.Add(this.txtMiddleFile);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnGetTranslate);
+            this.Controls.Add(this.txtExt);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnTranslate);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtPath);
@@ -91,5 +157,11 @@
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTranslate;
+        private System.Windows.Forms.TextBox txtExt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnGetTranslate;
+        private System.Windows.Forms.Button btnSelectMiddleFile;
+        private System.Windows.Forms.TextBox txtMiddleFile;
+        private System.Windows.Forms.Label label3;
     }
 }
