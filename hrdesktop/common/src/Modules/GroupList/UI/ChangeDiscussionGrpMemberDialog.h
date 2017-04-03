@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      ChangeDiscussionGrpMemberDialog.h 2015\1\14 19:38:29 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -52,17 +52,17 @@ private:
 	void _changeResultList(IN const std::string& sid ,IN const BOOL bAdded);
 	void _sendChangeReq();
 private:
-	UIIMList*				m_pListCreatFrom;		//����������Դ�б�	��
-	CListUI*				m_pListGroupMembers;	//���������б�	��
-	CListUI*				m_pListSearchResult;	//��������б�
+	UIIMList*				m_pListCreatFrom;		//讨论组数据源列表	左
+	CListUI*				m_pListGroupMembers;	//讨论组结果列表	右
+	CListUI*				m_pListSearchResult;	//搜索结果列表
 	CEditUI*				m_editGroupName;
 	CVerticalLayoutUI*		m_searchePanel;
-	CEditUI*				m_editSearch;			//������
-	CTextUI*				m_TextaddNums;			//�Ѿ����˶�����
-	std::string				m_currentSessionId;		//�ỰId
+	CEditUI*				m_editSearch;			//搜索框
+	CTextUI*				m_TextaddNums;			//已经加了多少人
+	std::string				m_currentSessionId;		//会话Id
 
-	std::list<std::string>  m_addedUsers;	//���ӵ��û�
-	std::list<std::string>  m_deleteUsers;	//ɾ�����û�
+	std::list<std::string>  m_addedUsers;	//增加的用户
+	std::list<std::string>  m_deleteUsers;	//删除的用户
 };
 /******************************************************************************/
 #endif// CHANGEDISCUSSIONGRPMEMBERDIALOG_66dc2707-07bd-4d1e-be03-d3da670c1e13_H__

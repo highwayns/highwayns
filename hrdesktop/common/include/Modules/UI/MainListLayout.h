@@ -1,6 +1,6 @@
 ﻿ /*******************************************************************************
  *  @file      MainListLayout.h 2014\8\4 10:15:42 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -64,8 +64,8 @@ private:
 	void _NewGroupAdded(std::string& gId);
 	void _NewGroupsUpdate(std::shared_ptr<void> pGroupIDs);
 	void _GroupMembersChanged(std::shared_ptr<void> pMembers);
-	void _NewMsgUpdate(std::string& sId);			//�յ�����Ϣ����
-	void _CreatNewDiscussGroupRes(std::string& sId);//�����µ�������
+	void _NewMsgUpdate(std::string& sId);			//收到新消息更新
+	void _CreatNewDiscussGroupRes(std::string& sId);//创建新的讨论组
 
 	void _UpdateRecentSessionItem(IN const std::string& sessionId, IN const UInt32 sessionType);
 	void _UpdateGroupList(IN const std::string& groupID);

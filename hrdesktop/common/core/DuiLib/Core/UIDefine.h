@@ -1,5 +1,5 @@
 ﻿#pragma once
-//////////////BEGIN��Ϣӳ��궨��////////////////////////////////////////////////////
+//////////////BEGIN消息映射宏定义////////////////////////////////////////////////////
 ///
 
 namespace DuiLib
@@ -27,7 +27,7 @@ typedef struct tagTNotifyUI
 } TNotifyUI;
 
 class CNotifyPump;
-typedef void (CNotifyPump::*DUI_PMSG)(TNotifyUI& msg);  //ָ������
+typedef void (CNotifyPump::*DUI_PMSG)(TNotifyUI& msg);  //指针类型
 
 union DuiMessageMapFunctions
 {
@@ -36,7 +36,7 @@ union DuiMessageMapFunctions
 	void (CNotifyPump::*pfn_Notify_vn)(TNotifyUI&);
 };
 
-//����������Ϣ����
+//定义所有消息类型
 //////////////////////////////////////////////////////////////////////////
 
 #define DUI_MSGTYPE_MENU                   (_T("menu"))
@@ -92,16 +92,16 @@ struct DUI_MSGMAP
 	const DUI_MSGMAP_ENTRY* lpEntries;
 };
 
-//�ṹ����
-struct DUI_MSGMAP_ENTRY //����һ���ṹ�壬�������Ϣ��Ϣ
+//结构定义
+struct DUI_MSGMAP_ENTRY //定义一个结构体，来存放消息信息
 {
-	CDuiString sMsgType;          // DUI��Ϣ����
-	CDuiString sCtrlName;         // �ؼ�����
-	UINT       nSig;              // ��Ǻ���ָ������
-	DUI_PMSG   pfn;               // ָ������ָ��
+	CDuiString sMsgType;          // DUI消息类型
+	CDuiString sCtrlName;         // 控件名称
+	UINT       nSig;              // 标记函数指针类型
+	DUI_PMSG   pfn;               // 指向函数的指针
 };
 
-//����
+//定义
 #ifndef UILIB_STATIC
 #define DUI_DECLARE_MESSAGE_MAP()                                         \
 private:                                                                  \
@@ -122,7 +122,7 @@ protected:                                                                \
 #endif
 
 
-//����������ʼ
+//基类声明开始
 #ifndef UILIB_STATIC
 #define DUI_BASE_BEGIN_MESSAGE_MAP(theClass)                              \
 	const DUI_MSGMAP* PASCAL theClass::_GetBaseMessageMap()               \
@@ -146,7 +146,7 @@ protected:                                                                \
 #endif
 
 
-//����������ʼ
+//子类声明开始
 #ifndef UILIB_STATIC
 #define DUI_BEGIN_MESSAGE_MAP(theClass, baseClass)                        \
 	const DUI_MSGMAP* PASCAL theClass::_GetBaseMessageMap()               \
@@ -170,54 +170,54 @@ protected:                                                                \
 #endif
 
 
-//��������
+//声明结束
 #define DUI_END_MESSAGE_MAP()                                             \
 	{ _T(""), _T(""), DuiSig_end, (DUI_PMSG)0 }                           \
 };                                                                        \
 
 
-//������Ϣ����--ִ�к�����
+//定义消息类型--执行函数宏
 #define DUI_ON_MSGTYPE(msgtype, memberFxn)                                \
 	{ msgtype, _T(""), DuiSig_vn, (DUI_PMSG)&memberFxn},                  \
 
 
-//������Ϣ����--�ؼ�����--ִ�к�����
+//定义消息类型--控件名称--执行函数宏
 #define DUI_ON_MSGTYPE_CTRNAME(msgtype,ctrname,memberFxn)                 \
 	{ msgtype, ctrname, DuiSig_vn, (DUI_PMSG)&memberFxn },                \
 
 
-//����click��Ϣ�Ŀؼ�����--ִ�к�����
+//定义click消息的控件名称--执行函数宏
 #define DUI_ON_CLICK_CTRNAME(ctrname,memberFxn)                           \
 	{ DUI_MSGTYPE_CLICK, ctrname, DuiSig_vn, (DUI_PMSG)&memberFxn },      \
 
 
-//����selectchanged��Ϣ�Ŀؼ�����--ִ�к�����
+//定义selectchanged消息的控件名称--执行函数宏
 #define DUI_ON_SELECTCHANGED_CTRNAME(ctrname,memberFxn)                   \
     { DUI_MSGTYPE_SELECTCHANGED,ctrname,DuiSig_vn,(DUI_PMSG)&memberFxn }, \
 
 
-//����killfocus��Ϣ�Ŀؼ�����--ִ�к�����
+//定义killfocus消息的控件名称--执行函数宏
 #define DUI_ON_KILLFOCUS_CTRNAME(ctrname,memberFxn)                       \
 	{ DUI_MSGTYPE_KILLFOCUS,ctrname,DuiSig_vn,(DUI_PMSG)&memberFxn },     \
 
 
-//����menu��Ϣ�Ŀؼ�����--ִ�к�����
+//定义menu消息的控件名称--执行函数宏
 #define DUI_ON_MENU_CTRNAME(ctrname,memberFxn)                            \
 	{ DUI_MSGTYPE_MENU,ctrname,DuiSig_vn,(DUI_PMSG)&memberFxn },          \
 
 
-//������ؼ������޹ص���Ϣ��
+//定义与控件名称无关的消息宏
 
-  //����timer��Ϣ--ִ�к�����
+  //定义timer消息--执行函数宏
 #define DUI_ON_TIMER()                                                    \
 	{ DUI_MSGTYPE_TIMER, _T(""), DuiSig_vn,(DUI_PMSG)&OnTimer },          \
 
 
 ///
-//////////////END��Ϣӳ��궨��////////////////////////////////////////////////////
+//////////////END消息映射宏定义////////////////////////////////////////////////////
 
 
-//////////////BEGIN�ؼ����ƺ궨��//////////////////////////////////////////////////
+//////////////BEGIN控件名称宏定义//////////////////////////////////////////////////
 ///
 
 #define  DUI_CTR_EDIT                            (_T("Edit"))
@@ -269,7 +269,7 @@ protected:                                                                \
 #define  DUI_CTR_LISTCONTAINERELEMENT            (_T("ListContainerElement"))
 
 ///
-//////////////END�ؼ����ƺ궨��//////////////////////////////////////////////////
+//////////////END控件名称宏定义//////////////////////////////////////////////////
 
 
 }// namespace DuiLib

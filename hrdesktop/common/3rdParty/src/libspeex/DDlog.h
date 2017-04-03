@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      DDlog.h 2014\5\5 15:59:54 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @summary   
  ******************************************************************************/
 
@@ -46,13 +46,13 @@ int WriteDebugLog(char *str)
     p = localtime(&timep);
     memset(buf,0,sizeof(buf));
     GetModuleFilePath(logFileName,MAX_PATH);
-    sprintf(buf,"[%d-%d-%d %02d:%02d:%02d] ",(1900+p->tm_year),(1+p->tm_mon), p->tm_mday,p->tm_hour, p->tm_min, p->tm_sec); //����p->tm_wday
+    sprintf(buf,"[%d-%d-%d %02d:%02d:%02d] ",(1900+p->tm_year),(1+p->tm_mon), p->tm_mday,p->tm_hour, p->tm_min, p->tm_sec); //星期p->tm_wday
     strcat(buf,str);
     strcat(buf,"\n");
     strcat(logFileName,LOGFILE);
     fp = fopen(logFileName,"a");
-    fseek(fp,0,2);//SEEK_ENDֵΪ2
-    if( ftell(fp) >= iMax)//���ļ�����,�Ҵ���10M�����ļ�������Ϊ��
+    fseek(fp,0,2);//SEEK_END值为2
+    if( ftell(fp) >= iMax)//若文件存在,且大于10M，则文件长度清为零
     {
         fclose(fp);
         fp = fopen(logFileName,"w+");

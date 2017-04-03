@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2006 Jean-Marc Valin 
+ï»¿/* Copyright (C) 2002-2006 Jean-Marc Valin 
    File: speexdec.c
 
    Redistribution and use in source and binary forms, with or without
@@ -302,7 +302,7 @@ DWORD playSpeexAudio(LPVOID pParam)
         goto end;
     }
         
-    fseek(fin,4L,SEEK_SET);//µ±Ç°¶à¶àĞèÒª½«Ö¸ÕëÒÆ¶¯µ½Àë¿ª¿ªÍ·4¸ö×Ö½Ú´¦
+    fseek(fin,4L,SEEK_SET);//å½“å‰å¤šå¤šéœ€è¦å°†æŒ‡é’ˆç§»åŠ¨åˆ°ç¦»å¼€å¼€å¤´4ä¸ªå­—èŠ‚å¤„
 
     /*Main decoding loop*/
     while (1)
@@ -491,7 +491,7 @@ end:
         COPYDATASTRUCT cpyData = {0};
         cpyData.lpData = (PVOID)inFile;
         cpyData.cbData = (DWORD)strlen(inFile);
-        cpyData.dwData = 0; //±íÊ¾½áÊøÓïÒô²¥·Å
+        cpyData.dwData = 0; //è¡¨ç¤ºç»“æŸè¯­éŸ³æ’­æ”¾
         sendTeamTalkMessage(&cpyData);
     }
 
@@ -517,7 +517,7 @@ int main(int argc, char **argv)
     if ( 0 == waveOutGetNumDevs())
     {
         COPYDATASTRUCT cpyData = {0};
-        cpyData.dwData = 2; //±êÊ¾Î´²åÈëÑïÉùÆ÷Éè±¸
+        cpyData.dwData = 2; //æ ‡ç¤ºæœªæ’å…¥æ‰¬å£°å™¨è®¾å¤‡
         sendTeamTalkMessage(&cpyData);
         WriteDebugLog("No audio device present");
         exit(1);

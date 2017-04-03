@@ -1,7 +1,7 @@
 ﻿
 /******************************************************************************* 
  *  @file      ScreenCaptureModule_Impl.cpp 2015\5\5 15:51:49 $
- *  @author    ����<nansong@mogujie.com>
+ *  @author    南松<nansong@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -29,7 +29,7 @@ BOOL ScreenCaptureModule_Impl::initCapture(__in HWND hWnd)
 
 void ScreenCaptureModule_Impl::onScreenCaptureFinish(__in std::wstring resultPicPath)
 {
-    //1. ���ص����а�
+    //1. 加载到剪切板
     /*CxImage img;
     img.Load(resultPicPath.c_str(), CXIMAGE_SUPPORT_PNG);
     HBITMAP hBitmap = img.MakeBitmap();

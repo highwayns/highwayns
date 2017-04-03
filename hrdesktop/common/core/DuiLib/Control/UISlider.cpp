@@ -96,7 +96,7 @@ namespace DuiLib
 		Invalidate();
 	}
 
-	void CSliderUI::SetValue(int nValue) //2014.7.28 redrain  ��������ڻ�������ʱ�����յ�SetValue��Ӱ�죬���绬���ı����ֵĽ��ȣ�������Ϊ�ⲿһֱ����SetValue���������޷���������
+	void CSliderUI::SetValue(int nValue) //2014.7.28 redrain  当鼠标正在滑动滑块时不会收到SetValue的影响，比如滑动改变音乐的进度，不会因为外部一直调用SetValue而让我们无法滑动滑块
 	{
 		if( (m_uButtonState & UISTATE_CAPTURED) != 0 ) 
 			return;
@@ -112,7 +112,7 @@ namespace DuiLib
 
 		if( event.Type == UIEVENT_BUTTONDOWN || event.Type == UIEVENT_DBLCLICK )
 		{
-			if( IsEnabled() ) {//2014.7.28 redrain ע�͵�ԭ���Ĵ��룬������Щ����������Slider��������굯��ʱ�Ÿı们���λ��
+			if( IsEnabled() ) {//2014.7.28 redrain 注释掉原来的代码，加上这些代码后可以让Slider不是在鼠标弹起时才改变滑块的位置
 				m_uButtonState |= UISTATE_CAPTURED;
 
 				int nValue;
@@ -162,7 +162,7 @@ namespace DuiLib
 				else if( event.ptMouse.y <= m_rcItem.top + m_szThumb.cy / 2  ) nValue = m_nMax;
 				else nValue = m_nMin + (m_nMax - m_nMin) * (m_rcItem.bottom - event.ptMouse.y - m_szThumb.cy / 2 ) / (m_rcItem.bottom - m_rcItem.top - m_szThumb.cy);
 			}
-			if(/*m_nValue !=nValue && 2014.7.28 redrain ���ע�ͺܹؼ�����������������϶������޷�����DUI_MSGTYPE_VALUECHANGED��Ϣ*/nValue>=m_nMin && nValue<=m_nMax)
+			if(/*m_nValue !=nValue && 2014.7.28 redrain 这个注释很关键，是他导致了鼠标拖动滑块无法发出DUI_MSGTYPE_VALUECHANGED消息*/nValue>=m_nMin && nValue<=m_nMax)
 			{
 				m_nValue =nValue;
 				m_pManager->SendNotify(this, DUI_MSGTYPE_VALUECHANGED);
@@ -189,7 +189,7 @@ namespace DuiLib
 		}
 		if( event.Type == UIEVENT_MOUSEMOVE )
 		{
-			if( (m_uButtonState & UISTATE_CAPTURED) != 0 ) {//2014.7.28 redrain ��д�����Ϣ�ж���Slider����DUI_MSGTYPE_VALUECHANGED_MOVE��Ϣ�������ڻ�������Ҳ������Ϣ���������ڸı�����ʱ��һ�߻����Ϳ���һ�߸ı�����
+			if( (m_uButtonState & UISTATE_CAPTURED) != 0 ) {//2014.7.28 redrain 重写这个消息判断让Slider发出DUI_MSGTYPE_VALUECHANGED_MOVE消息，让他在滑动过程也发出消息，比如用在改变音量时，一边滑动就可以一边改变音量
 				if( m_bHorizontal ) {
 					if( event.ptMouse.x >= m_rcItem.right - m_szThumb.cx / 2 ) m_nValue = m_nMax;
 					else if( event.ptMouse.x <= m_rcItem.left + m_szThumb.cx / 2 ) m_nValue = m_nMin;
@@ -253,7 +253,7 @@ namespace DuiLib
 // 			}
 // 		}
 		if( event.Type == UIEVENT_MOUSEENTER )
-		{//2014.7.28 redrain ֻ������ڻ���ķ�Χ�ڲű�ΪUISTATE_HOT
+		{//2014.7.28 redrain 只有鼠标在滑块的范围内才变为UISTATE_HOT
 // 			if( IsEnabled() ) {
 // 	  			m_uButtonState |= UISTATE_HOT;
 // 				Invalidate();

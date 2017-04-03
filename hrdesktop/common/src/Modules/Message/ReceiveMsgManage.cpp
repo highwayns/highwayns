@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      ReceiveMsgManage.cpp 2014\8\7 14:57:37 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -27,8 +27,8 @@ namespace
 	const CString HTML_IMG_IMAGE_TAG
 		= _T("<a href=\"%s\" target=\"_blank\"><img title=\"%s\" src=\"%s\" style=\"max-width:%dpx;\" /></a>");
 	const CString HTML_A_TAG = _T("<a class=\"purple_link\" href=\"%s\" target=\"_blank\">%s</a>");
-	const CString HTML_CHAT2_TAG = _T("<a class=\"blue_link\" href=\"moguim://moguim/:chat2?%s\" target=\"_blank\">@%s</a>");//�滻������
-	const UInt8 MAX_RECEIVEMSG_CNT = 10;	//��Ϣȥ�أ�ÿ���Ự����10����Ϣ
+	const CString HTML_CHAT2_TAG = _T("<a class=\"blue_link\" href=\"moguim://moguim/:chat2?%s\" target=\"_blank\">@%s</a>");//替换成连接
+	const UInt8 MAX_RECEIVEMSG_CNT = 10;	//消息去重，每个会话缓存10条信息
 }
 // -----------------------------------------------------------------------------
 //  ReceiveMsgManage: Public, Constructor
@@ -90,7 +90,7 @@ BOOL ReceiveMsgManage::popMessageBySId(const std::string& sId, MessageEntity& ms
 	if (listChatMsg && !listChatMsg->empty())
 	{
 		msg = listChatMsg->front();
-		if (MSG_TYPE_AUDIO_P2P == msg.msgType && !msg.isReaded())//���������δ����Ϣ,�ȴ�����
+		if (MSG_TYPE_AUDIO_P2P == msg.msgType && !msg.isReaded())//如果是语音未读消息,先存起来
 		{
 			AudioMessageMananger::getInstance()->pushAudioMessageBySId(sId, msg);
 		}
@@ -128,12 +128,12 @@ BOOL ReceiveMsgManage::popMessagesBySId(IN const std::string& sId, OUT SessionMe
 			}
 			if (MESSAGE_TYPE_NONE == status || it->msgStatusType == status)
 			{
-				if (0 == msgId)//��ȡ�ûỰ����������������Ϣ
+				if (0 == msgId)//获取该会话符合条件的所有消息
 				{
 					msgList.push_back(*it);
 					it = listChatMsg->erase(it);
 				}
-				else if (it->msgId <= msgId)//��ȡ���msgId֮ǰ����Ϣ
+				else if (it->msgId <= msgId)//获取这个msgId之前的消息
 				{
 					msgList.push_back(*it);
 					it = listChatMsg->erase(it);
@@ -163,7 +163,7 @@ UInt32 ReceiveMsgManage::getUnReadMsgCountBySId(const std::string& sId)
 		SessionMessage_List& msgList = *listChatMsg;
 		int nUnReadCount = 0;
 		for (MessageEntity msg:msgList)
-		{//�����Լ�������Ϣ�����Ƕ��ͬ���ģ�����Ҫͳ�Ƶ�δ��������
+		{//若是自己发的消息，则是多端同步的，不需要统计到未读计数中
 			if (msg.talkerSid != module::getSysConfigModule()->userID())
 			{
 				++nUnReadCount;
@@ -195,9 +195,9 @@ UInt32 ReceiveMsgManage::getTotalUnReadMsgCount()
 void ReceiveMsgManage::removeAllMessage()
 {
 	CAutoLock lock(&m_lock);
-	//��¼�³����˳�ʱ���е���Ϣ�б�����Ҽ�¼������������Ϊ������Ϣ
+	//记录下程序退出时所有的消息列表，并且记录下来，这个会成为离线消息
 	SessionMessageMap::iterator iterMap = m_mapSessionMsg.begin();
-	LOG__(ERR, _T("MessageMananger unread message trace begin��"));
+	LOG__(ERR, _T("MessageMananger unread message trace begin："));
 	for (; iterMap != m_mapSessionMsg.end(); ++iterMap)
 	{
 		SessionMessage_List msgList;
@@ -239,12 +239,12 @@ void ReceiveMsgManage::parseContent(CString& content, BOOL bFloatForm, Int32 cha
 		content.Replace(_T("\'"), _T("&#039;"));
 		//content.Replace(_T("\n"),_T("<br>"));
 		for (int i = 0; i <= content.GetLength() - 1; i++)
-		if (content.GetAt(i) == 0x0D)//����ǻس�
+		if (content.GetAt(i) == 0x0D)//如果是回车
 		{
 			CString strfront = content.Mid(0, i);
 			CString strBack = content.Mid(i + 1, content.GetLength() - i - 1);
 			content = strfront + _T("<br>") + strBack;
-			i = i + 3;//�滻���ַ���ԭ������3���������Թ����
+			i = i + 3;//替换的字符比原来多了3个，可以略过检查
 		}
 	}
 	int hitStartIndex = content.Find(CS_SPLIT_CODE_START);
@@ -253,7 +253,7 @@ void ReceiveMsgManage::parseContent(CString& content, BOOL bFloatForm, Int32 cha
 		content.Replace(_T(" "), _T("&nbsp"));
 	}
 
-	//��������
+	//解析表情
 	int startIndex = content.Find(_T("["));
 	while (startIndex != -1)
 	{
@@ -272,7 +272,7 @@ void ReceiveMsgManage::parseContent(CString& content, BOOL bFloatForm, Int32 cha
 			}
 			else
 			{
-				if (-1 != csEmotion.Find(_T("����")))
+				if (-1 != csEmotion.Find(_T("牙牙")))
 				{
 					csHtml.Format(HTML_IMG_EMOTION_YAYA_TAG, csPath);
 				}
@@ -284,7 +284,7 @@ void ReceiveMsgManage::parseContent(CString& content, BOOL bFloatForm, Int32 cha
 		startIndex = content.Find(_T("["), endIndex);
 	}
 
-	//�滻ͼƬ
+	//替换图片
 	BOOL bCanRelaceSpace = TRUE;
 	startIndex = content.Find(CS_SPLIT_CODE_START);
 	while (startIndex != -1)
@@ -324,7 +324,7 @@ SessionMessage_List* ReceiveMsgManage::_getChatMsgListBySID(const std::string& s
 	return &(iter->second);
 }
 
-//////////////////////////////////��Ϣȥ��///////////////////////////////////////
+//////////////////////////////////消息去重///////////////////////////////////////
 BOOL ReceiveMsgManage::checkIsReduplicatedMsg(IN const MessageEntity& msg, IN const UInt32 seqNo)
 {
 	ReceiveMsgMap::iterator itMap = m_MsgMap.find(msg.sessionId);
@@ -386,7 +386,7 @@ void ReceiveMsgManage::_Quickchat2Fromat(OUT CString& content)
 				module::UserInfoEntity&  userInfo = itMapItem.second;
 				if (userInfo.csNickName == sName)
 				{
-					//do�滻
+					//do替换
 					csHTML.Format(HTML_CHAT2_TAG, util::stringToCString(userInfo.sId), sName);
 					CString strA = content.Mid(0, nPos);
 					CString strB = content.Mid(nPos + 3);
@@ -417,7 +417,7 @@ void ReceiveMsgManage::_urlReplace(CString& content)
 	for (; iter != m_scanUrls.end(); ++iter)
 	{
 		CString csHtml, csUrl(*iter);
-		//��www��ͷ������ǰ���http://
+		//对www开头的链接前面加http://
 		if (csUrl.Find(_T("www.")) > -1 && csUrl.Find(_T("http://")) < 0)
 		{
 			csUrl = _T("http://") + csUrl;
@@ -455,7 +455,7 @@ void ReceiveMsgManage::_replaceUrlParts(CString& content)
 
 /******************************************************************************/
 
-//////////////////////////////������Ϣ���ܴ���////////////////////////////////////////////
+//////////////////////////////语音消息接受处理////////////////////////////////////////////
 AudioMessageMananger::~AudioMessageMananger()
 {
 }
@@ -473,7 +473,7 @@ BOOL AudioMessageMananger::playAudioMsgByAudioSid(IN const std::string& sSession
 		LOG__(ERR, _T("date error,sSessionID:%s ,sAID:%s"), util::stringToCString(sSessionID), util::stringToCString(sAID));
 		return FALSE;
 	}
-	//����δ��������Ϣ�����ó��Ѷ�
+	//若是未读语音消息，则置成已读
 	SessionMessageMap::iterator itAudio = m_mapUnReadAudioMsg.find(sSessionID);
 	if (itAudio != m_mapUnReadAudioMsg.end())
 	{
@@ -488,7 +488,7 @@ BOOL AudioMessageMananger::playAudioMsgByAudioSid(IN const std::string& sSession
 		}
 	}
 
-	//��������
+	//播放声音
 	CString csFilePath = module::getMiscModule()->GetAudioFileSavedPath();
 	csFilePath += util::stringToCString(sAID, CP_UTF8);
 	if (!PathFileExists(csFilePath))
@@ -498,19 +498,19 @@ BOOL AudioMessageMananger::playAudioMsgByAudioSid(IN const std::string& sSession
 	}
 	csFilePath = _T("\"") + csFilePath + _T("\"");
 
-	//�ȹر�ԭ���Ĳ��Ŵ��� 
+	//先关闭原来的播放窗口 
 	HWND hTTWnd = FindWindow(NULL, _T("teamtalkaudio-speexdecWindow"));
 	if (hTTWnd)
 	{
 		COPYDATASTRUCT cpyData = { 0 };
 		//cpyData.lpData = (PVOID)m_sPlayingAID.c_str();
 		//cpyData.cbData = m_sPlayingAID.length();
-		cpyData.dwData = 1; // 1 ��ʾ�˳�������Ž���
+		cpyData.dwData = 1; // 1 表示退出语音播放进程
 		::SendMessage(hTTWnd, WM_COPYDATA, 0, (LPARAM)&cpyData);
 		LOG__(DEBG, _T("breakPlayingAnimate"));
 	}
 
-	//�������������ļ�
+	//解析播放语音文件
 	CString csPath = util::getAppPath() + _T("speexdec.exe");
 	LOG__(DEBG, _T("playAudioMsgByAudioSid FilePath:%s"), csFilePath);
 	::ShellExecute(NULL, _T("open"), csPath, csFilePath, _T(""), SW_HIDE);
@@ -603,13 +603,13 @@ BOOL AudioMessageMananger::getAudioMsgLenth(IN UCHAR* data, IN UINT32 lenth, OUT
 	AudioMsgLen = 0;
 	if (lenth < 4 || NULL == data)
 	{
-		//ǰ4���ֽ�Ϊ�������
+		//前4个字节为语音长度
 		return FALSE;
 	}
 	AudioMsgLen = (data[0] << 24) + (data[1] << 16) + (data[2] << 8) + data[3];
 	if (0 == AudioMsgLen)
 	{
-		LOG__(ERR, _T("����ʱ��Ϊ��"));
+		LOG__(ERR, _T("语音时长为零"));
 	}
 	return TRUE;
 }
@@ -633,7 +633,7 @@ BOOL AudioMessageMananger::pushAudioMessageBySId(const std::string& sId, Message
 
 BOOL AudioMessageMananger::autoplayNextUnReadAudioMsg()
 {
-	//ͣ��֮ǰ���ŵĶ���
+	//停掉之前播放的动画
 	stopPlayingAnimate();
 	LOG__(ERR, _T("stopPlayingAnimate"));
 
@@ -652,17 +652,17 @@ BOOL AudioMessageMananger::autoplayNextUnReadAudioMsg()
 	{
 		if (it->isReaded() && it->content == m_sPlayingAID)
 		{
-			itNext = listChatMsg.erase(it);//ɾ���Ѿ����Ź���
+			itNext = listChatMsg.erase(it);//删除已经播放过的
 			break;
 		}
 		else
 			++it;
 	}
 
-	if (itNext != listChatMsg.end())//˵������Ч��ID
+	if (itNext != listChatMsg.end())//说明是有效的ID
 	{
 		LOG__(DEBG, _T("AutoplayNextUnReadAudioMsg"));
-		startPlayingAnimate(itNext->content);//�󲹼�֧��
+		startPlayingAnimate(itNext->content);//大补鸡支持
 		playAudioMsgByAudioSid(m_sPlayingSessionID, itNext->content);
 		return TRUE;
 	}
@@ -685,7 +685,7 @@ BOOL AudioMessageMananger::popPlayingAudioMsg()
 	{
 		if (it->isReaded() && it->content == m_sPlayingAID)
 		{
-			listChatMsg.erase(it);//ɾ���Ѿ����Ź���
+			listChatMsg.erase(it);//删除已经播放过的
 			m_sPlayingSessionID.clear();
 			m_sPlayingAID.clear();
 			return TRUE;

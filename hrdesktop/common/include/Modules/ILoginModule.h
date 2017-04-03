@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      ILoginModule.h 2014\7\17 19:38:12 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -17,8 +17,8 @@ NAMESPACE_BEGIN(module)
 const std::string MODULE_LOING_PREFIX = "login";
 
 //KEYID
-const std::string KEY_LOGIN_KICKOUT = MODULE_LOING_PREFIX + "kickout";				//�߳�����
-const std::string KEY_LOGIN_RELOGINOK = MODULE_LOING_PREFIX + "reloginok";			//relogin�ɹ�֪ͨ
+const std::string KEY_LOGIN_KICKOUT = MODULE_LOING_PREFIX + "kickout";				//踢出处理
+const std::string KEY_LOGIN_RELOGINOK = MODULE_LOING_PREFIX + "reloginok";			//relogin成功通知
 
 /**
  * The class <code>ILoginModule</code> 
@@ -30,16 +30,16 @@ class MODULE_API ILoginModule : public module::ModuleBase
 public:
 	virtual BOOL showLoginDialog() = 0;
 	/**
-	 * ��½�ɹ�����ʼ��ȡ��֯�ܹ���Ⱥ��Ϣ
+	 * 登陆成功，开始获取组织架构、群信息
 	 *
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */
 	virtual void notifyLoginDone() = 0;
 	/**
-	 * ���������ӿ�
+	 * 断线重连接口
 	 *
-	 * @param   BOOL bForce �Ƿ�ǿ������
+	 * @param   BOOL bForce 是否强制重连
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */	

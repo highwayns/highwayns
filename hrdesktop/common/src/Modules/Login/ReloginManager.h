@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      ReloginManager.h 2013\9\4 16:44:19 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief   ������������
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief   断线重连管理
  ******************************************************************************/
 
 #ifndef RELOGINMANAGER_95607570_AE99_4D6C_B2F6_25CD0FD8A0FA_H__
@@ -43,7 +43,7 @@ private:
     void doRelogin();
 
 private:
-    UInt32                      m_secondCount;      //����ʱ���3�������15��
+    UInt32                      m_secondCount;      //重连时间从3秒递增到15秒
     BOOL                        m_bDoReloginNow;
 };
 

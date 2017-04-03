@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      CreateDiscussionGrpDialog.h 2015\1\14 19:36:23 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -51,14 +51,14 @@ private:
 	void _updateSearchResultList(IN const std::vector<std::string>& nameList);
 	void _refreshUIAddedNum();
 private:
-	UIIMList*				m_pListCreatFrom;		//����������Դ�б�	��
-	CListUI*				m_pListGroupMembers;	//���������б�	��
-	CListUI*				m_pListSearchResult;	//��������б�
+	UIIMList*				m_pListCreatFrom;		//讨论组数据源列表	左
+	CListUI*				m_pListGroupMembers;	//讨论组结果列表	右
+	CListUI*				m_pListSearchResult;	//搜索结果列表
 	CEditUI*				m_editGroupName;		
 	CVerticalLayoutUI*		m_searchePanel;
-	CEditUI*				m_editSearch;			//������
-	CTextUI*				m_TextaddNums;			//�Ѿ����˶�����
-	CTextUI*				m_TextErrorTip;			//������ʾ
+	CEditUI*				m_editSearch;			//搜索框
+	CTextUI*				m_TextaddNums;			//已经加了多少人
+	CTextUI*				m_TextErrorTip;			//错误提示
 	std::string				m_currentSessionId;
 };
 /******************************************************************************/

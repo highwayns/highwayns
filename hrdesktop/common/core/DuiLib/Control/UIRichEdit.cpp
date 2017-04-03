@@ -105,7 +105,7 @@ HRESULT CRichEditOleCallback::QueryInterface(REFIID riid, LPVOID* ppv)
 {
 	*ppv = NULL;
 
-	//��ʾ�ظ�����,ֱ�Ӹ���������
+	//提示重复声明,直接改名字算了
 	GUID IID_IRichEditOleCallback2 = { 0x00020D03, 0x0, 0x0, { 0xC0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x46 } };
 
 	if (IID_IUnknown == riid)
@@ -2714,7 +2714,7 @@ HRESULT CRichEditUI::TxSendMessage(UINT msg, WPARAM wparam, LPARAM lparam, LRESU
 	{
 		if (msg == WM_KEYDOWN && TCHAR(wparam) == VK_RETURN)
 		{
-			if (m_bWantReturn)//ctrlû�б�����
+			if (m_bWantReturn)//ctrl没有被按下
 			{
 				if (::GetKeyState(VK_CONTROL) >= 0)
 				{
@@ -2724,7 +2724,7 @@ HRESULT CRichEditUI::TxSendMessage(UINT msg, WPARAM wparam, LPARAM lparam, LRESU
 			}
 			else
 			{
-				if (::GetKeyState(VK_CONTROL) < 0)//ctrl������
+				if (::GetKeyState(VK_CONTROL) < 0)//ctrl被按下
 				{
 					if (m_pManager != NULL) m_pManager->SendNotify((CControlUI*)this, DUI_MSGTYPE_RETURN);
 					return S_OK;
@@ -2789,8 +2789,8 @@ void CRichEditUI::OnTxNotify(DWORD iNotify, void *pv)
 	}
 }
 
-// ���з�rich��ʽ��richedit��һ��������bug�������һ���ǿ���ʱ��LineDown��SetScrollPos�޷����������
-// ����iPos����Ϊ���������bug
+// 多行非rich格式的richedit有一个滚动条bug，在最后一行是空行时，LineDown和SetScrollPos无法滚动到最后
+// 引入iPos就是为了修正这个bug
 void CRichEditUI::SetScrollPos(SIZE szPos)
 {
     int cx = 0;
@@ -3093,7 +3093,7 @@ void CRichEditUI::PaintStatusImage(HDC hDC)
 
 SIZE CRichEditUI::EstimateSize(SIZE szAvailable)
 {
-    //return CSize(m_rcItem); // ���ַ�ʽ�ڵ�һ�����ô�С֮��ʹ�С������
+    //return CSize(m_rcItem); // 这种方式在第一次设置大小之后就大小不变了
     return CContainerUI::EstimateSize(szAvailable);
 }
 
@@ -3439,7 +3439,7 @@ LRESULT CRichEditUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, boo
 
 	if (uMsg == WM_IME_COMPOSITION)
 	{
-		// ���΢�����뷨λ���쳣������
+		// 解决微软输入法位置异常的问题
 		HIMC hIMC = ImmGetContext(GetManager()->GetPaintWindow());
 		if (hIMC) 
 		{
@@ -3492,7 +3492,7 @@ LRESULT CRichEditUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, boo
         if( uMsg == WM_SETCURSOR ) bWasHandled = false;
         else if( uMsg == WM_LBUTTONDOWN || uMsg == WM_LBUTTONDBLCLK || uMsg == WM_RBUTTONDOWN ) {
             //SetFocus();
-			bWasHandled = false;//bugfix ���ﲻ�����������UIManager��Ĭ�ϴ���
+			bWasHandled = false;//bugfix 这里不做处理，进入UIManager的默认处理
         }
     }
 #ifdef _UNICODE

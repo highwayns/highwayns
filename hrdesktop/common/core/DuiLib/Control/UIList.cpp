@@ -1399,7 +1399,7 @@ void CListHeaderItemUI::DoEvent(TEventUI& event)
     {
         if( !IsEnabled() ) return;
         RECT rcSeparator = GetThumbRect();
-		if (m_iSepWidth>=0)//111024 by cddjr, ���ӷָ�����򣬷����û��϶�
+		if (m_iSepWidth>=0)//111024 by cddjr, 增加分隔符区域，方便用户拖动
 			rcSeparator.left-=4;
 		else
 			rcSeparator.right+=4;
@@ -1452,7 +1452,7 @@ void CListHeaderItemUI::DoEvent(TEventUI& event)
     if( event.Type == UIEVENT_SETCURSOR )
     {
         RECT rcSeparator = GetThumbRect();
-		if (m_iSepWidth>=0)//111024 by cddjr, ���ӷָ�����򣬷����û��϶�
+		if (m_iSepWidth>=0)//111024 by cddjr, 增加分隔符区域，方便用户拖动
 			rcSeparator.left-=4;
 		else
 			rcSeparator.right+=4;
@@ -2086,7 +2086,7 @@ void CListTextElementUI::DrawItemText(HDC hDC, const RECT& rcItem)
         rcItem.top += pInfo->rcTextPadding.top;
         rcItem.bottom -= pInfo->rcTextPadding.bottom;
 
-        CDuiString strText;//��ʹ��LPCTSTR����������̫�� by cddjr 2011/10/20
+        CDuiString strText;//不使用LPCTSTR，否则限制太多 by cddjr 2011/10/20
         if( pCallback ) strText = pCallback->GetItemText(this, m_iIndex, i);
         else strText.Assign(GetText(i));
         if( pInfo->bShowHtml )

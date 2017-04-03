@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "Modules.h"
 
 #define CHECK_BOOL(exp)														\

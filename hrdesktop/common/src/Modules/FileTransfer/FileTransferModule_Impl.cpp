@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      FileTransfer_Impl.cpp 2014\8\26 11:53:09 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -55,10 +55,10 @@ void FileTransferModule_Impl::onPacket(imcore::TTPBHeader& header, std::string& 
 {
 	switch (header.getCommandId())
 	{
-	case IM::BaseDefine::FileCmdID::CID_FILE_RESPONSE://���͡��ļ�����/�����ļ���-����
+	case IM::BaseDefine::FileCmdID::CID_FILE_RESPONSE://发送“文件请求/离线文件”-返回
 		_sendfileResponse(pbBody);
 		break;
-	case IM::BaseDefine::FileCmdID::CID_FILE_NOTIFY://�յ��������ļ�����
+	case IM::BaseDefine::FileCmdID::CID_FILE_NOTIFY://收到“发送文件请求”
 		_fileNotify(pbBody);
 		break;
 	case IM::BaseDefine::FileCmdID::CID_FILE_HAS_OFFLINE_RES:
@@ -108,14 +108,14 @@ BOOL FileTransferModule_Impl::sendFile(IN const CString& sFilePath, IN const std
 	}
 	TransferFileEntity fileEntity;
 	
-	//��ȡ�ļ���С
+	//获取文件大小
 	struct __stat64 buffer;
 	_wstat64(sFilePath, &buffer);
 	fileEntity.nFileSize = (UInt32)buffer.st_size;
 	if (0 != fileEntity.nFileSize)
 	{
 		CString strFileName = sFilePath;
-		strFileName.Replace(_T("\\"), _T("/"));//mac�϶���·���ַ���\����Ҫ�����⴦���windows�������ʶ��
+		strFileName.Replace(_T("\\"), _T("/"));//mac上对于路径字符“\”需要做特殊处理，windows上则可以识别
 		fileEntity.sFileName = util::cStringToString(strFileName);
 		fileEntity.sFromID = module::getSysConfigModule()->userID();
 		fileEntity.sToID = sSendToSID;
@@ -169,7 +169,7 @@ void FileTransferModule_Impl::_sendfileResponse(IN std::string& body)
 	fileEntity.sFromID = util::uint32ToString(imFileRsp.from_user_id());
 	fileEntity.sToID = util::uint32ToString(imFileRsp.to_user_id());
 	fileEntity.sFileName = imFileRsp.file_name();
-	fileEntity.setSaveFilePath(util::stringToCString(fileEntity.sFileName));//���ͷ��ļ���ַ�����Ǳ����ַ
+	fileEntity.setSaveFilePath(util::stringToCString(fileEntity.sFileName));//发送方文件地址，就是保存地址
 	fileEntity.time = static_cast<UInt32>(time(0));
 	uint32_t transMode = imFileRsp.trans_mode();
 	if (IM::BaseDefine::TransferFileType::FILE_TYPE_ONLINE == transMode)
@@ -198,7 +198,7 @@ void FileTransferModule_Impl::_sendfileResponse(IN std::string& body)
 	if (!TransferFileEntityManager::getInstance()->pushTransferFileEntity(fileEntity))
 		TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(fileEntity);
 
-	LOG__(DEBG, _T("FileTransferSevice_Impl::׼�������ļ������� sTaskId = %s"), util::stringToCString(fileEntity.sTaskID));
+	LOG__(DEBG, _T("FileTransferSevice_Impl::准备连接文件服务器 sTaskId = %s"), util::stringToCString(fileEntity.sTaskID));
 	TransferFileEntityManager::getInstance()->openFileSocketByTaskId(fileEntity.sTaskID);
 }
 
@@ -237,14 +237,14 @@ void FileTransferModule_Impl::_fileNotify(IN std::string& body)
 	}
 	file.time = static_cast<UInt32>(time(0));
 	TransferFileEntityManager::getInstance()->pushTransferFileEntity(file);
-	LOG__(DEBG, _T("FileTransferSevice_Impl::���㷢�ļ� sFileID = %s"), util::stringToCString(file.sTaskID));
+	LOG__(DEBG, _T("FileTransferSevice_Impl::给你发文件 sFileID = %s"), util::stringToCString(file.sTaskID));
 
 	if (1 == imFileNotify.offline_ready())
 	{
-		//TODO�����ļ��������
+		//TODO离线文件传输结束
 	}
 
-	//���ӷ�����
+	//连接服务器
 	TransferFileEntityManager::getInstance()->openFileSocketByTaskId(file.sTaskID);
 }
 
@@ -253,28 +253,28 @@ BOOL FileTransferModule_Impl::acceptFileTransfer(IN const std::string& sTaskId, 
 	TransferFileEntity FileInfo;
 	if (TransferFileEntityManager::getInstance()->getFileInfoByTaskId(sTaskId, FileInfo))
 	{
-		if (bAccept)//�����ļ�
+		if (bAccept)//接收文件
 		{
 			FileInfo.pFileObject = new TransferFile(FileInfo.getSaveFilePath(), TRUE);
 			FileInfo.time = static_cast<UInt32>(time(0));
 			TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(FileInfo);
-			LOG__(DEBG, _T("FileTransferSevice_Impl::acceptFileTransfer �����ļ� sFileID = %s"), util::stringToCString(FileInfo.sTaskID));
+			LOG__(DEBG, _T("FileTransferSevice_Impl::acceptFileTransfer 接收文件 sFileID = %s"), util::stringToCString(FileInfo.sTaskID));
 			TransferFileEntityManager::getInstance()->acceptFileTransfer(std::string(sTaskId));
 		}
-		else//�ܾ��ļ�
+		else//拒绝文件
 		{
-			if (IM::BaseDefine::ClientFileRole::CLIENT_REALTIME_RECVER == FileInfo.nClientMode)//�����ļ�
+			if (IM::BaseDefine::ClientFileRole::CLIENT_REALTIME_RECVER == FileInfo.nClientMode)//在线文件
 			{
-				LOG__(DEBG, _T("FileTransferSevice_Impl::acceptFileTransfer �ܾ��ļ� sFileID = %s"), util::stringToCString(FileInfo.sTaskID));
+				LOG__(DEBG, _T("FileTransferSevice_Impl::acceptFileTransfer 拒绝文件 sFileID = %s"), util::stringToCString(FileInfo.sTaskID));
 				TransferFileEntityManager::getInstance()->rejectFileTransfer(sTaskId);
 			}
-			else if (IM::BaseDefine::ClientFileRole::CLIENT_OFFLINE_DOWNLOAD == FileInfo.nClientMode)//�����ļ�
+			else if (IM::BaseDefine::ClientFileRole::CLIENT_OFFLINE_DOWNLOAD == FileInfo.nClientMode)//离线文件
 			{
-				LOG__(DEBG, _T("FileTransferSevice_Impl::acceptFileTransfer �ܾ������ļ� sFileID = %s"), util::stringToCString(FileInfo.sTaskID));
+				LOG__(DEBG, _T("FileTransferSevice_Impl::acceptFileTransfer 拒绝离线文件 sFileID = %s"), util::stringToCString(FileInfo.sTaskID));
 				imcore::IMLibCoreStartOperationWithLambda(
 					[=]()
 				{
-                    LOG__(APP, _T("�ܾ������ļ� imFileDelOfflineReq sFileID = %s"), util::stringToCString(FileInfo.sFileName));
+                    LOG__(APP, _T("拒绝离线文件 imFileDelOfflineReq sFileID = %s"), util::stringToCString(FileInfo.sFileName));
 					IM::File::IMFileDelOfflineReq imFileDelOfflineReq;
 					imFileDelOfflineReq.set_from_user_id(util::stringToInt32(FileInfo.sFromID));
 					imFileDelOfflineReq.set_to_user_id(util::stringToInt32(FileInfo.sToID));
@@ -336,7 +336,7 @@ void FileTransferModule_Impl::_hasOfflineRes(IN std::string& body)
 		fileInfo.time = static_cast<UInt32>(time(0));
 		if (TransferFileEntityManager::getInstance()->pushTransferFileEntity(fileInfo))
 		{
-			LOG__(APP, _T("�����ļ� sFileID = %s"), util::stringToCString(fileInfo.sTaskID));
+			LOG__(APP, _T("离线文件 sFileID = %s"), util::stringToCString(fileInfo.sTaskID));
 			TransferFileEntityManager::getInstance()->openFileSocketByTaskId(fileInfo.sTaskID);
 		}
 	}

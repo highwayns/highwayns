@@ -1,4 +1,4 @@
-/* Copyright (c) 2002, John Edwards
+ï»¿/* Copyright (c) 2002, John Edwards
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions
@@ -242,7 +242,7 @@ LRESULT CALLBACK StartupMsgWndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM l
         case WM_COPYDATA:
         {
             pCpyData = (PCOPYDATASTRUCT) lParam;
-            if(1 == pCpyData->dwData) //1 ±íÊ¾ÍË³ö½ø³Ì
+            if(1 == pCpyData->dwData) //1 è¡¨ç¤ºé€€å‡ºè¿›ç¨‹
             {
                 PostMessage(g_hMsgWindow,WM_QUIT,0,0);
                 WriteDebugLog("break playing by TeamTalk");

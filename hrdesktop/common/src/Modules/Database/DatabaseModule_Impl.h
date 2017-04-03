@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      DatabaseModule_Impl.h 2014\8\3 10:43:14 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -32,14 +32,14 @@ public:
     //@}
 
 public:
-	/**@name ͼƬ�洢���*/
+	/**@name 图片存储相关*/
 	//@{
 	virtual BOOL sqlInsertImImageEntity(const module::ImImageEntity& entity);
 	virtual BOOL sqlGetImImageEntityByHashcode(UInt32 hashcode, module::ImImageEntity& entity);
 	virtual BOOL sqlUpdateImImageEntity(UInt32 hashcode, module::ImImageEntity& entity);
 	//@}
 
-	/**@name �����ϵ�Ự��Ϣ*/
+	/**@name 最近联系会话信息*/
 	//@{
 	virtual BOOL sqlGetRecentSessionInfoByGId(IN std::string& sId, OUT module::SessionEntity& sessionInfo);
 	virtual BOOL sqlGetAllRecentSessionInfo(OUT std::vector<module::SessionEntity>& sessionList);
@@ -49,7 +49,7 @@ public:
 	virtual BOOL sqlBatchInsertRecentSessionInfos(IN std::vector<module::SessionEntity>& sessionList);
 	//@}
 
-	/**@name �û���Ϣ���*/
+	/**@name 用户信息相关*/
 	//@{
 	virtual BOOL sqlGetAllUsersInfo(OUT std::vector<module::UserInfoEntity>& userList);
 	virtual BOOL sqlGetUserInfoBySId(IN std::string& sId,OUT module::UserInfoEntity& userInfo);
@@ -58,7 +58,7 @@ public:
 	virtual BOOL sqlBatchInsertUserInfos(IN module::UserInfoEntityMap& mapUserInfos);
 	//@}
 
-	/**@name ������Ϣ���*/
+	/**@name 部门信息相关*/
 	//@{
 	virtual BOOL sqlGetAllDepartmentInfo(OUT std::vector<module::DepartmentEntity>& departmentList);
 	virtual BOOL sqlGetDepartmentBySId(IN std::string& sId, OUT module::DepartmentEntity& departmentInfo);
@@ -67,7 +67,7 @@ public:
 	virtual BOOL sqlBatchInsertDepartmentInfos(IN module::DepartmentMap& mapDepartmentInfos);
 	//@}
 
-	/**@name Ⱥ��Ϣ���*/
+	/**@name 群信息相关*/
 	//@{
 	virtual BOOL sqlGetGroupInfoByGId(IN std::string& gId, OUT module::GroupInfoEntity& groupInfo);
 	virtual BOOL sqlGetAllGroupInfo(OUT std::vector<module::GroupInfoEntity>& groupList);
@@ -77,7 +77,7 @@ public:
 	virtual BOOL sqlBatchInsertGroupInfos(IN module::GroupInfoMap& mapGroupInfos);
 	//@}
 
-	/**@name ��Ϣ���*/
+	/**@name 消息相关*/
 	//@{
 	virtual BOOL sqlInsertMessage(IN MessageEntity& msg);
 	virtual BOOL sqlBatchInsertMessage(IN std::list<MessageEntity>& msgList);
@@ -85,7 +85,7 @@ public:
 		, OUT std::vector<MessageEntity>& msgList);
 	//@}
 
-	/**@name �ļ��������*/
+	/**@name 文件传输相关*/
 	//@{
 	virtual BOOL sqlInsertFileTransferHistory(IN TransferFileEntity& fileInfo);
 	virtual BOOL sqlGetFileTransferHistory(OUT std::vector<TransferFileEntity>& fileList);

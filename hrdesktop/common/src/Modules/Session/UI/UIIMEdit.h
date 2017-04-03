@@ -1,6 +1,6 @@
 ﻿ /*******************************************************************************
  *  @file      UIIMEdit.h 2014\8\19 13:18:10 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -46,10 +46,10 @@ public:
 	static CString AddPicTeg2Pic(IN CString picPath);
     void ReplaceReturnKey(void);
 public:
-	CString					m_strTextData;					//����
-	std::vector<ST_picData>	m_picDataVec;				//ͼƬ���������е�λ�ã�ͼƬ�ı���·����ͼƬ������·��
+	CString					m_strTextData;					//文字
+	std::vector<ST_picData>	m_picDataVec;				//图片所在文字中的位置，图片的本地路径；图片的网络路径
 private:
-	UINT32					m_nSetNetWorkPathSuccTime;	//�ɹ���õ�ͼƬ�Ĵ���
+	UINT32					m_nSetNetWorkPathSuccTime;	//成功获得的图片的次数
 };
 
 

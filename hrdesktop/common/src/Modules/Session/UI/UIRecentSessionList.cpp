@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIUserList.cpp 2014\7\17 13:07:19 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -116,7 +116,7 @@ Node* CUIRecentSessionList::AddNode(const SessionListItemInfo& item, Node* paren
 				logo_container->SetVisible(false);
 		}
 		log_button->SetTag((UINT_PTR)pListElement);
-		//log_button->OnEvent += MakeDelegate(&OnLogoButtonEvent);//�Ҽ�����˸ù��ܣ����ð�
+		//log_button->OnEvent += MakeDelegate(&OnLogoButtonEvent);//右键替代了该功能，不用绑定
 	}
 
 	CDuiString html_text;
@@ -163,7 +163,7 @@ Node* CUIRecentSessionList::AddNode(const SessionListItemInfo& item, Node* paren
 	if (plastMsgUI)
 	{
 		CString strContent = item.description;
-		ReceiveMsgManage::getInstance()->parseContent(strContent, TRUE, 400);//��Ҫת���ɱ��صĸ�ʽ
+		ReceiveMsgManage::getInstance()->parseContent(strContent, TRUE, 400);//需要转换成本地的格式
 		plastMsgUI->SetText(strContent);
 	}
 
@@ -257,7 +257,7 @@ int CALLBACK IMListItemCompareFunc(UINT_PTR pa, UINT_PTR pb, UINT_PTR pUser)
 	Node* node1 = (Node*)pListElement1->GetTag();
 	Node* node2 = (Node*)pListElement2->GetTag();
 
-	//��ȡ�Ự�ķ�����ʱ��
+	//获取会话的服务器时间
 
 	CString s1 = node1->data().sId;
 	CString s2 = node2->data().sId;
@@ -316,7 +316,7 @@ BOOL CUIRecentSessionList::UpdateItemConentBySId(IN const std::string& sId)
 		return FALSE;
 	}
 	
-	//���»Ự�����һ����Ϣ
+	//更新会话的最后一条消息
 	module::SessionEntity*  pSessionEntity = SessionEntityManager::getInstance()->getSessionEntityBySId(sId);
 	if (!pSessionEntity)
 	{
@@ -326,27 +326,27 @@ BOOL CUIRecentSessionList::UpdateItemConentBySId(IN const std::string& sId)
 	std::string msgDecrptyCnt;
 	DECRYPT_MSG(pSessionEntity->latestMsgContent, msgDecrptyCnt);
 	CString strContent = util::stringToCString(msgDecrptyCnt);
-	ReceiveMsgManage::getInstance()->parseContent(strContent, TRUE, 400);//��Ҫת���ɱ��صĸ�ʽ
+	ReceiveMsgManage::getInstance()->parseContent(strContent, TRUE, 400);//需要转换成本地的格式
 
 	module::UserInfoEntity userInfo;
 	CString strMsgTalkName;
-	if (module::SESSION_GROUPTYPE == pSessionEntity->sessionType &&//ֻ��Ⱥ��Ҫչʾ ��Ϣ�ķ�����
+	if (module::SESSION_GROUPTYPE == pSessionEntity->sessionType &&//只有群需要展示 消息的发送者
 		module::getUserListModule()->getUserInfoBySId(pSessionEntity->latestMsgFromId, userInfo))
 	{
 		strMsgTalkName = userInfo.getRealName();
-		strMsgTalkName += CString(_T("��"));
+		strMsgTalkName += CString(_T("："));
 	}
 	strContent = strMsgTalkName + strContent;
 	plastMsgUI->SetText(strContent);
 
-	if (!SessionDialogManager::getInstance()->findSessionDialogBySId(sId))//���ڲ����ڵ�ʱ����¼���
+	if (!SessionDialogManager::getInstance()->findSessionDialogBySId(sId))//窗口不存在的时候更新计数
 	{
-		//����δ������
+		//更新未读计数
 		UInt32 nCnt = ReceiveMsgManage::getInstance()->getUnReadMsgCountBySId(sId);
         SetTextUICount(Unreadcnt_button, nCnt);
 	}
 
-	//������Ϣ��ʱ��
+	//更新消息的时间
 	CString strTime = module::getMiscModule()->makeShortTimeDescription(pSessionEntity->updatedTime);
 	plastMsgTimeUI->SetText(strTime);
 	
@@ -380,7 +380,7 @@ void CUIRecentSessionList::ClearItemMsgCount(IN const std::string& sId)
 		return;
 	CControlUI* pListElement = pNode->data().list_elment_;
 	PTR_VOID(pListElement);
-	//���δ������
+	//清除未读计数
 	CLabelUI* Unreadcnt_button = static_cast<CLabelUI*>(paint_manager_.FindSubControlByName(pListElement, kUnreadcntControlName));
 	if (!Unreadcnt_button)
 	{

@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      SyncTimerTimer.h 2013\9\6 14:48:43 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief   ͬ��������ʱ��timer
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief   同步服务器时间timer
  ******************************************************************************/
 
 #ifndef SYNCTIMERTIMER_33883969_3CB9_47FD_BC38_4E860C0731F8_H__
@@ -37,8 +37,8 @@ public:
     inline void setTime(UInt32 time) { m_serverTime = time;}
 
 private:
-    UInt32                  m_serverTime;           //������ʱ��
-    UInt32                  m_timeCount;            //ʱ�������
+    UInt32                  m_serverTime;           //服务器时间
+    UInt32                  m_timeCount;            //时间计数器
 };
 /******************************************************************************/
 #endif// SYNCTIMERTIMER_33883969_3CB9_47FD_BC38_4E860C0731F8_H__

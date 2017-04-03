@@ -230,7 +230,7 @@ bool CxImage::CreateFromHANDLE(HANDLE hMem)
 		SetYDPI((long)floor(head.biYPelsPerMeter * 254.0 / 10000.0 + 0.5));
 
 		/*//copy the pixels (old way)
-		if((pHead->biCompression != BI_RGB) || (pHead->biBitCount == 32)){ //<J�rgen Alfredsson>
+		if((pHead->biCompression != BI_RGB) || (pHead->biBitCount == 32)){ //<J鰎gen Alfredsson>
 			// BITFIELD case
 			// set the internal header in the dib
 			memcpy(pDib,&head,sizeof(head));
@@ -1269,7 +1269,7 @@ long CxImage::DrawStringEx(HDC hdc, long x, long y, CXTEXTINFO *pTextType, bool 
 
 	if (pTextType->smooth==FALSE)
 	{
-		itext.Threshold(128); //��Ҫ֧�� CXIMAGE_SUPPORT_DSP
+		itext.Threshold(128); //需要支持 CXIMAGE_SUPPORT_DSP
 	} 
 	else 
 	{
@@ -1385,7 +1385,7 @@ void CxImage::InitTextInfo( CXTEXTINFO *txt )
     txt->b_outline = 0;     // default: no outline (OUTLINE NOT IMPLEMENTED AT THIS TIME)
     txt->b_round   = 20;    // default: rounding radius is 20% of the rectangle height
     // the text 
-    _stprintf( txt->text, _T("Sample Text 01234��")); // text use TCHAR mappings <Cesar M>
+    _stprintf( txt->text, _T("Sample Text 01234觖")); // text use TCHAR mappings <Cesar M>
     txt->align = DT_CENTER;
     return;
 }

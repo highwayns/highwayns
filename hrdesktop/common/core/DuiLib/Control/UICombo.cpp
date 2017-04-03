@@ -40,9 +40,9 @@ void CComboWnd::Init(CComboUI* pOwner)
     SIZE szDrop = m_pOwner->GetDropBoxSize();
     RECT rcOwner = pOwner->GetPos();
     RECT rc = rcOwner;
-    rc.top = rc.bottom;		// ������left��bottomλ����Ϊ�����������
-    rc.bottom = rc.top + szDrop.cy;	// ���㵯�����ڸ߶�
-    if( szDrop.cx > 0 ) rc.right = rc.left + szDrop.cx;	// ���㵯�����ڿ��
+    rc.top = rc.bottom;		// 父窗口left、bottom位置作为弹出窗口起点
+    rc.bottom = rc.top + szDrop.cy;	// 计算弹出窗口高度
+    if( szDrop.cx > 0 ) rc.right = rc.left + szDrop.cx;	// 计算弹出窗口宽度
 
     SIZE szAvailable = { rc.right - rc.left, rc.bottom - rc.top };
     int cyFixed = 0;
@@ -52,7 +52,7 @@ void CComboWnd::Init(CComboUI* pOwner)
         SIZE sz = pControl->EstimateSize(szAvailable);
         cyFixed += sz.cy;
     }
-    cyFixed += 4; // CVerticalLayoutUI Ĭ�ϵ�Inset ����
+    cyFixed += 4; // CVerticalLayoutUI 默认的Inset 调整
     rc.bottom = rc.top + MIN(cyFixed, szDrop.cy);
 
     ::MapWindowRect(pOwner->GetManager()->GetPaintWindow(), HWND_DESKTOP, &rc);
@@ -253,7 +253,7 @@ int CComboUI::GetCurSel() const
 
 bool CComboUI::SelectItem(int iIndex, bool bTakeFocus)
 {
-//    if( m_pWindow != NULL ) m_pWindow->Close();  //coed by Redrain 2014.10.30  ����������ʱ�Զ��ر�
+//    if( m_pWindow != NULL ) m_pWindow->Close();  //coed by Redrain 2014.10.30  导致鼠标滚动时自动关闭
     if( iIndex == m_iCurSel ) return true;
     int iOldSel = m_iCurSel;
     if( m_iCurSel >= 0 ) {

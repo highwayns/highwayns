@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      IUserListModule_Impl.h 2014\8\6 15:27:11 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -43,7 +43,7 @@ public:
 	virtual UInt8 getMyLineStatus();
 
 	virtual void tcpGetUserOnlieStatus(IN const std::string& sId);
-	virtual void tcpGetUserOnlieStatus(const module::UserInfoEntityVec& VecId);//Ҫ������ȡ
+	virtual void tcpGetUserOnlieStatus(const module::UserInfoEntityVec& VecId);//要分批获取
 	virtual void tcpGetUserInfo(IN const std::string& sId);
 	virtual void tcpGetUsersInfo(IN const module::UserInfoEntityVec& VecUnKnowUserInfo);
     virtual void tcpChangeMySignInfo(IN const std::string sSignInfo);
@@ -56,26 +56,26 @@ public:
 	virtual void getSearchDepartmentsByShortName(IN const CString& sShortName, OUT	std::vector<std::string>& departmentList);
 	void onCallbackOperation(std::shared_ptr<void> param);
 
-	virtual std::string randomGetUser(void);//�ʵ��������ȡһ���û�ID
+	virtual std::string randomGetUser(void);//彩蛋：随机获取一个用户ID
 private:
-	/**@name �������˲��*/
+	/**@name 服务器端拆包*/
 	//@{
-	void _recentlistResponse(IN std::string& pbBody);//�����ϵ���б�
+	void _recentlistResponse(IN std::string& pbBody);//最近联系人列表
 	void _userStatusNotify(IN std::string& pbBody);
-	void _usersInfoResponse(IN std::string& pbBody);//�û���Ϣ
-	void _removeSessionResponse(IN std::string& pbBody);//�Ƴ��Ự
-	void _allUserlistResponse(IN std::string& pbBody);//��������Ϣ
-	void _usersLineStatusResponse(IN std::string& pbBody);//�û�����״̬
-	void _changeAvatarResponse(IN std::string& pbBody);//�޸�ͷ��֪ͨ
-	void _removeSessionNotify(IN std::string& pbBody);//�Ƴ��Ự֪ͨ
-	void _departmentResponse(IN std::string& pbBody);//�������󷵻�
+	void _usersInfoResponse(IN std::string& pbBody);//用户信息
+	void _removeSessionResponse(IN std::string& pbBody);//移除会话
+	void _allUserlistResponse(IN std::string& pbBody);//所有人信息
+	void _usersLineStatusResponse(IN std::string& pbBody);//用户在线状态
+	void _changeAvatarResponse(IN std::string& pbBody);//修改头像通知
+	void _removeSessionNotify(IN std::string& pbBody);//移除会话通知
+	void _departmentResponse(IN std::string& pbBody);//部门请求返回
 
-    void _changeSignInfoResponse(IN std::string& pbBody);//�޸�ǩ������
-    void _avatarChangeNotify(IN std::string& pbBody);//�޸�ͷ��֪ͨ
-    void _signInfoChangedNotify(IN std::string& pbBody);//�޸�ǩ��֪ͨ
+    void _changeSignInfoResponse(IN std::string& pbBody);//修改签名返回
+    void _avatarChangeNotify(IN std::string& pbBody);//修改头像通知
+    void _signInfoChangedNotify(IN std::string& pbBody);//修改签名通知
 	//@}
 
-	/**@name ���ߺ���*/
+	/**@name 工具函数*/
 	//@{
 	void _pushUserIdToDepartment(const std::string& sId, const std::string& dId);
 	void _downloadAllUserAvatarImg();
@@ -87,10 +87,10 @@ private:
 	//@}	
 private:
 	CLock								m_lock;
-	module::DepartmentMap				m_mapDepartment;						//������Ϣ
-	module::UserInfoEntityMap           m_mapUsers;								//�����û�����Ϣ
-	UInt32								m_tcpGetUserFriendInfoListTime;			//trick,�����û���Ϣ�Ĵ�����һ�����������������⡣
-	UInt32								m_tcpGetUserFriendInfoListBackTime;		//�����û���Ϣ�Ĵ�����һ�����������������⡣���صĴ���
+	module::DepartmentMap				m_mapDepartment;						//部门信息
+	module::UserInfoEntityMap           m_mapUsers;								//所以用户的信息
+	UInt32								m_tcpGetUserFriendInfoListTime;			//trick,请求用户信息的次数，一次请求所有人有问题。
+	UInt32								m_tcpGetUserFriendInfoListBackTime;		//请求用户信息的次数，一次请求所有人有问题。返回的次数
 };
 /******************************************************************************/
 #endif// IUSERLISTMODULE_IMPL_9768C185_67AE_45BB_B840_F0A66E6A7044_H__

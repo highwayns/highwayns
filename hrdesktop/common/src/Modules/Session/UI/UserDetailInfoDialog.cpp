@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UserDetailInfoDialog.cpp 2014\10\22 11:15:09 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -80,14 +80,14 @@ void UserDetailInfoDialog::OnWindowInitialized(TNotifyUI& msg)
 	{
 		if (1 == userInfo.gender)
 		{
-			sex->SetText(_T("С��"));
+			sex->SetText(_T("小侠"));
 		}
 		else if (2 == userInfo.gender)
 		{
-			sex->SetText(_T("С��"));
+			sex->SetText(_T("小仙"));
 		}
 		else
-			sex->SetText(_T("����"));
+			sex->SetText(_T("人妖"));
 	}
 	CControlUI* department = m_PaintManager.FindControl(_T("department"));
 	if (department)
@@ -125,13 +125,13 @@ void UserDetailInfoDialog::_refreshAvatar(IN const std::string& avatarPath)
 	CString csLocalPath = module::getMiscModule()->getDownloadDir() + util::stringToCString(imageEntity.filename);
 	if (!imageEntity.filename.empty() && PathFileExists(csLocalPath))
 	{
-		//���ش��̴���
+		//本地磁盘存在
 		if (m_AvatarUI)
 		{
 			m_AvatarUI->SetBkImage(csLocalPath);
 		}
 	}
-	else//��������ȥ����������
+	else//不存在则去服务器下载
 	{
 		std::string path = avatarPath;
 		m_pDownHttpOper = new DownloadAvatarHttpOperation(m_sid, path, FALSE
@@ -158,7 +158,7 @@ void UserDetailInfoDialog::OnClick(TNotifyUI& msg)
 	PTR_VOID(msg.pSender);
 	if (msg.pSender == m_AvatarUI)
 	{
-		module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, m_sid);//֪ͨ�����ڴ����Ự
+		module::getSessionModule()->asynNotifyObserver(module::KEY_SESSION_OPENNEWSESSION, m_sid);//通知主窗口创建会话
 	}
 	__super::OnClick(msg);
 }

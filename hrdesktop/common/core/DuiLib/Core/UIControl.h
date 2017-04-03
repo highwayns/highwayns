@@ -28,11 +28,11 @@ public:
     virtual void SetManager(CPaintManagerUI* pManager, CControlUI* pParent, bool bInit = true);
     virtual CControlUI* GetParent() const;
 
-    // �ı����
+    // 文本相关
     virtual CDuiString GetText() const;
     virtual void SetText(LPCTSTR pstrText);
 
-    // ͼ�����
+    // 图形相关
     DWORD GetBkColor() const;
     void SetBkColor(DWORD dwBackColor);
     DWORD GetBkColor2() const;
@@ -49,7 +49,7 @@ public:
     void SetBorderRound(SIZE cxyRound);
     bool DrawImage(HDC hDC, LPCTSTR pStrImage, LPCTSTR pStrModify = NULL);
 
-	//�߿����
+	//边框相关
 	int GetBorderSize() const;
 	void SetBorderSize(int nSize);
 	DWORD GetBorderColor() const;
@@ -67,7 +67,7 @@ public:
 	int GetBorderStyle() const;
 	void SetBorderStyle(int nStyle);
 
-    // λ�����
+    // 位置相关
     virtual const RECT& GetPos() const;
     virtual void SetPos(RECT rc);
     virtual int GetWidth() const;
@@ -75,13 +75,13 @@ public:
     virtual int GetX() const;
     virtual int GetY() const;
     virtual RECT GetPadding() const;
-    virtual void SetPadding(RECT rcPadding); // ������߾࣬���ϲ㴰�ڻ���
-    virtual SIZE GetFixedXY() const;         // ʵ�ʴ�Сλ��ʹ��GetPos��ȡ������õ�����Ԥ��Ĳο�ֵ
-    virtual void SetFixedXY(SIZE szXY);      // ��floatΪtrueʱ��Ч
-    virtual int GetFixedWidth() const;       // ʵ�ʴ�Сλ��ʹ��GetPos��ȡ������õ�����Ԥ��Ĳο�ֵ
-    virtual void SetFixedWidth(int cx);      // Ԥ��Ĳο�ֵ
-    virtual int GetFixedHeight() const;      // ʵ�ʴ�Сλ��ʹ��GetPos��ȡ������õ�����Ԥ��Ĳο�ֵ
-    virtual void SetFixedHeight(int cy);     // Ԥ��Ĳο�ֵ
+    virtual void SetPadding(RECT rcPadding); // 设置外边距，由上层窗口绘制
+    virtual SIZE GetFixedXY() const;         // 实际大小位置使用GetPos获取，这里得到的是预设的参考值
+    virtual void SetFixedXY(SIZE szXY);      // 仅float为true时有效
+    virtual int GetFixedWidth() const;       // 实际大小位置使用GetPos获取，这里得到的是预设的参考值
+    virtual void SetFixedWidth(int cx);      // 预设的参考值
+    virtual int GetFixedHeight() const;      // 实际大小位置使用GetPos获取，这里得到的是预设的参考值
+    virtual void SetFixedHeight(int cy);     // 预设的参考值
     virtual int GetMinWidth() const;
     virtual void SetMinWidth(int cx);
     virtual int GetMaxWidth() const;
@@ -95,30 +95,30 @@ public:
     virtual TRelativePosUI GetRelativePos() const;
     virtual bool IsRelativePos() const;
 
-    // �����ʾ
+    // 鼠标提示
     virtual CDuiString GetToolTip() const;
     virtual void SetToolTip(LPCTSTR pstrText);
 	virtual void SetToolTipWidth(int nWidth);
-	virtual int	  GetToolTipWidth(void);	// ����ToolTip��������
+	virtual int	  GetToolTipWidth(void);	// 多行ToolTip单行最长宽度
 
-    // ��ݼ�
+    // 快捷键
     virtual TCHAR GetShortcut() const;
     virtual void SetShortcut(TCHAR ch);
 
-    // �˵�
+    // 菜单
     virtual bool IsContextMenuUsed() const;
     virtual void SetContextMenuUsed(bool bMenuUsed);
 
-    // �û�����
-    virtual const CDuiString& GetUserData(); // �������������û�ʹ��
-    virtual void SetUserData(LPCTSTR pstrText); // �������������û�ʹ��
-    virtual UINT_PTR GetTag() const; // �������������û�ʹ��
-    virtual void SetTag(UINT_PTR pTag); // �������������û�ʹ��
+    // 用户属性
+    virtual const CDuiString& GetUserData(); // 辅助函数，供用户使用
+    virtual void SetUserData(LPCTSTR pstrText); // 辅助函数，供用户使用
+    virtual UINT_PTR GetTag() const; // 辅助函数，供用户使用
+    virtual void SetTag(UINT_PTR pTag); // 辅助函数，供用户使用
 
-    // һЩ��Ҫ������
+    // 一些重要的属性
     virtual bool IsVisible() const;
     virtual void SetVisible(bool bVisible = true);
-    virtual void SetInternVisible(bool bVisible = true); // �����ڲ����ã���ЩUIӵ�д��ھ������Ҫ��д�˺���
+    virtual void SetInternVisible(bool bVisible = true); // 仅供内部调用，有些UI拥有窗口句柄，需要重写此函数
     virtual bool IsEnabled() const;
     virtual void SetEnabled(bool bEnable = true);
     virtual bool IsMouseEnabled() const;
@@ -158,7 +158,7 @@ public:
 
     virtual void DoPostPaint(HDC hDC, const RECT& rcPaint);
 
-	//���ⴰ�ڲ���
+	//虚拟窗口参数
 	void SetVirtualWnd(LPCTSTR pstrValue);
 	CDuiString GetVirtualWnd() const;
 
@@ -189,7 +189,7 @@ protected:
 	bool m_bKeyboardEnabled ;
     bool m_bFocused;
     bool m_bFloat;
-    bool m_bSetPos; // ��ֹSetPosѭ������
+    bool m_bSetPos; // 防止SetPos循环调用
     TRelativePosUI m_tRelativePos;
 
     CDuiString m_sText;

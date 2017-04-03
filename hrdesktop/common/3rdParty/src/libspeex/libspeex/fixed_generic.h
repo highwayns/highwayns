@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2003 Jean-Marc Valin */
+/* Copyright (C) 2003 Jean-Marc Valin */
 /**
    @file fixed_generic.h
    @brief Generic fixed-point operations

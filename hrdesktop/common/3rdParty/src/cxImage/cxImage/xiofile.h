@@ -1,4 +1,4 @@
-﻿#if !defined(__xiofile_h)
+#if !defined(__xiofile_h)
 #define __xiofile_h
 
 #include "xfile.h"

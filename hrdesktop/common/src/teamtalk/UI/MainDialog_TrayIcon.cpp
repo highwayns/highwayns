@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MainDialog_TrayIcon.cpp 2014\8\19 20:17:29 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -18,9 +18,9 @@ void MainDialog::OnTrayIconNotify(WPARAM wParam, LPARAM lParam)
 	case WM_RBUTTONUP:
 	{
 		POINT point;
-		GetCursorPos(&point);			// ��ȡ���ָ��λ�ã���Ļ���꣩
+		GetCursorPos(&point);			// 获取鼠标指针位置（屏幕坐标）
 		CMenuWnd* pMenu = new CMenuWnd(m_hWnd);
-		//ScreenToClient(m_hWnd, &point);	// �����ָ��λ��ת��Ϊ��������
+		//ScreenToClient(m_hWnd, &point);	// 将鼠标指针位置转换为窗口坐标
 		//ClientToScreen(m_hWnd, &point);
 		STRINGorID xml(_T("menu\\TrayIconMenu.xml"));
 		pMenu->Init(NULL, xml, _T("xml"), point);

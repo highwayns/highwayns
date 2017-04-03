@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      MiscModule.cpp 2014\8\4 9:56:42 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -135,19 +135,19 @@ CString MiscModule_Impl::makeShortTimeDescription(IN UInt32 Intime)
 	CTime currentTime(time(0));
 	//CString mor = timeData.Format(_T("-%Y%m%d-%H-%M-%S-"));
 
-	if (Intime > static_cast<UInt32>(time(0)) + 86400)//��Ȼ�����ڻ��� 86400Ϊһ�죬������ʱ����ܺͱ���ʱ�������ʼ�һ��ʱ��
+	if (Intime > static_cast<UInt32>(time(0)) + 86400)//居然比现在还早 86400为一天，服务器时间可能和本地时间有误差，故加一天时差
 	{
 		return util::getMultilingual()->getStringById(_T("STRID_MISCMODULE_TIMEDESCRIPTION_FUTURE"));
 	}
-	else if (currentTime.GetYear() - msgTime.GetYear() == 1)//ȥ��
+	else if (currentTime.GetYear() - msgTime.GetYear() == 1)//去年
 	{
 		return util::getMultilingual()->getStringById(_T("STRID_MISCMODULE_TIMEDESCRIPTION_LASTYEAR"));
 	}
-	else if (currentTime.GetYear() - msgTime.GetYear() > 1)//����ǰ
+	else if (currentTime.GetYear() - msgTime.GetYear() > 1)//几年前
 	{
 		return util::getMultilingual()->getStringById(_T("STRID_MISCMODULE_TIMEDESCRIPTION_LOONGLONGAGO"));
 	}
-	//һ�����ڵ�
+	//一年以内的
 	else if (msgTime.GetMonth() - currentTime.GetMonth())
 	{
 			return msgTime.Format(_T("%m-%d"));

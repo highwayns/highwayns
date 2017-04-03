@@ -1,4 +1,4 @@
-﻿#ifndef m_anismiley_h__
+#ifndef m_anismiley_h__
 #define m_anismiley_h__ 
  
 

@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      OperationManager.cpp 2014\12\18 19:16:30 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -162,7 +162,7 @@ IMCoreErrorCode OperationManager::clearOperationByName(std::string oper_name)
 
 OperationManager::~OperationManager()
 {
-	//��׽�����׳���δ֪�쳣
+	//捕捉可能抛出的未知异常
 	try
 	{
 		shutdown();

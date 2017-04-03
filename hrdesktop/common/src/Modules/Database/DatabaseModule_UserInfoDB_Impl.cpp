@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DatabaseModule_UserInfoDB_Impl.cpp 2014\12\30 11:26:25 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     user info db manage
  ******************************************************************************/
 
@@ -16,17 +16,17 @@ namespace
 		"("
 		"    [id]                           INTEGER PRIMARY KEY,"
 		"    [userId]						TEXT NOT NULL UNIQUE,"					//1
-		"    [name]							TEXT DEFAULT NULL,"						//2 ����
-		"    [nickName]						TEXT DEFAULT NULL,"						//3 ����
-		"    [avatarUrl]					TEXT DEFAULT NULL,"						//4.ͷ���url path
-		"    [departmentId]					TEXT DEFAULT NULL,"						//5.����id
-		"    [departmentName]				TEXT DEFAULT NULL,"						//6.��������
-		"    [email]						TEXT DEFAULT NULL,"						//7.����
-		"    [gender]						INTEGER DEFAULT 1,"						//8.�û��Ա�,�У�1 Ů��2 ����/�����ˣ�0
-		"    [user_domain]					TEXT DEFAULT NULL,"						//9.�û�����ƴ��
-		"    [telephone]					TEXT DEFAULT NULL,"						//10.�绰
-		"    [status]						INTEGER DEFAULT 0,"						//11:��ְ  3:��ְ
-        "    [reserve1]                     TEXT DEFAULT NULL,"                     //12:����ǩ��
+		"    [name]							TEXT DEFAULT NULL,"						//2 姓名
+		"    [nickName]						TEXT DEFAULT NULL,"						//3 真名
+		"    [avatarUrl]					TEXT DEFAULT NULL,"						//4.头像的url path
+		"    [departmentId]					TEXT DEFAULT NULL,"						//5.部门id
+		"    [departmentName]				TEXT DEFAULT NULL,"						//6.部门名称
+		"    [email]						TEXT DEFAULT NULL,"						//7.邮箱
+		"    [gender]						INTEGER DEFAULT 1,"						//8.用户性别,男：1 女：2 人妖/外星人：0
+		"    [user_domain]					TEXT DEFAULT NULL,"						//9.用户花名拼音
+		"    [telephone]					TEXT DEFAULT NULL,"						//10.电话
+		"    [status]						INTEGER DEFAULT 0,"						//11:在职  3:离职
+        "    [reserve1]                     TEXT DEFAULT NULL,"                     //12:个性签名
 		"    [reserve2]                     INTEGER DEFAULT NULL,"
 		"    [reserve3]                     INTEGER DEFAULT NULL"
 		");";

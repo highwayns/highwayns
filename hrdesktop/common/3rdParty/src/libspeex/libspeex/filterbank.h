@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2006 Jean-Marc Valin */
+/* Copyright (C) 2006 Jean-Marc Valin */
 /**
    @file filterbank.h
    @brief Converting between psd and filterbank

@@ -1,7 +1,7 @@
 ﻿/******************************************************************************* 
  *  @file      FileTransferSocket.cpp 2014\8\30 13:32:37 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �ļ�����socket
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     文件传输socket
  ******************************************************************************/
 
 #include "StdAfx.h"
@@ -52,12 +52,12 @@ void FileTransferSocket::sendPacket(IN UInt16 moduleId, IN UInt16 cmdId, IN goog
     m_TTPBHeader.setModuleId(moduleId);
     m_TTPBHeader.setCommandId(cmdId);
 
-    UInt32 length = imcore::HEADER_LENGTH + pbBody->ByteSize();//���ð�����
+    UInt32 length = imcore::HEADER_LENGTH + pbBody->ByteSize();//设置包长度
     m_TTPBHeader.setLength(length);
 
     std::unique_ptr<byte> data(new byte[length]);
     ZeroMemory(data.get(), length);
-    memcpy(data.get(), m_TTPBHeader.getSerializeBuffer(), imcore::HEADER_LENGTH);//������ͷ
+    memcpy(data.get(), m_TTPBHeader.getSerializeBuffer(), imcore::HEADER_LENGTH);//拷贝包头
 
     if (!pbBody->SerializeToArray(data.get() + imcore::HEADER_LENGTH, pbBody->ByteSize()))
     {
@@ -111,10 +111,10 @@ void FileTransferSocket::onReceiveData(const char* data, int32_t size)
     case IM::BaseDefine::FileCmdID::CID_FILE_LOGIN_RES:
         _fileLoginResponse(pbBody);
 		break;
-    case IM::BaseDefine::FileCmdID::CID_FILE_PULL_DATA_REQ://���ļ�
+    case IM::BaseDefine::FileCmdID::CID_FILE_PULL_DATA_REQ://发文件
         _filePullDataReqResponse(pbBody);
 		break;
-    case IM::BaseDefine::FileCmdID::CID_FILE_PULL_DATA_RSP://���ļ�
+    case IM::BaseDefine::FileCmdID::CID_FILE_PULL_DATA_RSP://收文件
         _filePullDataRspResponse(pbBody);
 		break;
     case IM::BaseDefine::FileCmdID::CID_FILE_STATE://
@@ -137,7 +137,7 @@ void FileTransferSocket::onConnectDone()
         return;
     }
 		
-	//��ģʽ�ļ����䣬����taskid��token��client_mode
+	//拉模式文件传输，传输taskid、token、client_mode
 	IM::File::IMFileLoginReq imFileLoginReq;
 	imFileLoginReq.set_user_id(module::getSysConfigModule()->userId());
 	imFileLoginReq.set_task_id(info.sTaskID);
@@ -163,7 +163,7 @@ BOOL FileTransferSocket::startFileTransLink()
 	TransferFileEntity FileInfo;
 	if (TransferFileEntityManager::getInstance()->getFileInfoByTaskId(m_sTaskId, FileInfo))
 	{
-		//���ʹ��msg server ��������IP�Ͷ˿�
+		//大佛：使用msg server 传过来的IP和端口
 		LOG__(APP, _T("connect IP=%s,Port=%d"), util::stringToCString(FileInfo.sIP), FileInfo.nPort);
 		connect(util::stringToCString(FileInfo.sIP), FileInfo.nPort);
 		//connect(util::stringToCString(module::FILETRANSFER_IP), module::FILETRANSFER_PORT);
@@ -192,7 +192,7 @@ void FileTransferSocket::_fileLoginResponse(IN std::string& body)
 		LOG__(ERR, _T("file server login failed! "));
 		return;
 	}
-	//���ļ�
+	//打开文件
 	std::string taskId = imFileLoginRsp.task_id();
 	TransferFileEntity fileEntity;
 	if (!TransferFileEntityManager::getInstance()->getFileInfoByTaskId(taskId, fileEntity))
@@ -202,7 +202,7 @@ void FileTransferSocket::_fileLoginResponse(IN std::string& body)
 	}
 
 	LOG__(APP, _T("IMFileLoginRsp, file server login succeed"));
-	//��ʾ����,�����ϲ������
+	//提示界面,界面上插入该项
 	if (IM::BaseDefine::ClientFileRole::CLIENT_REALTIME_SENDER == fileEntity.nClientMode
 		|| IM::BaseDefine::ClientFileRole::CLIENT_OFFLINE_UPLOAD == fileEntity.nClientMode)
 	{
@@ -215,7 +215,7 @@ void FileTransferSocket::_fileLoginResponse(IN std::string& body)
 	}
 }
 
-void FileTransferSocket::_filePullDataReqResponse(IN std::string& body)//��
+void FileTransferSocket::_filePullDataReqResponse(IN std::string& body)//发
 {
 	IM::File::IMFilePullDataReq imFilePullDataReq;
     if (!imFilePullDataReq.ParseFromString(body))
@@ -244,7 +244,7 @@ void FileTransferSocket::_filePullDataReqResponse(IN std::string& body)//��
 		LOG__(ERR, _T("PullDataReqResponse: file boject Destoryed!"));
 		return;
 	}
-	fileEntity.pFileObject->readBlock(fileOffset, fileSize, buff);//��ȡ�����ļ������ݿ�
+	fileEntity.pFileObject->readBlock(fileOffset, fileSize, buff);//读取本地文件的数据块
 	IM::File::IMFilePullDataRsp imFilePullDataRsp;//todo check
     imFilePullDataRsp.set_result_code(0);
 	imFilePullDataRsp.set_task_id(taskId);
@@ -259,12 +259,12 @@ void FileTransferSocket::_filePullDataReqResponse(IN std::string& body)//��
 	fileEntity.nProgress = fileOffset + fileSize;
 	if (fileEntity.nProgress < fileEntity.nFileSize)
 	{
-		//���½�����
-		TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(fileEntity);//���浱ǰ����
+		//更新进度条
+		TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(fileEntity);//保存当前进度
 		module::getFileTransferModule()->asynNotifyObserver(module::KEY_FILESEVER_UPDATA_PROGRESSBAR
             , fileEntity.sTaskID);
 	}
-	else//�������
+	else//传输完成
 	{
 		if (fileEntity.pFileObject)
 		{
@@ -277,7 +277,7 @@ void FileTransferSocket::_filePullDataReqResponse(IN std::string& body)//��
 	TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(fileEntity);
 }
 
-void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//��
+void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//收
 {
 	IM::File::IMFilePullDataRsp imFilePullDataRsp;
     if (!imFilePullDataRsp.ParseFromString(body))
@@ -292,7 +292,7 @@ void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//��
 		return;
 	}
 	std::string taskId = imFilePullDataRsp.task_id();
-	const std::string& strData = imFilePullDataRsp.file_data();//todo ����������Ҫ����
+	const std::string& strData = imFilePullDataRsp.file_data();//todo ？？？？？要长度
 	void* pData = (void*)(strData.data());
 	UInt32 nBlockSize = strData.size();
 	UInt32 fileOffset = imFilePullDataRsp.offset();
@@ -308,7 +308,7 @@ void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//��
 		, fileEntity.getRealFileName()
         , nBlockSize);
 
-	//���ļ�...
+	//存文件...
 	if (!fileEntity.pFileObject->writeBlock(fileOffset, nBlockSize, pData))
 	{
 		LOG__(DEBG, _T("writeBlock failed "));
@@ -318,12 +318,12 @@ void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//��
 	fileEntity.nProgress = fileOffset + nBlockSize;
 	if (fileEntity.nProgress < fileEntity.nFileSize)
 	{
-		//���½�����
-		TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(fileEntity);//���浱ǰ����
+		//更新进度条
+		TransferFileEntityManager::getInstance()->updateFileInfoBysTaskID(fileEntity);//保存当前进度
 		module::getFileTransferModule()->asynNotifyObserver(module::KEY_FILESEVER_UPDATA_PROGRESSBAR
             , fileEntity.sTaskID);
 
-		//������file block req...
+		//继续发file block req...
 		int mode = fileEntity.nClientMode == IM::BaseDefine::ClientFileRole::CLIENT_OFFLINE_DOWNLOAD ? IM::BaseDefine::TransferFileType::FILE_TYPE_OFFLINE : IM::BaseDefine::TransferFileType::FILE_TYPE_ONLINE;
 		IM::File::IMFilePullDataReq imFilePullDataReq;
 		imFilePullDataReq.set_task_id(taskId);
@@ -334,10 +334,10 @@ void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//��
         UInt32 pullSize = fileEntity.nFileSize - fileEntity.nProgress;
         pullSize > nBlockSize ? imFilePullDataReq.set_data_size(nBlockSize) : imFilePullDataReq.set_data_size(pullSize);
 		
-		// ����
+		// 发包
         sendPacket(IM::BaseDefine::ServiceID::SID_FILE, IM::BaseDefine::FileCmdID::CID_FILE_PULL_DATA_REQ, &imFilePullDataReq);
 	}
-	else//�������
+	else//传输完成
 	{
 		if (fileEntity.pFileObject)
 		{
@@ -345,7 +345,7 @@ void FileTransferSocket::_filePullDataRspResponse(IN std::string& body)//��
 			fileEntity.pFileObject = nullptr;
 		}
 
-        //��֪�Է��ļ���������ˡ�
+        //告知对方文件传输完成了。
         IM::File::IMFileState imFileState;
         imFileState.set_state(IM::BaseDefine::ClientFileState::CLIENT_FILE_DONE);
         imFileState.set_task_id(taskId);
@@ -380,7 +380,7 @@ void FileTransferSocket::_fileState(IN std::string& body)
 	case IM::BaseDefine::ClientFileState::CLIENT_FILE_PEER_READY:
 		LOG__(APP, _T("fileState--CLIENT_FILE_PEER_READY "));
 		break;
-	case IM::BaseDefine::ClientFileState::CLIENT_FILE_CANCEL ://ȡ�������ļ�����
+	case IM::BaseDefine::ClientFileState::CLIENT_FILE_CANCEL ://取消的了文件传输
 		LOG__(APP, _T("fileState--CLIENT_FILE_CANCEL "));
 		{
             if (fileEntity.pFileObject)
@@ -392,7 +392,7 @@ void FileTransferSocket::_fileState(IN std::string& body)
 			module::getFileTransferModule()->asynNotifyObserver(module::KEY_FILESEVER_UPLOAD_CANCEL, fileEntity.sTaskID);
 		}
 		break;
-	case IM::BaseDefine::ClientFileState::CLIENT_FILE_REFUSE://�ܾ����ļ�
+	case IM::BaseDefine::ClientFileState::CLIENT_FILE_REFUSE://拒绝了文件
 		LOG__(APP, _T("fileState--CLIENT_FILE_REFUSE "));
 		{
             if (fileEntity.pFileObject)

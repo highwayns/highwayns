@@ -18,7 +18,7 @@ const int kEmotionRefreshInterval = 150;
 
 #define  TIMER_CHECK_RECEIVE_WRITING_STATUS 2
 
-DWORD WINAPI  WindowShake(LPVOID lpParam)//���ڶ���
+DWORD WINAPI  WindowShake(LPVOID lpParam)//窗口抖动
 {
 	HWND hwnd = (HWND)lpParam;
 	RECT rect;
@@ -84,9 +84,9 @@ CControlUI* SessionDialog::CreateControl(LPCTSTR pstrClass)
 void SessionDialog::OnFinalMessage(HWND hWnd)
 {
 	module::SessionEntity sessEntity;
-	if (module::getSessionModule()->getSessionEntityBySId(m_sId, sessEntity))//��������Ự����Ϣid
+	if (module::getSessionModule()->getSessionEntityBySId(m_sId, sessEntity))//重置最近会话的消息id
 	{	
-		//���ڹر��ˣ�top item Id��Ȼ��Ҫ������
+		//窗口关闭了，top item Id自然就要清零了
 		module::getMessageModule()->setSessionTopMsgId(m_sId, 0);
 	}
 	else
@@ -126,7 +126,7 @@ void SessionDialog::InitWindow()
 	module::SessionEntity* pSessionInfo = SessionEntityManager::getInstance()->getSessionEntityBySId(m_sId);
 	if (!pSessionInfo)
 		return;
-	//Ⱥ�Ļ������¼����С
+	//群的话，从新计算大小
 	if (module::SESSION_GROUPTYPE == pSessionInfo->sessionType)
 	{
 		ResizeClient(720,540);
@@ -143,12 +143,12 @@ void SessionDialog::OnWindowInitialized(TNotifyUI& msg)
 	PTR_VOID(m_pBtnAvatar);
 	m_pBtnAvatar->SetBkImage(util::stringToCString(pSessionInfo->getAvatarPath()));
 
-    //Ⱥ�Ļ�����ȡ������
+    //群的话，获取下人数
     if (module::SESSION_GROUPTYPE == pSessionInfo->sessionType)
     {
         if (m_pSessionLayout)
         {
-            m_pBtnAvatar->SetToolTip(util::int32ToCString(m_pSessionLayout->GetGroupItemCnt()) + _T("��"));
+            m_pBtnAvatar->SetToolTip(util::int32ToCString(m_pSessionLayout->GetGroupItemCnt()) + _T("人"));
         }
     }
 
@@ -168,7 +168,7 @@ void SessionDialog::OnWindowInitialized(TNotifyUI& msg)
     m_pEditSignature = (CEditUI*)m_PaintManager.FindControl(_T("userSignature"));
     PTR_VOID(m_pEditSignature);
 
-    _FreshSignature();//����ͷ��
+    _FreshSignature();//更新头像
 
 	module::getSessionModule()->addObserver(this, BIND_CALLBACK_2(SessionDialog::MKOForSessionModuleCallback));
 	module::getSysConfigModule()->addObserver(this, BIND_CALLBACK_2(SessionDialog::MKOForSysConfigModuleCallback));
@@ -186,7 +186,7 @@ void SessionDialog::Notify(TNotifyUI& msg)
 	}
 	else if (msg.sType == DUI_MSGTYPE_CLICK)
 	{
-		if (msg.pSender == m_pBtnAvatar)//����˻Ự��ͷ��
+		if (msg.pSender == m_pBtnAvatar)//点击了会话的头像
 		{
 			module::getSysConfigModule()->asynNotifyObserver(module::KEY_SYSCONFIG_SHOW_USERDETAILDIALOG,m_sId);
 		}
@@ -208,7 +208,7 @@ void SessionDialog::MKOForSessionModuleCallback(const std::string& keyId, MKO_TU
 	{
 		std::string& sId = std::get<MKO_STRING>(mkoParam);
 
-		//��������Ϣ��ʾ����
+		//任务栏消息提示动画
 		if (m_sId == sId && ::GetForegroundWindow() != m_hWnd)
 		{
 			FLASHWINFO flashInfo;
@@ -220,7 +220,7 @@ void SessionDialog::MKOForSessionModuleCallback(const std::string& keyId, MKO_TU
 			::FlashWindowEx(&flashInfo);
 		}
 	}
-	else if (module::KEY_SESSION_WRITING_MSG == keyId)	//�Է���������
+	else if (module::KEY_SESSION_WRITING_MSG == keyId)	//对方正在输入
 	{
 		std::string& sId = std::get<MKO_STRING>(mkoParam);
 		if (m_sId == sId)
@@ -230,7 +230,7 @@ void SessionDialog::MKOForSessionModuleCallback(const std::string& keyId, MKO_TU
 			SetTimer(m_hWnd, TIMER_CHECK_RECEIVE_WRITING_STATUS, 6000, NULL);
 		}
 	}
-	else if (module::KEY_SESSION_STOPWRITING_MSG == keyId)//�Է�ֹͣ����
+	else if (module::KEY_SESSION_STOPWRITING_MSG == keyId)//对方停止输入
 	{
 		std::string& sId = std::get<MKO_STRING>(mkoParam);
 		if (m_sId == sId)
@@ -263,7 +263,7 @@ void SessionDialog::_ShakeWindow()
 	BringToTop();
 	if (IsWindow(m_hWnd))
 	{
-		HANDLE hThread = CreateThread(NULL, 0, WindowShake, m_hWnd, 0, NULL);//���ڶ���
+		HANDLE hThread = CreateThread(NULL, 0, WindowShake, m_hWnd, 0, NULL);//窗口抖动
 		CloseHandle(hThread);
 	}
 }
@@ -324,7 +324,7 @@ void SessionDialog::MKOForLoginModuleCallback(const std::string& keyId, MKO_TUPL
 
 void SessionDialog::_FreshAvatar()
 {
-	//ˢ�¸�������״̬��Ⱥ��ˢ��
+	//刷新个人在线状态，群不刷新
 	module::SessionEntity* pSession = SessionEntityManager::getInstance()->getSessionEntityBySId(m_sId);
 	if (pSession && module::SESSION_USERTYPE == pSession->sessionType)
 	{
@@ -336,7 +336,7 @@ void SessionDialog::MKOForUserListModuleCallback(const std::string& keyId, MKO_T
 {
 	if (module::KEY_USERLIST_USERLINESTATE == keyId)
 	{
-		//ˢ�¸�������״̬��Ⱥ��ˢ��
+		//刷新个人在线状态，群不刷新
 		std::string& sId = std::get<MKO_STRING>(mkoParam);
 		if (sId == m_sId)
 		{
@@ -349,7 +349,7 @@ void SessionDialog::MKOForUserListModuleCallback(const std::string& keyId, MKO_T
 	}
     else if (module::KEY_USERLIST_USERSIGNINFO_CHANGED == keyId)
     {
-        //���¸���ǩ��
+        //更新个性签名
         std::string& sId = std::get<MKO_STRING>(mkoParam);
         if (sId != m_sId)
         {
@@ -363,7 +363,7 @@ void SessionDialog::MKOForScreenCaptureModuleCallback(const std::string& keyId, 
 {
     std::string strImgPath = std::get<MKO_STRING>(mkoParam);
 
-    //��鵱ǰ�����ǲ������ϲ�Ĵ��ڣ���������ϲ�ģ������ͼƬ
+    //检查当前窗口是不是最上层的窗口，如果是最上层的，则插入图片
     for (HWND hWnd = GetTopWindow(NULL); NULL != hWnd; hWnd = GetWindow(hWnd, GW_HWNDNEXT))
     {
         wchar_t szClsName[MAX_PATH] = { 0 };
@@ -400,7 +400,7 @@ LRESULT SessionDialog::OnSetFocus(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL&
 {
 	if (m_pSessionLayout && m_pSessionLayout->m_pInputRichEdit)
 	{
-		m_pSessionLayout->m_pInputRichEdit->SetFocus();//bug���л���ʱ�򣬵�һ�β��ܻ�ý���
+		m_pSessionLayout->m_pInputRichEdit->SetFocus();//bug，切换的时候，第一次不能获得焦点
 	}
 	return __super::OnSetFocus(uMsg, wParam, lParam, bHandled);
 }

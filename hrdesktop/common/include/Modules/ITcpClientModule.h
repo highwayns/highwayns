@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      ITcpClientModule.h 2014\7\29 13:11:43 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �ͻ���TCP���糤����ģ��ӿڶ���
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     客户端TCP网络长连接模块接口定义
  ******************************************************************************/
 
 #ifndef ITCPCLIENTMODULE_66DE1A78_4D88_4416_BFC6_F4F16832ECBB_H__
@@ -24,7 +24,7 @@ NAMESPACE_BEGIN(module)
 const std::string MODULE_TCPCLIENT_PREFIX = "TcpClient";
 
 //KEYID
-const std::string KEY_TCPCLIENT_STATE = MODULE_TCPCLIENT_PREFIX + "State";	//TCP����״̬���
+const std::string KEY_TCPCLIENT_STATE = MODULE_TCPCLIENT_PREFIX + "State";	//TCP长连状态变更
 
 /**
 * The class <code>TcpClientSocket</code>
@@ -45,7 +45,7 @@ enum TCPCLIENT_STATE
 };
 
 /**
- * The class <code>�ͻ���TCP���糤����ģ�飬��TcpClientScoket��һ������</code> 
+ * The class <code>客户端TCP网络长连接模块，对TcpClientScoket做一个适配</code> 
  *
  */
 class MODULE_API ITcpClientModule : public module::ModuleBase
@@ -56,7 +56,7 @@ public:
 	virtual void shutdown() = 0;
 
 	/**
-	* ����Э���
+	* 发送协议包
 	*
 	* @return  void
 	* @exception there is no any exception to throw.
@@ -66,7 +66,7 @@ public:
 	virtual void sendPacket(UInt16 moduleId, UInt16 cmdId, google::protobuf::MessageLite* pbBody) = 0;
 	virtual void sendPacket(UInt16 moduleId, UInt16 cmdId, UInt16 reserved, google::protobuf::MessageLite* pbBody) = 0;
 	/**
-	 * �ͻ��˿������������
+	 * 客户端开启发送心跳包
 	 *
 	 * @return  void
 	 * @exception there is no any exception to throw.

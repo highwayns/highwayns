@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      TTPBHeader.h 2014\12\25 20:48:25 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -69,8 +69,8 @@ private:
 	UInt16		m_flag = 0;
 	UInt16		m_moduleId = 0;
 	UInt16		m_commandId = 0;
-	UInt16		m_seqNumber = 0;	// �����
-	UInt16		m_reserved = 0; // ����
+	UInt16		m_seqNumber = 0;	// 包序号
+	UInt16		m_reserved = 0; // 保留
 
 	byte*		m_pHeaderBuff = 0;
 };

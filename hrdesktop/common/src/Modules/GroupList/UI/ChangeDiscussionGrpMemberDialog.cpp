@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      ChangeDiscussionGrpMemberDialog.cpp 2015\1\14 19:42:25 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -80,7 +80,7 @@ void ChangeDiscussionGrpMemberDialog::OnFinalMessage(HWND hWnd)
 
 LRESULT ChangeDiscussionGrpMemberDialog::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	if (WM_NCLBUTTONDBLCLK != uMsg)//����˫�����������
+	if (WM_NCLBUTTONDBLCLK != uMsg)//禁用双击标题栏最大化
 	{
 		return WindowImplBase::HandleMessage(uMsg, wParam, lParam);
 	}
@@ -100,7 +100,7 @@ void ChangeDiscussionGrpMemberDialog::OnPrepare(TNotifyUI& msg)
 	m_TextaddNums = static_cast<CTextUI*>(m_PaintManager.FindControl(_T("TextaddNums")));
 	const module::DepartmentMap mapDeparments
 		= module::getUserListModule()->getAllDepartments();
-	for (auto itDepart : mapDeparments)//����б�
+	for (auto itDepart : mapDeparments)//左侧列表
 	{
 		module::DepartmentEntity& depart = itDepart.second;
 		IMListItemInfo item;
@@ -215,7 +215,7 @@ void ChangeDiscussionGrpMemberDialog::OnClick(TNotifyUI& msg)
 			if (m_pListGroupMembers->Remove(pListElement))
 			{
 				std::string sid = util::cStringToString(strId);
-				_changeResultList(sid, FALSE);//ɾ��Ⱥ��Ա
+				_changeResultList(sid, FALSE);//删除群成员
 				_refreshUIAddedNum();
 			}
 		}
@@ -228,7 +228,7 @@ BOOL ChangeDiscussionGrpMemberDialog::_AddToGroupMemberList(IN std::string sid, 
 	{
 		return FALSE;
 	}
-	//ȷ��û���ظ�����
+	//确认没有重复的项
 	for (int n = 0; n < m_pListGroupMembers->GetCount();n++)
 	{
 		CControlUI* pItem = m_pListGroupMembers->GetItemAt(n);
@@ -245,7 +245,7 @@ BOOL ChangeDiscussionGrpMemberDialog::_AddToGroupMemberList(IN std::string sid, 
 			}
 		}
 	}
-	//����ITEM
+	//插入ITEM
 	module::UserInfoEntity userInfo;
 	if (!module::getUserListModule()->getUserInfoBySId(sid, userInfo))
 	{
@@ -256,7 +256,7 @@ BOOL ChangeDiscussionGrpMemberDialog::_AddToGroupMemberList(IN std::string sid, 
 	CListContainerElementUI* pListElement = (CListContainerElementUI*)dlgBuilder.Create(_T("CreateDiscussionGrpDialog\\ListGroupMembersItem.xml"), (UINT)0, NULL, &m_PaintManager);
 	if (!pListElement)
 	{
-		LOG__(ERR, _T("Ⱥitem����ʧ��"));
+		LOG__(ERR, _T("群item创建失败"));
 		return FALSE;
 	}
 	CControlUI* pLogo = static_cast<CControlUI*>(pListElement->FindSubControl(_T("AvatarInfo")));
@@ -276,7 +276,7 @@ BOOL ChangeDiscussionGrpMemberDialog::_AddToGroupMemberList(IN std::string sid, 
 	CButtonUI* pRemoveBtn = static_cast<CButtonUI*>(pListElement->FindSubControl(_T("removebtn")));
 	if (pRemoveBtn)
 	{
-		//���ɾ����ť��ʱ�����������ж����ĸ���
+		//点击删除按钮的时候根据这个来判断是哪个项
 		pRemoveBtn->SetTag(UINT_PTR(pListElement));
 		if (!bEnableDelete)
 		{
@@ -284,7 +284,7 @@ BOOL ChangeDiscussionGrpMemberDialog::_AddToGroupMemberList(IN std::string sid, 
 		}
 	}
 
-	if (module::getSysConfigModule()->userID() == userInfo.sId)//�Լ�����ɾ��
+	if (module::getSysConfigModule()->userID() == userInfo.sId)//自己不能删除
 	{
 		pRemoveBtn->SetVisible(false);
 	}
@@ -380,7 +380,7 @@ void ChangeDiscussionGrpMemberDialog::_refreshUIAddedNum()
 
 void ChangeDiscussionGrpMemberDialog::_changeResultList(IN const std::string& sid, IN const BOOL bAdded)
 {
-	if (bAdded)//���ӳ�Ա
+	if (bAdded)//增加成员
 	{
 		auto iter = std::find_if(m_deleteUsers.begin(),m_deleteUsers.end(),
 			[=](std::string id){
@@ -395,7 +395,7 @@ void ChangeDiscussionGrpMemberDialog::_changeResultList(IN const std::string& si
 			m_deleteUsers.erase(iter);
 		}
 	}
-	else//ɾ����Ա
+	else//删除成员
 	{		
 		auto iter = std::find_if(m_addedUsers.begin(), m_addedUsers.end(),
 			[=](std::string id){

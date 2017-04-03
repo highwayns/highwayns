@@ -1,5 +1,5 @@
 ﻿/*
-    �Ի��������
+    对话框基础类
 */
 #pragma once
 
@@ -7,7 +7,7 @@
 #include <vector>
 
 #define DECLARE_DIALOG_PROC \
-	static INT_PTR CALLBACK DialogProc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam );//�����ں���
+	static INT_PTR CALLBACK DialogProc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam );//主窗口函数
 
 #define IMP_DIALOG_PROC( ClassName ) \
 	INT_PTR CALLBACK ClassName##::DialogProc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam ) \
@@ -22,11 +22,11 @@ public:
     CDlgBase();
 	~CDlgBase();
 	
-	//-----------------------------------������Ͷ���--------------------------------------------------------
-	typedef void ( CDlgBase:: *MSG_HANDLER )( HWND, WPARAM, LPARAM ); //������Ϣ�����������
-	typedef LRESULT ( CDlgBase:: *NOTIFY_HANDLER )( HWND, HWND, WPARAM, LPARAM );// WM_NOTIFY���Ӵ������
-	typedef void ( CDlgBase:: *COMMAND_HANDLER )( HWND, WPARAM, LPARAM );//WM_COMMAND �ľ���ID�Ĵ������ 
-	typedef void ( CDlgBase:: *COMMAND_HANDLER_EX )( HWND, HWND,WPARAM, LPARAM );//WM_COMMANDEX �ľ���ID�Ĵ������ 
+	//-----------------------------------相关类型定义--------------------------------------------------------
+	typedef void ( CDlgBase:: *MSG_HANDLER )( HWND, WPARAM, LPARAM ); //定义消息处理函数类型
+	typedef LRESULT ( CDlgBase:: *NOTIFY_HANDLER )( HWND, HWND, WPARAM, LPARAM );// WM_NOTIFY的子处理函数
+	typedef void ( CDlgBase:: *COMMAND_HANDLER )( HWND, WPARAM, LPARAM );//WM_COMMAND 的具体ID的处理函数 
+	typedef void ( CDlgBase:: *COMMAND_HANDLER_EX )( HWND, HWND,WPARAM, LPARAM );//WM_COMMANDEX 的具体ID的处理函数 
 
 	struct _NOTIFY_MSG
 	{
@@ -111,17 +111,17 @@ public:
 	virtual void RegisterCmd( int iCmdID, COMMAND_HANDLER pfnCmdHandler );
 	virtual void RegisterCmdEx( int iCtrlID, int iNotifyCode, COMMAND_HANDLER_EX pfnCmdHandler );
 	virtual void RegisterNotify( int iCtrlID, int iNotifyCode, NOTIFY_HANDLER pfnNotifyHandler );
-	virtual void DoModal( int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );//ģ̬�Ի���
+	virtual void DoModal( int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );//模态对话框
 	virtual void DoModal( HINSTANCE hInstance, int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );
-	virtual void DoModal( int iIDD_DLG, HWND hParant, LPARAM lParam, DIALOGPROC pDialogProc );//��������ģ̬�Ի���
+	virtual void DoModal( int iIDD_DLG, HWND hParant, LPARAM lParam, DIALOGPROC pDialogProc );//带参数的模态对话框
 	virtual void DoModal( HINSTANCE hInstance, int iIDD_DLG, HWND hParant, LPARAM lParam, DIALOGPROC pDialogProc );
-	virtual HWND CreateDialogX( int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );//��ģ̬�Ի��� 
-	virtual HWND CreateDialogX( HINSTANCE hInstatnce, int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );//��ģ̬�Ի��� 
-	virtual HWND CreateDialogXIndirect(LPDLGTEMPLATE lpTemplate, HWND hParent, DIALOGPROC pDialogProc);//ʹ��ģ��ṹֱ�Ӵ���
+	virtual HWND CreateDialogX( int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );//非模态对话框 
+	virtual HWND CreateDialogX( HINSTANCE hInstatnce, int iIDD_DLG, HWND hParant, DIALOGPROC pDialogProc );//非模态对话框 
+	virtual HWND CreateDialogXIndirect(LPDLGTEMPLATE lpTemplate, HWND hParent, DIALOGPROC pDialogProc);//使用模板结构直接创建
 	virtual HWND GetHWND(){ return m_hwnd; };
 	virtual LRESULT SendMsg( UINT Msg, WPARAM wParam, LPARAM lParam );
 	
-	virtual void InitMsgMap();//��ʼ����Ϣӳ��
+	virtual void InitMsgMap();//初始化消息映射
 	virtual INT_PTR DialogProc_Internal( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam );
 
 public:

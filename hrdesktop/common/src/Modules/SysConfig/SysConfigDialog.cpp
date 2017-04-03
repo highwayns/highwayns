@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      SettingDialog.cpp 2014\8\6 20:05:26 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -125,14 +125,14 @@ void SysConfigDialog::_InitlizeSetting()
 	module::TTConfig* pTTConfig = module::getSysConfigModule()->getSystemConfig();
 	if (!pTTConfig)
 	{
-		LOG__(ERR, _T("_InitlizeSetting,��ȡ����ʧ��"));
+		LOG__(ERR, _T("_InitlizeSetting,读取设置失败"));
 		return;
 	}
 	if (pTTConfig->sysBaseFlag & module::BASE_FLAG_TOPMOST)
 	{
 		m_topmostBtn->SetCheck(true);
 	}
-	if (pTTConfig->sysBaseFlag & module::BASE_FLAG_NOTIPWHENNEWMSG)//ui������Ĭ��ѡ��
+	if (pTTConfig->sysBaseFlag & module::BASE_FLAG_NOTIPWHENNEWMSG)//ui上设置默认选中
 	{
 		m_newmessagealertBtn->SetCheck(true);
 	}
@@ -168,7 +168,7 @@ void SysConfigDialog::_ApplySetting()
 	int baseFlag = 0;
 	if (!pTTConfig)
 	{
-		LOG__(ERR, _T("SysConfigDialog::_ApplySetting,��ȡ����ʧ��"));
+		LOG__(ERR, _T("SysConfigDialog::_ApplySetting,读取设置失败"));
 		return;
 	}
 	if (m_topmostBtn->GetCheck())
@@ -206,7 +206,7 @@ void SysConfigDialog::_ApplySetting()
 	{
 		pTTConfig->sysSoundTypeBaseFlag = module::MUSIC_SOUND_CALLMSG;
 	}
-	module::getSysConfigModule()->asynNotifyObserver(module::KEY_SYSCONFIG_UPDATED);	//֪ͨ�Ķ�
+	module::getSysConfigModule()->asynNotifyObserver(module::KEY_SYSCONFIG_UPDATED);	//通知改动
 	module::getSysConfigModule()->saveData();
 }
 

@@ -1,17 +1,17 @@
-﻿// Modules.h : Modules DLL ����ͷ�ļ�
+﻿// Modules.h : Modules DLL 的主头文件
 //
 
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error "�ڰ������ļ�֮ǰ������stdafx.h�������� PCH �ļ�"
+	#error "在包含此文件之前包含“stdafx.h”以生成 PCH 文件"
 #endif
 
-#include "resource.h"		// ������
+#include "resource.h"		// 主符号
 
 
 // CModulesApp
-// �йش���ʵ�ֵ���Ϣ������� Modules.cpp
+// 有关此类实现的信息，请参阅 Modules.cpp
 //
 
 class CModulesApp : public CWinApp
@@ -19,7 +19,7 @@ class CModulesApp : public CWinApp
 public:
 	CModulesApp();
 
-// ��д
+// 重写
 public:
 	virtual BOOL InitInstance();
 

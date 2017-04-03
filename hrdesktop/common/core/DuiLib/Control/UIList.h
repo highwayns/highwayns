@@ -105,7 +105,7 @@ public:
     int GetCurSel() const;
 	int GetCurSelActivate() const;
 	bool SelectItem(int iIndex, bool bTakeFocus = false);
-	bool SelectItemActivate(int iIndex);    // ˫��ѡ��
+	bool SelectItemActivate(int iIndex);    // 双击选中
 
     CListHeaderUI* GetHeader() const;  
     CContainerUI* GetList() const;
@@ -195,7 +195,7 @@ public:
 protected:
     bool m_bScrollSelect;
     int m_iCurSel;
-	int m_iCurSelActivate;  // ˫������
+	int m_iCurSelActivate;  // 双击的列
     int m_iExpandedItem;
     IListCallbackUI* m_pCallback;
     CListBodyUI* m_pList;
@@ -331,7 +331,7 @@ public:
     bool IsExpanded() const;
     bool Expand(bool bExpand = true);
 
-    void Invalidate(); // ֱ��CControl::Invalidate�ᵼ�¹�����ˢ�£���д����ˢ������
+    void Invalidate(); // 直接CControl::Invalidate会导致滚动条刷新，重写减少刷新区域
     bool Activate();
 
     void DoEvent(TEventUI& event);
@@ -425,7 +425,7 @@ public:
     bool IsExpanded() const;
     bool Expand(bool bExpand = true);
 
-    void Invalidate(); // ֱ��CControl::Invalidate�ᵼ�¹�����ˢ�£���д����ˢ������
+    void Invalidate(); // 直接CControl::Invalidate会导致滚动条刷新，重写减少刷新区域
     bool Activate();
 
     void DoEvent(TEventUI& event);

@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      DatabaseModule_ImageDB_Impl.cpp 2014\12\30 14:06:32 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -16,9 +16,9 @@ namespace
 		"CREATE TABLE IF NOT EXISTS imimage"
 		"("
 		"    [id]                   INTEGER PRIMARY KEY,"
-		"    [hashcode]             INTEGER DEFAULT 0 NOT NULL UNIQUE,"		//����url���ɵ�hash code
-		"    [localPath]			TEXT NOT NULL,"							//ͼƬ�������·��
-		"    [urlPath]				TEXT NOT NULL"							//ͼƬurl��ַ
+		"    [hashcode]             INTEGER DEFAULT 0 NOT NULL UNIQUE,"		//根据url生成的hash code
+		"    [localPath]			TEXT NOT NULL,"							//图片本地相对路径
+		"    [urlPath]				TEXT NOT NULL"							//图片url地址
 		");";
 	const std::string createImImageIndex =
 		"CREATE unique INDEX IF NOT EXISTS hashcode_idx ON imimage(hashcode);";

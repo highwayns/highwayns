@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      UIIMEdit.cpp 2014\8\19 13:20:13 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -182,23 +182,23 @@ BOOL UIIMEdit::_SaveFile(IN HBITMAP hbitmap, OUT CString& strFilePath)
 
 HBITMAP UIIMEdit::_LoadAnImage(IN CString filePath)
 {
-	HANDLE hFile = CreateFile(filePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL); //��ָ����·��szImagePath�ж�ȡ�ļ����
-	DWORD dwFileSize = GetFileSize(hFile, NULL); //���ͼƬ�ļ��Ĵ�С����������ȫ���ڴ�
-	HGLOBAL hImageMemory = GlobalAlloc(GMEM_MOVEABLE, dwFileSize); //��ͼƬ����ȫ���ڴ�
-	void *pImageMemory = GlobalLock(hImageMemory); //�����ڴ�
-	DWORD dwReadedSize; //����ʵ�ʶ�ȡ���ļ���С
-	ReadFile(hFile, pImageMemory, dwFileSize, &dwReadedSize, NULL); //��ȡͼƬ��ȫ���ڴ浱��
-	GlobalUnlock(hImageMemory); //�����ڴ�
-	CloseHandle(hFile); //�ر��ļ����
+	HANDLE hFile = CreateFile(filePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL); //从指定的路径szImagePath中读取文件句柄
+	DWORD dwFileSize = GetFileSize(hFile, NULL); //获得图片文件的大小，用来分配全局内存
+	HGLOBAL hImageMemory = GlobalAlloc(GMEM_MOVEABLE, dwFileSize); //给图片分配全局内存
+	void *pImageMemory = GlobalLock(hImageMemory); //锁定内存
+	DWORD dwReadedSize; //保存实际读取的文件大小
+	ReadFile(hFile, pImageMemory, dwFileSize, &dwReadedSize, NULL); //读取图片到全局内存当中
+	GlobalUnlock(hImageMemory); //解锁内存
+	CloseHandle(hFile); //关闭文件句柄
 
 	HRESULT hr = NULL;
-	IStream *pIStream = NULL;//����һ��IStream�ӿ�ָ�룬��������ͼƬ��
-	IPicture *pIPicture = NULL;//����һ��IPicture�ӿ�ָ�룬��ʾͼƬ����
+	IStream *pIStream = NULL;//创建一个IStream接口指针，用来保存图片流
+	IPicture *pIPicture = NULL;//创建一个IPicture接口指针，表示图片对象
 
-	hr = CreateStreamOnHGlobal(hImageMemory, false, &pIStream); //��ȫ���ڴ��ʹ��IStream�ӿ�ָ��
+	hr = CreateStreamOnHGlobal(hImageMemory, false, &pIStream); //用全局内存初使化IStream接口指针
 	ASSERT(SUCCEEDED(hr));
 
-	hr = OleLoadPicture(pIStream, 0, false, IID_IPicture, (LPVOID*)&(pIPicture));//��OleLoadPicture���IPicture�ӿ�ָ��
+	hr = OleLoadPicture(pIStream, 0, false, IID_IPicture, (LPVOID*)&(pIPicture));//用OleLoadPicture获得IPicture接口指针
 	ASSERT(SUCCEEDED(hr));
 
 	HBITMAP hB = NULL;
@@ -208,9 +208,9 @@ HBITMAP UIIMEdit::_LoadAnImage(IN CString filePath)
 	HBITMAP hBB = (HBITMAP)CopyImage(hB, IMAGE_BITMAP, 0, 0,
 		LR_COPYRETURNORG);
 
-	GlobalFree(hImageMemory); //�ͷ�ȫ���ڴ�
-	pIStream->Release(); //�ͷ�pIStream
-	pIPicture->Release(); //�ͷ�pIPictur
+	GlobalFree(hImageMemory); //释放全局内存
+	pIStream->Release(); //释放pIStream
+	pIPicture->Release(); //释放pIPictur
 	return hBB;
 }
 
@@ -470,7 +470,7 @@ LRESULT UIIMEdit::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, bool& 
 		{
 			_ImEditPaste();
 		}
-		else if (VK_RETURN == wParam)//�س�
+		else if (VK_RETURN == wParam)//回车
 		{
 			module::TTConfig* pTTConfig = module::getSysConfigModule()->getSystemConfig();
 			BOOL bWantCtrlEnter = (pTTConfig->sysBaseFlag & module::BASE_FLAG_SENDIMG_BY_CTRLENTER);
@@ -479,8 +479,8 @@ LRESULT UIIMEdit::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, bool& 
 	}
 	else if (uMsg == WM_KILLFOCUS)
 	{
-		//removed by kuaidao 2015-03-05,��λ��ᵼ�½���֮���л�������
-		////fix bug,��Ƕ��Windows�ؼ�ʱ��������windows�ؼ�����Ƕ���IE�����Ǹô��ڵ�һ���Ӵ��ڣ��õ�Focus��ʱ���Լ��Ľ��㲢û��ȥ�������´β���������
+		//removed by kuaidao 2015-03-05,这段话会导致焦点之间切换有问题
+		////fix bug,当嵌入Windows控件时，如果别的windows控件（如嵌入的IE，它是该窗口的一个子窗口）得到Focus的时候，自己的焦点并没有去掉，造成下次不能再输入
 		//https://code.google.com/p/duilib/issues/detail?id=102
 		//if (m_bFocused && m_pManager
 		//	&& m_pManager->GetFocus() == this)
@@ -528,17 +528,17 @@ BOOL UIIMEdit::GetContent(OUT MixedMsg& mixMsg)
 		return FALSE;
 	}
 	UInt32 nImageCount = pRichEditOle->GetObjectCount();
-	if (nImageCount == 0)//������
+	if (nImageCount == 0)//纯文字
 	{
 		CString strContent = mixMsg.m_strTextData;
 		strContent.Trim();
 		if (strContent.IsEmpty())
 		{
-			LOG__(DEBG, _T("After trimed,is empty msg"));//��־����
+			LOG__(DEBG, _T("After trimed,is empty msg"));//日志干扰
 			return FALSE;
 		}
 	}
-	else//ͼ�Ļ���
+	else//图文混排
 	{
 		CString strEmotionFilesDir = module::getMiscModule()->getEmotionFilesDir();
 		int nPosAdd = 0;
@@ -557,7 +557,7 @@ BOOL UIIMEdit::GetContent(OUT MixedMsg& mixMsg)
 				int nPos = strFullPath.Find(strEmotionFilesDir);
 				if (-1 != nPos)
 				{
-					//�Ǳ��飬�����ϴ�ͼƬ
+					//是表情，不用上传图片
 					int nLen = picData.strLocalPicPath.GetLength();
 					CString fileName = strFullPath.Mid(strEmotionFilesDir.GetLength(), nLen - strEmotionFilesDir.GetLength() + 1);
 					CString fileID;

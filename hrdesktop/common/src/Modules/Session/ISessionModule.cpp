@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      ISessionModule.cpp 2015\1\8 9:16:08 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -47,7 +47,7 @@ UInt8 SessionEntity::getOnlineState()
 	}
 	else if (module::SESSION_GROUPTYPE == sessionType)
 	{
-		return IM::BaseDefine::USER_STATUS_ONLINE;//Ⱥ��Զ���ߵ�
+		return IM::BaseDefine::USER_STATUS_ONLINE;//群永远在线的
 	}
 
 	return 0;

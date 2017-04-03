@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      LoginWnd.cpp 2014\7\31 12:23:51 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -82,7 +82,7 @@ void LoginDialog::OnFinalMessage(HWND hWnd)
 
 LRESULT LoginDialog::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	if (WM_NCLBUTTONDBLCLK == uMsg)//����˫�����������
+	if (WM_NCLBUTTONDBLCLK == uMsg)//禁用双击标题栏最大化
 	{
 		return 0;
 	}
@@ -193,7 +193,7 @@ void LoginDialog::_DoLogin()
 	m_pBtnLogin->SetText(csTxt);
 	m_pBtnLogin->SetEnabled(false);
 
-	//���ӵ�½������
+	//连接登陆服务器
 	DoLoginServerParam param;
 	DoLoginServerHttpOperation* pOper = new DoLoginServerHttpOperation(
 		BIND_CALLBACK_1(LoginDialog::OnHttpCallbackOperation), param);
@@ -228,21 +228,21 @@ void LoginDialog::OnHttpCallbackOperation(std::shared_ptr<void> param)
 void LoginDialog::OnOperationCallback(std::shared_ptr<void> param)
 {
 	LoginParam* pLoginParam = (LoginParam*)param.get();
-	if (LOGIN_OK == pLoginParam->result)	//��½�ɹ�
+	if (LOGIN_OK == pLoginParam->result)	//登陆成功
 	{
 		Close(IDOK);
 
-		//�����û�Ŀ¼
+		//创建用户目录
 		_CreateUsersFolder();
 
-		//����ͬ����Ϣʱ��timer
+		//开启同步消息时间timer
 		module::getSessionModule()->startSyncTimeTimer();
 		module::getSessionModule()->setTime(pLoginParam->serverTime);
 
-		//֪ͨ�������ͻ��˳�ʼ�����,��ȡ��֯�ܹ���Ϣ��Ⱥ�б�
+		//通知服务器客户端初始化完毕,获取组织架构信息和群列表
 		module::getLoginModule()->notifyLoginDone();
 	}
-	else	//��½ʧ�ܴ���
+	else	//登陆失败处理
 	{
 		module::getTcpClientModule()->shutdown();
 		if (IM::BaseDefine::REFUSE_REASON_NO_MSG_SERVER == pLoginParam->server_result)
@@ -290,16 +290,16 @@ BOOL LoginDialog::_CreateUsersFolder()
 {
 	module::IMiscModule* pModule = module::getMiscModule();
 
-	//�˺�Ŀ¼
+	//账号目录
 	if (!util::createAllDirectories(pModule->getCurAccountDir()))
 	{
 		LOG__(ERR, _T("current Account direcotry failed!"));
 		return FALSE;
 	}
 
-	//������ʱĿ¼����
+	//清理临时目录数据
 	::RemoveDirectory(pModule->getUserTempDir());
-	//��ǰ�û�����ʱ�ļ�Ŀ¼
+	//当前用户的临时文件目录
 	if (!util::createAllDirectories(pModule->getUserTempDir()))
 	{
 		LOG__(ERR, _T("users temp direcotry failed!"));
@@ -321,7 +321,7 @@ LRESULT LoginDialog::ResponseDefaultKeyEvent(WPARAM wParam)
 void LoginDialog::InitWindow()
 {
 	CenterWindow();
-	////������Ӱ
+	////窗口阴影
 	//CWndShadow::Initialize(m_PaintManager.GetInstance());
 	//m_WndShadow.Create(m_hWnd);
 	//m_WndShadow.SetSize(2);

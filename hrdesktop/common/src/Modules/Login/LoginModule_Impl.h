@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      LoginModule_Impl.h 2014\7\17 19:51:50 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief   
  ******************************************************************************/
 
@@ -40,7 +40,7 @@ public:
 
 
 private:
-	/**@name �������˲��*/
+	/**@name 服务器端拆包*/
 	//@{
 	void _kickUserResponse(IN std::string& pbBody);
 	//@}

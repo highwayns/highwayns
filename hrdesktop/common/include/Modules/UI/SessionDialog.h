@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
  *  @file      SessionDialog.h 2015\3\10 10:19:29 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -37,7 +37,7 @@ public:
 	void UpdateRunTimeMsg(void);
 	void DoDisplayHistoryMsgToIE(IN std::vector<MessageEntity>& msgList, IN const BOOL scrollBottom);
 
-	//������Ŷ�������
+	//语音播放动画操作
 	BOOL StopPlayingAnimate(std::string& sAudioPlayingID);
 	BOOL StartPlayingAnimate(std::string sAudioPlayingID);
 
@@ -62,10 +62,10 @@ public:
 	CButtonUI*			m_pBtnRestore;
 	CTextUI*			m_pWritingStatus;
 	CTextUI*			m_pTxtName;
-    CEditUI*	        m_pEditSignature;//�Է��ĸ���ǩ��
+    CEditUI*	        m_pEditSignature;//对方的个性签名
 
 	SessionLayout*		m_pSessionLayout;
-	std::string			m_sId;		//�ỰId
+	std::string			m_sId;		//会话Id
 };
 
 #endif // SESSIONDIALOG_E6052CEB_BBCA_4E54_8D60_1AED7DCC8F4C_H__

@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      utilStrCodeAPI.cpp 2014\12\24 17:08:52 $
- *  @author    �쵶<kuaidao@mogujie.com>
+ *  @author    快刀<kuaidao@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -297,20 +297,20 @@ char* ConvertChineseUnicodeToPyt(wchar_t* chrstr)
 
 	char* pcReturnString = NULL;
 
-	//unicodeת��ΪANSI
+	//unicode转换为ANSI
 	int length = WideCharToMultiByte(CP_ACP, 0, chrstr, -1, 0, 0, 0, 0);
 	char* nowchar = new char[length + 1];
 	memset(nowchar, 0, length + 1);
 	WideCharToMultiByte(CP_ACP, 0, chrstr, -1, nowchar, length, 0, 0);
 
-	//ת��ANSI,�ַ����ֲ��䣬����ת������Ӧ��ƴ��
+	//转换ANSI,字符部分不变，汉字转换成相应的拼音
 	char *returnstr = new char[6 * length + 1];
 	memset(returnstr, 0, 6 * length + 1);
 
 	int offset = 0;
-	for (int j = 0; j < length;) // ѭ�������ֽ�����
+	for (int j = 0; j < length;) // 循环处理字节数组
 	{
-		if (nowchar[j] >= 0 && nowchar[j] < 128) // �Ǻ��ִ���
+		if (nowchar[j] >= 0 && nowchar[j] < 128) // 非汉字处理
 		{
 			returnstr[offset] = nowchar[j];
 			offset++;
@@ -318,7 +318,7 @@ char* ConvertChineseUnicodeToPyt(wchar_t* chrstr)
 			continue;
 		}
 
-		// ���ִ���
+		// 汉字处理
 		chrasc = nowchar[j] * 256 + nowchar[j + 1] + 256;
 
 		if (chrasc > 0 && chrasc < 160)

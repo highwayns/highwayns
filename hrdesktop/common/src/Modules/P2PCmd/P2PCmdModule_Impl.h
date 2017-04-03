@@ -1,7 +1,7 @@
 ﻿/*******************************************************************************
  *  @file      P2PCmdModule_Impl.h 2014\8\18 13:45:06 $
- *  @author    �쵶<kuaidao@mogujie.com>
- *  @brief     �ͻ�����ͻ���֮�䴫�����ݣ����������롢����
+ *  @author    快刀<kuaidao@mogujie.com>
+ *  @brief     客户端与客户端之间传输数据，如正在输入、抖动
  ******************************************************************************/
 
 #ifndef P2PCMDMODULE_IMPL_A50A4241_F1E2_4E7D_A738_70C2E5EE82BE_H__
@@ -11,7 +11,7 @@
 /******************************************************************************/
 
 /**
- * The class <code>�ͻ�����ͻ���֮�䴫�����ݣ����������롢����</code> 
+ * The class <code>客户端与客户端之间传输数据，如正在输入、抖动</code> 
  *
  */
 class P2PCmdModule_Impl : public module::IP2PCmdModule
@@ -39,7 +39,7 @@ private:
 	void _makeJsonData(IN UINT32 nServiceID, IN UINT32 nCmdID, IN std::string sContent, OUT std::string& sJsonData);
 
 private:
-	/**@name �������˲��*/
+	/**@name 服务器端拆包*/
 	//@{
 	void _p2pCmdNotifyResponse(std::string& pbBody);
 	//@}

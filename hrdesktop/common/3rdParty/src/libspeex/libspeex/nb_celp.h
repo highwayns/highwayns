@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2002-2006 Jean-Marc Valin */
+/* Copyright (C) 2002-2006 Jean-Marc Valin */
 /**
     @file nb_celp.h
     @brief Narrowband CELP encoder/decoder

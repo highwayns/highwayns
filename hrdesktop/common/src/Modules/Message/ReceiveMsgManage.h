@@ -1,6 +1,6 @@
 ﻿ /*******************************************************************************
  *  @file      ReceiveMsgManage.h 2014\8\7 14:57:06 $
- *  @author    ���<dafo@mogujie.com>
+ *  @author    大佛<dafo@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -42,7 +42,7 @@ public:
 	BOOL pushMessageBySId(const std::string& sId, MessageEntity& msg);
 	BOOL popMessageBySId(const std::string& sId, MessageEntity& msg);
 	/**
-	 * ȡ�����µ�һ����Ϣ�����ǲ�pop,��Ҫ����Ʈ����ϢԤ���͸��������ϵ����
+	 * 取出最新的一条消息，但是不pop,主要用于飘窗消息预览和更新最近联系人项
 	 *
 	 * @param   const std::string & sId
 	 * @param   MessageEntity & msg
@@ -55,17 +55,17 @@ public:
 	UInt32 getTotalUnReadMsgCount();
 	void removeAllMessage();
 	/**
-	 * ����ӿ�Ŀǰ���Ǹ�������Ϣ�ڶ������������ʹ�ã�����ӷ��������յ��ظ�����Ϣ
+	 * 这个接口目前就是给离线消息在断线重连情况下使用，避免从服务器接收到重复的消息
 	 *
 	 * @param   const std::string & sId
 	 * @return  void
 	 * @exception there is no any exception to throw.
 	 */	
 	void removeMessageBySId(const std::string& sId);
-	void parseContent(CString& content, BOOL bFloatForm, Int32 chatWidth);      //�ú����е����
+	void parseContent(CString& content, BOOL bFloatForm, Int32 chatWidth);      //该函数有点儿搓
 private:
 	SessionMessage_List* _getChatMsgListBySID(const std::string& sId);
-	void _Quickchat2Fromat(OUT CString& content);//ת�� @С��� �ַ�
+	void _Quickchat2Fromat(OUT CString& content);//转换 @小伙伴 字符
 	void _urlReplace(CString& content);
 	void _urlScan(CString& content);
 	void _replaceUrlParts(CString& content);
@@ -76,7 +76,7 @@ private:
 
 public:
 	/**
-	 * ��Ϣȥ��
+	 * 消息去重
 	 *
 	 * @param   IN const MessageEntity & msg
 	 * @param   IN const UInt32 seqNo
@@ -94,12 +94,12 @@ private:
 	typedef std::map<std::string, ReceiveMsgList>   ReceiveMsgMap;
 
 	ReceiveMsgMap m_MsgMap;
-	//��Ϣȥ��//end
+	//消息去重//end
 };
 
 
 //////////////////////////////////////////////////////////////////////////
-class AudioMessageMananger    //������Ϣ
+class AudioMessageMananger    //语音消息
 {
 public:
 	~AudioMessageMananger();
@@ -123,8 +123,8 @@ private:
 
 	SessionMessageMap           m_mapUnReadAudioMsg;
 
-	std::string m_sPlayingSessionID;//��ǰ���ڲ��ŵĻỰID
-	std::string m_sPlayingAID;//��ǰ���ڲ��ŻỰ������IS
+	std::string m_sPlayingSessionID;//当前正在播放的会话ID
+	std::string m_sPlayingAID;//当前正在播放会话的声音IS
 };
 /******************************************************************************/
 #endif// RECEIVEMSGMANAGE_B3CDCA98_9B4E_482C_8342_7F2DF985F6D3_H__

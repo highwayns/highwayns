@@ -31,7 +31,7 @@
 	filename: 	UIShadow.h
 	author:		Redrain
 	
-	purpose:	DuiLib��Ӱ�࣬��ԭWndShadow��Ļ����ϣ�������ͨ��PNGͼƬ������Ӱ�Ĺ��ܣ����ҰѴ�����DuiLib�ں�
+	purpose:	DuiLib阴影类，在原WndShadow类的基础上，增加了通过PNG图片设置阴影的功能，并且把代码与DuiLib融合
 *********************************************************************/
 
 #ifndef __UISHADOW_H__
@@ -52,44 +52,44 @@ public:
 	virtual ~CShadowUI(void);
 
 public:
-	// bShowΪ��ʱ�Żᴴ����Ӱ
+	// bShow为真时才会创建阴影
 	void ShowShadow(bool bShow);	
 	bool IsShowShadow() const;
 
-	// �㷨��Ӱ�ĺ���
+	// 算法阴影的函数
 	bool SetSize(int NewSize = 0);
 	bool SetSharpness(unsigned int NewSharpness = 5);
 	bool SetDarkness(unsigned int NewDarkness = 200);
 	bool SetPosition(int NewXOffset = 5, int NewYOffset = 5);
 	bool SetColor(COLORREF NewColor = 0);
 
-	// ͼƬ��Ӱ�ĺ���
+	// 图片阴影的函数
 	bool SetImage(LPCTSTR szImage);
-	bool SetShadowCorner(RECT rcCorner);	// �Ź���ʽ������Ӱ
+	bool SetShadowCorner(RECT rcCorner);	// 九宫格方式描述阴影
 	
-	// ���Լ�����Ӱ��ʽ���Ƶ��������
+	// 把自己的阴影样式复制到传入参数
 	bool CopyShadow(CShadowUI* pShadow);
 
-	//	������Ӱ���壬��CPaintManagerUI�Զ�����,�����Լ�Ҫ����������Ӱ
+	//	创建阴影窗体，由CPaintManagerUI自动调用,除非自己要单独创建阴影
 	void Create(CPaintManagerUI* pPaintManager);
 protected:
 
-	//	��ʼ����ע����Ӱ��
+	//	初始化并注册阴影类
 	static bool Initialize(HINSTANCE hInstance);
 
-	// �����Ѿ����ӵĴ������������������Ӱ��,������ParentProc()������ͨ������õ���Ӱ��
+	// 保存已经附加的窗体句柄和与其关联的阴影类,方便在ParentProc()函数中通过句柄得到阴影类
 	static std::map<HWND, CShadowUI *>& GetShadowMap();
 
-	//	���໯������
+	//	子类化父窗体
 	static LRESULT CALLBACK ParentProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-	// ������ı��С���ƶ������������ػ���Ӱʱ����
+	// 父窗体改变大小，移动，或者主动重绘阴影时调用
 	void Update(HWND hParent);
 
-	// ͨ���㷨������Ӱ
+	// 通过算法计算阴影
 	void MakeShadow(UINT32 *pShadBits, HWND hParent, RECT *rcParent);
 
-	// ����alphaԤ��ֵ
+	// 计算alpha预乘值
 	inline DWORD PreMultiply(COLORREF cl, unsigned char nAlpha)
 	{
 		return (GetRValue(cl) * (DWORD)nAlpha / 255) |
@@ -108,14 +108,14 @@ protected:
 	
 	static bool s_bHasInit;
 
-	CPaintManagerUI	*m_pManager;		// �������CPaintManagerUI��������ȡ�ز���Դ�͸�������
-	HWND			 m_hWnd;			// ��Ӱ����ľ��
-	LONG_PTR		 m_OriParentProc;	// ���໯������
+	CPaintManagerUI	*m_pManager;		// 父窗体的CPaintManagerUI，用来获取素材资源和父窗体句柄
+	HWND			 m_hWnd;			// 阴影窗体的句柄
+	LONG_PTR		 m_OriParentProc;	// 子类化父窗体
 	BYTE			 m_Status;
-	bool			 m_bIsImageMode;	// �Ƿ�ΪͼƬ��Ӱģʽ
-	bool			 m_bIsShowShadow;	// �Ƿ�Ҫ��ʾ��Ӱ
+	bool			 m_bIsImageMode;	// 是否为图片阴影模式
+	bool			 m_bIsShowShadow;	// 是否要显示阴影
 
-	// �㷨��Ӱ��Ա����
+	// 算法阴影成员变量
 	unsigned char m_nDarkness;	// Darkness, transparency of blurred area
 	unsigned char m_nSharpness;	// Sharpness, width of blurred border of shadow window
 	signed char m_nSize;	// Shadow window size, relative to parent window size
@@ -133,7 +133,7 @@ protected:
 
 	COLORREF m_Color;	// Color of shadow
 
-	// ͼƬ��Ӱ��Ա����
+	// 图片阴影成员变量
 	CDuiString	m_sShadowImage;
 	RECT		m_rcShadowCorner;
 };

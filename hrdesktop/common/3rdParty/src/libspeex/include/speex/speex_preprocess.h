@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2003 Epic Games
+/* Copyright (C) 2003 Epic Games
    Written by Jean-Marc Valin */
 /**
  *  @file speex_preprocess.h

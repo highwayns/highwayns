@@ -1,6 +1,6 @@
 ﻿/******************************************************************************* 
  *  @file      BkgroundUI.cpp 2015\5\5 16:07:13 $
- *  @author    ����<nansong@mogujie.com>
+ *  @author    南松<nansong@mogujie.com>
  *  @brief     
  ******************************************************************************/
 
@@ -62,7 +62,7 @@ LPDLGTEMPLATE BkgroundUI::makeDlgTemplate(__in LPVOID lpBuf)
 	dlgTemplate->dwExtendedStyle = 0;
 	dlgTemplate->cdit = 0;
 
-	//ȫ������
+	//全屏窗口
 	RECT rc = {0};
 	GetWindowRect(GetDesktopWindow(), &rc);
 	dlgTemplate->x = 0;
