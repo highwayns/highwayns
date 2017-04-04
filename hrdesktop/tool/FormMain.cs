@@ -35,5 +35,20 @@ namespace highwayns
         {
             (new FormTranslate()).ShowDialog();
         }
+
+        private void btnMessage_Click(object sender, EventArgs e)
+        {
+            (new FormMessage()).ShowDialog();
+        }
+
+        private void btnAddress_Click(object sender, EventArgs e)
+        {
+            (new FormAddress()).ShowDialog();
+        }
+
+        private void btnDBData_Click(object sender, EventArgs e)
+        {
+            (new FormDBData()).ShowDialog();
+        }
     }
 }
