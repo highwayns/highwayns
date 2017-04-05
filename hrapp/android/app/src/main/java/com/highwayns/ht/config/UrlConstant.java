@@ -2,6 +2,7 @@
 
 /**
  * @author : yingmu on 15-3-16.
+ * @email : yingmu@highwayns.com.
  *
  */
 public class UrlConstant {

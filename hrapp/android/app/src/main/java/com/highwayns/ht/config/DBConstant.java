@@ -2,6 +2,7 @@
 
 /**
  * @author : yingmu on 15-1-5.
+ * @email : yingmu@highwayns.com.
  *
  */
 public interface DBConstant {

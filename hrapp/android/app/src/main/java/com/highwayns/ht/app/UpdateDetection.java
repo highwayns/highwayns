@@ -27,6 +27,7 @@ import java.net.URL;
 
 /**
  * @author : yingmu on 15-2-11.
+ * @email : yingmu@highwayns.com.
  *
  * 备注: 需要服务端提供接口
  */
