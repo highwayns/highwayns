@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -61,7 +61,7 @@
 
             
 
-            <com.mogujie.tt.ui.widget.SearchEditText
+            <com.highwayns.ht.ui.widget.SearchEditText
                 android:id="@+id/chat_title_search"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
@@ -103,7 +103,7 @@
         android:layout_height="39dp"
         android:background="@drawable/tt_top_default_bk" 
         android:visibility="gone">
-    	<com.mogujie.tt.ui.widget.TopTabButton
+    	<com.highwayns.ht.ui.widget.TopTabButton
 	        android:id="@+id/contact_tile"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
         android:padding="8dp"
         android:visibility="gone">
 
-        <com.mogujie.tt.ui.widget.DrawableCenterEditText
+        <com.highwayns.ht.ui.widget.DrawableCenterEditText
             android:id="@+id/search_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

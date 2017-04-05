@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.mogujie.tt.ui.widget.message.AudioRenderView
+﻿<?xml version="1.0" encoding="utf-8"?>
+<com.highwayns.ht.ui.widget.message.AudioRenderView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,7 +7,7 @@
     android:paddingBottom="20dp"
     android:paddingRight="10dp" >
 
-    <com.mogujie.tt.ui.widget.IMBaseImageView
+    <com.highwayns.ht.ui.widget.IMBaseImageView
         android:id="@+id/user_portrait"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -89,4 +89,4 @@
             android:visibility="visible" />
     </RelativeLayout>
 
-</com.mogujie.tt.ui.widget.message.AudioRenderView>
+</com.highwayns.ht.ui.widget.message.AudioRenderView>

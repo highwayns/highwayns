@@ -46,12 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dat.cs" />
     <Compile Include="EncodeType.cs" />
+    <Compile Include="Enum_.cs" />
+    <Compile Include="FormAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddress.Designer.cs">
+      <DependentUpon>FormAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDataBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDataBase.Designer.cs">
       <DependentUpon>FormDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDBData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDBData.Designer.cs">
+      <DependentUpon>FormDBData.cs</DependentUpon>
     </Compile>
     <Compile Include="FormJobType.cs">
       <SubType>Form</SubType>
@@ -71,17 +85,36 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMessage.Designer.cs">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTranslate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTranslate.Designer.cs">
       <DependentUpon>FormTranslate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Message.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tbl.cs" />
+    <Compile Include="FormAndroid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAndroid.Designer.cs">
+      <DependentUpon>FormAndroid.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormAddress.resx">
+      <DependentUpon>FormAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDataBase.resx">
       <DependentUpon>FormDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDBData.resx">
+      <DependentUpon>FormDBData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormJobType.resx">
       <DependentUpon>FormJobType.cs</DependentUpon>
@@ -91,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMessage.resx">
+      <DependentUpon>FormMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTranslate.resx">
       <DependentUpon>FormTranslate.cs</DependentUpon>
@@ -104,6 +140,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAndroid.resx">
+      <DependentUpon>FormAndroid.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="KEN_ALL_ROME.CSV">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

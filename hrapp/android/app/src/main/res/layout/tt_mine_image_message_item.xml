@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.mogujie.tt.ui.widget.message.ImageRenderView xmlns:android="http://schemas.android.com/apk/res/android"
+﻿<?xml version="1.0" encoding="utf-8"?>
+<com.highwayns.ht.ui.widget.message.ImageRenderView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/default_bk"
@@ -7,7 +7,7 @@
     android:paddingRight="10dp">
     <!--xmlns:BubbleImageView="http://schemas.android.com/apk/res-auto"-->
 
-    <com.mogujie.tt.ui.widget.IMBaseImageView
+    <com.highwayns.ht.ui.widget.IMBaseImageView
         android:id="@+id/user_portrait"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -53,7 +53,7 @@
             android:background="@drawable/tt_mine_image_vertical_bk"
             >
 
-            <com.mogujie.tt.ui.widget.BubbleImageView
+            <com.highwayns.ht.ui.widget.BubbleImageView
                 android:id="@+id/message_image"
                 android:layout_width="80dp"
                 android:layout_height="150dp"
@@ -69,7 +69,7 @@
                 <!--BubbleImageView:bubble_arrowTop="15dp"-->
                 <!--BubbleImageView:bubble_arrowWidth="5dp" />-->
 
-            <com.mogujie.tt.ui.widget.MGProgressbar
+            <com.highwayns.ht.ui.widget.MGProgressbar
                 android:id="@+id/tt_image_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,4 +80,4 @@
         </FrameLayout>
     </RelativeLayout>
 
-</com.mogujie.tt.ui.widget.message.ImageRenderView>
+</com.highwayns.ht.ui.widget.message.ImageRenderView>

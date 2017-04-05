@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+﻿<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#000"
@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <com.mogujie.tt.ui.widget.GifView
+        <com.highwayns.ht.ui.widget.GifView
             android:id="@+id/gif"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

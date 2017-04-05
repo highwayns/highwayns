@@ -32,6 +32,10 @@
             this.btnJobType = new System.Windows.Forms.Button();
             this.btnDatabase = new System.Windows.Forms.Button();
             this.btnTranslate = new System.Windows.Forms.Button();
+            this.btnMessage = new System.Windows.Forms.Button();
+            this.btnAddress = new System.Windows.Forms.Button();
+            this.btnDBData = new System.Windows.Forms.Button();
+            this.btnAndroid = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -74,11 +78,55 @@
             this.btnTranslate.UseVisualStyleBackColor = true;
             this.btnTranslate.Click += new System.EventHandler(this.btnTranslate_Click);
             // 
+            // btnMessage
+            // 
+            this.btnMessage.Location = new System.Drawing.Point(49, 68);
+            this.btnMessage.Name = "btnMessage";
+            this.btnMessage.Size = new System.Drawing.Size(75, 23);
+            this.btnMessage.TabIndex = 4;
+            this.btnMessage.Text = "Message";
+            this.btnMessage.UseVisualStyleBackColor = true;
+            this.btnMessage.Click += new System.EventHandler(this.btnMessage_Click);
+            // 
+            // btnAddress
+            // 
+            this.btnAddress.Location = new System.Drawing.Point(156, 68);
+            this.btnAddress.Name = "btnAddress";
+            this.btnAddress.Size = new System.Drawing.Size(75, 23);
+            this.btnAddress.TabIndex = 5;
+            this.btnAddress.Text = "Address";
+            this.btnAddress.UseVisualStyleBackColor = true;
+            this.btnAddress.Click += new System.EventHandler(this.btnAddress_Click);
+            // 
+            // btnDBData
+            // 
+            this.btnDBData.Location = new System.Drawing.Point(269, 68);
+            this.btnDBData.Name = "btnDBData";
+            this.btnDBData.Size = new System.Drawing.Size(75, 23);
+            this.btnDBData.TabIndex = 6;
+            this.btnDBData.Text = "DBData";
+            this.btnDBData.UseVisualStyleBackColor = true;
+            this.btnDBData.Click += new System.EventHandler(this.btnDBData_Click);
+            // 
+            // btnAndroid
+            // 
+            this.btnAndroid.Location = new System.Drawing.Point(375, 68);
+            this.btnAndroid.Name = "btnAndroid";
+            this.btnAndroid.Size = new System.Drawing.Size(75, 23);
+            this.btnAndroid.TabIndex = 7;
+            this.btnAndroid.Text = "Android";
+            this.btnAndroid.UseVisualStyleBackColor = true;
+            this.btnAndroid.Click += new System.EventHandler(this.btnAndroid_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.btnAndroid);
+            this.Controls.Add(this.btnDBData);
+            this.Controls.Add(this.btnAddress);
+            this.Controls.Add(this.btnMessage);
             this.Controls.Add(this.btnTranslate);
             this.Controls.Add(this.btnDatabase);
             this.Controls.Add(this.btnJobType);
@@ -95,5 +143,9 @@
         private System.Windows.Forms.Button btnJobType;
         private System.Windows.Forms.Button btnDatabase;
         private System.Windows.Forms.Button btnTranslate;
+        private System.Windows.Forms.Button btnMessage;
+        private System.Windows.Forms.Button btnAddress;
+        private System.Windows.Forms.Button btnDBData;
+        private System.Windows.Forms.Button btnAndroid;
     }
 }

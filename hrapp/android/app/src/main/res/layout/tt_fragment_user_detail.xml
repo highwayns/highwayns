@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -25,7 +25,7 @@
             android:src="@drawable/tt_default_user_portrait_corner" />
             -->
 
-            <com.mogujie.tt.ui.widget.IMBaseImageView
+            <com.highwayns.ht.ui.widget.IMBaseImageView
                 android:id="@+id/user_portrait"
                 android:layout_width="150dp"
                 android:layout_height="150dp"

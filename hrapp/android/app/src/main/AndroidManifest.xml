@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mogujie.tt">
+    package="com.highwayns.ht">
 
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -131,7 +131,7 @@
 
                 <action android:name="android.intent.action.VIEW" />
 
-                <data android:scheme="com.mogujie.tt" />
+                <data android:scheme="com.highwayns.ht" />
             </intent-filter>
         </activity>
         <activity

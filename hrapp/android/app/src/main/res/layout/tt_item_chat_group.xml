@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,7 +11,7 @@
         android:gravity="center_vertical"
         >
 
-        <com.mogujie.tt.ui.widget.IMGroupAvatar
+        <com.highwayns.ht.ui.widget.IMGroupAvatar
             android:id="@+id/contact_portrait"
             android:layout_width="53dp"
             android:layout_height="53dp"
