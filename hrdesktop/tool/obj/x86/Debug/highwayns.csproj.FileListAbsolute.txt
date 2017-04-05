@@ -1,0 +1,16 @@
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\bin\Debug\jobs.txt
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\bin\Debug\KEN_ALL_ROME.CSV
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\bin\Debug\highwayns.exe
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\bin\Debug\highwayns.pdb
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormAddress.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormDataBase.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormDBData.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormJobType.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormConvert.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormMain.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormMessage.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.FormTranslate.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.Properties.Resources.resources
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.csproj.GenerateResource.Cache
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.exe
+C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\tool\obj\x86\Debug\highwayns.pdb
