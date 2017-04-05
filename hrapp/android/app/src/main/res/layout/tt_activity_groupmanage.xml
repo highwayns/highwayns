@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,7 +8,7 @@
         android:id="@+id/pf_main_bottom_fragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        class="com.mogujie.tt.ui.fragment.GroupManagerFragment" >
+        class="com.highwayns.ht.ui.fragment.GroupManagerFragment" >
     </fragment>
 
 </RelativeLayout>

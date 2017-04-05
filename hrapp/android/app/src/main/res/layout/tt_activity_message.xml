@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -62,7 +62,7 @@
             android:paddingRight="3dp"
             android:paddingTop="7dp" >
 
-            <com.mogujie.tt.ui.widget.CustomEditView
+            <com.highwayns.ht.ui.widget.CustomEditView
                 android:id="@+id/message_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
                 android:layout_height="0.5dp"
                 android:layout_weight="0"
                 android:background="@color/default_line_color" />
-            <com.mogujie.tt.ui.widget.EmoGridView
+            <com.highwayns.ht.ui.widget.EmoGridView
                 android:id="@+id/emo_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -171,7 +171,7 @@
                 android:gravity="center_vertical"
                 android:visibility="gone" />
 
-            <com.mogujie.tt.ui.widget.YayaEmoGridView
+            <com.highwayns.ht.ui.widget.YayaEmoGridView
                 android:id="@+id/yaya_emo_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

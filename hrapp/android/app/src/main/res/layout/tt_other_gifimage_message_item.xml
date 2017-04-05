@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.mogujie.tt.ui.widget.message.GifImageRenderView xmlns:android="http://schemas.android.com/apk/res/android"
+﻿<?xml version="1.0" encoding="utf-8"?>
+<com.highwayns.ht.ui.widget.message.GifImageRenderView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/default_bk"
     android:paddingBottom="20dp"
     android:paddingLeft="10dp">
 
-    <com.mogujie.tt.ui.widget.IMBaseImageView
+    <com.highwayns.ht.ui.widget.IMBaseImageView
         android:id="@+id/user_portrait"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -45,14 +45,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
-                <com.mogujie.tt.ui.widget.GifView
+                <com.highwayns.ht.ui.widget.GifView
                     android:id="@+id/message_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="0dp"
                     android:scaleType="centerCrop"/>
 
-                <com.mogujie.tt.ui.widget.MGProgressbar
+                <com.highwayns.ht.ui.widget.MGProgressbar
                     android:id="@+id/tt_image_progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,4 +84,4 @@
         </RelativeLayout>
     </LinearLayout>
 
-</com.mogujie.tt.ui.widget.message.GifImageRenderView>
+</com.highwayns.ht.ui.widget.message.GifImageRenderView>

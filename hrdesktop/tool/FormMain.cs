@@ -50,5 +50,10 @@ namespace highwayns
         {
             (new FormDBData()).ShowDialog();
         }
+
+        private void btnAndroid_Click(object sender, EventArgs e)
+        {
+            (new FormAndroid()).ShowDialog();
+        }
     }
 }
