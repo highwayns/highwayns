@@ -55,6 +55,8 @@
             this.txtIncrease = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAddDistrict = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -284,11 +286,33 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(298, 343);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 31;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnAddDistrict
+            // 
+            this.btnAddDistrict.Location = new System.Drawing.Point(184, 343);
+            this.btnAddDistrict.Name = "btnAddDistrict";
+            this.btnAddDistrict.Size = new System.Drawing.Size(75, 23);
+            this.btnAddDistrict.TabIndex = 32;
+            this.btnAddDistrict.Text = "addDistrict";
+            this.btnAddDistrict.UseVisualStyleBackColor = true;
+            this.btnAddDistrict.Click += new System.EventHandler(this.btnAddDistrict_Click);
+            // 
             // FormDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 382);
+            this.Controls.Add(this.btnAddDistrict);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.txtIncrease);
             this.Controls.Add(this.label12);
@@ -352,5 +376,7 @@
         private System.Windows.Forms.TextBox txtIncrease;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnAddDistrict;
     }
 }

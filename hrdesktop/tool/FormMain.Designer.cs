@@ -36,6 +36,7 @@
             this.btnAddress = new System.Windows.Forms.Button();
             this.btnDBData = new System.Windows.Forms.Button();
             this.btnAndroid = new System.Windows.Forms.Button();
+            this.btnTeaTalk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -118,11 +119,22 @@
             this.btnAndroid.UseVisualStyleBackColor = true;
             this.btnAndroid.Click += new System.EventHandler(this.btnAndroid_Click);
             // 
+            // btnTeaTalk
+            // 
+            this.btnTeaTalk.Location = new System.Drawing.Point(49, 111);
+            this.btnTeaTalk.Name = "btnTeaTalk";
+            this.btnTeaTalk.Size = new System.Drawing.Size(75, 23);
+            this.btnTeaTalk.TabIndex = 8;
+            this.btnTeaTalk.Text = "TeamTalk";
+            this.btnTeaTalk.UseVisualStyleBackColor = true;
+            this.btnTeaTalk.Click += new System.EventHandler(this.btnTeaTalk_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.btnTeaTalk);
             this.Controls.Add(this.btnAndroid);
             this.Controls.Add(this.btnDBData);
             this.Controls.Add(this.btnAddress);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Button btnAddress;
         private System.Windows.Forms.Button btnDBData;
         private System.Windows.Forms.Button btnAndroid;
+        private System.Windows.Forms.Button btnTeaTalk;
     }
 }

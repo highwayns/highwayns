@@ -55,5 +55,10 @@ namespace highwayns
         {
             (new FormAndroid()).ShowDialog();
         }
+
+        private void btnTeaTalk_Click(object sender, EventArgs e)
+        {
+            (new FormTeamTalk()).ShowDialog();
+        }
     }
 }
