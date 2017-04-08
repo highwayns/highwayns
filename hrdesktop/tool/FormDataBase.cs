@@ -152,5 +152,99 @@ namespace highwayns
             txtIncrease.Text = tables[lstTables.SelectedIndex].fields_increase[lstFields.SelectedIndex];
             txtDefault.Text = tables[lstTables.SelectedIndex].fields_default[lstFields.SelectedIndex];
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string file = txtPath.Text + ".new";
+            using (StreamWriter sw = new StreamWriter(file, false, Encoding.UTF8))
+            {
+                foreach (Tbl tbl in tables)
+                {
+                    string line = "DROP TABLE IF EXISTS `{0}`;";
+                    line = string.Format(line, tbl.name);
+                    sw.WriteLine(line);
+
+                    line = "CREATE TABLE `{0}` (";
+                    line = string.Format(line, tbl.name);
+                    sw.WriteLine(line);
+
+                    for(int idx=0;idx<tbl.fields.Count;idx++)
+                    {
+                        line = "  `{0}` ";
+                        line = string.Format(line, tbl.fields[idx]);
+                        line = line + tbl.fields_type[idx];
+                        if(!string.IsNullOrEmpty(tbl.fields_size[idx]))
+                        {
+                            line = line + "{0}";
+                            line = string.Format(line, tbl.fields_size[idx]);
+                        }
+                        if (!string.IsNullOrEmpty(tbl.fields_sign[idx]))
+                        {
+                            line = line + " {0}";
+                            line = string.Format(line, tbl.fields_sign[idx]);
+                        }
+                        line = line +" "+tbl.fields_null[idx];
+                        if (!string.IsNullOrEmpty(tbl.fields_increase[idx]))
+                        {
+                            line = line + " {0}";
+                            line = string.Format(line, tbl.fields_increase[idx]);
+                        }
+                        if (!string.IsNullOrEmpty(tbl.fields_default[idx]))
+                        {
+                            line = line + " default {0}";
+                            line = string.Format(line, tbl.fields_default[idx]);                       
+                        }
+                        line = line + ",";
+                        line = line.Replace(",,", ",");
+                        sw.WriteLine(line);
+                    }
+                    if (!string.IsNullOrEmpty(tbl.pk))
+                    {
+                        line = "  PRIMARY KEY  (`{0}`),";
+                    }
+                    line = string.Format(line, tbl.pk);
+                    sw.WriteLine(line);
+                    for (int idx = 0; idx < tbl.keys.Count;idx++ )
+                    {
+                        if(idx ==tbl.keys.Count-1)
+                            line = "  KEY `{1}` ({0})";
+                        else
+                            line = "  KEY `{1}` ({0}),";
+                        line = string.Format(line, tbl.keys[idx], tbl.keys[idx].Replace("`,`", "_").Replace("`", ""));
+                        sw.WriteLine(line);
+                    }
+                    line = ") ENGINE={0}  DEFAULT CHARSET={1};";
+                    line = string.Format(line, tbl.enqine, tbl.charset);
+                    sw.WriteLine(line);
+
+                    line = "";
+                    sw.WriteLine(line);
+                    line = "||-_-||{0}表创建成功！||-_-||";
+                    line = string.Format(line, tbl.name.Substring(3));
+                    sw.WriteLine(line);
+                    line = "";
+                    sw.WriteLine(line);
+
+                }
+            }
+        }
+
+        private void btnAddDistrict_Click(object sender, EventArgs e)
+        {
+            foreach (Tbl tbl in tables)
+            {
+                if (tbl.name == "qs_category_district")
+                {
+                    tbl.fields.Add("language");
+                    tbl.fields_type.Add("char");
+                    tbl.fields_size.Add("(2)");
+                    tbl.fields_sign.Add("");
+                    tbl.fields_null.Add("NOT NULL");
+                    tbl.fields_default.Add("");
+                    tbl.fields_increase.Add("");
+                    break;
+                }
+            }
+        }
     }
 }
