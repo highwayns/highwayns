@@ -13,5 +13,7 @@ namespace highwayns
         public List<string> fields_type = new List<string>();
         public List<string> fields_require = new List<string>();
         public List<string> fields_value = new List<string>();
+        public List<string> fields_comment = new List<string>();
+        public List<string> fields_default = new List<string>();
     }
 }
