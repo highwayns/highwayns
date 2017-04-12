@@ -72,6 +72,7 @@ namespace highwayns
             using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
+                string prev = ""; 
                 while (line != null)
                 {
                     if (line.IndexOf("import") == 0)
@@ -98,10 +99,24 @@ namespace highwayns
                             {
                                 message.cmdid = line.Split(':')[1].Trim();
                             }
+                            else if(line.IndexOf("[default") > -1)
+                            {
+                                message.fields_default.Add(line.Split('[')[1].Split(']')[0].Split('=')[1].Trim());
+                                line = line.Split('[')[0] + line.Split(']')[1];
+                                string[] temp = line.Trim().Split('=');
+                                message.fields_value.Add(temp[1].Trim().Split(';')[0].Trim());
+                                message.fields_comment.Add(temp[1].Trim().Split(';')[1].Trim().Replace("//", ""));
+                                message.fields.Add(temp[0].Split(' ')[2].Trim());
+                                message.fields_type.Add(temp[0].Split(' ')[1].Trim());
+                                message.fields_require.Add(temp[0].Split(' ')[0].Trim());
+
+                            }
                             else if (line.IndexOf("=") > -1)
                             {
+                                message.fields_default.Add("");
                                 string[] temp = line.Trim().Split('=');
-                                message.fields_value.Add(temp[1].Trim().Replace(";",""));
+                                message.fields_value.Add(temp[1].Trim().Split(';')[0].Trim());
+                                message.fields_comment.Add(temp[1].Trim().Split(';')[1].Trim().Replace("//", ""));
                                 message.fields.Add(temp[0].Split(' ')[2].Trim());
                                 message.fields_type.Add(temp[0].Split(' ')[1].Trim());
                                 message.fields_require.Add(temp[0].Split(' ')[0].Trim());
@@ -115,6 +130,7 @@ namespace highwayns
                     {
                         Enum_ enum_ = new Enum_();
                         enum_.name = line.Split(' ')[1].Replace("{", "");
+                        enum_.comment = prev.Replace("//", "").Trim();
                         line = sr.ReadLine();
                         while (line != "" && line[0] != '}')
                         {
@@ -122,13 +138,79 @@ namespace highwayns
                             {
                                 string[] temp = line.Trim().Split('=');
                                 enum_.fields_value.Add(temp[1].Trim().Split(';')[0].Trim());
+                                enum_.fields_comment.Add(temp[1].Trim().Split(';')[1].Trim().Replace("//",""));
                                 enum_.fields.Add(temp[0].Trim());
                             }
                             line = sr.ReadLine();
                         }
                         enums.Add(enum_);
                     }
+                    prev = line;
                     line = sr.ReadLine();
+
+                }
+            }
+        }
+
+        private void writeMessage(string filename)
+        {
+            using (StreamWriter sw = new StreamWriter(filename,false, Encoding.UTF8))
+            {
+                string line = "package "+Path.GetFileNameWithoutExtension(filename);
+                sw.WriteLine(line);//write package
+
+                if (txtimport.Text.Trim() != "")
+                {
+                    line = string.Format("import {0}",txtimport.Text);
+                    sw.WriteLine(line);//write import
+                }
+                if (txtjava.Text.Trim() != "")
+                {
+                    line = "option java_package = " + txtjava.Text.Trim()+"";
+                    sw.WriteLine(line);//write option java_package
+                }
+                if (txtjava.Text.Trim() != "")
+                {
+                    line = "option optimize_for = " + txtjava.Text.Trim() + "";
+                    sw.WriteLine(line);//write option java_package
+                }
+                sw.WriteLine("");
+                sw.WriteLine("");
+                foreach(Enum_ enum_ in enums)
+                {
+                    line = string.Format("// {0}", enum_.comment);
+                    sw.WriteLine(line);
+                    line = string.Format("enum {0}{{", enum_.name);
+                    sw.WriteLine(line);
+                    for (int idx = 0; idx < enum_.fields.Count;idx++ )
+                    {
+                        line = string.Format("    {0}           = {1};          	//{2}", enum_.fields[idx], enum_.fields_value[idx], enum_.fields_comment[idx]);
+                        sw.WriteLine(line);
+                    }
+                    line = "}";
+                    sw.WriteLine(line);
+
+                    sw.WriteLine("");
+                    sw.WriteLine("");
+                }
+
+                foreach (Message message in messages)
+                {
+                    line = string.Format("message {0}{{", message.name);
+                    sw.WriteLine(line);
+                    line = string.Format("	//cmd id:		{0}", message.cmdid);
+                    sw.WriteLine(line);
+                    for (int idx = 0; idx < message.fields.Count; idx++)
+                    {
+                        line = string.Format("	{0} {1} {2} = {3};		//{4}", message.fields_require[idx], message.fields_type[idx],
+                            message.fields[idx], message.fields_value[idx], message.fields_comment[idx]);
+                        sw.WriteLine(line);
+                    }
+                    line = "}";
+                    sw.WriteLine(line);
+                
+                    sw.WriteLine("");
+                    sw.WriteLine("");
                 }
             }
         }
@@ -137,10 +219,50 @@ namespace highwayns
         {
             lstFileds.Items.Clear();
             Message message = messages[lstMessages.SelectedIndex];
+            txtMessageComment.Text = message.cmdid;
             foreach(string fields in message.fields)
             {
                 lstFileds.Items.Add(fields);
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string path = Path.Combine(txtSource.Text, "new");
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+            string filename = Path.Combine(path, lstFile.SelectedItem.ToString() + ".proto");
+            writeMessage(filename);
+            MessageBox.Show("Write Over！");
+        }
+
+        private void lstEnum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstEnumFields.Items.Clear();
+            Enum_  enum_ = enums[lstEnum.SelectedIndex];
+            txtEnumComment.Text = enum_.comment;
+            foreach (string fields in enum_.fields)
+            {
+                lstEnumFields.Items.Add(fields);
+            }
+        }
+
+        private void lstEnumFields_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enum_  enum_ = enums[lstEnum.SelectedIndex];
+            int idx = lstEnumFields.SelectedIndex;
+            txtEnumFieldsValue.Text = enum_.fields_value[idx];
+            txtEnumFieldsComment.Text = enum_.fields_comment[idx];
+        }
+
+        private void lstFileds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Message message = messages[lstMessages.SelectedIndex];
+            int idx = lstEnumFields.SelectedIndex;
+            txtMessageFieldValue.Text = message.fields_value[idx];
+            txtMessageComment.Text = message.fields_comment[idx];
+            txtType.Text = message.fields_type[idx];
+            txtRequire.Text = message.fields_require[idx];
+            txtDefault.Text = message.fields_default[idx];
         }
     }
 }
