@@ -227,5 +227,45 @@ namespace highwayns
                 }
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(txtData.Text))
+            {
+                MessageBox.Show("Please slect a data file");
+                return;
+            }
+            string filename = txtData.Text+ ".new";
+            writeData(filename);
+            MessageBox.Show("Write Over!");
+        }
+
+        private void writeData(string fileName)
+        {
+            using(StreamWriter sw = new StreamWriter(fileName,false,Encoding.UTF8))
+            {
+                foreach (Dat data in datas)
+                {
+                    string line = string.Format("INSERT INTO `{0}` VALUES ",data.name);
+                    sw.WriteLine(line);
+                    for (int idx = 0; idx < data.rows.Count;idx++ )
+                    {
+                        line = "(";
+                        line = line + string.Join(",", data.rows[idx].cols);
+                        if(idx==data.rows.Count-1)
+                        {
+                            line = line + ");";
+                        }
+                        else
+                        {
+                            line = line + "),";
+                        }
+                        sw.WriteLine(line);
+                    }
+                    sw.WriteLine("");
+                }
+
+            }
+        }
     }
 }

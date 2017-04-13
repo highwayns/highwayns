@@ -37,6 +37,7 @@
             this.txtData = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelectData = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +122,22 @@
             this.btnSelectData.UseVisualStyleBackColor = true;
             this.btnSelectData.Click += new System.EventHandler(this.btnSelectData_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(409, 427);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 23;
+            this.btnSave.Text = "save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // FormDBData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 462);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSelectData);
@@ -154,5 +166,6 @@
         private System.Windows.Forms.TextBox txtData;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSelectData;
+        private System.Windows.Forms.Button btnSave;
     }
 }
