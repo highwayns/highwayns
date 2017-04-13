@@ -1,0 +1,14 @@
+﻿package IM.SwitchService
+import "IM.BaseDefine.proto";
+option java_package = "com.mogujie.tt.protobuf";
+option optimize_for = "com.mogujie.tt.protobuf";
+
+
+message IMP2PCmdMsg{
+	//cmd id:		0x0601
+	required uint32 from_user_id = 1;		//
+	required uint32 to_user_id = 2;		//
+	required string cmd_msg_data = 3;		//
+}
+
+

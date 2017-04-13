@@ -1,0 +1,11 @@
+﻿package IM.Other
+import "IM.BaseDefine.proto";
+option java_package = "com.mogujie.tt.protobuf";
+option optimize_for = "com.mogujie.tt.protobuf";
+
+
+message IMHeartBeat{
+	//cmd id:		0x0701
+}
+
+
