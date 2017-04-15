@@ -12,6 +12,7 @@ public class IMApplication extends Application {
 	private Logger logger = Logger.getLogger(IMApplication.class);
 
 	/**
+ 	 * test
 	 * @param args
 	 */
 	public static void main(String[] args) {
