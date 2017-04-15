@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
+using NC.HPS.Lib;
 
 namespace highwayns
 {
@@ -263,6 +264,27 @@ namespace highwayns
                     tbl.fields_increase.Add("");
                     break;
                 }
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "テーブル定義書.xls");
+                NCExcel execel = new NCExcel();
+                execel.OpenExcelFile(fileName);
+                execel.SelectSheet(1);
+                int idx = 7;
+                foreach (Tbl tbl in tables)
+                {
+                    execel.setValue(2, idx, (idx - 6).ToString());
+                    execel.setValue(4, idx, tbl.name);
+                    idx++;
+                }
+                execel.SaveAs(dlg.FileName);
+                MessageBox.Show("Save Over!");
             }
         }
     }

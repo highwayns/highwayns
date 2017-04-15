@@ -91,7 +91,6 @@ namespace highwayns
                 for (int j = 0; j < trvAddress.Nodes[i].Nodes.Count; j++)
                 {
                     string[] temp = "1, 0, '北京市', 0, '', ''".Split(',');
-                    trvAddress.Nodes[i].Tag = Convert.ToString(i + 1);
                     temp[0] = Convert.ToString(idx + 1);
                     idx++;
                     temp[1] = Convert.ToString(i + 1);
