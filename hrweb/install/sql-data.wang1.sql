@@ -1,4 +1,4 @@
-﻿INSERT INTO `qs_ad_category` VALUES 
+INSERT INTO `qs_ad_category` VALUES 
 (NUll, 'QS_indexfocus', 2, '首页图片轮番广告', 1, 10),
 (NUll, 'QS_indexcentreimg', 2, '首页中部格子广告', 1, 30),
 (NUll, 'QS_newsbanner', 2, '资讯首页中间横幅', 1, 0),
@@ -16,7 +16,7 @@
 (NUll, 'QS_floor_img2', 2, '首页楼层广告2', 1, 0),
 (NUll, 'QS_floor_img3', 2, '首页楼层广告3', 1, 0),
 (NUll, 'QS_floor_img4', 2, '首页楼层广告4', 1, 0),
-(NUll, 'QS_floor_img5', 2, '首页楼层广告5', 1, 0);
+(NUll, 'QS_floor_img5', 2, ‘トップページフロア広告’, 1, 0);
 
 INSERT INTO `qs_ad` VALUES
 (1, 'QS_indexfocus', 1, 1, 2, '软件商业授权', '', 50, 0, 0, 0, '', '', '', 'http://www.74cms.com/74ad_610x270.jpg', 'http://www.74cms.com/', '骑士CMS商业授权', 0, '', '', 0, 0, 1, 0, 0, '', '', '', '', 0, '', 0, 0);
