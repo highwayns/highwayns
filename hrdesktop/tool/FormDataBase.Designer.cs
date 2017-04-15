@@ -57,6 +57,7 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddDistrict = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -306,11 +307,22 @@
             this.btnAddDistrict.UseVisualStyleBackColor = true;
             this.btnAddDistrict.Click += new System.EventHandler(this.btnAddDistrict_Click);
             // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(409, 343);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnExcel.TabIndex = 33;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // FormDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 382);
+            this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnAddDistrict);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
@@ -378,5 +390,6 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAddDistrict;
+        private System.Windows.Forms.Button btnExcel;
     }
 }
