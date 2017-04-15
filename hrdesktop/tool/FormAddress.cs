@@ -11,6 +11,7 @@ using System.Collections;
 
 namespace highwayns
 {
+	//aaaaaaa
     public partial class FormAddress : Form
     {
         Hashtable ht_ken = new Hashtable();
