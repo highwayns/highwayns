@@ -1,5 +1,5 @@
-﻿DROP TABLE IF EXISTS `qs_ad`;
-CREATE TABLE `qs_ad` (
+﻿DROP TABLE IF EXISTS `hw_ad`;
+CREATE TABLE `hw_ad` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `alias` varchar(80) NOT NULL,
   `is_display` tinyint(1) NOT NULL default '1',
@@ -39,8 +39,8 @@ CREATE TABLE `qs_ad` (
 
 ||-_-||ad表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_admin`;
-CREATE TABLE `qs_admin` (
+DROP TABLE IF EXISTS `hw_admin`;
+CREATE TABLE `hw_admin` (
   `admin_id` smallint(5) unsigned NOT NULL auto_increment,
   `admin_name` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
@@ -56,8 +56,8 @@ CREATE TABLE `qs_admin` (
 
 ||-_-||admin表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_admin_log`;
-CREATE TABLE `qs_admin_log` (
+DROP TABLE IF EXISTS `hw_admin_log`;
+CREATE TABLE `hw_admin_log` (
   `log_id` int(10) unsigned NOT NULL auto_increment,
   `admin_name` varchar(20) NOT NULL,
   `add_time` int(10) NOT NULL,
@@ -69,8 +69,8 @@ CREATE TABLE `qs_admin_log` (
 
 ||-_-||admin_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_ad_category`;
-CREATE TABLE `qs_ad_category` (
+DROP TABLE IF EXISTS `hw_ad_category`;
+CREATE TABLE `hw_ad_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `alias` varchar(100) NOT NULL,
   `type_id` int(10) unsigned NOT NULL,
@@ -82,8 +82,8 @@ CREATE TABLE `qs_ad_category` (
 
 ||-_-||ad_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_article`;
-CREATE TABLE `qs_article` (
+DROP TABLE IF EXISTS `hw_article`;
+CREATE TABLE `hw_article` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` tinyint(3) unsigned NOT NULL,
   `parentid` smallint(5) unsigned NOT NULL,
@@ -113,8 +113,8 @@ CREATE TABLE `qs_article` (
 
 ||-_-||article表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_article_category`;
-CREATE TABLE `qs_article_category` (
+DROP TABLE IF EXISTS `hw_article_category`;
+CREATE TABLE `hw_article_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `parentid` smallint(5) unsigned NOT NULL,
   `categoryname` varchar(80) NOT NULL,
@@ -128,8 +128,8 @@ CREATE TABLE `qs_article_category` (
 
 ||-_-||article_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_article_property`;
-CREATE TABLE `qs_article_property` (
+DROP TABLE IF EXISTS `hw_article_property`;
+CREATE TABLE `hw_article_property` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(30) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
@@ -139,8 +139,8 @@ CREATE TABLE `qs_article_property` (
 
 ||-_-||article_property表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_audit_reason`;
-CREATE TABLE `qs_audit_reason` (
+DROP TABLE IF EXISTS `hw_audit_reason`;
+CREATE TABLE `hw_audit_reason` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `jobs_id` int(10) unsigned NOT NULL default '0',
   `company_id` int(10) unsigned NOT NULL default '0',
@@ -155,8 +155,8 @@ CREATE TABLE `qs_audit_reason` (
 
 ||-_-||audit_reason表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_baiduxml`;
-CREATE TABLE `qs_baiduxml` (
+DROP TABLE IF EXISTS `hw_baiduxml`;
+CREATE TABLE `hw_baiduxml` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -165,8 +165,8 @@ CREATE TABLE `qs_baiduxml` (
 
 ||-_-||baiduxml表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_baidu_submiturl`;
-CREATE TABLE `qs_baidu_submiturl` (
+DROP TABLE IF EXISTS `hw_baidu_submiturl`;
+CREATE TABLE `hw_baidu_submiturl` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -175,8 +175,8 @@ CREATE TABLE `qs_baidu_submiturl` (
 
 ||-_-||baidu_submiturl表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_captcha`;
-CREATE TABLE `qs_captcha` (
+DROP TABLE IF EXISTS `hw_captcha`;
+CREATE TABLE `hw_captcha` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` varchar(200) NOT NULL,
@@ -185,8 +185,8 @@ CREATE TABLE `qs_captcha` (
 
 ||-_-||captcha表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category`;
-CREATE TABLE `qs_category` (
+DROP TABLE IF EXISTS `hw_category`;
+CREATE TABLE `hw_category` (
   `c_id` int(10) unsigned NOT NULL auto_increment,
   `c_parentid` int(10) unsigned NOT NULL,
   `c_alias` char(30) NOT NULL,
@@ -202,22 +202,21 @@ CREATE TABLE `qs_category` (
 
 ||-_-||category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_district`;
-CREATE TABLE `qs_category_district` (
+DROP TABLE IF EXISTS `hw_category_district`;
+CREATE TABLE `hw_category_district` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` int(10) unsigned NOT NULL default '0',
   `categoryname` varchar(30) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `stat_jobs` varchar(15) NOT NULL,
   `stat_resume` varchar(15) NOT NULL,
-  `language` char(2) NOT NULL,
   PRIMARY KEY  (`id`),
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
 
 ||-_-||category_district表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_group`;
-CREATE TABLE `qs_category_group` (
+DROP TABLE IF EXISTS `hw_category_group`;
+CREATE TABLE `hw_category_group` (
   `g_id` int(10) unsigned NOT NULL auto_increment,
   `g_alias` varchar(60) NOT NULL,
   `g_name` varchar(100) NOT NULL,
@@ -227,8 +226,8 @@ CREATE TABLE `qs_category_group` (
 
 ||-_-||category_group表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_jobs`;
-CREATE TABLE `qs_category_jobs` (
+DROP TABLE IF EXISTS `hw_category_jobs`;
+CREATE TABLE `hw_category_jobs` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` smallint(5) unsigned NOT NULL,
   `categoryname` varchar(80) NOT NULL,
@@ -242,8 +241,8 @@ CREATE TABLE `qs_category_jobs` (
 
 ||-_-||category_jobs表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_major`;
-CREATE TABLE `qs_category_major` (
+DROP TABLE IF EXISTS `hw_category_major`;
+CREATE TABLE `hw_category_major` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` int(10) NOT NULL,
   `categoryname` varchar(50) NOT NULL,
@@ -253,8 +252,8 @@ CREATE TABLE `qs_category_major` (
 
 ||-_-||category_major表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_color`;
-CREATE TABLE `qs_color` (
+DROP TABLE IF EXISTS `hw_color`;
+CREATE TABLE `hw_color` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
@@ -262,8 +261,8 @@ CREATE TABLE `qs_color` (
 
 ||-_-||color表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_down_resume`;
-CREATE TABLE `qs_company_down_resume` (
+DROP TABLE IF EXISTS `hw_company_down_resume`;
+CREATE TABLE `hw_company_down_resume` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `resume_name` varchar(60) NOT NULL,
@@ -279,8 +278,8 @@ CREATE TABLE `qs_company_down_resume` (
 
 ||-_-||company_down_resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_favorites`;
-CREATE TABLE `qs_company_favorites` (
+DROP TABLE IF EXISTS `hw_company_favorites`;
+CREATE TABLE `hw_company_favorites` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `company_uid` int(10) unsigned NOT NULL,
@@ -291,8 +290,8 @@ CREATE TABLE `qs_company_favorites` (
 
 ||-_-||company_favorites表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_interview`;
-CREATE TABLE `qs_company_interview` (
+DROP TABLE IF EXISTS `hw_company_interview`;
+CREATE TABLE `hw_company_interview` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `resume_name` varchar(30) NOT NULL,
@@ -316,8 +315,8 @@ CREATE TABLE `qs_company_interview` (
 
 ||-_-||company_interview表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_label_resume`;
-CREATE TABLE `qs_company_label_resume` (
+DROP TABLE IF EXISTS `hw_company_label_resume`;
+CREATE TABLE `hw_company_label_resume` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) NOT NULL,
   `personal_uid` int(10) NOT NULL,
@@ -329,8 +328,8 @@ CREATE TABLE `qs_company_label_resume` (
 
 ||-_-||company_label_resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_profile`;
-CREATE TABLE `qs_company_profile` (
+DROP TABLE IF EXISTS `hw_company_profile`;
+CREATE TABLE `hw_company_profile` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `tpl` varchar(60) NOT NULL,
@@ -386,8 +385,8 @@ CREATE TABLE `qs_company_profile` (
 
 ||-_-||company_profile表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_config`;
-CREATE TABLE `qs_config` (
+DROP TABLE IF EXISTS `hw_config`;
+CREATE TABLE `hw_config` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -396,8 +395,8 @@ CREATE TABLE `qs_config` (
 
 ||-_-||config表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_consultant`;
-CREATE TABLE `qs_consultant` (
+DROP TABLE IF EXISTS `hw_consultant`;
+CREATE TABLE `hw_consultant` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL default '',
   `pic` text, NULL,
@@ -407,8 +406,8 @@ CREATE TABLE `qs_consultant` (
 
 ||-_-||consultant表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_crons`;
-CREATE TABLE `qs_crons` (
+DROP TABLE IF EXISTS `hw_crons`;
+CREATE TABLE `hw_crons` (
   `cronid` smallint(5) unsigned NOT NULL auto_increment,
   `available` tinyint(1) unsigned NOT NULL,
   `admin_set` tinyint(1) unsigned NOT NULL default '0',
@@ -425,8 +424,8 @@ CREATE TABLE `qs_crons` (
 
 ||-_-||crons表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_explain`;
-CREATE TABLE `qs_explain` (
+DROP TABLE IF EXISTS `hw_explain`;
+CREATE TABLE `hw_explain` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` smallint(5) unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -446,8 +445,8 @@ CREATE TABLE `qs_explain` (
 
 ||-_-||explain表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_explain_category`;
-CREATE TABLE `qs_explain_category` (
+DROP TABLE IF EXISTS `hw_explain_category`;
+CREATE TABLE `hw_explain_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(80) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
@@ -457,8 +456,8 @@ CREATE TABLE `qs_explain_category` (
 
 ||-_-||explain_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_feedback`;
-CREATE TABLE `qs_feedback` (
+DROP TABLE IF EXISTS `hw_feedback`;
+CREATE TABLE `hw_feedback` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `infotype` tinyint(3) unsigned NOT NULL,
   `feedback` varchar(250) NOT NULL,
@@ -469,8 +468,8 @@ CREATE TABLE `qs_feedback` (
 
 ||-_-||feedback表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_help`;
-CREATE TABLE `qs_help` (
+DROP TABLE IF EXISTS `hw_help`;
+CREATE TABLE `hw_help` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` tinyint(3) unsigned NOT NULL,
   `parentid` smallint(5) unsigned NOT NULL,
@@ -486,8 +485,8 @@ CREATE TABLE `qs_help` (
 
 ||-_-||help表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_help_category`;
-CREATE TABLE `qs_help_category` (
+DROP TABLE IF EXISTS `hw_help_category`;
+CREATE TABLE `hw_help_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `parentid` smallint(5) unsigned NOT NULL,
   `categoryname` varchar(80) NOT NULL,
@@ -497,8 +496,8 @@ CREATE TABLE `qs_help_category` (
 
 ||-_-||help_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_hotword`;
-CREATE TABLE `qs_hotword` (
+DROP TABLE IF EXISTS `hw_hotword`;
+CREATE TABLE `hw_hotword` (
   `w_id` int(10) unsigned NOT NULL auto_increment,
   `w_word` varchar(120) NOT NULL,
   `w_hot` int(10) unsigned NOT NULL default '1',
@@ -509,8 +508,8 @@ CREATE TABLE `qs_hotword` (
 
 ||-_-||hotword表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_hrtools`;
-CREATE TABLE `qs_hrtools` (
+DROP TABLE IF EXISTS `hw_hrtools`;
+CREATE TABLE `hw_hrtools` (
   `h_id` int(10) unsigned NOT NULL auto_increment,
   `h_typeid` smallint(5) unsigned NOT NULL,
   `h_filename` varchar(200) NOT NULL,
@@ -523,8 +522,8 @@ CREATE TABLE `qs_hrtools` (
 
 ||-_-||hrtools表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_hrtools_category`;
-CREATE TABLE `qs_hrtools_category` (
+DROP TABLE IF EXISTS `hw_hrtools_category`;
+CREATE TABLE `hw_hrtools_category` (
   `c_id` smallint(5) unsigned NOT NULL auto_increment,
   `c_name` varchar(80) NOT NULL,
   `c_order` int(11) NOT NULL default '0',
@@ -534,8 +533,8 @@ CREATE TABLE `qs_hrtools_category` (
 
 ||-_-||hrtools_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs`;
-CREATE TABLE `qs_jobs` (
+DROP TABLE IF EXISTS `hw_jobs`;
+CREATE TABLE `hw_jobs` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `jobs_name` varchar(30) NOT NULL,
@@ -604,8 +603,8 @@ CREATE TABLE `qs_jobs` (
 
 ||-_-||jobs表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_contact`;
-CREATE TABLE `qs_jobs_contact` (
+DROP TABLE IF EXISTS `hw_jobs_contact`;
+CREATE TABLE `hw_jobs_contact` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `contact` varchar(80) NOT NULL,
@@ -626,8 +625,8 @@ CREATE TABLE `qs_jobs_contact` (
 
 ||-_-||jobs_contact表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_hot`;
-CREATE TABLE `qs_jobs_search_hot` (
+DROP TABLE IF EXISTS `hw_jobs_search_hot`;
+CREATE TABLE `hw_jobs_search_hot` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -663,8 +662,8 @@ CREATE TABLE `qs_jobs_search_hot` (
 
 ||-_-||jobs_search_hot表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_key`;
-CREATE TABLE `qs_jobs_search_key` (
+DROP TABLE IF EXISTS `hw_jobs_search_key`;
+CREATE TABLE `hw_jobs_search_key` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -701,8 +700,8 @@ CREATE TABLE `qs_jobs_search_key` (
 
 ||-_-||jobs_search_key表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_rtime`;
-CREATE TABLE `qs_jobs_search_rtime` (
+DROP TABLE IF EXISTS `hw_jobs_search_rtime`;
+CREATE TABLE `hw_jobs_search_rtime` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -741,8 +740,8 @@ CREATE TABLE `qs_jobs_search_rtime` (
 
 ||-_-||jobs_search_rtime表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_scale`;
-CREATE TABLE `qs_jobs_search_scale` (
+DROP TABLE IF EXISTS `hw_jobs_search_scale`;
+CREATE TABLE `hw_jobs_search_scale` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -776,8 +775,8 @@ CREATE TABLE `qs_jobs_search_scale` (
 
 ||-_-||jobs_search_scale表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_stickrtime`;
-CREATE TABLE `qs_jobs_search_stickrtime` (
+DROP TABLE IF EXISTS `hw_jobs_search_stickrtime`;
+CREATE TABLE `hw_jobs_search_stickrtime` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -812,8 +811,8 @@ CREATE TABLE `qs_jobs_search_stickrtime` (
 
 ||-_-||jobs_search_stickrtime表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_wage`;
-CREATE TABLE `qs_jobs_search_wage` (
+DROP TABLE IF EXISTS `hw_jobs_search_wage`;
+CREATE TABLE `hw_jobs_search_wage` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -847,8 +846,8 @@ CREATE TABLE `qs_jobs_search_wage` (
 
 ||-_-||jobs_search_wage表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_tag`;
-CREATE TABLE `qs_jobs_tag` (
+DROP TABLE IF EXISTS `hw_jobs_tag`;
+CREATE TABLE `hw_jobs_tag` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -860,8 +859,8 @@ CREATE TABLE `qs_jobs_tag` (
 
 ||-_-||jobs_tag表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_tmp`;
-CREATE TABLE `qs_jobs_tmp` (
+DROP TABLE IF EXISTS `hw_jobs_tmp`;
+CREATE TABLE `hw_jobs_tmp` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `jobs_name` varchar(30) NOT NULL,
@@ -930,8 +929,8 @@ CREATE TABLE `qs_jobs_tmp` (
 
 ||-_-||jobs_tmp表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_link`;
-CREATE TABLE `qs_link` (
+DROP TABLE IF EXISTS `hw_link`;
+CREATE TABLE `hw_link` (
   `link_id` int(10) unsigned NOT NULL auto_increment,
   `type_id` tinyint(3) unsigned NOT NULL,
   `display` tinyint(1) unsigned NOT NULL default '1',
@@ -948,8 +947,8 @@ CREATE TABLE `qs_link` (
 
 ||-_-||link表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_link_category`;
-CREATE TABLE `qs_link_category` (
+DROP TABLE IF EXISTS `hw_link_category`;
+CREATE TABLE `hw_link_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(80) NOT NULL,
   `c_sys` tinyint(1) unsigned NOT NULL default '0',
@@ -959,8 +958,8 @@ CREATE TABLE `qs_link_category` (
 
 ||-_-||link_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_locoyspider`;
-CREATE TABLE `qs_locoyspider` (
+DROP TABLE IF EXISTS `hw_locoyspider`;
+CREATE TABLE `hw_locoyspider` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -969,8 +968,8 @@ CREATE TABLE `qs_locoyspider` (
 
 ||-_-||locoyspider表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_mailconfig`;
-CREATE TABLE `qs_mailconfig` (
+DROP TABLE IF EXISTS `hw_mailconfig`;
+CREATE TABLE `hw_mailconfig` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -979,8 +978,8 @@ CREATE TABLE `qs_mailconfig` (
 
 ||-_-||mailconfig表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_mailqueue`;
-CREATE TABLE `qs_mailqueue` (
+DROP TABLE IF EXISTS `hw_mailqueue`;
+CREATE TABLE `hw_mailqueue` (
   `m_id` int(10) unsigned NOT NULL auto_increment,
   `m_type` tinyint(3) unsigned NOT NULL default '0',
   `m_addtime` int(10) unsigned NOT NULL,
@@ -995,8 +994,8 @@ CREATE TABLE `qs_mailqueue` (
 
 ||-_-||mailqueue表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_mail_templates`;
-CREATE TABLE `qs_mail_templates` (
+DROP TABLE IF EXISTS `hw_mail_templates`;
+CREATE TABLE `hw_mail_templates` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -1005,8 +1004,8 @@ CREATE TABLE `qs_mail_templates` (
 
 ||-_-||mail_templates表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members`;
-CREATE TABLE `qs_members` (
+DROP TABLE IF EXISTS `hw_members`;
+CREATE TABLE `hw_members` (
   `uid` int(10) unsigned NOT NULL auto_increment,
   `utype` tinyint(1) unsigned NOT NULL default '1',
   `username` varchar(60) NOT NULL default '',
@@ -1050,8 +1049,8 @@ CREATE TABLE `qs_members` (
 
 ||-_-||members表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_charge_log`;
-CREATE TABLE `qs_members_charge_log` (
+DROP TABLE IF EXISTS `hw_members_charge_log`;
+CREATE TABLE `hw_members_charge_log` (
   `log_id` int(10) unsigned NOT NULL auto_increment,
   `log_uid` int(10) NOT NULL,
   `log_username` varchar(60) NOT NULL,
@@ -1071,8 +1070,8 @@ CREATE TABLE `qs_members_charge_log` (
 
 ||-_-||members_charge_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_handsel`;
-CREATE TABLE `qs_members_handsel` (
+DROP TABLE IF EXISTS `hw_members_handsel`;
+CREATE TABLE `hw_members_handsel` (
   `id` int(10) NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `htype` varchar(60) NOT NULL,
@@ -1083,8 +1082,8 @@ CREATE TABLE `qs_members_handsel` (
 
 ||-_-||members_handsel表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_info`;
-CREATE TABLE `qs_members_info` (
+DROP TABLE IF EXISTS `hw_members_info`;
+CREATE TABLE `hw_members_info` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `realname` varchar(30) NOT NULL,
@@ -1110,8 +1109,8 @@ CREATE TABLE `qs_members_info` (
 
 ||-_-||members_info表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_log`;
-CREATE TABLE `qs_members_log` (
+DROP TABLE IF EXISTS `hw_members_log`;
+CREATE TABLE `hw_members_log` (
   `log_id` int(10) unsigned NOT NULL auto_increment,
   `log_uid` int(10) NOT NULL,
   `log_username` varchar(60) NOT NULL,
@@ -1136,8 +1135,8 @@ CREATE TABLE `qs_members_log` (
 
 ||-_-||members_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_points`;
-CREATE TABLE `qs_members_points` (
+DROP TABLE IF EXISTS `hw_members_points`;
+CREATE TABLE `hw_members_points` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `points` int(10) unsigned NOT NULL default '0',
@@ -1147,8 +1146,8 @@ CREATE TABLE `qs_members_points` (
 
 ||-_-||members_points表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_points_rule`;
-CREATE TABLE `qs_members_points_rule` (
+DROP TABLE IF EXISTS `hw_members_points_rule`;
+CREATE TABLE `hw_members_points_rule` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `utype` tinyint(1) NOT NULL default '1',
   `title` varchar(100) NOT NULL,
@@ -1160,8 +1159,8 @@ CREATE TABLE `qs_members_points_rule` (
 
 ||-_-||members_points_rule表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_setmeal`;
-CREATE TABLE `qs_members_setmeal` (
+DROP TABLE IF EXISTS `hw_members_setmeal`;
+CREATE TABLE `hw_members_setmeal` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `effective` tinyint(3) unsigned NOT NULL default '0',
   `uid` int(10) unsigned NOT NULL,
@@ -1200,8 +1199,8 @@ CREATE TABLE `qs_members_setmeal` (
 
 ||-_-||members_setmeal表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_navigation`;
-CREATE TABLE `qs_navigation` (
+DROP TABLE IF EXISTS `hw_navigation`;
+CREATE TABLE `hw_navigation` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `alias` varchar(100) NOT NULL,
   `urltype` tinyint(3) unsigned NOT NULL default '0',
@@ -1219,8 +1218,8 @@ CREATE TABLE `qs_navigation` (
 
 ||-_-||navigation表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_navigation_category`;
-CREATE TABLE `qs_navigation_category` (
+DROP TABLE IF EXISTS `hw_navigation_category`;
+CREATE TABLE `hw_navigation_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `alias` varchar(100) NOT NULL,
   `categoryname` varchar(30) NOT NULL,
@@ -1230,8 +1229,8 @@ CREATE TABLE `qs_navigation_category` (
 
 ||-_-||navigation_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_notice`;
-CREATE TABLE `qs_notice` (
+DROP TABLE IF EXISTS `hw_notice`;
+CREATE TABLE `hw_notice` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` smallint(5) unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -1251,8 +1250,8 @@ CREATE TABLE `qs_notice` (
 
 ||-_-||notice表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_notice_category`;
-CREATE TABLE `qs_notice_category` (
+DROP TABLE IF EXISTS `hw_notice_category`;
+CREATE TABLE `hw_notice_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(80) NOT NULL,
   `sort` smallint(5) unsigned NOT NULL default '0',
@@ -1262,8 +1261,8 @@ CREATE TABLE `qs_notice_category` (
 
 ||-_-||notice_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_order`;
-CREATE TABLE `qs_order` (
+DROP TABLE IF EXISTS `hw_order`;
+CREATE TABLE `hw_order` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `utype` tinyint(2) unsigned NOT NULL default '1',
@@ -1288,8 +1287,8 @@ CREATE TABLE `qs_order` (
 
 ||-_-||order表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_page`;
-CREATE TABLE `qs_page` (
+DROP TABLE IF EXISTS `hw_page`;
+CREATE TABLE `hw_page` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `systemclass` tinyint(3) unsigned NOT NULL default '0',
   `pagetpye` tinyint(3) unsigned NOT NULL default '1',
@@ -1309,8 +1308,8 @@ CREATE TABLE `qs_page` (
 
 ||-_-||page表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_payment`;
-CREATE TABLE `qs_payment` (
+DROP TABLE IF EXISTS `hw_payment`;
+CREATE TABLE `hw_payment` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `listorder` int(10) unsigned NOT NULL default '50',
   `typename` varchar(15) NOT NULL,
@@ -1329,8 +1328,8 @@ CREATE TABLE `qs_payment` (
 
 ||-_-||payment表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_personal_favorites`;
-CREATE TABLE `qs_personal_favorites` (
+DROP TABLE IF EXISTS `hw_personal_favorites`;
+CREATE TABLE `hw_personal_favorites` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `personal_uid` int(10) unsigned NOT NULL,
   `jobs_id` int(10) unsigned NOT NULL,
@@ -1342,8 +1341,8 @@ CREATE TABLE `qs_personal_favorites` (
 
 ||-_-||personal_favorites表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_personal_jobs_apply`;
-CREATE TABLE `qs_personal_jobs_apply` (
+DROP TABLE IF EXISTS `hw_personal_jobs_apply`;
+CREATE TABLE `hw_personal_jobs_apply` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `resume_name` varchar(60) NOT NULL,
@@ -1367,8 +1366,8 @@ CREATE TABLE `qs_personal_jobs_apply` (
 
 ||-_-||personal_jobs_apply表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_plug`;
-CREATE TABLE `qs_plug` (
+DROP TABLE IF EXISTS `hw_plug`;
+CREATE TABLE `hw_plug` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `typename` varchar(15) NOT NULL,
   `plug_name` varchar(50) NOT NULL,
@@ -1378,8 +1377,8 @@ CREATE TABLE `qs_plug` (
 
 ||-_-||plug表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_pms`;
-CREATE TABLE `qs_pms` (
+DROP TABLE IF EXISTS `hw_pms`;
+CREATE TABLE `hw_pms` (
   `pmid` int(10) unsigned NOT NULL auto_increment,
   `msgtype` tinyint(1) unsigned NOT NULL default '1',
   `msgfrom` varchar(30) NOT NULL,
@@ -1398,8 +1397,8 @@ CREATE TABLE `qs_pms` (
 
 ||-_-||pms表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_pms_sys`;
-CREATE TABLE `qs_pms_sys` (
+DROP TABLE IF EXISTS `hw_pms_sys`;
+CREATE TABLE `hw_pms_sys` (
   `spmid` int(10) unsigned NOT NULL auto_increment,
   `spms_usertype` tinyint(1) unsigned NOT NULL default '0',
   `spms_type` tinyint(1) NOT NULL default '1',
@@ -1410,8 +1409,8 @@ CREATE TABLE `qs_pms_sys` (
 
 ||-_-||pms_sys表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_pms_sys_log`;
-CREATE TABLE `qs_pms_sys_log` (
+DROP TABLE IF EXISTS `hw_pms_sys_log`;
+CREATE TABLE `hw_pms_sys_log` (
   `lid` int(10) unsigned NOT NULL auto_increment,
   `loguid` int(10) unsigned NOT NULL,
   `pmid` int(10) unsigned NOT NULL,
@@ -1421,8 +1420,8 @@ CREATE TABLE `qs_pms_sys_log` (
 
 ||-_-||pms_sys_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_promotion`;
-CREATE TABLE `qs_promotion` (
+DROP TABLE IF EXISTS `hw_promotion`;
+CREATE TABLE `hw_promotion` (
   `cp_id` int(10) unsigned NOT NULL auto_increment,
   `cp_available` tinyint(1) NOT NULL default '1',
   `cp_promotionid` int(10) unsigned NOT NULL,
@@ -1441,8 +1440,8 @@ CREATE TABLE `qs_promotion` (
 
 ||-_-||promotion表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_promotion_category`;
-CREATE TABLE `qs_promotion_category` (
+DROP TABLE IF EXISTS `hw_promotion_category`;
+CREATE TABLE `hw_promotion_category` (
   `cat_id` int(10) unsigned NOT NULL auto_increment,
   `cat_available` tinyint(1) NOT NULL default '1',
   `cat_name` varchar(30) NOT NULL,
@@ -1457,8 +1456,8 @@ CREATE TABLE `qs_promotion_category` (
 
 ||-_-||promotion_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_refresh_log`;
-CREATE TABLE `qs_refresh_log` (
+DROP TABLE IF EXISTS `hw_refresh_log`;
+CREATE TABLE `hw_refresh_log` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `mode` tinyint(1) unsigned NOT NULL default '0',
@@ -1469,8 +1468,8 @@ CREATE TABLE `qs_refresh_log` (
 
 ||-_-||refresh_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_report`;
-CREATE TABLE `qs_report` (
+DROP TABLE IF EXISTS `hw_report`;
+CREATE TABLE `hw_report` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `jobs_id` int(10) unsigned NOT NULL,
@@ -1486,8 +1485,8 @@ CREATE TABLE `qs_report` (
 
 ||-_-||report表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_report_resume`;
-CREATE TABLE `qs_report_resume` (
+DROP TABLE IF EXISTS `hw_report_resume`;
+CREATE TABLE `hw_report_resume` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `resume_id` int(10) unsigned NOT NULL,
@@ -1503,8 +1502,8 @@ CREATE TABLE `qs_report_resume` (
 
 ||-_-||report_resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume`;
-CREATE TABLE `qs_resume` (
+DROP TABLE IF EXISTS `hw_resume`;
+CREATE TABLE `hw_resume` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `display` tinyint(3) unsigned NOT NULL default '1',
@@ -1564,8 +1563,8 @@ CREATE TABLE `qs_resume` (
 
 ||-_-||resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_credent`;
-CREATE TABLE `qs_resume_credent` (
+DROP TABLE IF EXISTS `hw_resume_credent`;
+CREATE TABLE `hw_resume_credent` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1579,8 +1578,8 @@ CREATE TABLE `qs_resume_credent` (
 
 ||-_-||resume_credent表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_district`;
-CREATE TABLE `qs_resume_district` (
+DROP TABLE IF EXISTS `hw_resume_district`;
+CREATE TABLE `hw_resume_district` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1593,8 +1592,8 @@ CREATE TABLE `qs_resume_district` (
 
 ||-_-||resume_district表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_education`;
-CREATE TABLE `qs_resume_education` (
+DROP TABLE IF EXISTS `hw_resume_education`;
+CREATE TABLE `hw_resume_education` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1613,8 +1612,8 @@ CREATE TABLE `qs_resume_education` (
 
 ||-_-||resume_education表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_img`;
-CREATE TABLE `qs_resume_img` (
+DROP TABLE IF EXISTS `hw_resume_img`;
+CREATE TABLE `hw_resume_img` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `resume_id` int(10) unsigned NOT NULL,
@@ -1628,8 +1627,8 @@ CREATE TABLE `qs_resume_img` (
 
 ||-_-||resume_img表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_jobs`;
-CREATE TABLE `qs_resume_jobs` (
+DROP TABLE IF EXISTS `hw_resume_jobs`;
+CREATE TABLE `hw_resume_jobs` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1643,8 +1642,8 @@ CREATE TABLE `qs_resume_jobs` (
 
 ||-_-||resume_jobs表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_language`;
-CREATE TABLE `qs_resume_language` (
+DROP TABLE IF EXISTS `hw_resume_language`;
+CREATE TABLE `hw_resume_language` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1658,8 +1657,8 @@ CREATE TABLE `qs_resume_language` (
 
 ||-_-||resume_language表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_search_key`;
-CREATE TABLE `qs_resume_search_key` (
+DROP TABLE IF EXISTS `hw_resume_search_key`;
+CREATE TABLE `hw_resume_search_key` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `display` tinyint(1) NOT NULL default '1',
   `audit` tinyint(1) unsigned NOT NULL,
@@ -1686,8 +1685,8 @@ CREATE TABLE `qs_resume_search_key` (
 
 ||-_-||resume_search_key表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_search_rtime`;
-CREATE TABLE `qs_resume_search_rtime` (
+DROP TABLE IF EXISTS `hw_resume_search_rtime`;
+CREATE TABLE `hw_resume_search_rtime` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `display` tinyint(1) NOT NULL default '1',
   `audit` tinyint(1) unsigned NOT NULL,
@@ -1716,8 +1715,8 @@ CREATE TABLE `qs_resume_search_rtime` (
 
 ||-_-||resume_search_rtime表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_tag`;
-CREATE TABLE `qs_resume_tag` (
+DROP TABLE IF EXISTS `hw_resume_tag`;
+CREATE TABLE `hw_resume_tag` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1729,8 +1728,8 @@ CREATE TABLE `qs_resume_tag` (
 
 ||-_-||resume_tag表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_trade`;
-CREATE TABLE `qs_resume_trade` (
+DROP TABLE IF EXISTS `hw_resume_trade`;
+CREATE TABLE `hw_resume_trade` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1742,8 +1741,8 @@ CREATE TABLE `qs_resume_trade` (
 
 ||-_-||resume_trade表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_training`;
-CREATE TABLE `qs_resume_training` (
+DROP TABLE IF EXISTS `hw_resume_training`;
+CREATE TABLE `hw_resume_training` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1761,8 +1760,8 @@ CREATE TABLE `qs_resume_training` (
 
 ||-_-||resume_training表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_work`;
-CREATE TABLE `qs_resume_work` (
+DROP TABLE IF EXISTS `hw_resume_work`;
+CREATE TABLE `hw_resume_work` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1780,8 +1779,8 @@ CREATE TABLE `qs_resume_work` (
 
 ||-_-||resume_work表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_setmeal`;
-CREATE TABLE `qs_setmeal` (
+DROP TABLE IF EXISTS `hw_setmeal`;
+CREATE TABLE `hw_setmeal` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `display` tinyint(3) unsigned NOT NULL default '1',
   `apply` tinyint(3) unsigned NOT NULL default '1',
@@ -1816,8 +1815,8 @@ CREATE TABLE `qs_setmeal` (
 
 ||-_-||setmeal表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_simple`;
-CREATE TABLE `qs_simple` (
+DROP TABLE IF EXISTS `hw_simple`;
+CREATE TABLE `hw_simple` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `audit` tinyint(1) unsigned NOT NULL default '0',
   `pwd` varchar(60) NOT NULL,
@@ -1848,8 +1847,8 @@ CREATE TABLE `qs_simple` (
 
 ||-_-||simple表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_smsqueue`;
-CREATE TABLE `qs_smsqueue` (
+DROP TABLE IF EXISTS `hw_smsqueue`;
+CREATE TABLE `hw_smsqueue` (
   `s_id` int(10) unsigned NOT NULL auto_increment,
   `s_type` tinyint(3) unsigned NOT NULL default '0',
   `s_addtime` int(10) unsigned NOT NULL,
@@ -1863,8 +1862,8 @@ CREATE TABLE `qs_smsqueue` (
 
 ||-_-||smsqueue表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_sms_config`;
-CREATE TABLE `qs_sms_config` (
+DROP TABLE IF EXISTS `hw_sms_config`;
+CREATE TABLE `hw_sms_config` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` varchar(200) NOT NULL,
@@ -1873,8 +1872,8 @@ CREATE TABLE `qs_sms_config` (
 
 ||-_-||sms_config表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_sms_templates`;
-CREATE TABLE `qs_sms_templates` (
+DROP TABLE IF EXISTS `hw_sms_templates`;
+CREATE TABLE `hw_sms_templates` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -1883,8 +1882,8 @@ CREATE TABLE `qs_sms_templates` (
 
 ||-_-||sms_templates表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_syslog`;
-CREATE TABLE `qs_syslog` (
+DROP TABLE IF EXISTS `hw_syslog`;
+CREATE TABLE `hw_syslog` (
   `l_id` int(10) unsigned NOT NULL auto_increment,
   `l_type` tinyint(1) unsigned NOT NULL,
   `l_type_name` varchar(30) NOT NULL,
@@ -1898,8 +1897,8 @@ CREATE TABLE `qs_syslog` (
 
 ||-_-||syslog表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_sys_email_log`;
-CREATE TABLE `qs_sys_email_log` (
+DROP TABLE IF EXISTS `hw_sys_email_log`;
+CREATE TABLE `hw_sys_email_log` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `send_from` varchar(50) NOT NULL,
   `send_to` varchar(50) NOT NULL,
@@ -1912,8 +1911,8 @@ CREATE TABLE `qs_sys_email_log` (
 
 ||-_-||sys_email_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_text`;
-CREATE TABLE `qs_text` (
+DROP TABLE IF EXISTS `hw_text`;
+CREATE TABLE `hw_text` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
@@ -1922,8 +1921,8 @@ CREATE TABLE `qs_text` (
 
 ||-_-||text表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_tpl`;
-CREATE TABLE `qs_tpl` (
+DROP TABLE IF EXISTS `hw_tpl`;
+CREATE TABLE `hw_tpl` (
   `tpl_id` int(10) unsigned NOT NULL auto_increment,
   `tpl_type` tinyint(1) NOT NULL,
   `tpl_name` varchar(80) NOT NULL,
@@ -1935,8 +1934,8 @@ CREATE TABLE `qs_tpl` (
 
 ||-_-||tpl表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_weixin_menu`;
-CREATE TABLE `qs_weixin_menu` (
+DROP TABLE IF EXISTS `hw_weixin_menu`;
+CREATE TABLE `hw_weixin_menu` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` int(10) unsigned NOT NULL default '0',
   `title` varchar(30) NOT NULL,
