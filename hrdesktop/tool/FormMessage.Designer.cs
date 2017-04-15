@@ -48,7 +48,7 @@
             // 
             this.txtSource.Location = new System.Drawing.Point(84, 12);
             this.txtSource.Name = "txtSource";
-            this.txtSource.Size = new System.Drawing.Size(302, 19);
+            this.txtSource.Size = new System.Drawing.Size(302, 21);
             this.txtSource.TabIndex = 6;
             this.txtSource.Text = "C:\\Users\\ju8251\\Desktop\\highwayns-master\\hrserver\\pb";
             // 
@@ -57,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 12);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 5;
             this.label1.Text = "Source";
             // 
@@ -114,15 +114,15 @@
             // 
             this.txtOptimize.Location = new System.Drawing.Point(195, 100);
             this.txtOptimize.Name = "txtOptimize";
-            this.txtOptimize.Size = new System.Drawing.Size(100, 19);
+            this.txtOptimize.Size = new System.Drawing.Size(100, 21);
             this.txtOptimize.TabIndex = 33;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(153, 100);
+            this.label4.Location = new System.Drawing.Point(144, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 12);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 32;
             this.label4.Text = "optimize";
             // 
@@ -130,7 +130,7 @@
             // 
             this.txtjava.Location = new System.Drawing.Point(195, 75);
             this.txtjava.Name = "txtjava";
-            this.txtjava.Size = new System.Drawing.Size(100, 19);
+            this.txtjava.Size = new System.Drawing.Size(100, 21);
             this.txtjava.TabIndex = 31;
             // 
             // label3
@@ -138,7 +138,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(153, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 12);
+            this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 30;
             this.label3.Text = "java";
             // 
@@ -146,7 +146,7 @@
             // 
             this.txtimport.Location = new System.Drawing.Point(195, 50);
             this.txtimport.Name = "txtimport";
-            this.txtimport.Size = new System.Drawing.Size(100, 19);
+            this.txtimport.Size = new System.Drawing.Size(100, 21);
             this.txtimport.TabIndex = 29;
             // 
             // label2
@@ -154,7 +154,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(153, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 12);
+            this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 28;
             this.label2.Text = "import";
             // 

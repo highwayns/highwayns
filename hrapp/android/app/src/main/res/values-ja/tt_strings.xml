@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 消息页面复制 -->
-    <string name="call_mode">听筒模式</string>
-    <string name="speaker_mode">扬声器模式</string>
-    <string name="copy">复制</string>
-    <string name="resend">重发</string>
-    <string name="send_message">发表</string>
+    <!-- メッセージページの複製 -->
+    <string name="call_mode">ハンドセットモード</string>
+    <string name="speaker_mode">スピーカーモード</string>
+    <string name="copy">コピー</string>
+    <string name="resend">再送信</string>
+    <string name="send_message">送信</string>
     <string name="title_activity_pick_photo">PickPhotoActivity</string>
-    <string name="send">发送</string>
-    <string name="preview">预览</string>
-    <string name="cancel">取消</string>
-    <string name="confirm">确定</string>
+    <string name="send">送信</string>
+    <string name="preview">プリビュー</string>
+    <string name="cancel">取り消し</string>
+    <string name="confirm">決定</string>
     <string name="exit">退出</string>
-    <string name="thumb_remove">清理图片缓存</string>
-    <string name="notify_setting">通知设置</string>
+    <string name="thumb_remove">イメージキャッシュを消去する</string>
+    <string name="notify_setting">通知設定</string>
     <string name="thumb_remove_finish">清理完成</string>
     <string name="title_activity_preview">PreviewActivity</string>
     <string name="request_login_faild">请求登陆消息服务器失败</string>
