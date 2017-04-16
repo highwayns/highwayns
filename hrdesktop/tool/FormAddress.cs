@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +11,6 @@ using System.Collections;
 
 namespace highwayns
 {
-	//aaaaaaa
     public partial class FormAddress : Form
     {
         Hashtable ht_ken = new Hashtable();

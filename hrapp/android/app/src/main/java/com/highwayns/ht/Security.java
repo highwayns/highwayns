@@ -12,7 +12,7 @@ public class Security {
 	}
 	
 	private static Security m_pInstance;
-	
+	/**这是一个方法*/
 	public static Security getInstance() {
 		synchronized (Security.class) {
 			if (m_pInstance == null) {
