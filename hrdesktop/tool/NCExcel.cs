@@ -123,15 +123,15 @@ namespace NC.HPS.Lib
         /// <summary>
         /// シート増加
         /// </summary>
-        public void AddSheet(int count)
+        public void AddSheet(List<highwayns.Tbl> tables)
         {
-            for (int i = 3; i < count; i++)
+            for (int i = 2; i <= tables.Count; i++)
             {
                 ((Excel.Worksheet)m_objBook.Worksheets.get_Item(i)).Copy(miss, m_objBook.Worksheets[i]);
             }
-            for (int i = 3; i <= count; i++)
+            for (int i = 1; i <= tables.Count; i++)
             {
-                ((Excel.Worksheet)m_objBook.Worksheets.get_Item(i)).Name = "Sheet" + Convert.ToString(i);
+                ((Excel.Worksheet)m_objBook.Worksheets.get_Item(i+1)).Name = tables[i-1].name;
             }
         }
         /// <summary>
