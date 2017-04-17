@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
+using NC.HPS.Lib;
 
 namespace highwayns
 {
@@ -162,10 +163,12 @@ namespace highwayns
                 {
                     string line = "DROP TABLE IF EXISTS `{0}`;";
                     line = string.Format(line, tbl.name);
+                    line = replace(line);
                     sw.WriteLine(line);
 
                     line = "CREATE TABLE `{0}` (";
                     line = string.Format(line, tbl.name);
+                    line = replace(line);
                     sw.WriteLine(line);
 
                     for(int idx=0;idx<tbl.fields.Count;idx++)
@@ -196,14 +199,16 @@ namespace highwayns
                         }
                         line = line + ",";
                         line = line.Replace(",,", ",");
+                        line = replace(line);
                         sw.WriteLine(line);
                     }
                     if (!string.IsNullOrEmpty(tbl.pk))
                     {
                         line = "  PRIMARY KEY  (`{0}`),";
+                        line = string.Format(line, tbl.pk);
+                        line = replace(line);
+                        sw.WriteLine(line);
                     }
-                    line = string.Format(line, tbl.pk);
-                    sw.WriteLine(line);
                     for (int idx = 0; idx < tbl.keys.Count;idx++ )
                     {
                         if(idx ==tbl.keys.Count-1)
@@ -211,22 +216,37 @@ namespace highwayns
                         else
                             line = "  KEY `{1}` ({0}),";
                         line = string.Format(line, tbl.keys[idx], tbl.keys[idx].Replace("`,`", "_").Replace("`", ""));
+                        line = replace(line);
                         sw.WriteLine(line);
                     }
                     line = ") ENGINE={0}  DEFAULT CHARSET={1};";
                     line = string.Format(line, tbl.enqine, tbl.charset);
+                    line = replace(line);
                     sw.WriteLine(line);
 
                     line = "";
                     sw.WriteLine(line);
                     line = "||-_-||{0}表创建成功！||-_-||";
                     line = string.Format(line, tbl.name.Substring(3));
+                    line = replace(line);
                     sw.WriteLine(line);
                     line = "";
                     sw.WriteLine(line);
 
                 }
             }
+            MessageBox.Show("Save Over!");
+        }
+
+        private string replace(string line)
+        {
+            string ret = line.Replace("qs_", "hw_");
+            ret = ret.Replace("QS_", "HW_");
+            ret = ret.Replace("软件商业授权", "ソフトウェア紹介");
+            ret = ret.Replace("http://www.74cms.com/74ad_610x270.jpg", "http://jp.highwayns.com/wp/wp-content/themes/biz-vektor/images/headers/bussines_desk_01.jpg");
+            ret = ret.Replace("http://www.74cms.com/", "http://jp.highwayns.com/");
+            ret = ret.Replace("骑士CMS商业授权", "海威ソフトウェア");
+            return ret;
         }
 
         private void btnAddDistrict_Click(object sender, EventArgs e)
@@ -244,6 +264,52 @@ namespace highwayns
                     tbl.fields_increase.Add("");
                     break;
                 }
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "テーブル定義書.xls");
+                NCExcel execel = new NCExcel();
+                execel.OpenExcelFile(fileName);
+                execel.SelectSheet(1);
+                int idx = 7;
+                // add table list
+                foreach (Tbl tbl in tables)
+                {
+                    execel.setValue(2, idx, (idx - 6).ToString());
+                    execel.setValue(4, idx, tbl.name);
+                    idx++;
+                }
+                // add sheet
+                execel.AddSheet(tables);
+                // add sheet data
+                for (int i = 0; i < tables.Count; i++)
+                {
+                    execel.SelectSheet(i + 2);
+                    idx = 7;
+                    for(int j=0; j < tables[i].fields.Count;j++)
+                    {
+                        execel.setValue(2, idx, (idx - 6).ToString());
+                        execel.setValue(3, idx, tables[i].fields[j]);
+                        execel.setValue(4, idx, tables[i].fields_type[j].Replace("(","").Replace(")",""));
+                        execel.setValue(5, idx, tables[i].fields_size[j]);
+                        if(tables[i].fields_null[j]== "NOT NULL")
+                            execel.setValue(7, idx, "○");
+                        if(tables[i].pk.IndexOf(tables[i].fields[j])>-1)
+                            execel.setValue(8, idx, "○");
+                        execel.setValue(9, idx, 
+                            tables[i].fields_increase[j] + "/" 
+                            + tables[i].fields_default[j] + "/" 
+                            + tables[i].fields_sign[j]);
+                        idx++;
+                    }
+                }
+                execel.SaveAs(dlg.FileName);
+                MessageBox.Show("Save Over!");
             }
         }
     }
