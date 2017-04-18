@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace highwayns
 {
-    public partial class FormTeamTalk : Form
+    public partial class FormHighwayTalk : Form
     {
-        public FormTeamTalk()
+        public FormHighwayTalk()
         {
             InitializeComponent();
         }
