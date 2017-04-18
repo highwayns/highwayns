@@ -1,5 +1,5 @@
-﻿TRUNCATE TABLE `qs_hotword`;
-INSERT INTO `qs_hotword` (`w_id`, `w_word`, `w_hot`) VALUES
+﻿﻿TRUNCATE TABLE `hw_hotword`;
+INSERT INTO `hw_hotword` (`w_id`, `w_word`, `w_hot`) VALUES
 (44, '运营助理', 70),
 (45, '水电工', 207),
 (46, '会计', 5475),

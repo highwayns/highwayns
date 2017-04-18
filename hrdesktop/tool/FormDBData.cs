@@ -237,6 +237,8 @@ namespace highwayns
             }
             string filename = txtData.Text+ ".new";
             writeData(filename);
+            File.Delete(txtData.Text);
+            File.Move(filename, txtData.Text);
             MessageBox.Show("Write Over!");
         }
 

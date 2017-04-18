@@ -220,7 +220,7 @@ namespace highwayns
                         sw.WriteLine(line);
                     }
                     line = ") ENGINE={0}  DEFAULT CHARSET={1};";
-                    line = string.Format(line, tbl.enqine, tbl.charset);
+                    line = string.Format(line, "InnoDB", "uft8");
                     line = replace(line);
                     sw.WriteLine(line);
 
@@ -235,6 +235,8 @@ namespace highwayns
 
                 }
             }
+            File.Delete(txtPath.Text);
+            File.Move(file, txtPath.Text);
             MessageBox.Show("Save Over!");
         }
 
@@ -290,6 +292,11 @@ namespace highwayns
                 for (int i = 0; i < tables.Count; i++)
                 {
                     execel.SelectSheet(i + 2);
+                    execel.setValue(2,2,"HighwayHR");
+                    execel.setValue(4, 2, "HRWeb");
+                    execel.setValue(9, 2, "Highwayns");
+                    execel.setValue(11, 2, DateTime.Now.ToString("yyyy/MM/dd"));
+                    execel.setValue(2, 4, tables[i].name);
                     idx = 7;
                     for(int j=0; j < tables[i].fields.Count;j++)
                     {
