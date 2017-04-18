@@ -1,5 +1,5 @@
 ﻿<?php
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/plus.common.inc.php');
 define("TOKEN", $_CFG['weixin_apptoken']);
 define("APPID", $_CFG['weixin_appid']);
@@ -12,8 +12,8 @@ define("WAP_DOMAIN",rtrim($_CFG['wap_domain'],"/")."/");
 define("APIOPEN", $_CFG['weixin_apiopen']);
 define("PHP_VERSION",PHP_VERSION);
 define("EncodingAESKey",$_CFG['weixin_encoding_aes_key']);
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/weixinencodingaes/wxBizMsgCrypt.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/weixinencodingaes/wxBizMsgCrypt.php');
 
 class wechatCallbackapiTest extends mysql
 {
@@ -413,7 +413,7 @@ $item_str</Articles>
 			if($usinfo){
 				$this->content="您好，您的账号(".$usinfo['username'].")已成功设置安全登录。<a href='".WAP_DOMAIN."wap-binding.php?act=change_binding&from=".$object->FromUserName."'>切换绑定</a>";
 			}else{
-				$fp = @fopen(QISHI_ROOT_PATH . 'data/weixin/'.($event_key%10).'/'.$event_key.'.txt', 'wb+');
+				$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/weixin/'.($event_key%10).'/'.$event_key.'.txt', 'wb+');
 				@fwrite($fp, $object->FromUserName);
 				@fclose($fp);
 				$this->content="绑定成功";

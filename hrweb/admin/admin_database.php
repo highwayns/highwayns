@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 数据库
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_database.fun.php');
@@ -55,7 +45,7 @@ elseif($act =='do_backup')
 		}
 	$db_version = $db->dbversion();
 	$sql = '';
-	$version = QISHI_VERSION;
+	$version = HIGHWAY_VERSION;
 	$add_time = date("Y-m-d H:i:s");
 	$sql .= "-- 74CMS VERSION:{$version}\r\n".
 	"-- Mysql VERSION:{$db_version}\r\n".
@@ -76,7 +66,7 @@ elseif($act =='do_backup')
 			}
 			elseif($mysql_type == 'mysql41' && $db_version < 4.1)
 			{
-			$s = "ENGINE=MyISAM DEFAULT CHARSET=".QISHI_CHARSET.";\r\n";
+			$s = "ENGINE=MyISAM DEFAULT CHARSET=".HIGHWAY_CHARSET.";\r\n";
 			$table_sql = $table_sql1 . $s;
 			}
 			else
@@ -251,9 +241,9 @@ elseif($act =='import')
 		closedir("../data/".$backup_dir);
 		$file ="../data/{$backup_dir}/{$backup_file[0]}";
 		$file_info = get_sqlfile_info($file);
-		if($file_info['74cms_ver'] != QISHI_VERSION)
+		if($file_info['74cms_ver'] != HIGHWAY_VERSION)
 		{
-		adminmsg('骑士CMS当前程序与备份程序版本不一致');
+		adminmsg('海威人材当前程序与备份程序版本不一致');
 		}
 		$_SESSION['backup_file']=$backup_file;
 		$filekey=intval($_GET['filekey']);
@@ -278,9 +268,9 @@ elseif($act =='import')
 				$arr[$i] = trim($arr[$i]);
 				if (!empty($arr[$i]))
 				{
-						if ((strpos($arr[$i], 'CREATE TABLE') !== false) && (strpos($arr[$i], 'DEFAULT CHARSET='.str_replace('-', '', QISHI_CHARSET) )!== false))
+						if ((strpos($arr[$i], 'CREATE TABLE') !== false) && (strpos($arr[$i], 'DEFAULT CHARSET='.str_replace('-', '', HIGHWAY_CHARSET) )!== false))
 						{
-						$arr[$i] = str_replace('DEFAULT CHARSET='. str_replace('-', '', QISHI_CHARSET), '', $arr[$i]);
+						$arr[$i] = str_replace('DEFAULT CHARSET='. str_replace('-', '', HIGHWAY_CHARSET), '', $arr[$i]);
 						}
 					!$db->query($arr[$i])?adminmsg('还原失败',0):"";
 				}

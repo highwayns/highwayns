@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 公告
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_notice_fun.php');
@@ -20,7 +10,7 @@ if($act == 'list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"notice_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY `sort` DESC,id DESC ";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
@@ -112,7 +102,7 @@ elseif($act == 'addsave')
 	if(!$insertid){
 		adminmsg("添加失败！",0);
 	}else{
-		baidu_submiturl(url_rewrite('QS_noticeshow',array('id'=>$insertid)),'addnotice');
+		baidu_submiturl(url_rewrite('HW_noticeshow',array('id'=>$insertid)),'addnotice');
 		adminmsg("添加成功！",2,$link);
 	}
 }

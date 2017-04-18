@@ -1,26 +1,4 @@
 ﻿<?php
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     html_select_date
- * Version:  1.3
- * Purpose:  Prints the dropdowns for date selection.
- * Author:   Andrei Zmievski
- *
- * ChangeLog: 1.0 initial release
- *            1.1 added support for +/- N syntax for begin
- *                and end year values. (Monte)
- *            1.2 added support for yyyy-mm-dd syntax for
- *                time value. (Jan Rosier)
- *            1.3 added support for choosing format for 
- *                month values (Gary Loescher)
- *            1.3.1 added support for choosing format for
- *                day values (Marcus Bointon)
- * Taken from the original Smarty
- * http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_html_select_date($params, &$template_object)
 {
 	require_once("shared.make_timestamp.php");

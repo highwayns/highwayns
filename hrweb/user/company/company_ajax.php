@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心ajax弹出框
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__) . '/company_common.php');
 if($act=="company_profile_save_succeed"){
 	$tpl='../../templates/'.$_CFG['template_dir']."member_company/ajax_companyprofile_save_succeed_box.htm";
@@ -349,7 +339,7 @@ elseif($act == "sendtoemail")
 	}
 	else
 	{
-		$show_contact = '<p>联系方式：<a href='.url_rewrite('QS_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
+		$show_contact = '<p>联系方式：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
 	}	
 	$htm='<div style="width: 900px;margin: 0 auto;font-size: 14px;">
 		<div style="margin-bottom:10px">

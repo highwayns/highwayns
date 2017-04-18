@@ -96,9 +96,6 @@ div.edui-box {
     position: relative;
 }
 
-/*
- * default theme
- */
 .edui-default .edui-label {
     cursor: default;
 }

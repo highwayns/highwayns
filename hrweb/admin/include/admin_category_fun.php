@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心 设置分类 数据调用函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -157,9 +147,9 @@ function getfirstchar($str)
         $fchar=ord($str{0});   
         if($fchar>=ord("A") and $fchar<=ord("z") )return strtoupper($str{0}); 
 		$s=$str;
-		if (strcasecmp(QISHI_DBCHARSET,"GBK")!=0)
+		if (strcasecmp(HIGHWAY_DBCHARSET,"GBK")!=0)
 		{
-		$s=iconv(QISHI_DBCHARSET,"GBK//IGNORE",$str);
+		$s=iconv(HIGHWAY_DBCHARSET,"GBK//IGNORE",$str);
 		}
         $asc=ord($s{0})*256+ord($s{1})-65536;
         if($asc>=-20319 and $asc<=-20284)return "a ".$str;

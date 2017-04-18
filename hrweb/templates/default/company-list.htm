@@ -1,37 +1,37 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"QS_trade,"|cat:$smarty.get.trade|qishi_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"QS_district,"|cat:$smarty.get.citycategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"QS_company_type,"|cat:$smarty.get.nature|qishi_categoryname#} - {#/if#}黄页  - {#$QISHI.site_name#}</title>
-<meta name="description" content="{#if $smarty.get.trade#}{#"QS_trade,"|cat:$smarty.get.trade|qishi_categoryname#}，{#/if#}{#$QISHI.site_name#} - 黄页">
-<meta name="keywords" content="{#$QISHI.site_name#},黄页">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"HW_company_type,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}黄页  - {#$HIGHWAY.site_name#}</title>
+<meta name="description" content="{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄页">
+<meta name="keywords" content="{#$HIGHWAY.site_name#},黄页">
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/company.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.company-search.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/company.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.company-search.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		allaround("{#$QISHI.site_dir#}");
+		allaround("{#$HIGHWAY.site_dir#}");
 		// 所属行业填充数据
-		trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+		trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 		// 工作地区填充数据
-		city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+		city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$HIGHWAY.site_dir#}");
 	});
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-	当前位置：<a href="{#$QISHI.site_dir#}">首页</a>>黄页
+	当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>>黄页
 </div>
 <div class="container">
 	<div id="filterSearch">
@@ -47,7 +47,7 @@
 					<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="QS_companylist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type="button" detype="HW_companylist" id="searcnbtn" value="搜&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
@@ -138,7 +138,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">公司性质：</div>
 				<div class="fl-content r-choice f-left">
-					{#qishi_get_classify set="列表名:nature,类型:QS_company_type,显示数目:100"#}
+					{#highway_get_classify set="列表名:nature,类型:HW_company_type,显示数目:100"#}
 					{#foreach from=$nature item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.nature#} select{#/if#}" type="nature" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -147,7 +147,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">公司规模：</div>
 				<div class="fl-content f-left">
-					{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+					{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 					{#foreach from=$c_scale item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.scale#} select{#/if#}" type="scale" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -167,7 +167,7 @@
 				<div class="has-select-item f-left" type="citycategory">地区类别<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.nature#}
-				{#qishi_get_classify set="列表名:nature,类型:QS_company_type,显示数目:100"#}
+				{#highway_get_classify set="列表名:nature,类型:HW_company_type,显示数目:100"#}
 				{#foreach from=$nature item=list#}
 				{#if $list.id == $smarty.get.nature#}
 					<div class="has-select-item f-left" type="nature">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -175,7 +175,7 @@
 				{#/foreach#}
 			{#/if#}
 			{#if $smarty.get.scale#}
-				{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+				{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 				{#foreach from=$c_scale item=list#}
 				{#if $list.id == $smarty.get.scale#}
 					<div class="has-select-item f-left" type="scale">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -188,7 +188,7 @@
 	</div>
 	<div class="left_area link_bk">
 		<ul>
-			{#qishi_company_list  set="分页显示:1,列表名:company,显示数目:GET[inforow],填补字符:...,企业名长度:30,地区分类:GET[citycategory],企业性质:GET[nature],描述长度:50,关键字:GET[key],行业:GET[trade],黄页:1,规模:GET[scale],排序:id>desc"#}
+			{#highway_company_list  set="分页显示:1,列表名:company,显示数目:GET[inforow],填补字符:...,企业名长度:30,地区分类:GET[citycategory],企业性质:GET[nature],描述长度:50,关键字:GET[key],行业:GET[trade],黄页:1,规模:GET[scale],排序:id>desc"#}
 			{#if $company#}
 			{#foreach from=$company item=list#}
 			<li class="com_box active">
@@ -235,7 +235,7 @@
 					$(".y_job_list").hide();
 					$(this).addClass("select");
 					y_job_list.show();
-					$.get("{#$QISHI.site_dir#}plus/ajax_yellowpage.php?act=get_companyjobslist&company_id="+$(this).attr("company_id"),function(result){
+					$.get("{#$HIGHWAY.site_dir#}plus/ajax_yellowpage.php?act=get_companyjobslist&company_id="+$(this).attr("company_id"),function(result){
 						y_job_list.children("ul").html(result);
 					});
 				}else{
@@ -247,7 +247,7 @@
 	</div>
 	<div class="right_area">
 		<div class="com-logo-list">
-			{#qishi_ad set="显示数目:8,调用名称:QS_yellowpage,列表名:ad,文字长度:12"#}
+			{#highway_ad set="显示数目:8,调用名称:HW_yellowpage,列表名:ad,文字长度:12"#}
 			{#foreach from=$ad item=list#}
 			<div class="com-logo-item"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain|default:"广告描述"#}" width="298" height="142" border="0"/></a></div>
 			{#/foreach#}

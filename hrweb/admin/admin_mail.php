@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 邮件设置
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'email_set';
@@ -72,7 +62,7 @@ elseif($act == 'email_testing')
 	$txt="您好！这是一封检测邮件服务器设置的测试邮件。收到此邮件，意味着您的邮件服务器设置正确！您可以进行其它邮件发送的操作了！";
 	$check_smtp=trim($_POST['check_smtp'])?trim($_POST['check_smtp']):adminmsg('收件人地址必须填写', 1);
 	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$check_smtp))adminmsg('email格式错误！',1);
-	if (smtp_mail($check_smtp,"骑士CMS测试邮件",$txt))
+	if (smtp_mail($check_smtp,"海威人材测试邮件",$txt))
 	{
 	write_log("测试邮件发送成功！", $_SESSION['admin_name'],3);
 	adminmsg('测试邮件发送成功！',2);
@@ -179,7 +169,7 @@ elseif($act == 'templates_save')
 	$smarty->assign('pageheader',"邮件营销");
 	
 	require_once(dirname(__FILE__).'/include/admin_mailqueue_fun.php');
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$uid=intval($_GET['uid']);
 	$email=trim($_GET['email']);
 	
@@ -280,7 +270,7 @@ elseif ($act=='del')
 elseif($act == "log")
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
 	if (!empty($key) && $key_type>0)

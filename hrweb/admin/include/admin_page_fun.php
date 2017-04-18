@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心 模块设置
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -80,13 +70,13 @@ function del_page($id)
 }
 function copy_page($filedir,$as)
 {
-	$newfile = QISHI_ROOT_PATH.$filedir; 
-	$fp = fopen(QISHI_ROOT_PATH.'data/filetpl.php', 'r');
-	$content = fread($fp, filesize(QISHI_ROOT_PATH.'data/filetpl.php'));
+	$newfile = HIGHWAY_ROOT_PATH.$filedir; 
+	$fp = fopen(HIGHWAY_ROOT_PATH.'data/filetpl.php', 'r');
+	$content = fread($fp, filesize(HIGHWAY_ROOT_PATH.'data/filetpl.php'));
 	$content = trim($content);
 	$content = substr($content, -2) == '?>' ? substr($content, 0, -2) : $content;
 	fclose($fp);
-	$content = str_replace('($dir)',QISHI_ROOT_PATH,$content);
+	$content = str_replace('($dir)',HIGHWAY_ROOT_PATH,$content);
 	$content = str_replace('($as)',$as,$content);
 	$content .= '?>';
 	$fp = @fopen($newfile, 'w');

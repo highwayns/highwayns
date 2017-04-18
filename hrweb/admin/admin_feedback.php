@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 投诉与建议
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_feedback_fun.php');
@@ -18,7 +8,7 @@ if($act == 'suggest_list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"suggest_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	!empty($_GET['infotype'])? $wheresqlarr['infotype']=intval($_GET['infotype']):'';
 		if (is_array($wheresqlarr))
 		{
@@ -66,7 +56,7 @@ elseif($act == 'report_list')
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"report_show");
 	$type=intval($_GET['type'])==0?1:intval($_GET['type']);
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY r.id DESC ";
 	if (!empty($_GET['settr']))
 	{

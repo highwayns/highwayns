@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_modifier_qishi_categoryname($string)
+function tpl_modifier_highway_categoryname($string)
 {
 		global $db;
 		if(strstr($string,":")){
@@ -40,25 +40,25 @@ function tpl_modifier_qishi_categoryname($string)
 			$type=trim($val[0]);
 			$id=intval($val[1]);
 			$len=intval($val[2]);
-			if ($type=="QS_jobs")
+			if ($type=="HW_jobs")
 			{
 				$cat=$db->getone("select categoryname from ".table('category_jobs')." WHERE  id='{$id}' LIMIT  1");
 				if ($len>0) $cat['categoryname']=cut_str($cat['categoryname'],$len,0,'');
 				return $cat['categoryname'];
 			}
-			if ($type=="QS_jobs_floor")
+			if ($type=="HW_jobs_floor")
 			{
 				$cat=$db->getone("select categoryname from ".table('category_jobs')." WHERE  id='{$id}' LIMIT  1");
 				if ($len>0) $cat['categoryname']=cut_str($cat['categoryname'],$len,0,'');
 				return $cat['categoryname'];
 			}
-			elseif ($type=="QS_district")
+			elseif ($type=="HW_district")
 			{
 				$cat=$db->getone("select categoryname from ".table('category_district')." WHERE  id='{$id}' LIMIT  1");
 				if ($len>0) $cat['categoryname']=cut_str($cat['categoryname'],$len,0,'');
 				return $cat['categoryname'];
 			}
-			elseif ($type=="QS_street")
+			elseif ($type=="HW_street")
 			{
 				$cat=$db->getone("select c_name from ".table('category')." WHERE  c_id='{$id}' LIMIT  1");
 				$cat['categoryname']=$cat['c_name'];

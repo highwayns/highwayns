@@ -1,14 +1,4 @@
 ﻿<?php
-/*
- * template_lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     counter
- * Purpose:  print out a counter value
- * Credit:   Taken from the original Smarty
- *           http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_counter($params, &$tpl)
 {
 	static $count = array();

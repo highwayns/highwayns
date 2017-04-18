@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 微招聘
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_simple_fun.php');
@@ -20,7 +10,7 @@ if($act == 'list')
 {
 	check_permissions($_SESSION['admin_purview'],"simple_list");	
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
 	$orderbysql=" order BY  `refreshtime` DESC";
@@ -172,9 +162,9 @@ elseif($act == 'simple_add_save')
 	}
 	$setsqlarr['pwd']=trim($_POST['pwd'])?trim($_POST['pwd']):adminmsg('您没有填写管理密码！',1);
 	$setsqlarr['pwd_hash']=substr(md5(uniqid().mt_rand()),mt_rand(0,6),6);
-	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$QS_pwdhash);
+	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['addip']=$online_ip;
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];
 	$setsqlarr['key']="{$setsqlarr['jobname']} {$setsqlarr['comname']} ".$sp->extracttag($setsqlarr['key']);
@@ -220,7 +210,7 @@ elseif($act == 'simple_edit_save')
 	if ($_POST['pwd'])
 	{
 		$info=$db->getone("select * from ".table('simple')." where id = '{$id}' LIMIT 1");
-		$setsqlarr['pwd']=md5(md5($_POST['pwd']).$info['pwd_hash'].$QS_pwdhash);
+		$setsqlarr['pwd']=md5(md5($_POST['pwd']).$info['pwd_hash'].$HW_pwdhash);
 	}
 	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):adminmsg('您没有填写职位名称！',1);
 	$setsqlarr['amount']=intval($_POST['amount']);
@@ -240,7 +230,7 @@ elseif($act == 'simple_edit_save')
 	$time=$_POST['olddeadline']>time()?$_POST['olddeadline']:time();
 	$setsqlarr['deadline']=strtotime("{$days} day",$time);
 	}
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];
 	$setsqlarr['key']="{$setsqlarr['jobname']} {$setsqlarr['comname']} ".$sp->extracttag($setsqlarr['key']);

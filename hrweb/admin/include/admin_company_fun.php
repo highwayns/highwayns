@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心 企业用户相关函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
 die('Access Denied!');
  }
@@ -29,8 +19,8 @@ function get_jobs($offset,$perpage,$get_sql= '')
 	$row['jobs_name']="<span style=\"color:{$row['highlight']}\">{$row['jobs_name']}</span>";
 	}
 	$row['companyname']=cut_str($row['companyname'],18,0,"...");
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
-	$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
+	$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['id']));
 	$get_resume_nolook = $db->getone("select count(*) from ".table('personal_jobs_apply')." where personal_look=1 and jobs_id=".$row['id']);
 	$get_resume_all = $db->getone("select count(*) from ".table('personal_jobs_apply')." where jobs_id=".$row['id']);
 	$row['get_resume'] = "( ".$get_resume_nolook['count(*)']." / ".$get_resume_all['count(*)']." )";
@@ -173,8 +163,8 @@ function get_jobs_one($id)
 	$tb1=$db->getone("select * from ".table('jobs')." where id='{$id}' LIMIT 1");
 	$tb2=$db->getone("select * from ".table('jobs_tmp')." where id='{$id}' LIMIT 1");
 	$val=!empty($tb1)?$tb1:$tb2;
-	$val['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$val['id']));
-	$val['company_url']=url_rewrite('QS_companyshow',array('id'=>$val['company_id']));
+	$val['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$val['id']));
+	$val['company_url']=url_rewrite('HW_companyshow',array('id'=>$val['company_id']));
 	$val['user']=get_user($val['uid']);
 	$val['contact']=$db->getone("select * from ".table('jobs_contact')." where pid='{$id}' LIMIT 1");
 	return $val;
@@ -561,7 +551,7 @@ function delay_meal($id,$days)
 	$result = $db->query("SELECT c.*,m.username,m.mobile,m.email as memail,{$colum} FROM ".table('company_profile')." AS c ".$get_sql.$limit);
 	while($row = $db->fetch_array($result))
 	{
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['id']));
 	$get_resume_nolook = $db->getone("select count(*) from ".table('personal_jobs_apply')." where personal_look=1 and company_id=".$row['id']);
 	$get_resume_all = $db->getone("select count(*) from ".table('personal_jobs_apply')." where company_id=".$row['id']);
 	$row['get_resume'] = "( ".$get_resume_nolook['count(*)']." / ".$get_resume_all['count(*)']." )";
@@ -868,7 +858,7 @@ function get_member_list($offset,$perpage,$get_sql= '')
 	$result = $db->query("SELECT m.*,c.companyname,c.id,c.addtime FROM ".table('members')." as m ".$get_sql.$limit);
 	while($row = $db->fetch_array($result))
 	{
-		$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['id'])); 
+		$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['id'])); 
 		$address = $db->getone("select log_address,log_id,log_uid from ".table("members_log")." where log_type = '1000' and log_uid = ".$row['uid']." order by log_id asc limit 1");
 		$row['ipAddress'] = $address['log_address']; 
 		//顾问
@@ -1142,9 +1132,9 @@ function get_promotion($offset,$perpage,$get_sql= '')
 	{
 	$row['jobs_name']="<span style=\"color:{$row['highlight']}\">{$row['jobs_name']}</span>";
 	}
-	$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['cp_jobid']));
+	$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['cp_jobid']));
 	$row['companyname']=cut_str($row['companyname'],15,0,"...");
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
 	$row_arr[] = $row;
 	}
 	return $row_arr;
@@ -1379,7 +1369,7 @@ function get_member_manage($offset,$perpage,$get_sql= '')
 	$result = $db->query("SELECT * FROM ".table('members').$get_sql.$limit);
 	while($row = $db->fetch_array($result))
 	{
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['id']));
 	$row_arr[] = $row;
 	}
 	return $row_arr;

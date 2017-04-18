@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 计划任务 每日数据统计
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI'))
+if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');
 }
@@ -46,15 +36,15 @@ set_time_limit(180);
 	$result = $db->query("SELECT * FROM ".table('category')." ");	
 	while($row = $db->fetch_array($result))
 	{
-		if ($row['c_alias']=="QS_trade")
+		if ($row['c_alias']=="HW_trade")
 		{
 			$in_jobwheresql=" WHERE trade='{$row['c_id']}' ";
 		}
-		elseif ($row['c_alias']=="QS_wage")
+		elseif ($row['c_alias']=="HW_wage")
 		{
 			$in_jobwheresql=" WHERE wage='{$row['c_id']}' ";
 		}		
-		elseif ($row['c_alias']=="QS_jobs_nature")
+		elseif ($row['c_alias']=="HW_jobs_nature")
 		{
 			$in_jobwheresql=" WHERE nature='{$row['c_id']}' ";
 		}
@@ -68,7 +58,7 @@ set_time_limit(180);
 		$db->query($sql);			
 	}
 	//更新分类缓存
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_category.php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_category.php";
 	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order DESC,c_id ASC";
 	$result = $db->query($sql);
 		while($row = $db->fetch_array($result))

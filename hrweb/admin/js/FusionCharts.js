@@ -338,9 +338,6 @@ infosoftglobal.FusionChartsUtil.getChartObject = function(id)
   
   return chartRef;
 }
-/*
- Function to update chart's data at client side (FOR FusionCharts vFREE and 2.x
-*/
 infosoftglobal.FusionChartsUtil.updateChartXML = function(chartId, strXML){
 	//Get reference to chart object				
 	var chartObj = infosoftglobal.FusionChartsUtil.getChartObject(chartId);		

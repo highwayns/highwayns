@@ -21,10 +21,10 @@ $(document).ready(function()
 <div class="seltpye_x">
 		<div class="left">帮助分类</div>	
 		<div class="right">
-		<a href="{#"type_id:,parentid:"|qishi_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>不限</a>
-		{#qishi_help_category set="列表名:category,大类:0"#}
+		<a href="{#"type_id:,parentid:"|highway_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>不限</a>
+		{#highway_help_category set="列表名:category,大类:0"#}
 		{#foreach from=$category item=list#}
-			<a href="{#"type_id:,parentid:"|cat:$list.id|qishi_parse_url#}" {#if $smarty.get.parentid==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
+			<a href="{#"type_id:,parentid:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.parentid==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
 			{#/foreach#}
 		<div class="clear"></div>
 		</div>
@@ -34,10 +34,10 @@ $(document).ready(function()
 <div class="seltpye_x">
 		<div class="left"><span style="color:#999999">└ </span>子分类</div>	
 		<div class="right">
-		<a href="{#"type_id:"|qishi_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
-	 	{#qishi_help_category set="列表名:category,大类:"|cat:$smarty.get.parentid#}
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+	 	{#highway_help_category set="列表名:category,大类:"|cat:$smarty.get.parentid#}
 		{#foreach from=$category item=list#}
-		<a href="{#"type_id:"|cat:$list.id|qishi_parse_url#}" {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
+		<a href="{#"type_id:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
 			{#/foreach#}
 		<div class="clear"></div>
 		</div>

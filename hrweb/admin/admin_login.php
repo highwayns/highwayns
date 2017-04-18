@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 登录页面
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'login';
@@ -18,9 +8,9 @@ if($act == 'logout')
 	unset($_SESSION['admin_id']);
 	unset($_SESSION['admin_name']);
 	unset($_SESSION['admin_purview']);
-	setcookie('Qishi[admin_id]',"",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('Qishi[admin_name]',"",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('Qishi[admin_pwd]',"",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+	setcookie('Qishi[admin_id]',"",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('Qishi[admin_name]',"",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('Qishi[admin_pwd]',"",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 	header("Location:?act=login");
 }
 elseif($act == 'login')
@@ -33,7 +23,7 @@ elseif($act == 'login')
 	header("Location: admin_index.php"); 
 	}
 	$smarty->assign('random',mt_rand());
-	$smarty->assign("QISHI_VERSION",QISHI_VERSION);
+	$smarty->assign("HIGHWAY_VERSION",HIGHWAY_VERSION);
 	get_token();
 	$captcha=get_cache('captcha');
 	$smarty->assign('verify_adminlogin',$captcha['verify_adminlogin']);
@@ -77,9 +67,9 @@ elseif($act == 'do_login')
  		if($remember == 1)
 		{
 			$admininfo=get_admin_one($admin_name);
- 			setcookie('Qishi[admin_id]', $_SESSION['admin_id'], time()+86400, $QS_cookiepath, $QS_cookiedomain);
- 			setcookie('Qishi[admin_name]', $admin_name, time()+86400, $QS_cookiepath, $QS_cookiedomain);
-			setcookie('Qishi[admin_pwd]', md5($admin_name.$admininfo['pwd'].$admininfo['pwd_hash'].$QS_pwdhash), time()+86400, $QS_cookiepath, $QS_cookiedomain);
+ 			setcookie('Qishi[admin_id]', $_SESSION['admin_id'], time()+86400, $HW_cookiepath, $HW_cookiedomain);
+ 			setcookie('Qishi[admin_name]', $admin_name, time()+86400, $HW_cookiepath, $HW_cookiedomain);
+			setcookie('Qishi[admin_pwd]', md5($admin_name.$admininfo['pwd'].$admininfo['pwd_hash'].$HW_pwdhash), time()+86400, $HW_cookiepath, $HW_cookiedomain);
  		}
  	}
 	else

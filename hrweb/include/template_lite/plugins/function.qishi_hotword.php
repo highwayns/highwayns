@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_hotword($params, &$smarty)
+function tpl_function_highway_hotword($params, &$smarty)
 {
 global $db;
 $arr=explode(',',$params['set']);

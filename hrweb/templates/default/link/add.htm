@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>友情链接申请 - {#$QISHI.site_name#}</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/link.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript'></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>友情链接申请 - {#$HIGHWAY.site_name#}</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/link.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript'></script>
 
 <script type="text/javascript">
 $(function(){
@@ -37,7 +37,7 @@ function imgcaptcha(inputID,imgdiv)
 		$(imgdiv).show();
 		if ($(imgdiv).html()=='')
 		{
-		$(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -60,11 +60,11 @@ imgcaptcha("#postcaptcha","#imgdiv");
 {#/if#}
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
   <!-- 当前位置 -->
   <div class="page_location link_bk">
-    当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;友情链接申请
+    当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>>&nbsp;友情链接申请
   </div>
   <!-- 主体内容 -->
   <div class="container link_bk">
@@ -79,7 +79,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
           <ul>
             <li>
               <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>申请页面：</div>
-              	<input name="alias" id="alias" type="hidden" value="QS_index" />
+              	<input name="alias" id="alias" type="hidden" value="HW_index" />
 	              <div class="input_box">
 	              	{#foreach from=$cat item=li#}
 	                <div class="alias {#if $li.c_alias==$cat.0.c_alias#}select{#/if#}" id="{#$li.c_alias#}">{#$li.categoryname#}</div>

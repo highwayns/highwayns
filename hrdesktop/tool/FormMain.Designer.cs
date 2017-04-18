@@ -36,7 +36,8 @@
             this.btnAddress = new System.Windows.Forms.Button();
             this.btnDBData = new System.Windows.Forms.Button();
             this.btnAndroid = new System.Windows.Forms.Button();
-            this.btnTeaTalk = new System.Windows.Forms.Button();
+            this.btnHighwayTalk = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -119,22 +120,33 @@
             this.btnAndroid.UseVisualStyleBackColor = true;
             this.btnAndroid.Click += new System.EventHandler(this.btnAndroid_Click);
             // 
-            // btnTeaTalk
+            // btnHighwayTalk
             // 
-            this.btnTeaTalk.Location = new System.Drawing.Point(49, 111);
-            this.btnTeaTalk.Name = "btnTeaTalk";
-            this.btnTeaTalk.Size = new System.Drawing.Size(75, 23);
-            this.btnTeaTalk.TabIndex = 8;
-            this.btnTeaTalk.Text = "TeamTalk";
-            this.btnTeaTalk.UseVisualStyleBackColor = true;
-            this.btnTeaTalk.Click += new System.EventHandler(this.btnTeaTalk_Click);
+            this.btnHighwayTalk.Location = new System.Drawing.Point(49, 111);
+            this.btnHighwayTalk.Name = "btnHighwayTalk";
+            this.btnHighwayTalk.Size = new System.Drawing.Size(96, 23);
+            this.btnHighwayTalk.TabIndex = 8;
+            this.btnHighwayTalk.Text = "HighwayTalk";
+            this.btnHighwayTalk.UseVisualStyleBackColor = true;
+            this.btnHighwayTalk.Click += new System.EventHandler(this.btnTeaTalk_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(156, 111);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "JobOnHighway";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
-            this.Controls.Add(this.btnTeaTalk);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHighwayTalk);
             this.Controls.Add(this.btnAndroid);
             this.Controls.Add(this.btnDBData);
             this.Controls.Add(this.btnAddress);
@@ -159,6 +171,7 @@
         private System.Windows.Forms.Button btnAddress;
         private System.Windows.Forms.Button btnDBData;
         private System.Windows.Forms.Button btnAndroid;
-        private System.Windows.Forms.Button btnTeaTalk;
+        private System.Windows.Forms.Button btnHighwayTalk;
+        private System.Windows.Forms.Button button1;
     }
 }

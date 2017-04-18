@@ -28,22 +28,22 @@
 		<div class="left">操作类型</div>	
 		<div class="right">
 		<div class="clear"></div>
-		<a href="{#"log_type:"|qishi_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"log_type:1"|qishi_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>系统赠送</a>
-		<a href="{#"log_type:2"|qishi_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>会员购买</a>
-		<a href="{#"log_type:3"|qishi_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>管理员修改</a>
-		<a href="{#"log_type:4"|qishi_parse_url#}" {#if $smarty.get.log_type=="4"#}class="select"{#/if#}>管理员开通</a>
+		<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"log_type:1"|highway_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>系统赠送</a>
+		<a href="{#"log_type:2"|highway_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>会员购买</a>
+		<a href="{#"log_type:3"|highway_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>管理员修改</a>
+		<a href="{#"log_type:4"|highway_parse_url#}" {#if $smarty.get.log_type=="4"#}class="select"{#/if#}>管理员开通</a>
 		</div>
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
 		<div class="left">添加时间</div>	
 		<div class="right">
-		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
-		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:90"|qishi_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>三月内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:90"|highway_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>三月内</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -51,9 +51,9 @@
   <div class="seltpye_x">
 		<div class="left">收取费用</div>	
 		<div class="right">
-		<a href="{#"is_money:"|qishi_parse_url#}" {#if $smarty.get.is_money==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"is_money:2"|qishi_parse_url#}" {#if $smarty.get.is_money=="2"#}class="select"{#/if#}>已收取费用</a>
-		<a href="{#"is_money:1"|qishi_parse_url#}" {#if $smarty.get.is_money=="1"#}class="select"{#/if#}>未收取费用</a>
+		<a href="{#"is_money:"|highway_parse_url#}" {#if $smarty.get.is_money==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"is_money:2"|highway_parse_url#}" {#if $smarty.get.is_money=="2"#}class="select"{#/if#}>已收取费用</a>
+		<a href="{#"is_money:1"|highway_parse_url#}" {#if $smarty.get.is_money=="1"#}class="select"{#/if#}>未收取费用</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -66,11 +66,11 @@
       <td  class="admin_list_tit admin_list_first" >
       <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>公司名称</label></td>
 	   <td  class="admin_list_tit">用户名</td>
-		{#if $QISHI.operation_mode=='1'#}  
+		{#if $HIGHWAY.operation_mode=='1'#}  
 			  <td width="10%" class="admin_list_tit">目前积分</td>
-		{#elseif $QISHI.operation_mode=='2'#}  
+		{#elseif $HIGHWAY.operation_mode=='2'#}  
 			  <td width="10%"  class="admin_list_tit">目前套餐</td>
-		{#elseif $QISHI.operation_mode=='3'#}  
+		{#elseif $HIGHWAY.operation_mode=='3'#}  
 			<td width="10%"  class="admin_list_tit">目前积分(套餐)</td>
 		{#/if#}
       <td  class="admin_list_tit">操作类型</td>     
@@ -95,11 +95,11 @@
 		<span style="color:#CCCCCC">(uid:{#$list.log_uid#})</span>
 		</td>
 		 <td class="admin_list">
-		{#if $QISHI.operation_mode=='1'#} 
+		{#if $HIGHWAY.operation_mode=='1'#} 
 			<strong>{#$list.points#}</strong> 积分
-		{#elseif $QISHI.operation_mode=='2'#}  
+		{#elseif $HIGHWAY.operation_mode=='2'#}  
 			{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#}
-		{#elseif $QISHI.operation_mode=='3'#}  
+		{#elseif $HIGHWAY.operation_mode=='3'#}  
 			积分:<strong>{#$list.points#}</strong>({#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#})
 		{#/if#}
 		</td>

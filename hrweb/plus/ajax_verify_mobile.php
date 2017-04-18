@@ -1,17 +1,7 @@
 ﻿<?php
- /*
- * 74cms SMS
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : ''; 
 $mobile=trim($_POST['mobile']);
@@ -100,7 +90,7 @@ elseif ($act=="verify_code")
 							{
 							$time=time();			
 							$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'verifymobile','{$time}')");
-							require_once(QISHI_ROOT_PATH.'include/fun_comapny.php');
+							require_once(HIGHWAY_ROOT_PATH.'include/fun_comapny.php');
 							report_deal($_SESSION['uid'],$rule['verifymobile']['type'],$rule['verifymobile']['value']);
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['verifymobile']['type']=="1"?"+":"-";
@@ -118,7 +108,7 @@ elseif ($act=="verify_code")
 							{
 							$time=time();			
 							$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'verifymobile','{$time}')");
-							require_once(QISHI_ROOT_PATH.'include/fun_train.php');
+							require_once(HIGHWAY_ROOT_PATH.'include/fun_train.php');
 							report_deal($_SESSION['uid'],$rule['train_verifymobile']['type'],$rule['train_verifymobile']['value']);
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['train_verifymobile']['type']=="1"?"+":"-";
@@ -136,7 +126,7 @@ elseif ($act=="verify_code")
 							{
 							$time=time();			
 							$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'verifymobile','{$time}')");
-							require_once(QISHI_ROOT_PATH.'include/fun_hunter.php');
+							require_once(HIGHWAY_ROOT_PATH.'include/fun_hunter.php');
 							report_deal($_SESSION['uid'],$rule['hunter_verifymobile']['type'],$rule['hunter_verifymobile']['value']);
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['hunter_verifymobile']['type']=="1"?"+":"-";

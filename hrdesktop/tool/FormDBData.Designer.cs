@@ -86,6 +86,7 @@
             this.dgvData.RowTemplate.Height = 21;
             this.dgvData.Size = new System.Drawing.Size(554, 316);
             this.dgvData.TabIndex = 17;
+            this.dgvData.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellEnter);
             this.dgvData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellLeave);
             // 
             // btnLoad

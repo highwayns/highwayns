@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_news_category($params, &$smarty)
+function tpl_function_highway_news_category($params, &$smarty)
 {
 global $db,$_CFG;
 $arr=explode(',',$params['set']);
@@ -39,7 +39,7 @@ $aset['listname']=isset($aset['listname'])?$aset['listname']:"list";
 $aset['titlelen']=isset($aset['titlelen'])?intval($aset['titlelen']):8;
 $aset['start']=isset($aset['start'])?intval($aset['start']):0;
 $aset['dot']=isset($aset['dot'])?$aset['dot']:'';
-$aset['showname']=isset($aset['showname'])?$aset['showname']:'QS_newslist';
+$aset['showname']=isset($aset['showname'])?$aset['showname']:'HW_newslist';
 isset($aset['typeid'])? $wheresqlarr['id']=intval($aset['typeid']):'';
 isset($aset['classify'])? $wheresqlarr['parentid']=intval($aset['classify']):'';
 	if (is_array($wheresqlarr))

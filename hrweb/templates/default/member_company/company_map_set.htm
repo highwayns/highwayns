@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
 <!-- <script src="http://api.map.baidu.com/api?v=2.0&ak=d0YqjLhVeeuYg6GH2M3oeUDw" type="text/javascript"></script> -->
 <script src="http://api.map.baidu.com/api?v=1.1" type="text/javascript"></script>
 </head>
@@ -16,7 +16,7 @@
 <body onbeforeunload="RunOnBeforeUnload()">
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 地图标注</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 地图标注</div>
 
 <div class="usermain">
   <div class="leftmenu com link_bk">
@@ -59,16 +59,16 @@
 			{#if $company_profile && $company_profile.map_x && $company_profile.map_y#}
 			var point = new BMap.Point({#$company_profile.map_x#}, {#$company_profile.map_y#});
 			map.centerAndZoom(point, {#$company_profile.map_zoom#}); 
-			var qs_marker = new BMap.Marker(point);        // 创建标注   
-			map.addOverlay(qs_marker);  
+			var hw_marker = new BMap.Marker(point);        // 创建标注   
+			map.addOverlay(hw_marker);  
 			map.openInfoWindow(infoWindow,point);
 			map.setCenter(point);
 			document.getElementById("x").value={#$company_profile.map_x#}; 
 			document.getElementById("y").value= {#$company_profile.map_y#}; 
 			document.getElementById("zoom").value=  {#$company_profile.map_zoom#}; 
 			{#else#}
-			var point = new BMap.Point({#$QISHI.map_center_x#},{#$QISHI.map_center_y#});
-			map.centerAndZoom(point, {#$QISHI.map_zoom#}); 
+			var point = new BMap.Point({#$HIGHWAY.map_center_x#},{#$HIGHWAY.map_center_y#});
+			map.centerAndZoom(point, {#$HIGHWAY.map_zoom#}); 
 			map.setCenter(point);
 			{#/if#}
 			map.addControl(new BMap.NavigationControl());//添加鱼骨

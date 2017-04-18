@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_resume_list($params, &$smarty)
+function tpl_function_highway_resume_list($params, &$smarty)
 {
 global $db,$_CFG;
 $arrset=explode(',',$params['set']);
@@ -113,8 +113,8 @@ $aset['specialtylen']=isset($aset['specialtylen'])?intval($aset['specialtylen'])
 $aset['jobslen']=isset($aset['jobslen'])?intval($aset['jobslen']):0;
 $aset['majorlen']=isset($aset['majorlen'])?intval($aset['majorlen']):50;
 $aset['dot']=isset($aset['dot'])?$aset['dot']:null;
-$aset['showname']=isset($aset['showname'])?$aset['showname']:'QS_resumeshow';
-$aset['listpage']=isset($aset['listpage'])?$aset['listpage']:'QS_resumelist';
+$aset['showname']=isset($aset['showname'])?$aset['showname']:'HW_resumeshow';
+$aset['listpage']=isset($aset['listpage'])?$aset['listpage']:'HW_resumelist';
 $resumetable=table('resume_search_rtime');
 if (isset($aset['displayorder']))
 {
@@ -367,7 +367,7 @@ if (isset($aset['key']) && !empty($aset['key']))
 	{
 		if ($_SESSION['username']=='')
 		{
-		header("Location: ".url_rewrite('QS_login')."?url=".urlencode($_SERVER["REQUEST_URI"]));
+		header("Location: ".url_rewrite('HW_login')."?url=".urlencode($_SERVER["REQUEST_URI"]));
 		}
 	}
 	$key=help::addslashes_deep(trim($aset['key']));
@@ -434,7 +434,7 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 }
 		if (isset($aset['paged']))
 		{
-			require_once(QISHI_ROOT_PATH.'include/page.class.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 			$total_sql="SELECT  COUNT(*) AS num  FROM  {$resumetable} AS r ".$joinsql.$wheresql;
 			$total_count=$db->get_total($total_sql);
 			if (intval($_CFG['resume_list_max'])>0)

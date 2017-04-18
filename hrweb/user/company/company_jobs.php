@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"jobs");
 if ($act=='jobs')
@@ -70,16 +60,13 @@ if ($act=='jobs')
 			$tabletype="jobs";
 			break;
 	}
-	/*
-		3.6 推广状态
-	*/
 	$generalize=trim($_GET['generalize']);
 	$generalize_arr = array("stick","highlight","emergency","recommend");
 	if(in_array($generalize,$generalize_arr))
 	{
 		$wheresql.=" AND $generalize<>'' ";
 	}
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$perpage=10;
 	if ($tabletype=="all")
 	{
@@ -206,9 +193,6 @@ elseif ($act=='addjobs')
 				{					
 					showmsg("您的服务已经到期，请重新开通",1,$link);
 				}
-				/*
-					显示中的职位(审核通过,审核中,未暂停)
-				*/
 				$jobs_num= $db->get_total("select count(*) num from ".table("jobs")." where uid=$_SESSION[uid] and audit=1 and display=1 ");
 				$jobs_tmp_num= $db->get_total("select count(*) num from ".table("jobs_tmp")." where uid=$_SESSION[uid] and audit<>3 and display=1 ");
 				$com_jobs_num=$jobs_num+$jobs_tmp_num;
@@ -291,9 +275,6 @@ elseif ($act=='addjobs_save')
 		{					
 			showmsg("您的服务已经到期，请重新开通",1,$link);
 		}
-		/*
-			显示中的职位(审核通过,审核中,未暂停)
-		*/
 		$jobs_num= $db->get_total("select count(*) num from ".table("jobs")." where uid=$_SESSION[uid] and audit=1 and display=1 ");
 		$jobs_tmp_num= $db->get_total("select count(*) num from ".table("jobs_tmp")." where uid=$_SESSION[uid] and audit<>3 and display=1 ");
 		$com_jobs_num=$jobs_num+$jobs_tmp_num;
@@ -352,7 +333,7 @@ elseif ($act=='addjobs_save')
 	$setsqlarr['deadline']=strtotime("".intval($_CFG['company_add_days'])." day");
 	$setsqlarr['refreshtime']=$timestamp;
 	$setsqlarr['key']=$setsqlarr['jobs_name'].$company_profile['companyname'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_profile['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
@@ -457,7 +438,7 @@ elseif ($act=='addjobs_save')
 	add_jobs_tag($pid,$_SESSION['uid'],$_POST['tag'])?"":showmsg('保存失败！',0);
 	distribution_jobs($pid,$_SESSION['uid']);
 	write_memberslog($_SESSION['uid'],1,2001,$_SESSION['username'],"发布了职位：{$setsqlarr['jobs_name']}");
-	baidu_submiturl(url_rewrite('QS_jobsshow',array('id'=>$pid)),'addjob');
+	baidu_submiturl(url_rewrite('HW_jobsshow',array('id'=>$pid)),'addjob');
 	}
 	header("location:?act=jobs&addjobs_save_succeed=".$pid);
 }
@@ -750,9 +731,6 @@ elseif ($act=='jobs_perform')
 	} 
 	elseif (!empty($_REQUEST['display1']))
 	{
-		/*
-			显示中的职位(审核通过,审核中,未暂停)
-		*/
 		if($_CFG['operation_mode']=='1'){
 			activate_jobs($yid,1,$_SESSION['uid']);
 			showmsg("设置成功！",2);
@@ -899,7 +877,7 @@ elseif ($act=='editjobs_save')
 	// 修改职位 过期时间为
 	$setsqlarr['deadline']=strtotime("".intval($_CFG['company_add_days'])." day");
 	$setsqlarr['key']=$setsqlarr['jobs_name'].$company_profile['companyname'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_profile['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);

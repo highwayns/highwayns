@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 个人会员函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI'))
+if(!defined('IN_HIGHWAY'))
 {
  die('Access Denied!');
 }
@@ -19,7 +9,7 @@ function get_resume_list($wheresql,$titlele=12,$countinterview=false,$countdown=
 		$result = $db->query("{$wheresql} LIMIT 30");
 		while($row = $db->fetch_array($result))
 		{
-			$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['id']));
+			$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['id']));
 			$row['title']=cut_str($row['title'],$titlele,0,"...");
 			$row['number']="N".str_pad($row['id'],7,"0",STR_PAD_LEFT);
 			$row['lastname']=cut_str($row['fullname'],1,0,"**");
@@ -61,7 +51,7 @@ function get_auditresume_list($uid,$titlele=12)
 		$result = $db->query("SELECT * FROM ".table('resume')." WHERE uid='{$uid}'".$wheresql);
 		while($row = $db->fetch_array($result))
 		{
-			$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['id']));
+			$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['id']));
 			$row['title_'] = $row['title'];
 			$row['title']=cut_str($row['title'],$titlele,0,"...");
 			$row['number']="N".str_pad($row['id'],7,"0",STR_PAD_LEFT);
@@ -366,7 +356,7 @@ function check_resume($uid,$pid)
 	$setsqlarr['photo']=0;
 	}
 	$setsqlarr['complete_percent']=$percent;
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']=addslashes($resume_basic['intention_jobs']).addslashes($resume_basic['recentjobs']).addslashes($resume_basic['specialty']);		
 	$setsqlarr['key']=addslashes($resume_basic['fullname']).$sp->extracttag($setsqlarr['key']);
@@ -435,7 +425,7 @@ function get_com_downresume($offset,$perpage,$get_sql='')
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
 	{
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['id']));
 	$row_arr[] = $row;
 	}
 	return $row_arr;
@@ -470,8 +460,8 @@ function get_invitation($offset,$perpage,$get_sql= '')
 		}
 	$row['belong_name'] = $row['companyname'];
 	$row['jobs_name_'] = cut_str($row['jobs_name'],5,0,"...");
-	$row['belong_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
-	$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['jobs_id']));
+	$row['belong_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
+	$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['jobs_id']));
 	$row['notes'] = "对方于 ".date('Y-m-d',$row['interview_addtime'])." 对您发起面试邀请<br />面试时间为：".$row['interview_time']."<br /><br />具体详情：<br />".($row['notes']==""?"暂无":$row['notes']);
 	$row_arr[] = $row;
 	}
@@ -565,8 +555,8 @@ function get_favorites($offset,$perpage,$get_sql= '')
 				$row['click']=$jobs['click'];
 			}
 		}
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
-	$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['jobs_id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
+	$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['jobs_id']));
 	$row_arr[] = $row;
 	}
 	return $row_arr;
@@ -637,10 +627,10 @@ function get_apply_jobs($offset,$perpage,$joinsql,$wheresql)
 		{
 			$row['resume_name'] = "该简历已经删除";
 		}
-		$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
+		$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
 		$row['belong_name'] = $row['company_name'];
 		$row['belong_url'] = $row['company_url'];
-		$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['jobs_id']));
+		$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['jobs_id']));
 		//答复状态
 		if($row['personal_look']=='1')
 		{
@@ -852,9 +842,9 @@ function get_pms($offset,$perpage,$get_sql= '')
 }
 //3.5
 function get_pms_no_num(){	//获取PMS 未读取的数量
-	global $db,$QS_cookiepath,$QS_cookiedomain;
+	global $db,$HW_cookiepath,$HW_cookiedomain;
 	$pmscount=$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$_SESSION['uid']}' OR msgtouid='{$_SESSION['uid']}') AND `new`='1' AND `replyuid`<>'{$_SESSION['uid']}'");
-	setcookie('QS[pmscount]',$pmscount, false,$QS_cookiepath,$QS_cookiedomain);
+	setcookie('QS[pmscount]',$pmscount, false,$HW_cookiepath,$HW_cookiedomain);
 	return $pmscount;
 }
 //3.5

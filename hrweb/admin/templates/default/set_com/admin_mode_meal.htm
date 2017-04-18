@@ -21,12 +21,12 @@
         <td  >
 		
           <label>
-          <input type="radio" name="reg_service" value="0" {#if $QISHI.reg_service=='0'#}checked="checked"{#/if#}/>
+          <input type="radio" name="reg_service" value="0" {#if $HIGHWAY.reg_service=='0'#}checked="checked"{#/if#}/>
           不赠送</label>
           {#foreach from=$givesetmeal item=list#}
 		    &nbsp;&nbsp;
 		    <label>
-          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $QISHI.reg_service==$list.id#}checked="checked"{#/if#}/>
+          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $HIGHWAY.reg_service==$list.id#}checked="checked"{#/if#}/>
           {#$list.setmeal_name#}</label>
 		   {#/foreach#}
 		</td>
@@ -36,7 +36,7 @@
         <td>
         {#foreach from=$givesetmeal item=list#}
         <label>
-          <input type="radio" name="reset_service" value="{#$list.id#}"   {#if $QISHI.reset_service==$list.id#}checked="checked"{#/if#}/>
+          <input type="radio" name="reset_service" value="{#$list.id#}"   {#if $HIGHWAY.reset_service==$list.id#}checked="checked"{#/if#}/>
           {#$list.setmeal_name#}
         </label>
         {#/foreach#}
@@ -47,13 +47,13 @@
       <td  >
 	
         <label>
-        <input type="radio" name="setmeal_to_points" value="1" {#if $QISHI.setmeal_to_points=='1'#}checked="checked"{#/if#}/>
+        <input type="radio" name="setmeal_to_points" value="1" {#if $HIGHWAY.setmeal_to_points=='1'#}checked="checked"{#/if#}/>
         是</label>
        
 	    &nbsp;&nbsp;
 		
 		 <label>
-        <input type="radio" name="setmeal_to_points" value="2" {#if $QISHI.setmeal_to_points=='2'#}checked="checked"{#/if#}/>
+        <input type="radio" name="setmeal_to_points" value="2" {#if $HIGHWAY.setmeal_to_points=='2'#}checked="checked"{#/if#}/>
         否</label>
 	   
 	</td>
@@ -63,7 +63,7 @@
  <tr>
         <td height="30" align="right" >服务到期时间提前几天提醒：</td>
         <td  >
-		<input name="meal_min_remind" type="text" class="input_text_50" id="meal_min_remind" value="{#$QISHI.meal_min_remind#}"/>
+		<input name="meal_min_remind" type="text" class="input_text_50" id="meal_min_remind" value="{#$HIGHWAY.meal_min_remind#}"/>
 		   <span class="admin_note">0为不提醒</span> 
 		</td>
       </tr>

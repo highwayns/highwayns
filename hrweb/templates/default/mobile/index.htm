@@ -1,20 +1,20 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
-<title>手机频道 - {#$QISHI.site_name#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link rel="stylesheet" href="{#$QISHI.site_template#}css/mobile.css" />
-<script src="{#$QISHI.site_template#}js/jquery.js"></script>
+<title>手机频道 - {#$HIGHWAY.site_name#}</title>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/mobile.css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js"></script>
 </head>
 <body>
 	<div id="mobile-header">
 		<div class="container clearfix">
-			<div class="m-logo f-left"><a class="f-left" href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" width="261" height="70" border="0" /></a><a href="{#$QISHI.site_dir#}" class="back-index f-left"></a></div>
+			<div class="m-logo f-left"><a class="f-left" href="{#$HIGHWAY.site_dir#}"><img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.web_logo#}" alt="{#$HIGHWAY.site_name#}" width="261" height="70" border="0" /></a><a href="{#$HIGHWAY.site_dir#}" class="back-index f-left"></a></div>
 			<ul class="mobile-nav f-right">
 				<li{#if $smarty.get.type=='' || $smarty.get.type=='touch'#} class="active"{#/if#}><a href="?type=touch">触屏版</a></li>
 				<li class="last{#if $smarty.get.type=='weixin'#} active{#/if#}"><a href="?type=weixin">微信版</a></li>
@@ -26,13 +26,13 @@
 	<div id="banner-block">
 		<div class="banner-wrap wap">
 			<div class="container">
-				<div class="wpage-img"><img src="{#$QISHI.site_template#}images/mobile/wap-banner.jpg" alt="" /></div>
+				<div class="wpage-img"><img src="{#$HIGHWAY.site_template#}images/mobile/wap-banner.jpg" alt="" /></div>
 				<div class="a-text-wrap">
 					<h1>触屏版，海量职位一手掌握</h1>
 					<h2>手机浏览器输入网址</h2>
-					<div class="wap-input">{#$QISHI.wap_domain#}</div>
+					<div class="wap-input">{#$HIGHWAY.wap_domain#}</div>
 					<div class="wap-code">
-						<img src="{#$QISHI.site_dir#}plus/url_qrcode.php?url={#$QISHI.wap_domain#}" alt="二维码" width="118" height="118" />
+						<img src="{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.wap_domain#}" alt="二维码" width="118" height="118" />
 						<p>扫一扫，立即打开</p>
 					</div>
 				</div>
@@ -47,14 +47,14 @@
 					<p>无需下载，没有平台、机型的限制，触屏<br />手机就能上网找工作！机会不再稍纵即逝，<br />它已在你轻盈的指尖上！</p>
 				</div>
 				<div class="row-right-box f-right">
-					<div class="more-phone"><img src="{#$QISHI.site_template#}images/mobile/wap-img1.jpg" alt="" /></div>
+					<div class="more-phone"><img src="{#$HIGHWAY.site_template#}images/mobile/wap-img1.jpg" alt="" /></div>
 				</div>
 			</div>
 		</div>
 		<div class="m-row wap odd">
 			<div class="container clearfix">
 				<div class="row-left-phone f-left">
-					<div class="wap-phone-block"><img src="{#$QISHI.site_template#}images/mobile/wap-img2.jpg" alt="" /></div>
+					<div class="wap-phone-block"><img src="{#$HIGHWAY.site_template#}images/mobile/wap-img2.jpg" alt="" /></div>
 				</div>
 				<div class="row-right-text f-right">
 					<h2>功能不打折</h2>
@@ -70,7 +70,7 @@
 				</div>
 				<div class="row-right-box f-right">
 					<div class="phone-block ios-phone">
-						<div class="app-img"><img src="{#$QISHI.site_template#}images/mobile/wap-img3.jpg" alt="" /></div>
+						<div class="app-img"><img src="{#$HIGHWAY.site_template#}images/mobile/wap-img3.jpg" alt="" /></div>
 					</div>
 				</div>
 			</div>
@@ -78,7 +78,7 @@
 		<div class="m-row wap odd">
 			<div class="container clearfix">
 				<div class="row-left-phone f-left">
-					<div class="wap-phone-block"><img src="{#$QISHI.site_template#}images/mobile/wap-img4.jpg" alt="" /><div class="wap-sp-block"></div></div>
+					<div class="wap-phone-block"><img src="{#$HIGHWAY.site_template#}images/mobile/wap-img4.jpg" alt="" /><div class="wap-sp-block"></div></div>
 					
 				</div>
 				<div class="row-right-text f-right">
@@ -94,14 +94,14 @@
 	<div id="banner-block">
 		<div class="banner-wrap wechat">
 			<div class="container">
-				<div class="chatpage-img"><img src="{#$QISHI.site_template#}images/mobile/wechat-banner.jpg" alt="" /></div>
+				<div class="chatpage-img"><img src="{#$HIGHWAY.site_template#}images/mobile/wechat-banner.jpg" alt="" /></div>
 				<div class="a-text-wrap">
 					<div class="weimg-box clearfix">
 						<div class="wechat-icon f-left"></div>
-						<div class="wechat-code-box f-right"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.weixin_img#}" alt="二维码" width="100" height="100" /></div>
+						<div class="wechat-code-box f-right"><img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" alt="二维码" width="100" height="100" /></div>
 					</div>
 					<h4>微信 “扫一扫” 工作 “码” 上找</h4>
-					<div class="wechat-sreach">查找公众号：<b>{#$QISHI.weixin_mpnumber#}</b> 或 <b>{#$QISHI.weixin_mpname#}</b></div>
+					<div class="wechat-sreach">查找公众号：<b>{#$HIGHWAY.weixin_mpnumber#}</b> 或 <b>{#$HIGHWAY.weixin_mpname#}</b></div>
 					<p>最新职位、紧急招聘、一键刷简历、即时收面试通知……<br />从此不再错过任何工作机会</p>
 				</div>
 			</div>
@@ -120,7 +120,7 @@
 					<p>扫描二维码并点击关注，轻松求职。海量<br />职位，随时随地任您搜！</p>
 				</div>
 				<div class="wechat-right-img f-right">
-					<div class="wechat-phone"><img src="{#$QISHI.site_template#}images/mobile/wechat-img1.jpg" alt="" /></div>
+					<div class="wechat-phone"><img src="{#$HIGHWAY.site_template#}images/mobile/wechat-img1.jpg" alt="" /></div>
 					<div class="wechat-enlarge enlarge1"></div>
 				</div>
 			</div>
@@ -128,7 +128,7 @@
 		<div class="m-row weixin">
 			<div class="container clearfix">
 				<div class="wechat-left-img f-left">
-					<div class="wechat-phone"><img src="{#$QISHI.site_template#}images/mobile/wechat-img2.jpg" alt="" /></div>
+					<div class="wechat-phone"><img src="{#$HIGHWAY.site_template#}images/mobile/wechat-img2.jpg" alt="" /></div>
 					<div class="wechat-enlarge enlarge2"></div>
 				</div>
 				<div class="wechat-right-text f-right">
@@ -144,7 +144,7 @@
 					<p>输入您的平台账号和密码，再也不用担<br />心错过任何求职动态了！</p>
 				</div>
 				<div class="wechat-right-img f-right">
-					<div class="wechat-phone"><img src="{#$QISHI.site_template#}images/mobile/wechat-img3.jpg" alt="" /></div>
+					<div class="wechat-phone"><img src="{#$HIGHWAY.site_template#}images/mobile/wechat-img3.jpg" alt="" /></div>
 					<div class="wechat-enlarge enlarge3"></div>
 				</div>
 			</div>
@@ -153,9 +153,9 @@
 	<!--weixin-->
 	{#/if#}
 <div id="footer">
-	<p>联系地址：{#$QISHI.address#} 联系电话：{#$QISHI.bootom_tel#} 网站备案：{#$QISHI.icp#}{#$QISHI.statistics#}</p>
-	<p>{#$QISHI.site_name#}   Powered by   <a href="http://www.74cms.com/" target="_blank">74cms v{#$QISHI.version#}</a>   版权所有 | 仿冒必究</p>
-	<p>{#$QISHI.bottom_other#}</p>
+	<p>联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}</p>
+	<p>{#$HIGHWAY.site_name#}   Powered by   <a href="http://www.jp.highwayns.com/" target="_blank">74cms v{#$HIGHWAY.version#}</a>   版权所有 | 仿冒必究</p>
+	<p>{#$HIGHWAY.bottom_other#}</p>
 </div>
 </body>
 </html>

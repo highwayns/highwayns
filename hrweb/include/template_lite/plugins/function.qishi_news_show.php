@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_news_show($params, &$smarty)
+function tpl_function_highway_news_show($params, &$smarty)
 {
 global $db;
 $arr=explode(',',$params['set']);
@@ -51,7 +51,7 @@ if(!$prev){
 }else{
 	$val['prev'] = 1;
 	$val['prev_title'] = $prev['title'];
-	$val['prev_url'] = url_rewrite("QS_newsshow",array('id'=>$prev['id']));
+	$val['prev_url'] = url_rewrite("HW_newsshow",array('id'=>$prev['id']));
 }
 $next = $db->getone("select id,title from ".table('article')." where id>".$val['id']." and type_id=".$val['type_id']." limit 1");
 if(!$next){
@@ -59,7 +59,7 @@ if(!$next){
 }else{
 	$val['next'] = 1;
 	$val['next_title'] = $next['title'];
-	$val['next_url'] = url_rewrite("QS_newsshow",array('id'=>$next['id']));
+	$val['next_url'] = url_rewrite("HW_newsshow",array('id'=>$next['id']));
 }
 $smarty->assign($aset['listname'],$val);
 }

@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 管理中心 
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
- */
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
 	die('Access Denied!');
  }
@@ -42,7 +32,7 @@ function ck_jobs_name($val,$uid)
 function locoyspider_company_nature($str=NULL)
 {
 	global $db,$locoyspider;
-	$sql = "select c_id,c_name from ".table('category')." where c_alias='QS_company_type' AND  c_id=".intval($locoyspider['company_nature'])." LIMIT 1";
+	$sql = "select c_id,c_name from ".table('category')." where c_alias='HW_company_type' AND  c_id=".intval($locoyspider['company_nature'])." LIMIT 1";
 	$nature=$db->getone($sql);
 	$default=array("id"=>$nature['c_id'],"cn"=>$nature['c_name']);
 	if (empty($str))
@@ -74,7 +64,7 @@ function locoyspider_company_nature($str=NULL)
 function locoyspider_company_trade($str=NULL)
 {	
 	global $db,$locoyspider;
-	$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_trade' AND  c_id=".intval($locoyspider['company_trade'])." LIMIT 1";
+	$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_trade' AND  c_id=".intval($locoyspider['company_trade'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -83,7 +73,7 @@ function locoyspider_company_trade($str=NULL)
 	}
 	else
 	{
-		$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_trade'";
+		$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_trade'";
 		$info=$db->getall($sql);
 		$return=locoyspider_search_str($info,$str,"c_name");
 		if ($return)
@@ -200,7 +190,7 @@ function locoyspider_jobs_district($str=NULL)
 function locoyspider_company_scale($str=NULL)
 {
 	global $db,$locoyspider;
-	$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_scale' and c_id=".intval($locoyspider['company_scale'])." LIMIT 1";
+	$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_scale' and c_id=".intval($locoyspider['company_scale'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -248,7 +238,7 @@ function locoyspider_jobs_nature($str=NULL)
 {
 	global $db,$locoyspider;
 	
-	$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_jobs_nature' AND c_id=".intval($locoyspider['jobs_nature'])." LIMIT 1";
+	$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_jobs_nature' AND c_id=".intval($locoyspider['jobs_nature'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -257,7 +247,7 @@ function locoyspider_jobs_nature($str=NULL)
 	}
 	else
 	{
-		$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_jobs_nature' ";
+		$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_jobs_nature' ";
 		$info=$db->getall($sql);
 		$return=locoyspider_search_str($info,$str,"c_name");
 		if ($return)
@@ -320,7 +310,7 @@ function locoyspider_jobs_amount($str=NULL)
 function locoyspider_jobs_education($str=NULL)
 {
 	global $db,$locoyspider;
-	$sql = "select c_id,c_name from ".table('category')." where c_alias='QS_education'  and c_id=".intval($locoyspider['jobs_education'])." LIMIT 1";
+	$sql = "select c_id,c_name from ".table('category')." where c_alias='HW_education'  and c_id=".intval($locoyspider['jobs_education'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -329,7 +319,7 @@ function locoyspider_jobs_education($str=NULL)
 	}
 	else
 	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_education'";
+		$sql = "select c_id,c_name from ".table('category')."  where c_alias='HW_education'";
 		$info=$db->getall($sql);
 		$return=locoyspider_search_str($info,$str,"c_name");
 		if ($return)
@@ -346,7 +336,7 @@ function locoyspider_jobs_education($str=NULL)
 function locoyspider_jobs_experience($str=NULL)
 {
 	global $db,$locoyspider;
-	$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_experience' AND c_id=".intval($locoyspider['jobs_experience'])." LIMIT 1";
+	$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_experience' AND c_id=".intval($locoyspider['jobs_experience'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -355,7 +345,7 @@ function locoyspider_jobs_experience($str=NULL)
 	}
 	else
 	{
-		$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_experience'";
+		$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_experience'";
 		$info=$db->getall($sql);
 		$return=locoyspider_search_str($info,$str,"c_name");
 		if ($return)
@@ -389,7 +379,7 @@ function get_experience($str=NULL){
 /*function locoyspider_jobs_wage($str=NULL)
 {
 	global $db,$locoyspider;
-	$sql = "select  c_id,c_name from ".table('category')." where  c_alias='QS_wage' and c_id=".intval($locoyspider['jobs_wage'])." LIMIT 1";
+	$sql = "select  c_id,c_name from ".table('category')." where  c_alias='HW_wage' and c_id=".intval($locoyspider['jobs_wage'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -398,7 +388,7 @@ function get_experience($str=NULL){
 	}
 	else
 	{
-		$sql = "select c_id,c_name from ".table('category')." where  c_alias='QS_wage'";
+		$sql = "select c_id,c_name from ".table('category')." where  c_alias='HW_wage'";
 		$info=$db->getall($sql);
 		$return=locoyspider_search_str($info,$str,"c_name");
 		if ($return)
@@ -415,7 +405,7 @@ function get_experience($str=NULL){
 function locoyspider_jobs_wage($str=NULL)
 {
 	global $db,$locoyspider;
-	$sql = "select  c_id,c_name from ".table('category')." where  c_alias='QS_wage' and c_id=".intval($locoyspider['jobs_wage'])." LIMIT 1";
+	$sql = "select  c_id,c_name from ".table('category')." where  c_alias='HW_wage' and c_id=".intval($locoyspider['jobs_wage'])." LIMIT 1";
 	$info=$db->getone($sql);
 	$default=array("id"=>$info['c_id'],"cn"=>$info['c_name']);
 	if (empty($str))
@@ -459,7 +449,7 @@ function locoyspider_jobs_deadline()
 //采集注册会员
 function locoyspider_user_register($email=NULL,$utype='1')
 {
-	global $db,$locoyspider,$QS_pwdhash;
+	global $db,$locoyspider,$HW_pwdhash;
 	$setsqlarr['username']=$locoyspider['reg_usname'].uniqid().time();
 	$setsqlarr['pwd_hash']=res_randstr();
 		//reg_password
@@ -480,7 +470,7 @@ function locoyspider_user_register($email=NULL,$utype='1')
 		{
 			$email=time().uniqid().$locoyspider['reg_email'];
 		}
-	$setsqlarr['password']=md5(md5($pwd).$setsqlarr['pwd_hash'].$QS_pwdhash);
+	$setsqlarr['password']=md5(md5($pwd).$setsqlarr['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['email']=$email;
 	$setsqlarr['utype']=$utype;
 	$setsqlarr['reg_time']=time();
@@ -545,7 +535,7 @@ function locoyspider_addjobs($companyinfo)
 		$jobssetsqlarr['deadline']=locoyspider_jobs_deadline();
 		$jobssetsqlarr['refreshtime']=time();
 		$jobssetsqlarr['key']=$jobssetsqlarr['jobs_name'].$companyinfo['companyname'].$jobssetsqlarr['category_cn'].$jobssetsqlarr['district_cn'].$jobssetsqlarr['contents'];
-		require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 		$sp = new SPWord();
 		$jobssetsqlarr['key']="{$jobssetsqlarr['jobs_name']} {$companyinfo['companyname']} ".$sp->extracttag($jobssetsqlarr['key']);
 		$jobssetsqlarr['key']=$sp->pad($jobssetsqlarr['key']);
@@ -686,11 +676,6 @@ function locoyspider_search_str($arr,$str,$arrinname)
 				}
 			}	
 }
-/*
- * 功能：修正矿工采集的图片生成的email
- * params：待修正的email
- * return：修正后的email
- */
 function check_email($val)
 {
 	$str_email = strtolower($val);

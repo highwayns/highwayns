@@ -1,7 +1,7 @@
 ﻿<?php
-function tpl_function_qishi_resume_show($params, &$smarty)
+function tpl_function_highway_resume_show($params, &$smarty)
 {
-global $db,$_CFG,$QS_cookiepath,$QS_cookiedomain;
+global $db,$_CFG,$HW_cookiepath,$HW_cookiedomain;
 $arr=explode(',',$params['set']);
 foreach($arr as $str)
 {
@@ -136,7 +136,7 @@ if ($val)
 	$apply = $db->getone("select * from ".table('personal_jobs_apply')." where `resume_id`=".$val['id']);
 	$val['jobs_name'] = $apply['jobs_name'];
 	$val['apply_addtime'] = $apply['apply_addtime'];
-	$val['jobs_url'] = url_rewrite('QS_jobsshow',array('id'=>$apply['jobs_id']));
+	$val['jobs_url'] = url_rewrite('HW_jobsshow',array('id'=>$apply['jobs_id']));
 	if($val['jobs_name']){
 		$val['apply'] = 1;
 	}else{

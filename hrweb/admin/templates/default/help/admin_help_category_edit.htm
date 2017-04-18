@@ -14,7 +14,7 @@
           <td>
 		  <select name="parentid" id="parentid"  style="width:108px; font-size:12px;">
               <option value="0">顶级分类</option>
-			  {#qishi_help_category set="列表名:categorylist,大类:0"#}
+			  {#highway_help_category set="列表名:categorylist,大类:0"#}
 			  {#foreach from=$categorylist item=list#}
             <option value="{#$list.id#}" {#if $category.parentid==$list.id#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 			{#/foreach#}       

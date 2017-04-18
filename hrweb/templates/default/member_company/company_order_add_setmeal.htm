@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" >
 
 function chk_form()
@@ -44,9 +44,9 @@ return (true);
 }
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
 
 <div class="usermain">
   <div class="leftmenu  com link_bk">
@@ -58,10 +58,10 @@ return (true);
 		<div class="topnav">
       <div class="titleH1"><div class="h1-title">充值/订单</div></div>
       <div class="navs link_bk">
-        {#if $QISHI.operation_mode=="1" || $QISHI.operation_mode=="3"#}
+        {#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
         <a href="?act=order_add">积分充值</a>
         {#/if#}
-        {#if $QISHI.operation_mode=="2" || $QISHI.operation_mode=="3"#}
+        {#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
             <a href="?act=setmeal_list" class="se">申请VIP套餐</a>
         {#/if#}
         <a href="?act=order_list">我的订单</a>
@@ -102,7 +102,7 @@ return (true);
   					{#section name=payment loop=$payment#}
   					<tr>
   						<td height="30" width="100">{#if $smarty.section.payment.index==0#}充值方式：{#/if#}</td>
-  						<td width="150"><input type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$QISHI.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
+  						<td width="150"><input type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$HIGHWAY.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
   						<td> <p>({#$payment[payment].p_introduction#})</p></td>
   					</tr>
   					{#/section#}

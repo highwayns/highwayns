@@ -18,18 +18,18 @@
 	opthtm+='<ul class="link_bk min">';
 	if (get[4]=='')
 	{
-		for(var i=0;i<QS_resumetag.length;i++)
+		for(var i=0;i<HW_resumetag.length;i++)
 		{
-		arr    =QS_resumetag[i].split(",");
+		arr    =HW_resumetag[i].split(",");
 		opthtm+='<li><a href="'+href+'" id="resumetag-'+arr[0]+'"  class="opt">'+arr[1]+'</a></li>';
 		}
 	}
 	else
 	{
 		var scalename='';
-		for(var i=0;i<QS_resumetag.length;i++)
+		for(var i=0;i<HW_resumetag.length;i++)
 		{
-			arr    =QS_resumetag[i].split(",");
+			arr    =HW_resumetag[i].split(",");
 			if (arr[0]==get[4]) scalename=arr[1];
 		}
 		if (scalename)
@@ -50,18 +50,18 @@
 		opthtm+='<div class="litit csel">职位：</div>';
 		opthtm+='<div class="littxt">';
 		opthtm+='<ul class="link_bk">';
-		var len=QS_jobs_parent.length;
+		var len=HW_jobs_parent.length;
 		minlen=len>12?11:len;
 		for(var i=0;i<minlen;i++)
 		{
-		arr    =QS_jobs_parent[i].split(",");
+		arr    =HW_jobs_parent[i].split(",");
 		opthtm+='<li><a href="'+href+'" id="category-'+arr[0]+'"  class="opt">'+arr[1]+'</a></li>';
 		}
 		if (len>12)
 		{
 			for(var i=minlen;i<len;i++)
 			{
-			arr    =QS_jobs_parent[i].split(",");
+			arr    =HW_jobs_parent[i].split(",");
 			opthtm+='<li class="hide"><a href="'+href+'" id="category-'+arr[0]+'"  class="opt">'+arr[1]+'</a></li>';
 			}
 			opthtm+='<li class="more"><a href="'+href+'">更多</a></li>';
@@ -74,9 +74,9 @@
 	else
 	{
 		var categoryname='';
-		for(var i=0;i<QS_jobs_parent.length;i++)
+		for(var i=0;i<HW_jobs_parent.length;i++)
 		{
-			arr    =QS_jobs_parent[i].split(",");
+			arr    =HW_jobs_parent[i].split(",");
 			if (arr[0]==get[0])categoryname=arr[1];
 		}
 		opthtm+='<div class="litit csel">职位：</div>';
@@ -84,7 +84,7 @@
 		opthtm+='<ul class="link_bk">';
 		if (categoryname)
 		{
-			subclassstr=QS_jobs[get[0]];
+			subclassstr=HW_jobs[get[0]];
 			var b="";
 			if (subclassstr)
 			{
@@ -100,7 +100,7 @@
 		opthtm+='<div class="clear"></div>';
 		opthtm+='</div>';	
 		opthtm+='<div class="clear"></div>';
-		subclassstr=QS_jobs[get[0]];
+		subclassstr=HW_jobs[get[0]];
 		if (subclassstr)//如果有子类
 		{
 				if (get[1]=='')
@@ -160,7 +160,7 @@
 		opthtm+='<div class="litit csel">地区：</div>';
 		opthtm+='<div class="littxt">';
 		opthtm+='<ul class="link_bk min">';
-		set_arr =QS_city[district_id].split("|");
+		set_arr =HW_city[district_id].split("|");
 		var len=set_arr.length;
 		minlen=len>12?11:len;
 		for(var i=0;i<minlen;i++)
@@ -187,18 +187,18 @@
 			opthtm+='<div class="litit csel">地区：</div>';
 			opthtm+='<div class="littxt">';
 			opthtm+='<ul class="link_bk min">';
-			var len=QS_city_parent.length;
+			var len=HW_city_parent.length;
 			minlen=len>12?11:len;
 			for(var i=0;i<minlen;i++)
 			{
-			arr    =QS_city_parent[i].split(",");
+			arr    =HW_city_parent[i].split(",");
 			opthtm+='<li><a href="'+href+'" id="district-'+arr[0]+'"  class="opt">'+arr[1]+'</a></li>';
 			}
 			if (len>12)
 			{
 				for(var i=minlen;i<len;i++)
 				{
-				arr    =QS_city_parent[i].split(",");
+				arr    =HW_city_parent[i].split(",");
 				opthtm+='<li class="hide"><a href="'+href+'" id="district-'+arr[0]+'"  class="opt">'+arr[1]+'</a></li>';
 				}
 				opthtm+='<li class="more"><a href="'+href+'">更多</a></li>';
@@ -211,9 +211,9 @@
 		else
 		{
 			var districtname='';
-			for(var i=0;i<QS_city_parent.length;i++)
+			for(var i=0;i<HW_city_parent.length;i++)
 			{
-				arr    =QS_city_parent[i].split(",");
+				arr    =HW_city_parent[i].split(",");
 				if (arr[0]==get[2])districtname=arr[1];
 			}
 			opthtm+='<div class="litit csel">地区：</div>';
@@ -221,7 +221,7 @@
 			opthtm+='<ul class="link_bk">';
 			if (districtname)
 			{
-				sdistrictstr=QS_city[get[2]];
+				sdistrictstr=HW_city[get[2]];
 				var b="";
 				if (sdistrictstr)
 				{
@@ -237,7 +237,7 @@
 			opthtm+='<div class="clear"></div>';
 			opthtm+='</div>';	
 			opthtm+='<div class="clear"></div>';
-			sdistrictstr=QS_city[get[2]];
+			sdistrictstr=HW_city[get[2]];
 			if (sdistrictstr)//如果有子类
 			{
 					if (get[3]=='')
@@ -379,7 +379,7 @@
 		var resumetag=$("#searcform input[name=resumetag]").val();
 		var inforow=$("#searcform input[name=inforow]").val();
 		var page=$("#searcform input[name=page]").val();
-		$.get(dir+"plus/ajax_search_location.php", {"act":"QS_resumetag","category":category,"subclass":subclass,"district":district,"sdistrict":sdistrict,"resumetag":resumetag,"inforow":inforow,"page":page},
+		$.get(dir+"plus/ajax_search_location.php", {"act":"HW_resumetag","category":category,"subclass":subclass,"district":district,"sdistrict":sdistrict,"resumetag":resumetag,"inforow":inforow,"page":page},
 			function (data,textStatus)
 			 {
 				 window.location.href=data;

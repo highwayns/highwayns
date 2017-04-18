@@ -1,19 +1,9 @@
 ﻿<?php
- /*
- * 74cms ajax返回
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../../include/plus.common.inc.php');
 require_once(dirname(__FILE__).'/../../include/fun_wap.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_company.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
 if($act == 'ajaxjobslist'){
@@ -809,8 +799,8 @@ elseif ($act == 'invited_add')
 	//站内信
 	if($pms_notice=='1'){
 		$user=$db->getone("select username from ".table('members')." where uid ={$resume['uid']} limit 1");
-		$jobs_url=url_rewrite('QS_jobsshow',array('id'=>$jobs['id']));
-		$company_url=url_rewrite('QS_companyshow',array('id'=>$jobs['company_id']));
+		$jobs_url=url_rewrite('HW_jobsshow',array('id'=>$jobs['id']));
+		$company_url=url_rewrite('HW_companyshow',array('id'=>$jobs['company_id']));
 		$message=$jobs['companyname']."邀请您参加公司面试，面试职位：<a href=\"{$jobs_url}\" target=\"_blank\"> {$jobs['jobs_name']} </a>，<a href=\"{$company_url}\" target=\"_blank\">点击查看公司详情</a>";
 		write_pmsnotice($resume['uid'],$user['username'],$message);
 	}

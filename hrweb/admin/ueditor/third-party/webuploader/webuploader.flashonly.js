@@ -1385,11 +1385,6 @@
             // widget直接无法监听事件，事件只能通过uploader来传递
             invoke: function( apiName, args ) {
     
-                /*
-                    {
-                        'make-thumb': 'makeThumb'
-                    }
-                 */
                 var map = this.responseMap;
     
                 // 如果无API响应声明则忽略

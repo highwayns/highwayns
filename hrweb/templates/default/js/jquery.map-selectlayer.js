@@ -33,9 +33,9 @@ function OpenCategory(objid,input_cn,input,dir,strlen,get)
 				$.getScript(dir+"data/cache_classify.js", function(){	
 					html='';
 					html+="<div class=\"txt\">";
-					for(var i=0;i<QS_jobs_parent.length;i++)
+					for(var i=0;i<HW_jobs_parent.length;i++)
 					{
-						arr  =QS_jobs_parent[i].split(",");
+						arr  =HW_jobs_parent[i].split(",");
 						html+="<div class=\"item\" id=\""+arr[0]+"\">";
 						html+="<label title=\""+arr[1]+"\" class=\"titem\" >";
 						html+="<input  type=\"checkbox\" value=\""+arr[0]+"\"  title=\""+arr[1]+"\" class=\"b\" />"+arr[1]+"";
@@ -72,7 +72,7 @@ function OpenCategory(objid,input_cn,input,dir,strlen,get)
 				$(showid+" .item").unbind().hover(
 				function(){
 				$(this).find(".titem").addClass("titemhover");				
-				var strclass=QS_jobs[$(this).attr("id")];
+				var strclass=HW_jobs[$(this).attr("id")];
 				var pid=$(this).attr("id");
 				if (strclass)
 				{
@@ -125,7 +125,7 @@ function OpenCategory(objid,input_cn,input,dir,strlen,get)
 							for( var i=0;i<jobcategory.length;++i)
 							{
 								var catid=jobcategory[i].split(".");
-								var jscat=QS_jobs[catid[0]];
+								var jscat=HW_jobs[catid[0]];
 								if (jscat)
 								{
 									var html=MakeLi(jscat,catid[0]);		
@@ -187,9 +187,9 @@ function OpenCity(objid,input_cn,input,dir,strlen,get)
 				$.getScript(dir+"data/cache_classify.js", function(){	
 					html='';
 					html+="<div class=\"txt\">";
-					for(var i=0;i<QS_city_parent.length;i++)
+					for(var i=0;i<HW_city_parent.length;i++)
 					{
-						arr  =QS_city_parent[i].split(",");
+						arr  =HW_city_parent[i].split(",");
 						html+="<div class=\"item\" id=\""+arr[0]+"\">";
 						html+="<label title=\""+arr[1]+"\" class=\"titem\" >";
 						html+="<input  type=\"checkbox\" value=\""+arr[0]+"\"  title=\""+arr[1]+"\" class=\"b\" />"+arr[1]+"";
@@ -226,7 +226,7 @@ function OpenCity(objid,input_cn,input,dir,strlen,get)
 				$(showid+" .item").unbind().hover(
 				function(){
 				$(this).find(".titem").addClass("titemhover");				
-				var strclass=QS_city[$(this).attr("id")];
+				var strclass=HW_city[$(this).attr("id")];
 				var pid=$(this).attr("id");
 				if (strclass)
 				{
@@ -279,7 +279,7 @@ function OpenCity(objid,input_cn,input,dir,strlen,get)
 							for( var i=0;i<city.length;++i)
 							{
 								var catid=city[i].split(".");
-								var jscat=QS_city[catid[0]];
+								var jscat=HW_city[catid[0]];
 								if (jscat)
 								{
 									var html=MakeLi(jscat,catid[0]);		
@@ -630,9 +630,9 @@ function OpentradeLayer(objid,input_cn,input,dir,strlen,get)
 				$.getScript(dir+"data/cache_classify.js", function(){	
 					html='';
 					html+="<div class=\"txt\">";
-					for(var i=0;i<QS_trade.length;i++)
+					for(var i=0;i<HW_trade.length;i++)
 					{
-						arr  =QS_trade[i].split(",");
+						arr  =HW_trade[i].split(",");
 						html+="<div class=\"item\" id=\""+arr[0]+"\">";
 						html+="<label title=\""+arr[1]+"\" class=\"titem\" >";
 						html+="<input  type=\"checkbox\" value=\""+arr[0]+"\"  title=\""+arr[1]+"\" class=\"b\" />"+arr[1]+"";
@@ -746,15 +746,15 @@ function menulist(objid,input_cn,input,dir,type)
 					html+="<li id=\"\" title=\"不限制\">不限制</li>";
 					if (type=="wage")
 					{
-						data=QS_wage;
+						data=HW_wage;
 					}
 					else if(type=="education")
 					{
-						data=QS_education;
+						data=HW_education;
 					}
 					else if(type=="experience")
 					{
-						data=QS_experience;
+						data=HW_experience;
 					}
 					else if(type=="settr")
 					{
@@ -766,15 +766,15 @@ function menulist(objid,input_cn,input,dir,type)
 					}
 					else if(type=="companytype")
 					{
-						data=QS_companytype;
+						data=HW_companytype;
 					}
 					else if(type=="jobsnature")
 					{
-						data=QS_jobsnature;
+						data=HW_jobsnature;
 					}
 					else if(type=="scale")
 					{
-						data=QS_scale;
+						data=HW_scale;
 					}					
 					for(var i=0;i<data.length;i++)
 					{

@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=gbk">
 <title>{#$title#}</title>
-<link rel="stylesheet" href="{#$QISHI.site_template#}css/reg.css" />
-<script src="{#$QISHI.site_template#}js/jquery.js"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/reg.css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script>
 $(function() {
 	$('.member-type').live('click', function(){
@@ -15,7 +15,7 @@ $(function() {
 	})
 	//验证码随机
 	$("#getcode").live('click',function(){
-		$(this).attr('src','{#$QISHI.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
+		$(this).attr('src','{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
 	});
 	// 表单验证
 	$("#Form1").validate({
@@ -39,7 +39,7 @@ $(function() {
 				required: true,
 				ismobile : true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 					type:"post",    
 					data:{"mobile":function (){return $("#mobile").val()},"act":"check_mobile","time":function (){return new Date().getTime()}}     
 				}
@@ -49,7 +49,7 @@ $(function() {
 				required: true,
 				email:true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 					type:"post",    
 					data:{"email":function (){return $("#email").val()},"act":"check_email"}     
 				}
@@ -116,8 +116,8 @@ $(function() {
 		{
 			$("#login").hide();
 			$("#waiting").show();
-			var url='{#$QISHI.site_domain#}{#$QISHI.site_dir#}/user/login.php';
-			$.post("{#$QISHI.site_dir#}plus/ajax_user.php", {"username": $("#username").val(),"password": $("#login_password").val(),"url":url,"postcaptcha":$("#postcaptcha").val(),"time": new Date().getTime(),"act":"do_login","binding":"1","nickname":"{#$nickname#}","openid":"{#$openid#}","bindtype":"{#$bindtype#}"},
+			var url='{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}/user/login.php';
+			$.post("{#$HIGHWAY.site_dir#}plus/ajax_user.php", {"username": $("#username").val(),"password": $("#login_password").val(),"url":url,"postcaptcha":$("#postcaptcha").val(),"time": new Date().getTime(),"act":"do_login","binding":"1","nickname":"{#$nickname#}","openid":"{#$openid#}","bindtype":"{#$bindtype#}"},
 		 	function (data,textStatus)
 		 	 {
 				if (data=="err" || data=="errcaptcha" || data=='status_err')
@@ -159,7 +159,7 @@ $(function() {
 	<div class="container">
 		<div class="third-reg-wrap">
 			<h1>只差一步，即可完成登录设置</h1>
-			<p class="t-reg-tips">欢迎使用{#$third_name#}帐号登录{#$QISHI.site_name#}<br />完成账号创建后可直接登录哦！</p>
+			<p class="t-reg-tips">欢迎使用{#$third_name#}帐号登录{#$HIGHWAY.site_name#}<br />完成账号创建后可直接登录哦！</p>
 			<div class="t-reg-main clearfix">
 				<div class="reg-left-form f-left">
 					<div class="reg-form-item clearfix">
@@ -238,14 +238,14 @@ $(function() {
 									<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span190" placeholder="请输入验证码" />
 								</div>
 								<div class="bind-ver-img f-left">
-									<img src="{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" />
+									<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" />
 								</div>
 							</div>
 						</div>
 						<div class="bind-submit-item">
 							<input type="submit" name="submitlogin" id="login" value="绑定账号" class="btn btn-small blue span3" />
 							<input type="text"  id="waiting" value="正在绑定..." class="btn btn-small blue span3"  style="display: none;" disabled/>
-							<a href="{#$QISHI.site_dir#}user/user_getpass.php" class="f-right">忘记密码？</a>
+							<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">忘记密码？</a>
 						</div>
 						<p class="bind-tips">绑定后，您可以使用{#$third_name#}直接登录</p>
 					</div>

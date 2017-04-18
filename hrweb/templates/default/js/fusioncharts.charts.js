@@ -1,14 +1,4 @@
-﻿/*
- FusionCharts JavaScript Library
- Copyright FusionCharts Technologies LLP
- License Information at <http://www.fusioncharts.com/license>
- FusionCharts JavaScript Library
- Copyright FusionCharts Technologies LLP
- License Information at <http://www.fusioncharts.com/license>
-
- @version 3.4.0
-*/
-FusionCharts.register("module",["private","modules.renderer.js-charts",function(){function Ha(a){var r={left:a.offsetLeft,top:a.offsetTop};for(a=a.offsetParent;a;)r.left+=a.offsetLeft,r.top+=a.offsetTop,a!==Na.body&&a!==Na.documentElement&&(r.left-=a.scrollLeft,r.top-=a.scrollTop),a=a.offsetParent;return r}function ha(a,r){for(var c=[],d=0,k=a.length;d<k;d++)c[d]=r.call(a[d],a[d],d,a);return c}function da(a,r){var c=r?360:ta;a=(a||0)%c;return 0>a?c+a:a}function Pa(a,r){return a<=X?a:r<=X?r:r>a?0:
+﻿FusionCharts.register("module",["private","modules.renderer.js-charts",function(){function Ha(a){var r={left:a.offsetLeft,top:a.offsetTop};for(a=a.offsetParent;a;)r.left+=a.offsetLeft,r.top+=a.offsetTop,a!==Na.body&&a!==Na.documentElement&&(r.left-=a.scrollLeft,r.top-=a.scrollTop),a=a.offsetParent;return r}function ha(a,r){for(var c=[],d=0,k=a.length;d<k;d++)c[d]=r.call(a[d],a[d],d,a);return c}function da(a,r){var c=r?360:ta;a=(a||0)%c;return 0>a?c+a:a}function Pa(a,r){return a<=X?a:r<=X?r:r>a?0:
 r}function Ua(a,r,c,d,k){return V((r-c[1]-d.top)/k,a-c[0]-d.left)}function Qa(a,r,c,d,k,b,t,la,e,G){"object"===typeof a&&(r=a.y,c=a.r,d=a.innerR,k=a.radiusYFactor,b=a.depth,t=a.seriesGroup,la=a.renderer,a=a.x);if(0>k||1<=k)k=0.6;a=a||0;r=r||0;c=c||1;d=d||0;b=b||0;this.renderer=la;this.hasOnePoint=e;this.use3DLighting=G;this.cx=a;this.cy=r;this.rx=c;this.ry=c*k;this.radiusYFactor=k;this.isDoughnut=0<d;this.innerRx=d;this.innerRy=d*k;this.depth=b;this.leftX=a-c;this.rightX=a+c;this.leftInnerX=a-d;this.rightInnerX=
 a+d;this.depthY=r+b;this.topY=r-this.ry;this.bottomY=this.depthY+this.ry;this.bottomBorderGroup=la.group("bottom-border",t).attr({transform:"t0,"+b});this.outerBackGroup=la.group("outer-back-Side",t);this.slicingWallsBackGroup=la.group("slicingWalls-back-Side",t);this.innerBackGroup=la.group("inner-back-Side",t);this.innerFrontGroup=la.group("inner-front-Side",t);this.slicingWallsFrontGroup=la.group("slicingWalls-front-Side",t);this.topGroup=la.group("top-Side",t);this.moveCmdArr=[f];this.lineCmdArr=
 [W];this.closeCmdArr=[S];this.centerPoint=[a,r];this.leftPoint=[this.leftX,r];this.topPoint=[a,this.topY];this.rightPoint=[this.rightX,r];this.bottomPoint=[a,r+this.ry];this.leftDepthPoint=[this.leftX,this.depthY];this.rightDepthPoint=[this.rightX,this.depthY];this.leftInnerPoint=[this.leftInnerX,r];this.rightInnerPoint=[this.rightInnerX,r];this.leftInnerDepthPoint=[this.leftInnerX,this.depthY];this.rightInnerDepthPoint=[this.rightInnerX,this.depthY];this.pointElemStore=[];this.slicingWallsArr=[];

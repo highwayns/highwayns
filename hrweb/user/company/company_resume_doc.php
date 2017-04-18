@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 生成word
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"recruitment");
 $id =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
@@ -34,7 +24,7 @@ $result=$db->getall($rsume_sql);
 $htm='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv=Content-Type  content="text/html; charset=gb2312" >
+	<meta http-equiv=Content-Type  content="text/html; charset=utf-8" >
 	<title></title>
 	<style>
 

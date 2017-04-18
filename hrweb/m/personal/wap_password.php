@@ -1,20 +1,10 @@
 ﻿<?php
- /*
- * 74cms WAP
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 
 require_once(dirname(__FILE__).'/../../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_personal.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_personal.php');
 $smarty->cache = false;
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'password_edit';
@@ -33,7 +23,7 @@ elseif ($act == 'password_edit')
 }
 elseif ($act == 'save_password')
 {	
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$arr['username']=$_SESSION['username'];
 	$arr['oldpassword']=trim($_POST['oldpassword'])?trim($_POST['oldpassword']):exit('请输入旧密码！');
 	$arr['password']=trim($_POST['password'])?trim($_POST['password']):exit('请输入新密码！');
@@ -58,7 +48,7 @@ elseif ($act == 'save_password')
 		//sms
 		if(defined('UC_API'))
 		{
-		include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+		include_once(HIGHWAY_ROOT_PATH.'uc_client/client.php');
 		uc_user_edit($arr['username'],$arr['oldpassword'], $arr['password']);
 		}
 		//往会员日志表里记录

@@ -287,21 +287,21 @@
 }
 function fillJobs(fillID){
 	var jobstr = '';
-	$.each(QS_jobs_parent, function(pindex, pval) {
+	$.each(HW_jobs_parent, function(pindex, pval) {
 		if(pval) {
 			jobstr += '<tr>';
 			var jobs = pval.split(",");
 		 	jobstr += '<th>'+jobs[1]+'</th>';
 		 	jobstr += '<td><ul class="jobcatelist">';
-		 	var sjobsArray = QS_jobs[jobs[0]].split("|");
+		 	var sjobsArray = HW_jobs[jobs[0]].split("|");
 		 	$.each(sjobsArray, function(sindex, sval) {
 		 		if(sval) {
 		 			var sjobs = sval.split(",");
 			 		jobstr += '<li>';
 			 		jobstr += '<p class="jobp"><font><a class="joba" rcoid="'+sjobs[0]+'" pid="'+jobs[0]+'.'+sjobs[0]+'.0" title="'+sjobs[1]+'" href="javascript:;">'+sjobs[1]+'</a></font></p>';
-			 		if(QS_jobs[sjobs[0]]) {
+			 		if(HW_jobs[sjobs[0]]) {
 			 			jobstr += '<div class="subcate jobsub" style="display:none;">';
-			 			var cjobsArray = QS_jobs[sjobs[0]].split("|");
+			 			var cjobsArray = HW_jobs[sjobs[0]].split("|");
 			 			jobstr += '<a p="qb" href="javascript:;">不限</a>';
 				 		$.each(cjobsArray, function(cindex, cval) {
 				 			if(cval) {
@@ -375,7 +375,7 @@ function copyTradItem() {
 }
 function fillTrad(fillID){
 	var tradli = '';
-	$.each(QS_trade, function(index, val) {
+	$.each(HW_trade, function(index, val) {
 		if(val) {
 			var trads = val.split(",");
 		 	tradli += '<li><a title="'+trads[1]+'" cln="'+trads[0]+'" href="javascript:;">'+trads[1]+'</a></li>';
@@ -388,14 +388,14 @@ function fillCity(fillID){
 	var citystr = '';
 	citystr += '<tr>';
 	citystr += '<td><ul class="jobcatelist">';
-	$.each(QS_city_parent, function(pindex, pval) {
+	$.each(HW_city_parent, function(pindex, pval) {
 		if(pval) {
 			var citys = pval.split(",");
 	 		citystr += '<li>';
 	 		citystr += '<p><font><a rcoid="'+citys[0]+'" pid="'+citys[0]+'.0" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</a></font></p>';
-	 		if(QS_city[citys[0]]) {
+	 		if(HW_city[citys[0]]) {
 	 			citystr += '<div class="subcate" style="display:none;">';
-	 			var ccitysArray = QS_city[citys[0]].split("|");
+	 			var ccitysArray = HW_city[citys[0]].split("|");
 		 		$.each(ccitysArray, function(cindex, cval) {
 		 			if(cval) {
 			 			var ccitys = cval.split(",");
@@ -1211,14 +1211,14 @@ function chechkcli(chid,htmid){
 		var valval = $("#residence").val();
 		 var citystr = valval.split('.');
 		 var pname = '';
-		 $.each(QS_city_parent, function(vindex, valv) {
+		 $.each(HW_city_parent, function(vindex, valv) {
 		 	 var vid = valv.split(",");
 		 	 if(citystr[0] == vid[0]) {
 		 	 	pname = vid[1];
 		 	 }
 		 });
 		 var gname = '';
-		 var gns = QS_city[citystr[0]].split("|");
+		 var gns = HW_city[citystr[0]].split("|");
 		 $.each(gns, function(gindex, galv) {
 		 	 var gvid = galv.split(",");
 		 	 if(citystr[1] == gvid[0]) {
@@ -1227,9 +1227,9 @@ function chechkcli(chid,htmid){
 		 });
 		 pgsname += pname + "/" + gname; 
 		 cityopthtm += '<a href="javascript:;" class="sx-yx-cnt" id="checked_value_'+citystr[1]+'" gname="'+pgsname+'" gid="'+valval+'"><span rel="'+citystr[1]+'">'+gname+'</span><i class="del cls_checked_del" rel="'+citystr[1]+'" id="checked_value_del_'+citystr[1]+'"></i></a>';
-		 if(QS_city[citystr[1]]) {
+		 if(HW_city[citystr[1]]) {
 		 	var sname = '';
-		 	var sns = QS_city[citystr[1]].split("|");
+		 	var sns = HW_city[citystr[1]].split("|");
 			 $.each(sns, function(sindex, salv) {
 			 	 var svid = salv.split(",");
 			 	 if(citystr[2] == svid[0]) {
@@ -1252,14 +1252,14 @@ function chechkcli(chid,htmid){
 		var valval = $("#householdaddress").val();
 		 var citystr = valval.split('.');
 		 var pname = '';
-		 $.each(QS_city_parent, function(vindex, valv) {
+		 $.each(HW_city_parent, function(vindex, valv) {
 		 	 var vid = valv.split(",");
 		 	 if(citystr[0] == vid[0]) {
 		 	 	pname = vid[1];
 		 	 }
 		 });
 		 var gname = '';
-		 var gns = QS_city[citystr[0]].split("|");
+		 var gns = HW_city[citystr[0]].split("|");
 		 $.each(gns, function(gindex, galv) {
 		 	 var gvid = galv.split(",");
 		 	 if(citystr[1] == gvid[0]) {
@@ -1268,9 +1268,9 @@ function chechkcli(chid,htmid){
 		 });
 		 pgsname += pname + "/" + gname; 
 		 cityopthtm += '<a href="javascript:;" class="sx-yx-cnt" id="checked_value_'+citystr[1]+'" gname="'+pgsname+'" gid="'+valval+'"><span rel="'+citystr[1]+'">'+gname+'</span><i class="del cls_checked_del" rel="'+citystr[1]+'" id="checked_value_del_'+citystr[1]+'"></i></a>';
-		 if(QS_city[citystr[1]]) {
+		 if(HW_city[citystr[1]]) {
 		 	var sname = '';
-		 	var sns = QS_city[citystr[1]].split("|");
+		 	var sns = HW_city[citystr[1]].split("|");
 			 $.each(sns, function(sindex, salv) {
 			 	 var svid = salv.split(",");
 			 	 if(citystr[2] == svid[0]) {
@@ -1293,14 +1293,14 @@ function chechkcli(chid,htmid){
 		var valval = $("#districtID").val();
 		 var citystr = valval.split('.');
 		 var pname = '';
-		 $.each(QS_city_parent, function(vindex, valv) {
+		 $.each(HW_city_parent, function(vindex, valv) {
 		 	 var vid = valv.split(",");
 		 	 if(citystr[0] == vid[0]) {
 		 	 	pname = vid[1];
 		 	 }
 		 });
 		 var gname = '';
-		 var gns = QS_city[citystr[0]].split("|");
+		 var gns = HW_city[citystr[0]].split("|");
 		 $.each(gns, function(gindex, galv) {
 		 	 var gvid = galv.split(",");
 		 	 if(citystr[1] == gvid[0]) {
@@ -1309,9 +1309,9 @@ function chechkcli(chid,htmid){
 		 });
 		 pgsname += pname + "/" + gname; 
 		 cityopthtm += '<a href="javascript:;" class="sx-yx-cnt" id="checked_value_'+citystr[1]+'" gname="'+pgsname+'" gid="'+valval+'"><span rel="'+citystr[1]+'">'+gname+'</span><i class="del cls_checked_del" rel="'+citystr[1]+'" id="checked_value_del_'+citystr[1]+'"></i></a>';
-		 if(QS_city[citystr[1]]) {
+		 if(HW_city[citystr[1]]) {
 		 	var sname = '';
-		 	var sns = QS_city[citystr[1]].split("|");
+		 	var sns = HW_city[citystr[1]].split("|");
 			 $.each(sns, function(sindex, salv) {
 			 	 var svid = salv.split(",");
 			 	 if(citystr[2] == svid[0]) {
@@ -1336,14 +1336,14 @@ function chechkcli(chid,htmid){
 		$.each(jobstrarray, function(index, val) {
 			 var jobstr = val.split('.');
 			 var pname = '';
-			 $.each(QS_jobs_parent, function(vindex, valv) {
+			 $.each(HW_jobs_parent, function(vindex, valv) {
 			 	 var vid = valv.split(",");
 			 	 if(jobstr[0] == vid[0]) {
 			 	 	pname = vid[1];
 			 	 }
 			 });
 			 var gname = '';
-			 var gns = QS_jobs[jobstr[0]].split("|");
+			 var gns = HW_jobs[jobstr[0]].split("|");
 			 $.each(gns, function(gindex, galv) {
 			 	 var gvid = galv.split(",");
 			 	 if(jobstr[1] == gvid[0]) {
@@ -1351,7 +1351,7 @@ function chechkcli(chid,htmid){
 			 	 }
 			 });
 			 var sname = '';
-			 var sns = QS_jobs[jobstr[1]].split("|");
+			 var sns = HW_jobs[jobstr[1]].split("|");
 			 $.each(sns, function(sindex, salv) {
 			 	 var svid = salv.split(",");
 			 	 if(jobstr[2] == svid[0]) {
@@ -1395,8 +1395,8 @@ function chechkcli(chid,htmid){
 		var tradopthtm = '';
 		var traddivhtm = '';
 		$.each(tradstr, function(index, val) {
-			for(var i = 0;i < QS_trade.length;i++) {
-				arr = QS_trade[i].split(",");
+			for(var i = 0;i < HW_trade.length;i++) {
+				arr = HW_trade[i].split(",");
 				if (arr[0] == val) {
 					tradename.push(arr[1]);
 					tradopthtm += '<a href="javascript:;" class="sx-yx-cnt" id="checked_value_'+arr[0]+'"><span rel="'+arr[0]+'">'+arr[1]+'</span><i class="del cls_checked_del" rel="'+arr[0]+'" id="checked_value_del_'+arr[0]+'"></i></a>';
@@ -1468,8 +1468,8 @@ function chechkcli(chid,htmid){
 		var tradopthtm = '';
 		var traddivhtm = '';
 		$.each(tradstr, function(index, val) {
-			for(var i = 0;i < QS_trade.length;i++) {
-				arr = QS_trade[i].split(",");
+			for(var i = 0;i < HW_trade.length;i++) {
+				arr = HW_trade[i].split(",");
 				if (arr[0] == val) {
 					tradename.push(arr[1]);
 					tradopthtm += '<a href="javascript:;" class="sx-yx-cnt" id="checked_value_'+arr[0]+'"><span rel="'+arr[0]+'">'+arr[1]+'</span><i class="del cls_checked_del" rel="'+arr[0]+'" id="checked_value_del_'+arr[0]+'"></i></a>';

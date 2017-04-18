@@ -34,7 +34,7 @@ $(document).ready(function()
         userName : true,
         nomobile : true,
         remote:{     
-        url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+        url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
         type:"post",    
         data:{"usname":function (){return $("#username").val()},"act":"check_usname","time":function (){return new Date().getTime()}}     
         }
@@ -43,7 +43,7 @@ $(document).ready(function()
       required: true,
       email:true,
       remote:{     
-        url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+        url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
         type:"post",    
         data:{"email":function (){return $("#email").val()},"act":"check_email","time": new Date().getTime()}     
         }
@@ -135,7 +135,7 @@ $(document).ready(function()
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="password1" type="password" class="input_text_200" id="password1" maxlength="25" value=""/><label></label></td>
     </tr>
 		
-	{#if $QISHI.operation_mode=="1"||$QISHI.operation_mode=="3"#}
+	{#if $HIGHWAY.operation_mode=="1"||$HIGHWAY.operation_mode=="3"#}
 	    <tr>
       <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">是否赠送积分：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed"  ><label>
@@ -151,17 +151,17 @@ $(document).ready(function()
     </tr>
 		{#/if#}
 
-	{#if $QISHI.operation_mode=='2'||$QISHI.operation_mode=="3"#}  
+	{#if $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=="3"#}  
 	<tr>
       <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">赠送服务套餐：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" >
           <label>
-          <input type="radio" name="reg_service" value="0" {#if $QISHI.reg_service=='0'#}checked="checked"{#/if#}/>
+          <input type="radio" name="reg_service" value="0" {#if $HIGHWAY.reg_service=='0'#}checked="checked"{#/if#}/>
           不赠送</label>
           {#foreach from=$givesetmeal item=list#}
 		    &nbsp;&nbsp;
 		    <label>
-          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $QISHI.reg_service==$list.id#}checked="checked"{#/if#}/>
+          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $HIGHWAY.reg_service==$list.id#}checked="checked"{#/if#}/>
           {#$list.setmeal_name#}</label>
 		   {#/foreach#}	    
 	  </td>

@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 邮件群发
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_smsqueue_fun.php');
@@ -19,7 +9,7 @@ $smarty->assign('pageheader',"短信营销");
 if($act == 'list')
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
 	if (!empty($key) && $key_type>0)
@@ -58,7 +48,7 @@ elseif($act == 'smsqueue_add_save')
 	check_token();
 	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('手机号码必须填写！',1);
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'gb2312')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
 	$mobile_arr=explode('|',$setsqlarr['s_sms']);
 	$mobile_arr=array_unique($mobile_arr);
 	foreach($mobile_arr as $list){
@@ -90,7 +80,7 @@ elseif($act == 'smsqueue_edit_save')
 	check_token();
 	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('手机号码必须填写！',1);
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'gb2312')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
 	$wheresql=" s_id='".intval($_POST['id'])."' ";
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = '?';
@@ -113,7 +103,7 @@ elseif($act == 'smsqueue_batchadd_save')
 {
 	check_token();
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'gb2312')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
 	$selutype=intval($_POST['selutype']);
 	$selsettr=intval($_POST['selsettr']);
 	if ($selutype>0)
@@ -190,7 +180,7 @@ elseif($act == 'totalsend')
 			{
 				adminmsg("没有可发送的短信",1);
 			}
-			@file_put_contents(QISHI_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
+			@file_put_contents(HIGHWAY_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$$senderr}&intervaltime={$intervaltime}");
 		}
 		
@@ -206,7 +196,7 @@ elseif($act == 'totalsend')
 			{
 				adminmsg("没有可发送的短信",1);
 			}
-			@file_put_contents(QISHI_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
+			@file_put_contents(HIGHWAY_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$$senderr}&intervaltime={$intervaltime}");
 	}
 	elseif ($sendtype===3)
@@ -220,7 +210,7 @@ elseif($act == 'totalsend')
 			{
 				adminmsg("没有可发送的短信",1);
 			}
-			@file_put_contents(QISHI_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
+			@file_put_contents(HIGHWAY_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$$senderr}&intervaltime={$intervaltime}");
 	}
 }
@@ -228,7 +218,7 @@ elseif($act == 'send')
 {
 	$senderr=intval($_GET['senderr']);
 	$intervaltime=intval($_GET['intervaltime']);
-	$tempdir=QISHI_ROOT_PATH."temp/sendsms.txt";
+	$tempdir=HIGHWAY_ROOT_PATH."temp/sendsms.txt";
 	$content = file_get_contents($tempdir);
 	$idarr = unserialize($content);
 	$totalid=count($idarr);

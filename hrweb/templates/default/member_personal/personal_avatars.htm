@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 头像</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 头像</div>
 <!-- 进度条 -->
 <div class="photoTrad" id="photoTrad">正在上传，请稍后！</div>
 <!-- 进度条 End-->
@@ -50,11 +50,11 @@
 	  	<div class="main">
 	  		<div id="altContent">
 				<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" WIDTH="650" HEIGHT="450" id="myMovieName">
-					<PARAM NAME=movie VALUE="{#$QISHI.site_template#}/flash/resumelogo.swf">
+					<PARAM NAME=movie VALUE="{#$HIGHWAY.site_template#}/flash/resumelogo.swf">
 					<PARAM NAME=quality VALUE=high>
 					<PARAM NAME=bgcolor VALUE=#FFFFFF>
-					<param name="flashvars" value="imgUrl={#$QISHI.site_template#}/flash/photodefault.jpg&uploadUrl=?act=avatars_save&uploadSrc=false" />
-					<EMBED src="{#$QISHI.site_template#}/flash/resumelogo.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl={#$QISHI.site_template#}/flash/photodefault.jpg&uploadUrl=?act=avatars_save&uploadSrc=false" NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+					<param name="flashvars" value="imgUrl={#$HIGHWAY.site_template#}/flash/photodefault.jpg&uploadUrl=?act=avatars_save&uploadSrc=false" />
+					<EMBED src="{#$HIGHWAY.site_template#}/flash/resumelogo.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl={#$HIGHWAY.site_template#}/flash/photodefault.jpg&uploadUrl=?act=avatars_save&uploadSrc=false" NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
 				</OBJECT>
 			</div>
 	  	</div>

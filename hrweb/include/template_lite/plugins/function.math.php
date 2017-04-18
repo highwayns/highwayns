@@ -1,15 +1,5 @@
 ﻿<?php
 
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     math
- * Purpose:  handle math computations in template
- * Taken from the original Smarty
- * http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_math($params, &$template_object)
 {
     // be sure equation parameter is present

@@ -1,27 +1,27 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.company.selectlayer.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
-<link rel="stylesheet" href="{#$QISHI.site_template#}kindeditor/themes/default/default.css" />
-<script charset="utf-8" src="{#$QISHI.site_template#}kindeditor/kindeditor-min.js"></script>
-<script charset="utf-8" src="{#$QISHI.site_template#}kindeditor/lang/zh_CN.js"></script>
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.company.selectlayer.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
+<link rel="stylesheet" href="{#$HIGHWAY.site_template#}kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="{#$HIGHWAY.site_template#}kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="{#$HIGHWAY.site_template#}kindeditor/lang/zh_CN.js"></script>
 <style>
 	{width: 100%;}
 </style>
@@ -62,11 +62,11 @@ $(document).ready(function()
 			}
 	    }
 	}
-	allaround('{#$QISHI.site_dir#}');
+	allaround('{#$HIGHWAY.site_dir#}');
 	// 所属行业填充数据
-	trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+	trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 	// 所在地区填充数据
-	city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$QISHI.site_dir#}");
+	city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$HIGHWAY.site_dir#}");
 	// 所在街道选择
 	street_filldata("#street_list", "#street");
 	//范例展开
@@ -191,10 +191,10 @@ $(document).ready(function()
 </script>
 </head>
 
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 企业资料</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 企业资料</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -228,7 +228,7 @@ $(document).ready(function()
              	 	<div id="nature_menu" class="input_text_200_bg">{#$company_profile.nature_cn|default:"请选择"#}</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#qishi_get_classify set="列表名:c_nature,类型:QS_company_type"#}
+	              			{#highway_get_classify set="列表名:c_nature,类型:HW_company_type"#}
 	              			{#foreach from=$c_nature item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -292,7 +292,7 @@ $(document).ready(function()
              	 	<div id="scale_menu" class="input_text_200_bg">{#$company_profile.scale_cn|default:"请选择"#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+	              			{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 	              			{#foreach from=$c_scale item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -392,7 +392,7 @@ $(document).ready(function()
 																	<table class="options-table options-table-7">
 																		<tbody class="item-list"><tr><td class="bno"><table><tbody id="street_list"><tr>
 																			<!-- 列表内容 -->
-																			{#qishi_get_classify set="类型:QS_street,列表名:list"#}
+																			{#highway_get_classify set="类型:HW_street,列表名:list"#}
 																			{#section name=lis loop=$list#}
 																			{#if $smarty.section.lis.index%6 == 0 && $smarty.section.lis.index != 0#}
 																				</tr><tr><td><label class="selectra" data="{#$list[lis].c_id#},{#$list[lis].categoryname#}">{#$list[lis].categoryname#}</label></td>

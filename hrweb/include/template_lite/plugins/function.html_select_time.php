@@ -1,15 +1,5 @@
 ﻿<?php
 
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     html_select_time
- * Purpose:  Prints the dropdowns for time selection
- * Taken from the original Smarty
- * http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_html_select_time($params, &$template_object)
 {
 	require_once("shared.make_timestamp.php");

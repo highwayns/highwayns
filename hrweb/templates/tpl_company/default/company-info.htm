@@ -1,14 +1,14 @@
-﻿{#qishi_company_show set="列表名:company,企业ID:GET[id],企业介绍长度:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_company_show set="列表名:company,企业ID:GET[id],企业介绍长度:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<title>{#$company.companyname#} - {#$QISHI.site_name#}</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>{#$company.companyname#} - {#$HIGHWAY.site_name#}</title>
 <meta name="description" content="{#$company.description#}},公司简介">
 <meta name="keywords" content="{#$company.companyname#},公司简介">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$user_tpl#}css/css.css" rel="stylesheet" type="text/css" />
 <link href="{#$user_tpl#}css/ui-dialog.css" rel="stylesheet" type="text/css" />	
 <script src="{#$user_tpl#}js/jquery.js"></script>
@@ -19,7 +19,7 @@
 	$(document).ready(function() {
 		var company_id="{#$company.id#}";
 		var tsTimeStamp= new Date().getTime();
-		$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": company_id,"time":tsTimeStamp,"act":"company_contact"},
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_contact.php", { "id": company_id,"time":tsTimeStamp,"act":"company_contact"},
 			function (data,textStatus)
 			 {			
 				$("#company_contact").html(data);
@@ -29,7 +29,7 @@
 		$(".ajax_user_login").live('click',function(){
 			var myDialog = dialog();// 初始化一个带有loading图标的空对话框
 			jQuery.ajax({
-			    url: '{#$QISHI.site_dir#}user/user_ajax_login.php',
+			    url: '{#$HIGHWAY.site_dir#}user/user_ajax_login.php',
 			    success: function (data) {
 			    	myDialog.width(475);
 			        myDialog.content(data);// 填充对话框内容
@@ -45,7 +45,7 @@
 	{#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$QISHI.site_dir#}">首页</a>><a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>>{#$company.companyname#}
+		当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
 	</div>
 	<div class="container">
 		<div class="company-wrap clearfix">
@@ -57,21 +57,21 @@
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
-									<img title="企业已认证" src="{#$QISHI.site_template#}images/yesyan.jpg" border="0" />
+									<img title="企业已认证" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企业未认证" src="{#$QISHI.site_template#}images/noyan.jpg" border="0" />
+									<img title="企业未认证" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user > 1#}
-									<img title="" src="{#$QISHI.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
+									<img title="" src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
 								{#/if#}
 							</h2>
 							<p>{#$company.address#}</p>
 						</div>
 					</div>
 					<div class="company-control clearfix">
-						<a href="{#"QS_companyshow,id:"|cat:$company.id|qishi_url#}" class="c-control-item f-left">企业主页</a>
-						<a href="{#"QS_companyinfo,id:"|cat:$company.id|qishi_url#}" class="c-control-item f-left active">公司介绍</a>
-						<a href="{#"QS_companyjobs,id:"|cat:$company.id|qishi_url#}" class="c-control-item f-left">招聘职位</a>
+						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">企业主页</a>
+						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">公司介绍</a>
+						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">招聘职位</a>
 					</div>
 					<div class="company-info-wrap">
 						<div style="max-height:1000px">
@@ -111,7 +111,7 @@
 				<div class="c-right-block">
 					<h3 class="c-right-title">手机浏览</h3>
 					<div class="com-code">
-						<img src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}plus/url_qrcode.php?url={#$QISHI.site_domain#}{#$QISHI.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="扫描二维码" width="100" height="100" />
+						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="扫描二维码" width="100" height="100" />
 					</div>
 				</div>
 			</div>

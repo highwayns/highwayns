@@ -1,10 +1,4 @@
-﻿/* 
-* QSdialog 1.0
-* http://www.74cms.com/
-* Date: 2011-5-15 
-* Requires jQuery
-*/ 
-(function($) {   
+﻿(function($) {   
 $.fn.QSdialog=function(options){
 	var defaults = {
     DialogAddObj:"body",	

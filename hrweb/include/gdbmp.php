@@ -2,7 +2,7 @@
 /**
  * 利用GD库读写bmp格式图片
  */
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');
 }
@@ -351,21 +351,6 @@ function imagecreatefrombmp($file){
 	fclose($f);
 }
 
-/*
-* Helping functions:
-*-------------------------
-*
-* freadbyte($file) - reads 1 byte from $file
-* freadword($file) - reads 2 bytes (1 word) from $file
-* freaddword($file) - reads 4 bytes (1 dword) from $file
-* freadlngint($file) - same as freaddword($file)
-* decbin8($d) - returns binary string of d zero filled to 8
-* RetBits($byte,$start,$len) - returns bits $start->$start+$len from $byte
-* freadbits($file,$count) - reads next $count bits from $file
-* RGBToHex($R,$G,$B) - convert $R, $G, $B to hex
-* int_to_dword($n) - returns 4 byte representation of $n
-* int_to_word($n) - returns 2 byte representation of $n
-*/
 
 function freadbyte($f){
 	return ord(fread($f,1));

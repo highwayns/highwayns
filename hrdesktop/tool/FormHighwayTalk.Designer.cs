@@ -1,6 +1,6 @@
 ﻿namespace highwayns
 {
-    partial class FormTeamTalk
+    partial class FormHighwayTalk
     {
         /// <summary>
         /// Required designer variable.

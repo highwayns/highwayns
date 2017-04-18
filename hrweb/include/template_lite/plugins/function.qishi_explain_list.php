@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_explain_list($params, &$smarty)
+function tpl_function_highway_explain_list($params, &$smarty)
 {
 	global $db,$_CFG;
 	$arrset=explode(',',$params['set']);
@@ -40,7 +40,7 @@ function tpl_function_qishi_explain_list($params, &$smarty)
 	$aset['start']=isset($aset['start'])?intval($aset['start']):0;
 	$aset['titlelen']=isset($aset['titlelen'])?intval($aset['titlelen']):15;
 	$aset['dot']=isset($aset['dot'])?$aset['dot']:'';
-	$aset['showname']=isset($aset['showname'])?$aset['showname']:'QS_explainshow';
+	$aset['showname']=isset($aset['showname'])?$aset['showname']:'HW_explainshow';
 if (isset($aset['displayorder']))
 {
 	if (strpos($aset['displayorder'],'>'))

@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -17,12 +17,12 @@ $(document).ready(function()
 	});
 	//验证码随机
 	$("#getcode").live('click',function(){
-		$(this).attr('src','{#$QISHI.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
+		$(this).attr('src','{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
 	});
 
 	$("#Form1").validate({
 		submitHandler:function(form){
-			$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {"act":"get_pass_check_buding","username":$("#username").val()}, function(data){
+			$.post('{#$HIGHWAY.site_dir#}plus/ajax_user.php', {"act":"get_pass_check_buding","username":$("#username").val()}, function(data){
 				if($.trim(data)=="true")
 				{
 					form.submit();  
@@ -46,7 +46,7 @@ $(document).ready(function()
 			username:{
 				required: true,
 				remote:{     
-				url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+				url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 				type:"post",    
 				data:{"username":function (){return $("#username").val()},"act":"get_pass_check"}     
 				}
@@ -54,7 +54,7 @@ $(document).ready(function()
 			postcaptcha:{
 				required: true,
 				remote:{     
-				url:"{#$QISHI.site_dir#}include/imagecaptcha.php",     
+				url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",     
 				type:"post",    
 				data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}     
 				}
@@ -111,7 +111,7 @@ $(document).ready(function()
 						<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
 					</div>
 					<div class="reg-form-other verification f-left" style="padding-left: 20px;">
-						<div class="ver-box f-left"><img src="{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+						<div class="ver-box f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
 					</div>
 					
 				</div>
@@ -127,15 +127,15 @@ $(document).ready(function()
 		</form>
 		<div class="common-status" id="buding" style="display: none;padding:120px 0;">
 			<div class="status-main">
-			<span><img src="{#$QISHI.site_template#}images/icon-error.png" alt="失败" /></span>找回密码失败
+			<span><img src="{#$HIGHWAY.site_template#}images/icon-error.png" alt="失败" /></span>找回密码失败
 			</div>
-			<p>您的账号没绑定手机或邮箱，请联系网站管理员或拔打{#$QISHI.site_name#}客服电话{#$QISHI.top_tel#}！</p>
+			<p>您的账号没绑定手机或邮箱，请联系网站管理员或拔打{#$HIGHWAY.site_name#}客服电话{#$HIGHWAY.top_tel#}！</p>
 		</div>
 		<div class="common-status" id="buding_wx" style="display: none;padding:50px 0;">
 			<div class="status-main">
-				<span><img src="{#$QISHI.site_template#}images/icon-error.png" alt="失败" /></span>您的账号暂不支持找回密码
+				<span><img src="{#$HIGHWAY.site_template#}images/icon-error.png" alt="失败" /></span>您的账号暂不支持找回密码
 			</div>
-			<p>您的账号已绑定微信号，可直接微信 <a href="{#"QS_login"|qishi_url#}">扫码登录>></a></p>
+			<p>您的账号已绑定微信号，可直接微信 <a href="{#"HW_login"|highway_url#}">扫码登录>></a></p>
 		</div>
 	</div>
 	{#include file="user/footer.htm"#}

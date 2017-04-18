@@ -1,19 +1,9 @@
 ﻿<?php
- /*
- * 74cms 会员注册
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
-$alias="QS_login";
+define('IN_HIGHWAY', true);
+$alias="HW_login";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $smarty->cache = false;
@@ -30,28 +20,28 @@ if(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOK
 	}
 	else
 	{
-	setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[username]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[password]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	header("Location:".url_rewrite('QS_login'));
+	setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('QS[username]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('QS[password]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	header("Location:".url_rewrite('HW_login'));
 	}
 }
 //激活账户
 elseif ($act=='activate')
 {
 	if (defined('UC_API')){
-				include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+				include_once(HIGHWAY_ROOT_PATH.'uc_client/client.php');
 				if($data = uc_get_user($_SESSION['activate_username']))
 				{
 				unset($_SESSION['uid']);
 				unset($_SESSION['username']);
 				unset($_SESSION['utype']);
 				unset($_SESSION['uqqid']);
-				setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-				setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-				setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-				setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);		
+				setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+				setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+				setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+				setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);		
 				$smarty->assign('activate_email',$data[2]);
 				$smarty->assign('activate_username',$_SESSION['activate_username']);
 				}
@@ -69,7 +59,7 @@ elseif ($act=='activate_save')
 		{
 			$login_url=user_login($_SESSION['activate_username'],$_POST['pwd'],1,false);
 			$link[0]['text'] = "进入会员中心";
-			$link[0]['href'] = $login_url['qs_login'];
+			$link[0]['href'] = $login_url['hw_login'];
 			$link[1]['text'] = "网站首页";
 			$link[1]['href'] = $_CFG['site_dir'];
 			$_SESSION['activate_username']="";
@@ -106,15 +96,15 @@ elseif ($act=='activate_save')
 			unset($_SESSION['username']);
 			unset($_SESSION['utype']);
 			unset($_SESSION['uqqid']);
-			setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+			setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 			unset($_SESSION['activate_username']);
 			unset($_SESSION['activate_email']);
 			unset($_SESSION["openid"]);
 			$link[0]['text'] = "重新登录";
-			$link[0]['href'] = url_rewrite('QS_login');
+			$link[0]['href'] = url_rewrite('HW_login');
 			showmsg("激活失败，原因：{$html}",0,$link);
 			exit();
 		}
@@ -213,7 +203,7 @@ elseif($act =="reg_step2_email")
 // 保存注册信息
 elseif($act =="reg_step3")
 {
-	global $db,$QS_pwdhash,$_CFG,$timestamp;
+	global $db,$HW_pwdhash,$_CFG,$timestamp;
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['reg_token'])
 	{
 		$link[0]['text'] = "注册失败,重新注册";
@@ -269,7 +259,7 @@ elseif($act =="reg_step3")
 		dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_mail.php?uid=".$user['uid']."&key=".asyn_userkey($user['uid'])."&sendemail=".$email."&sendusername=".$user['username']."&sendpassword=".$password."&utype=".$utype_cn."&act=reg");
 		}
 		$user['uc_url']=$login_js['uc_login'];
-		$user['url']=$login_js['qs_login'];
+		$user['url']=$login_js['hw_login'];
 		$smarty->assign('title','会员注册 - '.$_CFG['site_name']);
 		$smarty->assign('user',$user);
 		setcookie("isFirstReg",1, time()+3600*24);

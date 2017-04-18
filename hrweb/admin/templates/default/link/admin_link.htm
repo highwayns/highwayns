@@ -21,9 +21,9 @@ $(document).ready(function()
  <div class="seltpye_x">
 		<div class="left">链接状态</div>	
 		<div class="right">
-		<a href="{#"alias:"|qishi_parse_url#}" {#if $smarty.get.alias==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"alias:"|highway_parse_url#}" {#if $smarty.get.alias==""#}class="select"{#/if#}>不限</a>
 		 {#foreach from=$get_link_category item=li#}
-		<a href="{#"alias:"|cat:$li.c_alias|qishi_parse_url#}" {#if $smarty.get.alias==$li.c_alias#}class="select"{#/if#}>{#$li.categoryname#}</a>
+		<a href="{#"alias:"|cat:$li.c_alias|highway_parse_url#}" {#if $smarty.get.alias==$li.c_alias#}class="select"{#/if#}>{#$li.categoryname#}</a>
 		 {#/foreach#}
 		<div class="clear"></div>
 		</div>
@@ -32,9 +32,9 @@ $(document).ready(function()
  <div class="seltpye_x">
 		<div class="left">添加类型</div>	
 		<div class="right">
-		<a href="{#"type_id:"|qishi_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"type_id:1"|qishi_parse_url#}" {#if $smarty.get.type_id=="1"#}class="select"{#/if#}>非自助申请</a>
-		<a href="{#"type_id:2"|qishi_parse_url#}" {#if $smarty.get.type_id=="2"#}class="select"{#/if#}>自助申请</a>
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:1"|highway_parse_url#}" {#if $smarty.get.type_id=="1"#}class="select"{#/if#}>非自助申请</a>
+		<a href="{#"type_id:2"|highway_parse_url#}" {#if $smarty.get.type_id=="2"#}class="select"{#/if#}>自助申请</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>

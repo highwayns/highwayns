@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 导航栏目设置
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_nav_fun.php');
@@ -21,7 +11,7 @@ if($act == 'list')
 {
 	get_token();
 	//筛选顶部导航
-	$alias = !empty($_GET['alias']) ? trim($_GET['alias']) : 'QS_top';
+	$alias = !empty($_GET['alias']) ? trim($_GET['alias']) : 'HW_top';
 	$smarty->assign('navlabel',"list");
 	$smarty->assign('list',get_nav($alias));
 	$smarty->display('nav/admin_nav.htm');
@@ -166,9 +156,9 @@ elseif($act == 'site_navigation_category_add_save')
 	check_token();
 	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有填写名称！',1);
 	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名！',1);
-		if (stripos($setsqlarr['alias'],"qs_")===0)
+		if (stripos($setsqlarr['alias'],"hw_")===0)
 		{
-			adminmsg("调用名不能用“qs_”开通",0);
+			adminmsg("调用名不能用“hw_”开通",0);
 		}
 		else
 		{
@@ -213,9 +203,9 @@ elseif($act == 'site_navigation_category_edit_save')
 	check_token();
 	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有填写名称！',1);
 	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名！',1);
-	if (stripos($setsqlarr['alias'],"qs_")===0)
+	if (stripos($setsqlarr['alias'],"hw_")===0)
 		{
-			adminmsg("调用名不能用“qs_”开通",0);
+			adminmsg("调用名不能用“hw_”开通",0);
 		}
 		else
 		{

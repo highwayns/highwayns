@@ -1,19 +1,19 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.dialog.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.dialog.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	// 验证邮箱
@@ -37,7 +37,7 @@ $(document).ready(function(){
 		myDialog.content("加载中...");
 		myDialog.width('500');
 		myDialog.showModal();
-		$.get("{#$QISHI.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid, function(data)
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid, function(data)
 			{
 				myDialog.content(data);
 			});
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		myDialog.content("加载中...");
 		myDialog.width('500');
 		myDialog.showModal();
-		$.get("{#$QISHI.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid+"&bind_wx_true=1", function(data)
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid+"&bind_wx_true=1", function(data)
 			{
 				myDialog.content(data);
 				setTimeout(function () {window.location.reload()}, 1000);
@@ -175,10 +175,10 @@ $(document).ready(function(){
 	// 	$(".field_value ul li").eq(2).after('<div class="clear"></div>');
 	// }
 });
-{#if $QISHI.weixin_apiopen=='1' && $QISHI.weixin_scan_bind=='1' && !$user.weixin_openid#}
+{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_bind=='1' && !$user.weixin_openid#}
 window.setInterval(run, 5000);
 function run(){
-    $.get("{#$QISHI.site_dir#}plus/ajax_common.php?act=waiting_weixin_scan",function(data){
+    $.get("{#$HIGHWAY.site_dir#}plus/ajax_common.php?act=waiting_weixin_scan",function(data){
         if(data=="1"){
            window.location.reload();
         }
@@ -187,10 +187,10 @@ function run(){
 {#/if#}
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 安全认证</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 安全认证</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -218,7 +218,7 @@ function run(){
 					<dl>
 						<dt class="field_Key">用户名</dt>
 						<dd class="field_value"><b id="account-newName" class="old-userName">{#$user.username#}</b></dd>
-						<dd class="msg_box">用户名和邮箱都能作为登录{#$QISHI.site_name#}的帐户名。</dd>
+						<dd class="msg_box">用户名和邮箱都能作为登录{#$HIGHWAY.site_name#}的帐户名。</dd>
 						<dd class="btn"><a id="updateName" title="修改" href="javascript:;">修改</a></dd>
 					</dl>
 				</div>
@@ -375,7 +375,7 @@ function run(){
 						<dd class="field_value">
 							<ul class="clearfix">
 								<!-- 微博绑定 -->
-								{#if $QISHI.sina_apiopen=="1"#}
+								{#if $HIGHWAY.sina_apiopen=="1"#}
 								<li>
 									{#if $user.sina_access_token#}
 									<div class="status success">
@@ -392,7 +392,7 @@ function run(){
 										<div class="box">
 											<div class="pic f-left sina"></div>
 											<div class="info f-left">
-												<div class="mt"><a href="{#$QISHI.site_dir#}user/connect_sina.php" class="accountUnbind">绑定微博账号</a></div>
+												<div class="mt"><a href="{#$HIGHWAY.site_dir#}user/connect_sina.php" class="accountUnbind">绑定微博账号</a></div>
 											</div>
 										</div>
 									</div>
@@ -400,9 +400,9 @@ function run(){
 								</li>
 								<div class="unbindBox" id="unbindBoxSina">
 									<div class="con">
-										<div class="f-left"><img src="{#$QISHI.site_template#}images/wx_showmsg.jpg"></div>
+										<div class="f-left"><img src="{#$HIGHWAY.site_template#}images/wx_showmsg.jpg"></div>
 										<div class="f-right tex">
-											确定要解除与<span class="co">新浪微博</span>的绑定吗?<br>如果解除绑定，你将无法使用新浪微博帐号直接登录{#$QISHI.site_name#}。确定并继续吗?
+											确定要解除与<span class="co">新浪微博</span>的绑定吗?<br>如果解除绑定，你将无法使用新浪微博帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
 										</div>
 										<div class="clear"></div>
 									</div>
@@ -414,7 +414,7 @@ function run(){
 								{#/if#}
 								<!-- 微博绑定 end-->
 								<!-- QQ绑定 -->
-								{#if $QISHI.qq_apiopen=="1"#}
+								{#if $HIGHWAY.qq_apiopen=="1"#}
 								<li>
 									{#if $user.qq_openid#}
 									<div class="status success">
@@ -431,7 +431,7 @@ function run(){
 										<div class="box">
 											<div class="pic f-left qq"></div>
 											<div class="info f-left">
-												<div class="mt"><a href="{#$QISHI.site_dir#}user/{#if $QISHI.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding" class="accountUnbind">绑定QQ账号</a></div>
+												<div class="mt"><a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding" class="accountUnbind">绑定QQ账号</a></div>
 											</div>
 										</div>
 									</div>
@@ -439,9 +439,9 @@ function run(){
 								</li>
 								<div class="unbindBox" id="unbindBoxQQ">
 									<div class="con">
-										<div class="f-left"><img src="{#$QISHI.site_template#}images/wx_showmsg.jpg"></div>
+										<div class="f-left"><img src="{#$HIGHWAY.site_template#}images/wx_showmsg.jpg"></div>
 										<div class="f-right tex">
-											确定要解除与<span class="co">腾讯QQ</span>的绑定吗?<br>如果解除绑定，你将无法使用腾讯QQ帐号直接登录{#$QISHI.site_name#}。确定并继续吗?
+											确定要解除与<span class="co">腾讯QQ</span>的绑定吗?<br>如果解除绑定，你将无法使用腾讯QQ帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
 										</div>
 										<div class="clear"></div>
 									</div>
@@ -453,7 +453,7 @@ function run(){
 								{#/if#}
 								<!-- QQ绑定 end-->
 								<!-- 微信绑定 -->
-								{#if $QISHI.weixin_apiopen=="1" && $QISHI.weixin_scan_bind=='1'#}
+								{#if $HIGHWAY.weixin_apiopen=="1" && $HIGHWAY.weixin_scan_bind=='1'#}
 								<li>
 									{#if $user.weixin_openid#}
 									<div class="status success">
@@ -489,7 +489,7 @@ function run(){
 								{#/if#}
 								<!-- 微信绑定 end-->
 								<!-- 淘宝绑定 -->
-								{#if $QISHI.taobao_apiopen=="1"#}
+								{#if $HIGHWAY.taobao_apiopen=="1"#}
 								<li>
 									{#if $user.taobao_access_token#}
 									<div class="status success">
@@ -506,7 +506,7 @@ function run(){
 										<div class="box">
 											<div class="pic f-left taobao"></div>
 											<div class="info f-left">
-												<div class="mt"><a href="{#$QISHI.site_dir#}user/connect_taobao.php" class="accountUnbind">绑定淘宝账号</a></div>
+												<div class="mt"><a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php" class="accountUnbind">绑定淘宝账号</a></div>
 											</div>
 										</div>
 									</div>
@@ -514,9 +514,9 @@ function run(){
 								</li>
 								<div class="unbindBox" id="unbindBoxTaobao">
 									<div class="con">
-										<div class="f-left"><img src="{#$QISHI.site_template#}images/wx_showmsg.jpg"></div>
+										<div class="f-left"><img src="{#$HIGHWAY.site_template#}images/wx_showmsg.jpg"></div>
 										<div class="f-right tex">
-											确定要解除与<span class="co">淘宝账号</span>的绑定吗?<br>如果解除绑定，你将无法使用淘宝账号帐号直接登录{#$QISHI.site_name#}。确定并继续吗?
+											确定要解除与<span class="co">淘宝账号</span>的绑定吗?<br>如果解除绑定，你将无法使用淘宝账号帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
 										</div>
 										<div class="clear"></div>
 									</div>
@@ -532,7 +532,7 @@ function run(){
 					</dl>
 					<dl class="clearfix">
 						<dt class="field_Key">&nbsp;</dt>
-						<dd class="field_value remark">绑定第三方账号后，你可以用绑定账号直接登录{#$QISHI.site_name#}，便于账号密码记忆。</dd>
+						<dd class="field_value remark">绑定第三方账号后，你可以用绑定账号直接登录{#$HIGHWAY.site_name#}，便于账号密码记忆。</dd>
 					</dl>
 				</div>
 			</div>

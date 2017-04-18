@@ -143,7 +143,7 @@ $(document).ready(function()
 	  <tr>
         <td align="right" >文章属性：</td>
         <td colspan="4" >
-		{#qishi_news_property set="列表名:property"#}
+		{#highway_news_property set="列表名:property"#}
 		{#foreach from=$property item=list#}
 		<label><input name="focos" type="radio" value="{#$list.id#}" {#if $edit_article.focos==$list.id#}checked="checked" {#/if#}/>
 		{#$list.categoryname#}  </label>&nbsp;&nbsp;&nbsp; 

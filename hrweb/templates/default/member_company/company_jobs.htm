@@ -1,19 +1,19 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.reasontip-min.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.reasontip-min.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	// 发布职位 成功提示弹出
@@ -52,9 +52,6 @@ $(document).ready(function(){
 	    	if (url) {window.location.href=url};
 	    });
 	});
-	/*
-		顶部筛选 36 
-	*/
 	$('.data-filter').on('click', function(e){
 		$(this).find('.filter-down').toggle();
 		// 动态设置下拉列表宽度
@@ -68,14 +65,14 @@ $(document).ready(function(){
 		//点击下拉时收起其他下拉
 		$(".data-filter").not($(this)).find('.filter-down').hide();
 	});
-	vtip_reason("{#$QISHI.site_dir#}","jobs_reason");
+	vtip_reason("{#$HIGHWAY.site_dir#}","jobs_reason");
 	//积分模式下刷新职位操作 && $points_rule.jobs_refresh.value>"0"
-	{#if $QISHI.operation_mode=="1"#}
+	{#if $HIGHWAY.operation_mode=="1"#}
 		$("#refresh").click(function(){
 			var length=$("#form1 :checkbox[name='y_id[]'][checked]").length;
 			var refresh_point="{#$points_rule.jobs_refresh.value#}";
 			var total_point=length*refresh_point;
-			var cof = confirm("刷新职位可提高职位排名，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}，您选择了"+length+"条职位，总共需要消耗"+total_point+"{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}，确定刷新吗？");
+			var cof = confirm("刷新职位可提高职位排名，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，您选择了"+length+"条职位，总共需要消耗"+total_point+"{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？");
 			if(cof) {
 				return true;
 			} else {
@@ -96,12 +93,12 @@ $(document).ready(function(){
 			{
 				length=$("#form1 :checkbox[name='y_id[]'][checked]").length;
 			}
-			{#if $QISHI.operation_mode=="3"#}
+			{#if $HIGHWAY.operation_mode=="3"#}
 			$.get("?act=ajax_mode_points&length="+length,function(result){
 				//需要消耗积分
 				if(result=='ok')
 				{
-					var con= confirm("由于您的套餐已过期或者超出次数限制，所以刷新职位需要消耗积分，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}，确定刷新吗？")
+					var con= confirm("由于您的套餐已过期或者超出次数限制，所以刷新职位需要消耗积分，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？")
 					if(con)
 					{
 						if(jobsid)
@@ -129,7 +126,7 @@ $(document).ready(function(){
 					}
 				}
 			});
-			{#elseif $QISHI.operation_mode=="2"#}
+			{#elseif $HIGHWAY.operation_mode=="2"#}
 				if(jobsid)
 				{
 					window.location.href="?act=jobs_perform&refresh=1&y_id="+jobsid;
@@ -147,10 +144,10 @@ $(document).ready(function(){
 	// 推广下拉
 	$(".spread").toggle(function() {
 		$(this).find(".spread_but_group").slideDown("fast");
-		$(this).find("img").attr("src","{#$QISHI.site_template#}/images/spread_icon_up.gif");
+		$(this).find("img").attr("src","{#$HIGHWAY.site_template#}/images/spread_icon_up.gif");
 	}, function() {
 		$(this).find(".spread_but_group").slideUp("fast");
-		$(this).find("img").attr("src","{#$QISHI.site_template#}/images/spread_icon.gif");
+		$(this).find("img").attr("src","{#$HIGHWAY.site_template#}/images/spread_icon.gif");
 	});
 	/*批量 关闭职位 */
 	$("#display2").click(function(){
@@ -177,10 +174,10 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 职位管理</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 职位管理</div>
 <div class="usermain">
   <div class="leftmenu  com link_bk">
   	 {#include file="member_company/left.htm"#}
@@ -201,7 +198,7 @@ $(document).ready(function(){
 					<div class="clear"></div>
 				</div>
 			</div>
-			{#if $QISHI.operation_mode=="2" || $QISHI.operation_mode=="3"#}
+			{#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
 			<div class="addjob-number">最大职位并发数为<span>{#$setmeal.jobs_ordinary#}</span>个，现发布中<span>{#$total[2]#}</span>个职位。</div>
 			{#/if#}
 		</div>
@@ -216,11 +213,11 @@ $(document).ready(function(){
 					<div class="data-filter span4">
 						<span class="filter-span">{#if $smarty.get.generalize_cn==''#}推广状态{#else#}{#$smarty.get.generalize_cn#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">  
-							<li><a href="{#"generalize:,generalize_cn:全部"|qishi_parse_url#}">全部</a></li>
-							<li><a href="{#"generalize:stick,generalize_cn:置顶"|qishi_parse_url#}">置顶</a></li>
-							<li><a href="{#"generalize:highlight,generalize_cn:套色"|qishi_parse_url#}">套色</a></li>
-							<li><a href="{#"generalize:emergency,generalize_cn:紧急"|qishi_parse_url#}">紧急</a></li>
-							<li><a href="{#"generalize:recommend,generalize_cn:推荐"|qishi_parse_url#}">推荐</a></li>
+							<li><a href="{#"generalize:,generalize_cn:全部"|highway_parse_url#}">全部</a></li>
+							<li><a href="{#"generalize:stick,generalize_cn:置顶"|highway_parse_url#}">置顶</a></li>
+							<li><a href="{#"generalize:highlight,generalize_cn:套色"|highway_parse_url#}">套色</a></li>
+							<li><a href="{#"generalize:emergency,generalize_cn:紧急"|highway_parse_url#}">紧急</a></li>
+							<li><a href="{#"generalize:recommend,generalize_cn:推荐"|highway_parse_url#}">推荐</a></li>
 						</ul>
 					</div>
 				</div>
@@ -233,9 +230,9 @@ $(document).ready(function(){
 					<div class="c-item f-left content1">
 						<div class="job-ma-block">
 							<div><a href="{#$li.jobs_url#}" target="_blank" class="name-link underline" title="{#$li.jobs_name_#}">{#$li.jobs_name#}</a></div>
-							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#} <a  href="{#if $QISHI.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a></p>
+							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#} <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a></p>
 							<div class="job-ma-ctrl">
-								<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="{#"QS_resumelist,jobcategory:"|cat:$li.jobcategory|qishi_url#}" class="data-ctrl underline" target="_blank">匹配</a>&nbsp;<a url="?act=jobs_perform&display2=1&y_id={#$li.id#}" href="javascript:;" class="data-ctrl underline ctrl-close">关闭</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+								<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="{#"HW_resumelist,jobcategory:"|cat:$li.jobcategory|highway_url#}" class="data-ctrl underline" target="_blank">匹配</a>&nbsp;<a url="?act=jobs_perform&display2=1&y_id={#$li.id#}" href="javascript:;" class="data-ctrl underline ctrl-close">关闭</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
 							</div>
 						</div>
 					</div>
@@ -268,7 +265,7 @@ $(document).ready(function(){
 				<div class="c-data-content apply_jobs clearfix">
 					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title="全选/反选" /></div>
 					<div class="data-last-btn f-left">
-						{#if $QISHI.operation_mode=="3"#}
+						{#if $HIGHWAY.operation_mode=="3"#}
 						<input type="hidden" name="refresh" id="refresh" value="" />
 						<input type="button" name="refresh" class="btn-65-30blue refresh"  value="刷新职位"  id="refresh"/>
 						{#else#}
@@ -334,8 +331,8 @@ $(document).ready(function(){
 					<div class="data-filter span4">
 						<span class="filter-span">职位状态<i class="filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href="{#"state:1"|qishi_parse_url#}">未通过</a></li>
-							<li><a href="{#"state:2"|qishi_parse_url#}">已关闭</a></li>
+							<li><a href="{#"state:1"|highway_parse_url#}">未通过</a></li>
+							<li><a href="{#"state:2"|highway_parse_url#}">已关闭</a></li>
 						</ul>
 					</div>
 				</div>
@@ -386,10 +383,10 @@ $(document).ready(function(){
 					<div class="data-filter span4">
 						<span class="filter-span">职位状态<i class="filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href="{#"state:1"|qishi_parse_url#}">发布中</a></li>
-							<li><a href="{#"state:2"|qishi_parse_url#}">审核中</a></li>
-							<li><a href="{#"state:3"|qishi_parse_url#}">未通过</a></li>
-							<li><a href="{#"state:4"|qishi_parse_url#}">已关闭</a></li>
+							<li><a href="{#"state:1"|highway_parse_url#}">发布中</a></li>
+							<li><a href="{#"state:2"|highway_parse_url#}">审核中</a></li>
+							<li><a href="{#"state:3"|highway_parse_url#}">未通过</a></li>
+							<li><a href="{#"state:4"|highway_parse_url#}">已关闭</a></li>
 						</ul>
 					</div>
 				</div>
@@ -403,7 +400,7 @@ $(document).ready(function(){
 					<div class="c-item f-left content1" style="width:535px;">
 						<div class="job-ma-block">
 							<div><a href="{#$li.jobs_url#}" target="_blank" class="name-link underline" title="{#$li.jobs_name_#}">{#$li.jobs_name#}</a></div>
-							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}{#if $li.status==1#}  <a  href="{#if $QISHI.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a>{#/if#}</p>
+							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}{#if $li.status==1#}  <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a>{#/if#}</p>
 						</div>
 					</div>
 					<div class="c-item f-left content2" style="width:218px;"><span style="{#if $li.status==2 || $li.status==4#}color:red;{#elseif $li.status==3#}color:#FFB443;{#else#}{#/if#}">{#$li.status_cn#}</span></div>
@@ -463,11 +460,11 @@ $(document).ready(function(){
 		<a href="javascript:;" class="sns-icon weixin f-left" title="分享到微信"></a>
 		<div class="weixin-code-box f-left">
 			<div class="weixin-border">
-				<img src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}plus/url_qrcode.php?url={#$jobs_one.jobs_url#}" alt="二维码" width="70" height="70" />
+				<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$jobs_one.jobs_url#}" alt="二维码" width="70" height="70" />
 			</div>
 				<span>微信扫一扫</span>
 		</div>
-		<script>window._bd_share_config={"common":{"bdText":"{#$jobs_one.companyname#}在@{#$QISHI.site_name#}  发布了最新职位 : {#$jobs_one.jobs_name#}(月薪 : {#$jobs_one.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$QISHI.site_name#}","bdUrl":"{#$jobs_one.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		<script>window._bd_share_config={"common":{"bdText":"{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs_one.jobs_name#}(月薪 : {#$jobs_one.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs_one.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 		</script>
 	</div>
 	<p class="succsee-more">为了吸引更多求职者的关注，建议您：<a href="javascript:;" class="underline set_promotion" catid="3" jobid="{#$jobs_one.id#}">置顶职位</a></p>
