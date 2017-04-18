@@ -2,7 +2,7 @@
 /*********************************************
 *骑士广告
 * *******************************************/
-function tpl_function_qishi_ad($params, &$smarty)
+function tpl_function_highway_ad($params, &$smarty)
 {
 global $db,$_CFG;
 $arrset=explode(',',$params['set']);

@@ -1,20 +1,20 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.personal.selectlayer.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.personal.selectlayer.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -57,9 +57,9 @@ auditEmail_dialog('.audit_email',"personal_ajax.php?act=user_email");
 // 身份验证
 editMobile_dialog(".edit_mobile","personal_ajax.php?act=old_mobile");
 
-allaround("{#$QISHI.site_dir#}");
+allaround("{#$HIGHWAY.site_dir#}");
 // 所学专业填充数据
-major_filldata("#major_list", QS_major_parent, QS_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$QISHI.site_dir#}");
+major_filldata("#major_list", HW_major_parent, HW_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$HIGHWAY.site_dir#}");
 //工作性质单选
 var nature_obj = $("#nature_radio .input_radio").first();
 $("#nature").val(nature_obj.attr("id"));
@@ -205,10 +205,10 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 基本资料</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 基本资料</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -345,7 +345,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="education_menu" class="input_text_200_bg">{#if $userprofile.education>0#}{#$userprofile.education_cn#}{#else#}请选择{#/if#}</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -410,7 +410,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="experience_menu" class="input_text_200_bg">{#if $userprofile.experience>0#}{#$userprofile.experience_cn#}{#else#}请选择{#/if#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}

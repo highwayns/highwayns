@@ -1,9 +1,9 @@
-﻿<a href="{#$QISHI.site_dir#}mobile/" class="mphone">手机频道</a>
-<a href="{#$QISHI.site_dir#}">网站首页</a>
-<a href="{#$QISHI.site_dir#}plus/shortcut.php">保存到桌面</a>
+﻿<a href="{#$HIGHWAY.site_dir#}mobile/" class="mphone">手机频道</a>
+<a href="{#$HIGHWAY.site_dir#}">网站首页</a>
+<a href="{#$HIGHWAY.site_dir#}plus/shortcut.php">保存到桌面</a>
 <script type="text/javascript">
 //顶部部登录
-$.get("{#$QISHI.site_dir#}plus/ajax_user.php", {"act":"top_loginform"},
+$.get("{#$HIGHWAY.site_dir#}plus/ajax_user.php", {"act":"top_loginform"},
 function (data,textStatus)
 {			
 $("#top_loginform").html(data);
@@ -35,7 +35,7 @@ $(".top-search-button").click(function()
 {
 	$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
 	$("#pageloadingbg").css("opacity", 0.5);
-	$.get("{#$QISHI.site_dir#}plus/ajax_search_location.php", {"act":$(this).attr('id'),"key":$("#top-search-key").val()},
+	$.get("{#$HIGHWAY.site_dir#}plus/ajax_search_location.php", {"act":$(this).attr('id'),"key":$("#top-search-key").val()},
 			function (data,textStatus)
 			 {
 				 window.location.href=data;

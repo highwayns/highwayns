@@ -27,7 +27,7 @@
         <td align="right">企业性质无法匹配则为：</td>
         <td>
 	<div>
-	{#qishi_get_classify set="类型:QS_company_type,列表名:li"#}
+	{#highway_get_classify set="类型:HW_company_type,列表名:li"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.company_nature#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="company_nature_cn" id="company_nature_cn" class="input_text_200 input_text_selsect"/>
 		<input name="company_nature" id="company_nature" type="hidden" value="{#$show.company_nature#}" />
 		<div id="menu1" class="menu">
@@ -44,7 +44,7 @@
         <td align="right">企业行业无法匹配则为：</td>
         <td>
 		<div>
-		{#qishi_get_classify set="列表名:li,类型:QS_trade"#}
+		{#highway_get_classify set="列表名:li,类型:HW_trade"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.company_trade#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="company_trade_cn" id="company_trade_cn" class="input_text_200 input_text_selsect"/>
 		<input name="company_trade" id="company_trade" type="hidden" value="{#$show.company_trade#}" />
 		<div id="menu2" class="dmenu shadow">
@@ -61,13 +61,13 @@
         <td align="right">企业所在地区无法匹配则为：</td>
         <td>
 		<div>
-		{#qishi_get_classify set="列表名:li,类型:QS_district"#}
+		{#highway_get_classify set="列表名:li,类型:HW_district"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.company_district#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="company_district_cn" id="company_district_cn" class="input_text_200 input_text_selsect"/>
 		<input name="district" id="district" type="hidden" value="" />
 		<input name="company_district" id="company_district" type="hidden" value="{#$show.company_district#}" />
 		<div id="menu3" class="dmenu shadow">
 			<ul>
-			{#qishi_get_classify set="列表名:c_province,类型:QS_district,id:0"#}
+			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -81,7 +81,7 @@
         <td align="right">企业规模无法匹配则为：</td>
         <td>
 	<div>
-	{#qishi_get_classify set="类型:QS_scale,列表名:li"#}
+	{#highway_get_classify set="类型:HW_scale,列表名:li"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.company_scale#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="company_scale_cn" id="company_scale_cn" class="input_text_200 input_text_selsect"/>
 		<input name="company_scale" id="company_scale" type="hidden" value="{#$show.company_scale#}" />
 		<div id="menu4" class="menu">

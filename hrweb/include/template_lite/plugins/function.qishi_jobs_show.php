@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_jobs_show($params, &$smarty)
+function tpl_function_highway_jobs_show($params, &$smarty)
 {
 	global $db,$timestamp,$_CFG;
 	$arr=explode(',',$params['set']);

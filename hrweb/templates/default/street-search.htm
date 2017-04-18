@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>{#if $smarty.get.streetid#}{#"QS_street,"|cat:$smarty.get.streetid|qishi_categoryname#}{#else#}按道路搜索{#/if#}  - 职位列表  - {#$QISHI.site_name#}</title>
-<meta name="description" content="{#$QISHI.site_name#} - 按道路搜索 - 招聘岗位">
-<meta name="keywords" content="{#$QISHI.site_name#},职位信息">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{#if $smarty.get.streetid#}{#"HW_street,"|cat:$smarty.get.streetid|highway_categoryname#}{#else#}按道路搜索{#/if#}  - 职位列表  - {#$HIGHWAY.site_name#}</title>
+<meta name="description" content="{#$HIGHWAY.site_name#} - 按道路搜索 - 招聘岗位">
+<meta name="keywords" content="{#$HIGHWAY.site_name#},职位信息">
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.highlight-3.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-street-list.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.highlight-3.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.jobs-street-list.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.vtip-min.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -39,7 +39,7 @@ $(document).ready(function()
 			};
 		});
 	});
-	allaround("{#$QISHI.site_dir#}");
+	allaround("{#$HIGHWAY.site_dir#}");
 	jobslist();
 	// 合并公司职位弹出
 	$(".mjob_name").hover(function(){
@@ -90,9 +90,9 @@ $(document).ready(function()
 	});
 	$("#infolists .infolist-row:last").css("border-bottom","none");
 	//申请职位
-	apply_jobs("{#$QISHI.site_dir#}");
+	apply_jobs("{#$HIGHWAY.site_dir#}");
 	// 收藏职位
-	favorites("{#$QISHI.site_dir#}");
+	favorites("{#$HIGHWAY.site_dir#}");
 	// 合并公司
 	var com_list= $.cookie('com_list');
 	if(com_list ==1)
@@ -133,19 +133,19 @@ $(document).ready(function()
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$QISHI.index_url#}">首页</a>&nbsp;>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>&nbsp;>&nbsp;按道路搜索
+当前位置：<a href="{#$HIGHWAY.index_url#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_jobs"|highway_url#}">招聘信息</a>&nbsp;>&nbsp;按道路搜索
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"QS_jobslist"|qishi_url#}" class="s-tab-item f-left">高级搜索</a>
-			<a href="{#"QS_street"|qishi_url#}" class="s-tab-item f-left active">道路搜索</a>
+			<a href="{#"HW_jobslist"|highway_url#}" class="s-tab-item f-left">高级搜索</a>
+			<a href="{#"HW_street"|highway_url#}" class="s-tab-item f-left active">道路搜索</a>
 		</div>
 		<div class="fliter-wrap fwnob">
-			<input type="hidden" detype="QS_street" id="searcnbtn" value="搜&nbsp;索" />
+			<input type="hidden" detype="HW_street" id="searcnbtn" value="搜&nbsp;索" />
 			<input type="hidden" name="sort" id="sort" value="{#$smarty.get.sort#}">
 			<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 			<input type="hidden" name="streetid" id="streetid" value="{#$smarty.get.streetid#}">
@@ -164,7 +164,7 @@ $(document).ready(function()
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">热门道路：</div>
 				<div class="fl-content r-choice f-left" id="show_street">
-					{#qishi_get_classify set="列表名:c_jobs,类型:QS_street,显示数目:30"#}
+					{#highway_get_classify set="列表名:c_jobs,类型:HW_street,显示数目:30"#}
 					{#foreach from=$c_jobs item=li#}
 					<div class="fl-content-li{#if $li.c_id == $smarty.get.streetid#} select{#/if#}" type="streetid" code="{#$li.c_id#}">{#$li.categoryname#}</div>
 					{#/foreach#}
@@ -174,15 +174,15 @@ $(document).ready(function()
 	</div>
 </div>
 <!--职位列表 -->
-{#qishi_jobs_list  set="分页显示:1,列表名:jobslist,列表页:QS_street,填补字符:...,职位名长度:13,合并:$smarty.cookie.com_list,企业名长度:19,描述长度:135,道路:GET[streetid],排序:GET[sort]"#}
+{#highway_jobs_list  set="分页显示:1,列表名:jobslist,列表页:HW_street,填补字符:...,职位名长度:13,合并:$smarty.cookie.com_list,企业名长度:19,描述长度:135,道路:GET[streetid],排序:GET[sort]"#}
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="sort">
 			<span class="job_list_type">排序</span>
-			<a href="{#"QS_street,sort:-page:1-streetid:"|cat:$smarty.get.streetid|qishi_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>综合排序</a>
-			<a href="{#"QS_street,sort:rtime-page:1-streetid:"|cat:$smarty.get.streetid|qishi_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新时间</a>
+			<a href="{#"HW_street,sort:-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>综合排序</a>
+			<a href="{#"HW_street,sort:rtime-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新时间</a>
 			{#if $smarty.get.key==""#}
-			<a href="{#"QS_street,sort:wage-page:1-streetid:"|cat:$smarty.get.streetid|qishi_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>薪资待遇</a>
+			<a href="{#"HW_street,sort:wage-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>薪资待遇</a>
 			{#/if#}
 		</div>
 		<div class="sort">
@@ -214,7 +214,7 @@ $(document).ready(function()
 			<div class="merger_com_box">
 				<h2><a href="{#$list.0.company_url#}" target="_black">{#$list.0.companyname#}</a> 
 					{#if $list.0.company_audit=="1"#}
-					<img src="{#$QISHI.site_template#}images/yan.gif" alt="" class="vtip" title="企业已认证"/>
+					<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" class="vtip" title="企业已认证"/>
 					{#/if#}
 				</h2>
 				<div class="merger_job_list">
@@ -223,10 +223,10 @@ $(document).ready(function()
 						<div class="merger_job_type mjob_name">
 							<div class="m_jobname_box">
 								<input type="checkbox" name="jid" value="{#$job_list.id#}" class="checkbox" /><a target="_black" href="{#$job_list.jobs_url#}" class="mjob_name_link">{#$job_list.jobs_name#}</a>
-								{#if $job_list.stick=="1"#}<img title="置顶信息" src="{#$QISHI.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
-					            {#if $job_list.emergency=="1"#}<img title="紧急招聘" src="{#$QISHI.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
-					            {#if $job_list.recommend=="1"#}<img title="推荐职位" src="{#$QISHI.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
-					            {#if $job_list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$QISHI.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+								{#if $job_list.stick=="1"#}<img title="置顶信息" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
+					            {#if $job_list.emergency=="1"#}<img title="紧急招聘" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.recommend=="1"#}<img title="推荐职位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
 					            <!-- 弹出框 -->
 								<div class="merger_job_info">
 									<div class="merger_sanjiao"></div>
@@ -234,7 +234,7 @@ $(document).ready(function()
 										<div class="pop_top_left">
 											<h3><a target="_black" href="{#$job_list.company_url#}">{#$job_list.companyname#}</a>
 												{#if $job_list.company_audit=="1"#}
-						                      	<img src="{#$QISHI.site_template#}images/yan.gif" alt="" title="企业已认证" class="vtip" />
+						                      	<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" title="企业已认证" class="vtip" />
 						                     	{#/if#}
 											</h3>
 											<div class="pop_job_name"><a target="_black" href="{#$job_list.jobs_url#}">{#$job_list.jobs_name#}</a></div>
@@ -286,12 +286,12 @@ $(document).ready(function()
 				<div class="info-list-block job clearfix">
 					<div class="list-item item1 f-left">
 						<input type="checkbox" name="jid" value="{#$list.id#}" id="" class="checkbox" /><a href="{#$list.jobs_url#}" target="_blank" class="underline">{#$list.jobs_name#}</a>
-						{#if $list.stick=="1"#}<img title="置顶信息" src="{#$QISHI.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
-						{#if $list.emergency=="1"#}<img title="紧急招聘" src="{#$QISHI.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
-						{#if $list.recommend=="1"#}<img title="推荐职位" src="{#$QISHI.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
-						{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$QISHI.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+						{#if $list.stick=="1"#}<img title="置顶信息" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
+						{#if $list.emergency=="1"#}<img title="紧急招聘" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.recommend=="1"#}<img title="推荐职位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
 					</div>
-					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$QISHI.site_template#}images/yan.gif" alt="已验证" />{#/if#}{#if $QISHI.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$QISHI.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
+					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="已验证" />{#/if#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
 					<div class="list-item item3 f-left"><span>{#$list.wage_cn#}</span></div>
 					<div class="list-item item4 f-left">{#$list.district_cn#}</div>
 					<div class="list-item item5 f-left">{#$list.refreshtime_cn#}</div>
@@ -330,7 +330,7 @@ $(document).ready(function()
 		{#/if#}
 	</div>
 </div>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
 {#include file="footer.htm"#}
 </body>
 </html>

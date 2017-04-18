@@ -296,7 +296,7 @@
 		var citycategory=$("#searckeybox input[name=district_id]").val();
 		var sort_1=$("#searckeybox input[name=sort]").val();
 		var page=$("#searckeybox input[name=page]").val();
-		$.get(dir+"plus/ajax_search_location.php", {"act":"QS_jobtag","key":key,"tag":tag,"jobcategory":jobcategory,"citycategory":citycategory,"sort":sort_1,"page":page},
+		$.get(dir+"plus/ajax_search_location.php", {"act":"HW_jobtag","key":key,"tag":tag,"jobcategory":jobcategory,"citycategory":citycategory,"sort":sort_1,"page":page},
 			function (data,textStatus)
 			 {	
 				 window.location.href=data;
@@ -304,13 +304,9 @@
 		);
 	}
 }
-/*
- * 74cms 职位搜索页面 行业内容的填充
-|   @param: fillID      -- 填入的ID
-*/
 function fillTag(fillID){
 	var tradli = '';
-	$.each(QS_jobtag, function(index, val) {
+	$.each(HW_jobtag, function(index, val) {
 		if(val) {
 			var trads = val.split(",");
 		 	tradli += '<li><a title="'+trads[1]+'" cln="'+trads[0]+'" href="javascript:;">'+trads[1]+'</a></li>';
@@ -318,9 +314,6 @@ function fillTag(fillID){
 	});
 	$(fillID+" ul").html(tradli);
 }
-/*
- * 74cms 职位搜索页面 拷贝行业已选
-*/
 function copyTradItem() {
 	var tradacqhtm = '';
 	$("#tagList .selectedcolor").each(function() {
@@ -345,27 +338,23 @@ function copyTradItem() {
 		});
 	});
 }
-/*
- * 74cms 职位搜索页面 职位内容的填充
-|   @param: fillID      -- 填入的ID
-*/
 function fillJobs(fillID){
 	var jobstr = '';
-	$.each(QS_jobs_parent, function(pindex, pval) {
+	$.each(HW_jobs_parent, function(pindex, pval) {
 		if(pval) {
 			jobstr += '<tr>';
 			var jobs = pval.split(",");
 		 	jobstr += '<th>'+jobs[1]+'</th>';
 		 	jobstr += '<td><ul class="jobcatelist">';
-		 	var sjobsArray = QS_jobs[jobs[0]].split("|");
+		 	var sjobsArray = HW_jobs[jobs[0]].split("|");
 		 	$.each(sjobsArray, function(sindex, sval) {
 		 		if(sval) {
 		 			var sjobs = sval.split(",");
 			 		jobstr += '<li>';
 			 		jobstr += '<p><font><a rcoid="'+sjobs[0]+'" pid="'+jobs[0]+'.'+sjobs[0]+'" title="'+sjobs[1]+'" href="javascript:;">'+sjobs[1]+'</a></font></p>';
-			 		if(QS_jobs[sjobs[0]]) {
+			 		if(HW_jobs[sjobs[0]]) {
 			 			jobstr += '<div class="subcate" style="display:none;">';
-			 			var cjobsArray = QS_jobs[sjobs[0]].split("|");
+			 			var cjobsArray = HW_jobs[sjobs[0]].split("|");
 			 			jobstr += '<a p="qb" href="javascript:;">不限</a>';
 				 		$.each(cjobsArray, function(cindex, cval) {
 				 			if(cval) {
@@ -389,22 +378,18 @@ function fillJobs(fillID){
 		}
 	});
 }
-/*
- * 74cms 职位搜索页面 地区内容的填充
-|   @param: fillID      -- 填入的ID
-*/
 function fillCity(fillID){
 	var citystr = '';
 	citystr += '<tr>';
 	citystr += '<td><ul class="jobcatelist">';
-	$.each(QS_city_parent, function(pindex, pval) {
+	$.each(HW_city_parent, function(pindex, pval) {
 		if(pval) {
 			var citys = pval.split(",");
 	 		citystr += '<li>';
 	 		citystr += '<p><font><a rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</a></font></p>';
-	 		if(QS_city[citys[0]]) {
+	 		if(HW_city[citys[0]]) {
 	 			citystr += '<div class="subcate" style="display:none;">';
-	 			var ccitysArray = QS_city[citys[0]].split("|");
+	 			var ccitysArray = HW_city[citys[0]].split("|");
 	 			citystr += '<a p="qb" href="javascript:;">不限</a>';
 		 		$.each(ccitysArray, function(cindex, cval) {
 		 			if(cval) {
@@ -426,9 +411,6 @@ function fillCity(fillID){
 		}
 	});
 }
-/*
- * 74cms 职位搜索页面 拷贝地区已选
-*/
 function copyCityItem() {
 	var cityacqhtm = '';
 	$("#divCityCate .selectedcolor").each(function() {
@@ -453,9 +435,6 @@ function copyCityItem() {
 		});
 	});
 }
-/*
- * 74cms 职位搜索页面 拷贝职位已选
-*/
 function copyJobItem() {
 	var jobacqhtm = '';
 	$("#divJobCate .selectedcolor").each(function() {

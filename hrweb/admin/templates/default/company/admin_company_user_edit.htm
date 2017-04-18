@@ -216,7 +216,7 @@ $(document).ready(function()
     </tr>	
   </table>
   </form>
-{#if $QISHI.operation_mode=='1'||$QISHI.operation_mode=='3'#}  
+{#if $HIGHWAY.operation_mode=='1'||$HIGHWAY.operation_mode=='3'#}  
  <div class="toptit">会员积分设置</div>
  <form id="form1" name="form1" method="post" action="?act=userpoints_edit">
  {#$inputtoken#}
@@ -272,7 +272,7 @@ $(document).ready(function()
 	</table>
   </form>
 	{#/if#}
-{#if $QISHI.operation_mode=='2'||$QISHI.operation_mode=='3'#}  
+{#if $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
   
   
 	{#if $setmeal#}
@@ -458,7 +458,7 @@ $(document).ready(function()
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           {#foreach from=$givesetmeal item=list#}		   
 		    <label>
-          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $QISHI.reg_service==$list.id#}checked="checked"{#/if#}/>
+          <input type="radio" name="reg_service" value="{#$list.id#}"   {#if $HIGHWAY.reg_service==$list.id#}checked="checked"{#/if#}/>
           {#$list.setmeal_name#}
 		  </label>
 		  &nbsp;&nbsp;&nbsp;&nbsp;

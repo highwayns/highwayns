@@ -96,9 +96,6 @@ var Annotation = function () {
 	this.init.apply(this, arguments);
 };
 Annotation.prototype = {
-	/* 
-	 * Initialize the annotation
-	 */
 	init: function (chart, options) {
 		var shapeType = options.shape && options.shape.type;
 
@@ -106,9 +103,6 @@ Annotation.prototype = {
 		this.options = merge({}, defaultOptions(shapeType), options);
 	},
 
-	/*
-	 * Render the annotation
-	 */
 	render: function (redraw) {
 		var annotation = this,
 			chart = this.chart,
@@ -145,9 +139,6 @@ Annotation.prototype = {
 		}
 	},
 
-	/*
-	 * Redraw the annotation title or shape after options update
-	 */
 	redraw: function () {
 		var options = this.options,
 			chart = this.chart,
@@ -280,9 +271,6 @@ Annotation.prototype = {
 		}
 	},
 
-	/*
-	 * Destroy the annotation
-	 */
 	destroy: function () {
 		var annotation = this,
 			chart = this.chart,
@@ -303,9 +291,6 @@ Annotation.prototype = {
 		annotation.group = annotation.title = annotation.shape = annotation.chart = annotation.options = null;
 	},
 
-	/*
-	 * Update the annotation with a given options
-	 */
 	update: function (options, redraw) {
 		extend(this.options, options);
 
@@ -335,9 +320,6 @@ Annotation.prototype = {
 // Add annotations methods to chart prototype
 extend(Chart.prototype, {
 	annotations: {
-		/*
-		 * Unified method for adding annotations to the chart
-		 */
 		add: function (options, redraw) {
 			var annotations = this.allItems,
 				chart = this.chart,

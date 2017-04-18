@@ -48,7 +48,7 @@ elseif($act == 'smsqueue_add_save')
 	check_token();
 	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('手机号码必须填写！',1);
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'gb2312')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
 	$mobile_arr=explode('|',$setsqlarr['s_sms']);
 	$mobile_arr=array_unique($mobile_arr);
 	foreach($mobile_arr as $list){
@@ -80,7 +80,7 @@ elseif($act == 'smsqueue_edit_save')
 	check_token();
 	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('手机号码必须填写！',1);
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'gb2312')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
 	$wheresql=" s_id='".intval($_POST['id'])."' ";
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = '?';
@@ -103,7 +103,7 @@ elseif($act == 'smsqueue_batchadd_save')
 {
 	check_token();
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'gb2312')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
 	$selutype=intval($_POST['selutype']);
 	$selsettr=intval($_POST['selsettr']);
 	if ($selutype>0)

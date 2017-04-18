@@ -1,20 +1,20 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="{#$QISHI.site_template#}css/datepicker.css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
-<script type="text/javascript" src="{#$QISHI.site_template#}js/jquery.datepicker.js"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/datepicker.css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.vtip-min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="{#$HIGHWAY.site_template#}js/jquery.datepicker.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.name-link').toggle(function(){
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		var resume_state= $(this).attr('state');
 		var resume_state_cn =$(this).text();
 		var resume_id =$(this).attr('resume_id');
-		$.post('{#$QISHI.site_dir#}user/user_label_resume.php', {"resume_state":resume_state,"resume_state_cn":resume_state_cn,"resume_id":resume_id}, function(data) 
+		$.post('{#$HIGHWAY.site_dir#}user/user_label_resume.php', {"resume_state":resume_state,"resume_state_cn":resume_state_cn,"resume_id":resume_id}, function(data) 
 		{
 			if(data=="ok")
 			{
@@ -65,15 +65,15 @@ $(document).ready(function(){
 	// 删除弹出
 	delete_dialog('.ctrl-del','#form1');
 	//邀请面试弹出
-	inviteJob_dialog('.inter-job',"{#$QISHI.site_dir#}user/user_invited.php",'{#$smarty.session.utype#}');
+	inviteJob_dialog('.inter-job',"{#$HIGHWAY.site_dir#}user/user_invited.php",'{#$smarty.session.utype#}');
 	// 发送到邮箱弹出
 	companySendToEmail_dialog('.db-btn.btn3','./company_ajax.php');
 })
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 收到的简历</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 收到的简历</div>
 <div class="usermain">
   <div class="leftmenu  com link_bk">
   	 {#include file="member_company/left.htm"#}
@@ -97,11 +97,11 @@ $(document).ready(function(){
 					<div class="data-filter span1">
 						<span class="filter-span">{#if $smarty.get.state_cn==''#}标签{#else#}{#$smarty.get.state_cn#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href="{#"state:,state_cn:全部"|qishi_parse_url#}">全部</a></li>
-							<li><a href="{#"state:1,state_cn:合适"|qishi_parse_url#}">合适</a></li>
-							<li><a href="{#"state:2,state_cn:不合适"|qishi_parse_url#}">不合适</a></li>
-							<li><a href="{#"state:3,state_cn:待定"|qishi_parse_url#}">待定</a></li>
-							<li><a href="{#"state:4,state_cn:未接通"|qishi_parse_url#}">未接通</a></li>
+							<li><a href="{#"state:,state_cn:全部"|highway_parse_url#}">全部</a></li>
+							<li><a href="{#"state:1,state_cn:合适"|highway_parse_url#}">合适</a></li>
+							<li><a href="{#"state:2,state_cn:不合适"|highway_parse_url#}">不合适</a></li>
+							<li><a href="{#"state:3,state_cn:待定"|highway_parse_url#}">待定</a></li>
+							<li><a href="{#"state:4,state_cn:未接通"|highway_parse_url#}">未接通</a></li>
 						</ul>
 					</div>
 				</div>
@@ -111,9 +111,9 @@ $(document).ready(function(){
 					<div class="data-filter span2">
 						<span class="filter-span">{#if $smarty.get.jobname==''#}应聘职位{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href="{#"jobsid:,jobname:全部职位"|qishi_parse_url#}">全部职位</a></li>
+							<li><a href="{#"jobsid:,jobname:全部职位"|highway_parse_url#}">全部职位</a></li>
 							{#foreach from=$jobs item=jos_li#}
-							<li><a href="{#"jobsid:$jos_li.id,jobname:$jos_li.jobs_name"|qishi_parse_url#}">{#$jos_li.jobs_name#}</a></li>
+							<li><a href="{#"jobsid:$jos_li.id,jobname:$jos_li.jobs_name"|highway_parse_url#}">{#$jos_li.jobs_name#}</a></li>
 							{#/foreach#}
 						</ul>
 					</div>

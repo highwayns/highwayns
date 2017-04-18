@@ -407,7 +407,7 @@ function send_sms($mobile,$content)
 	}
 	else
 	{
-		return https_request("http://www.74cms.com/SMSsend.php?sms_name={$sms['notice_sms_name']}&sms_key={$sms['notice_sms_key']}&mobile={$mobile}&content={$content}");
+		return https_request("http://www.jp.highwayns.com/SMSsend.php?sms_name={$sms['notice_sms_name']}&sms_key={$sms['notice_sms_key']}&mobile={$mobile}&content={$content}");
 	
 	}	
 }
@@ -422,7 +422,7 @@ function captcha_send_sms($mobile,$content)
 	}
 	else
 	{
-		return https_request("http://www.74cms.com/SMSsend.php?sms_name={$sms['captcha_sms_name']}&sms_key={$sms['captcha_sms_key']}&mobile={$mobile}&content={$content}");
+		return https_request("http://www.jp.highwayns.com/SMSsend.php?sms_name={$sms['captcha_sms_name']}&sms_key={$sms['captcha_sms_key']}&mobile={$mobile}&content={$content}");
 	}	
 }
 //其他类短信接口
@@ -436,7 +436,7 @@ function free_send_sms($mobile,$content)
 	}
 	else
 	{
-	return https_request("http://www.74cms.com/SMSsend5.php?sms_name={$sms['free_sms_name']}&sms_key={$sms['free_sms_key']}&mobile={$mobile}&content={$content}");
+	return https_request("http://www.jp.highwayns.com/SMSsend5.php?sms_name={$sms['free_sms_name']}&sms_key={$sms['free_sms_key']}&mobile={$mobile}&content={$content}");
 	}	
 }
 function execution_crons()

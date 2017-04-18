@@ -46,14 +46,14 @@ function fillCity(fillID){
 	var citystr = '';
 	citystr += '<tr>';
 	citystr += '<td><ul class="jobcatelist">';
-	$.each(QS_city_parent, function(pindex, pval) {
+	$.each(HW_city_parent, function(pindex, pval) {
 		if(pval) {
 			var citys = pval.split(",");
 	 		citystr += '<li>';
 	 		citystr += '<p><font><a rcoid="'+citys[0]+'" pid="'+citys[0]+'.0" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</a></font></p>';
-	 		if(QS_city[citys[0]]) {
+	 		if(HW_city[citys[0]]) {
 	 			citystr += '<div class="subcate" style="display:none;">';
-	 			var ccitysArray = QS_city[citys[0]].split("|");
+	 			var ccitysArray = HW_city[citys[0]].split("|");
 		 		$.each(ccitysArray, function(cindex, cval) {
 		 			if(cval) {
 			 			var ccitys = cval.split(",");

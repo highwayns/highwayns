@@ -209,9 +209,6 @@ p#vtip { display: none; position: absolute; padding: 10px; left: 5px; font-size:
 .optionlist ul li a.selected{background-color:#94c8e0;color:#FFF;}
 .optionlist ul li a:hover{background-color:#e6eef2;color:#f77d40;}
 
-/*
-***3.6版本的黄页，招聘首页，简历首页顶部筛选搜索框，列表页外部框架
-*/
 .clearfix:after{content:"";display:block;clear:both;}
 .clearfix{zoom:1;}
 .f-left{float: left;}
@@ -700,9 +697,6 @@ table td.span,table th.span {display: table-cell;float: none;margin-left: 0;}
 .icon-job-junior{background-position: 0 -672px;margin-top: 0px;position:absolute;}
 .optionlist ul li a:hover{background-color:#e6eef2;color:#f77d40;}
 
-/*
-***3.6版本的黄页，招聘首页，简历首页顶部筛选搜索框，列表页外部框架
-*/
 .clearfix:after{content:"";display:block;clear:both;}
 .clearfix{zoom:1;}
 .f-left{float: left;}

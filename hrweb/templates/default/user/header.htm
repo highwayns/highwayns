@@ -1,4 +1,4 @@
-﻿<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript" language="javascript"></script>
+﻿<script src="{#$HIGHWAY.site_template#}js/jquery.autocomplete.js" type="text/javascript" language="javascript"></script>
 <script>
 	$(function() {
 		// 顶部nav展开
@@ -25,7 +25,7 @@
 			$(".search-type-show").attr("code",stype).attr("title",tit).attr("data",data).find("span").text(tit);
 			$('.search-type-drop').hide();
 		});
-		var dir = "{#$QISHI.site_dir#}";
+		var dir = "{#$HIGHWAY.site_dir#}";
 		// 回车搜索
 		$('#keyForIndexSearch').keydown(function(e) {
 			if (e.keyCode==13) {
@@ -93,7 +93,7 @@
 	<div class="top-nav-wrap">
 		<div class="top-nav clearfix">
 			<ul class="f-left">
-				{#qishi_nav set="调用名称:QS_top,列表名:list,分割:5"#}
+				{#highway_nav set="调用名称:HW_top,列表名:list,分割:5"#}
 				{#foreach from=$list item=list#}
 				<li><a href="{#$list.url#}" target="{#$list.target#}" class="nav-li {#if $list.tag==$page_select && $list.tag!=""#}active{#/if#}">{#$list.title#}</a></li>
 			    {#/foreach#}
@@ -104,16 +104,16 @@
 							{#foreach from=$list_more item=li#}
 							<li><a href="{#$li.url#}" target="{#$li.target#}" class="underline f-left">{#$li.title#}</a></li>
 						    {#/foreach#}
-							<li><a href="{#"QS_explainshow,id:7"|qishi_url#}" class="underline f-left" target="_blank">VIP服务</a></li>
-							<li><a href="{#"QS_suggest"|qishi_url#}" class="underline f-left" target="_blank">意见建议</a></li>
-							<li><a href="{#"QS_simplelist"|qishi_url#}" class="underline f-left" target="_blank">微招聘</a></li>
-							<li><a href="{#"QS_helplist"|qishi_url#}" class="underline f-left">使用帮助</a></li>
+							<li><a href="{#"HW_explainshow,id:7"|highway_url#}" class="underline f-left" target="_blank">VIP服务</a></li>
+							<li><a href="{#"HW_suggest"|highway_url#}" class="underline f-left" target="_blank">意见建议</a></li>
+							<li><a href="{#"HW_simplelist"|highway_url#}" class="underline f-left" target="_blank">微招聘</a></li>
+							<li><a href="{#"HW_helplist"|highway_url#}" class="underline f-left">使用帮助</a></li>
 						</ul>
 						<div class="mob-list">
 							<h4>移动互联</h4>
 							<div class="mob-list-box clearfix">
-								<a href="{#$QISHI.site_dir#}mobile/?type=touch" class="mob-link wap-link f-left" target="_balnk">触屏版</a>
-								<a href="{#$QISHI.site_dir#}mobile/?type=weixin" class="mob-link wechat-link f-left" target="_balnk">微信版</a>
+								<a href="{#$HIGHWAY.site_dir#}mobile/?type=touch" class="mob-link wap-link f-left" target="_balnk">触屏版</a>
+								<a href="{#$HIGHWAY.site_dir#}mobile/?type=weixin" class="mob-link wechat-link f-left" target="_balnk">微信版</a>
 							</div>
 						</div>
 					</div>
@@ -121,24 +121,24 @@
 			</ul>
 			<div class="nav-right f-right">
 				{#if $smarty.session.username#}
-				<span class="login-reg"><a href="{#"QS_login"|qishi_url#}" class="underline">{#$smarty.session.username#}</a>&nbsp;&nbsp;&nbsp;<a href="{#"QS_login,act:logout"|qishi_url#}" class="underline">[退出]</a></span>
+				<span class="login-reg"><a href="{#"HW_login"|highway_url#}" class="underline">{#$smarty.session.username#}</a>&nbsp;&nbsp;&nbsp;<a href="{#"HW_login,act:logout"|highway_url#}" class="underline">[退出]</a></span>
 				{#else#}
-				<span class="login-reg"><a href="{#"QS_login"|qishi_url#}" class="underline">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{#$QISHI.site_dir#}user/user_reg.php" class="underline">注册</a></span>
+				<span class="login-reg"><a href="{#"HW_login"|highway_url#}" class="underline">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{#$HIGHWAY.site_dir#}user/user_reg.php" class="underline">注册</a></span>
 				{#/if#}
-				<span class="nav-items"><a href="{#$QISHI.site_dir#}plus/shortcut.php" class="underline">保存到桌面</a></span>
+				<span class="nav-items"><a href="{#$HIGHWAY.site_dir#}plus/shortcut.php" class="underline">保存到桌面</a></span>
 			</div>
 		</div>
 	</div>
 	<div class="container-index header-main clearfix">
-		<div class="logo-box f-left"><a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" border="0" align="absmiddle" width="260" height="70"/></a></div>
+		<div class="logo-box f-left"><a href="{#$HIGHWAY.site_dir#}"><img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.web_logo#}" alt="{#$HIGHWAY.site_name#}" border="0" align="absmiddle" width="260" height="70"/></a></div>
 		<div class="mobile-block f-right">
 			<div class="complex-center f-left">
 				<!-- 搜索 -->
 				<div class="search-wrap clearfix">
 					<div class="search-box f-left">
 						<div class="search-type f-left">
-							<div title="找工作" code="QS_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
-							<div title="找人才" code="QS_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
+							<div title="找工作" code="HW_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
+							<div title="找人才" code="HW_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
 						</div>
 						<div class="search-text f-left">
 							<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="请输入职位名称或企业名称" />

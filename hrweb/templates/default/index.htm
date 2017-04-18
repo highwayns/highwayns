@@ -1,23 +1,23 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_index"#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="列表名:page,调用:HW_index"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
 <meta http-equiv="X-UA-Compatible" content="edge">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/index.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/index_foucs.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.dropDownWidget.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.newindex.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.lazyload.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/index.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/index_foucs.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.dropDownWidget.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.newindex.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.lazyload.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.autocomplete.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	//选项卡切换
@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
 		})
 	});
 	//登录
-	$.get('{#$QISHI.site_dir#}plus/ajax_user.php?act=loginform', function(data) {
+	$.get('{#$HIGHWAY.site_dir#}plus/ajax_user.php?act=loginform', function(data) {
 		$("#ajax_login").html(data);
 		// 选择登录方式 
 		var wxrun = '';
@@ -40,12 +40,12 @@ jQuery(document).ready(function($) {
 			$('#login-box h1').html('微信登录');
 			$(this).attr('title', '用户名登录');
 			$(this).removeClass('wx').addClass('pc');
-			{#if $QISHI.weixin_apiopen=='1' && $QISHI.weixin_scan_login=='1' && $smarty.session.username==''#}
+			{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1' && $smarty.session.username==''#}
 			wxrun = window.setInterval(run, 5000);
 			function run(){
-			    $.get("{#$QISHI.site_dir#}m/wap_login.php?act=waiting_weixin_login",function(data){
+			    $.get("{#$HIGHWAY.site_dir#}m/wap_login.php?act=waiting_weixin_login",function(data){
 			        if(data=="1"){
-			           window.location="{#$QISHI.site_dir#}";
+			           window.location="{#$HIGHWAY.site_dir#}";
 			        }
 			    });
 			}
@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 			$('#login-box h1').html('会员登录');
 			$(this).attr('title', '微信登录');
 			$(this).removeClass('pc').addClass('wx');
-			{#if $QISHI.weixin_apiopen=='1' && $QISHI.weixin_scan_login=='1' && $smarty.session.username==''#}
+			{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1' && $smarty.session.username==''#}
 			window.clearInterval(wxrun);
 			{#/if#}
 		});
@@ -64,9 +64,9 @@ jQuery(document).ready(function($) {
 	// 左侧下拉
 	$.dropDownWidget(".job-sort-wrap");
 	// 首页的一些js
-	index("{#$QISHI.site_dir#}","{#$QISHI.site_template#}");
+	index("{#$HIGHWAY.site_dir#}","{#$HIGHWAY.site_template#}");
 	// 工作地区填充数据
-	city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#cityForIndexSearch", "#citycategory");
+	city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#cityForIndexSearch", "#citycategory");
 	//
 	$('.floor-item:first').find('.floor-title').css({'margin-top':5});
 	$(".core-function").live('click', function(event) {
@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <!-- 主体 -->
 <div class="container-index">
@@ -87,27 +87,27 @@ jQuery(document).ready(function($) {
 				<div class="leftmenu_box"></div>
 			</div>
 			<div class="bolck-nav clearfix">
-				<a class="b-nav-item f-left" href="{#$QISHI.site_dir#}jobs" target="_blank">
+				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}jobs" target="_blank">
 					<i class="b-nav-icon icon1"></i>
 					<p>找工作</p>
 				</a>
-				<a class="b-nav-item f-left" href="{#$QISHI.site_dir#}resume" target="_blank">
+				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}resume" target="_blank">
 					<i class="b-nav-icon icon2"></i>
 					<p>找人才</p>
 				</a>
-				<a class="b-nav-item f-left" href="{#$QISHI.site_dir#}user/company/company_jobs.php?act=addjobs" target="_blank">
+				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}user/company/company_jobs.php?act=addjobs" target="_blank">
 					<i class="b-nav-icon icon9"></i>
 					<p>发职位</p>
 				</a>
-				<a class="b-nav-item f-left" href="{#$QISHI.site_dir#}user/personal/personal_resume.php?act=make1" target="_blank">
+				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}user/personal/personal_resume.php?act=make1" target="_blank">
 					<i class="b-nav-icon icon4"></i>
 					<p>创简历</p>
 				</a>
-				<a class="b-nav-item f-left" href="{#"QS_simplelist"|qishi_url#}" target="_blank">
+				<a class="b-nav-item f-left" href="{#"HW_simplelist"|highway_url#}" target="_blank">
 					<i class="b-nav-icon icon5"></i>
 					<p>微商圈</p>
 				</a>
-				<a class="b-nav-item f-left" href="{#"QS_hrtoolsindex"|qishi_url#}" target="_blank">
+				<a class="b-nav-item f-left" href="{#"HW_hrtoolsindex"|highway_url#}" target="_blank">
 					<i class="b-nav-icon icon6"></i>
 					<p>HR工具</p>
 				</a>
@@ -121,21 +121,21 @@ jQuery(document).ready(function($) {
 				<div class="news-tab-box">
 					<!-- 公告 -->
 					<ul>
-						{#qishi_notice_list set="列表名:notice,显示数目:9,标题长度:12,分类:1,填补字符:..."#}
+						{#highway_notice_list set="列表名:notice,显示数目:9,标题长度:12,分类:1,填补字符:..."#}
 						{#foreach from=$notice item=list#}
 						<li><i class="tab-icon"></i><a href="{#$list.url#}" target="_blank" title="{#$list.title_#}" class="underline">{#$list.title#}</a></li>
 						{#/foreach#}
 					</ul>
 					<!-- 资讯 -->
 					<ul style="display: none;">
-						{#qishi_news_list set="列表名:news,显示数目:9,标题长度:12,分类:1,填补字符:..."#}
+						{#highway_news_list set="列表名:news,显示数目:9,标题长度:12,分类:1,填补字符:..."#}
 						{#foreach from=$news item=list#}
 						<li><i class="tab-icon"></i><a href="{#$list.url#}" target="_blank" title="{#$list.title_#}" class="underline">{#$list.title#}</a></li>
 						{#/foreach#}
 					</ul>
 					<!-- 帮助 -->
 					<ul style="display: none;">
-						{#qishi_help_list set="列表名:help,显示数目:9,标题长度:12,填补字符:..."#}
+						{#highway_help_list set="列表名:help,显示数目:9,标题长度:12,填补字符:..."#}
 						{#foreach from=$help item=list#}
 						<li><i class="tab-icon"></i><a href="{#$list.url#}" target="_blank" title="{#$list.title_#}" class="underline">{#$list.title#}</a></li>
 						{#/foreach#}
@@ -148,8 +148,8 @@ jQuery(document).ready(function($) {
 			<div class="search-wrap clearfix">
 				<div class="search-box f-left">
 					<div class="search-type f-left">
-						<div title="找工作" code="QS_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
-						<div title="找人才" code="QS_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
+						<div title="找工作" code="HW_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
+						<div title="找人才" code="HW_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
 					</div>
 					<div class="search-text f-left">
 						<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="请输入职位名称或企业名称" />
@@ -158,7 +158,7 @@ jQuery(document).ready(function($) {
 				<div class="search-box f-left">
 					<div class="search-area-box"><input type="text" name="cityForIndexSearch" id="cityForIndexSearch" placeholder="请输入工作地区" /></div>
 				</div>
-				<div class="search-submit f-left"><input type="button" name="btnForIndexSearch" id="btnForIndexSearch" code="QS_jobslist" value="搜索" class="search-submit" /></div>
+				<div class="search-submit f-left"><input type="button" name="btnForIndexSearch" id="btnForIndexSearch" code="HW_jobslist" value="搜索" class="search-submit" /></div>
 				<input type="hidden" name="citycategory" id="citycategory" value="">
 				<!-- 工作地区弹出框 -->
 				<div class="aui_outer" id="aui_outer_city">
@@ -195,7 +195,7 @@ jQuery(document).ready(function($) {
 			</div>
 			<!-- 搜索结束 -->
 			<div class="swipe-wrap">
-				{#qishi_ad set="显示数目:6,调用名称:QS_indexfocus,列表名:ad"#}
+				{#highway_ad set="显示数目:6,调用名称:HW_indexfocus,列表名:ad"#}
 				<div id="playBox">
 					<div class="pre"></div>
 					<div class="next"></div>
@@ -214,12 +214,12 @@ jQuery(document).ready(function($) {
 				</div>
 			</div>
 			<div class="block-ad-wrap clearfix lazyload">
-				{#qishi_ad set="显示数目:6,调用名称:QS_indexrecommend,列表名:ad"#}
+				{#highway_ad set="显示数目:6,调用名称:HW_indexrecommend,列表名:ad"#}
 				{#if $ad#}
 					{#foreach from=$ad item=list#}
 					{#if $list.img_uid>0#}
 					<div class="block-ad-item f-left">
-						<div class="block-ad-logo"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="202" height="81" border="0" /></a></div>
+						<div class="block-ad-logo"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="202" height="81" border="0" /></a></div>
 						<div class="block-ad-info">
 							<h3><a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a></h3>
 							<p><a href="{#$list.jobs.0.jobs_url#}" target="_blank">{#$list.jobs.0.jobs_name#}</a></p>
@@ -228,7 +228,7 @@ jQuery(document).ready(function($) {
 					{#else#}
 					<div class="block-ad-item f-left">
 						<a href="{#$list.img_url#}" target="_blank">
-							<img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.jpg" alt="{#$list.img_explain#}" width="202" height="153" border="0" />
+							<img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.jpg" alt="{#$list.img_explain#}" width="202" height="153" border="0" />
 						</a>
 					</div>
 					{#/if#}
@@ -263,10 +263,10 @@ jQuery(document).ready(function($) {
 			<div class="urgent-block" id="emergencybox">
 				<div class="urgent-title clearfix">
 					<h4 class="f-left">紧急招聘</h4>
-					<a href="{#"QS_jobs"|qishi_url#}" class="underline f-right" target="_blank">更多>></a>
+					<a href="{#"HW_jobs"|highway_url#}" class="underline f-right" target="_blank">更多>></a>
 				</div>
 				<ul class="urgent-list">
-					{#qishi_jobs_list set="列表名:jobs,显示数目:10,职位名长度:12,企业名长度:12,紧急招聘:1,排序:refreshtime>desc"#}
+					{#highway_jobs_list set="列表名:jobs,显示数目:10,职位名长度:12,企业名长度:12,紧急招聘:1,排序:refreshtime>desc"#}
 					{#foreach from=$jobs item=list#}
 					<li class="clearfix"><a href="{#$list.company_url#}" class="u-com f-left underline" target="_blank">{#$list.companyname#}</a><a href="{#$list.jobs_url#}" class="u-job f-left underline" title="{#$list.jobs_name_#}" target="_blank">{#$list.jobs_name#}</a></li>
 					{#/foreach#}
@@ -277,21 +277,21 @@ jQuery(document).ready(function($) {
 	<!-- 广告位集中区域 -->
 	<div class="ad-area">
 		<!-- 1198*58 广告  -->
-		{#qishi_ad set="显示数目:3,调用名称:QS_indextopimg,列表名:ad,文字长度:12"#}
+		{#highway_ad set="显示数目:3,调用名称:HW_indextopimg,列表名:ad,文字长度:12"#}
 		{#if $ad#}
 		{#foreach from=$ad item=list#}
 		<div class="ad-row clearfix lazyload">
-			<div class="ad-item ad-full f-left"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="1198" height="58" border="0" /></a></div>
+			<div class="ad-item ad-full f-left"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="1198" height="58" border="0" /></a></div>
 		</div>
 		{#/foreach#}
 		{#/if#}
 		<!-- 392*58 广告  格子广告-->
-		{#qishi_ad set="显示数目:6,调用名称:QS_indexcentreimg,列表名:ad,文字长度:12"#}
+		{#highway_ad set="显示数目:6,调用名称:HW_indexcentreimg,列表名:ad,文字长度:12"#}
 		{#if $ad#}
 		<div class="ad-row clearfix lazyload">
 			{#foreach from=$ad item=list#}
 			<div class="ad-item ad-31 f-left comimgtip">
-				<a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="392" height="58" border="0" /></a>
+				<a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="392" height="58" border="0" /></a>
 				{#if $list.jobs#}
 				<!-- 鼠标至上显示 -->
 				<div class="ad-more-info info31" style="display: none;">
@@ -313,12 +313,12 @@ jQuery(document).ready(function($) {
 		</div>
 		{#/if#}
 		<!-- 230x58 广告  格子广告-->
-		{#qishi_ad set="显示数目:10,调用名称:QS_indexcentreimg_230x58,列表名:ad,文字长度:12"#}
+		{#highway_ad set="显示数目:10,调用名称:HW_indexcentreimg_230x58,列表名:ad,文字长度:12"#}
 		{#if $ad#}
 		<div class="ad-row a23058d clearfix lazyload">
 			{#foreach from=$ad item=list#}
 			<div class="ad-item ad-51 f-left comimgtip">
-				<a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="230" height="58" border="0" /></a>
+				<a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="230" height="58" border="0" /></a>
 				{#if $list.jobs#}
 				<!-- 鼠标至上显示 -->
 				<div class="ad-more-info info51" style="display: none;">
@@ -346,27 +346,27 @@ jQuery(document).ready(function($) {
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
 			<h4 class="f-left">推荐职位<span>Recommended Job</span></h4>
-			<a href="{#"QS_helplist,id:10"|qishi_url#}" class="f-right underline" target="_blank">我是招聘单位，我想出现在这里</a>
+			<a href="{#"HW_helplist,id:10"|highway_url#}" class="f-right underline" target="_blank">我是招聘单位，我想出现在这里</a>
 		</div>
 		<div class="famous-list clearfix">
-			{#qishi_companyjobs_list set="列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1"#}
+			{#highway_companyjobs_list set="列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1"#}
 			{#foreach from=$comjob_recommend item=list#}
 			<div class="famous-items f-left">
 				<i class="fc-icon"></i>
 				<div class="famous-com comtip">
-					<a href="{#$list.company_url#}" class="underline" target="_balnk">{#$list.companyname#}{#if $QISHI.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$QISHI.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a>
+					<a href="{#$list.company_url#}" class="underline" target="_balnk">{#$list.companyname#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a>
 					<div class="famous-more-info" style="display:none;">
 						<i class="fmi-icon"></i>
 						<div class="fmi-title">招聘岗位</div>
 						<ul class="fmi-list">
-							{#qishi_jobs_list set="列表名:com_jobs_all,显示数目:3,会员UID:$list.uid"#}
+							{#highway_jobs_list set="列表名:com_jobs_all,显示数目:3,会员UID:$list.uid"#}
 							{#foreach from=$com_jobs_all item=job_li#}
 							<li class="clearfix">
 								<div class="fmi-jobname f-left"><a href="{#$job_li.jobs_url#}" class="underline" target="_balnk">{#$job_li.jobs_name#}</a></div><div class="fmi-time f-left"><span>{#$job_li.refreshtime_cn#}</span></div>
 							</li>
 							{#/foreach#}
 						</ul>
-						<p>该企业共有{#$list.jobs_num#}个职位，<a href="{#"QS_companyjobs,id:$list.company_id"|qishi_url#}" target="_balnk" class="underline">查看全部</a></p>
+						<p>该企业共有{#$list.jobs_num#}个职位，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline">查看全部</a></p>
 					</div>
 				</div>
 				<div class="famous-job">
@@ -381,12 +381,12 @@ jQuery(document).ready(function($) {
 	</div>
 	<!-- 列表-名企招聘结束 -->
 	<!-- 1198*58 广告  -->
-	{#qishi_ad set="显示数目:3,调用名称:QS_indexcenter,列表名:ad,文字长度:12"#}
+	{#highway_ad set="显示数目:3,调用名称:HW_indexcenter,列表名:ad,文字长度:12"#}
 	{#if $ad#}
 	<div class="ad-area">
 	{#foreach from=$ad item=list#}
 	<div class="ad-row clearfix lazyload">
-		<div class="ad-item ad-full f-left"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="1198" height="58" border="0" /></a></div>
+		<div class="ad-item ad-full f-left"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="1198" height="58" border="0" /></a></div>
 	</div>
 	{#/foreach#}
 	</div>
@@ -396,10 +396,10 @@ jQuery(document).ready(function($) {
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
 			<h4 class="f-left">最新职位<span>Latest Job</span></h4>
-			<a href="{#"QS_jobslist"|qishi_url#}" class="f-right underline" target="_blank">更多>></a>
+			<a href="{#"HW_jobslist"|highway_url#}" class="f-right underline" target="_blank">更多>></a>
 		</div>
 		<div class="newest-list clearfix">
-			{#qishi_companyjobs_list set="列表名:jobs,显示数目:40,职位名长度:12,显示职位:1,企业名长度:12,排序:rtime>desc"#}
+			{#highway_companyjobs_list set="列表名:jobs,显示数目:40,职位名长度:12,显示职位:1,企业名长度:12,排序:rtime>desc"#}
 			{#foreach from=$jobs item=list#}
 			<div class="newest-items f-left">
 				<i class="nc-icon"></i>
@@ -413,12 +413,12 @@ jQuery(document).ready(function($) {
 	</div>
 	<!-- 列表-最新职位结束 -->
 	<!-- 1198*58 广告  -->
-	{#qishi_ad set="显示数目:3,调用名称:QS_indexfootbanner,列表名:ad,文字长度:12"#}
+	{#highway_ad set="显示数目:3,调用名称:HW_indexfootbanner,列表名:ad,文字长度:12"#}
 	{#if $ad#}
 	<div class="ad-area">
 	{#foreach from=$ad item=list#}
 	<div class="ad-row clearfix lazyload">
-		<div class="ad-item ad-full f-left"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="1198" height="58" border="0" /></a></div>
+		<div class="ad-item ad-full f-left"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="1198" height="58" border="0" /></a></div>
 	</div>
 	{#/foreach#}
 	</div>
@@ -428,10 +428,10 @@ jQuery(document).ready(function($) {
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
 			<h4 class="f-left">照片简历<span>Photo Resume</span></h4>
-			<a href="{#"QS_resumelist,photo:1"|qishi_url#}" class="f-right underline" target="_blank">更多>></a>
+			<a href="{#"HW_resumelist,photo:1"|highway_url#}" class="f-right underline" target="_blank">更多>></a>
 		</div>
 		<div class="photo-list clearfix">
-			{#qishi_resume_list set="列表名:resume,显示数目:7,照片:1,意向职位长度:14,填补字符:...,排序:rtime>desc"#}
+			{#highway_resume_list set="列表名:resume,显示数目:7,照片:1,意向职位长度:14,填补字符:...,排序:rtime>desc"#}
 			{#foreach from=$resume item=list#}
 				<div class="photo-items f-left">
 					<div class="avater-box">
@@ -456,18 +456,18 @@ jQuery(document).ready(function($) {
 		<div class="job-build">
 			<!-- 楼层1  -->
 			<div class="floor-item">
-				<div class="floor-title"><em>1F</em><span>{#"QS_jobs,76"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,77"|qishi_categoryname#}</span></div>
+				<div class="floor-title"><em>1F</em><span>{#"HW_jobs,76"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,77"|highway_categoryname#}</span></div>
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#qishi_get_classify set="列表名:subcate,类型:QS_jobs_floor,显示数目:20,id:76_77"#}
+						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:76_77"#}
 						{#foreach from=$subcate item=list#}
-						<a href="{#"QS_jobslist,jobcategory:"|cat:74|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|qishi_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
+						<a href="{#"HW_jobslist,jobcategory:"|cat:74|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#qishi_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:76_77"#}
+						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:76_77"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -480,10 +480,10 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#qishi_ad set="显示数目:4,调用名称:QS_floor_img1,列表名:ad,文字长度:12"#}
+						{#highway_ad set="显示数目:4,调用名称:HW_floor_img1,列表名:ad,文字长度:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
-						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
+						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
 						{#/foreach#}
 						{#/if#}
 					</div>
@@ -491,18 +491,18 @@ jQuery(document).ready(function($) {
 			</div>
 			<!-- 楼层 2 -->
 			<div class="floor-item">
-				<div class="floor-title"><em>2F</em><span>{#"QS_jobs,3"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,5"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,6"|qishi_categoryname#}</span></div>
+				<div class="floor-title"><em>2F</em><span>{#"HW_jobs,3"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,5"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,6"|highway_categoryname#}</span></div>
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#qishi_get_classify set="列表名:subcate,类型:QS_jobs_floor,显示数目:20,id:3_5_6"#}
+						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:3_5_6"#}
 						{#foreach from=$subcate item=list#}
-						<a href="{#"QS_jobslist,jobcategory:"|cat:1|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|qishi_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
+						<a href="{#"HW_jobslist,jobcategory:"|cat:1|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#qishi_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:3_5_6"#}
+						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:3_5_6"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -515,10 +515,10 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#qishi_ad set="显示数目:4,调用名称:QS_floor_img2,列表名:ad,文字长度:12"#}
+						{#highway_ad set="显示数目:4,调用名称:HW_floor_img2,列表名:ad,文字长度:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
-						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
+						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
 						{#/foreach#}
 						{#/if#}
 					</div>
@@ -526,18 +526,18 @@ jQuery(document).ready(function($) {
 			</div>
 			<!-- 楼层 3 -->
 			<div class="floor-item">
-				<div class="floor-title"><em>3F</em><span>{#"QS_jobs,117"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,120"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,121"|qishi_categoryname#}</span></div>
+				<div class="floor-title"><em>3F</em><span>{#"HW_jobs,117"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,120"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,121"|highway_categoryname#}</span></div>
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#qishi_get_classify set="列表名:subcate,类型:QS_jobs_floor,显示数目:20,id:117_120_121"#}
+						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:117_120_121"#}
 						{#foreach from=$subcate item=list#}
-						<a href="{#"QS_jobslist,jobcategory:"|cat:116|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|qishi_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
+						<a href="{#"HW_jobslist,jobcategory:"|cat:116|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#qishi_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:117_120_121"#}
+						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:117_120_121"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -550,10 +550,10 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#qishi_ad set="显示数目:4,调用名称:QS_floor_img3,列表名:ad,文字长度:12"#}
+						{#highway_ad set="显示数目:4,调用名称:HW_floor_img3,列表名:ad,文字长度:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
-						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
+						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
 						{#/foreach#}
 						{#/if#}
 					</div>
@@ -561,18 +561,18 @@ jQuery(document).ready(function($) {
 			</div>
 			<!-- 楼层 4 -->
 			<div class="floor-item">
-				<div class="floor-title"><em>4F</em><span>{#"QS_jobs,97"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,98"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,99"|qishi_categoryname#}</span></div>
+				<div class="floor-title"><em>4F</em><span>{#"HW_jobs,97"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,98"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,99"|highway_categoryname#}</span></div>
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#qishi_get_classify set="列表名:subcate,类型:QS_jobs_floor,显示数目:20,id:97_98_99"#}
+						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:97_98_99"#}
 						{#foreach from=$subcate item=list#}
-						<a href="{#"QS_jobslist,jobcategory:"|cat:96|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|qishi_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
+						<a href="{#"HW_jobslist,jobcategory:"|cat:96|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#qishi_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:97_98_99"#}
+						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:97_98_99"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -585,10 +585,10 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#qishi_ad set="显示数目:4,调用名称:QS_floor_img4,列表名:ad,文字长度:12"#}
+						{#highway_ad set="显示数目:4,调用名称:HW_floor_img4,列表名:ad,文字长度:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
-						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
+						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
 						{#/foreach#}
 						{#/if#}
 					</div>
@@ -596,18 +596,18 @@ jQuery(document).ready(function($) {
 			</div>
 			<!-- 楼层 5 -->
 			<div class="floor-item">
-				<div class="floor-title"><em>5F</em><span>{#"QS_jobs,50"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,51"|qishi_categoryname#}&nbsp;·&nbsp;{#"QS_jobs,52"|qishi_categoryname#}</span></div>
+				<div class="floor-title"><em>5F</em><span>{#"HW_jobs,50"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,51"|highway_categoryname#}&nbsp;·&nbsp;{#"HW_jobs,52"|highway_categoryname#}</span></div>
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#qishi_get_classify set="列表名:subcate,类型:QS_jobs_floor,显示数目:20,id:50_51_52"#}
+						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:50_51_52"#}
 						{#foreach from=$subcate item=list#}
-						<a href="{#"QS_jobslist,jobcategory:"|cat:49|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|qishi_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
+						<a href="{#"HW_jobslist,jobcategory:"|cat:49|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#qishi_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:50_51_52"#}
+						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:50_51_52"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -620,10 +620,10 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#qishi_ad set="显示数目:4,调用名称:QS_floor_img5,列表名:ad,文字长度:12"#}
+						{#highway_ad set="显示数目:4,调用名称:HW_floor_img5,列表名:ad,文字长度:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
-						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$QISHI.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
+						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
 						{#/foreach#}
 						{#/if#}
 					</div>
@@ -637,16 +637,16 @@ jQuery(document).ready(function($) {
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
 			<h4 class="f-left">职场资讯<span>Workplace Information</span></h4>
-			<a href="{#"QS_news"|qishi_url#}" class="f-right underline" target="_blank">更多>></a>
+			<a href="{#"HW_news"|highway_url#}" class="f-right underline" target="_blank">更多>></a>
 		</div>
 		<div class="job-news-block clearfix">
 			<div class="jn-left f-left">
-				{#qishi_news_category set="列表名:newscategory,资讯大类:1,显示数目:4"#}
+				{#highway_news_category set="列表名:newscategory,资讯大类:1,显示数目:4"#}
 				{#section loop=$newscategory name=nclist#}
 				<div class="jn-box f-left">
-					<div class="jn-img f-left"><a href="{#"QS_newslist,id:$newscategory[nclist].id"|qishi_url#}" target="_blank"><img src="{#$QISHI.site_template#}images/news{#$smarty.section.nclist.index#}.jpg" width="163" height="98" border="0"></a></div>
+					<div class="jn-img f-left"><a href="{#"HW_newslist,id:$newscategory[nclist].id"|highway_url#}" target="_blank"><img src="{#$HIGHWAY.site_template#}images/news{#$smarty.section.nclist.index#}.jpg" width="163" height="98" border="0"></a></div>
 					<ul class="jn-list f-left">
-					{#qishi_news_list set="列表名:topnews,显示数目:4,标题长度:18,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc"#}
+					{#highway_news_list set="列表名:topnews,显示数目:4,标题长度:18,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc"#}
 					{#foreach from=$topnews item=toplist#}
 					<li><i class="jn-icon"></i><a target="_blank" href="{#$toplist.url#}" class="underline" title="{#$toplist.title_#}" target="_blank">{#$toplist.title#}</a></li>
 					{#/foreach#}
@@ -655,7 +655,7 @@ jQuery(document).ready(function($) {
 				{#/section#}
 			</div>
 			<ol class="jn-right f-left">
-				{#qishi_news_list set="列表名:news_list,显示数目:8,标题长度:12,填补字符:...,排序:click>desc"#}
+				{#highway_news_list set="列表名:news_list,显示数目:8,标题长度:12,填补字符:...,排序:click>desc"#}
 				{#section loop=$news_list name=nclist start=1#}
 				<li><span>{#$smarty.section.nclist.index#}</span><a href="{#$news_list[nclist].url#}" class="underline" target="_blank">{#$news_list[nclist].title#}</a></li>
 				{#/section#}
@@ -668,15 +668,15 @@ jQuery(document).ready(function($) {
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
 			<h4 class="f-left">友情链接<span>Friendly Link</span></h4>
-			<a href="{#$QISHI.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">申请>></a>
+			<a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">申请>></a>
 		</div>
 		<div class="friendly-link">
-			{#qishi_link set="列表名:link,显示数目:100,调用名称:QS_index,类型:1"#}
+			{#highway_link set="列表名:link,显示数目:100,调用名称:HW_index,类型:1"#}
 			{#foreach from=$link item=list#}
 			<a href="{#$list.link_url#}" target="_blank" class="underline">{#$list.title#}</a>
 			{#/foreach#}
 		</div>
-		{#qishi_link  set="列表名:imglink,显示数目:14,调用名称:QS_index,类型:2"#}
+		{#highway_link  set="列表名:imglink,显示数目:14,调用名称:HW_index,类型:2"#}
 		{#if $imglink#}
 		<div class="link_img">
 			{#foreach from=$imglink  item=list#}

@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/bind.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/bind.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 //验证
 $(document).ready(function() {
@@ -29,7 +29,7 @@ $(document).ready(function() {
   nomobile : true,
   byteRangeLength : [3, 18],
   remote:{     
-    url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+    url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
     type:"post",    
     data:{"usname":function (){return $("#username").val()},"act":"check_usname","time":function (){return new Date().getTime()}}     
     }
@@ -38,7 +38,7 @@ $(document).ready(function() {
     required: true,
   email:true,
   remote:{
-    url:"{#$QISHI.site_dir#}plus/ajax_user.php", 
+    url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php", 
     type:"post", 
     data:{"email":function (){return $("#email").val()},"act":"check_email","time": new Date().getTime()}     
     }
@@ -111,13 +111,13 @@ $(document).ready(function() {
 <body class="login_body">
   <div class="sign_up_box">
     <div class="container">
-      <div class="sign_lgo"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" /></div>
+      <div class="sign_lgo"><img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.web_logo#}" alt="{#$HIGHWAY.site_name#}" /></div>
       <div class="sign_centent">
         <!-- 绑定表单 -->
         <div class="sign_left bind">
           <div class="bind_top">
             <h2>只差一步，即可完成登录设置</h2>
-            <p>欢迎使用QQ帐号登录{#$QISHI.site_name#}</p>
+            <p>欢迎使用QQ帐号登录{#$HIGHWAY.site_name#}</p>
             <p>完成账号创建后，即可直接登录哦！</p>
           </div>
           <form id="Form1" name="Form1" method="post" action="?act=reg_save">
@@ -173,14 +173,14 @@ $(document).ready(function() {
           <div class="fast_login">
             <div class="content_box">
               <p>已经有帐号，登录与QQ帐号关联登录</p>
-              <div><input type="button" value="立即登录" class="sign_up_but_login" onclick="window.location='{#"QS_login"|qishi_url#}'"/></div>
+              <div><input type="button" value="立即登录" class="sign_up_but_login" onclick="window.location='{#"HW_login"|highway_url#}'"/></div>
                 <div class="clear"></div> 
                 <p><strong><a href="{#$qqurl#}">[更换QQ帐号]</a></strong></p>
             </div>
           </div>
           <div class="other_sign">
-            <p>您是企业用户？<a href="{#$QISHI.site_dir#}user/user_reg.php?type=1">注册<strong>企业会员</strong></a></p>
-            <p>您是个人用户？<a href="{#$QISHI.site_dir#}user/user_reg.php?type=2">注册<strong>个人会员</strong></a></p>
+            <p>您是企业用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=1">注册<strong>企业会员</strong></a></p>
+            <p>您是个人用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=2">注册<strong>个人会员</strong></a></p>
           </div>
         </div>
         <div class="clear"></div>

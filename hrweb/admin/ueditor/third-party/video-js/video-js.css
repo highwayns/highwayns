@@ -296,14 +296,6 @@ fonts to show/hide properly.
   top: 0;
 }
 .vjs-default-skin .vjs-play-progress {
-  /*
-    Using a data URI to create the white diagonal lines with a transparent
-      background. Surprisingly works in IE8.
-      Created using http://www.patternify.com
-    Changing the first color value will change the bar color.
-    Also using a paralax effect to make the lines move backwards.
-      The -50% left position makes that happen.
-  */
 
   background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
 }
@@ -614,18 +606,6 @@ easily in the skin designer. http://designer.videojs.com/
   -moz-box-shadow: 0 0 1em #ffffff;
   box-shadow: 0 0 1em #ffffff;
 }
-/*
-REQUIRED STYLES (be careful overriding)
-================================================================================
-When loading the player, the video tag is replaced with a DIV,
-that will hold the video tag or object tag for other playback methods.
-The div contains the video playback element (Flash or HTML5) and controls,
-and sets the width and height of the video.
-
-** If you want to add some kind of border/padding (e.g. a frame), or special
-positioning, use another containing element. Otherwise you risk messing up
-control positioning and full window mode. **
-*/
 .video-js {
   background-color: #000;
   position: relative;

@@ -1,26 +1,26 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.jobcategory#}{#"QS_jobs,jobcategory:"|cat:$smarty.get.jobcategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"QS_trade,trade:"|cat:$smarty.get.trade|qishi_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"QS_district,"|cat:$smarty.get.citycategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.wage#}{#"QS_wage,"|cat:$smarty.get.wage|qishi_categoryname#} - {#/if#}{#if $smarty.get.jobtag#}{#"QS_jobtag,"|cat:$smarty.get.jobtag|qishi_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"QS_education,"|cat:$smarty.get.education|qishi_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"QS_experience,"|cat:$smarty.get.experience|qishi_categoryname#} - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}{#if $smarty.get.nature#}{#"QS_jobs_nature,"|cat:$smarty.get.nature|qishi_categoryname#} - {#/if#}{#if $smarty.get.scale#}{#"QS_scale,"|cat:$smarty.get.scale|qishi_categoryname#} - {#/if#}职位列表  - {#$QISHI.site_name#}</title>
-<meta name="description" content="{#$QISHI.site_name#}招聘岗位">
-<meta name="keywords" content="{#$QISHI.site_name#},职位信息">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.wage#}{#"HW_wage,"|cat:$smarty.get.wage|highway_categoryname#} - {#/if#}{#if $smarty.get.jobtag#}{#"HW_jobtag,"|cat:$smarty.get.jobtag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}{#if $smarty.get.nature#}{#"HW_jobs_nature,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}{#if $smarty.get.scale#}{#"HW_scale,"|cat:$smarty.get.scale|highway_categoryname#} - {#/if#}职位列表  - {#$HIGHWAY.site_name#}</title>
+<meta name="description" content="{#$HIGHWAY.site_name#}招聘岗位">
+<meta name="keywords" content="{#$HIGHWAY.site_name#},职位信息">
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		//详细下拉
@@ -40,13 +40,13 @@
 				};
 			});
 		});
-		allaround("{#$QISHI.site_dir#}");
+		allaround("{#$HIGHWAY.site_dir#}");
 	    // 职位类别填充数据 
-		job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$QISHI.site_dir#}");
+		job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$HIGHWAY.site_dir#}");
 		// 所属行业填充数据
-		trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+		trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 		// 工作地区填充数据
-		city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+		city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$HIGHWAY.site_dir#}");
 		// 合并公司职位弹出
 		$(".mjob_name").hover(function(){
 			$(this).find(".merger_job_info").show();
@@ -96,9 +96,9 @@
 		});
 		$("#infolists .infolist-row:last").css("border-bottom","none");
 		//申请职位
-		apply_jobs("{#$QISHI.site_dir#}");
+		apply_jobs("{#$HIGHWAY.site_dir#}");
 		// 收藏职位
-		favorites("{#$QISHI.site_dir#}");
+		favorites("{#$HIGHWAY.site_dir#}");
 		// 合并公司
 		var com_list= $.cookie('com_list');
 		if(com_list ==1)
@@ -138,16 +138,16 @@
 	});
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>
+当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>>&nbsp;<a href="{#"HW_jobs"|highway_url#}">招聘信息</a>
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"QS_jobslist"|qishi_url#}" class="s-tab-item f-left active">高级搜索</a>
-			<a href="{#"QS_street"|qishi_url#}" class="s-tab-item f-left">道路搜索</a>
+			<a href="{#"HW_jobslist"|highway_url#}" class="s-tab-item f-left active">高级搜索</a>
+			<a href="{#"HW_street"|highway_url#}" class="s-tab-item f-left">道路搜索</a>
 		</div>
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
@@ -168,7 +168,7 @@
 					<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="QS_jobslist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type="button" detype="HW_jobslist" id="searcnbtn" value="搜&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
@@ -298,7 +298,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">职位月薪：</div>
 				<div class="fl-content r-choice f-left">
-					{#qishi_get_classify set="列表名:wage,类型:QS_wage,显示数目:100"#}
+					{#highway_get_classify set="列表名:wage,类型:HW_wage,显示数目:100"#}
 					{#foreach from=$wage item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.wage#} select{#/if#}" type="wage" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -307,7 +307,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">福利亮点：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#qishi_get_classify set="列表名:jobtag,类型:QS_jobtag,显示数目:100"#}
+					{#highway_get_classify set="列表名:jobtag,类型:HW_jobtag,显示数目:100"#}
 					{#foreach from=$jobtag item=list#}
 					<div class="fl-content-li" type="jobtag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -318,7 +318,7 @@
 				<div class="fl-type f-left">更多筛选：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan{#if $smarty.get.education#} selected{#/if#}">
-						{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -328,7 +328,7 @@
 						学历要求
 					</div>
 					<div class="saixuan{#if $smarty.get.experience#} selected{#/if#}">
-						{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+						{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_experience item=list#}
@@ -348,7 +348,7 @@
 						更新时间
 					</div>
 					<div class="saixuan{#if $smarty.get.nature#} selected{#/if#}">
-						{#qishi_get_classify set="列表名:c_jobsnature,类型:QS_jobs_nature"#}
+						{#highway_get_classify set="列表名:c_jobsnature,类型:HW_jobs_nature"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_jobsnature item=list#}
@@ -358,7 +358,7 @@
 						工作性质
 					</div>
 					<div class="saixuan{#if $smarty.get.scale#} selected{#/if#}">
-						{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+						{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_scale item=list#}
@@ -386,7 +386,7 @@
 				<div class="has-select-item f-left" type="citycategory">地区类别<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.wage#}
-				{#qishi_get_classify set="列表名:wage,类型:QS_wage,显示数目:100"#}
+				{#highway_get_classify set="列表名:wage,类型:HW_wage,显示数目:100"#}
 				{#foreach from=$wage item=list#}
 				{#if $list.id == $smarty.get.wage#}
 					<div class="has-select-item f-left" type="wage">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -397,7 +397,7 @@
 				<div class="has-select-item f-left" type="jobtag">福利亮点<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.education#}
-				{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+				{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
 				{#foreach from=$c_education item=list#}
 				{#if $list.id == $smarty.get.education#}
 					<div class="has-select-item f-left" type="education">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -405,7 +405,7 @@
 				{#/foreach#}
 			{#/if#}
 			{#if $smarty.get.experience#}
-				{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+				{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
 				{#foreach from=$c_experience item=list#}
 				{#if $list.id == $smarty.get.experience#}
 					<div class="has-select-item f-left" type="experience">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -416,7 +416,7 @@
 				<div class="has-select-item f-left" type="settr">{#if $smarty.get.settr == 3#}3天内{#elseif $smarty.get.settr == 7#}7天内{#elseif $smarty.get.settr == 15#}15天内{#elseif $smarty.get.settr == 30#}30天内{#/if#}<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.nature#}
-				{#qishi_get_classify set="列表名:c_jobsnature,类型:QS_jobs_nature"#}
+				{#highway_get_classify set="列表名:c_jobsnature,类型:HW_jobs_nature"#}
 				{#foreach from=$c_jobsnature item=list#}
 				{#if $list.id == $smarty.get.nature#}
 					<div class="has-select-item f-left" type="nature">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -424,7 +424,7 @@
 				{#/foreach#}
 			{#/if#}
 			{#if $smarty.get.scale#}
-				{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+				{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 				{#foreach from=$c_scale item=list#}
 				{#if $list.id == $smarty.get.scale#}
 					<div class="has-select-item f-left" type="scale">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -440,16 +440,16 @@
 
 
 <!-- 职位列表 -->
-{#qishi_jobs_list  set="分页显示:1,列表名:jobslist,填补字符:...,职位名长度:13,企业名长度:22,描述长度:135,关键字:GET[key],职位分类:GET[jobcategory],地区分类:GET[citycategory],行业:GET[trade],日期范围:GET[settr],学历:GET[education],工作经验:GET[experience],工资:GET[wage],职位性质:GET[nature],标签:GET[jobtag],公司规模:GET[scale],排序:GET[sort],合并:$smarty.cookie.com_list"#}
+{#highway_jobs_list  set="分页显示:1,列表名:jobslist,填补字符:...,职位名长度:13,企业名长度:22,描述长度:135,关键字:GET[key],职位分类:GET[jobcategory],地区分类:GET[citycategory],行业:GET[trade],日期范围:GET[settr],学历:GET[education],工作经验:GET[experience],工资:GET[wage],职位性质:GET[nature],标签:GET[jobtag],公司规模:GET[scale],排序:GET[sort],合并:$smarty.cookie.com_list"#}
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="sort">
 			<span class="job_list_type">排序</span>
-			<a href="{#"QS_jobslist,sort:-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>综合排序</a>
-			<a href="{#"QS_jobslist,sort:rtime-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新时间</a>
+			<a href="{#"HW_jobslist,sort:-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|highway_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>综合排序</a>
+			<a href="{#"HW_jobslist,sort:rtime-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|highway_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新时间</a>
 			{#if $smarty.get.key==""#}
-			<a href="{#"QS_jobslist,sort:wage-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>薪资待遇</a>
-			<!-- <a href="{#"QS_jobslist,sort:hot-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|qishi_url#}" {#if $smarty.get.sort=="hot"#}class="slect"{#/if#}>热度</a> -->
+			<a href="{#"HW_jobslist,sort:wage-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|highway_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>薪资待遇</a>
+			<!-- <a href="{#"HW_jobslist,sort:hot-page:1-key:"|cat:$smarty.get.key|cat:"-jobcategory:"|cat:$smarty.get.jobcategory|cat:"-education:"|cat:$smarty.get.education|cat:"-citycategory:"|cat:$smarty.get.citycategory|cat:"-experience:"|cat:$smarty.get.experience|cat:"-settr:"|cat:$smarty.get.settr|cat:"-trade:"|cat:$smarty.get.trade|cat:"-wage:"|cat:$smarty.get.wage|cat:"-nature:"|cat:$smarty.get.nature|highway_url#}" {#if $smarty.get.sort=="hot"#}class="slect"{#/if#}>热度</a> -->
 			{#/if#}
 		</div>
 		<div class="sort">
@@ -481,7 +481,7 @@
 			<div class="merger_com_box">
 				<h2><a href="{#$list.0.company_url#}" target="_black">{#$list.0.companyname#}</a> 
 					{#if $list.0.company_audit=="1"#}
-					<img src="{#$QISHI.site_template#}images/yan.gif" alt="" class="vtip" title="企业已认证"/>
+					<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" class="vtip" title="企业已认证"/>
 					{#/if#}
 				</h2>
 				<div class="merger_job_list">
@@ -490,10 +490,10 @@
 						<div class="merger_job_type mjob_name">
 							<div class="m_jobname_box">
 								<input type="checkbox" name="jid" value="{#$job_list.id#}" class="checkbox" /><a target="_black" href="{#$job_list.jobs_url#}" class="mjob_name_link">{#$job_list.jobs_name#}</a>
-								{#if $job_list.stick=="1"#}<img title="置顶信息" src="{#$QISHI.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
-					            {#if $job_list.emergency=="1"#}<img title="紧急招聘" src="{#$QISHI.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
-					            {#if $job_list.recommend=="1"#}<img title="推荐职位" src="{#$QISHI.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
-					            {#if $job_list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$QISHI.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+								{#if $job_list.stick=="1"#}<img title="置顶信息" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
+					            {#if $job_list.emergency=="1"#}<img title="紧急招聘" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.recommend=="1"#}<img title="推荐职位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
 					            <!-- 弹出框 -->
 								<div class="merger_job_info">
 									<div class="merger_sanjiao"></div>
@@ -501,7 +501,7 @@
 										<div class="pop_top_left">
 											<h3><a target="_black" href="{#$job_list.company_url#}">{#$job_list.companyname#}</a>
 												{#if $job_list.company_audit=="1"#}
-						                      	<img src="{#$QISHI.site_template#}images/yan.gif" alt="" title="企业已认证" class="vtip" />
+						                      	<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" title="企业已认证" class="vtip" />
 						                     	{#/if#}
 											</h3>
 											<div class="pop_job_name"><a target="_black" href="{#$job_list.jobs_url#}">{#$job_list.jobs_name#}</a></div>
@@ -553,16 +553,16 @@
 				<div class="info-list-block job clearfix">
 					<div class="list-item item1 f-left">
 						<input type="checkbox" name="jid" value="{#$list.id#}" id="" class="checkbox" /><a href="{#$list.jobs_url#}" target="_blank" class="underline">{#$list.jobs_name#}</a>
-						{#if $list.emergency=="1"#}<img title="紧急招聘" src="{#$QISHI.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
-						{#if $list.recommend=="1"#}<img title="推荐职位" src="{#$QISHI.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
-						{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$QISHI.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+						{#if $list.emergency=="1"#}<img title="紧急招聘" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.recommend=="1"#}<img title="推荐职位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
 					</div>
-					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$QISHI.site_template#}images/yan.gif" alt="已验证" />{#/if#}{#if $QISHI.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$QISHI.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
+					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="已验证" />{#/if#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
 					<div class="list-item item3 f-left"><span>{#$list.wage_cn#}</span></div>
 					<div class="list-item item4 f-left">{#$list.district_cn#}</div>
 					<div class="list-item item5{#if $list.stick=='1'#} pt{#/if#} f-left" style="line-height:50px;">
 						{#if $list.stick=='1'#}
-							<img  src="{#$QISHI.site_template#}images/stick.gif" alt="" title="置顶职位"  style="display: inline-bock;" />
+							<img  src="{#$HIGHWAY.site_template#}images/stick.gif" alt="" title="置顶职位"  style="display: inline-bock;" />
 						{#else#}
 							{#$list.refreshtime_cn#}
 						{#/if#}
@@ -602,7 +602,7 @@
 		{#/if#}
 	</div>
 </div>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.jobs-list.js" type='text/javascript' ></script>
 {#include file="footer.htm"#}
 </body>
 </html>

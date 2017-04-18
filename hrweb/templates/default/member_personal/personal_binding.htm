@@ -1,21 +1,21 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
 
 </head>
 
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 安全助手</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 安全助手</div>
 
 <div class="usermain">
   <div class="leftmenu personal link_bk">
@@ -55,7 +55,7 @@
 						<th align="center" width="200">绑定时间</th>
 						<th align="center" width="180">状态</th>
 					</tr>
-					{#if $QISHI.qq_apiopen=="1"#}
+					{#if $HIGHWAY.qq_apiopen=="1"#}
 					<tr>
 						<td class="bindding_first"><div class=" bind_icon {#if $user.qq_openid#}qq_bind{#else#}qq_no_bind{#/if#}">QQ账号</div></td>
 						<td align="center">
@@ -76,12 +76,12 @@
 							{#if $user.qq_openid#}
 							已绑定 <a href="?act=del_qq_binding" onclick="return confirm('您确定取消绑定吗?')">[取消绑定]</a>
 							{#else#}
-							未绑定 <a href="{#$QISHI.site_dir#}user/{#if $QISHI.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding">[立即绑定]</a>
+							未绑定 <a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding">[立即绑定]</a>
 							{#/if#}
 						</td>
 					</tr>
 					{#/if#}
-					{#if $QISHI.taobao_apiopen=="1"#}
+					{#if $HIGHWAY.taobao_apiopen=="1"#}
 					<tr>
 						<td class="bindding_first"><div class=" bind_icon {#if $user.taobao_access_token#}taobao_bind{#else#}taobao_no_bind{#/if#}">淘宝账号</div></td>
 						<td align="center">
@@ -102,12 +102,12 @@
 							{#if $user.taobao_access_token#}
 							已绑定 <a href="?act=del_taobao_binding" onclick="return confirm('您确定取消绑定吗?')">[取消绑定]</a>
 							{#else#}
-							未绑定 <a href="{#$QISHI.site_dir#}user/connect_taobao.php">[立即绑定]</a>
+							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php">[立即绑定]</a>
 							{#/if#}
 						</td>
 					</tr>
 					{#/if#}
-					{#if $QISHI.sina_apiopen=="1"#}
+					{#if $HIGHWAY.sina_apiopen=="1"#}
 					<tr>
 						<td class="bindding_first"><div class=" bind_icon {#if $user.sina_apiopen#}sina_bind{#else#}sina_no_bind{#/if#}">新浪账号</div></td>
 						<td align="center">
@@ -128,7 +128,7 @@
 							{#if $user.sina_access_token#}
 							已绑定 <a href="?act=del_sina_binding" onclick="return confirm('您确定取消绑定吗?')">[取消绑定]</a>
 							{#else#}
-							未绑定 <a href="{#$QISHI.site_dir#}user/connect_sina.php">[立即绑定]</a>
+							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_sina.php">[立即绑定]</a>
 							{#/if#}
 						</td>
 					</tr>

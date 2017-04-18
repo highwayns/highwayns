@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_news_category($params, &$smarty)
+function tpl_function_highway_news_category($params, &$smarty)
 {
 global $db,$_CFG;
 $arr=explode(',',$params['set']);

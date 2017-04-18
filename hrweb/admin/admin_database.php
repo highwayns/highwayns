@@ -243,7 +243,7 @@ elseif($act =='import')
 		$file_info = get_sqlfile_info($file);
 		if($file_info['74cms_ver'] != HIGHWAY_VERSION)
 		{
-		adminmsg('骑士CMS当前程序与备份程序版本不一致');
+		adminmsg('海威人材当前程序与备份程序版本不一致');
 		}
 		$_SESSION['backup_file']=$backup_file;
 		$filekey=intval($_GET['filekey']);

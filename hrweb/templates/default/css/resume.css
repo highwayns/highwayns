@@ -85,9 +85,6 @@
 .resume-list .noinfo span{ font-size:14px; font-weight:bold; color:#FF6600}
 .highlight { color: #FF0000}
 
-/*
-***以下样式为3.6版本的照片简历列表，最新简历列表样式
-*/
 /*照片简历*/
 .photo-resumes-list{padding:15px 0 0 15px;background-color: #fff;font-family: "SimSun";*padding-bottom: 15px;}
 .photo-resumes-list .photo-resume-item{background-color: #fff;border:1px solid #e2e2e2;width: 156px;height: 198px;overflow: hidden;margin:0 10px 10px 0;cursor: pointer;}

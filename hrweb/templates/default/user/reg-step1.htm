@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.gotoemail.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/emailAutoComplete.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.gotoemail.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/emailAutoComplete.js" type="text/javascript"></script>
 <script>
 $(document).ready(function($) {
 	$(".reg-warning").eq(0).show();
@@ -24,7 +24,7 @@ $(document).ready(function($) {
 	});
 	//验证码随机
 	$("#getcode").live('click',function(){
-		$(this).attr('src','{#$QISHI.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
+		$(this).attr('src','{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
 	});
 	// 手机注册 表单验证 
 	$("#reg_by_mobile").validate({
@@ -45,7 +45,7 @@ $(document).ready(function($) {
 				required: true,
 				ismobile : true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 					type:"post",    
 					data:{"mobile":function (){return $("#mobile").val()},"act":"check_mobile","time":function (){return new Date().getTime()}}     
 				}
@@ -54,7 +54,7 @@ $(document).ready(function($) {
 			{
 				required: true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 					type:"post",    
 					data:{"mobile":function (){return $("#mobile").val()},"mobile_vcode":function (){return $("#mobile_vcode").val()},"act":"check_reg_send_sms","time":function (){return new Date().getTime()}}     
 				}
@@ -96,12 +96,12 @@ $(document).ready(function($) {
 				alert("您必须同意[注册协议]才能继续下一步");
 				return false;
 			}
-			var check_reg_email="{#$QISHI.check_reg_email#}";
+			var check_reg_email="{#$HIGHWAY.check_reg_email#}";
 			if(check_reg_email=="1")
 			{	
 				$("#reg_email_submit").hide();
 				$("#reg_email_submit_").show();
-				$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {"act":"reg_sendemail","email":$("#email").val(),"utype":$("#utype").val()}, function(data) {
+				$.post('{#$HIGHWAY.site_dir#}plus/ajax_user.php', {"act":"reg_sendemail","email":$("#email").val(),"utype":$("#utype").val()}, function(data) {
 					if ($.trim(data)=='success') 
 					{
 						$(".reg-main").hide();
@@ -135,7 +135,7 @@ $(document).ready(function($) {
 				required: true,
 				email:true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 					type:"post",    
 					data:{"email":function (){return $("#email").val()},"act":"check_email"}     
 				}
@@ -144,7 +144,7 @@ $(document).ready(function($) {
 			{
 				required: true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}include/imagecaptcha.php",     
+					url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",     
 					type:"post",    
 					data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify"}     
 				}
@@ -174,7 +174,7 @@ $(document).ready(function($) {
 	});
 	// 点击发送到手机验证码
 	$("#sms_send").click(function() {
-		$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {'act':'reg_send_sms','mobile':$('#mobile').val()}, function(data) {
+		$.post('{#$HIGHWAY.site_dir#}plus/ajax_user.php', {'act':'reg_send_sms','mobile':$('#mobile').val()}, function(data) {
 			if($.trim(data)=='success')
 			{
 				$("#sms_send").hide();
@@ -302,7 +302,7 @@ $(document).ready(function($) {
 						<div class="reg-form-type f-left">&nbsp;</div>
 						<div class="reg-form-content f-left">
 							<div class="agree-confirm">
-								<label><input class="argeeinput" type="checkbox" name="agreement_mobile" id="agreement_mobile" value="1" checked="checked"/>我已阅读并同意</label><a href="{#$QISHI.site_dir#}agreement/">《{#$QISHI.site_name#}用户服务协议》</a>
+								<label><input class="argeeinput" type="checkbox" name="agreement_mobile" id="agreement_mobile" value="1" checked="checked"/>我已阅读并同意</label><a href="{#$HIGHWAY.site_dir#}agreement/">《{#$HIGHWAY.site_name#}用户服务协议》</a>
 							</div>
 						</div>
 					</div>
@@ -333,7 +333,7 @@ $(document).ready(function($) {
 							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
 						</div>
 						<div class="reg-form-other f-left verification" style="padding-left: 20px;">
-							<div class="ver-box f-left"><img src="{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+							<div class="ver-box f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
 						</div>
 					</div>
 					{#/if#}
@@ -341,7 +341,7 @@ $(document).ready(function($) {
 						<div class="reg-form-type f-left">&nbsp;</div>
 						<div class="reg-form-content f-left">
 							<div class="agree-confirm">
-								<label><input type="checkbox" name="agreement_email" id="agreement_email" value="1" checked="checked"/>我已阅读并同意</label><a href="{#$QISHI.site_dir#}agreement/">《{#$QISHI.site_name#}用户服务协议》</a>
+								<label><input type="checkbox" name="agreement_email" id="agreement_email" value="1" checked="checked"/>我已阅读并同意</label><a href="{#$HIGHWAY.site_dir#}agreement/">《{#$HIGHWAY.site_name#}用户服务协议》</a>
 							</div>
 						</div>
 					</div>
@@ -368,7 +368,7 @@ $(document).ready(function($) {
 		</div>
 		<div class="common-status" style="display: none;padding: 70px 0 50px 0;">
 			<div class="status-main">
-				<span><img src="{#$QISHI.site_template#}images/icon-success.png" alt="成功" /></span>还差两步即可完成注册
+				<span><img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" /></span>还差两步即可完成注册
 			</div>
 			<p>我们已经向您的邮箱<span id="send_email"></span>发送了一封激活邮件，请点击邮件中的链接完成注册！</p>
 			<div class="status-btn"><a href="#" target="_blank" id="goto_email" email="" class="btn btn-lg blue span2">立即进入邮箱</a></div>

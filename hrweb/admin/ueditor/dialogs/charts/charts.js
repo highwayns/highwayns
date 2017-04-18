@@ -1,107 +1,4 @@
-﻿/*
- * 图片转换对话框脚本
- **/
-
-var tableData = [],
-    //编辑器页面table
-    editorTable = null,
-    chartsConfig = window.typeConfig,
-    resizeTimer = null,
-    //初始默认图表类型
-    currentChartType = 0;
-
-window.onload = function () {
-
-    editorTable = domUtils.findParentByTagName( editor.selection.getRange().startContainer, 'table', true);
-
-    //未找到表格， 显示错误页面
-    if ( !editorTable ) {
-        document.body.innerHTML = "<div class='edui-charts-not-data'>未找到数据</div>";
-        return;
-    }
-
-    //初始化图表类型选择
-    initChartsTypeView();
-    renderTable( editorTable );
-    initEvent();
-    initUserConfig( editorTable.getAttribute( "data-chart" ) );
-    $( "#scrollBed .view-box:eq("+ currentChartType +")" ).trigger( "click" );
-    updateViewType( currentChartType );
-
-    dialog.addListener( "resize", function () {
-
-        if ( resizeTimer != null ) {
-            window.clearTimeout( resizeTimer );
-        }
-
-        resizeTimer = window.setTimeout( function () {
-
-            resizeTimer = null;
-
-            renderCharts();
-
-        }, 500 );
-
-    } );
-
-};
-
-function initChartsTypeView () {
-
-    var contents = [];
-
-    for ( var i = 0, len = chartsConfig.length; i<len; i++ ) {
-
-        contents.push( '<div class="view-box" data-chart-type="'+ i +'"><img width="300" src="images/charts'+ i +'.png"></div>' );
-
-    }
-
-    $( "#scrollBed" ).html( contents.join( "" ) );
-
-}
-
-//渲染table， 以便用户修改数据
-function renderTable ( table ) {
-
-    var tableHtml = [];
-
-    //构造数据
-    for ( var i = 0, row; row = table.rows[ i ]; i++ ) {
-
-        tableData[ i ] = [];
-        tableHtml[ i ] = [];
-
-        for ( var j = 0, cell; cell = row.cells[ j ]; j++ ) {
-
-            var value = getCellValue( cell );
-
-            if ( i > 0 && j > 0 ) {
-                value = +value;
-            }
-
-            if ( i === 0 || j === 0 ) {
-                tableHtml[ i ].push( '<th>'+ value +'</th>' );
-            } else {
-                tableHtml[ i ].push( '<td><input type="text" class="data-item" value="'+ value +'"></td>' );
-            }
-
-            tableData[ i ][ j ] = value;
-
-        }
-
-        tableHtml[ i ] = tableHtml[ i ].join( "" );
-
-    }
-
-    //draw 表格
-    $( "#tableContainer" ).html( '<table id="showTable" border="1"><tbody><tr>'+ tableHtml.join( "</tr><tr>" ) +'</tr></tbody></table>' );
-
-}
-
-/*
- * 根据表格已有的图表属性初始化当前图表属性
- */
-function initUserConfig ( config ) {
+﻿function initUserConfig ( config ) {
 
     var parsedConfig = {};
 
@@ -361,9 +258,6 @@ function getSeriesAndCategories () {
 
 }
 
-/*
- * 获取数据源数据对齐方式
- */
 function getTableDataFormat () {
 
     var form = document.forms[ 'data-form' ],
@@ -373,18 +267,12 @@ function getTableDataFormat () {
 
 }
 
-/*
- * 禁用非饼图类型的配置项
- */
 function disableNotPieConfig() {
 
     updateConfigItem( 'disable' );
 
 }
 
-/*
- * 启用非饼图类型的配置项
- */
 function enableNotPieConfig() {
 
     updateConfigItem( 'enable' );
@@ -413,95 +301,6 @@ function updateConfigItem ( value ) {
 
 }
 
-/*
- * 获取饼图数据
- * 饼图的数据只取第一行的
- **/
-function getSeriesForPieChart () {
-
-    var series = {
-            type: 'pie',
-            name: $("#tipInput").val(),
-            data: []
-        },
-        tableData = getTableData();
-
-
-    for ( var j = 1, jlen = tableData[ 0 ].length; j < jlen; j++ ) {
-
-        var title = tableData[ 0 ][ j ],
-            val = tableData[ 1 ][ j ];
-
-        series.data.push( [ title, val ] );
-
-    }
-
-    return {
-        series: [ series ]
-    };
-
-}
-
-function getTableData () {
-
-    var table = document.getElementById( "showTable" ),
-        xCount = table.rows[0].cells.length - 1,
-        values = getTableInputValue();
-
-    for ( var i = 0, value; value = values[ i ]; i++ ) {
-
-        tableData[ Math.floor( i / xCount ) + 1 ][ i % xCount + 1 ] = values[ i ];
-
-    }
-
-    return tableData;
-
-}
-
-function getTableInputValue () {
-
-    var table = document.getElementById( "showTable" ),
-        inputs = table.getElementsByTagName( "input" ),
-        values = [];
-
-    for ( var i = 0, input; input = inputs[ i ]; i++ ) {
-        values.push( input.value | 0 );
-    }
-
-    return values;
-
-}
-
-function getCellValue ( cell ) {
-
-    var value = utils.trim( ( cell.innerText || cell.textContent || '' ) );
-
-    return value.replace( new RegExp( UE.dom.domUtils.fillChar, 'g' ), '' ).replace( /^\s+|\s+$/g, '' );
-
-}
-
-
-//dialog确认事件
-dialog.onok = function () {
-
-    //收集信息
-    var form = document.forms[ 'data-form' ],
-        info = getUserConfig();
-
-    //添加图表类型
-    info.chartType = currentChartType;
-
-    //同步表格数据到编辑器
-    syncTableData();
-
-    //执行图表命令
-    editor.execCommand( 'charts', info );
-
-};
-
-/*
- * 同步图表编辑视图的表格数据到编辑器里的原始表格
- */
 function syncTableData () {
 
     var tableData = getTableData();

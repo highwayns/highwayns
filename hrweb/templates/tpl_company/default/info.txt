@@ -1,4 +1,4 @@
 ﻿name:默认模版
 version:3.6
-author:74cms.com
-authorurl:http://www.74cms.com
+author:jp.highwayns.com
+authorurl:http://www.jp.highwayns.com

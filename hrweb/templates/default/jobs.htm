@@ -1,43 +1,43 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_jobs"#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="列表名:page,调用:HW_jobs"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		allaround("{#$QISHI.site_dir#}");
+		allaround("{#$HIGHWAY.site_dir#}");
 	    // 职位类别填充数据 
-		job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$QISHI.site_dir#}");
+		job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$HIGHWAY.site_dir#}");
 		// 所属行业填充数据
-		trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+		trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 		// 工作地区填充数据
-		city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+		city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$HIGHWAY.site_dir#}");
 	});
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>
+当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_jobs"|highway_url#}">招聘信息</a>
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"QS_jobslist"|qishi_url#}" class="s-tab-item f-left active">高级搜索</a>
-			<a href="{#"QS_street"|qishi_url#}" class="s-tab-item f-left">道路搜索</a>
+			<a href="{#"HW_jobslist"|highway_url#}" class="s-tab-item f-left active">高级搜索</a>
+			<a href="{#"HW_street"|highway_url#}" class="s-tab-item f-left">道路搜索</a>
 		</div>
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
@@ -58,7 +58,7 @@
 					<input type="hidden" name="page" id="page" value="">
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="QS_jobslist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type="button" detype="HW_jobslist" id="searcnbtn" value="搜&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap fwnob">
 			<div class="filter-drop clearfix">
@@ -188,7 +188,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">职位月薪：</div>
 				<div class="fl-content r-choice f-left">
-					{#qishi_get_classify set="列表名:wage,类型:QS_wage,显示数目:100"#}
+					{#highway_get_classify set="列表名:wage,类型:HW_wage,显示数目:100"#}
 					{#foreach from=$wage item=list#}
 					<div class="fl-content-li" type="wage" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -197,7 +197,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">福利亮点：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#qishi_get_classify set="列表名:jobtag,类型:QS_jobtag,显示数目:100"#}
+					{#highway_get_classify set="列表名:jobtag,类型:HW_jobtag,显示数目:100"#}
 					{#foreach from=$jobtag item=list#}
 					<div class="fl-content-li" type="jobtag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -208,7 +208,7 @@
 				<div class="fl-type f-left">更多筛选：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan">
-						{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -218,7 +218,7 @@
 						学历要求
 					</div>
 					<div class="saixuan">
-						{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+						{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_experience item=list#}
@@ -238,7 +238,7 @@
 						更新时间
 					</div>
 					<div class="saixuan">
-						{#qishi_get_classify set="列表名:c_jobsnature,类型:QS_jobs_nature"#}
+						{#highway_get_classify set="列表名:c_jobsnature,类型:HW_jobs_nature"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_jobsnature item=list#}
@@ -248,7 +248,7 @@
 						工作性质
 					</div>
 					<div class="saixuan">
-						{#qishi_get_classify set="列表名:c_scale,类型:QS_scale"#}
+						{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_scale item=list#}
@@ -264,10 +264,10 @@
 	<div class="data-box">
 		<div class="data-title">
 			<h3>推荐职位</h3>
-			<a href="{#"QS_helplist,id:10"|qishi_url#}"  target="_blank" class="right-link">我是招聘单位，我想出现在这里</a>
+			<a href="{#"HW_helplist,id:10"|highway_url#}"  target="_blank" class="right-link">我是招聘单位，我想出现在这里</a>
 		</div>
 		<div class="job-normal-list clearfix">
-			{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc"#}
+			{#highway_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc"#}
 			{#foreach from=$jobslist item=list#}
 			<div class="job-normal-item f-left">
 				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
@@ -279,10 +279,10 @@
 	<div class="data-box">
 		<div class="data-title">
 			<h3>紧急招聘</h3>
-			<a href="{#"QS_helplist,id:10"|qishi_url#}"  target="_blank" class="right-link">我是招聘单位，我想出现在这里</a>
+			<a href="{#"HW_helplist,id:10"|highway_url#}"  target="_blank" class="right-link">我是招聘单位，我想出现在这里</a>
 		</div>
 		<div class="job-normal-list clearfix">
-			{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc"#}
+			{#highway_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc"#}
 			{#foreach from=$jobslist item=list#}
 			<div class="job-normal-item f-left">
 				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
@@ -294,10 +294,10 @@
 	<div class="data-box">
 		<div class="data-title">
 			<h3>最新职位</h3>
-			<a href="{#"QS_jobslist"|qishi_url#}" target="_blank" class="right-link">更多>></a>
+			<a href="{#"HW_jobslist"|highway_url#}" target="_blank" class="right-link">更多>></a>
 		</div>
 		<div class="job-normal-list clearfix">
-			{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc"#}
+			{#highway_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc"#}
 			{#foreach from=$jobslist item=list#}
 			<div class="job-normal-item f-left">
 				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>

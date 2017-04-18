@@ -1,18 +1,18 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 发布职位</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 发布职位</div>
 
 <div class="usermain">
 <div class="leftmenu  com link_bk">
@@ -34,7 +34,7 @@
 				<div class="clear"></div>
 			</div>			
 		          <div class="butbox">
-				<input type="button" name="submitsave" id="submitsave" value="搜索简历"  class="but180lan" onclick="javascript:window.open('{#"QS_resumelist"|qishi_url#}')"/>
+				<input type="button" name="submitsave" id="submitsave" value="搜索简历"  class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"/>
 				<input type="button" name="submitsave" id="submitsave" value="推广职位"  class="but180hui" onclick="javascript:location.href='company_promotion.php?act=promotion'"/>
 				<input type="button" name="submitsave" id="submitsave" value="继续发布"  class="but180hui" onclick="javascript:location.href='?act=addjobs'"/>
 				<!-- 分享按钮 -->
@@ -48,16 +48,16 @@
 						<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
 						<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
 					</div>
-					<script>window._bd_share_config={"common":{"bdText":"{#$jobs.companyname#}在@{#$QISHI.site_name#}  发布了最新职位 : {#$jobs.jobs_name#}(月薪 : {#$jobs.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$QISHI.site_name#}","bdUrl":"{#$jobs.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+					<script>window._bd_share_config={"common":{"bdText":"{#$jobs.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs.jobs_name#}(月薪 : {#$jobs.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 					</script>
 				</div>
 				<!-- 分享按钮  结束-->
 			</div>						
 			 <div class="recommend">
 				<div class="title"><div class="h2-title">为您推荐的人才</div></div>
-					{#qishi_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:"|cat:$concern_id#}
+					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:"|cat:$concern_id#}
 					{#if !$resumelist#}
-					{#qishi_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc"#}
+					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc"#}
 					{#/if#}
 					{#if $resumelist#}
 					{#foreach from=$resumelist item=list#}
@@ -68,7 +68,7 @@
 				<div class="l5">{#$list.wage_cn#}</div>
 				<div class="clear"></div>
 				{#/foreach#}
-				<div class="more link_lan"><a href="{#"QS_resumelist"|qishi_url#}"  target="_blank">更多人才>></a></div>
+				<div class="more link_lan"><a href="{#"HW_resumelist"|highway_url#}"  target="_blank">更多人才>></a></div>
 				{#else#}
 				<div class="emptytip">对不起！没有找到您要的信息！</div>
 				{#/if#}	

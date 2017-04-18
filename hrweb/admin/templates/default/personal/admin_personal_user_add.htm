@@ -10,7 +10,7 @@ $(document).ready(function()
         userName : true,
         nomobile : true,
         remote:{     
-        url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+        url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
         type:"post",    
         data:{"usname":function (){return $("#username").val()},"act":"check_usname","time":function (){return new Date().getTime()}}     
         }
@@ -19,7 +19,7 @@ $(document).ready(function()
       required: true,
       email:true,
       remote:{     
-        url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+        url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
         type:"post",    
         data:{"email":function (){return $("#email").val()},"act":"check_email","time": new Date().getTime()}     
         }

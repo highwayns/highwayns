@@ -19,9 +19,9 @@
 
 		 var sotype=$("#topsotype").val();
 	 	if(sotype==1){
-	 		var sotype_code = "QS_jobslist";
+	 		var sotype_code = "HW_jobslist";
 	 	}else{
-	 		var sotype_code = "QS_resumelist";
+	 		var sotype_code = "HW_resumelist";
 	 	}
 	 	var patrn=/^(请输入关键字)/i; 
 		var key=$("#index-search-key").val();

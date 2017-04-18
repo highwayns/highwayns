@@ -2,7 +2,7 @@
 /*********************************************
 *微招聘
 ********************************************/
-function tpl_function_qishi_simple_list($params, &$smarty)
+function tpl_function_highway_simple_list($params, &$smarty)
 {
 global $db,$_CFG;
 $arrset=explode(',',$params['set']);

@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_modifier_qishi_url($string)
+function tpl_modifier_highway_url($string)
 {
 	global $_CFG;
 	if (strpos($string,","))

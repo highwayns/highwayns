@@ -20,7 +20,7 @@
     <td>
 	<select name="parentid">
 	  <option value="0" {#if "0"==$district.parentid#}selected="selected"{#/if#}>顶级分类</option>
-	  {#qishi_get_classify set="列表名:c_province,类型:QS_district,id:0"#}{#foreach from=$c_province item=list#}
+	  {#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}{#foreach from=$c_province item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$district.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 	 {#/foreach#}
 	</select>

@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_resume_show($params, &$smarty)
+function tpl_function_highway_resume_show($params, &$smarty)
 {
 global $db,$_CFG,$HW_cookiepath,$HW_cookiedomain;
 $arr=explode(',',$params['set']);

@@ -1,44 +1,44 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>{#if $smarty.get.jobcategory#}{#"QS_jobs,jobcategory:"|cat:$smarty.get.jobcategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"QS_trade,trade:"|cat:$smarty.get.trade|qishi_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"QS_district,"|cat:$smarty.get.citycategory|qishi_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"QS_experience,"|cat:$smarty.get.experience|qishi_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"QS_resumetag,"|cat:$smarty.get.resumetag|qishi_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"QS_education,"|cat:$smarty.get.education|qishi_categoryname#} - {#/if#}{#if $smarty.get.sex=="1"#}男 - {#/if#}{#if $smarty.get.sex=="2"#}女 - {#/if#}{#if $smarty.get.photo=="1"#}有照片 - {#/if#}{#if $smarty.get.photo=="0"#}无照片 - {#/if#}{#if $smarty.get.talent=="1"#}普通简历 - {#/if#}{#if $smarty.get.talent=="2"#}高级简历 - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}简历列表  - {#$QISHI.site_name#}</title>
-<meta name="description" content="{#$QISHI.site_name#}人才信息,人才简历">
-<meta name="keywords" content="{#$QISHI.site_name#}人才信息，高级人才，求职信息，推荐人才">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"HW_resumetag,"|cat:$smarty.get.resumetag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.sex=="1"#}男 - {#/if#}{#if $smarty.get.sex=="2"#}女 - {#/if#}{#if $smarty.get.photo=="1"#}有照片 - {#/if#}{#if $smarty.get.photo=="0"#}无照片 - {#/if#}{#if $smarty.get.talent=="1"#}普通简历 - {#/if#}{#if $smarty.get.talent=="2"#}高级简历 - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}简历列表  - {#$HIGHWAY.site_name#}</title>
+<meta name="description" content="{#$HIGHWAY.site_name#}人才信息,人才简历">
+<meta name="keywords" content="{#$HIGHWAY.site_name#}人才信息，高级人才，求职信息，推荐人才">
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/resume.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/jquery.resume-search.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/jquery.resume-list.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/resume.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.resume-search.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.resume-list.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.autocomplete.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		allaround("{#$QISHI.site_dir#}");
+		allaround("{#$HIGHWAY.site_dir#}");
 	    // 职位类别填充数据 
-		job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$QISHI.site_dir#}");
+		job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#jobcategory", "{#$HIGHWAY.site_dir#}");
 		// 所属行业填充数据
-		trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+		trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 		// 工作地区填充数据
-		city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+		city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$HIGHWAY.site_dir#}");
 		// 专业类别填充数据
-		major_filldata("#major_list", QS_major_parent, QS_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$QISHI.site_dir#}");
+		major_filldata("#major_list", HW_major_parent, HW_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$HIGHWAY.site_dir#}");
 		//收藏简历
-		allfavorites("{#$QISHI.site_dir#}");
+		allfavorites("{#$HIGHWAY.site_dir#}");
 		//下载简历
 		$(".collect").click(function(){
 			var id=$(this).attr("resume_id");
 			var tsTimeStamp= new Date().getTime();
-			var url_="{#$QISHI.site_dir#}user/user_download_resume.php?id="+id+"&act=download&t="+tsTimeStamp;
+			var url_="{#$HIGHWAY.site_dir#}user/user_download_resume.php?id="+id+"&act=download&t="+tsTimeStamp;
 			var myDialog = dialog();
 			myDialog.title('下载联系方式');
 			myDialog.content("加载中...");
@@ -88,15 +88,15 @@
 	});
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"QS_resume"|qishi_url#}">求职信息</a>
+当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_resume"|highway_url#}">求职信息</a>
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"QS_resumelist"|qishi_url#}" class="s-tab-item f-left active">简历搜索</a>
+			<a href="{#"HW_resumelist"|highway_url#}" class="s-tab-item f-left active">简历搜索</a>
 		</div>
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
@@ -116,7 +116,7 @@
 					<input name="settr" id="settr" type="hidden" value="{#$smarty.get.settr#}"/>
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="QS_resumelist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type="button" detype="HW_resumelist" id="searcnbtn" value="搜&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
@@ -290,7 +290,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">工作经验：</div>
 				<div class="fl-content r-choice f-left">
-					{#qishi_get_classify set="列表名:experience,类型:QS_experience,显示数目:100"#}
+					{#highway_get_classify set="列表名:experience,类型:HW_experience,显示数目:100"#}
 					{#foreach from=$experience item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.experience#} select{#/if#}" type="experience" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -299,7 +299,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">特长标签：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#qishi_get_classify set="列表名:resumetag,类型:QS_resumetag,显示数目:100"#}
+					{#highway_get_classify set="列表名:resumetag,类型:HW_resumetag,显示数目:100"#}
 					{#foreach from=$resumetag item=list#}
 					<div class="fl-content-li" type="resumetag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -310,7 +310,7 @@
 				<div class="fl-type f-left">更多筛选：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan{#if $smarty.get.education#} selected{#/if#}">
-						{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -375,7 +375,7 @@
 				<div class="has-select-item f-left" type="major">专业类别<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.experience#}
-				{#qishi_get_classify set="列表名:c_experience,类型:QS_experience"#}
+				{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
 				{#foreach from=$c_experience item=list#}
 				{#if $list.id == $smarty.get.experience#}
 					<div class="has-select-item f-left" type="experience">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -386,7 +386,7 @@
 				<div class="has-select-item f-left" type="resumetag">特长标签<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.education#}
-				{#qishi_get_classify set="列表名:c_education,类型:QS_education"#}
+				{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
 				{#foreach from=$c_education item=list#}
 				{#if $list.id == $smarty.get.education#}
 					<div class="has-select-item f-left" type="education">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -411,11 +411,11 @@
 	</div>
 </div>
 <!-- 人才列表 -->
-{#qishi_resume_list set="列表名:resume,分页显示:1,显示数目:GET[inforow],特长描述长度:130,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],行业:GET[trade],地区分类:GET[citycategory],专业:GET[major],工作经验:GET[experience],标签:GET[resumetag],学历:GET[education],性别:GET[sex],照片:GET[photo],等级:GET[talent],日期范围:GET[settr],排序:rtime>desc"#}
+{#highway_resume_list set="列表名:resume,分页显示:1,显示数目:GET[inforow],特长描述长度:130,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],行业:GET[trade],地区分类:GET[citycategory],专业:GET[major],工作经验:GET[experience],标签:GET[resumetag],学历:GET[education],性别:GET[sex],照片:GET[photo],等级:GET[talent],日期范围:GET[settr],排序:rtime>desc"#}
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="seq f-left"><span>排序</span>
-			<a href="{#"sort:rtime-page:1-key:"|qishi_parse_url#}" class="seq-item {#if $smarty.get.sort=='' || $smarty.get.sort=='rtime-page'#}selected{#/if#} time">更新时间</a>
+			<a href="{#"sort:rtime-page:1-key:"|highway_parse_url#}" class="seq-item {#if $smarty.get.sort=='' || $smarty.get.sort=='rtime-page'#}selected{#/if#} time">更新时间</a>
 		</div>
 		<div class="pagerow">
 			<div class="pageminnav">{#$pagemin#}</div>

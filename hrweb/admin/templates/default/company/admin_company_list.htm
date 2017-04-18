@@ -44,11 +44,11 @@ $(document).ready(function()
 <div class="seltpye_x">
 		<div class="left">认证状态</div>	
 		<div class="right">
-			<a href="{#"audit:"|qishi_parse_url#}" {#if $smarty.get.audit==""#} class="select"{#/if#}>不限</a>
-			<a href="{#"audit:1"|qishi_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>认证通过</a>
-			<a href="{#"audit:2"|qishi_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待认证</a>
-			<a href="{#"audit:3"|qishi_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>认证未通过</a>
-			<a href="{#"audit:0"|qishi_parse_url#}" {#if $smarty.get.audit=="0"#}class="select"{#/if#}>未认证</a>
+			<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#} class="select"{#/if#}>不限</a>
+			<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>认证通过</a>
+			<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待认证</a>
+			<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>认证未通过</a>
+			<a href="{#"audit:0"|highway_parse_url#}" {#if $smarty.get.audit=="0"#}class="select"{#/if#}>未认证</a>
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -56,12 +56,12 @@ $(document).ready(function()
   <div class="seltpye_x">
 		<div class="left">添加时间</div>	
 		<div class="right">
-		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
-		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|qishi_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|qishi_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -82,9 +82,9 @@ $(document).ready(function()
 	     
       <td width="7%" align="center" class="admin_list_tit">创建时间</td>
 	   <td width="7%" align="center" class="admin_list_tit">刷新时间</td>
-		{#if $QISHI.operation_mode=='1'#}  
+		{#if $HIGHWAY.operation_mode=='1'#}  
 			  <td width="7%" align="center" class="admin_list_tit">目前积分</td>
-		{#elseif $QISHI.operation_mode=='2'||$QISHI.operation_mode=='3'#}  
+		{#elseif $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
 			  <td width="7%" align="center" class="admin_list_tit">套餐名称</td>
 		{#/if#}
 			  <td width="9%" align="center" class="admin_list_tit">收到简历</td>
@@ -125,9 +125,9 @@ $(document).ready(function()
 		{#$list.refreshtime|date_format:"%Y-%m-%d"#}
 		</td>
 		<td align="center" class="admin_list">
-		{#if $QISHI.operation_mode=='1'#} 
+		{#if $HIGHWAY.operation_mode=='1'#} 
 			<strong>{#$list.points#}</strong> 积分
-		{#elseif $QISHI.operation_mode=='2'||$QISHI.operation_mode=='3'#}  
+		{#elseif $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
 				{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#}
 		{#/if#}
 		</td>

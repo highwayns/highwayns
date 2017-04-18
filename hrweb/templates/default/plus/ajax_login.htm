@@ -1,4 +1,4 @@
-﻿<link href="{#$QISHI.site_template#}css/login.css" rel="stylesheet" type="text/css" />
+﻿<link href="{#$HIGHWAY.site_template#}css/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -49,7 +49,7 @@ e.preventDefault();
 		 {
 		 var expire="";
 		 }
-		$.post("{#$QISHI.site_dir#}plus/ajax_user.php", {"username": $("#username").val(),"password": $("#password").val(),"expire":expire,"url":window.location.href,"postcaptcha":$("#postcaptcha").val(),"time": new Date().getTime(),"act":"do_login"},
+		$.post("{#$HIGHWAY.site_dir#}plus/ajax_user.php", {"username": $("#username").val(),"password": $("#password").val(),"expire":expire,"url":window.location.href,"postcaptcha":$("#postcaptcha").val(),"time": new Date().getTime(),"act":"do_login"},
 	 	function (data,textStatus)
 	 	 {
 			if (data=="err" || data=="errcaptcha")
@@ -95,7 +95,7 @@ function imgcaptcha(inputID,imgdiv)
 		$(imgdiv).show();
 		if ($(imgdiv).html()=='')
 		{
-		$(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:-1px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:-1px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -135,8 +135,8 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		</div>
 		<div class="auto">
 			<div><input type="checkbox" name="autologin" id="expire" name="expire" value="7" /><span>一周内自动登录</span></div>
-			<a href="{#$QISHI.site_dir#}user/user_getpass.php">忘记密码？</a>
-			<a href="{#$QISHI.site_dir#}user/user_reg.php">免费注册</a>
+			<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php">忘记密码？</a>
+			<a href="{#$HIGHWAY.site_dir#}user/user_reg.php">免费注册</a>
 			<div class="clear"></div>
 		</div>
 		<div class="input-box-waiting" id="waiting">
@@ -144,17 +144,17 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		</div>
 		<div class="clear"></div>
 		<div class="button"><input type="submit" name="submitlogin" id="login" value="立即登录" class="but_login_335" /></div>
-		{#if $QISHI.qq_apiopen=="1" || $QISHI.sina_apiopen=="1"  || $QISHI.taobao_apiopen=="1"#}
+		{#if $HIGHWAY.qq_apiopen=="1" || $HIGHWAY.sina_apiopen=="1"  || $HIGHWAY.taobao_apiopen=="1"#}
 		<p>使用合作网站账号登录：</p>
 		<ul>
-			{#if $QISHI.qq_apiopen=="1"#}
-			<li><a href="{#$QISHI.site_dir#}user/{#if $QISHI.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}"class="qq">QQ</a></li>
+			{#if $HIGHWAY.qq_apiopen=="1"#}
+			<li><a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}"class="qq">QQ</a></li>
 			{#/if#}
-			{#if $QISHI.sina_apiopen=="1"#}
-			<li><a href="{#$QISHI.site_dir#}user/connect_sina.php" class="weibo">weibo</a></li>
+			{#if $HIGHWAY.sina_apiopen=="1"#}
+			<li><a href="{#$HIGHWAY.site_dir#}user/connect_sina.php" class="weibo">weibo</a></li>
 			{#/if#}
-			{#if $QISHI.taobao_apiopen=="1"#}
-			<li><a href="{#$QISHI.site_dir#}user/connect_taobao.php" class="taobao">taobao</a></li>
+			{#if $HIGHWAY.taobao_apiopen=="1"#}
+			<li><a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php" class="taobao">taobao</a></li>
 			{#/if#}
 		</ul>
 		{#/if#}

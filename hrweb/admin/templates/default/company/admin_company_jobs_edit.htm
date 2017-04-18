@@ -1,11 +1,11 @@
 ﻿{#include file="sys/admin_header.htm"#}
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
 	
-	showmenulayer("#category_cn","#menu1","#topclass","#category","#subclass",QS_jobs);
-	showmenulayer("#district_cn","#menu2","#district","#sdistrict","",QS_city);
+	showmenulayer("#category_cn","#menu1","#topclass","#category","#subclass",HW_jobs);
+	showmenulayer("#district_cn","#menu2","#district","#sdistrict","",HW_city);
 	showmenu("#education_cn","#menu3","#education");
 	showmenu("#experience_cn","#menu4","#experience");
 	showmenu("#wage_cn","#menu5","#wage");
@@ -173,7 +173,7 @@ $(document).ready(function()
         <tr>
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 职位性质：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
-		  {#qishi_get_classify set="列表名:nature,类型:QS_jobs_nature"#}
+		  {#highway_get_classify set="列表名:nature,类型:HW_jobs_nature"#}
 {#foreach from=$nature item=list#}
 <label><input type="radio" name="nature" value="{#$list.id#}" title="{#$list.categoryname#}" {#if $jobs.nature == $list.id#}checked="checked"{#/if#} >{#$list.categoryname#}</label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -201,7 +201,7 @@ $(document).ready(function()
 		<input name="subclass" id="subclass" type="hidden" value="{#$jobs.subclass#}" />
 		<div id="menu1" class="dmenu shadow">
 			<ul>
-			{#qishi_get_classify set="列表名:joblist,类型:QS_jobs"#}
+			{#highway_get_classify set="列表名:joblist,类型:HW_jobs"#}
 			{#foreach from=$joblist item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -221,7 +221,7 @@ $(document).ready(function()
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$jobs.sdistrict#}" />
 		<div id="menu2" class="dmenu shadow">
 			<ul>
-			{#qishi_get_classify set="列表名:c_province,类型:QS_district,id:0"#}
+			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -236,7 +236,7 @@ $(document).ready(function()
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"> 学历要求：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
-	{#qishi_get_classify set="类型:QS_education,列表名:li"#}
+	{#highway_get_classify set="类型:HW_education,列表名:li"#}
 		<input type="text" value="{#$jobs.education_cn|default:"请选择"#}"  readonly="readonly" name="education_cn" id="education_cn" class="input_text_200 input_text_selsect"/>
 		<input name="education" id="education" type="hidden" value="{#$jobs.education#}" />
 		<div id="menu3" class="menu">
@@ -254,7 +254,7 @@ $(document).ready(function()
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		 
 		 <div>
-	{#qishi_get_classify set="类型:QS_experience,列表名:li"#}
+	{#highway_get_classify set="类型:HW_experience,列表名:li"#}
 		<input type="text" value="{#$jobs.experience_cn|default:"请选择"#}"  readonly="readonly" name="experience_cn" id="experience_cn" class="input_text_200 input_text_selsect"/>
 		<input name="experience" id="experience" type="hidden" value="{#$jobs.experience#}" />
 		<div id="menu4" class="menu">
@@ -274,7 +274,7 @@ $(document).ready(function()
 		  <span style="color:#FF3300; font-weight:bold">*</span> 月薪范围：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
-	{#qishi_get_classify set="类型:QS_wage,列表名:li"#}
+	{#highway_get_classify set="类型:HW_wage,列表名:li"#}
 		<input type="text" value="{#$jobs.wage_cn|default:"请选择"#}"  readonly="readonly" name="wage_cn" id="wage_cn" class="input_text_200 input_text_selsect"/>
 		<input name="wage" id="wage" type="hidden" value="{#$jobs.wage#}" />
 		<div id="menu5" class="menu">

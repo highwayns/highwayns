@@ -15,7 +15,7 @@ function imgcaptcha(inputID,imgdiv)
 		$(imgdiv).show();
 		if ($(imgdiv).html()=='')
 		{
-		$(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -51,15 +51,15 @@ $("#form_simple").validate({
    },
    comname: "required",
    contact: "required",
-   {#if $QISHI.simple_tel_edit=="1"#}
+   {#if $HIGHWAY.simple_tel_edit=="1"#}
    tel:{
    required: true,
    digits:true, 
 	minlength:7
-	{#if $QISHI.simple_tel_repeat=="0"#}
+	{#if $HIGHWAY.simple_tel_repeat=="0"#}
 	,
 	remote:{     
-		url:"{#$QISHI.site_dir#}plus/ajax_simple.php",     
+		url:"{#$HIGHWAY.site_dir#}plus/ajax_simple.php",     
 		type:"get",    
 		data:{"tel":function (){return $("#tel").val()},"id":function (){return $("#id").val()},"act":"check_tel","time":function (){return new Date().getTime()}}     
 		}
@@ -70,7 +70,7 @@ $("#form_simple").validate({
    required: true,
    minlength:6,
    remote:{     
-		url:"{#$QISHI.site_dir#}plus/ajax_simple.php",     
+		url:"{#$HIGHWAY.site_dir#}plus/ajax_simple.php",     
 		type:"get",    
 		data:{"pwd":function (){return $("#pwd").val()},"id":function (){return $("#id").val()},"act":"check_pwd","time":function (){return new Date().getTime()}}     
 		}
@@ -87,7 +87,7 @@ $("#form_simple").validate({
 		IScaptchastr: true,
 		required: true,
 		remote:{     
-		url:"{#$QISHI.site_dir#}include/imagecaptcha.php",     
+		url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",     
 		type:"post",    
 		data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}     
 		}
@@ -113,7 +113,7 @@ $("#form_simple").validate({
     required: "请输入联系电话",
 	digits: "联系电话必须是数字",
     minlength: jQuery.format("电话不能<{0}位数")
-	{#if $QISHI.simple_tel_repeat=="0"#}
+	{#if $HIGHWAY.simple_tel_repeat=="0"#}
 	,
 	remote: jQuery.format("此号码已存在,请更换")	
 	{#/if#}
@@ -171,10 +171,10 @@ $("#form_simple").validate({
 	/////验证码部分
 menuDown("#district_menu","#district","#district_cnz","#menu1","118px","#sdistrict_menu","#menu2");
 menuDown("#sdistrict_menu","#sdistrict","#sdistrict_cn","#menu2","118px","#tdistrict_menu","#menu3");
-$.get("{#$QISHI.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+$("#district").val(),function(result){
+$.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+$("#district").val(),function(result){
       $("#menu2").children("ul").html(result);
     });
-$.get("{#$QISHI.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+$("#sdistrict").val(),function(result){
+$.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+$("#sdistrict").val(),function(result){
       $("#menu3").children("ul").html(result);
     });
 function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
@@ -206,7 +206,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
       $("#sdistrict_menu").html("请选择");
       $("#sdistrict").val("");
       $("#sdistrict_cn").val("");
-	  $.get("{#$QISHI.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+id,function(result){
+	  $.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+id,function(result){
       $(next_menu).children("ul").html(result);
     });
     }
@@ -215,7 +215,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
 }
 });
 </script>
-<form id="form_simple" name="form_simple" method="post" action="{#$QISHI.site_dir#}plus/ajax_simple.php?act=editsave">
+<form id="form_simple" name="form_simple" method="post" action="{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=editsave">
 <div class="content link_lan wei_job_dialog">
         <table>
           <tbody>
@@ -238,7 +238,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
             <tr>
               <td>联系电话：</td>
               <td>
-                {#if $QISHI.simple_tel_edit=="0"#}
+                {#if $HIGHWAY.simple_tel_edit=="0"#}
                 {#$info.tel#}<span>(不可修改，您可以删除本条信息再次发布)</span>  
                 {#else#}
                 <input type="text" class="input_text_155" name="tel" id="tel" maxlength="25"  value="{#$info.tel#}"/>
@@ -252,7 +252,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
                 <div id="district_menu" class="input_text_100_bg">{#$info.district_cn|default:"请选择"#}</div>  
                 <div class="menu" id="menu1">
                     <ul>
-                      {#qishi_get_classify  set="类型:QS_district,id:0,列表名:c_distrcit"#}
+                      {#highway_get_classify  set="类型:HW_district,id:0,列表名:c_distrcit"#}
                       {#foreach from=$c_distrcit item=list#}
                       <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
                       {#/foreach#}

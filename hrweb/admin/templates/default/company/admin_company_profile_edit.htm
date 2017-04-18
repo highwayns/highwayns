@@ -1,11 +1,11 @@
 ﻿{#include file="sys/admin_header.htm"#}
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
 	showmenu("#nature_cn","#menu1","#nature");
 	showmenu("#trade_cn","#menu2","#trade");
-	showmenulayer("#district_cn","#menu3","#district","#sdistrict","",QS_city);
+	showmenulayer("#district_cn","#menu3","#district","#sdistrict","",HW_city);
 	showmenu("#scale_cn","#menu4","#scale");	
         jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
             var tel = /^((0\d{2,3}-[2-9][0-9]{6,7})|(0\d{2,3}[2-9][0-9]{6,7})|([2-9][0-9]{6,7})|(1[35847]\d{9}))$/;
@@ -139,7 +139,7 @@ $(document).ready(function()
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>企业性质：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-	{#qishi_get_classify set="类型:QS_company_type,列表名:li"#}
+	{#highway_get_classify set="类型:HW_company_type,列表名:li"#}
 		<input type="text" value="{#$company_profile.nature_cn|default:"请选择"#}"  readonly="readonly" name="nature_cn" id="nature_cn" class="input_text_200 input_text_selsect"/>
 		<input name="nature" id="nature" type="hidden" value="{#$company_profile.nature#}" />
 		<div id="menu1" class="menu">
@@ -157,7 +157,7 @@ $(document).ready(function()
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold;">*</span>所属行业：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-	{#qishi_get_classify set="类型:QS_trade,列表名:li"#}
+	{#highway_get_classify set="类型:HW_trade,列表名:li"#}
 		<input type="text" value="{#$company_profile.trade_cn|default:"请选择"#}"  readonly="readonly" name="trade_cn" id="trade_cn" class="input_text_200 input_text_selsect"/>
 		<input name="trade" id="trade" type="hidden" value="{#$company_profile.trade#}" />
 		<div id="menu2" class="dmenu shadow">
@@ -180,7 +180,7 @@ $(document).ready(function()
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$company_profile.sdistrict#}" />
 		<div id="menu3" class="dmenu shadow">
 			<ul>
-			{#qishi_get_classify set="列表名:c_province,类型:QS_district,id:0"#}
+			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -195,7 +195,7 @@ $(document).ready(function()
     <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>公司规模：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-	{#qishi_get_classify set="类型:QS_scale,列表名:li"#}
+	{#highway_get_classify set="类型:HW_scale,列表名:li"#}
 		<input type="text" value="{#$company_profile.scale_cn|default:"请选择"#}"  readonly="readonly" name="scale_cn" id="scale_cn" class="input_text_200 input_text_selsect"/>
 		<input name="scale" id="scale" type="hidden" value="{#$company_profile.scale#}" />
 		<div id="menu4" class="menu">

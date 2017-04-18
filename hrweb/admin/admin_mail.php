@@ -62,7 +62,7 @@ elseif($act == 'email_testing')
 	$txt="您好！这是一封检测邮件服务器设置的测试邮件。收到此邮件，意味着您的邮件服务器设置正确！您可以进行其它邮件发送的操作了！";
 	$check_smtp=trim($_POST['check_smtp'])?trim($_POST['check_smtp']):adminmsg('收件人地址必须填写', 1);
 	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$check_smtp))adminmsg('email格式错误！',1);
-	if (smtp_mail($check_smtp,"骑士CMS测试邮件",$txt))
+	if (smtp_mail($check_smtp,"海威人材测试邮件",$txt))
 	{
 	write_log("测试邮件发送成功！", $_SESSION['admin_name'],3);
 	adminmsg('测试邮件发送成功！',2);

@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_pageinfo($params, &$smarty)
+function tpl_function_highway_pageinfo($params, &$smarty)
 {
 global $db,$_CFG;
 $arr=explode(',',$params['set']);
