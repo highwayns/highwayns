@@ -58,7 +58,12 @@ namespace highwayns
 
         private void btnTeaTalk_Click(object sender, EventArgs e)
         {
-            (new FormTeamTalk()).ShowDialog();
+            (new FormHighwayTalk()).ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
