@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 个人会员中心ajax弹出框
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__) . '/personal_common.php');
 if($act=="privacy"){
 	$pid = intval($_GET['pid']);
@@ -75,7 +65,7 @@ elseif($act=="tpl"){
 	$resume_basic=get_resume_basic($uid,$pid);
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_tpl.htm";
 	$resumetpl = get_resumetpl();
-	$resume_url = url_rewrite("QS_resumeshow",array("id"=>$pid),false);
+	$resume_url = url_rewrite("HW_resumeshow",array("id"=>$pid),false);
 	if ($resume_basic['tpl']=="")
 	{
 	$resume_basic['tpl']=$_CFG['tpl_personal'];

@@ -1,16 +1,4 @@
 ﻿<?php
-/*
- * Author: Mark Dickenson, akapanamajack@wildmail.com
- * You can stack multiple template display commands to have the entire page output as a compressed file.
- *
- * This output filter was specifically written to work with Alien Assault Traders but can be used on other projects.
- *
- * $send_now = 0 will cache the output and not send the data until $send_now = 1
- * $_tpl_saved is a reserved variable for storing the cached output
- * $force_compression = 1 will cause all output to be compressed and ignore what the browser or server indicates to gzip support
- * $compression_level is the amount of compression to use on the output 0 is the leasat and 9 is maximum
- * $template_object->enable_gzip = 0 output is not compressed $template_object->enable_gzip = 1 output is compressed
- */
 
 function template_outputfilter_gzip($tpl_source, &$template_object)
 {

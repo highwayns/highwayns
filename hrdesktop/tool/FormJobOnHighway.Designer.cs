@@ -46,7 +46,7 @@
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(338, 19);
             this.txtTo.TabIndex = 19;
-            this.txtTo.Text = "\'IN_HIGHWAY\',HIGHWAY_,utf8";
+            this.txtTo.Text = "HIGHWAY,\'utf8\',HW_,hw_";
             // 
             // label4
             // 
@@ -63,7 +63,7 @@
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(338, 19);
             this.txtFrom.TabIndex = 17;
-            this.txtFrom.Text = "\'IN_QISHI\',QISHI_,\'gbk\'";
+            this.txtFrom.Text = "QISHI,\'gbk\',QS_,qs_";
             // 
             // label3
             // 

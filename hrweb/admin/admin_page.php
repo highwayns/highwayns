@@ -1,27 +1,17 @@
 ﻿<?php
- /*
- * 74cms 页面管理
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_page_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'page_list';
 check_permissions($_SESSION['admin_purview'],"site_page");
-$norewrite=array('QS_login');
-$nocaching=array('QS_login','QS_jobslist','QS_street','QS_jobtag','QS_resumelist','QS_resumetag','QS_simplelist','QS_simpleresumelist','QS_helpsearch','QS_newssearch');
+$norewrite=array('HW_login');
+$nocaching=array('HW_login','HW_jobslist','HW_street','HW_jobtag','HW_resumelist','HW_resumetag','HW_simplelist','HW_simpleresumelist','HW_helpsearch','HW_newssearch');
 $smarty->assign('pageheader',"页面管理");
 if($act == 'page_list')
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('page');
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
@@ -42,7 +32,7 @@ elseif($act == 'add_page')
 elseif($act == 'add_page_save')
 {
 	check_token();
-    substr($_POST['alias'],0,3)=='QS_'?adminmsg('调用名称不允许 QS_ 开头！',1):'';
+    substr($_POST['alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
 	if (ck_page_alias($_POST['alias']))
 	{
 	adminmsg("调用ID ".$_POST['alias']." 已经存在！请重新填写",1);
@@ -98,7 +88,7 @@ elseif($act == 'edit_page_save')
 	{
 	$setsqlarr['pagetpye']=trim($_POST['pagetpye'])?trim($_POST['pagetpye']):1;
 	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('调用ID不能为空！',1);
-	substr($_POST['alias'],0,3)=='QS_'?adminmsg('调用名称不允许 QS_ 开头！',1):'';
+	substr($_POST['alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
 	}
 $setsqlarr['pname']=trim($_POST['pname'])?trim($_POST['pname']):adminmsg('您没有填写页面名称！',1);
 $setsqlarr['tag']=trim($_POST['tag']);

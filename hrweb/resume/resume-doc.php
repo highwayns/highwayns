@@ -1,25 +1,15 @@
 ﻿<?php
- /*
- * 74cms 生成word
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $uid=intval($_GET['uid']);//简历所属会员的uid
 $id=intval($_GET['resume_id']);
 if ($_SESSION['uid']=='' || $_SESSION['username']=='')
 {
-	$resume_url=url_rewrite('QS_resumeshow',array('id'=>$id));
-    header("Location:".url_rewrite('QS_login')."?url={$resume_url}");
+	$resume_url=url_rewrite('HW_resumeshow',array('id'=>$id));
+    header("Location:".url_rewrite('HW_login')."?url={$resume_url}");
 	exit();
 }
 if(($_SESSION['utype']=='2' && $_SESSION['uid']==$uid) || $_SESSION['utype']=='1'){
@@ -91,7 +81,7 @@ if ($val)
 			<td align="center">'.$val['title'].'</td>
 			<td align="center">最近登录</td>
 			<td align="center">'.$last_login_time.'</td>
-			<td align="center"><img width="130" height="40" src="'.$_CFG["upfiles_dir"].$_CFG["web_logo"].'" alt="{#$QISHI.site_name#}" border="0" align="absmiddle"></td>
+			<td align="center"><img width="130" height="40" src="'.$_CFG["upfiles_dir"].$_CFG["web_logo"].'" alt="{#$HIGHWAY.site_name#}" border="0" align="absmiddle"></td>
 		</tr>
 	</table>';
 // if($set_apply==1){

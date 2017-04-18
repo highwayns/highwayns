@@ -32,7 +32,7 @@ $wheresql=" WHERE c_id='".intval($aset['ID'])."' ";
 $result = $db->query("SELECT c_id,c_name,c_order,c_adminset FROM ".table('hrtools_category')." ".$wheresql." ORDER BY c_order DESC,c_id ASC");
 while($row = $db->fetch_array($result))
 {
-	$row['url'] = url_rewrite('QS_hrtoolslist',array('id'=>$row['c_id']));
+	$row['url'] = url_rewrite('HW_hrtoolslist',array('id'=>$row['c_id']));
 	$list[] = $row;
 }
 $smarty->assign($aset['listname'],$list);

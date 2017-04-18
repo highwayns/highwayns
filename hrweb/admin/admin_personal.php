@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 个人
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_personal_fun.php');
@@ -29,7 +19,7 @@ if($act == 'list')
 	{
 	$audit="";
 	}
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY refreshtime DESC ";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
@@ -193,7 +183,7 @@ elseif($act == 'members_list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"per_user_show");
-		require_once(QISHI_ROOT_PATH.'include/page.class.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$wheresql=" WHERE  m.utype=2 ";
 	$oederbysql=" order BY m.uid DESC ";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
@@ -349,7 +339,7 @@ elseif($act == 'userpass_edit')
 	if (strlen(trim($_POST['password']))<6) adminmsg('新密码必须为6位以上！',1);
 	$user_info=get_member_one($_POST['memberuid']);
 	$pwd_hash=$user_info['pwd_hash'];
-	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$QS_pwdhash);	
+	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$HW_pwdhash);	
 		if ($db->query( "UPDATE ".table('members')." SET password = '{$md5password}'  WHERE uid='{$user_info['uid']}' LIMIT 1"))
 		{
 			$link[0]['text'] = "返回列表";
@@ -400,7 +390,7 @@ elseif($act == 'members_add_save')
 	adminmsg('该 Email 已经被注册！',1);
 	}
 	$sql['pwd_hash'] = randstr();
-	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$QS_pwdhash);
+	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$HW_pwdhash);
 	$sql['reg_time']=time();
 	$sql['reg_ip']=$online_ip;
 	$insert_id=$db->inserttable(table('members'),$sql,true);
@@ -461,10 +451,10 @@ elseif($act == 'management')
 		unset($_SESSION['username']);
 		unset($_SESSION['utype']);
 		unset($_SESSION['uqqid']);
-		setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+		setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 		unset($_SESSION['activate_username']);
 		unset($_SESSION['activate_email']);
 		
@@ -472,10 +462,10 @@ elseif($act == 'management')
 		$_SESSION['username']=$u['username'];
 		$_SESSION['utype']=$u['utype'];
 		$_SESSION['uqqid']="1";
-		setcookie('QS[uid]',$u['uid'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[username]',$u['username'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[password]',$u['password'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[utype]',$u['utype'], 0,$QS_cookiepath,$QS_cookiedomain);
+		setcookie('QS[uid]',$u['uid'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[username]',$u['username'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[password]',$u['password'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[utype]',$u['utype'], 0,$HW_cookiepath,$HW_cookiedomain);
 		header("Location:".get_member_url($u['utype']));
 	}	
 }

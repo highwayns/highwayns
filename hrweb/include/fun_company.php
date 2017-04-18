@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 企业会员中心函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -31,7 +21,7 @@ function get_jobs($offset,$perpage,$get_sql= '',$countresume=false)
 		{
 		$row['jobs_name']="<span style=\"color:{$row['highlight']}\">{$row['jobs_name']}</span>";
 		}
-		$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['id']));
+		$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['id']));
 		$row['jobcategory'] = intval($row['topclass']).".".intval($row['category']).".".intval($row['subclass']);
 		if($row['audit']==3){
 			$row['status'] = 4;
@@ -72,7 +62,7 @@ function get_jobs_one($id,$uid='')
 	if (empty($val)) return false;
 	$val['contact']=$db->getone("select * from ".table('jobs_contact')." where pid='{$val['id']}' LIMIT 1 ");
 	$val['deadline_days']=($val['deadline']-$timestamp)>0?"距到期时间还有<strong style=\"color:#FF0000\">".sub_day($val['deadline'],$timestamp)."</strong>":"<span style=\"color:#FF6600\">目前已过期</span>";
-	$val['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$val['id']));
+	$val['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$val['id']));
 	return $val;
 }
 //根据id组获取职位
@@ -514,7 +504,7 @@ function get_down_resume($offset,$perpage,$get_sql= '')
 	{
 		$row['fullname_']=$row['fullname'];
 		$row['fullname']=cut_str($row['fullname'],4,0,"...");
-		$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['resume_id']));
+		$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['resume_id']));
 		$row['intention_jobs_']=$row['intention_jobs'];
 		$row['intention_jobs']=cut_str($row['intention_jobs'],30,0,"...");
 		$y=date("Y");
@@ -522,9 +512,6 @@ function get_down_resume($offset,$perpage,$get_sql= '')
 		/* 教育经历 培训经历 */
 		$row['resume_education_list']=get_resume_education($row['ruid'],$row['resume_id']);
 		$row['resume_work_list']=get_resume_work($row['ruid'],$row['resume_id']);
-		/*
-			获取简历标记
-		*/
 		$row_state=get_resume_state($_SESSION['uid'],$row['resume_id']);
 		$row['resume_state']=$row_state['resume_state'];
 		$row['resume_state_cn']=$row_state['resume_state_cn'];
@@ -641,7 +628,7 @@ function get_favorites($offset,$perpage,$get_sql= '')
 	{
 		$row['intention_jobs_']=$row['intention_jobs'];
 		$row['intention_jobs']=cut_str($row['intention_jobs'],30,0,"...");
-		$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['resume_id']));
+		$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['resume_id']));
 		if ($row['display_name']=="2")
 		{
 		$row['fullname']="N".str_pad($row['resume_id'],7,"0",STR_PAD_LEFT);
@@ -732,7 +719,7 @@ function get_interview($offset,$perpage,$get_sql= '')
 		$row['fullname']=cut_str($row['fullname'],5,0,"...");
 		$row['jobs_name_']=$row['jobs_name'];
 		$row['jobs_name']=cut_str($row['jobs_name'],10,0,"...");
-		$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['resume_id']));
+		$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['resume_id']));
 		$row['intention_jobs']=cut_str($row['intention_jobs'],30,0,"...");
 		$y=date("Y");
 		$row['age']=$y-$row['birthdate'];
@@ -767,16 +754,13 @@ function get_apply_jobs($offset,$perpage,$get_sql= '')
 		$row['jobs_name_']=cut_str($row['jobs_name'],7,0,"...");
 		$row['specialty_']=$row['specialty'];
 		$row['specialty']=cut_str($row['specialty'],30,0,"...");
-		$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['resume_id'],'apply'=>1));
-		$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['jobs_id']));
+		$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['resume_id'],'apply'=>1));
+		$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['jobs_id']));
 		$y=date("Y");
 		$row['age']=$y-$row['birthdate'];
 		/* 教育经历 培训经历 */
 		$row['resume_education_list']=get_resume_education($row['ruid'],$row['resume_id']);
 		$row['resume_work_list']=get_resume_work($row['ruid'],$row['resume_id']);
-		/*
-			获取简历标记
-		*/
 		$row_state=get_resume_state($_SESSION['uid'],$row['resume_id']);
 		$row['resume_state']=$row_state['resume_state'];
 		$row['resume_state_cn']=$row_state['resume_state_cn'];
@@ -1008,11 +992,6 @@ function get_user_setmeal($uid)
 	$sql = "select * from ".table('members_setmeal')."  WHERE uid='{$uid}' AND  effective=1 LIMIT 1";
 	return $db->getone($sql);
 }
-/*
-	$uid 会员uid
-	$actio 套餐项
-	$type 套餐项加减 (主要针对 发布职位默认为1是减,2为加)
-*/
 function action_user_setmeal($uid,$action,$type=1)
 {
 	global $db;
@@ -1119,7 +1098,7 @@ function get_promotion($uid,$promotionid)
 	{
 	$row['jobs_name']="<span style=\"color:{$row['highlight']}\">{$row['jobs_name']}</span>";
 	}
-	$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['id']));
+	$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['id']));
 	if (empty($row['jobs_name']))
 	{
 	$row['jobs_url']="javascript:void(0)";
@@ -1253,9 +1232,9 @@ function get_pms_one($pmid,$uid)
 	return $db->getone($sql);
 }
 function get_pms_no_num(){	//获取PMS 未读取的数量
-	global $db,$QS_cookiepath,$QS_cookiedomain;
+	global $db,$HW_cookiepath,$HW_cookiedomain;
 	$pmscount=$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$_SESSION['uid']}' OR  msgtouid='{$_SESSION['uid']}') AND `new`='1' AND `replyuid`<>'{$_SESSION['uid']}'");
-	setcookie('QS[pmscount]',$pmscount, false,$QS_cookiepath,$QS_cookiedomain);
+	setcookie('QS[pmscount]',$pmscount, false,$HW_cookiepath,$HW_cookiedomain);
 	return $pmscount;
 }
 //3.5

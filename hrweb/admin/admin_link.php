@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 友情链接
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_link_fun.php');
@@ -22,7 +12,7 @@ if($act == 'list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"link_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY l.show_order DESC";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
@@ -174,7 +164,7 @@ elseif($act == 'add_category_save')
 	check_permissions($_SESSION['admin_purview'],"link_category");	
 	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('您没有填写分类名称！',1);
 	$setsqlarr['c_alias']=$_POST['c_alias']?trim($_POST['c_alias']):adminmsg('您没有填调用名称！',1);
-	substr($setsqlarr['c_alias'],0,3)=='QS_'?adminmsg('调用名称不允许 QS_ 开头！',1):'';
+	substr($setsqlarr['c_alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
 	$category=get_link_category_name($setsqlarr['c_alias']);
 	if ($category)
 	{
@@ -203,7 +193,7 @@ elseif($act == 'edit_category_save')
 	check_permissions($_SESSION['admin_purview'],"link_category");	
 	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('您没有填写分类名称！',1);
 	$setsqlarr['c_alias']=$_POST['c_alias']?trim($_POST['c_alias']):adminmsg('您没有填调用名称！',1);
-	substr($setsqlarr['c_alias'],0,3)=='QS_'?adminmsg('调用名称不允许 QS_ 开头！',1):'';
+	substr($setsqlarr['c_alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
 	$category=get_link_category_name($setsqlarr['c_alias']);
 	if ($category && $category['id']<>$_POST['id'])
 	{

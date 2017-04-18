@@ -1,15 +1,5 @@
 ﻿<?php
 
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     popup
- * Purpose:  make text pop up in windows via overlib
- * Taken from the original Smarty
- * http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_popup($params, &$template_object)
 {
     extract($params);

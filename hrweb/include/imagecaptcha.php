@@ -1,23 +1,13 @@
 ﻿<?php
- /*
- * 74cms 验证码
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
 header('Expires: Thu, 01 Jan 1970 00:00:00 GMT');
 // HTTP/1.1
 header('Cache-Control: private, no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0, max-age=0', false);
 // HTTP/1.0
 header('Pragma: no-cache');
-define('QISHI_ROOT_PATH', dirname(dirname(__FILE__)).'/');
+define('HIGHWAY_ROOT_PATH', dirname(dirname(__FILE__)).'/');
 ini_set('session.save_handler', 'files');
-session_save_path(QISHI_ROOT_PATH.'data/sessions/');
+session_save_path(HIGHWAY_ROOT_PATH.'data/sessions/');
 session_start();
 error_reporting(E_ERROR);
 class imageCaptcha
@@ -103,9 +93,9 @@ public function randText($type)//@产生随机字符
 		case 'cn':
 		$string="到,去,请,钱,且,我,为,未,网,问,人,如,让,他,太,条,日,一,有,元,要,也,盘,怕,品,是,上,说,算,时,的,到,都,等,点,发,分,非,丰,否,个,给,刚,过,告,好,和,后,会,话,就,将,加,接,急,看,库,开,可,空,了,来,里,啦,老,在,做,再,中,走,想,下,写,先,新,才,错,次,此,从,不,吧,把,表,你,能,那,呢,吗,慢,忙,么";
 		require_once($this->rootpath."data/config.php");
-		if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+		if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 		{
-		$string=iconv(QISHI_DBCHARSET,"utf-8",$string);
+		$string=iconv(HIGHWAY_DBCHARSET,"utf-8",$string);
 		}
 		$string=explode(',',$string);
 		shuffle($string);
@@ -118,9 +108,9 @@ public function createText()//@输出文字到验证码
 {    
 	$text_array=$this->randText($this->textLang);
 	$this->textContent=implode('',$text_array);
-	if ($this->textLang=="cn" && strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if ($this->textLang=="cn" && strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
-	$this->textContent=iconv("utf-8",QISHI_DBCHARSET,$this->textContent);
+	$this->textContent=iconv("utf-8",HIGHWAY_DBCHARSET,$this->textContent);
 	}
 	if(empty($this->fontColor))
 	{
@@ -230,9 +220,9 @@ if ($act=="verify")
 	{
 		$rootpath= str_replace('include/imagecaptcha.php', '', str_replace('\\', '/', __FILE__));
 		require_once($rootpath.'data/config.php');
-		if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+		if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 		{
-		$c=iconv("utf-8",QISHI_DBCHARSET,$c);
+		$c=iconv("utf-8",HIGHWAY_DBCHARSET,$c);
 		}
 	}
 	if (empty($c) || empty($_SESSION['imageCaptcha_content']) || $_SESSION['imageCaptcha_content']<>$c)

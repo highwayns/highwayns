@@ -69,7 +69,7 @@ function tpl_function_qishi_jobs_show($params, &$smarty)
 		$val['deadline']=$val['setmeal_deadline'];
 		}
 		$val['amount']=$val['amount']=="0"?'若干':$val['amount'];
-		$val['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$val['id']));
+		$val['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$val['id']));
 		$profile=GetJobsCompanyProfile($val['company_id']);
 		$val['company']=$profile;
 		$val['contact']=GetJobsContact($val['id']);
@@ -89,7 +89,7 @@ function tpl_function_qishi_jobs_show($params, &$smarty)
 		}
 		$val['contents'] = htmlspecialchars_decode($val['contents'],ENT_QUOTES);
 		$val['refreshtime_cn']=daterange(time(),$val['refreshtime'],'Y-m-d',"#FF3300");
-		$val['company_url']=url_rewrite('QS_companyshow',array('id'=>$val['company_id']));
+		$val['company_url']=url_rewrite('HW_companyshow',array('id'=>$val['company_id']));
 		if ($val['company']['logo'])
 		{
 		$val['company']['logo']=$_CFG['site_dir']."data/logo/".$val['company']['logo'];

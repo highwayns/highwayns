@@ -34,7 +34,7 @@ function tpl_function_qishi_company_show($params, &$smarty)
 		}
 		else
 		{
-			$profile['company_url']=url_rewrite('QS_companyshow',array('id'=>$profile['id']));
+			$profile['company_url']=url_rewrite('HW_companyshow',array('id'=>$profile['id']));
 			$profile['company_profile']=htmlspecialchars_decode($profile['contents'],ENT_QUOTES);
 			// 在招职位
 			$profile['jobs_num']=$db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs')." WHERE uid='{$profile['uid']}' ");
@@ -57,7 +57,7 @@ function tpl_function_qishi_company_show($params, &$smarty)
 			$row = $db->getone("select * from ".table("members_setmeal")." where uid = ".$profile['uid']); 
 			$profile['pay_user'] = $row['setmeal_id'];
 			$profile['pay_setmeal_name'] = $row['setmeal_name'];
-			require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 			$profile['loginlog']=get_loginlog_one($profile['uid'],'1001');
 		} 
 	$smarty->assign($aset['listname'],$profile);

@@ -55,7 +55,7 @@ class Uploader
             $this->upFile();
         }
 
-        $this->stateMap['ERROR_TYPE_NOT_ALLOWED'] = iconv('unicode', 'gbk', $this->stateMap['ERROR_TYPE_NOT_ALLOWED']);
+        $this->stateMap['ERROR_TYPE_NOT_ALLOWED'] = iconv('unicode', 'utf8', $this->stateMap['ERROR_TYPE_NOT_ALLOWED']);
     }
 
     /**

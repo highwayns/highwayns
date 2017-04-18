@@ -52,8 +52,8 @@ $aset['row']=isset($aset['row'])?intval($aset['row']):10;
 $aset['start']=isset($aset['start'])?intval($aset['start']):0;
 $aset['titlelen']=isset($aset['titlelen'])?intval($aset['titlelen']):15;
 $aset['infolen']=isset($aset['infolen'])?intval($aset['infolen']):0;
-$aset['showname']=isset($aset['showname'])?$aset['showname']:'QS_helpshow';
-$aset['listpage']=isset($aset['listpage'])?$aset['listpage']:'QS_helplist';
+$aset['showname']=isset($aset['showname'])?$aset['showname']:'HW_helpshow';
+$aset['listpage']=isset($aset['listpage'])?$aset['listpage']:'HW_helplist';
 $orderbysql=" ORDER BY `order` DESC ,id DESC";
 isset($aset['parentid'])?$wheresql.=" AND parentid=".intval($aset['parentid'])." ":'';
 isset($aset['type_id'])?$wheresql.=" AND type_id=".intval($aset['type_id'])." ":'';
@@ -68,7 +68,7 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 }
 if (isset($aset['paged']))
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('help').$wheresql;
 	$total_count=$db->get_total($total_sql);
 	$pagelist = new page(array('total'=>$total_count, 'perpage'=>$aset['row'],'alias'=>$aset['listpage'],'getarray'=>$_GET));

@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心首页
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_flash_statement_fun.php');
@@ -40,8 +30,8 @@ elseif($act == 'main')
 	$admindir_warning=substr(ADMIN_ROOT_PATH,-7)=='/admin/'?"您的网站管理中心目录为 ./admin ，出于安全的考虑，我们建议您修改目录名。":null;
 	$admin_register_globals=ini_get('register_globals')?'您的php.ini中register_globals为On，强烈建议你设为Off，否则将会出现严重的安全隐患和数据错乱！':null;
 	$system_info = array();
-	$system_info['version'] = QISHI_VERSION;
-	$system_info['release'] = QISHI_RELEASE;
+	$system_info['version'] = HIGHWAY_VERSION;
+	$system_info['release'] = HIGHWAY_RELEASE;
 	$system_info['os'] = PHP_OS;
 	$system_info['web_server'] = $_SERVER['SERVER_SOFTWARE'];
 	$system_info['php_ver'] = PHP_VERSION;

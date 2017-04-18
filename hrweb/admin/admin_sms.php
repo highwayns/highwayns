@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 邮件设置
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'set_sms';
@@ -181,7 +171,7 @@ elseif($act == 'send')
 	$smarty->assign('pageheader',"短信营销");
 	
 	require_once(dirname(__FILE__).'/include/admin_smsqueue_fun.php');
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$uid=intval($_GET['uid']);
 	$mobile=trim($_GET['mobile']);
 	

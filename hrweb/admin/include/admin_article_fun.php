@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心共用数据调用函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -30,7 +20,7 @@ function get_news($offset, $perpage, $sql= '')
 	}
 	else
 	{
-	$row['url'] = url_rewrite('QS_newsshow',array('id'=>$row['id']));
+	$row['url'] = url_rewrite('HW_newsshow',array('id'=>$row['id']));
 	}
 	$row['url_title'] ="<a href=\"".$row['url']."\" target=\"_blank\" ".$tit_style.">".$row['title']."</a> ".$Small_img."";
 	$row_arr[] = $row;

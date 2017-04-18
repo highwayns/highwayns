@@ -1,19 +1,9 @@
 ﻿<?php
- /*
- * 74cms 会员注册
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
-$alias="QS_login";
+define('IN_HIGHWAY', true);
+$alias="HW_login";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $smarty->cache = false;
@@ -84,7 +74,7 @@ elseif($act == 'get_pass_step3')
 }
 elseif($act=="get_pass_step3_email")
 {	
-	global $QS_pwdhash;
+	global $HW_pwdhash;
 	$uid=$_GET['uid']?intval($_GET['uid']):"";
 	$key=$_GET['key']?trim($_GET['key']):"";
 	$time=$_GET['time']?trim($_GET['time']):"";
@@ -102,7 +92,7 @@ elseif($act=="get_pass_step3_email")
 		$link[0]['href'] = "?act=enter";
 		showmsg("找回密码失败,链接过期",0,$link);
 	}
-	$key_str=substr(md5($userinfo['username'].$QS_pwdhash),8,16);
+	$key_str=substr(md5($userinfo['username'].$HW_pwdhash),8,16);
 	if($key_str!=$key)
 	{
 		$link[0]['text'] = "重新找回密码";
@@ -119,7 +109,7 @@ elseif($act=="get_pass_step3_email")
 // 保存 密码
 elseif($act == "get_pass_save")
 {
-	global $QS_pwdhash;
+	global $HW_pwdhash;
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['getpass_token'])
 	{
 		$link[0]['text'] = "重新找回密码";
@@ -135,7 +125,7 @@ elseif($act == "get_pass_save")
 		$link[0]['href'] = "?act=enter";
 		showmsg("修改密码失败",0,$link);
 	}
-	$password_hash=md5(md5($password).$userinfo['pwd_hash'].$QS_pwdhash);
+	$password_hash=md5(md5($password).$userinfo['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['password']=$password_hash;
 	$rst=$db->updatetable(table('members'),$setsqlarr,array("uid"=>$userinfo['uid']));
 	if($rst)

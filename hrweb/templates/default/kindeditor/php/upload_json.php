@@ -4,7 +4,7 @@
  *
  * 鏈琍HP绋嬪簭鏄紨绀虹▼搴忥紝寤鸿涓嶈鐩存帴鍦ㄥ疄闄呴」鐩腑浣跨敤銆? * 濡傛灉鎮ㄧ‘瀹氱洿鎺ヤ娇鐢ㄦ湰绋嬪簭锛屼娇鐢ㄤ箣鍓嶈浠旂粏纭鐩稿叧瀹夊叏璁剧疆銆? *
  */
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 
 require_once('../../../data/config.php');
 require_once('../../include/admin_common.inc.php');

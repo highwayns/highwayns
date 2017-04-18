@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms AJAX BAIDUMAP
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
 header("Content-Type:text/html;charset=utf-8");
 $id =intval($_GET['id']);
@@ -17,7 +7,7 @@ $jobshow =trim($_GET['jobshow']);
 $perpage=10;
 function iconv_js($string)
 {
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	return gbk_to_utf8($string);
 	}
@@ -123,7 +113,7 @@ if (!empty($jobshow))
 		{
 		$row['companyname_']=$row['companyname'];
 		$row['companyname']=cut_str($row['companyname'],13,0,"...");
-		$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
+		$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
 		$li.="<li><a href=\\\"{$row['company_url']}\\\" target=\\\"_blank\\\" id=\\\"o{$row['id']}\\\">{$row['companyname']}</a></li>";
 		//
 		$position[]="new BMap.Point({$row['map_x']},{$row['map_y']})";

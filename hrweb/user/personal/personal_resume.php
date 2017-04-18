@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 个人会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__) . '/personal_common.php');
 $smarty->assign('leftmenu',"resume"); 
  
@@ -219,8 +209,8 @@ elseif($act=='ajax_get_interest_jobs'){
 	$jobs_list = get_interest_jobs_list($interest_id);
 	if(!empty($jobs_list)){
 		foreach($jobs_list as $k=>$v){
-			$jobs_url = url_rewrite("QS_jobsshow",array("id"=>$v['id']));
-			$company_url = url_rewrite("QS_companyshow",array("id"=>$v['company_id']));
+			$jobs_url = url_rewrite("HW_jobsshow",array("id"=>$v['id']));
+			$company_url = url_rewrite("HW_companyshow",array("id"=>$v['company_id']));
 			$html='<tr>
 					<td class="frist" width="117"><div class="index-line1"><a href="'.$jobs_url.'" class="underline job-link">'.$v["jobs_name"].'</a></div></td>
 					<td width="228"><div class="index-line2"><a href="'.$company_url.'" class="underline com-link">'.$v["companyname"].'</a></div></td>
@@ -943,7 +933,7 @@ elseif ($act=='del_credent')
 elseif ($act=='credent_photo')
 {	 
 	!$_FILES['credent_photo']['name']?exit('请上传图片！'):"";
-	require_once(QISHI_ROOT_PATH.'include/cut_upload.php');  
+	require_once(HIGHWAY_ROOT_PATH.'include/cut_upload.php');  
 	$up_res_original="../../data/credent_photo/"; 
 	$cdate = date("Y/m/d/");
 	$mkdir = $up_res_original.$cdate;
@@ -961,7 +951,7 @@ elseif ($act=='word_upload')
 	$pid=intval($_GET['pid']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	!$_FILES['word_resume']['name']?exit('请上传文件！'):""; 
-	require_once(QISHI_ROOT_PATH.'include/cut_upload.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/cut_upload.php');
 	$up_res_original="../../data/word/"; 
 	$cdate = date("Y/m/d/");
 	$mkdir = $up_res_original.$cdate;
@@ -970,7 +960,7 @@ elseif ($act=='word_upload')
 	$word_resume =_asUpFiles($up_res_original.$cdate,"word_resume",2048,'doc',true);
 	$setsqlarr['word_resume'] = $cdate.$word_resume;
 	$db->updatetable(table("resume"),$setsqlarr,array("id"=>$pid));
-	@unlink(QISHI_ROOT_PATH."data/word/".$word['word_resume']);
+	@unlink(HIGHWAY_ROOT_PATH."data/word/".$word['word_resume']);
 	$data['save_url'] = $setsqlarr['word_resume'];
 	$json_encode = json_encode($data);
 	exit($json_encode);
@@ -981,7 +971,7 @@ elseif($act == "word_del")
 	$pid=$_POST['pid']?intval($_POST['pid']):exit("简历ID丢失");
 	$uid=intval($_SESSION['uid']);
 	$word=get_resume_basic($uid,$pid);
-	@unlink(QISHI_ROOT_PATH."data/word/".$word['word_resume']);
+	@unlink(HIGHWAY_ROOT_PATH."data/word/".$word['word_resume']);
 	$setarr['word_resume']="";
 	$db->updatetable(table("resume"),$setarr,array('uid'=>$uid,"id"=>$pid))?exit("删除成功"):exit("删除成功");
 }
@@ -1003,7 +993,7 @@ elseif($act == "ajax_resume_img_save")
 	{
 		exit("-7");
 	}
-	require_once(QISHI_ROOT_PATH.'include/upload.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/upload.php');
 	!$_FILES['resume_img']['name']?exit('请上传图片！'):"";
 	$datedir=date("Y/m/d/");
 	$up_dir="../../data/photo/".$datedir;

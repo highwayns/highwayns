@@ -87,7 +87,7 @@ namespace highwayns
                     string line = sr.ReadLine();
                     while (line != null)
                     {
-                        if(line =="/*")
+                        if(line.Trim() =="/*")
                         {
                             isComment = true;
                         }
@@ -98,12 +98,12 @@ namespace highwayns
                                 line = line.Replace(froms[idx], tos[idx]);
                             }
                             wr.WriteLine(line);
-                            line = sr.ReadLine();
                         }
-                        if (line == "*/")
+                        if (line.Trim() == "*/")
                         {
                             isComment = false;
                         }
+                        line = sr.ReadLine();
                     }
                 }
             }

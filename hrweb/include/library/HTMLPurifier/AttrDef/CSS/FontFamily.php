@@ -28,21 +28,6 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
             $this->mask .= chr($i);
         }
 
-        /*
-            PHP's internal strcspn implementation is
-            O(length of string * length of mask), making it inefficient
-            for large masks.  However, it's still faster than
-            preg_match 8)
-          for (p = s1;;) {
-            spanp = s2;
-            do {
-              if (*spanp == c || p == s1_end) {
-                return p - s1;
-              }
-            } while (spanp++ < (s2_end - 1));
-            c = *++p;
-          }
-         */
         // possible optimization: invert the mask.
     }
 

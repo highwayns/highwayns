@@ -107,7 +107,7 @@ while($row = $db->fetch_array($result))
 			$list["briefly"]=htmlspecialchars_decode(strip_tags($companyinfo['contents']),ENT_QUOTES);
 			unset($list["companyname"]);
 			$list["companyname"]=strip_tags($companyinfo['companyname']);
-			$list["company_url"]=url_rewrite("QS_companyshow",array('id'=>$companyinfo['id']));
+			$list["company_url"]=url_rewrite("HW_companyshow",array('id'=>$companyinfo['id']));
 			if($list['img_url']=="")
 			{
 				$list['img_url']=$list["company_url"];
@@ -115,7 +115,7 @@ while($row = $db->fetch_array($result))
 			$jobsarray = $db->getall("select * from ".table('jobs')." where uid={$row['img_uid']}");
 			unset($list['jobs']);
 			foreach ($jobsarray as $key=>$val) {
-				$val["jobs_url"]=url_rewrite("QS_jobsshow",array('id'=>$val['id']));
+				$val["jobs_url"]=url_rewrite("HW_jobsshow",array('id'=>$val['id']));
 				$list['jobs'][$key]=$val;
 			}
 		}
@@ -160,16 +160,16 @@ while($row = $db->fetch_array($result))
 }
 if(!empty($arr) && $arr[0]['type_id']=="5")
 {
-	$arr=qs_ad_floating($arr);
+	$arr=hw_ad_floating($arr);
 }
 elseif (!empty($arr) && $arr[0]['type_id']=="6")
 {
-	$arr=qs_ad_video($arr);
+	$arr=hw_ad_video($arr);
 }
 $smarty->assign($aset['listname'],$arr);
 unset($alist,$row,$aset,$list);
 }
-function qs_ad_floating($arr)
+function hw_ad_floating($arr)
 {
 	global $_CFG;
 	if (empty($arr)) return array('float_code'=>'');
@@ -217,7 +217,7 @@ function qs_ad_floating($arr)
 	$html.="</SCRIPT>\n";
 	return array('float_code'=>$html);
 }
-function qs_ad_video($arr)
+function hw_ad_video($arr)
 {
 	global $_CFG;
 	if (empty($arr)) return array('video_code'=>'');

@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 投诉与建议相关函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -49,14 +39,14 @@ function get_report_list($offset,$perpage,$get_sql= '',$type)
 		$result = $db->query("SELECT r.*,m.username FROM ".table('report')." AS r ".$get_sql.$limit);
 		while($row = $db->fetch_array($result))
 		{
-		$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['jobs_id']));
+		$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['jobs_id']));
 		$row_arr[] = $row;
 		}
 	}else{
 		$result = $db->query("SELECT r.*,m.username FROM ".table('report_resume')." AS r ".$get_sql.$limit);
 		while($row = $db->fetch_array($result))
 		{
-		$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['resume_id']));
+		$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['resume_id']));
 		$row_arr[] = $row;
 		}
 	}
@@ -90,7 +80,7 @@ function report_audit($id,$audit,$type,$rid)
 		{
 			$user_info=get_user($list['uid']);
 			if($type==1) {
-				$jobsurl=url_rewrite('QS_jobsshow',array('id'=>$list['jobs_id']));
+				$jobsurl=url_rewrite('HW_jobsshow',array('id'=>$list['jobs_id']));
 				$setsqlarr['message']="您举报的职位：<a href=\"{$jobsurl}\" target=\"_blank\">{$list['jobs_name']}</a>,经平台核实情况".($audit==2?"属实":"不属实");
 			} else {
 				// 企业举报简历 获得积分
@@ -102,7 +92,7 @@ function report_audit($id,$audit,$type,$rid)
 					$operator=$rule['company_report_resume_points']['type']=="1"?"+":"-";
 					write_memberslog($user_info['uid'],1,9001,$user_info['username']," 企业举报简历，{$_CFG['points_byname']}({$operator}{$rule['company_report_resume_points']['value']})，(剩余:{$user_points})",1,1016,"企业举报简历","{$operator}{$rule['company_report_resume_points']['value']}","{$user_points}");
 				}
-				$resumeurl=url_rewrite('QS_resumeshow',array('id'=>$list['resume_id']));
+				$resumeurl=url_rewrite('HW_resumeshow',array('id'=>$list['resume_id']));
 				$setsqlarr['message']="您举报的简历：<a href=\"{$resumeurl}\" target=\"_blank\">{$list['title']}</a>,真实姓名：{$list['fullname']},经平台核实情况".($audit==2?"属实":"不属实");
 			}
 			$setsqlarr['msgtype']=1;

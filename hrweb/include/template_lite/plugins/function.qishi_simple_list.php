@@ -62,7 +62,7 @@ $aset['start']=isset($aset['start'])?intval($aset['start']):0;
 $aset['jobslen']=isset($aset['jobslen'])?intval($aset['jobslen']):8;
 $aset['companynamelen']=isset($aset['companynamelen'])?intval($aset['companynamelen']):15;
 $aset['brieflylen']=isset($aset['brieflylen'])?intval($aset['brieflylen']):0;
-$aset['simpleshow']=isset($aset['simpleshow'])?$aset['simpleshow']:'QS_simpleshow';
+$aset['simpleshow']=isset($aset['simpleshow'])?$aset['simpleshow']:'HW_simpleshow';
 
 if (isset($aset['displayorder']))
 {
@@ -200,11 +200,11 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 }
 if (isset($aset['page']))
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('simple').$wheresql;
 	//echo $total_sql;
 	$total_count=$db->get_total($total_sql);	
-	$page = new page(array('total'=>$total_count, 'perpage'=>$aset['row'],'alias'=>'QS_simplelist','getarray'=>$_GET));
+	$page = new page(array('total'=>$total_count, 'perpage'=>$aset['row'],'alias'=>'HW_simplelist','getarray'=>$_GET));
 	$currenpage=$page->nowindex;
 	$aset['start']=($currenpage-1)*$aset['row'];
 	$smarty->assign('page',$page->show(3));

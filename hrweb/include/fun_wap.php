@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms WAP
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -319,7 +309,7 @@ function wap_get_user_type($uid)
 //注册会员
 function wap_user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 {
-	global $db,$timestamp,$_CFG,$online_ip,$QS_pwdhash;
+	global $db,$timestamp,$_CFG,$online_ip,$HW_pwdhash;
 	$member_type=intval($member_type);
 	$ck_username=get_user_inusername($username);
 	$ck_email=get_user_inemail($email);
@@ -336,7 +326,7 @@ function wap_user_register($username,$password,$member_type=0,$email,$uc_reg=tru
 	return -3;
 	}
 	$pwd_hash=randstr();
-	$password_hash=md5(md5($password).$pwd_hash.$QS_pwdhash);
+	$password_hash=md5(md5($password).$pwd_hash.$HW_pwdhash);
 	$setsqlarr['username']=$username;
 	$setsqlarr['password']=$password_hash;
 	$setsqlarr['pwd_hash']=$pwd_hash;
@@ -356,7 +346,7 @@ return $insert_id;
 }
 function wap_user_login($account,$password,$account_type=1,$uc_login=true,$expire=NULL)
 {
-	global $timestamp,$online_ip,$QS_pwdhash;
+	global $timestamp,$online_ip,$HW_pwdhash;
 	$usinfo = $login = array();
 	$success = false;
 	if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$account))
@@ -382,11 +372,11 @@ function wap_user_login($account,$password,$account_type=1,$uc_login=true,$expir
 	{
 		$pwd_hash=$usinfo['pwd_hash'];
 		$usname=$usinfo['username'];
-		$pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
+		$pwd=md5(md5($password).$pwd_hash.$HW_pwdhash);
 		if ($usinfo['password']==$pwd)
 		{
 		wap_update_user_info($usinfo['uid'],true,true,$expire);
-		$login['qs_login']=get_member_wap_url($usinfo['utype']);
+		$login['hw_login']=get_member_wap_url($usinfo['utype']);
 		$success=true;
 		}
 		else
@@ -399,7 +389,7 @@ function wap_user_login($account,$password,$account_type=1,$uc_login=true,$expir
 }
 function wap_update_user_info($uid,$record=true,$setcookie=true,$cookie_expire=NULL)
  {
- 	global $timestamp, $online_ip,$db,$QS_cookiepath,$QS_cookiedomain,$_CFG;//3.4升级修改 引入变量$_CFG
+ 	global $timestamp, $online_ip,$db,$HW_cookiepath,$HW_cookiedomain,$_CFG;//3.4升级修改 引入变量$_CFG
 	$user = wap_get_user_inid($uid);
 	if (empty($user))
 	{
@@ -414,10 +404,10 @@ function wap_update_user_info($uid,$record=true,$setcookie=true,$cookie_expire=N
 	if ($setcookie)
 	{
 		$expire=intval($cookie_expire)>0?time()+3600*24*$cookie_expire:0;
-		setcookie('QS[uid]',$user['uid'],$expire,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[username]',$user['username'],$expire,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[password]',$user['password'],$expire,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[utype]',$user['utype'], $expire,$QS_cookiepath,$QS_cookiedomain);
+		setcookie('QS[uid]',$user['uid'],$expire,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[username]',$user['username'],$expire,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[password]',$user['password'],$expire,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[utype]',$user['utype'], $expire,$HW_cookiepath,$HW_cookiedomain);
 	}
 	if ($record)
 	{

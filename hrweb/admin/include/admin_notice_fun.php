@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心 说明页 数据调用函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -24,7 +14,7 @@ function get_notice($offset, $perpage, $get_explain_sql= '')
 	$tit_color = $row['tit_color'] ? "color:".$row['tit_color'].";" : '';
 	$tit_b = $row['tit_b']>0 ? "font-weight:bold;" : '';
 	$tit_style= $tit_color || $tit_b ? "style=\"".$tit_color.$tit_b."\""  : '';
-	$url = $row['is_url']=="http://" ? url_rewrite('QS_noticeshow',array('id'=>$row['id'])): $row['is_url'];
+	$url = $row['is_url']=="http://" ? url_rewrite('HW_noticeshow',array('id'=>$row['id'])): $row['is_url'];
 	$row['url_title'] ="<a href=\"".$url."\" target=\"_blank\" ".$tit_style.">".$row['title']."</a> ";
 	$row_arr[] = $row;
 	}

@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理中心 个人用户相关函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
@@ -41,8 +31,8 @@ function get_jobs($offset,$perpage,$get_sql= '')
 	$row['jobs_name']="<span style=\"color:{$row['highlight']}\">{$row['jobs_name']}</span>";
 	}
 	$row['companyname']=cut_str($row['companyname'],18,0,"...");
-	$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
-	$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['id']));
+	$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
+	$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['id']));
 	$get_resume_nolook = $db->getone("select count(*) from ".table('personal_jobs_apply')." where personal_look=1 and jobs_id=".$row['id']);
 	$get_resume_all = $db->getone("select count(*) from ".table('personal_jobs_apply')." where jobs_id=".$row['id']);
 	$row['get_resume'] = "( ".$get_resume_nolook['count(*)']." / ".$get_resume_all['count(*)']." )";
@@ -58,7 +48,7 @@ function get_resume_list($offset,$perpage,$get_sql= '')
 	$result = $db->query($get_sql.$limit);
 	while($row = $db->fetch_array($result))
 	{
-	$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['id']));
+	$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['id']));
 	$row_arr[] = $row;
 	}
 	return $row_arr;
@@ -221,8 +211,8 @@ function edit_resume_photoaudit($id,$audit,$is_del_img)
 				if($is_del_img==1 && $audit==3)
 				{
 					$photo=0;
-					@unlink(QISHI_ROOT_PATH.'data/photo/'.$tb1['photo_img']);
-					@unlink(QISHI_ROOT_PATH.'data/photo/thumb/'.$tb1['photo_img']);
+					@unlink(HIGHWAY_ROOT_PATH.'data/photo/'.$tb1['photo_img']);
+					@unlink(HIGHWAY_ROOT_PATH.'data/photo/thumb/'.$tb1['photo_img']);
 					$db->query("update  ".table('resume')." SET photo_img='',photo_audit='{$audit}',photo='{$photo}' WHERE id='{$i}' LIMIT 1 ");
 					$db->query("update  ".table('resume_search_rtime')." SET photo='{$photo}' WHERE id='{$i}' LIMIT 1 ");
 					$db->query("update  ".table('resume_search_key')." SET photo='{$photo}' WHERE id='{$i}' LIMIT 1 ");
@@ -274,7 +264,7 @@ function get_resume_uid($uid)
 	$result = $db->query("select * FROM ".table('resume')." where uid='{$uid}'");
 	while($row = $db->fetch_array($result))
 	{ 
-	$row['resume_url']=url_rewrite('QS_resumeshow',array('id'=>$row['id']));
+	$row['resume_url']=url_rewrite('HW_resumeshow',array('id'=>$row['id']));
 	$row_arr[] = $row;
 	}
 	return $row_arr;	

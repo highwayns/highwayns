@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms ajax 联系方式
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : ''; 
 
@@ -345,9 +335,6 @@ elseif($act == 'resume_contact')
 		if ($show)
 		{
 			$val=$db->getone("select fullname,telephone,email,word_resume from ".table('resume')." WHERE  id='{$id}'  LIMIT 1");
-			/*
-				简历被标记状态
-			*/
 			if($_SESSION['uid'] && $_SESSION['utype']==1)
 			{
 				$resume_state=$db->getone("select resume_state from ".table("company_label_resume")." where resume_id=$id and uid=$_SESSION[uid]");

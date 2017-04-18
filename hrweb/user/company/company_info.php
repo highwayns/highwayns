@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"info");
 if ($act=='company_profile')
@@ -152,7 +142,7 @@ elseif ($act=='company_profile_save')
 					}
 				}
 				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"完善企业资料");
-				baidu_submiturl(url_rewrite('QS_companyshow',array('id'=>$insertid)),'addcompany');
+				baidu_submiturl(url_rewrite('HW_companyshow',array('id'=>$insertid)),'addcompany');
 				showmsg("修改成功",2);
 			}
 			else
@@ -178,7 +168,7 @@ elseif ($act=='company_auth')
 //上传营业执照
 elseif ($act=='company_auth_save')
 {
-	require_once(QISHI_ROOT_PATH.'include/upload.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/upload.php');
 	$setsqlarr['license']=trim($_POST['license']);
 	$setsqlarr['audit']=2;
 	!$_FILES['certificate_img']['name']?exit('请上传图片！'):"";
@@ -187,20 +177,14 @@ elseif ($act=='company_auth_save')
 	$setsqlarr['certificate_img']=_asUpFiles($certificate_dir, "certificate_img",$_CFG['certificate_max_size'],'gif/jpg/bmp/png',true);
 	if ($setsqlarr['certificate_img'])
 	{
-		/*
-		3.5新增打水印start
-		 */
 		if(extension_loaded('gd')){
-			include_once(QISHI_ROOT_PATH.'include/watermark.php');
-			$font_dir=QISHI_ROOT_PATH."data/contactimgfont/cn.ttc";
+			include_once(HIGHWAY_ROOT_PATH.'include/watermark.php');
+			$font_dir=HIGHWAY_ROOT_PATH."data/contactimgfont/cn.ttc";
 			if(file_exists($font_dir)){
 				$tpl=new watermark;
 				$tpl->img($certificate_dir.$setsqlarr['certificate_img'],gbk_to_utf8($_CFG['site_name']),$font_dir,15,0);
 			}
 		}
-		/*
-		3.5新增end
-		 */
 		$setsqlarr['certificate_img']=date("Y/m/d/").$setsqlarr['certificate_img'];
 		$auth=$company_profile;
 		@unlink("../../data/".$_CFG['updir_certificate']."/".$auth['certificate_img']);
@@ -238,7 +222,7 @@ elseif ($act=='company_logo')
 }
 elseif ($act=='company_logo_save')
 {
-	require_once(QISHI_ROOT_PATH.'include/upload.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/upload.php');
 	!$_FILES['logo']['name']?showmsg('请上传图片！',1):"";
 	$uplogo_dir="../../data/logo/".date("Y/m/d/");
 	make_dir($uplogo_dir);

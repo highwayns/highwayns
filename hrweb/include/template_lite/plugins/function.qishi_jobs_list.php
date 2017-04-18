@@ -130,7 +130,7 @@ $a=explode(':',$str);
 }
 $aset=array_map("get_smarty_request",$aset);
 $aset['listname']=isset($aset['listname'])?$aset['listname']:"list";
-$aset['listpage']=isset($aset['listpage'])?$aset['listpage']:"QS_jobslist";
+$aset['listpage']=isset($aset['listpage'])?$aset['listpage']:"HW_jobslist";
 $aset['row']=intval($aset['row'])>0?intval($aset['row']):20;
 if ($aset['row']>20)$aset['row']=20;
 $aset['companyjobs_row']=intval($aset['companyjobs_row'])>0?intval($aset['companyjobs_row']):3;
@@ -138,9 +138,9 @@ $aset['start']=isset($aset['start'])?intval($aset['start']):0;
 $aset['jobslen']=isset($aset['jobslen'])?intval($aset['jobslen']):8;
 $aset['companynamelen']=isset($aset['companynamelen'])?intval($aset['companynamelen']):15;
 $aset['brieflylen']=isset($aset['brieflylen'])?intval($aset['brieflylen']):0;
-$aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'QS_companyshow';
-$aset['jobsshow']=isset($aset['jobsshow'])?$aset['jobsshow']:'QS_jobsshow';
-$aset['companyjobs']=isset($aset['companyjobs'])?$aset['companyjobs']:'QS_companyjobs';
+$aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'HW_companyshow';
+$aset['jobsshow']=isset($aset['jobsshow'])?$aset['jobsshow']:'HW_jobsshow';
+$aset['companyjobs']=isset($aset['companyjobs'])?$aset['companyjobs']:'HW_companyjobs';
 $aset['mode']=isset($aset['mode'])?intval($aset['mode']):0;
 $openorderby=false;
 if (isset($aset['displayorder']))
@@ -420,7 +420,7 @@ if (isset($aset['key']) && !empty($aset['key']))
 	{
 		if ($_SESSION['username']=='')
 		{
-		header("Location: ".url_rewrite('QS_login')."?url=".urlencode($_SERVER["REQUEST_URI"]));
+		header("Location: ".url_rewrite('HW_login')."?url=".urlencode($_SERVER["REQUEST_URI"]));
 		}
 	}
 	$key=help::addslashes_deep(trim($aset['key']));
@@ -486,7 +486,7 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 }
 if (isset($aset['page']))
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM {$jobstable} {$wheresql}";
 	//echo $total_sql;
 	$total_count=$db->get_total($total_sql);	

@@ -1,23 +1,13 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI')) die('Access Denied!');
+if(!defined('IN_HIGHWAY')) die('Access Denied!');
 $page_select="user";
 require_once(dirname(dirname(dirname(__FILE__))).'/include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_company.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 	if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_COOKIE['QS']['uid'])
 	{
-		require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 		if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
 		{
 		update_user_info($_COOKIE['QS']['uid'],false,false);
@@ -26,21 +16,21 @@ require_once(QISHI_ROOT_PATH.'include/fun_company.php');
 		else
 		{
 		unset($_SESSION['uid'],$_SESSION['username'],$_SESSION['utype'],$_SESSION['uqqid'],$_SESSION['activate_username'],$_SESSION['activate_email'],$_SESSION["openid"]);
-		setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie('QS[username]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie('QS[password]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+		setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie('QS[username]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie('QS[password]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 		}
 	}
 	if ($_SESSION['uid']=='' || $_SESSION['username']=='' || intval($_SESSION['uid'])===0)
 	{
-		header("Location: ".url_rewrite('QS_login')."?act=logout");
+		header("Location: ".url_rewrite('HW_login')."?act=logout");
 		exit();
 	}
 	elseif ($_SESSION['utype']!='1') 
 	{
 	$link[0]['text'] = "会员中心";
-	$link[0]['href'] = url_rewrite('QS_login');
+	$link[0]['href'] = url_rewrite('HW_login');
 	showmsg('您访问的页面需要 企业会员 登录！',1,$link);
 	}
 	$act = !empty($_GET['act']) ? trim($_GET['act']) : 'index';
@@ -59,7 +49,7 @@ require_once(QISHI_ROOT_PATH.'include/fun_company.php');
 	elseif (empty($user))
 	{
 	unset($_SESSION['utype'],$_SESSION['uid'],$_SESSION['username']);
-	header("Location:".url_rewrite('QS_login')."?url=".$_SERVER["REQUEST_URI"]);
+	header("Location:".url_rewrite('HW_login')."?url=".$_SERVER["REQUEST_URI"]);
 	exit();
 	}
 
@@ -89,7 +79,7 @@ require_once(QISHI_ROOT_PATH.'include/fun_company.php');
 	if (!empty($company_profile))
 	{
 		$company_profile = array_map("addslashes",$company_profile);
-		$smarty->assign('company_url',url_rewrite('QS_companyshow',array('id'=>$company_profile['id'])));
+		$smarty->assign('company_url',url_rewrite('HW_companyshow',array('id'=>$company_profile['id'])));
 		// 企业是否完善资料
 		$cominfo_flge=true;
 		$array=array("companyname","nature","trade","district","scale","address","contact","telephone","email","contents");

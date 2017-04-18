@@ -36,7 +36,7 @@ $act=$aset['act'];
 $aset['dot']=isset($aset['dot'])?$aset['dot']:null;
 if (intval($aset['row'])>0) $limit=" LIMIT ".intval($aset['row']);
 $list =array();
-if ($act=="QS_jobs")
+if ($act=="HW_jobs")
 {
 	$id=intval($aset['id']);
 	$result = $db->query("SELECT * FROM ".table('category_jobs')." where parentid=".$id." ORDER BY category_order desc,id asc".$limit);
@@ -49,7 +49,7 @@ if ($act=="QS_jobs")
 	}
 }
 // 楼层
-elseif ($act=="QS_jobs_floor")
+elseif ($act=="HW_jobs_floor")
 {
 	$id=trim($aset['id']);
 	$id=str_replace("_", ",", $id);
@@ -62,7 +62,7 @@ elseif ($act=="QS_jobs_floor")
 	$list[] = $row;
 	}
 }
-elseif ($act=="QS_jobs_parent")
+elseif ($act=="HW_jobs_parent")
 {
 	if (strpos($aset['id'],"-"))
 	{
@@ -89,7 +89,7 @@ elseif ($act=="QS_jobs_parent")
 		$list=implode(",",$list);
 	}
 }
-elseif ($act=="QS_district")
+elseif ($act=="HW_district")
 {
 	
 	if (isset($aset['id']))
@@ -106,7 +106,7 @@ elseif ($act=="QS_district")
 	$list[] = $row;
 	}
 }
-elseif ($act=="QS_district_parent")
+elseif ($act=="HW_district_parent")
 {
 	if (strpos($aset['id'],"-"))
 	{
@@ -133,9 +133,9 @@ elseif ($act=="QS_district_parent")
 		$list=implode(",",$list);
 	}
 }
-elseif ($act=="QS_street")
+elseif ($act=="HW_street")
 {
-	$wheresql=" WHERE c_alias='QS_street' ";
+	$wheresql=" WHERE c_alias='HW_street' ";
 	$sql = "select * from ".table('category')." {$wheresql} ORDER BY c_order desc,c_id asc {$limit}";
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
@@ -144,7 +144,7 @@ elseif ($act=="QS_street")
 	$list[] = $row;
 	}
 }
-elseif ($act =="QS_major")
+elseif ($act =="HW_major")
 {
 	$id=intval($aset['id']);
 	$result = $db->query("SELECT * FROM ".table('category_major')." where parentid=".$id." ORDER BY category_order desc,id asc".$limit);

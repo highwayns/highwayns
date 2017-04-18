@@ -46,7 +46,7 @@ $aset['row']=isset($aset['row'])?intval($aset['row']):10;
 $aset['start']=isset($aset['start'])?intval($aset['start']):0;
 $aset['titlelen']=isset($aset['titlelen'])?intval($aset['titlelen']):15;
 $aset['infolen']=isset($aset['infolen'])?intval($aset['infolen']):0;
-$aset['showname']=isset($aset['showname'])?$aset['showname']:'QS_noticeshow';
+$aset['showname']=isset($aset['showname'])?$aset['showname']:'HW_noticeshow';
 if ($aset['displayorder'])
 {
 	if (strpos($aset['displayorder'],'>'))
@@ -91,10 +91,10 @@ $aset['type_id']?$wheresql.=" AND type_id=".intval($aset['type_id'])." ":'';
 
 if (isset($aset['paged']))
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('notice').$wheresql;
 	$total_count=$db->get_total($total_sql);
-	$pagelist = new page(array('total'=>$total_count, 'perpage'=>$aset['row'],'alias'=>'QS_noticelist','getarray'=>$_GET));
+	$pagelist = new page(array('total'=>$total_count, 'perpage'=>$aset['row'],'alias'=>'HW_noticelist','getarray'=>$_GET));
 	$currenpage=$pagelist->nowindex;
 	$aset['start']=($currenpage-1)*$aset['row'];
 		if ($total_count>$aset['row'])

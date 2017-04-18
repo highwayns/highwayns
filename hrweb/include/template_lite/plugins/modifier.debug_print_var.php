@@ -1,13 +1,5 @@
 ﻿<?php
 
-/*
- * Smarty plugin
- * -------------------------------------------------------------
- * Type:     modifier
- * Name:     debug_print_var
- * Purpose:  formats variable contents for display in the console
- * -------------------------------------------------------------
- */
 function tpl_modifier_debug_print_var($var, $depth = 0, $length = 40)
 {
     if (is_array($var))

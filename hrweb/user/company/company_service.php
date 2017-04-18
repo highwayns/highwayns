@@ -1,21 +1,11 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"service");
 //我的账户 -> 积分操作 
 if ($act=='j_account')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$smarty->assign('operation_mode',intval($_CFG['operation_mode']));
 	//收支状态(消耗->1 赠送->2)/操作时间
 	$cid=trim($_GET['cid']);
@@ -70,7 +60,7 @@ if ($act=='j_account')
 elseif ($act=='t_account')
 {
 	$settr=intval($_GET['settr']);
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$smarty->assign('operation_mode',intval($_CFG['operation_mode']));
 	//积分
 	$my_points = get_user_points(intval($_SESSION['uid']));
@@ -109,7 +99,7 @@ elseif ($act=='t_account')
 }
 elseif ($act=='order_list')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$is_paid=trim($_GET['is_paid']);
 	$pay_type=intval($_GET['pay_type']);
 	$wheresql=" WHERE uid='".$_SESSION['uid']."' ";
@@ -204,7 +194,7 @@ elseif ($act=='payment')
 	$order['v_amount']=$myorder['amount']+$fee;
 	if ($myorder['payment_name']!='remittance')//假如是非线下支付，
 	{
-		require_once(QISHI_ROOT_PATH."include/payment/".$payment['typename'].".php");
+		require_once(HIGHWAY_ROOT_PATH."include/payment/".$payment['typename'].".php");
 		$payment_form=get_code($order,$payment);
 		if (empty($payment_form)) showmsg("在线支付参数错误！",0);
 	}

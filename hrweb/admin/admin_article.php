@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 文章页面
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_article_fun.php');
@@ -19,7 +9,7 @@ $smarty->assign('act',$act);
 if($act == 'newslist')
 {
 	check_permissions($_SESSION['admin_purview'],"article_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
 	$oederbysql=" order BY a.article_order DESC,a.id DESC";
@@ -110,7 +100,7 @@ elseif($act == 'addsave')
 	if(!$insertid){
 		adminmsg("添加失败！",0);
 	}else{
-		baidu_submiturl(url_rewrite('QS_newsshow',array('id'=>$insertid)),'addarticle');
+		baidu_submiturl(url_rewrite('HW_newsshow',array('id'=>$insertid)),'addarticle');
 		adminmsg("添加成功！",2,$link);
 	}
 }

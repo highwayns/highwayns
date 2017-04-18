@@ -75,8 +75,8 @@ $aset['jobslen']=isset($aset['jobslen'])?intval($aset['jobslen']):8;
 $aset['jobsrow']=isset($aset['jobsrow'])?intval($aset['jobsrow']):3;
 $aset['companynamelen']=isset($aset['companynamelen'])?intval($aset['companynamelen']):16;
 $aset['dot']=isset($aset['dot'])?$aset['dot']:null;
-$aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'QS_companyshow';
-$aset['jobsshow']=isset($aset['jobsshow'])?$aset['jobsshow']:'QS_jobsshow';
+$aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'HW_companyshow';
+$aset['jobsshow']=isset($aset['jobsshow'])?$aset['jobsshow']:'HW_jobsshow';
 if (isset($aset['displayorder']))
 {
 		$arr=explode('>',$aset['displayorder']);

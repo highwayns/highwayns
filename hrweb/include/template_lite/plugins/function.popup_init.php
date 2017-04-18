@@ -1,15 +1,5 @@
 ﻿<?php
 
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     popup_init
- * Purpose:  initialize overlib
- * Taken from the original Smarty
- * http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_popup_init($params, &$template_object)
 {
 	$zindex = 1000;

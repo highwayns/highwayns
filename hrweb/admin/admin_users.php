@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 管理员账户
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_users_fun.php');
@@ -18,7 +8,7 @@ $smarty->assign('pageheader',"网站管理员");
 if($act == 'list')
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	if ($_SESSION['admin_purview']<>"all")
 	{
 		$wheresql=" WHERE admin_name='".$_SESSION['admin_name']."'";
@@ -58,7 +48,7 @@ elseif($act == 'add_users_save')
 	$setsqlarr['last_login_time']=0;
 	$setsqlarr['last_login_ip']="从未";
 	$setsqlarr['pwd_hash']=randstr();
-	$setsqlarr['pwd']=md5($password.$setsqlarr['pwd_hash'].$QS_pwdhash);	
+	$setsqlarr['pwd']=md5($password.$setsqlarr['pwd_hash'].$HW_pwdhash);	
 	
 	if ($db->inserttable(table('admin'),$setsqlarr))
 	{
@@ -152,9 +142,9 @@ elseif($act == 'edit_users_pwd_save')
 	{
 				if (strlen($_POST['password'])<6)adminmsg("密码长度不能小于6位！",1);
 				if ($_POST['password']<>$_POST['password1'])adminmsg("两次输入的密码不同！",1);		
-				$md5_pwd=md5($_POST['old_password'].$account['pwd_hash'].$QS_pwdhash);
+				$md5_pwd=md5($_POST['old_password'].$account['pwd_hash'].$HW_pwdhash);
 				if ($md5_pwd<>$account['pwd'])adminmsg("旧密码输入错误！",1);
-				$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$QS_pwdhash);
+				$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$HW_pwdhash);
 				if ($db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id))
 				{
 					//填写管理员日志
@@ -173,7 +163,7 @@ elseif($act == 'edit_users_pwd_save')
 				if ($_SESSION['admin_purview']=="all")
 				{
 					if (strlen($_POST['password'])<6)adminmsg("密码长度不能小于6位！",1);
-					$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$QS_pwdhash);
+					$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$HW_pwdhash);
 					//填写管理员日志
 					write_log("管理员修改密码", $_SESSION['admin_name'],3);
 					if (!$db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id)) adminmsg("修改失败！",0);
@@ -182,9 +172,9 @@ elseif($act == 'edit_users_pwd_save')
 				{
 					if (strlen($_POST['password'])<6)adminmsg("密码长度不能小于6位！",1);
 					if ($_POST['password']<>$_POST['password1'])adminmsg("两次输入的密码不同！",1);		
-					$md5_pwd=md5($_POST['old_password'].$account['pwd_hash'].$QS_pwdhash);
+					$md5_pwd=md5($_POST['old_password'].$account['pwd_hash'].$HW_pwdhash);
 					if ($md5_pwd<>$account['pwd'])adminmsg("旧密码输入错误！",1);
-					$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$QS_pwdhash);
+					$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$HW_pwdhash);
 					//填写管理员日志
 					write_log("管理员修改密码", $_SESSION['admin_name'],3);
 					if (!$db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id)) adminmsg("修改失败！",0);
@@ -196,7 +186,7 @@ elseif($act == 'loglist')
 {
 	get_token();
 	$adminname=trim($_GET['adminname']);
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	if ($_SESSION['admin_purview']=="all")//超级管理员可以查看任何管理员的日志
 	{
 		$wheresql="";
