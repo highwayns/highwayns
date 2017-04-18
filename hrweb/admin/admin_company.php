@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 企业用户相关
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_company_fun.php');
@@ -36,7 +26,7 @@ if($act == 'jobs')
 	{
 	$tablename="jobs_tmp";
 	}
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY id DESC";
 	$wheresqlarr=array();
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
@@ -306,7 +296,7 @@ elseif ($act=='editjobs_save')
 	$setsqlarr['graduate']=intval($_POST['graduate']);
 	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):adminmsg('您没有填写职位描述！',1);	
 	$setsqlarr['key']=$setsqlarr['jobs_name'].$company_profile['companyname'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_profile['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
@@ -371,7 +361,7 @@ elseif($act == 'company_list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"com_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY c.id DESC ";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
@@ -545,7 +535,7 @@ elseif($act == 'order_list')
 {	
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"ord_show");
-		require_once(QISHI_ROOT_PATH.'include/page.class.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 		require_once(ADMIN_ROOT_PATH.'include/admin_pay_fun.php');
 	$wheresql=" WHERE o.utype=1 ";
 	$oederbysql=" order BY o.addtime DESC ";
@@ -644,7 +634,7 @@ elseif($act == 'order_del')
 elseif($act == 'meal_members')
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$wheresql=" WHERE a.effective=1 ";
 	$oederbysql=" order BY a.uid DESC ";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
@@ -696,7 +686,7 @@ elseif($act == 'meal_members')
 elseif($act == 'meal_log')
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY a.log_id DESC ";
 	$key_uid=isset($_GET['key_uid'])?trim($_GET['key_uid']):"";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
@@ -814,7 +804,7 @@ elseif($act == 'members_list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"com_user_show");
-		require_once(QISHI_ROOT_PATH.'include/page.class.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$wheresql=" WHERE m.utype=1 ";
 	$oederbysql=" order BY m.uid DESC ";
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
@@ -944,7 +934,7 @@ elseif($act == 'members_add_save')
 	adminmsg('该 Email 已经被注册！',1);
 	}
 	$sql['pwd_hash'] = randstr();
-	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$QS_pwdhash);
+	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$HW_pwdhash);
 	$sql['reg_time']=time();
 	$sql['reg_ip']=$online_ip;
 	$insert_id=$db->inserttable(table('members'),$sql,true);
@@ -1003,7 +993,7 @@ elseif($act == 'consultant_install')
 	//得到顾问信息
 	$consultants = $db->getall("select * from ".table('consultant'));
 	//分页
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('consultant').$oederbysql;
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
@@ -1258,7 +1248,7 @@ elseif($act == 'userpass_edit')
 	require_once(ADMIN_ROOT_PATH.'include/admin_user_fun.php');
 	$user_info=get_user_inusername($_POST['username']);
 	$pwd_hash=$user_info['pwd_hash'];
-	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$QS_pwdhash);	
+	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$HW_pwdhash);	
 	if ($db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE uid='".$user_info['uid']."'"))
 	{
 	write_log("修改会员uid为".$user_info['uid']."密码", $_SESSION['admin_name'],3);
@@ -1312,10 +1302,10 @@ elseif($act == 'management')
 		unset($_SESSION['username']);
 		unset($_SESSION['utype']);
 		unset($_SESSION['uqqid']);
-		setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+		setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 		unset($_SESSION['activate_username']);
 		unset($_SESSION['activate_email']);
 		
@@ -1324,10 +1314,10 @@ elseif($act == 'management')
 		$_SESSION['utype']=$u['utype'];
 		$_SESSION['uqqid']="1";
 		$_SESSION['no_self']="1";
-		setcookie('QS[uid]',$u['uid'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[username]',$u['username'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[password]',$u['password'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[utype]',$u['utype'], 0,$QS_cookiepath,$QS_cookiedomain);
+		setcookie('QS[uid]',$u['uid'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[username]',$u['username'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[password]',$u['password'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[utype]',$u['utype'], 0,$HW_cookiepath,$HW_cookiedomain);
 		header("Location:".get_member_url($u['utype']));
 	}	
 } 
@@ -1335,7 +1325,7 @@ elseif($act == 'consultant')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"consultant_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$oederbysql=" order BY id DESC ";
 	
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('consultant').$oederbysql;
@@ -1360,7 +1350,7 @@ elseif($act == 'consultant_manage')
 		adminmsg('顾问丢失',1);
 	}
 	//分页
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$wheresql = " where consultant ={$id}";
 	$total_sql="select count(*) as num from ".table('members')." where consultant ={$id}";
 	$total_val=$db->get_total($total_sql);

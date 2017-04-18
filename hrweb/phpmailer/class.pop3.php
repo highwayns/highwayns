@@ -200,10 +200,6 @@ class POP3 {
       return true;
     }
 
-    /*
-    On Windows this will raise a PHP Warning error if the hostname doesn't exist.
-    Rather than supress it with @fsockopen, let's capture it cleanly instead
-    */
 
     set_error_handler(array(&$this, 'catchWarning'));
 

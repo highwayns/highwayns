@@ -1,5 +1,5 @@
 ﻿<?php
-if(!defined('IN_QISHI'))
+if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');
 }

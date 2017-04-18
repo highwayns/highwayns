@@ -1,23 +1,13 @@
 ﻿<?php
- /*
- * 74cms 数据库操作
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI')) exit('Access Denied!');
-require_once(QISHI_ROOT_PATH.'include/help.class.php');
+if(!defined('IN_HIGHWAY')) exit('Access Denied!');
+require_once(HIGHWAY_ROOT_PATH.'include/help.class.php');
 class mysql {
 	var $linkid=null;
-    function __construct($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = 'gbk', $connect = 1) {
+    function __construct($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = 'utf8', $connect = 1) {
     	$this -> connect($dbhost, $dbuser, $dbpw, $dbname, $dbcharset, $connect);
     }
 
-    function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = 'gbk', $connect=1){
+    function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = 'utf8', $connect=1){
     	$func = empty($connect) ? 'mysql_pconnect' : 'mysql_connect';
     	if(!$this->linkid = @$func($dbhost, $dbuser, $dbpw, true)){
     		$this->dbshow('Can not connect to Mysql!');

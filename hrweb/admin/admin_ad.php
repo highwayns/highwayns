@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 广告管理
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_ad_fun.php');
@@ -21,7 +11,7 @@ if($act == 'list')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"ad_show");
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
 	if ($key && $key_type>0)
@@ -485,7 +475,7 @@ elseif($act=='ad_category_add_save')
 	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('您没有广告位名称！',1);
 	$setsqlarr['expense'] = intval($_POST['expense']);
 	$setsqlarr['alias']=$_POST['alias']?trim($_POST['alias']):adminmsg('您没有填写调用名称！',1);
-	substr($setsqlarr['alias'],0,3)=='QS_'?adminmsg('自定义广告位调用名称不允许 QS_ 开头！',1):'';
+	substr($setsqlarr['alias'],0,3)=='HW_'?adminmsg('自定义广告位调用名称不允许 HW_ 开头！',1):'';
 	ck_category_alias($setsqlarr['alias'])?adminmsg('调用名称已经存在，请换一个调用名称！',1):'';
 	$setsqlarr['type_id']=$_POST['type_id']?intval($_POST['type_id']):adminmsg('您没有选择广告类型！',1);
 	if(!$db->inserttable(table('ad_category'),$setsqlarr))
@@ -541,7 +531,7 @@ elseif($act=='ad_category_edit_save')
 	if(intval($_POST['admin_set'])!=1){
 		$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有广告位名称！',1);
 		$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名称！',1);
-		substr($setsqlarr['alias'],0,3)=='QS_'?adminmsg('自定义广告位调用名称不允许 QS_ 开头！',1):'';
+		substr($setsqlarr['alias'],0,3)=='HW_'?adminmsg('自定义广告位调用名称不允许 HW_ 开头！',1):'';
 		ck_category_alias($setsqlarr['alias'],$_POST['id'])?adminmsg('调用名称已经存在，请换一个调用名称！',1):'';
 		$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('您没有选择广告类型！',1);
 	}
@@ -584,10 +574,10 @@ elseif($act == 'management')
 		unset($_SESSION['username']);
 		unset($_SESSION['utype']);
 		unset($_SESSION['uqqid']);
-		setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-		setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+		setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+		setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 		unset($_SESSION['activate_username']);
 		unset($_SESSION['activate_email']);
 		
@@ -595,10 +585,10 @@ elseif($act == 'management')
 		$_SESSION['username']=$u['username'];
 		$_SESSION['utype']=$u['utype'];
 		$_SESSION['uqqid']="1";
-		setcookie('QS[uid]',$u['uid'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[username]',$u['username'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[password]',$u['password'],0,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[utype]',$u['utype'], 0,$QS_cookiepath,$QS_cookiedomain);
+		setcookie('QS[uid]',$u['uid'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[username]',$u['username'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[password]',$u['password'],0,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[utype]',$u['utype'], 0,$HW_cookiepath,$HW_cookiedomain);
 		header("Location:".get_member_url($u['utype']));
 	}	
 } 

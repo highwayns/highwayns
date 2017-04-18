@@ -1,15 +1,5 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"user");
 if ($act=='binding')
@@ -20,7 +10,7 @@ if ($act=='binding')
 }
 elseif ($act=='pm')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$perpage=10;
 	$uid=intval($_SESSION['uid']);
 	$wheresql=" WHERE (p.msgfromuid='{$uid}' OR p.msgtouid='{$uid}') ";
@@ -64,7 +54,7 @@ elseif ($act=='pm_del')
 	$link[0]['href'] = "?act=pm&msgtype={$_GET['msgtype']}&new={$_GET['new']}";
 	//统计消息
 	$pmscount=$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$_SESSION['uid']}' OR msgtouid='{$_SESSION['uid']}') AND `new`='1' AND `replyuid`<>'{$_SESSION['uid']}'");
-	setcookie('QS[pmscount]',$pmscount, $expire,$QS_cookiepath,$QS_cookiedomain);
+	setcookie('QS[pmscount]',$pmscount, $expire,$HW_cookiepath,$HW_cookiedomain);
 	showmsg("操作成功！",2,$link);
 }
 elseif ($act=='authenticate')
@@ -81,7 +71,7 @@ elseif ($act=='authenticate')
     if(intval($_CFG['weixin_apiopen'])==1 && intval($_CFG['weixin_scan_bind'])==1 && !$user['weixin_openid']){
 	    $scene_id = mt_rand(20000001,30000000);
 	    $_SESSION['scene_id'] = $scene_id;
-		$dir = QISHI_ROOT_PATH.'data/weixin/'.($scene_id%10);
+		$dir = HIGHWAY_ROOT_PATH.'data/weixin/'.($scene_id%10);
 		make_dir($dir);
 	    $fp = @fopen($dir.'/'.$scene_id.'.txt', 'wb+');
 		$access_token = get_access_token();
@@ -109,7 +99,7 @@ elseif ($act=='password_edit')
 //保存修改密码
 elseif ($act=='save_password')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$arr['username']=$_SESSION['username'];
 	$arr['oldpassword']=trim($_POST['oldpassword'])?trim($_POST['oldpassword']):showmsg('请输入旧密码！',1);
 	$arr['password']=trim($_POST['password'])?trim($_POST['password']):showmsg('请输入新密码！',1);
@@ -136,7 +126,7 @@ elseif ($act=='save_password')
 //保存修改用户名
 elseif ($act=='save_username')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$arr['uid']=$_SESSION['uid'];
 	$_POST['newusername'] = utf8_to_gbk($_POST['newusername']);
 	$arr['newusername']=trim($_POST['newusername'])?trim($_POST['newusername']):showmsg('新用户名！',1);
@@ -169,8 +159,8 @@ elseif ($act=='del_taobao_binding')
 //会员登录日志
 elseif ($act=='login_log')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$wheresql=" WHERE log_uid='{$_SESSION['uid']}' AND log_type='1001' ";
 	$settr=intval($_GET['settr']);
 	if($settr>0)

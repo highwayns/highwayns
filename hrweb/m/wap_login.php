@@ -1,19 +1,9 @@
 ﻿<?php
- /*
- * 74cms 会员登录
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
-$alias="QS_login";
+define('IN_HIGHWAY', true);
+$alias="HW_login";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $smarty->caching = false;
@@ -23,10 +13,10 @@ if($act == 'logout')
 	unset($_SESSION['uid']);
 	unset($_SESSION['username']);
 	unset($_SESSION['utype']);
-	setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+	setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 	unset($_SESSION['activate_username']);
 	unset($_SESSION['activate_email']);
 	header("location:index.php"); 
@@ -50,10 +40,10 @@ elseif(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_
 	}
 	else
 	{
-	setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[username]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[password]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+	setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('QS[username]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('QS[password]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 	header("location:index.php"); 
 	}
 }
@@ -69,7 +59,7 @@ elseif ($act=='login')
 }
 elseif ($act == 'do_login')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
 	if($_POST['username']=="用户名/手机号/邮箱" || $_POST['password']==""|| $_POST['username']=="" ){
 		$smarty->assign('err',"请输入用户密码");
 		$smarty->display('wap/wap_login.html');
@@ -102,12 +92,12 @@ elseif ($act == 'do_login')
 elseif($act == 'waiting_weixin_login'){
 	$event_key = $_SESSION['scene_id'];
 	$content = "";
-	if(file_exists(QISHI_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt")){
-		$content = file_get_contents(QISHI_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt");
+	if(file_exists(HIGHWAY_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt")){
+		$content = file_get_contents(HIGHWAY_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt");
 	}	
 	$uid = intval($content);
 	if($uid>0){
-		global $QS_cookiepath,$QS_cookiedomain;
+		global $HW_cookiepath,$HW_cookiedomain;
 		$u=get_user_by_uid($uid);
 		if (!empty($u))
 		{
@@ -115,10 +105,10 @@ elseif($act == 'waiting_weixin_login'){
 			unset($_SESSION['username']);
 			unset($_SESSION['utype']);
 			unset($_SESSION['uqqid']);
-			setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+			setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 			unset($_SESSION['activate_username']);
 			unset($_SESSION['activate_email']);
 			
@@ -126,38 +116,38 @@ elseif($act == 'waiting_weixin_login'){
 			$_SESSION['username']=$u['username'];
 			$_SESSION['utype']=$u['utype'];
 			$_SESSION['uqqid']="1";
-			setcookie('QS[uid]',$u['uid'],0,$QS_cookiepath,$QS_cookiedomain);
-			setcookie('QS[username]',$u['username'],0,$QS_cookiepath,$QS_cookiedomain);
-			setcookie('QS[password]',$u['password'],0,$QS_cookiepath,$QS_cookiedomain);
-			setcookie('QS[utype]',$u['utype'], 0,$QS_cookiepath,$QS_cookiedomain);
-			unlink(QISHI_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt");
+			setcookie('QS[uid]',$u['uid'],0,$HW_cookiepath,$HW_cookiedomain);
+			setcookie('QS[username]',$u['username'],0,$HW_cookiepath,$HW_cookiedomain);
+			setcookie('QS[password]',$u['password'],0,$HW_cookiepath,$HW_cookiedomain);
+			setcookie('QS[utype]',$u['utype'], 0,$HW_cookiepath,$HW_cookiedomain);
+			unlink(HIGHWAY_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt");
 		}
 		exit("1");
 	}
 }
 function weixin_login($openid,$uid,$event_key){
-	global $QS_cookiepath,$QS_cookiedomain,$_CFG;
+	global $HW_cookiepath,$HW_cookiedomain,$_CFG;
 	$u=get_user_by_weixinopenid($openid,$uid);
 	if (!empty($u))
 	{
-		if(file_exists(QISHI_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt")){
+		if(file_exists(HIGHWAY_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt")){
 			ini_set('session.save_handler', 'files');
-			session_save_path(QISHI_ROOT_PATH.'data/sessions/');
+			session_save_path(HIGHWAY_ROOT_PATH.'data/sessions/');
 			session_start();
-			$fp = @fopen(QISHI_ROOT_PATH . 'data/weixin/'.($event_key%10).'/'.$event_key.'.txt', 'wb+');
+			$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/weixin/'.($event_key%10).'/'.$event_key.'.txt', 'wb+');
 			@fwrite($fp, $uid);
 			@fclose($fp);
 			$find = array("http://","/wap");
 			$replace = array("");
-			$QS_cookiedomain = str_replace($find,$replace,$_CFG['wap_domain']);
+			$HW_cookiedomain = str_replace($find,$replace,$_CFG['wap_domain']);
 			unset($_SESSION['uid']);
 			unset($_SESSION['username']);
 			unset($_SESSION['utype']);
 			unset($_SESSION['uqqid']);
-			setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-			setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+			setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[username]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[password]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+			setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 			unset($_SESSION['activate_username']);
 			unset($_SESSION['activate_email']);
 			
@@ -165,10 +155,10 @@ function weixin_login($openid,$uid,$event_key){
 			$_SESSION['username']=$u['username'];
 			$_SESSION['utype']=$u['utype'];
 			$_SESSION['uqqid']="1";
-			setcookie('QS[uid]',$u['uid'],0,$QS_cookiepath,$QS_cookiedomain);
-			setcookie('QS[username]',$u['username'],0,$QS_cookiepath,$QS_cookiedomain);
-			setcookie('QS[password]',$u['password'],0,$QS_cookiepath,$QS_cookiedomain);
-			setcookie('QS[utype]',$u['utype'], 0,$QS_cookiepath,$QS_cookiedomain);
+			setcookie('QS[uid]',$u['uid'],0,$HW_cookiepath,$HW_cookiedomain);
+			setcookie('QS[username]',$u['username'],0,$HW_cookiepath,$HW_cookiedomain);
+			setcookie('QS[password]',$u['password'],0,$HW_cookiepath,$HW_cookiedomain);
+			setcookie('QS[utype]',$u['utype'], 0,$HW_cookiepath,$HW_cookiedomain);
 		}
 	}
 }

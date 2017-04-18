@@ -1,20 +1,4 @@
 ﻿<?php
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:	 function
- * Name:	 db_result_call
- * Purpose:  Interface with ADOdb Lite to return all result elements to assigned variable.
- *
- * db_object = Database object
- * db_function = Database result function to execute
- * db_result_object = Database result object
- * db_assign = variable name to assign result data
- * db_errornumber_assign = variable name to assign the database error number
- * db_error_assign = the variable name to assign the database error message
- * db_EOF_assign = the variable name to assign the database end of file flag
- * -------------------------------------------------------------
- */
 function tpl_function_db_result_call($params, &$template_object)
 {
 	if (empty($params['db_object']))

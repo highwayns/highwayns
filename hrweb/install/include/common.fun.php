@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 安装向导函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI'))
+if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');
 }
@@ -56,20 +46,20 @@ function table($table)
     foreach ($dirs AS $k=> $dir)
     {
 	$checked_dirs[$k]['dir'] = $dir;
-        if (!file_exists(QISHI_ROOT_PATH .'/'. $dir))
+        if (!file_exists(HIGHWAY_ROOT_PATH .'/'. $dir))
         {
             $checked_dirs[$k]['read'] = '<span style="color:red;">目录不存在</span>';
 			$checked_dirs[$k]['write'] = '<span style="color:red;">目录不存在</span>';
         }
 		else
 		{		
-        if (is_readable(QISHI_ROOT_PATH.'/'.$dir))
+        if (is_readable(HIGHWAY_ROOT_PATH.'/'.$dir))
         {
             $checked_dirs[$k]['read'] = '<span style="color:green;">√可读</span>';
         }else{
             $checked_dirs[$k]['read'] = '<span sylt="color:red;">×不可读</span>';
         }
-        if(is_writable(QISHI_ROOT_PATH.'/'.$dir)){
+        if(is_writable(HIGHWAY_ROOT_PATH.'/'.$dir)){
         	$checked_dirs[$k]['write'] = '<span style="color:green;">√可写</span>';
         }else{
         	$checked_dirs[$k]['write'] = '<span style="color:red;">×不可写</span>';
@@ -91,7 +81,7 @@ return $hash;
 }
 function get_cache($cachename)
 {
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_".$cachename.".php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_".$cachename.".php";
 	if (file_exists($cache_file_path))
 	{
 	include($cache_file_path);
@@ -107,7 +97,7 @@ function refresh_cache($cachename)
 {
 	global $db;
 	$config_arr = array();
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_".$cachename.".php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_".$cachename.".php";
 	$sql = "SELECT * FROM ".table($cachename);
 	$arr = $db->getall($sql);
 		foreach($arr as $key=> $val)
@@ -119,7 +109,7 @@ function refresh_cache($cachename)
 function refresh_page_cache()
 {
 	global $db;
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_page.php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_page.php";
 		$sql = "SELECT * FROM ".table('page');
 		$arr = $db->getall($sql);
 			foreach($arr as $key=> $val)
@@ -131,7 +121,7 @@ function refresh_page_cache()
 function refresh_points_rule_cache()
 {
 	global $db;
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_points_rule.php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_points_rule.php";
 		$sql = "SELECT * FROM ".table('members_points_rule');
 		$arr = $db->getall($sql);
 			foreach($arr as $key=> $val)
@@ -143,12 +133,12 @@ function refresh_points_rule_cache()
 function refresh_category_cache()
 {
 	global $db;
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_category.php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_category.php";
 	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order DESC,c_id ASC";
 	$result = $db->query($sql);
 		while($row = $db->fetch_array($result))
 		{
-			if ($row['c_alias']=="QS_officebuilding" || $row['c_alias']=="QS_street")
+			if ($row['c_alias']=="HW_officebuilding" || $row['c_alias']=="HW_street")
 			{
 			continue;
 			}
@@ -159,7 +149,7 @@ function refresh_category_cache()
 function refresh_nav_cache()
 {
 	global $db;
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_nav.php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_nav.php";
 		$sql = "SELECT * FROM ".table('navigation')." WHERE display=1   ORDER BY navigationorder DESC";
 		$result = $db->query($sql);
 			while($row = $db->fetch_array($result))
@@ -176,7 +166,7 @@ function refresh_nav_cache()
 function refresh_plug_cache()
 {
 	global $db;
-	$cache_file_path =QISHI_ROOT_PATH. "data/cache_plug.php";
+	$cache_file_path =HIGHWAY_ROOT_PATH. "data/cache_plug.php";
 	$sql = "SELECT * FROM ".table('plug');
 	$result = $db->query($sql);
 		while($row = $db->fetch_array($result))
@@ -214,9 +204,9 @@ function makejs_classify()
 	{
 	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
 	}
-	$content .= "var QS_city_parent=new Array(".implode(',',$parentarr).");\n";	
+	$content .= "var HW_city_parent=new Array(".implode(',',$parentarr).");\n";	
 	unset($parentarr);
-	$content .= "var QS_city=new Array();\n";
+	$content .= "var HW_city=new Array();\n";
 	$third_content = "";
 	foreach($list as $val)
 	{
@@ -235,15 +225,15 @@ function makejs_classify()
 					{
 					$third_arr[]=$val2['id'].",".$val2['categoryname'];
 					}
-				$content_third .= "QS_city[".$val1['id']."]=\"".implode('|',$third_arr)."\"; \n";
+				$content_third .= "HW_city[".$val1['id']."]=\"".implode('|',$third_arr)."\"; \n";
 				unset($third_arr);
 				}
 			}
-		$content .= "QS_city[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
+		$content .= "HW_city[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
 		unset($sarr);
 		}
 	}
-	// $content .= "var QS_city_third=new Array(); \n";
+	// $content .= "var HW_city_third=new Array(); \n";
 	$content .= $content_third;	
 	// unset($third_arr);
 	$sql = "select * from ".table('category_jobs')." where parentid=0 order BY category_order desc,id asc";
@@ -252,9 +242,9 @@ function makejs_classify()
 	{
 	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
 	}
-	$content .= "var QS_jobs_parent=new Array(".implode(',',$parentarr).");\n";	
+	$content .= "var HW_jobs_parent=new Array(".implode(',',$parentarr).");\n";	
 	unset($parentarr);
-	$content .= "var QS_jobs=new Array(); \n";
+	$content .= "var HW_jobs=new Array(); \n";
 	$content_third = "";
 	foreach($list as $val)
 	{
@@ -273,11 +263,11 @@ function makejs_classify()
 					{
 					$third_arr[]=$val2['id'].",".$val2['categoryname'];
 					}
-				$content_third .= "QS_jobs[".$val1['id']."]=\"".implode('|',$third_arr)."\"; \n";
+				$content_third .= "HW_jobs[".$val1['id']."]=\"".implode('|',$third_arr)."\"; \n";
 				unset($third_arr);
 				}
 			}
-		$content .= "QS_jobs[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
+		$content .= "HW_jobs[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
 		unset($sarr);
 		}
 	}
@@ -287,105 +277,102 @@ function makejs_classify()
 	$list=$db->getall($sql);
 	foreach($list as $li)
 	{
-		if ($li['c_alias']=="QS_trade")
+		if ($li['c_alias']=="HW_trade")
 		{
 		$trade[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_company_type")
+		elseif ($li['c_alias']=="HW_company_type")
 		{
 		$companytype[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_wage")
+		elseif ($li['c_alias']=="HW_wage")
 		{
 		$wage[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_jobs_nature")
+		elseif ($li['c_alias']=="HW_jobs_nature")
 		{
 		$jobsnature[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_education")
+		elseif ($li['c_alias']=="HW_education")
 		{
 		$education[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_experience")
+		elseif ($li['c_alias']=="HW_experience")
 		{
 		$experience[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_scale")
+		elseif ($li['c_alias']=="HW_scale")
 		{
 		$scale[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_jobtag")
+		elseif ($li['c_alias']=="HW_jobtag")
 		{
 		$jobtag[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_resumetag")
+		elseif ($li['c_alias']=="HW_resumetag")
 		{
 		$resumetag[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_hunter_wage")
+		elseif ($li['c_alias']=="HW_hunter_wage")
 		{
 		$hunterwage[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_hunter_age")
+		elseif ($li['c_alias']=="HW_hunter_age")
 		{
 		$hunterage[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_hunter_wage_structure")
+		elseif ($li['c_alias']=="HW_hunter_wage_structure")
 		{
 		$wagestructure[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_hunter_socialbenefits")
+		elseif ($li['c_alias']=="HW_hunter_socialbenefits")
 		{
 		$socialbenefits[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_hunter_livebenefits")
+		elseif ($li['c_alias']=="HW_hunter_livebenefits")
 		{
 		$livebenefits[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
-		elseif ($li['c_alias']=="QS_hunter_annualleave")
+		elseif ($li['c_alias']=="HW_hunter_annualleave")
 		{
 		$annualleave[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}		
-		elseif ($li['c_alias']=="QS_hunter_rank")
+		elseif ($li['c_alias']=="HW_hunter_rank")
 		{
 		$rank[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}		
-		elseif ($li['c_alias']=="QS_language")
+		elseif ($li['c_alias']=="HW_language")
 		{
 		$language[]="\"".$li['c_id'].",".$li['c_name']."\"";
 		}
 	
 	}
-	$content .= "var QS_trade=new Array(".implode(',',$trade).");\n";
-	$content .= "var QS_companytype=new Array(".implode(',',$companytype).");\n";
-	$content .= "var QS_wage=new Array(".implode(',',$wage).");\n";
-	$content .= "var QS_jobsnature=new Array(".implode(',',$jobsnature).");\n";
-	$content .= "var QS_education=new Array(".implode(',',$education).");\n";
-	$content .= "var QS_experience=new Array(".implode(',',$experience).");\n";
-	$content .= "var QS_scale=new Array(".implode(',',$scale).");\n";
-	$content .= "var QS_jobtag=new Array(".implode(',',$jobtag).");\n";
-	$content .= "var QS_resumetag=new Array(".implode(',',$resumetag).");\n";
-	$content .= "var QS_hunter_wage=new Array(".implode(',',$hunterwage).");\n";
-	$content .= "var QS_hunter_age=new Array(".implode(',',$hunterage).");\n";
-	$content .= "var QS_hunter_wage_structure=new Array(".implode(',',$wagestructure).");\n";
-	$content .= "var QS_hunter_socialbenefits=new Array(".implode(',',$socialbenefits).");\n";
-	$content .= "var QS_hunter_livebenefits =new Array(".implode(',',$livebenefits).");\n";
-	$content .= "var QS_hunter_annualleave=new Array(".implode(',',$annualleave).");\n";
-	$content .= "var QS_hunter_rank=new Array(".implode(',',$rank).");\n";
-	$content .= "var QS_language=new Array(".implode(',',$language).");\n";
-	/*
-		生成专业分类js
-	*/
+	$content .= "var HW_trade=new Array(".implode(',',$trade).");\n";
+	$content .= "var HW_companytype=new Array(".implode(',',$companytype).");\n";
+	$content .= "var HW_wage=new Array(".implode(',',$wage).");\n";
+	$content .= "var HW_jobsnature=new Array(".implode(',',$jobsnature).");\n";
+	$content .= "var HW_education=new Array(".implode(',',$education).");\n";
+	$content .= "var HW_experience=new Array(".implode(',',$experience).");\n";
+	$content .= "var HW_scale=new Array(".implode(',',$scale).");\n";
+	$content .= "var HW_jobtag=new Array(".implode(',',$jobtag).");\n";
+	$content .= "var HW_resumetag=new Array(".implode(',',$resumetag).");\n";
+	$content .= "var HW_hunter_wage=new Array(".implode(',',$hunterwage).");\n";
+	$content .= "var HW_hunter_age=new Array(".implode(',',$hunterage).");\n";
+	$content .= "var HW_hunter_wage_structure=new Array(".implode(',',$wagestructure).");\n";
+	$content .= "var HW_hunter_socialbenefits=new Array(".implode(',',$socialbenefits).");\n";
+	$content .= "var HW_hunter_livebenefits =new Array(".implode(',',$livebenefits).");\n";
+	$content .= "var HW_hunter_annualleave=new Array(".implode(',',$annualleave).");\n";
+	$content .= "var HW_hunter_rank=new Array(".implode(',',$rank).");\n";
+	$content .= "var HW_language=new Array(".implode(',',$language).");\n";
 	$sql = "select * from ".table('category_major')." where parentid=0 order BY category_order desc,id asc";
 	$list=$db->getall($sql);
 	foreach($list as $parent)
 	{
 	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
 	}
-	$content .= "var QS_major_parent=new Array(".implode(',',$parentarr).");\n";	
+	$content .= "var HW_major_parent=new Array(".implode(',',$parentarr).");\n";	
 	unset($parentarr);
-	$content .= "var QS_major=new Array();\n";
+	$content .= "var HW_major=new Array();\n";
 	$third_content = "";
 	foreach($list as $val)
 	{
@@ -404,21 +391,21 @@ function makejs_classify()
 					{
 					$third_arr[]=$val2['id'].",".$val2['categoryname'];
 					}
-				$content_third .= "QS_major[".$val1['id']."]=\"".implode('|',$third_arr)."\"; \n";
+				$content_third .= "HW_major[".$val1['id']."]=\"".implode('|',$third_arr)."\"; \n";
 				unset($third_arr);
 				}
 			}
-		$content .= "QS_major[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
+		$content .= "HW_major[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
 		unset($sarr);
 		}
 	}
-	$fp = @fopen(QISHI_ROOT_PATH . 'data/cache_classify.js', 'wb+');
+	$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/cache_classify.js', 'wb+');
 	if (!$fp){
 			exit('生成JS文件失败');
 		}
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
-	$content=iconv(QISHI_DBCHARSET,"utf-8//IGNORE",$content);
+	$content=iconv(HIGHWAY_DBCHARSET,"utf-8//IGNORE",$content);
 	}
 	 if (!@fwrite($fp, trim($content))){
 			exit('写入JS文件失败');

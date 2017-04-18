@@ -1,22 +1,12 @@
 ﻿<?php
- /*
- * 74cms 申请职位
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/common.inc.php');
 $act = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'app';
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_COOKIE['QS']['uid'])
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
 	{
 	update_user_info($_COOKIE['QS']['uid'],false,false);
@@ -25,10 +15,10 @@ if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['
 	else
 	{
 	unset($_SESSION['uid'],$_SESSION['username'],$_SESSION['utype'],$_SESSION['uqqid'],$_SESSION['activate_username'],$_SESSION['activate_email'],$_SESSION["openid"]);
-	setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[username]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[password]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+	setcookie("QS[uid]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('QS[username]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie('QS[password]',"", time() - 3600,$HW_cookiepath, $HW_cookiedomain);
+	setcookie("QS[utype]","",time() - 3600,$HW_cookiepath, $HW_cookiedomain);
 	}
 }
 if ($_SESSION['uid']=='' || $_SESSION['username']=='')
@@ -50,7 +40,7 @@ if ($_SESSION['utype']!='2')
 		    </tr>
 		</table>');
 }
-require_once(QISHI_ROOT_PATH.'include/fun_personal.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_personal.php');
 $user=get_user_info($_SESSION['uid']);
 if ($user['status']=="2") 
 {
@@ -300,7 +290,7 @@ elseif ($act=="app_save")
 			$addarr['company_name']=$jobs['companyname'];
 			$addarr['company_uid']=$jobs['uid'];
 			$addarr['notes']= $notes;
-			if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+			if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 			{
 			$addarr['notes']=utf8_to_gbk($addarr['notes']);
 			}
@@ -324,8 +314,8 @@ elseif ($act=="app_save")
 					//站内信
 					if($pms_notice=='1'){
 						$user=$db->getone("select username from ".table('members')." where uid ={$jobs['uid']} limit 1");
-						$jobs_url=url_rewrite('QS_jobsshow',array('id'=>$jobs['id']));
-						$resume_url=url_rewrite('QS_resumeshow',array('id'=>$resumeid));
+						$jobs_url=url_rewrite('HW_jobsshow',array('id'=>$jobs['id']));
+						$resume_url=url_rewrite('HW_resumeshow',array('id'=>$resumeid));
 						$message=$resume_basic['fullname'].'申请了您发布的职位：<a href="'.$jobs_url.'" target="_blank">'.$jobs['jobs_name'].'</a>,<a href="'.$resume_url.'" target="_blank">点击查看</a>';
 						write_pmsnotice($jobs['uid'],$user['username'],$message);
 					}

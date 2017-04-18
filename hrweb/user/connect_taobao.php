@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 淘宝号帐号登录
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/plus.common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'login';
 $code = $_GET['code'];
@@ -22,10 +12,10 @@ if($act == 'login' && empty($code))
 }
 elseif($act == 'login' && !empty($code))
 {
-	require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 	unset($dbhost,$dbuser,$dbpass,$dbname);
-	require_once(QISHI_ROOT_PATH.'include/tpl.inc.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 	if (empty($code))
 	{
 	exit('参数错误！');
@@ -48,7 +38,7 @@ elseif($act == 'login' && !empty($code))
 	$jsoninfo = json_decode($result, true);
 	$token = $jsoninfo["access_token"];
 	$taobao_user_id = $jsoninfo["taobao_user_id"];
-	$taobao_nickname = iconv('utf-8','gbk',urldecode($jsoninfo["taobao_user_nick"]));
+	$taobao_nickname = iconv('utf-8','utf8',urldecode($jsoninfo["taobao_user_nick"]));
 	}
 	if (empty($token))
 	{
@@ -58,7 +48,7 @@ elseif($act == 'login' && !empty($code))
 	}
 	else
 	{
-				require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+				require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 				$uinfo=get_user_intaobao_access_token($taobao_user_id);
 				if (!empty($uinfo))
 				{
@@ -95,7 +85,7 @@ elseif ($act=='reg')
 	else
 	{
 			
-		require_once(QISHI_ROOT_PATH.'include/tpl.inc.php'); 
+		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php'); 
 		$smarty->assign('title','完善信息 - '.$_CFG['site_name']);
 		$smarty->assign('t_url',"?act=");
 		$smarty->assign('third_name',"淘宝");
@@ -117,10 +107,10 @@ elseif ($act=='reg_save')
 	$val['email']=!empty($_POST['email'])?trim($_POST['email']):exit("err");
 	$val['member_type']=intval($_POST['utype']);
 	$val['password']=!empty($_POST['password'])?trim($_POST['password']):exit("err");
-	require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 	unset($dbhost,$dbuser,$dbpass,$dbname);
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$userid=user_register(3,$val['password'],$val['member_type'],$val['email'],$val['mobile'],$uc_reg=true);
 	if ($userid>0)
 	{	
@@ -136,7 +126,7 @@ elseif ($act=='reg_save')
 	{
 		unset($_SESSION["taobao_access_token"]);
 		unset($_SESSION["taobao_nickname"]);
-		require_once(QISHI_ROOT_PATH.'include/tpl.inc.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 		$link[0]['text'] = "返回首页";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
 		showmsg('注册失败！',0,$link);

@@ -20,9 +20,9 @@ $a=explode(':',$str);
 	}
 }
 if (is_array($aset))$aset=array_map("get_smarty_request",$aset);
-$aset['alias']=$aset['alias']?$aset['alias']:"QS_index";
+$aset['alias']=$aset['alias']?$aset['alias']:"HW_index";
 $aset['listname']=$aset['listname']?$aset['listname']:"list";
-if ($aset['alias']=="QS_newslist" && $aset['id'])
+if ($aset['alias']=="HW_newslist" && $aset['id'])
 {
 	$sql = "select title,description,keywords from ".table('article_category')." where id = ".intval($aset['id'])." LIMIT  1";
 	$info=$db->getone($sql);

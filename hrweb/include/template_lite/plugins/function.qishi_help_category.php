@@ -35,7 +35,7 @@ if (is_array($aset)) $aset=array_map("get_smarty_request",$aset);
 $aset['listname']=isset($aset['listname'])?$aset['listname']:"list";
 $aset['titlelen']=isset($aset['titlelen'])?intval($aset['titlelen']):8;
 $aset['dot']=isset($aset['dot'])?$aset['dot']:'';
-$aset['showname']=isset($aset['showname'])?$aset['showname']:'QS_helplist';
+$aset['showname']=isset($aset['showname'])?$aset['showname']:'HW_helplist';
 isset($aset['typeid'])? $wheresqlarr['id']=intval($aset['typeid']):'';
 isset($aset['classify'])? $wheresqlarr['parentid']=intval($aset['classify']):'';
 	if (is_array($wheresqlarr))

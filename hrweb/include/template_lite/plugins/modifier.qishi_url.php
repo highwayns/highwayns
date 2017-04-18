@@ -5,7 +5,7 @@ function tpl_modifier_qishi_url($string)
 	if (strpos($string,","))
 	{
 		$val=explode(",",$string);
-		if ($val[0]=="QS_user")
+		if ($val[0]=="HW_user")
 		{
 			return get_member_url($val[1],true);
 		}

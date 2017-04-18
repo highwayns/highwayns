@@ -1,22 +1,12 @@
 ﻿<?php
- /*
- * 74cms 会员中心函数
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
- if(!defined('IN_QISHI'))
+ if(!defined('IN_HIGHWAY'))
  {
  	die('Access Denied!');
  }
 //注册会员
 function user_register($reg_type,$password,$member_type=0,$email="",$mobile="",$uc_reg=true,$username="",$weixin_openid="",$weixin_nickname="")
 {
-	global $db,$timestamp,$_CFG,$online_ip,$QS_pwdhash;
+	global $db,$timestamp,$_CFG,$online_ip,$HW_pwdhash;
 	$member_type=intval($member_type);
 	$reg_type=intval($reg_type);
 	$email=trim($email);
@@ -39,7 +29,7 @@ function user_register($reg_type,$password,$member_type=0,$email="",$mobile="",$
 	}
 	$pwd_hash=randstr();
 	$name_rand=randusername();
-	$password_hash=md5(md5($password).$pwd_hash.$QS_pwdhash);
+	$password_hash=md5(md5($password).$pwd_hash.$HW_pwdhash);
 	if(!$username)
 	{
 		if($reg_type==1)
@@ -113,7 +103,7 @@ function user_register($reg_type,$password,$member_type=0,$email="",$mobile="",$
 				if(!$db->inserttable(table("members_points"),$setarr))  return false;
 				if(!$db->inserttable(table("members_setmeal"),$setarr))  return false;
 					$points=get_cache('points_rule');
-					include_once(QISHI_ROOT_PATH.'include/fun_company.php');
+					include_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 					set_consultant($insert_id);
 					if ($points['reg_points']['value']>0)
 					{
@@ -138,7 +128,7 @@ return $insert_id;
 //会员登录
 function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NULL)
 {
-	global $timestamp,$online_ip,$QS_pwdhash;
+	global $timestamp,$online_ip,$HW_pwdhash;
 	$usinfo = $login = array();
 	$success = false;
 	if ($account_type=="1")
@@ -157,16 +147,16 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 	{
 		$pwd_hash=$usinfo['pwd_hash'];
 		$usname=addslashes($usinfo['username']);
-		$pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
+		$pwd=md5(md5($password).$pwd_hash.$HW_pwdhash);
 		if ($usinfo['password']==$pwd)
 		{
 			if($usinfo['status'] == 2){
 				$usinfo='';
 				$success=false;
-				$login['qs_login']='false';
+				$login['hw_login']='false';
 			}else{
 				update_user_info($usinfo['uid'],true,true,$expire);
-				$login['qs_login']=get_member_url($usinfo['utype']);
+				$login['hw_login']=get_member_url($usinfo['utype']);
 				$success=true;
 				write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usname,"成功登录");
 			} 
@@ -198,7 +188,7 @@ function check_cookie($uid,$name,$pwd){
   */
  function update_user_info($uid,$record=true,$setcookie=true,$cookie_expire=NULL)
  {
- 	global $timestamp, $online_ip,$db,$QS_cookiepath,$QS_cookiedomain,$_CFG;//3.4升级修改 引入变量$_CFG
+ 	global $timestamp, $online_ip,$db,$HW_cookiepath,$HW_cookiedomain,$_CFG;//3.4升级修改 引入变量$_CFG
 	$user = get_user_inid($uid);
 	if (empty($user))
 	{
@@ -214,10 +204,10 @@ function check_cookie($uid,$name,$pwd){
 	if ($setcookie)
 	{
 		$expire=intval($cookie_expire)>0?time()+3600*24*$cookie_expire:0;
-		setcookie('QS[uid]',$user['uid'],$expire,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[username]',addslashes($user['username']),$expire,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[password]',$user['password'],$expire,$QS_cookiepath,$QS_cookiedomain);
-		setcookie('QS[utype]',$user['utype'], $expire,$QS_cookiepath,$QS_cookiedomain);
+		setcookie('QS[uid]',$user['uid'],$expire,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[username]',addslashes($user['username']),$expire,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[password]',$user['password'],$expire,$HW_cookiepath,$HW_cookiedomain);
+		setcookie('QS[utype]',$user['utype'], $expire,$HW_cookiepath,$HW_cookiedomain);
 	}
 	if ($record)
 	{
@@ -235,7 +225,7 @@ function check_cookie($uid,$name,$pwd){
 					$members_handsel_arr['htype']="userlogin";
 					$members_handsel_arr['addtime']=$time;
 					$db->inserttable(table("members_handsel"),$members_handsel_arr);
-					require_once(QISHI_ROOT_PATH.'include/fun_company.php');
+					require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 					report_deal($_SESSION['uid'],$rule['userlogin']['type'],$rule['userlogin']['value']);
 					$user_points=get_user_points($_SESSION['uid']);
 					$operator=$rule['userlogin']['type']=="1"?"+":"-";
@@ -280,7 +270,7 @@ function check_cookie($uid,$name,$pwd){
 	}
 	//统计消息
 	$pmscount=$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$_SESSION['uid']}' OR msgtouid='{$_SESSION['uid']}') AND `new`='1' AND `replyuid`<>'{$_SESSION['uid']}'");
-	setcookie('QS[pmscount]',$pmscount, $expire,$QS_cookiepath,$QS_cookiedomain);
+	setcookie('QS[pmscount]',$pmscount, $expire,$HW_cookiepath,$HW_cookiedomain);
 	return true;
  }
 function get_user_inemail($email)
@@ -364,11 +354,11 @@ return $hash;
 //修改密码
 function edit_password($arr,$check=true)
 {
-	global $db,$QS_pwdhash;
+	global $db,$HW_pwdhash;
 	if (!is_array($arr))return false;
 	$user_info=get_user_inusername($arr['username']);
 	$pwd_hash=$user_info['pwd_hash'];
-	$password=md5(md5($arr['oldpassword']).$pwd_hash.$QS_pwdhash);
+	$password=md5(md5($arr['oldpassword']).$pwd_hash.$HW_pwdhash);
 	if ($check)
 	{
 		$row = $db->getone("SELECT * FROM ".table('members')." WHERE username='{$arr['username']}' and password = '{$password}' LIMIT 1");
@@ -377,7 +367,7 @@ function edit_password($arr,$check=true)
 			return -1;
 		}
 	}
-	$md5password=md5(md5($arr['password']).$pwd_hash.$QS_pwdhash);	
+	$md5password=md5(md5($arr['password']).$pwd_hash.$HW_pwdhash);	
 	if ($db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE username='".$arr['username']."'")) return $arr['username'];
 	write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],"修改了密码");
 	return false;
@@ -385,7 +375,7 @@ function edit_password($arr,$check=true)
 //修改用户名
 function edit_username($arr,$check=true)
 {
-	global $db,$QS_pwdhash,$QS_cookiepath,$QS_cookiedomain;
+	global $db,$HW_pwdhash,$HW_cookiepath,$HW_cookiedomain;
 	if (!is_array($arr))return false;
 	$row = $db->getone("SELECT * FROM ".table('members')." WHERE uid='{$arr['uid']}' LIMIT 1");
 	if(empty($row))

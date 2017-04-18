@@ -1,20 +1,10 @@
 ﻿<?php
-/*
- * 74cms 企业会员中心
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"recruitment");
 if ($act=='apply_jobs')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$joinsql=" LEFT JOIN  ".table('resume')." AS r  ON  a.resume_id=r.id ";
 	$wheresql=" WHERE a.company_uid='{$_SESSION['uid']}' ";
 	$look=intval($_GET['look']);
@@ -69,7 +59,7 @@ elseif ($act=='apply_jobs_del')
 }
 elseif ($act=='down_resume_list')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$perpage=10;
 	$joinsql=" LEFT JOIN  ".table('resume')." as r ON d.resume_id=r.id ";
 	$wheresql=" WHERE  d.company_uid='{$_SESSION['uid']}' ";
@@ -138,7 +128,7 @@ elseif ($act=='perform')
 }
 elseif ($act=='favorites_list')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$perpage=10;
 	$joinsql=" LEFT JOIN  ".table('resume')." AS r ON  f.resume_id=r.id ";
 	$wheresql= " WHERE f.company_uid='{$_SESSION['uid']}' ";
@@ -176,7 +166,7 @@ elseif ($act=='favorites_del')
 //已邀请面试列表
 elseif ($act=='interview_list')
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$perpage=10;
 	$joinsql=" LEFT JOIN ".table('resume')." as r ON i.resume_id=r.id ";
 	$wheresql=" WHERE i.company_uid='{$_SESSION['uid']}' ";

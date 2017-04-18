@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms QQ互联 server-side模式
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/plus.common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'QQlogin';
 $login_allback="{$_CFG['site_domain']}{$_CFG['site_dir']}user/connect_qq_server.php?act=login_allback" ;
@@ -81,10 +71,10 @@ elseif ($act=='login_allback')
     	$_SESSION["openid"] = $user->openid;
 		if (!empty($_SESSION["openid"]))
 		{
-			require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 			$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 			unset($dbhost,$dbuser,$dbpass,$dbname);
-			require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 			$user=get_user_inqqopenid($_SESSION["openid"]);
 			if (!empty($user))
 			{
@@ -96,7 +86,7 @@ elseif ($act=='login_allback')
 			{
 				if (!empty($_SESSION['uid']) && !empty($_SESSION['utype']) && !empty($_SESSION['openid']))
 				{
-					require_once(QISHI_ROOT_PATH.'include/tpl.inc.php');
+					require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 					$time=time();
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}',bindingtime='{$time}' WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
 					$link[0]['text'] = "进入会员中心";
@@ -130,7 +120,7 @@ elseif ($act=='reg')
 		curl_close($ch);
 		$jsoninfo = json_decode($output, true);
 		$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
-		require_once(QISHI_ROOT_PATH.'include/tpl.inc.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 		$smarty->assign('third_name',"QQ");
 		$smarty->assign('title','补充信息 - '.$_CFG['site_name']);
 		$smarty->assign('qqurl',"?act=");
@@ -152,10 +142,10 @@ elseif ($act=='reg_save')
 	$val['mobile']=!empty($_POST['mobile'])?trim($_POST['mobile']):exit("err");
 	$val['member_type']=intval($_POST['utype']);
 	$val['password']=!empty($_POST['password'])?trim($_POST['password']):exit("err");
-	require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 	unset($dbhost,$dbuser,$dbpass,$dbname);
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$userid=user_register(3,$val['password'],$val['member_type'],$val['email'],$val['mobile'],$uc_reg=true);
 	if ($userid)
 	{
@@ -167,7 +157,7 @@ elseif ($act=='reg_save')
 	}
 	else
 	{
-		require_once(QISHI_ROOT_PATH.'include/tpl.inc.php');
+		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 		$link[0]['text'] = "返回首页";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
 		showmsg('注册失败！',0,$link);
@@ -242,12 +232,12 @@ elseif ($act=='binding_callback')
 			{
 				exit("error");
 			}
-			require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 			$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 			unset($dbhost,$dbuser,$dbpass,$dbname);
-			require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 			$user=get_user_inqqopenid($_SESSION["openid"]);
-			require_once(QISHI_ROOT_PATH.'include/tpl.inc.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 			if (!empty($user))
 			{
 					$link[0]['text'] = "用别的QQ帐号绑定";

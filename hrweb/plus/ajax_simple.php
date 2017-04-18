@@ -1,22 +1,12 @@
 ﻿<?php
- /*
- * 74cms ajax 微招聘
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(dirname(__FILE__)).'/include/common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'add';
 if ($_PLUG['simple']['p_install']==1)
 {
 showmsg('管理员已关闭该模块！',1);
 }
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 if ($act=="add")
 {	
@@ -77,15 +67,15 @@ elseif ($act=="addsave")
 	}
 	$setsqlarr['pwd']=trim($_POST['pwd'])?trim($_POST['pwd']):showmsg('您没有填写管理密码！',1);
 	$setsqlarr['pwd_hash']=substr(md5(uniqid().mt_rand()),mt_rand(0,6),6);
-	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$QS_pwdhash);
+	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['addip']=$online_ip;
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];
 	$setsqlarr['key']="{$setsqlarr['jobname']} {$setsqlarr['comname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
 	$link[0]['text'] = "返回微招聘列表";
-	$link[0]['href'] =url_rewrite('QS_simplelist');
+	$link[0]['href'] =url_rewrite('HW_simplelist');
 	if($db->inserttable(table('simple'),$setsqlarr))
 	{
 		if ($setsqlarr['audit']<>1)
@@ -112,12 +102,12 @@ elseif ($act=="exe_delsimple")
 		$id=intval($_POST['id']);
 		$sql = "select * from ".table('simple')." where id = '{$id}' LIMIT 1";
 		$info=$db->getone($sql);
-		$thispwd=md5(md5($pwd).$info['pwd_hash'].$QS_pwdhash);
+		$thispwd=md5(md5($pwd).$info['pwd_hash'].$HW_pwdhash);
 		if ($thispwd==$info['pwd'])
 		{
 		$db->query("Delete from ".table('simple')." WHERE id = '{$id}'");
 		$link[0]['text'] = "返回微招聘列表";
-		$link[0]['href'] =url_rewrite('QS_simplelist');
+		$link[0]['href'] =url_rewrite('HW_simplelist');
 		showmsg("删除成功！",2,$link);
 		}
 		else
@@ -138,12 +128,12 @@ elseif ($act=="exe_refreshsimple")
 		$id=intval($_POST['id']);
 		$sql = "select * from ".table('simple')." where id = '{$id}' LIMIT 1";
 		$info=$db->getone($sql);
-		$thispwd=md5(md5($pwd).$info['pwd_hash'].$QS_pwdhash);
+		$thispwd=md5(md5($pwd).$info['pwd_hash'].$HW_pwdhash);
 		if ($thispwd==$info['pwd'])
 		{
 		$db->query("update ".table('simple')."  SET refreshtime='".time()."' WHERE id = '{$id}'");
 		$link[0]['text'] = "返回微招聘列表";
-		$link[0]['href'] =url_rewrite('QS_simplelist');
+		$link[0]['href'] =url_rewrite('HW_simplelist');
 		showmsg("刷新成功！",2,$link);
 		}
 		else
@@ -178,7 +168,7 @@ elseif ($act=="editsave")
 	$id=intval($_POST['id']);
 	$pwd=trim($_POST['pwd']);
 	$info=$db->getone("select * from ".table('simple')." where id = '{$id}' LIMIT 1");
-	$thispwd=md5(md5($pwd).$info['pwd_hash'].$QS_pwdhash);
+	$thispwd=md5(md5($pwd).$info['pwd_hash'].$HW_pwdhash);
 	if ($thispwd!=$info['pwd'])
 	{
 		showmsg("管理密码错误",1);
@@ -219,13 +209,13 @@ elseif ($act=="editsave")
 	$time=$info['deadline']>time()?$info['deadline']:time();
 	$setsqlarr['deadline']=strtotime("{$days} day",$time);
 	}
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];
 	$setsqlarr['key']="{$setsqlarr['jobname']} {$setsqlarr['comname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
 	$link[0]['text'] = "返回微招聘列表";
-	$link[0]['href'] =url_rewrite('QS_simplelist');
+	$link[0]['href'] =url_rewrite('HW_simplelist');
 	if($db->updatetable(table('simple'),$setsqlarr," id='{$id}' "))
 	{
 		if ($_CFG['simple_edit_audit']>1)
@@ -269,13 +259,13 @@ elseif($act =='check_pwd')
 {
 	$pwd=$_GET['pwd'];
 	$id=intval($_GET['id']);
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$pwd=utf8_to_gbk($pwd);
 	}
 		$sql = "select * from ".table('simple')." where id = '{$id}' LIMIT 1";
 		$info=$db->getone($sql);
-		$thispwd=md5(md5($pwd).$info['pwd_hash'].$QS_pwdhash);
+		$thispwd=md5(md5($pwd).$info['pwd_hash'].$HW_pwdhash);
 		if ($thispwd==$info['pwd'])
 		{		
 		exit('true');

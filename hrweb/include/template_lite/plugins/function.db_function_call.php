@@ -1,20 +1,4 @@
 ﻿<?php
-/*
- * Template Lite plugin
- * -------------------------------------------------------------
- * Type:	 function
- * Name:	 db_function_call
- * Purpose:  Interface with ADOdb Lite to query database.
- *
- * db_object = Database object
- * db_function = Database function to execute
- * db_query = query string to pass to the database
- * db_assign = variable name to assign result data
- * db_errornumber_assign = variable name to assign the database error number
- * db_error_assign = the variable name to assign the database error message
- * db_EOF_assign = the variable name to assign the database end of file flag
- * -------------------------------------------------------------
- */
 function tpl_function_db_function_call($params, &$template_object)
 {
 	if (empty($params['db_object']))

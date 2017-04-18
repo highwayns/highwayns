@@ -1,12 +1,7 @@
 ﻿<?php
- /*
- * 74cms 鑱旂郴鏂瑰紡鍥惧舰鍖? * ============================================================================
- * 鐗堟潈鎵€鏈? 楠戝＋缃戠粶锛屽苟淇濈暀鎵€鏈夋潈鍒┿€? * 缃戠珯鍦板潃: http://www.74cms.com锛? * ----------------------------------------------------------------------------
- * 杩欎笉鏄竴涓嚜鐢辫蒋浠讹紒鎮ㄥ彧鑳藉湪涓嶇敤浜庡晢涓氱洰鐨勭殑鍓嶆彁涓嬪绋嬪簭浠ｇ爜杩涜淇敼鍜? * 浣跨敤锛涗笉鍏佽瀵圭▼搴忎唬鐮佷互浠讳綍褰㈠紡浠讳綍鐩殑鐨勫啀鍙戝竷銆? * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/plus.common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = trim($_GET['act']);
 $type =intval($_GET['type']);
@@ -103,11 +98,11 @@ $h=22;
 $im = imagecreate($w,$h);
 $white = imagecolorallocate($im, 255,255,255);
 $black = imagecolorallocate($im, 255,0,0);
-if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
-		$t=iconv(QISHI_DBCHARSET,"utf-8",$t);
+		$t=iconv(HIGHWAY_DBCHARSET,"utf-8",$t);
 	}
-$ttf=QISHI_ROOT_PATH."data/contactimgfont/cn.ttc";
+$ttf=HIGHWAY_ROOT_PATH."data/contactimgfont/cn.ttc";
 imagettftext($im, 12, 0, 10, 15, $black, $ttf,$t); 
 imagegif($im);
 ImageDestroy($im);

@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 工具类
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI')) exit('Access Denied!');
+if(!defined('IN_HIGHWAY')) exit('Access Denied!');
 class help {
     static function addslashes_deep($value)
     {
@@ -32,12 +22,12 @@ class help {
     }
     static function remove_xss($string)
     {  
-        require_once(QISHI_ROOT_PATH.'include/library/HTMLPurifier.auto.php');
+        require_once(HIGHWAY_ROOT_PATH.'include/library/HTMLPurifier.auto.php');
         $config = HTMLPurifier_Config::createDefault();
         $config->set('HTML.AllowedElements', array('div'=>true, 'table'=>true, 'tr'=>true, 'td'=>true, 'br'=>true,"src"=>true,"strong"=>true,"em"=>true,"img"=>true,"p"=>true));
         $config->set('HTML.Doctype', 'XHTML 1.0 Transitional'); 
         if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"]) || strtolower($_SERVER["HTTP_X_REQUESTED_WITH"])!="xmlhttprequest"){
-            $config->set('Core.Encoding', QISHI_CHARSET);
+            $config->set('Core.Encoding', HIGHWAY_CHARSET);
         }
         $purifier = new HTMLPurifier($config);
         return $purifier->purify($string);
@@ -67,7 +57,7 @@ class help {
                     $value[$k] = self::htmlspecialchars_($v);
                 }
             }else{
-                $value = htmlspecialchars($value,ENT_QUOTES,QISHI_CHARSET);
+                $value = htmlspecialchars($value,ENT_QUOTES,HIGHWAY_CHARSET);
             }
             return $value;
         }
@@ -75,12 +65,12 @@ class help {
     //sql 过滤
     static function CheckSql($db_string,$querytype='select')
     {
-        global $QS_pwdhash;
+        global $HW_pwdhash;
         $clean = '';
         $error='';
         $old_pos = 0;
         $pos = -1;
-        $log_file = QISHI_ROOT_PATH.'/data/'.md5($QS_pwdhash).'_safe.txt';
+        $log_file = HIGHWAY_ROOT_PATH.'/data/'.md5($HW_pwdhash).'_safe.txt';
         $userIP = getip();
         $getUrl =request_url();
         $time = date('Y-m-d H:i:s');

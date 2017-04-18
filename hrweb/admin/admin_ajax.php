@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms ajax
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'total';
@@ -82,9 +72,9 @@ elseif($act == 'get_jobs')
 {
 	$type=trim($_GET['type']);
 	$key=trim($_GET['key']);
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
-	$key=iconv("utf-8",QISHI_DBCHARSET,$key);
+	$key=iconv("utf-8",HIGHWAY_DBCHARSET,$key);
 	}	
 	if ($type=="get_id")
 	{
@@ -114,8 +104,8 @@ elseif($act == 'get_jobs')
 			$row['addtime']=date("Y-m-d",$row['addtime']);
 			$row['deadline']=date("Y-m-d",$row['deadline']);
 			$row['refreshtime']=date("Y-m-d",$row['refreshtime']);
-			$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['company_id']));
-			$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['id']));
+			$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
+			$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['id']));
 			$info[]=$row['id']."%%%".$row['jobs_name']."%%%".$row['jobs_url']."%%%".$row['companyname']."%%%".$row['company_url']."%%%".$row['addtime']."%%%".$row['deadline']."%%%".$row['refreshtime'];
 		}
 		if (!empty($info))
@@ -131,9 +121,9 @@ elseif($act == 'get_company')
 {
 	$type=trim($_GET['type']);
 	$key=trim($_GET['key']);
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
-	$key=iconv("utf-8",QISHI_DBCHARSET,$key);
+	$key=iconv("utf-8",HIGHWAY_DBCHARSET,$key);
 	}	
 	if ($type=="getuname")
 	{
@@ -155,7 +145,7 @@ elseif($act == 'get_company')
 			continue;
 			}
 			$row['addtime']=date("Y-m-d",$row['addtime']);
-			$row['company_url']=url_rewrite('QS_companyshow',array('id'=>$row['id']));
+			$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['id']));
 			$info[]=$row['id']."%%%".$row['companyname']."%%%".$row['company_url']."%%%".$row['addtime'];
 		}
 		if (!empty($info))

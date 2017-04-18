@@ -1,14 +1,4 @@
 ﻿<?php
-/*
- * template_lite plugin
- * -------------------------------------------------------------
- * Type:     function
- * Name:     html_options
- * Purpose:  prints out the options for an html_select item
- * Credit:   Taken from the original Smarty
- *           http://smarty.php.net
- * -------------------------------------------------------------
- */
 function tpl_function_html_options($params, &$tpl)
 {
 	require_once("shared.escape_chars.php");

@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms 邮件群发
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_mailqueue_fun.php');
@@ -19,7 +9,7 @@ $smarty->assign('pageheader',"邮件群发");
 if($act == 'list')
 {
 	get_token();
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$key=isset($_GET['key'])?trim($_GET['key']):"";
 	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
 	if (!empty($key) && $key_type>0)
@@ -179,7 +169,7 @@ elseif($act == 'totalsend')
 			{
 				adminmsg("没有可发送的邮件",1);
 			}
-			@file_put_contents(QISHI_ROOT_PATH."temp/send.txt", serialize($idarr));
+			@file_put_contents(HIGHWAY_ROOT_PATH."temp/send.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$senderr}&intervaltime={$intervaltime}");
 		}
 		
@@ -195,7 +185,7 @@ elseif($act == 'totalsend')
 			{
 				adminmsg("没有可发送的邮件",1);
 			}
-			@file_put_contents(QISHI_ROOT_PATH."temp/send.txt", serialize($idarr));
+			@file_put_contents(HIGHWAY_ROOT_PATH."temp/send.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$senderr}&intervaltime={$intervaltime}");
 	}
 	elseif ($sendtype===3)
@@ -209,7 +199,7 @@ elseif($act == 'totalsend')
 			{
 				adminmsg("没有可发送的邮件",1);
 			}
-			@file_put_contents(QISHI_ROOT_PATH."temp/send.txt", serialize($idarr));
+			@file_put_contents(HIGHWAY_ROOT_PATH."temp/send.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$senderr}&intervaltime={$intervaltime}");
 	}
 }
@@ -217,7 +207,7 @@ elseif($act == 'send')
 {
 	$senderr=intval($_GET['senderr']);
 	$intervaltime=intval($_GET['intervaltime']);
-	$tempdir=QISHI_ROOT_PATH."temp/send.txt";
+	$tempdir=HIGHWAY_ROOT_PATH."temp/send.txt";
 	$content = file_get_contents($tempdir);
 	$idarr = unserialize($content);
 	$totalid=count($idarr);

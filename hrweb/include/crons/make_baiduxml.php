@@ -1,28 +1,18 @@
 ﻿<?php
- /*
- * 74cms 计划任务 清除缓存
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-if(!defined('IN_QISHI'))
+if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');
 }
 	global $_CFG,$db,$baiduxml;
 	$xmlset=get_cache('baiduxml');
 	$xmlorder=$xmlset['order'];
-	require_once(QISHI_ROOT_PATH.'include/baiduxml.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/baiduxml.class.php');
 	$baiduxml = new BaiduXML();
 	makebaiduxml($xmlorder,0,$xmlset['xmlpagesize'],1,0,$xmlset);
 	function makebaiduxml($xmlorder,$start,$size,$li=1,$t=0,$xmlset)
 	{
 		global $db,$baiduxml,$_CFG;
-		$xmldir = QISHI_ROOT_PATH.$xmlset['xmldir'];
+		$xmldir = HIGHWAY_ROOT_PATH.$xmlset['xmldir'];
 	 	if ($xmlorder=='1')
 		{
 		$sqlorder=" ORDER BY `addtime` DESC ";
@@ -40,7 +30,7 @@ die('Access Denied!');
 			$com=$db->getone("SELECT * from ".table('company_profile')." where id = '{$row['company_id']}' LIMIT 1");
 			$category=$db->getone("SELECT * FROM ".table('category_jobs')." where id=".$row['category']." LIMIT 1");
 			$subclass=$db->getone("SELECT * FROM ".table('category_jobs')." where id=".$row['subclass']." LIMIT 1");
-			$row['jobs_url']=url_rewrite('QS_jobsshow',array('id'=>$row['id']));
+			$row['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$row['id']));
 			$x=array($row['jobs_url'],date("Y-m-d",$row['refreshtime']),$row['jobs_name'],date("Y-m-d",$row['deadline']),$row['contents'],$row['nature_cn'],   str_replace('/','',$row['district_cn']),$row['companyname'],$contact['email'],$category['categoryname'],$subclass['categoryname'],$row['education_cn'],$row['experience_cn'],date("Y-m-d",$row['addtime']),date("Y-m-d",$row['deadline']),str_replace('~','-',$row['wage_cn']),$row['trade_cn'],$com['nature_cn'],$_CFG['site_name'],$_CFG['site_domain'].$_CFG['site_dir']);
 			foreach ($x as $key => $value) {
 				$x[$key] = strip_tags(str_replace("&","&amp;",$value));

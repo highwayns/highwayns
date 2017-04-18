@@ -1,19 +1,9 @@
 ﻿<?php
- /*
- * 74cms 发送邮件
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
 ignore_user_abort(true);
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = !empty($_GET['act']) ? trim($_GET['act']) : '';
 $uid=intval($_GET['uid']);
@@ -46,7 +36,7 @@ elseif($act == 'jobs_apply')
 	$templates=label_replace($mail_templates['set_applyjobs']);
 	$templates_title=label_replace($mail_templates['set_applyjobs_title']);
 	// 申请职位发送邮件 简历信息
-	require_once(QISHI_ROOT_PATH.'include/fun_personal.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_personal.php');
 	$resume_id=intval($_GET['resume_id']);
 	$resume_basic=get_resume_basic($uid,$resume_id);
 	if($resume_basic['tag_cn'])
@@ -67,7 +57,7 @@ elseif($act == 'jobs_apply')
 	}
 	else
 	{
-		$show_contact = '<p>联系方式：<a href='.url_rewrite('QS_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
+		$show_contact = '<p>联系方式：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
 	}	
 	$htm='<div style="width: 900px;margin: 0 auto;font-size: 14px;">
 		<div style="margin-bottom:10px">

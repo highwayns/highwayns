@@ -1,15 +1,5 @@
 ﻿<?php
- /*
- * 74cms ajax返回
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
 if($act =='do_login')
@@ -28,7 +18,7 @@ if($act =='do_login')
 	$account_type=3;
 	}
 	$url=isset($_POST['url'])?$_POST['url']:"";
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$username=utf8_to_gbk($username);
 	$password=utf8_to_gbk($password);
@@ -37,7 +27,7 @@ if($act =='do_login')
 	if ($captcha['verify_userlogin']=="1" && $index_login!="1")
 	{
 		$postcaptcha=$_POST['postcaptcha'];
-		if ($captcha['captcha_lang']=="cn" && strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+		if ($captcha['captcha_lang']=="cn" && strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 		{
 		$postcaptcha=utf8_to_gbk($postcaptcha);
 		}
@@ -47,14 +37,14 @@ if($act =='do_login')
 		exit("errcaptcha");
 		}
 	}
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	if ($username && $password)
 	{
 		$login=user_login($username,$password,$account_type,true,$expire);
-		$url=$url?$url:$login['qs_login'];
-		if ($login['qs_login'])
+		$url=$url?$url:$login['hw_login'];
+		if ($login['hw_login'])
 		{
-			if($login['qs_login'] == 'false'){
+			if($login['hw_login'] == 'false'){
 				exit('status_err');
 			}else{
 				if(intval($_POST['binding']) == 1 && trim($_POST['openid'])<>'' && $_SESSION['uid']<>'' && trim($_POST['nickname'])<>''){
@@ -89,7 +79,7 @@ elseif ($act=='do_reg')
 	if ($captcha['verify_userreg']=="1")
 	{
 		$postcaptcha=$_POST['postcaptcha'];
-		if ($captcha['captcha_lang']=="cn" && strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+		if ($captcha['captcha_lang']=="cn" && strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 		{
 		$postcaptcha=utf8_to_gbk($postcaptcha);
 		}
@@ -98,12 +88,12 @@ elseif ($act=='do_reg')
 		exit("err");
 		}
 	}
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$username = isset($_POST['username'])?trim($_POST['username']):exit("err");
 	$password = isset($_POST['password'])?trim($_POST['password']):exit("err");
 	$member_type = isset($_POST['member_type'])?intval($_POST['member_type']):exit("err");
 	$email = isset($_POST['email'])?trim($_POST['email']):exit("err");
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$username=utf8_to_gbk($username);
 	$password=utf8_to_gbk($password);
@@ -117,7 +107,7 @@ elseif ($act=='do_reg')
 		{
 		dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_mail.php?uid=".$_SESSION['uid']."&key=".asyn_userkey($_SESSION['uid'])."&sendemail=".$email."&sendusername=".$username."&sendpassword=".$password."&act=reg");
 		}
-		$qsurl=$login_js['qs_login'];
+		$qsurl=$login_js['hw_login'];
 		$qsjs="<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$qsurl."\";</script>";
 		 if ($ucjs || $qsurl)
 			{
@@ -135,9 +125,9 @@ elseif ($act=='do_reg')
 }
 elseif($act =='check_usname')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$usname=trim($_POST['usname']);
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$usname=utf8_to_gbk($usname);
 	}
@@ -146,9 +136,9 @@ elseif($act =='check_usname')
 }
 elseif($act == 'check_email')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$email=trim($_POST['email']);
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$email=utf8_to_gbk($email);
 	}
@@ -157,9 +147,9 @@ elseif($act == 'check_email')
 }
 elseif($act == "check_mobile")
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$mobile=trim($_POST['mobile']);
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$mobile=utf8_to_gbk($mobile);
 	}
@@ -168,7 +158,7 @@ elseif($act == "check_mobile")
 }
 elseif ($act=="top_loginform")
 {
-	$block = isset($_GET['block'])?iconv('utf-8',QISHI_CHARSET,$_GET['block']):'';
+	$block = isset($_GET['block'])?iconv('utf-8',HIGHWAY_CHARSET,$_GET['block']):'';
 	$contents='';
 	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
 	{
@@ -225,8 +215,8 @@ elseif ($act=="top_loginform")
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
 		$contents=str_replace('{#$user_url#}',$user_url,$contents);
-		$contents=str_replace('{#$login_url#}',url_rewrite('QS_login'),$contents);
-		$contents=str_replace('{#$logout_url#}',url_rewrite('QS_login')."?act=logout",$contents);
+		$contents=str_replace('{#$login_url#}',url_rewrite('HW_login'),$contents);
+		$contents=str_replace('{#$logout_url#}',url_rewrite('HW_login')."?act=logout",$contents);
 		$contents=str_replace('{#$reg_url#}',$_CFG['site_dir']."user/user_reg.php",$contents);
 		$contents=str_replace('{#$activate_url#}',$_CFG['site_dir']."user/user_reg.php?act=activate",$contents);
 		exit($contents);
@@ -299,7 +289,7 @@ elseif ($act=="loginform")
 			$access_token = get_access_token();
 		    $scene_id = rand(1,10000000);
 		    $_SESSION['scene_id'] = $scene_id;
-			$dir = QISHI_ROOT_PATH.'data/weixin/'.($scene_id%10);
+			$dir = HIGHWAY_ROOT_PATH.'data/weixin/'.($scene_id%10);
 			make_dir($dir);
 		    $fp = @fopen($dir.'/'.$scene_id.'.txt', 'wb+');
 		    $post_data = '{"expire_seconds": 1800, "action_name": "QR_SCENE", "action_info": {"scene": {"scene_id": '.$scene_id.'}}}';
@@ -395,8 +385,8 @@ elseif ($act=="loginform")
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
 		$contents=str_replace('{#$user_url#}',$user_url,$contents);
-		$contents=str_replace('{#$login_url#}',url_rewrite('QS_login'),$contents);
-		$contents=str_replace('{#$logout_url#}',url_rewrite('QS_login')."?act=logout",$contents);
+		$contents=str_replace('{#$login_url#}',url_rewrite('HW_login'),$contents);
+		$contents=str_replace('{#$logout_url#}',url_rewrite('HW_login')."?act=logout",$contents);
 		$contents=str_replace('{#$reg_url#}',$_CFG['site_dir']."user/user_reg.php",$contents);
 		$contents=str_replace('{#$activate_url#}',$_CFG['site_dir']."user/user_reg.php?act=activate",$contents);
 		exit($contents);
@@ -464,7 +454,7 @@ elseif($act == "check_reg_send_sms")
 // 找回密码验证 用户名邮箱 手机
 elseif($act == "get_pass_check")
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("false");
 	if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$username))
 	{
@@ -483,7 +473,7 @@ elseif($act == "get_pass_check")
 // 找回密码 判断是否 绑定手机 邮箱 微信
 elseif($act == "get_pass_check_buding")
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("");
 	if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$username))
 	{
@@ -513,7 +503,7 @@ elseif($act == "get_pass_check_buding")
 // 找回密码发送邮件
 elseif($act == "getpass_sendemail")
 {
-	global $QS_pwdhash;
+	global $HW_pwdhash;
 	$email=$_POST['email']?trim($_POST['email']):exit("邮箱出错");
 	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("没有用户名");
 	$uid=$_POST['uid']?intval($_POST['uid']):exit("没有用户名");
@@ -522,7 +512,7 @@ elseif($act == "getpass_sendemail")
 		exit("邮箱出错");
 	}
 	$time=time();
-	$key=substr(md5($username.$QS_pwdhash),8,16);
+	$key=substr(md5($username.$HW_pwdhash),8,16);
 	$email_str.=$username."您好：<br>";
 	$email_str.="请在24小时内点击以下链接重新设置您的密码：<br>";
 	$email_str.="<a href='".$_CFG['site_domain'].$_CFG['site_dir']."user/user_getpass.php?act=get_pass_step3_email&uid=$uid&key=$key&time=$time' target='_blank'>".$_CFG['site_domain'].$_CFG['site_dir']."user/user_getpass.php?act=get_pass_step3_email&uid=$uid&key=$key&time=$time</a><br>";

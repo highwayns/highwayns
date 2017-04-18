@@ -1,17 +1,7 @@
 ﻿<?php
- /*
- * 74cms WAP
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'reg';
 $smarty->caching = false;
 if ($act == 'reg')
@@ -32,9 +22,9 @@ elseif ($act=='form')
 }
 elseif ($act == 'do_reg')
 {
-	require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
-	require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 	$username = isset($_POST['username'])?trim($_POST['username']):"";
 	$password = isset($_POST['password'])?trim($_POST['password']):"";
@@ -86,7 +76,7 @@ elseif ($act == 'do_reg')
 		}
 		if ($login_js)
 		{
-			header("location:".$login_js['qs_login']);
+			header("location:".$login_js['hw_login']);
 		}
 	}
 	else

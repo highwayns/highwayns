@@ -70,8 +70,8 @@ $aset['row']=!empty($aset['row'])?intval($aset['row']):10;
 $aset['start']=isset($aset['start'])?intval($aset['start']):0;
 $aset['companynamelen']=isset($aset['companynamelen'])?intval($aset['companynamelen']):16;
 $aset['dot']=isset($aset['dot'])?$aset['dot']:'';
-$aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'QS_companyshow';
-$aset['listpage']=!empty($aset['listpage'])?$aset['listpage']:'QS_companylist';
+$aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'HW_companyshow';
+$aset['listpage']=!empty($aset['listpage'])?$aset['listpage']:'HW_companylist';
 if ($aset['displayorder'])
 {
 	if (strpos($aset['displayorder'],'>'))
@@ -193,7 +193,7 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 }
 if (isset($aset['paged']))
 {
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('company_profile').$wheresql;
 	$total_count=$db->get_total($total_sql);
 	$pagelist = new page(array('total'=>$total_count, 'perpage'=>$aset['row'],'alias'=>$aset['listpage'],'getarray'=>$_GET));

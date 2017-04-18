@@ -1,17 +1,7 @@
 ﻿<?php
- /*
- * 74cms 验证邮箱
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : ''; 
 $email=trim($_POST['email']);
@@ -43,7 +33,7 @@ if ($act=="send_code")
 			exit("请60秒后再进行验证！");
 			}
 			$rand=mt_rand(100000, 999999);
-			if (smtp_mail($email,"{$_CFG['site_name']}邮件认证","{$QISHI['site_name']}提醒您：<br>您正在进行邮箱验证，验证码为:<strong>{$rand}</strong>"))
+			if (smtp_mail($email,"{$_CFG['site_name']}邮件认证","{$HIGHWAY['site_name']}提醒您：<br>您正在进行邮箱验证，验证码为:<strong>{$rand}</strong>"))
 			{
 			$_SESSION['verify_email']=$email;
 			$_SESSION['email_rand']=$rand;
@@ -93,7 +83,7 @@ elseif ($act=="verify_code")
 							{
 							$time=time();			
 							$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'verifyemail','{$time}')");
-							require_once(QISHI_ROOT_PATH.'include/fun_company.php');
+							require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 							report_deal($_SESSION['uid'],$rule['verifyemail']['type'],$rule['verifyemail']['value']);
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['verifyemail']['type']=="1"?"+":"-";
@@ -111,7 +101,7 @@ elseif ($act=="verify_code")
 							{
 							$time=time();			
 							$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'verifyemail','{$time}')");
-							require_once(QISHI_ROOT_PATH.'include/fun_train.php');
+							require_once(HIGHWAY_ROOT_PATH.'include/fun_train.php');
 							report_deal($_SESSION['uid'],$rule['train_verifyemail']['type'],$rule['train_verifyemail']['value']);
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['train_verifyemail']['type']=="1"?"+":"-";
@@ -129,7 +119,7 @@ elseif ($act=="verify_code")
 							{
 							$time=time();			
 							$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'verifyemail','{$time}')");
-							require_once(QISHI_ROOT_PATH.'include/fun_hunter.php');
+							require_once(HIGHWAY_ROOT_PATH.'include/fun_hunter.php');
 							report_deal($_SESSION['uid'],$rule['hunter_verifyemail']['type'],$rule['hunter_verifyemail']['value']);
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['hunter_verifyemail']['type']=="1"?"+":"-";

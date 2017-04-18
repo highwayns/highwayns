@@ -1,9 +1,9 @@
 ﻿<?php
-define('IN_QISHI', true);
-$alias="QS_login";
+define('IN_HIGHWAY', true);
+$alias="HW_login";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
-require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $smarty->caching = false;
@@ -48,7 +48,7 @@ elseif($act == 'binding_save')
 		$success = false;
 		$pwd_hash=$usinfo['pwd_hash'];
 		$usname=$usinfo['username'];
-		$pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
+		$pwd=md5(md5($password).$pwd_hash.$HW_pwdhash);
 		if ($usinfo['password']==$pwd)
 		{
 			$access_token = get_access_token();
@@ -57,7 +57,7 @@ elseif($act == 'binding_save')
 			$w_userinfo = json_decode($w_result,true);
 			$success == true;
 			$db->query("update ".table('members')." set `weixin_openid`='".$fromUsername."',`weixin_nick`='".$w_userinfo['nickname']."',bindingtime=".time()." where uid=".$usinfo['uid']);
-			require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
 			// 绑定微信 获得积分
 			$rule=get_cache('points_rule');
 			if ($rule['company_wx_points']['value']>0)
@@ -67,7 +67,7 @@ elseif($act == 'binding_save')
 				{
 				$time=time();			
 				$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$_SESSION['uid']}', 'company_wx_points','{$time}')");
-				require_once(QISHI_ROOT_PATH.'include/fun_comapny.php');
+				require_once(HIGHWAY_ROOT_PATH.'include/fun_comapny.php');
 				report_deal($_SESSION['uid'],$rule['company_wx_points']['type'],$rule['company_wx_points']['value']);
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$rule['company_wx_points']['type']=="1"?"+":"-";
@@ -137,7 +137,7 @@ elseif($act == 'change_binding_save')
 		$success = false;
 		$pwd_hash=$usinfo['pwd_hash'];
 		$usname=$usinfo['username'];
-		$pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
+		$pwd=md5(md5($password).$pwd_hash.$HW_pwdhash);
 		if ($usinfo['password']==$pwd)
 		{
 			$access_token = get_access_token();
@@ -146,7 +146,7 @@ elseif($act == 'change_binding_save')
 			$w_userinfo = json_decode($w_result,true);
 			$success == true;
 			$db->query("update ".table('members')." set `weixin_openid`='".$fromUsername."',`weixin_nick`='".$w_userinfo['nickname']."',bindingtime=".time()." where uid=".$usinfo['uid']);
-			require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
+			require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
 			
 			if (wap_user_login($username,$password))
 						{	

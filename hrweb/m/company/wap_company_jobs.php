@@ -1,19 +1,9 @@
 ﻿<?php
- /*
- * 74cms WAP
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.74cms.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../../include/common.inc.php');
-require_once(QISHI_ROOT_PATH.'include/fun_wap.php');
-require_once(QISHI_ROOT_PATH.'include/fun_company.php');
-require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
+require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
+require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $smarty->cache = false;
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'index';
@@ -158,7 +148,7 @@ elseif($act=="jobs_add_save")
 	$setsqlarr['deadline']=strtotime("".intval($_CFG['company_add_days'])." day");
 	$setsqlarr['refreshtime']=time();
 	$setsqlarr['key']=$setsqlarr['jobs_name'].$company_info['companyname'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_info['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
@@ -260,7 +250,7 @@ elseif($act=="jobs_add_save")
 	unset($searchtab);
 	distribution_jobs($pid,$_SESSION['uid']);
 	write_memberslog($_SESSION['uid'],1,2001,$_SESSION['username'],"发布了职位：{$setsqlarr['jobs_name']}");
-	baidu_submiturl(url_rewrite('QS_jobsshow',array('id'=>$pid)),'addjob');
+	baidu_submiturl(url_rewrite('HW_jobsshow',array('id'=>$pid)),'addjob');
 	echo $pid;
 }
 // 职位发布成功页面
@@ -364,7 +354,7 @@ elseif($act=="jobs_edit_save")
 	}
 	$setsqlarr['deadline']=strtotime("".intval($_CFG['company_add_days'])." day");
 	$setsqlarr['key']=$setsqlarr['jobs_name'].$company_info['companyname'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
-	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
+	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_info['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
