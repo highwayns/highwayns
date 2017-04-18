@@ -1,23 +1,23 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.personal.selectlayer.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.personal.selectlayer.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -60,15 +60,15 @@ auditEmail_dialog('.audit_email',"personal_ajax.php?act=user_email");
 //验证手机
 editMobile_dialog(".audit_mobile","personal_ajax.php?act=old_mobile");
 
-allaround("{#$QISHI.site_dir#}");
+allaround("{#$HIGHWAY.site_dir#}");
 // 期望职位填充数据 
-job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#intention_jobs_id", "{#$QISHI.site_dir#}");
+job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#intention_jobs_id", "{#$HIGHWAY.site_dir#}");
 // 期望行业填充数据
-trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 // 工作地区填充数据
-city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$QISHI.site_dir#}");
+city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$HIGHWAY.site_dir#}");
 // 所学专业填充数据
-major_filldata("#major_list", QS_major_parent, QS_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$QISHI.site_dir#}");
+major_filldata("#major_list", HW_major_parent, HW_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$HIGHWAY.site_dir#}");
 //填写基本信息,打开选填项按钮效果
 $("#displaymore").hover(
   function () {
@@ -197,7 +197,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	IScaptchastr: true,
 	required: true,
 	remote:{     
-	url:"{#$QISHI.site_dir#}include/imagecaptcha.php",     
+	url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",     
 	type:"post",    
 	data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}     
 	}
@@ -286,7 +286,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			$(imgdiv).show();
 			if ($(imgdiv).html()=='')
 			{
-			$(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+			$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
 			}
 			$(imgdiv+" img").click(function()
 			{
@@ -321,10 +321,10 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 </script>
 </head>
 
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 创建简历</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 创建简历</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -347,7 +347,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 <!-- 			<td style="position: relative;">
 				<div class="leftbox" style="position: absolute;right: 110px;top:5px">
 					<div>
-					  	<img name="" src="{#$QISHI.site_template#}images/06.jpg" width="100" height="100" alt="" id="img_src"/>
+					  	<img name="" src="{#$HIGHWAY.site_template#}images/06.jpg" width="100" height="100" alt="" id="img_src"/>
 					</div>
 					<a href="javascript:;"  class="edit" id="resumePhotosButton" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 100px;">简历照片</a>
 					<input name="photo" type="hidden" id="photo" value="" />
@@ -358,9 +358,9 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">姓名</span>：</td>
 			<td><input name="fullname" type="text" class="input_text_200" id="fullname" maxlength="6"   value="{#$userprofile.realname#}" /> </td>
 			<td>
-			<input name="display_name" id="display_name" type="hidden" value="{#$QISHI.resume_privacy#}" />
+			<input name="display_name" id="display_name" type="hidden" value="{#$HIGHWAY.resume_privacy#}" />
 			  <span class="publicity" id="publicitydiv" style="display:block;float:left;">
-			    <div class="input_text_70_bg" id="display_name_cn">{#if $QISHI.resume_privacy=="1"#}完全公开{#elseif $QISHI.resume_privacy=="2"#}显示编号{#elseif $QISHI.resume_privacy=="3"#}隐藏名字{#/if#}</div>
+			    <div class="input_text_70_bg" id="display_name_cn">{#if $HIGHWAY.resume_privacy=="1"#}完全公开{#elseif $HIGHWAY.resume_privacy=="2"#}显示编号{#elseif $HIGHWAY.resume_privacy=="3"#}隐藏名字{#/if#}</div>
 					<div class="selbox">
 						<div class="div" id="1">完全公开</div>
 						<div class="div" id="2">显示编号</div>
@@ -476,7 +476,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="education_menu" class="input_text_200_bg">{#if $userprofile.education#}{#$userprofile.education_cn#}{#else#}请选择{#/if#}</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -539,7 +539,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="experience_menu" class="input_text_200_bg">{#if $userprofile.experience#}{#$userprofile.experience_cn#}{#else#}请选择{#/if#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
 	              			<li id="-1" title="应届生">应届生</li>
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
@@ -616,7 +616,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			             	 	<div id="current_menu" class="input_text_200_bg">请选择</div>	
 			             	 	<div class="menu" id="menu5">
 				              		<ul>
-				              			{#qishi_get_classify  set="类型:QS_current,列表名:c_current"#}
+				              			{#highway_get_classify  set="类型:HW_current,列表名:c_current"#}
 				              			{#foreach from=$c_current item=list#}
 				              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#}
@@ -765,7 +765,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="" />
 			<input name="nature_cn" id="nature_cn" type="hidden" value="" />
-			{#qishi_get_classify  set="类型:QS_jobs_nature,列表名:c_nature"#}
+			{#highway_get_classify  set="类型:HW_jobs_nature,列表名:c_nature"#}
 			{#section name=list loop=$c_nature#}
 			  <div class="input_radio {#if $smarty.section.list.index==0#}select{#/if#}" id="{#$c_nature[list].id#}">{#$c_nature[list].categoryname#}</div>
 			  {#/section#}			  
@@ -781,7 +781,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="wage_menu" class="input_text_200_bg">请选择</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
 	              			{#foreach from=$c_wage item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}

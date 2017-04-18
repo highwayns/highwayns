@@ -21,9 +21,9 @@ $(document).ready(function()
   <div class="seltpye_x">
 		<div class="left">套餐类型</div>	
 		<div class="right">
-		<a href="{#"setmeal_id:"|qishi_parse_url#}" {#if $smarty.get.setmeal_id==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"setmeal_id:"|highway_parse_url#}" {#if $smarty.get.setmeal_id==""#}class="select"{#/if#}>不限</a>
 		{#foreach from=$setmeal item=list#}
-		<a href="{#"setmeal_id:"|cat:$list.id|qishi_parse_url#}" {#if $smarty.get.setmeal_id==$list.id#}class="select"{#/if#}>{#$list.setmeal_name#}</a>
+		<a href="{#"setmeal_id:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.setmeal_id==$list.id#}class="select"{#/if#}>{#$list.setmeal_name#}</a>
 		{#/foreach#}
 		<div class="clear"></div>
 		</div>
@@ -32,11 +32,11 @@ $(document).ready(function()
   <div class="seltpye_x">
 		<div class="left">到期时间</div>	
 		<div class="right">
-		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:-1"|qishi_parse_url#}" {#if $smarty.get.settr=="-1"#}class="select"{#/if#}>已经到期</a>
-		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
-		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
-		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内到期</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:-1"|highway_parse_url#}" {#if $smarty.get.settr=="-1"#}class="select"{#/if#}>已经到期</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
+		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内到期</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>

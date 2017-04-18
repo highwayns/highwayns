@@ -40,37 +40,37 @@ $(document).ready(function()
 	<strong>广告列表</strong><span>(共找到{#$total#}条)</span>
 	<a href="?act=list">[恢复默认]</a>
 	<div class="pli link_bk"><u>每页显示：</u>
-	<a href="{#"perpage:10"|qishi_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
-	<a href="{#"perpage:20"|qishi_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
-	<a href="{#"perpage:30"|qishi_parse_url#}" {#if $smarty.get.perpage=="30"#}class="select"{#/if#}>30</a>
-	<a href="{#"perpage:60"|qishi_parse_url#}" {#if $smarty.get.perpage=="60"#}class="select"{#/if#}>60</a>
+	<a href="{#"perpage:10"|highway_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
+	<a href="{#"perpage:20"|highway_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
+	<a href="{#"perpage:30"|highway_parse_url#}" {#if $smarty.get.perpage=="30"#}class="select"{#/if#}>30</a>
+	<a href="{#"perpage:60"|highway_parse_url#}" {#if $smarty.get.perpage=="60"#}class="select"{#/if#}>60</a>
 	<div class="clear"></div>
 	</div>
 	</div>	
     <div class="list">
 	  <div class="t">到期时间</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:0"|qishi_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>已经到期</a>
-		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
-		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
+	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:0"|highway_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>已经到期</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
 	  </div>
     </div>
 	<div class="list">
 	  <div class="t">显示状态</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"is_display:"|qishi_parse_url#}" {#if $smarty.get.is_display==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"is_display:1"|qishi_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>正常</a>
-		<a href="{#"is_display:0"|qishi_parse_url#}" {#if $smarty.get.is_display=="0"#}class="select"{#/if#}>停止</a>
+	 	<a href="{#"is_display:"|highway_parse_url#}" {#if $smarty.get.is_display==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"is_display:1"|highway_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>正常</a>
+		<a href="{#"is_display:0"|highway_parse_url#}" {#if $smarty.get.is_display=="0"#}class="select"{#/if#}>停止</a>
 	  </div>
     </div>
 	
 	<div class="list listod" style=" width:200px;">
 	  <div class="t">广告位</div>	  
 	  <div class="txt link_lan">
-	  <a href="{#"category_id:"|qishi_parse_url#}" {#if $smarty.get.category_id==""#}class="select"{#/if#}>不限</a>
+	  <a href="{#"category_id:"|highway_parse_url#}" {#if $smarty.get.category_id==""#}class="select"{#/if#}>不限</a>
  {#foreach from=$ad_category item=cli#}
- <a href="{#"category_id:"|cat:$cli.id|qishi_parse_url#}" {#if $smarty.get.category_id==$cli.id#}class="select"{#/if#}>{#$cli.categoryname#}</a>
+ <a href="{#"category_id:"|cat:$cli.id|highway_parse_url#}" {#if $smarty.get.category_id==$cli.id#}class="select"{#/if#}>{#$cli.categoryname#}</a>
 	{#/foreach#}
 	  </div>
     </div>

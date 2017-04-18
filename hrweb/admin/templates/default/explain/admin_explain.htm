@@ -21,9 +21,9 @@ $(document).ready(function()
 <div class="seltpye_x">
 		<div class="left">分类选择</div>	
 		<div class="right">
-		<a href="{#"type_id:"|qishi_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
 		{#foreach from=$get_explain_category item=list#}
-	  <a href="{#"type_id:"|cat:$list.id|qishi_parse_url#}"  {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
+	  <a href="{#"type_id:"|cat:$list.id|highway_parse_url#}"  {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
 	  {#/foreach#}
 		<div class="clear"></div>
 		</div>
@@ -32,12 +32,12 @@ $(document).ready(function()
  <div class="seltpye_x">
 		<div class="left">添加时间</div>	
 		<div class="right">
-		<a href="{#"settr:"|qishi_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|qishi_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|qishi_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
-		<a href="{#"settr:30"|qishi_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|qishi_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|qishi_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>

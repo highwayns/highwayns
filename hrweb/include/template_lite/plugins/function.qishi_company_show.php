@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_company_show($params, &$smarty)
+function tpl_function_highway_company_show($params, &$smarty)
 { 
 	global $db,$_CFG;
 	$arr=explode(',',$params['set']);

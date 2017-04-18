@@ -1,5 +1,5 @@
-﻿<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+﻿<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -179,7 +179,7 @@ $(document).ready(function()
 				<li{#if $smarty.get.act=="userprofile"#} class="h"{#/if#}><a href="personal_user.php?act=userprofile">基本资料</a></li>
 				<li{#if $smarty.get.act=="authenticate"#} class="h"{#/if#}><a href="personal_user.php?act=authenticate">账号安全</a></li>
 				<li{#if $smarty.get.act=="pm"#} class="h"{#/if#}><a href="personal_user.php?act=pm">我的消息</a></li>
-				<li><a href="{#"QS_login"|qishi_url#}?act=logout">安全退出</a></li>
+				<li><a href="{#"HW_login"|highway_url#}?act=logout">安全退出</a></li>
 				</ul>
 			</div>
 		</div>

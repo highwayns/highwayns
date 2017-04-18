@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.personal.selectlayer.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/ajaxfileupload.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/tc.all.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.personal.selectlayer.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/ajaxfileupload.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/tc.all.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -27,17 +27,17 @@ auditEmail_dialog('.audit_email',"personal_ajax.php?act=user_email");
 //验证手机
 editMobile_dialog(".audit_mobile","personal_ajax.php?act=old_mobile");
 
-allaround("{#$QISHI.site_dir#}");
+allaround("{#$HIGHWAY.site_dir#}");
 // 期望职位填充数据 
-job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#intention_jobs_id", "{#$QISHI.site_dir#}");
+job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#intention_jobs_id", "{#$HIGHWAY.site_dir#}");
 // 期望行业填充数据
-trade_filldata("#trad_list", QS_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$QISHI.site_dir#}");
+trade_filldata("#trad_list", HW_trade, "#aui_outer", "#result-list-trade", "#trade_result_show", "#trade", "{#$HIGHWAY.site_dir#}");
 // 工作地区填充数据
-city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$QISHI.site_dir#}");
+city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$HIGHWAY.site_dir#}");
 // 特长标签填充数据
-tag_filldata("#tag_list", QS_resumetag, "#aui_outer_tag", "#result-list-tag", "#trade_result_show", "#tag", "{#$QISHI.site_dir#}");
+tag_filldata("#tag_list", HW_resumetag, "#aui_outer_tag", "#result-list-tag", "#trade_result_show", "#tag", "{#$HIGHWAY.site_dir#}");
 // 所学专业填充数据
-major_filldata("#major_list", QS_major_parent, QS_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$QISHI.site_dir#}");
+major_filldata("#major_list", HW_major_parent, HW_major, "#major_tabnav", "#aui_outer_major", "#result-list-major", "#major_result_show", "#major", "{#$HIGHWAY.site_dir#}");
 
 $.get("?act=ajax_get_education_list&pid={#$pid#}", function(result){
     $("#education_list_box").html(result);
@@ -67,12 +67,12 @@ $("#displaymore").click(function(){
 		var tb_display=tb.css("display");
 		if (tb_display=="block")
 		{
-		$(this).css("background","url({#$QISHI.site_template#}images/13.gif) no-repeat 108px -122px");
+		$(this).css("background","url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 108px -122px");
 		tb.slideUp('fast');
 		}
 		else
 		{
-		$(this).css("background","url({#$QISHI.site_template#}images/13.gif) no-repeat 108px -149px");
+		$(this).css("background","url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 108px -149px");
 		tb.slideDown('fast');
 		}
 });
@@ -518,8 +518,8 @@ function uploadevent(status,picUrl,callbackdata) {
     	var time = new Date().getTime();
 		var filename150 = picUrl+'_150.jpg';
 		var filename50 = picUrl+'_50.jpg';
-    	$("#img_src").attr("src", '{#$QISHI.site_dir#}data/photo/'+picUrl);
-    	$("#img_src_w").attr("src", '{#$QISHI.site_dir#}data/photo/'+picUrl);
+    	$("#img_src").attr("src", '{#$HIGHWAY.site_dir#}data/photo/'+picUrl);
+    	$("#img_src_w").attr("src", '{#$HIGHWAY.site_dir#}data/photo/'+picUrl);
     	$(".ui-popup-backdrop").hide();
     	$(".ui-popup").hide();
     	$("#maskLayer").remove();
@@ -543,7 +543,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 </script>
 </head>
 
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 <!-- 简历照片弹出框 -->
 <div class="ui-popup ui-popup-modal ui-popup-show ui-popup-focus" id="altContentBox" style="display:none">
@@ -560,7 +560,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<tr>
 				<td i="body" class="ui-dialog-body">
 					<div i="content" class="ui-dialog-content" style="width:650px;height:450px;">
-						<div id="altContent"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" WIDTH="650" HEIGHT="450" id="myMovieName"><PARAM NAME=movie VALUE="{#$QISHI.site_template#}/flash/resumelogo.swf"><PARAM NAME=quality VALUE=high><PARAM NAME=bgcolor VALUE=#FFFFFF><param name="flashvars" value="imgUrl={#$QISHI.site_template#}/flash/photodefault.jpg&uploadUrl=?act=resume_logo_save&uploadSrc=false" /><EMBED src="{#$QISHI.site_template#}/flash/resumelogo.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl={#$QISHI.site_template#}/flash/photodefault.jpg&uploadUrl=?act=resume_logo_save&uploadSrc=false" NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED></OBJECT></div>
+						<div id="altContent"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" WIDTH="650" HEIGHT="450" id="myMovieName"><PARAM NAME=movie VALUE="{#$HIGHWAY.site_template#}/flash/resumelogo.swf"><PARAM NAME=quality VALUE=high><PARAM NAME=bgcolor VALUE=#FFFFFF><param name="flashvars" value="imgUrl={#$HIGHWAY.site_template#}/flash/photodefault.jpg&uploadUrl=?act=resume_logo_save&uploadSrc=false" /><EMBED src="{#$HIGHWAY.site_template#}/flash/resumelogo.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl={#$HIGHWAY.site_template#}/flash/photodefault.jpg&uploadUrl=?act=resume_logo_save&uploadSrc=false" NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED></OBJECT></div>
 					</div>
 				</td>
 			</tr>
@@ -568,7 +568,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
   	</div>
 </div>
 <!-- 简历照片弹出框 end-->
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.main_domain#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > {#$h_title#}</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.main_domain#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > {#$h_title#}</div>
 <!-- 进度条 -->
 <div class="photoTrad" id="photoTrad">正在上传，请稍后！</div>
 <!-- 进度条 End-->
@@ -587,7 +587,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
         <!-- 基本信息 start -->
 	    <div class="titleH2">
 			<span>基本信息</span>
-			<a style="width:20px; height:20px; background: url({#$QISHI.site_template#}images/13.gif) no-repeat 3px -379px; margin:10px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" id="base_info_update"></a>
+			<a style="width:20px; height:20px; background: url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 3px -379px; margin:10px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" id="base_info_update"></a>
 		</div>
 		<!--个人基本信息 show -->
 		<div id="base_info_update_show"> 
@@ -606,12 +606,12 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						<div class="half-row f-left">身&nbsp;&nbsp;高：<span id="base_info_height">{# if $resume_basic.height#}{#$resume_basic.height#}{#else#}未填写{#/if#}</span></div>
 						<div class="half-row f-left">籍&nbsp;&nbsp;贯：<span id="base_info_householdaddress">{#$resume_basic.householdaddress#}</span></div>
 					</div>
-					<div class="all-row">手机：<span id="base_info_telephone">{#$resume_basic.telephone#}</span> {#if $user.mobile_audit=="1"#}<img src="{#$QISHI.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
-					<div class="all-row">邮箱：<span id="base_info_email">{#$resume_basic.email#}</span> {#if $user.email_audit=="1"#}<img src="{#$QISHI.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
+					<div class="all-row">手机：<span id="base_info_telephone">{#$resume_basic.telephone#}</span> {#if $user.mobile_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
+					<div class="all-row">邮箱：<span id="base_info_email">{#$resume_basic.email#}</span> {#if $user.email_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
 				</div>
 				<div class="leftbox" style="position: absolute;right:95px;top:25px;border:1px solid #c0c0c0;width: 150px;">
 					<div>
-					  	<img name="" src="{#if $$resume_basic.photo_img#}{#$QISHI.site_dir#}data/photo/{#$resume_basic.photo_img#}{#else#}{#$QISHI.site_template#}images/06.jpg{#/if#}" width="150" height="150" alt="" id="img_src_w"/>
+					  	<img name="" src="{#if $$resume_basic.photo_img#}{#$HIGHWAY.site_dir#}data/photo/{#$resume_basic.photo_img#}{#else#}{#$HIGHWAY.site_template#}images/06.jpg{#/if#}" width="150" height="150" alt="" id="img_src_w"/>
 					</div>
 					<a href="javascript:;" class="edit" id="resumePhotosButton_w" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 150px;">简历照片</a>
 		  		</div>
@@ -627,7 +627,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					
 					<div class="leftbox" style="position: absolute;right: 110px;top:25px;border:1px solid #c0c0c0;width: 150px;">
 						<div>
-						  	<img name="" src="{#if $$resume_basic.photo_img#}{#$QISHI.site_dir#}data/photo/{#$resume_basic.photo_img#}{#else#}{#$QISHI.site_template#}images/06.jpg{#/if#}" width="150" height="150" alt="" id="img_src"/>
+						  	<img name="" src="{#if $$resume_basic.photo_img#}{#$HIGHWAY.site_dir#}data/photo/{#$resume_basic.photo_img#}{#else#}{#$HIGHWAY.site_template#}images/06.jpg{#/if#}" width="150" height="150" alt="" id="img_src"/>
 						</div>
 						<a href="javascript:;"  class="edit" id="resumePhotosButton" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 150px;">简历照片</a>
 			  		</div>
@@ -755,7 +755,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	             	 	<div id="education_menu" class="input_text_200_bg">{#$resume_basic.education_cn#}</div>	
 	             	 	<div class="menu" id="menu1">
 		              		<ul>
-		              			{#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+		              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
 		              			{#foreach from=$c_education item=list#}
 		              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 		              			{#/foreach#}
@@ -818,7 +818,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	             	 	<div id="experience_menu" class="input_text_200_bg">{#$resume_basic.experience_cn#}</div>	
 	             	 	<div class="menu" id="menu2">
 		              		<ul>
-		              			{#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+		              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
 		              			<li id="-1" title="应届生">应届生</li>
 		              			{#foreach from=$c_experience item=list#}
 		              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
@@ -967,7 +967,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<!-- 个人求职意向 start -->
 			<div class="titleH2">
 				<span>求职意向</span>
-				<a style="width:20px; height:20px; background: url({#$QISHI.site_template#}images/13.gif) no-repeat 3px -379px; margin:10px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" id="base_update"> </a>
+				<a style="width:20px; height:20px; background: url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 3px -379px; margin:10px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" id="base_update"> </a>
 			</div>
 			<!-- 求职意向 show -->
 			<div class="base_table" id="base_update_show"> 
@@ -993,7 +993,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				             	 	<div id="current_menu" class="input_text_200_bg">{#$resume_basic.current_cn#}</div>	
 				             	 	<div class="menu" id="menuc">
 					              		<ul>
-					              			{#qishi_get_classify  set="类型:QS_current,列表名:c_current"#}
+					              			{#highway_get_classify  set="类型:HW_current,列表名:c_current"#}
 					              			{#foreach from=$c_current item=list#}
 					              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 					              			{#/foreach#}
@@ -1011,7 +1011,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						<div id="nature_radio">
 							<input name="nature" id="nature" type="hidden" value="{#$resume_basic.nature#}" />
 							<input name="nature_cn" id="nature_cn" type="hidden" value="{#$resume_basic.nature_cn#}" />
-							{#qishi_get_classify  set="类型:QS_jobs_nature,列表名:c_nature"#}
+							{#highway_get_classify  set="类型:HW_jobs_nature,列表名:c_nature"#}
 							{#foreach from=$c_nature item=list#}
 							<div class="input_radio {#if $list.id==$resume_basic.nature#}select{#/if#}" id="{#$list.id#}">{#$list.categoryname#}</div>
 							{#/foreach#}			  
@@ -1156,7 +1156,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		             	 	<div id="wage_menu" class="input_text_200_bg">{#$resume_basic.wage_cn#}</div>	
 		             	 	<div class="menu" id="menu3">
 			              		<ul>
-			              			{#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+			              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
 			              			{#foreach from=$c_wage item=list#}
 			              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			              			{#/foreach#}
@@ -1264,7 +1264,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 								<div id="edu_education_menu" class="input_text_200_bg">请选择</div>	
 								<div class="menu" id="menu4">
 									<ul>
-									{#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+									{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
 									{#foreach from=$c_education item=list#}
 									<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 									{#/foreach#}
@@ -1887,7 +1887,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				             	 	<div id="language_div" class="input_text_70_bg">语言</div>
 				             	 	<div class="menu" id="language_menu">
 					              		<ul>
-										{#qishi_get_classify  set="类型:QS_language,列表名:c_language"#}
+										{#highway_get_classify  set="类型:HW_language,列表名:c_language"#}
 				              			{#foreach from=$c_language item=list#}
 											<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#} 
@@ -1902,7 +1902,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				             	 	<div id="language_level_div" class="input_text_70_bg">程度</div>
 				             	 	<div class="menu" id="language_level_menu">
 					              		<ul>
-										{#qishi_get_classify  set="类型:QS_language_level,列表名:c_language_level"#}
+										{#highway_get_classify  set="类型:HW_language_level,列表名:c_language_level"#}
 				              			{#foreach from=$c_language_level item=list#}
 											<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#}  
@@ -2270,7 +2270,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<!-- 自我描述 start specialty -->	
 		<div class="titleH2">
 			<div class="lt h2-title">自我描述</div>
-			<div class="add" id="edit_specialty" {#if $resume_basic.specialty#}style="display:block;"{#else#}style="display:none;"{#/if#}><a style="width:20px; height:20px; background: url({#$QISHI.site_template#}images/13.gif) no-repeat 3px -379px; margin:2px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" class="empty_add_specialty"></a></div>
+			<div class="add" id="edit_specialty" {#if $resume_basic.specialty#}style="display:block;"{#else#}style="display:none;"{#/if#}><a style="width:20px; height:20px; background: url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 3px -379px; margin:2px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" class="empty_add_specialty"></a></div>
 			<div class="clear"></div>
 		</div>
 		<div id="specialty_empty_box">
@@ -2399,7 +2399,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					{#if $resume_img#}
 					{#foreach from=$resume_img item=img_list#}
 					<div class="has-upload-block f-left">
-						<div class="has-img"><img src="{#$QISHI.site_dir#}data/photo/{#$img_list.img#}" title="{#$img_list.title#}" width="148" height="148" /></div>
+						<div class="has-img"><img src="{#$HIGHWAY.site_dir#}data/photo/{#$img_list.img#}" title="{#$img_list.title#}" width="148" height="148" /></div>
 						<div class="has-img-ctrl clearfix">
 							<a href="javascript:;" class="f-left underline note" imgId="{#$img_list.id#}" title="{#$img_list.title#}">备注</a>
 							<a href="javascript:;" class="f-right underline del" imgId="{#$img_list.id#}">删除</a>
@@ -2445,7 +2445,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						case -6:alert("上传图片失败：文件上传出错！");return false;
 						case -7:alert("上传图片失败：附件图片只能上传4张");return false;
 						default:
-							var imgHtml ='<div class="has-upload-block f-left"><div class="has-img"><img src="{#$QISHI.site_dir#}data/photo/'+data['url']+'" title="" width="148" height="148" /></div><div class="has-img-ctrl clearfix"><a href="javascript:;" class="f-left underline note" imgId="'+data['id']+'">备注</a><a href="javascript:;" class="f-right underline del" imgId="'+data['id']+'">删除</a></div></div>';
+							var imgHtml ='<div class="has-upload-block f-left"><div class="has-img"><img src="{#$HIGHWAY.site_dir#}data/photo/'+data['url']+'" title="" width="148" height="148" /></div><div class="has-img-ctrl clearfix"><a href="javascript:;" class="f-left underline note" imgId="'+data['id']+'">备注</a><a href="javascript:;" class="f-right underline del" imgId="'+data['id']+'">删除</a></div></div>';
 							$(".has-upload-img").append(imgHtml);
 						break;
 					} 
@@ -2507,7 +2507,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					{#if $resume_basic.word_resume#}
 					<div class="f-left" style="margin-right: 10px;">
 						<div class="f-left">{#$resume_basic.word_resume#}</div>
-						<div class="f-left"><a href="{#$QISHI.site_dir#}data/word/{#$resume_basic.word_resume#}" style="color:#0180cf;margin-right: 10px;">下载</a></div>
+						<div class="f-left"><a href="{#$HIGHWAY.site_dir#}data/word/{#$resume_basic.word_resume#}" style="color:#0180cf;margin-right: 10px;">下载</a></div>
 						<div class="f-left"><a href="javascript:;" resume_id="{#$resume_basic.id#}" class="word_del" style="color:#0180cf">删除</a></div>
 						<div class="clear"></div>
 					</div>
@@ -2526,7 +2526,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					{#if $resume_basic.word_resume#}
 					<div class="f-left" style="margin-right: 10px;">
 						<div class="f-left">{#$resume_basic.word_resume#}</div>
-						<div class="f-left"><a href="{#$QISHI.site_dir#}data/word/{#$resume_basic.word_resume#}" style="color:#0180cf;margin-right: 10px;">&nbsp;&nbsp;下载</a></div>
+						<div class="f-left"><a href="{#$HIGHWAY.site_dir#}data/word/{#$resume_basic.word_resume#}" style="color:#0180cf;margin-right: 10px;">&nbsp;&nbsp;下载</a></div>
 						<div class="f-left"><a href="javascript:;" resume_id="{#$resume_basic.id#}" class="word_del" style="color:#0180cf">删除</a></div>
 						<div class="clear"></div>
 					</div>

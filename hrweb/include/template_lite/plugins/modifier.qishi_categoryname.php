@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_modifier_qishi_categoryname($string)
+function tpl_modifier_highway_categoryname($string)
 {
 		global $db;
 		if(strstr($string,":")){

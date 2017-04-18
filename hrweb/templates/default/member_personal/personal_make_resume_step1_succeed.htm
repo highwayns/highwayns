@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$.get("?act=ajax_get_interest_jobs&pid="+$(".p-rec-data").attr("pid"), function(result){
@@ -17,9 +17,9 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 创建简历</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 创建简历</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -31,7 +31,7 @@ $(document).ready(function(){
 			<h1>创建简历</h1>
 			<div class="success-tip-block">
 				<div class="tip-wrap clearfix">
-					<div class="success-icon f-left"><img src="{#$QISHI.site_template#}images/big-yes-2.png" alt="" width="120" /></div>
+					<div class="success-icon f-left"><img src="{#$HIGHWAY.site_template#}images/big-yes-2.png" alt="" width="120" /></div>
 					<div class="success-ctrl f-left">
 						<h2>简历发布成功</h2>
 						<div class="resume-bar clearfix">
@@ -49,8 +49,8 @@ $(document).ready(function(){
 						<p>完成邮箱认证可以即时邮件接收简历动态，让你不错过每次工作机会！ <a href="personal/personal_user.php?act=authenticate" class="underline">邮箱认证</a></p>
 						{#/if#}
 						<div class="success-btn-group">
-							<input type="button" name="submitsave" id="submitsave" value="匹配职位"  class="but100_30lan btn-big-font" onclick="javascript:window.open('{#"QS_jobslist"|qishi_url#}')"/>
-							<input type="button" value="预览简历" class="but100_30hui btn-big-font" onclick="javascript:window.open('{#$QISHI.site_dir#}resume/resume-show.php?id={#$pid#}')"/>
+							<input type="button" name="submitsave" id="submitsave" value="匹配职位"  class="but100_30lan btn-big-font" onclick="javascript:window.open('{#"HW_jobslist"|highway_url#}')"/>
+							<input type="button" value="预览简历" class="but100_30hui btn-big-font" onclick="javascript:window.open('{#$HIGHWAY.site_dir#}resume/resume-show.php?id={#$pid#}')"/>
 							<input type="button" name="submitsave" id="submitsave" value="管理简历"  class="but100_30hui btn-big-font" onclick="javascript:location.href='?act=resume_list'"/>
 							
 						</div>
@@ -61,7 +61,7 @@ $(document).ready(function(){
 			<div class="personal-rec-jobs">
 				<div class="p-rec-job-top clearfix">
 					<h2 class="f-left">为您推荐职位</h2>
-					<a href="{#$QISHI.site_dir#}jobs/jobs-list.php" class="underline f-right">查看更多>></a>
+					<a href="{#$HIGHWAY.site_dir#}jobs/jobs-list.php" class="underline f-right">查看更多>></a>
 				</div>
 				<div class="p-rec-data" pid="{#$pid#}">
 					<table id="interest_jobs_list"></table>

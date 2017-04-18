@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_resume_list($params, &$smarty)
+function tpl_function_highway_resume_list($params, &$smarty)
 {
 global $db,$_CFG;
 $arrset=explode(',',$params['set']);

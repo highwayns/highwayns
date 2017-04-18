@@ -1,8 +1,8 @@
 ﻿/** 首页左侧职位类别下拉 */
 jQuery.dropDownWidget = function(obj) {
 	var c = $(obj).find(".job-sort-control"), l = $(obj).find(".job-sort-list"), lhtml = '';
-	if (QS_jobs_parent) {
-		$.each(QS_jobs_parent, function(index, val) {
+	if (HW_jobs_parent) {
+		$.each(HW_jobs_parent, function(index, val) {
 			var dataValArr = splitData(val, ",");
 			lhtml += '<div class="js-items" code="'+dataValArr[0]+'"><div class="js-level2 clearfix"><i class="level-icon icon'+(index+1)+' f-left"></i><span class="f-left">'+dataValArr[1]+'</span><i class="sort-arrow f-right"></i></div></div>';
 		});
@@ -34,8 +34,8 @@ jQuery.dropDownWidget = function(obj) {
     	if (dataval) {return dataval.split(character)};
     }
     function MakeLi(subclass) {
-    	if (!QS_jobs[subclass]) {return "无"};
-    	var liArray = QS_jobs[subclass].split("|");
+    	if (!HW_jobs[subclass]) {return "无"};
+    	var liArray = HW_jobs[subclass].split("|");
 		var htmlstr='';
 		if (liArray) {
 			for (x in liArray) {
@@ -55,8 +55,8 @@ jQuery.dropDownWidget = function(obj) {
 		return htmlstr; 
 	}
 	function Make_Third_Li(subclass, thirdclass) {
-		if (!QS_jobs[thirdclass]) {return "无"};
-		var tArray = QS_jobs[thirdclass].split("|");
+		if (!HW_jobs[thirdclass]) {return "无"};
+		var tArray = HW_jobs[thirdclass].split("|");
 		var htmlstr1='';
 		if (tArray) {
 			for (x1 in tArray) {

@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -64,10 +64,10 @@ $(document).ready(function() {
 </script>
 </head>
 
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 企业Logo</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 企业Logo</div>
 
 <div class="usermain">
   <div class="leftmenu com link_bk">
@@ -92,7 +92,7 @@ $(document).ready(function() {
 		  	<p class="pic_txt">温馨提示：企业logo是企业的象征，上传尺寸请不要超过300×110像素，图片大小不超过 500KB，允许格式：jpg/gif/png</p>
 		  	{#if $company_profile.logo<>""#}
 		  	<div class="logo_img">
-		  		<div class="img"><img width="245" height="80" src="{#$QISHI.site_dir#}data/logo/{#$company_profile.logo#}?rand={#$rand#}" border="0" id="c_img"/></div>
+		  		<div class="img"><img width="245" height="80" src="{#$HIGHWAY.site_dir#}data/logo/{#$company_profile.logo#}?rand={#$rand#}" border="0" id="c_img"/></div>
 		  		<a href="javascript:void(0);" class="reupload">[更改]</a>
 		  	</div>
 		  	{#/if#}
@@ -115,7 +115,7 @@ $(document).ready(function() {
 			  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" style="margin-top:15px; margin-bottom:15px;line-height:180%; display:none; color:#009900" id="upform_wait">
 			  	<tbody>
 			  		<tr>
-						<td height="40" align="center"><img src="{#$QISHI.site_template#}images/30.gif"  border="0"/></td>
+						<td height="40" align="center"><img src="{#$HIGHWAY.site_template#}images/30.gif"  border="0"/></td>
 			  		</tr>
 			  		<tr>
 						<td height="20" align="center">正在上传，请稍后...</td>

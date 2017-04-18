@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=gbk">
 <title>{#$title#}</title>
-<link rel="stylesheet" href="{#$QISHI.site_template#}css/reg.css" />
-<script src="{#$QISHI.site_template#}js/jquery.js"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/reg.css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script>
 $(function() {
   $('.member-type').live('click', function(){
@@ -30,7 +30,7 @@ $(function() {
         required: true,
         ismobile : true,
         remote:{     
-          url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+          url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
           type:"post",    
           data:{"mobile":function (){return $("#mobile").val()},"act":"check_mobile","time":function (){return new Date().getTime()}}     
         }

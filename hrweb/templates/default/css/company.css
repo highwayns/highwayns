@@ -68,9 +68,6 @@
 .left_area .comments .more{margin-bottom:10px;font-size: 12px; text-align: right;margin-top: 10px;padding-right: 10px;}
 .left_area .comments .more a{color:#017FCF;}
 
-/*
-***以下样式为3.6版本企业黄页新增样式
-*/
 .left_area{width:888px;float:left;border:1px solid #ccc;margin-bottom:10px;_width:710px;_margin-right:12px;margin-top:10px;}
 .left_area .com_box{padding:20px 10px 6px 10px;border-bottom:1px solid #ccc;font-family: "microsoft yahei";}
 .left_area .com_box .logo_box{float:left;margin-right:16px;}

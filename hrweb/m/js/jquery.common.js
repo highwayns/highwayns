@@ -19,7 +19,7 @@ function OpenCity(objid,input_cn,input,inputs,titstr)
 			if ($("#selectbox").html()==null)
 			{
 				$("body").append(html);
-				$("#selectbox #listboxb").html(MakeLiB(QS_city_parent));
+				$("#selectbox #listboxb").html(MakeLiB(HW_city_parent));
 				$("#selectbox  .unrestricted").click( function () {
 								$(input_cn).html('不限制');
 								$(input).val('');
@@ -39,8 +39,8 @@ function OpenCity(objid,input_cn,input,inputs,titstr)
 					$("#selectbox #listboxb").hide();
 					$("#selectbox #listboxs").show();
 					$(input).val($(this).attr('id'));
-					if(QS_city[$(this).attr('id')]) {
-						$("#selectbox #listboxs").html(MakeLi(QS_city[$(this).attr('id')]));
+					if(HW_city[$(this).attr('id')]) {
+						$("#selectbox #listboxs").html(MakeLi(HW_city[$(this).attr('id')]));
 						$("#selectbox #listboxs .goback").click( function () {
 							$("#selectbox #listboxb").show();
 							$("#selectbox #listboxs").hide();	

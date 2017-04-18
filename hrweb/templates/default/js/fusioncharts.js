@@ -1,19 +1,4 @@
-﻿/*
- FusionCharts JavaScript Library
- Copyright FusionCharts Technologies LLP
- License Information at <http://www.fusioncharts.com/license>
- FusionCharts JavaScript Library
- Copyright FusionCharts Technologies LLP
- License Information at <http://www.fusioncharts.com/license>
-
- @version 3.4.0
-
- @attributions (infers respective third-party copyrights)
- Raphael 2.1.0 (modified as 'Red Raphael') <http://raphaeljs.com/license.html>
- JSON v2 <http://www.JSON.org/js.html>
- Firebug Lite 1.3.0 <http://getfirebug.com/firebuglite>
-*/
-(function(){if(!window.FusionCharts||!window.FusionCharts.version){var d=window,k=d.document,B=d.navigator,v={window:d},l=v.modules={},c=v.interpreters={},K=Object.prototype.toString,b=/msie/i.test(B.userAgent)&&!d.opera,J=/loaded|complete/,a=!1,D=function(){var a=v.ready;v.ready=!0;v.raiseEvent&&(v.readyNotified=!0,v.raiseEvent("ready",{version:v.core.version,now:!a},v.core));v.readyNow=!a},F=function(a,c){var b,g;if(c instanceof Array)for(b=0;b<c.length;b+=1)"object"!==typeof c[b]?a[b]=c[b]:("object"!==
+﻿(function(){if(!window.FusionCharts||!window.FusionCharts.version){var d=window,k=d.document,B=d.navigator,v={window:d},l=v.modules={},c=v.interpreters={},K=Object.prototype.toString,b=/msie/i.test(B.userAgent)&&!d.opera,J=/loaded|complete/,a=!1,D=function(){var a=v.ready;v.ready=!0;v.raiseEvent&&(v.readyNotified=!0,v.raiseEvent("ready",{version:v.core.version,now:!a},v.core));v.readyNow=!a},F=function(a,c){var b,g;if(c instanceof Array)for(b=0;b<c.length;b+=1)"object"!==typeof c[b]?a[b]=c[b]:("object"!==
 typeof a[b]&&(a[b]=c[b]instanceof Array?[]:{}),F(a[b],c[b]));else for(b in c)"object"===typeof c[b]?(g=K.call(c[b]),"[object Object]"===g?("object"!==typeof a[b]&&(a[b]={}),F(a[b],c[b])):"[object Array]"===g?(a[b]instanceof Array||(a[b]=[]),F(a[b],c[b])):a[b]=c[b]):a[b]=c[b];return a};v.extend=function(a,c,b,g){var n;b&&a.prototype&&(a=a.prototype);if(!0===g)F(a,c);else for(n in c)a[n]=c[n];return a};v.uniqueId=function(){return"chartobject-"+(v.uniqueId.lastId+=1)};v.uniqueId.lastId=0;v.policies=
 {options:{chartTypeSourcePath:["typeSourcePath",""],product:["product","v3"],insertMode:["insertMode","replace"],safeMode:["safeMode",!0],overlayButton:["overlayButton",void 0],containerBackgroundColor:["containerBackgroundColor","#ffffff"],containerBackgroundOpacity:["containerBackgroundOpacity",1],chartType:["type",void 0]},attributes:{lang:["lang","EN"],"class":["className","FusionCharts"],id:["id",void 0]},width:["width","400"],height:["height","300"],src:["swfUrl",""]};c.stat="swfUrl id width height debugMode registerWithJS backgroundColor scaleMode lang detectFlashVersion autoInstallRedirect".split(" ");
 v.parsePolicies=function(a,c,b){var g,n,s;for(n in c)if(v.policies[n]instanceof Array)s=b[c[n][0]],a[n]=void 0===s?c[n][1]:s;else for(g in"object"!==typeof a[n]&&(a[n]={}),c[n])s=b[c[n][g][0]],a[n][g]=void 0===s?c[n][g][1]:s};v.parseCommands=function(a,b,e){var g,n;"string"===typeof b&&(b=c[b]||[]);g=0;for(n=b.length;g<n;g++)a[b[g]]=e[g];return a};v.registrars={module:function(){return v.core.apply(v.core,arguments)}};v.core=function(a){if(!(this instanceof v.core)){if(1===arguments.length&&a instanceof

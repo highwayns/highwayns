@@ -21,9 +21,9 @@ $(document).ready(function()
 <div class="seltpye_x">
 		<div class="left">分类选择</div>	
 		<div class="right">
-		<a href="{#"h_typeid:"|qishi_parse_url#}" {#if $smarty.get.h_typeid==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"h_typeid:"|highway_parse_url#}" {#if $smarty.get.h_typeid==""#}class="select"{#/if#}>不限</a>
 		{#foreach from=$category item=list#}
-	  <a href="{#"h_typeid:"|cat:$list.c_id|qishi_parse_url#}"  {#if $smarty.get.h_typeid==$list.c_id#}class="select"{#/if#}>{#$list.c_name#}</a> 
+	  <a href="{#"h_typeid:"|cat:$list.c_id|highway_parse_url#}"  {#if $smarty.get.h_typeid==$list.c_id#}class="select"{#/if#}>{#$list.c_name#}</a> 
 	  {#/foreach#}
 		<div class="clear"></div>
 		</div>

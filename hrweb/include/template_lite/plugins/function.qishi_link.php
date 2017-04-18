@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_link($params, &$smarty)
+function tpl_function_highway_link($params, &$smarty)
 {
 global $db,$_CFG;
 $arr=explode(',',$params['set']);

@@ -46,7 +46,7 @@
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(338, 19);
             this.txtTo.TabIndex = 19;
-            this.txtTo.Text = "HIGHWAY,\'utf8\',HW_,hw_";
+            this.txtTo.Text = "HIGHWAY,\'utf8\',HW_,hw_,utf-8,highway,海威人材,jp.highwayns.com";
             // 
             // label4
             // 
@@ -63,7 +63,7 @@
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(338, 19);
             this.txtFrom.TabIndex = 17;
-            this.txtFrom.Text = "QISHI,\'gbk\',QS_,qs_";
+            this.txtFrom.Text = "QISHI,\'gbk\',QS_,qs_,gb2312,qishi,骑士CMS,74cms.com";
             // 
             // label3
             // 
@@ -80,7 +80,7 @@
             this.txtExt.Name = "txtExt";
             this.txtExt.Size = new System.Drawing.Size(338, 19);
             this.txtExt.TabIndex = 15;
-            this.txtExt.Text = "php";
+            this.txtExt.Text = "php,js,css,htm,txt";
             // 
             // label2
             // 

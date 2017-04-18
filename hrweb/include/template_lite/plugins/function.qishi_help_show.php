@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_help_show($params, &$smarty)
+function tpl_function_highway_help_show($params, &$smarty)
 {
 	global $db;
 	$arr=explode(',',$params['set']);

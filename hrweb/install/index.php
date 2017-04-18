@@ -1,7 +1,7 @@
 ﻿<?php
 define('IN_HIGHWAY', true);
 define('HIGHWAY_PRE','hw_');
-define('HIGHWAY_CHARSET', 'gb2312');
+define('HIGHWAY_CHARSET', 'utf-8');
 define('HIGHWAY_DBCHARSET', 'GBK');
 require_once(dirname(__FILE__) . '/include/common.inc.php');
 require_once(HIGHWAY_ROOT_PATH . 'include/74cms_version.php');

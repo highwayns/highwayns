@@ -1,11 +1,4 @@
 ﻿/* 此js 中方法需要引用 dialog-min.js*/
-/*
-  delete_dialog  删除提示弹出框 
-  @ className  触发事件的 class 名 .ctrl-del 
-    单独删除 包含url 属性 删除链接
-    批量删除 包含act 属性 表单提交地址
-  @ form   批量删除提交表单的,表单id #form1
-*/
 function delete_dialog(className,form)
 {
    $(''+className+'').on('click', function(e)
@@ -34,12 +27,6 @@ function delete_dialog(className,form)
     });
   });
 }
-/*
-  inviteJob_dialog 面试邀请弹出框
-  @className  触发事件的 class 包含 resume_id属性 为简历 id
-  @url 请求ajax 的php 地址
-  @utype 会员类型
-*/
 function inviteJob_dialog(className,url)
 {
   $(''+className+'').live('click', function(){
@@ -110,11 +97,6 @@ function inviteJob_dialog(className,url)
     });
   });
 }
-/*
-  companySendToEmail_dialog  企业会员中心 简历发送到邮箱
-  @className  触发事件的 class 包含 属性 resume_id为简历id,uid为简历uid
-  @url 发送邮件php地址
-*/
 function companySendToEmail_dialog(className,url)
 {
   $(''+className+'').on('click', function(){
@@ -158,9 +140,6 @@ function companySendToEmail_dialog(className,url)
       });
     })
 }
-/*
-  企业推广 弹出框
-*/
 function set_promotion_dialog(className)
 {
   $(''+className+'').on('click', function(){
@@ -200,9 +179,6 @@ function set_promotion_dialog(className)
     });
   })
 }
-/*
-  企业下载联系方式 弹出框
-*/
 function downResume_dialog(className,url,resume_id)
 {
   $(''+className+'').on('click', function(){
@@ -264,9 +240,6 @@ function reportResume_dialog(className,url)
   });
 }
 
-/*
-  个人申请职位 
-*/
 function applyJob_dialog(className,url)
 {
     $(''+className+'').on('click', function(){
@@ -286,9 +259,6 @@ function applyJob_dialog(className,url)
       });
     });
 }
-/*
-  个人 收藏职位  
-*/
 function favoritesJob_dialog(className,url)
 {
   $(''+className+'').on('click', function(){
@@ -305,9 +275,6 @@ function favoritesJob_dialog(className,url)
     });
   });
 }
-/*
-  个人 举报职位 
-*/
 function reportJob_dialog(className,url)
 {
   $(''+className+'').on('click', function(){
@@ -329,9 +296,6 @@ function reportJob_dialog(className,url)
     });
   });
 }
-/*
-  邮箱验证 弹出框
-*/
 function auditEmail_dialog(className,url)
 {
   $(''+className+'').on('click', function(){

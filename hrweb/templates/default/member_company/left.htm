@@ -114,16 +114,16 @@ $(document).ready(function() {
 		  <div class="tit"><div class="t c4">会员服务</div></div>
 		  	<div class="linktxt">
 				<ul>
-				{#if $QISHI.operation_mode=="1"#}
+				{#if $HIGHWAY.operation_mode=="1"#}
 				<li {#if $smarty.get.act=="j_account"#}class="h"{#/if#}><a href="company_service.php?act=j_account">我的账户</a></li>
-				{#elseif $QISHI.operation_mode=="2"#}
+				{#elseif $HIGHWAY.operation_mode=="2"#}
 				<li {#if $smarty.get.act=="t_account"#}class="h"{#/if#}><a href="company_service.php?act=t_account">我的账户</a></li>
-				{#elseif $QISHI.operation_mode=="3"#}
+				{#elseif $HIGHWAY.operation_mode=="3"#}
 				<li {#if $smarty.get.act=="j_account" || $smarty.get.act=="t_account"#}class="h"{#/if#}><a href="company_service.php?act=j_account">我的账户</a></li>
 				{#/if#}
-				{#if $QISHI.operation_mode=="1" || $QISHI.operation_mode=="3"#}
+				{#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
 				<li {#if $smarty.get.act=="order_add" || $smarty.get.act=="setmeal_list" || $smarty.get.act=="order_list" || $smarty.get.act=="payment" || $smarty.get.act=="setmeal_order_add" || $smarty.get.act=="gifts"#}class="h"{#/if#}><a href="company_service.php?act=order_add">充值订单</a></li>
-				{#elseif $QISHI.operation_mode=="2"#}
+				{#elseif $HIGHWAY.operation_mode=="2"#}
 				<li {#if $smarty.get.act=="setmeal_list" || $smarty.get.act=="order_list" || $smarty.get.act=="payment" || $smarty.get.act=="setmeal_order_add"#}class="h"{#/if#}><a href="company_service.php?act=setmeal_list">充值订单</a></li>
 				{#/if#}
 				<li {#if $smarty.get.act=="tpl"#}class="h"{#/if#}><a href="company_promotion.php?act=tpl">企业模板</a></li>
@@ -138,7 +138,7 @@ $(document).ready(function() {
 				<li {#if $smarty.get.act=="company_profile" || $smarty.get.act=="company_logo" || $smarty.get.act=="company_map_set"#}class="h"{#/if#}><a href="company_info.php?act=company_profile">企业资料</a></li>
 				<li{#if $smarty.get.act=="authenticate" || $smarty.get.act=="company_auth" || $smarty.get.act=="login_log"#} class="h"{#/if#}><a href="company_user.php?act=authenticate">安全认证</a></li>
 				<li {#if $smarty.get.act=="pm"#}class="h"{#/if#}><a href="company_user.php?act=pm">我的消息</a></li>
-				<li><a href="{#"QS_login"|qishi_url#}?act=logout">退出登录</a></li>
+				<li><a href="{#"HW_login"|highway_url#}?act=logout">退出登录</a></li>
 				</ul>
 			</div>
 		</div>
@@ -155,7 +155,7 @@ $(document).ready(function() {
 				<span class="guwen_close"></span>
 				<div class="guwen_blc">企业顾问</div>
 				<div class="guwen_top">
-					<div class="guwen_avater"><img src="{#$QISHI.site_dir#}data/images/{#$consultant.pic#}" alt="" width="55" height="70"></div>
+					<div class="guwen_avater"><img src="{#$HIGHWAY.site_dir#}data/images/{#$consultant.pic#}" alt="" width="55" height="70"></div>
 					<p>客服：{#$consultant.name#}</p>
 				</div>
 				<div class="guwen_btn_box">

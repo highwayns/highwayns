@@ -32,7 +32,7 @@ $(document).ready(function()
           <td>
 		  <select name="parentid[]" id="parentid"  style="width:108px; font-size:12px;">
               <option value="0">顶级分类</option>
-			  {#qishi_news_category set="列表名:category,资讯大类:0"#}
+			  {#highway_news_category set="列表名:category,资讯大类:0"#}
 			  {#foreach from=$category item=list#}
             <option value="{#$list.id#}" {#if $smarty.get.parentid==$list.id#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 			{#/foreach#}       

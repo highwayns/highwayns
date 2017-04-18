@@ -2,7 +2,7 @@
 /*********************************************
 *导航栏目
 * *******************************************/
-function tpl_function_qishi_nav($params, &$smarty)
+function tpl_function_highway_nav($params, &$smarty)
 {
 	global $db,$_NAV;
 	$arr=explode(',',$params['set']);

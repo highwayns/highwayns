@@ -1,21 +1,21 @@
-﻿{#qishi_jobs_show set="列表名:show,职位ID:GET[id]"#}{#qishi_company_show set="列表名:company,企业ID:"|cat:$show.company_id#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_jobs_show set="列表名:show,职位ID:GET[id]"#}{#highway_company_show set="列表名:company,企业ID:"|cat:$show.company_id#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<title>{#$show.jobs_name#} - {#$show.companyname#} - {#$QISHI.site_name#}</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>{#$show.jobs_name#} - {#$show.companyname#} - {#$HIGHWAY.site_name#}</title>
 <meta name="description" content="{#$show.companyname#}招聘{#$show.jobs_name#}">
 <meta name="keywords" content="{#$show.jobs_name#},{#$show.companyname#}">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$user_tpl#}css/css.css" rel="stylesheet" type="text/css" />
 <link href="{#$user_tpl#}css/ui-dialog.css" rel="stylesheet" type="text/css" />	
 <script src="{#$user_tpl#}js/jquery.js"></script>
 <script src="{#$user_tpl#}js/dialog-min.js"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js"></script>
 <script src="{#$user_tpl#}js/simplefoucs.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={#$QISHI.map_ak#}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={#$HIGHWAY.map_ak#}"></script>
 <SCRIPT TYPE="text/javascript">
 $(document).ready(function(){
 	$.ajaxSetup ({
@@ -24,14 +24,14 @@ $(document).ready(function(){
 	var id="{#$show.id#}";
 	var company_id="{#$show.company_id#}";
 	var tsTimeStamp= new Date().getTime();
-	$.get("{#$QISHI.site_dir#}plus/ajax_click.php", { "id": id,"time":tsTimeStamp,"act":"jobs_click"},
+	$.get("{#$HIGHWAY.site_dir#}plus/ajax_click.php", { "id": id,"time":tsTimeStamp,"act":"jobs_click"},
 		function (data,textStatus)
 		 {			
 			$(".click").html(data);
 		 }
 	);
 	/* 联系方式 */
-	$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"act":"jobs_contact"},
+	$.get("{#$HIGHWAY.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"act":"jobs_contact"},
 		function (data,textStatus)
 		 {			
 			$("#jobs_contact").html(data);
@@ -39,7 +39,7 @@ $(document).ready(function(){
 	);
 	$("#tel_show_pic").live('click',function()
 	{
-		$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"hashstr":"{#$hashstr#}","act":"jobs_contact"},
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"hashstr":"{#$hashstr#}","act":"jobs_contact"},
 			function (data,textStatus)
 			 {			
 				$("#jobs_contact").html(data);
@@ -56,16 +56,16 @@ $(document).ready(function(){
 		}).showModal();
 	});
 	//收藏职位
-	favoritesJob_dialog('.add_favorites','{#$QISHI.site_dir#}user/user_favorites_job.php?id={#$show.id#}&act=add');
+	favoritesJob_dialog('.add_favorites','{#$HIGHWAY.site_dir#}user/user_favorites_job.php?id={#$show.id#}&act=add');
 	//申请职位
-	applyJob_dialog(".app_jobs","{#$QISHI.site_dir#}user/user_apply_jobs.php");
+	applyJob_dialog(".app_jobs","{#$HIGHWAY.site_dir#}user/user_apply_jobs.php");
 	//举报信息
-	reportJob_dialog(".report_button","{#$QISHI.site_dir#}user/user_report.php");
+	reportJob_dialog(".report_button","{#$HIGHWAY.site_dir#}user/user_report.php");
 	// 用户登录
 	$(".ajax_user_login").live('click',function(){
 		var myDialog = dialog();// 初始化一个带有loading图标的空对话框
 		jQuery.ajax({
-		    url: '{#$QISHI.site_dir#}user/user_ajax_login.php',
+		    url: '{#$HIGHWAY.site_dir#}user/user_ajax_login.php',
 		    success: function (data) {
 		    	myDialog.width(475);
 		        myDialog.content(data);// 填充对话框内容
@@ -81,7 +81,7 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$QISHI.site_dir#}">首页</a>><a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>>{#$company.companyname#}
+		当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
 	</div>
 	<!-- 主体内容 -->
 	<div class="container">
@@ -94,23 +94,23 @@ $(document).ready(function(){
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
-									<img title="企业已认证" src="{#$QISHI.site_template#}images/yesyan.jpg" border="0" />
+									<img title="企业已认证" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企业未认证" src="{#$QISHI.site_template#}images/noyan.jpg" border="0" />
+									<img title="企业未认证" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user == '1'#}
 									
 								{#else#}
-									<img title="" src="{#$QISHI.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
+									<img title="" src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
 								{#/if#}
 							</h2>
 							<p>{#$company.address#}</p>
 						</div>
 					</div>
 					<div class="company-control clearfix">
-						<a href="{#"QS_companyshow,id:"|cat:$company.id|qishi_url#}" class="c-control-item f-left">企业主页</a>
-						<a href="{#"QS_companyinfo,id:"|cat:$company.id|qishi_url#}" class="c-control-item f-left">公司介绍</a>
-						<a href="{#"QS_companyjobs,id:"|cat:$company.id|qishi_url#}" class="c-control-item f-left active">招聘职位</a>
+						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">企业主页</a>
+						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">公司介绍</a>
+						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">招聘职位</a>
 					</div>
 					<!-- 职位详情 -->
 					<div class="job-main">
@@ -132,9 +132,9 @@ $(document).ready(function(){
 							<!-- 过期图标  申请 收藏-->
 							<div class="app-job-item clearfix">
 								{#if $show.jobs_gq==1#}
-								<img src="{#$QISHI.site_template#}images/job_gq.gif" />
+								<img src="{#$HIGHWAY.site_template#}images/job_gq.gif" />
 								{#elseif $show.jobs_gq==2#}
-								<img src="{#$QISHI.site_template#}images/job_sx.gif" />
+								<img src="{#$HIGHWAY.site_template#}images/job_sx.gif" />
 								{#else#}
 								<div class="apply-btn f-left"><a href="javascript:;" class="app-button app_jobs" style="display: block;line-height:34px;text-align: center;" jobs_id="{#$show.id#}">申请职位</a></div>
 								<a href="javascript:;" class="collect {#if $show.check_fav=='1'#}done{#/if#} f-left add_favorites">收藏</a>
@@ -221,12 +221,12 @@ $(document).ready(function(){
 										var map = new BMap.Map("map");
 										var point = new BMap.Point({#$company.map_x#}, {#$company.map_y#});
 										map.centerAndZoom(point, {#$company.map_zoom#});
-										map.setZoom({#$QISHI.map_zoom#});
+										map.setZoom({#$HIGHWAY.map_zoom#});
 										var opts = {type: BMAP_NAVIGATION_CONTROL_SMALL,anchor: BMAP_ANCHOR_TOP_RIGHT}
 										map.addControl(new BMap.NavigationControl(opts)); //添加鱼骨
 										// 创建标注
-										var qs_marker = new BMap.Marker(point);           
-										map.addOverlay(qs_marker);
+										var hw_marker = new BMap.Marker(point);           
+										map.addOverlay(hw_marker);
 										// 关键字检索
 										$(".serch").click(function(){
 											var search_key = "["+getSelectVal()+"]";
@@ -271,9 +271,9 @@ $(document).ready(function(){
 									<!-- 过期图标  申请 收藏-->
 									<div class="app-job-item f-left">
 										{#if $show.jobs_gq==1#}
-										<img src="{#$QISHI.site_template#}images/job_gq.gif" />
+										<img src="{#$HIGHWAY.site_template#}images/job_gq.gif" />
 										{#elseif $show.jobs_gq==2#}
-										<img src="{#$QISHI.site_template#}images/job_sx.gif" />
+										<img src="{#$HIGHWAY.site_template#}images/job_sx.gif" />
 										{#else#}
 										<div class="apply-btn f-left"><a href="javascript:;" class="app-button app_jobs" style="display: block;line-height:34px;text-align: center;" jobs_id="{#$show.id#}">申请职位</a></div>
 										<a href="javascript:;" class="collect {#if $show.check_fav=='1'#}done{#/if#} f-left add_favorites" jobs_id="{#$show.id#}">收藏</a>
@@ -302,7 +302,7 @@ $(document).ready(function(){
 						<div class="com-left-block">
 						<h3 class="c-left-title">其他职位</h3>
 						<div class="company-jobs-list clearfix">
-							{#qishi_jobs_list set="列表名:jobs,填补字符:...,职位名长度:14,显示数目:8,会员UID:"|cat:$show.uid#}
+							{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:14,显示数目:8,会员UID:"|cat:$show.uid#}
 			  				{#foreach from=$jobs item=list#}
 							<div class="c-jobs-item f-left">
 								<div class="job-name"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a></div>
@@ -312,7 +312,7 @@ $(document).ready(function(){
 							</div>
 							{#/foreach#}
 						</div>
-						<div class="job-all clearfix"><a href="{#$QISHI.site_dir#}jobs/jobs-list.php" class="f-right">全部职位>></a></div>
+						<div class="job-all clearfix"><a href="{#$HIGHWAY.site_dir#}jobs/jobs-list.php" class="f-right">全部职位>></a></div>
 					</div>
 					</div>
 				</div>
@@ -348,7 +348,7 @@ $(document).ready(function(){
 				<div class="c-right-block">
 					<h3 class="c-right-title">手机浏览</h3>
 					<div class="com-code">
-						<img src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}plus/url_qrcode.php?url={#$company.company_url#}" alt="扫描二维码" width="100" height="100" />
+						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$company.company_url#}" alt="扫描二维码" width="100" height="100" />
 					</div>
 				</div>
 			</div>

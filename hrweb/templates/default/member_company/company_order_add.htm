@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
 	//计算获得积分数量
 	$("#amount").keyup(function(){	
-		if((/^(\+|-)?\d+$/.test($(this).val())) && $(this).val()>={#$QISHI.payment_min#})
+		if((/^(\+|-)?\d+$/.test($(this).val())) && $(this).val()>={#$HIGHWAY.payment_min#})
 		{
 		$("#count").css("display","");	
-		$("#show_val").html("充值金额为<strong style=\"color:#003399\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>元，可获得：&nbsp;&nbsp;<span style=\"color: #009900; font-size:22px; font-style:italic\">"+$(this).val()*{#$QISHI.payment_rate#}+"</span>&nbsp;&nbsp;{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}");   
+		$("#show_val").html("充值金额为<strong style=\"color:#003399\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>元，可获得：&nbsp;&nbsp;<span style=\"color: #009900; font-size:22px; font-style:italic\">"+$(this).val()*{#$HIGHWAY.payment_rate#}+"</span>&nbsp;&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}");   
 		}
 		else
 		{
@@ -36,7 +36,7 @@ $(document).ready(function() {
 		amount:{
 			required: true,
 			digits:true,
-			min:{#$QISHI.payment_min#}
+			min:{#$HIGHWAY.payment_min#}
 		},
 		payment_name:{
 			required: true
@@ -64,9 +64,9 @@ $(document).ready(function() {
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
 
 <div class="usermain">
   <div class="leftmenu  com link_bk">
@@ -81,10 +81,10 @@ $(document).ready(function() {
 			</div>
 
 			<div class="navs">
-        {#if $QISHI.operation_mode=="1" || $QISHI.operation_mode=="3"#}
+        {#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
         <a href="?act=order_add" class="se">积分充值</a>
         {#/if#}
-        {#if $QISHI.operation_mode=="2" || $QISHI.operation_mode=="3"#}
+        {#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
         <a href="?act=setmeal_list">申请VIP套餐</a>
         {#/if#}
         <a href="?act=order_list">我的订单</a>
@@ -92,7 +92,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class="balance margin-common">
-  			<div class="bal_text" style="margin-bottom:0;">您的账户剩余<span> {#$points#} </span>{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account&detail=1">[积分明细]</a>&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account">[积分消费规则]</a></div>
+  			<div class="bal_text" style="margin-bottom:0;">您的账户剩余<span> {#$points#} </span>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account&detail=1">[积分明细]</a>&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account">[积分消费规则]</a></div>
   		</div>
   		<div class="bar">
   			<div class="bar_step1">
@@ -112,7 +112,7 @@ $(document).ready(function() {
   					<tr>
   						<td height="30" width="100">充值金额：</td>
   						<td width="240"><input type="text" name="amount" id="amount" maxlength="8" class="input_text_200"/>&nbsp;元</td>
-              <td> （单笔金额不能低于{#$QISHI.payment_min#}元）&nbsp; 1元 = {#$QISHI.payment_rate#}{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}</td>
+              <td> （单笔金额不能低于{#$HIGHWAY.payment_min#}元）&nbsp; 1元 = {#$HIGHWAY.payment_rate#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}</td>
   					</tr>
   					<tr id="count" style="display:none;">
   						<td></td>
@@ -125,7 +125,7 @@ $(document).ready(function() {
   					{#section name=payment loop=$payment#}
   					<tr>
   						<td height="30" width="100">{#if $smarty.section.payment.index==0#}支付方式：{#/if#}</td>
-  						<td width="150"><input type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$QISHI.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
+  						<td width="150"><input type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$HIGHWAY.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
   						<td> <p>({#$payment[payment].p_introduction#})</p></td>
   					</tr>
   					{#/section#}

@@ -1,35 +1,35 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-{#qishi_pageinfo set="列表名:page,调用:QS_simplelist"#}
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+{#highway_pageinfo set="列表名:page,调用:HW_simplelist"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/simple.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/jquery.simple.js" type='text/javascript'></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/simple.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.simple.js" type='text/javascript'></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	allaround("{#$QISHI.site_dir#}");
+	allaround("{#$HIGHWAY.site_dir#}");
 	// 工作地区填充数据
-	city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$QISHI.site_dir#}");
+	city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#citycategory", "{#$HIGHWAY.site_dir#}");
 	
 	//删除信息
 	$(".delsimple").click(function(){
-		var url="{#$QISHI.site_dir#}plus/ajax_simple.php?act=delsimple&id="+$(this).attr("id");
+		var url="{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=delsimple&id="+$(this).attr("id");
 		var myDialog = dialog();
 		myDialog.title('删除信息');
         myDialog.width('500');
@@ -41,7 +41,7 @@ $(document).ready(function(){
 	});
 	//刷新信息
 	$(".refreshsimple").click(function(){
-		var url="{#$QISHI.site_dir#}plus/ajax_simple.php?act=refreshsimple&id="+$(this).attr("id");
+		var url="{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=refreshsimple&id="+$(this).attr("id");
 		var myDialog = dialog();
 		myDialog.title('刷新信息');
         myDialog.width('500');
@@ -53,7 +53,7 @@ $(document).ready(function(){
 	});	
 	//编辑信息
 	$(".editsimple").click(function(){
-		var url="{#$QISHI.site_dir#}plus/ajax_simple.php?act=editsimple&id="+$(this).attr("id");
+		var url="{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=editsimple&id="+$(this).attr("id");
 		var myDialog = dialog();
 		myDialog.title('编辑信息');
         myDialog.width('600');
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	});	
 	//发布微招聘
 	$("#add").click(function(){
-		var url="{#$QISHI.site_dir#}plus/ajax_simple.php?act=add";
+		var url="{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=add";
 		var myDialog = dialog();
 		myDialog.title('发布微招聘');
         myDialog.width('600');
@@ -78,19 +78,19 @@ $(document).ready(function(){
 
 	$(".show_tel").click(function(){
 		var tel=$(this);
-		$.get("{#$QISHI.site_dir#}plus/ajax_simple.php?act=get_simple_tel&id="+$(this).attr("id"),function(result){
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=get_simple_tel&id="+$(this).attr("id"),function(result){
 			tel.parent("li").html(result);
 		});
 	});
 	$(".show_detailed").live("click",function(){
 		var detailed=$(this);
-		$.get("{#$QISHI.site_dir#}plus/ajax_simple.php?act=get_simple_detailed&id="+$(this).attr("id"),function(result){
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=get_simple_detailed&id="+$(this).attr("id"),function(result){
 			detailed.parent("p").html(result);
 		});
 	});
 	$(".hidden_detailed").live("click",function(){
 		var detailed=$(this);
-		$.get("{#$QISHI.site_dir#}plus/ajax_simple.php?act=hidden_simple_detailed&id="+$(this).attr("id"),function(result){
+		$.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=hidden_simple_detailed&id="+$(this).attr("id"),function(result){
 			detailed.parent("p").html(result);
 		});
 	});
@@ -104,17 +104,17 @@ $(function(){
 })
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$QISHI.site_dir#}">首页</a>>微商圈
+		当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>>微商圈
 	</div>
 	<!-- 主体内容 -->
-	<div class="rec_banner" style="background:url({#$QISHI.site_template#}images/simple.jpg) no-repeat top center #248ee6
+	<div class="rec_banner" style="background:url({#$HIGHWAY.site_template#}images/simple.jpg) no-repeat top center #248ee6
 "></div>
 	<div class="container link_bk">
-		{#qishi_ad set="显示数目:1,调用名称:QS_simpleallimg,列表名:ad"#}
+		{#highway_ad set="显示数目:1,调用名称:HW_simpleallimg,列表名:ad"#}
 		{#if $ad#}
 		<div class="ad_1000" style="margin-bottom:15px;">
 			{#foreach from=$ad  item=list#}
@@ -124,7 +124,7 @@ $(function(){
 		{#/if#}
 		<div class="wei_left">
 			<div class="wei_tit">
-				<a href="{#"QS_simplelist"|qishi_url#}" class="select">微招聘</a>
+				<a href="{#"HW_simplelist"|highway_url#}" class="select">微招聘</a>
 				<div class="clear"></div>
 			</div>
 			<div class="sreach jobmain" id="simple_form_search">
@@ -172,13 +172,13 @@ $(function(){
 						<div class="keybox">
 					 		<input type="text" id="searckey" name="key" value="{#$smarty.get.key|default:请输入关键字#}" />
 					 	</div>
-						<input type="button" id="searcnbtn" detype="QS_simplelist" value="搜索" class="but100lan simpleso" />
+						<input type="button" id="searcnbtn" detype="HW_simplelist" value="搜索" class="but100lan simpleso" />
 					</div>
 				</div>
 				<input id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}" name="citycategory">
 			</div>
 			
-			{#qishi_simple_list  set="分页显示:1,列表名:simplelist,显示数目:15,填补字符:...,职位名长度:12,企业名长度:18,描述长度:40,关键字:GET[key],关键字类型:GET[keytype],地区分类:GET[citycategory],排序:refreshtime>desc"#}
+			{#highway_simple_list  set="分页显示:1,列表名:simplelist,显示数目:15,填补字符:...,职位名长度:12,企业名长度:18,描述长度:40,关键字:GET[key],关键字类型:GET[keytype],地区分类:GET[citycategory],排序:refreshtime>desc"#}
 			{#if $simplelist#}
 			<div class="wei_list">
 				<ul>
@@ -224,7 +224,7 @@ $(function(){
 				为方便一些普工类企业(如饭店,店面,个体户等)发布招聘信息，我们特增加了快速通道，无需注册即可发布简短招聘信息！
 			</p>
 			<p>
-				如果您不是普工类企业，我们建议您<a href="{#"QS_login"|qishi_url#}">【注册】</a>成为企业会员，仅需几秒钟您就可以享受更加完善的网络招聘服务。
+				如果您不是普工类企业，我们建议您<a href="{#"HW_login"|highway_url#}">【注册】</a>成为企业会员，仅需几秒钟您就可以享受更加完善的网络招聘服务。
 			</p>
 		</div>
 		<div class="clear"></div>

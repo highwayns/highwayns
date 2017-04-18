@@ -343,9 +343,6 @@ table{border-collapse:collapse;border-spacing:0;line-height: 25px;color: #666;}
 .jobinfolists .infolists .detail .xiala{height:14px; width:14px;float:left;background: url(../images/xiala.gif) no-repeat 0px -24px;margin-top: 7px;}
 .jobinfolists .infolists .detail .xiala.ishow{background-position: 0px 0px;}
 
-/*
-***以下样式为3.6版本最新职位列表，紧急招聘列表，推荐职位列表样式
-*/
 /*推荐职位，最新职位*/
 .job-normal-list{padding:0 0 15px 20px;}
 .job-normal-list .job-normal-item{padding:12px 0px 10px 10px;border-bottom: 1px dotted #dbdbdb;margin-right: 75px;width: 307px;overflow: hidden;font-family:"Microsoft Yahei";}

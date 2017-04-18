@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.gotoemail.js" type='text/javascript' language="javascript"></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.gotoemail.js" type='text/javascript' language="javascript"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -21,7 +21,7 @@ $(document).ready(function()
 	gotoemail("#goto_email");
 	//验证码随机
 	$("#getcode").live('click',function(){
-		$(this).attr('src','{#$QISHI.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
+		$(this).attr('src','{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t='+Math.random()+'');
 	});
 	// 下拉操作
 	menuDown("#getpass_menu","","","#menu1","348px");
@@ -71,7 +71,7 @@ $(document).ready(function()
 			{
 				required: true,
 				remote:{     
-					url:"{#$QISHI.site_dir#}plus/ajax_user.php",     
+					url:"{#$HIGHWAY.site_dir#}plus/ajax_user.php",     
 					type:"post",    
 					data:{"mobile":function (){return {#$usinfo.mobile#}},"mobile_vcode":function (){return $("#mobile_vcode").val()},"act":"check_reg_send_sms","time":function (){return new Date().getTime()}}     
 				}
@@ -95,7 +95,7 @@ $(document).ready(function()
 	});
 	// 点击发送到手机验证码
 	$("#sms_send").click(function() {
-		$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {'act':'reg_send_sms','mobile':"{#$usinfo.mobile#}",'sms_type':'getpass'}, function(data) {
+		$.post('{#$HIGHWAY.site_dir#}plus/ajax_user.php', {'act':'reg_send_sms','mobile':"{#$usinfo.mobile#}",'sms_type':'getpass'}, function(data) {
 			if($.trim(data)=='success')
 			{
 				$("#sms_send").hide();
@@ -142,11 +142,11 @@ $(document).ready(function()
 			}
 			else
 			{
-				$.post('{#$QISHI.site_dir#}include/imagecaptcha.php', {"act":"verify","postcaptcha":int_postcaptcha}, function(data){
+				$.post('{#$HIGHWAY.site_dir#}include/imagecaptcha.php', {"act":"verify","postcaptcha":int_postcaptcha}, function(data){
 					if(data=="true")
 					{
 						$("#postcaptcha_err").html('').addClass('ver-success');
-						$.post('{#$QISHI.site_dir#}plus/ajax_user.php', {"act":"getpass_sendemail","email":"{#$usinfo.email#}","uid":"{#$usinfo.uid#}","username":"{#$usinfo.username#}"}, function(data) {
+						$.post('{#$HIGHWAY.site_dir#}plus/ajax_user.php', {"act":"getpass_sendemail","email":"{#$usinfo.email#}","uid":"{#$usinfo.uid#}","username":"{#$usinfo.username#}"}, function(data) {
 							if($.trim(data)=="success")
 							{
 								$("#Form1").hide();
@@ -245,7 +245,7 @@ $(document).ready(function()
 						</div>
 						<div class="reg-form-other f-left verification">
 							<label class='error' id="postcaptcha_err"></label>
-							<div class="ver-box f-left"><img src="{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+							<div class="ver-box f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
 						</div>
 					</div>
 				</div>
@@ -267,7 +267,7 @@ $(document).ready(function()
 			</form>
 			<div class="common-status" id="sucess_email" style="padding-top: 0;display: none;">
 				<div class="status-main">
-					<span><img src="{#$QISHI.site_template#}images/icon-success.png" alt="成功" /></span>邮件发送成功
+					<span><img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" /></span>邮件发送成功
 				</div>
 				<p>我们已经向您的邮箱{#$usinfo.email#}发送了一封激活邮件，请点击邮件中的链接完成修改！</p>
 				<div class="status-btn"><a href="#" target="_blank" id="goto_email" email="{#$usinfo.email#}" class="btn btn-lg blue span2">立即进入邮箱</a></div>

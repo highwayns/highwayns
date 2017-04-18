@@ -10,7 +10,7 @@ $("#form_simple").validate({
     required: true,
 	minlength:6,
 	remote:{     
-		url:"{#$QISHI.site_dir#}plus/ajax_simple.php",     
+		url:"{#$HIGHWAY.site_dir#}plus/ajax_simple.php",     
 		type:"get",    
 		data:{"pwd":function (){return $("#pwd").val()},"id":function (){return $("#id").val()},"act":"check_pwd","time":function (){return new Date().getTime()}}     
 		}
@@ -35,7 +35,7 @@ $("#form_simple").validate({
 	/////验证码部分
 });
 </script>
-<form id="form_simple" name="form_simple" method="post" action="{#$QISHI.site_dir#}plus/ajax_simple.php?act=exe_refreshsimple">
+<form id="form_simple" name="form_simple" method="post" action="{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=exe_refreshsimple">
 <div class="content link_lan wei_job_dialog">
         <table>
           <tbody>

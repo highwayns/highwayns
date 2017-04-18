@@ -2,7 +2,7 @@
 /*********************************************
 *骑士职位列表
 * *******************************************/
-function tpl_function_qishi_jobs_list($params, &$smarty)
+function tpl_function_highway_jobs_list($params, &$smarty)
 {
 global $db,$_CFG;
 $arrset=explode(',',$params['set']);

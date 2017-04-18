@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_function_qishi_get_classify($params, &$smarty)
+function tpl_function_highway_get_classify($params, &$smarty)
 {
 global $db;
 $_CAT=get_cache('category');

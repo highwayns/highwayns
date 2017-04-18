@@ -1191,9 +1191,6 @@ baidu.sio.callByServer = /**@function*/function(url, callback, opt_options) {
     }
     baidu.sio._createScriptTag(scr, url, charset);
 
-    /*
-     * 返回一个函数，用于立即（挂在window上）或者超时（挂在setTimeout中）时执行
-     */
     function getCallBack(onTimeOut){
         /*global callbackName, callback, scr, options;*/
         return function(){
@@ -1238,15 +1235,6 @@ baidu.sio.log = function(url) {
 
 
 
-/*
- * Tangram
- * Copyright 2009 Baidu Inc. All rights reserved.
- * 
- * path: baidu/json.js
- * author: erik
- * version: 1.1.0
- * date: 2009/12/02
- */
 
 
 /**
@@ -1254,15 +1242,6 @@ baidu.sio.log = function(url) {
  * @namespace baidu.json
  */
 baidu.json = baidu.json || {};
-/*
- * Tangram
- * Copyright 2009 Baidu Inc. All rights reserved.
- * 
- * path: baidu/json/parse.js
- * author: erik, berg
- * version: 1.2
- * date: 2009/11/23
- */
 
 
 
@@ -1283,15 +1262,6 @@ baidu.json.parse = function (data) {
     //2010/12/09：更新至不使用原生parse，不检测用户输入是否正确
     return (new Function("return (" + data + ")"))();
 };
-/*
- * Tangram
- * Copyright 2009 Baidu Inc. All rights reserved.
- * 
- * path: baidu/json/decode.js
- * author: erik, cat
- * version: 1.3.4
- * date: 2010/12/23
- */
 
 
 
@@ -1307,15 +1277,6 @@ baidu.json.parse = function (data) {
  * @returns {JSON} 解析结果json对象
  */
 baidu.json.decode = baidu.json.parse;
-/*
- * Tangram
- * Copyright 2009 Baidu Inc. All rights reserved.
- * 
- * path: baidu/json/stringify.js
- * author: erik
- * version: 1.1.0
- * date: 2010/01/11
- */
 
 
 
@@ -1469,15 +1430,6 @@ baidu.json.stringify = (function () {
         }
     };
 })();
-/*
- * Tangram
- * Copyright 2009 Baidu Inc. All rights reserved.
- * 
- * path: baidu/json/encode.js
- * author: erik, cat
- * version: 1.3.4
- * date: 2010/12/23
- */
 
 
 

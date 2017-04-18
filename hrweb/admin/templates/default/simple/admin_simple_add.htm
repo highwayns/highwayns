@@ -1,9 +1,9 @@
 ﻿{#include file="sys/admin_header.htm"#}
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
-showmenulayer("#district_cn","#menu2","#district","#sdistrict","",QS_city);
+showmenulayer("#district_cn","#menu2","#district","#sdistrict","",HW_city);
 $("#FormData").validate({
  //debug: true,
 // onsubmit:false,
@@ -131,7 +131,7 @@ $("#FormData").validate({
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$show.sdistrict#}" />
 		<div id="menu2" class="dmenu shadow">
 			<ul>
-			{#qishi_get_classify set="列表名:c_province,类型:QS_district,id:0"#}
+			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}

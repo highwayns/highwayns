@@ -1,26 +1,26 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
-<script src="{#$QISHI.site_template#}js/jquery.company.selectlayer.js" type='text/javascript' language="javascript"></script>
-<link rel="stylesheet" href="{#$QISHI.site_template#}kindeditor/themes/default/default.css" />
-<script charset="utf-8" src="{#$QISHI.site_template#}kindeditor/kindeditor-min.js"></script>
-<script charset="utf-8" src="{#$QISHI.site_template#}kindeditor/lang/zh_CN.js"></script>
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.company.selectlayer.js" type='text/javascript' language="javascript"></script>
+<link rel="stylesheet" href="{#$HIGHWAY.site_template#}kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="{#$HIGHWAY.site_template#}kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="{#$HIGHWAY.site_template#}kindeditor/lang/zh_CN.js"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -58,13 +58,13 @@ else{
 		}
     }
 }
-allaround('{#$QISHI.site_dir#}');
+allaround('{#$HIGHWAY.site_dir#}');
 // 职位类别填充数据 
-job_filldata("#job_list", QS_jobs_parent, QS_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#topclass", "{#$QISHI.site_dir#}");
+job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#topclass", "{#$HIGHWAY.site_dir#}");
 // 工作地区填充数据
-city_filldata("#city_list", QS_city_parent, QS_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$QISHI.site_dir#}");
+city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$HIGHWAY.site_dir#}");
 // 职位亮点填充数据
-tag_filldata("#tag_list", QS_jobtag, "#aui_outer_tag", "#result-list-tag", "#trade_result_show", "#tag", "{#$QISHI.site_dir#}");
+tag_filldata("#tag_list", HW_jobtag, "#aui_outer_tag", "#result-list-tag", "#trade_result_show", "#tag", "{#$HIGHWAY.site_dir#}");
 //工作性质单选
 var nature_obj = $("#nature_radio .input_radio").first();
 $("#nature").val(nature_obj.attr("id"));
@@ -239,7 +239,7 @@ $("#Form1").validate({
 		IScaptchastr: true,
 		required: true,
 		remote:{     
-		url:"{#$QISHI.site_dir#}include/imagecaptcha.php",     
+		url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",     
 		type:"post",    
 		data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}     
 		}
@@ -337,7 +337,7 @@ function imgcaptcha(inputID,imgdiv)
 		$(imgdiv).show();
 		if ($(imgdiv).html()=='')
 		{
-		$(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px; height:28px\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px; height:28px\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -362,9 +362,9 @@ imgcaptcha("#postcaptcha","#imgdiv");
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 添加职位</div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 添加职位</div>
 <div class="usermain">
   <div class="leftmenu link_bk">
   {#include file="member_company/left.htm"#}
@@ -390,7 +390,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="1" />
 			<input name="nature_cn" id="nature_cn" type="hidden" value="全职" />
-			 {#qishi_get_classify set="类型:QS_jobs_nature,列表名:c_nature"#}{#foreach from=$c_nature item=list#}
+			 {#highway_get_classify set="类型:HW_jobs_nature,列表名:c_nature"#}{#foreach from=$c_nature item=list#}
 			  <div class="input_radio {#if $list.id eq $c_nature.0.id#}select{#/if#}" id="{#$list.id#}">{#$list.categoryname#}</div>
 			   {#/foreach#}			  
 			  <div class="clear"></div>
@@ -491,7 +491,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
              	 	<div id="wage_menu" class="input_text_200_bg">请选择</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
 	              			{#foreach from=$c_wage item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -572,7 +572,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
              	 	<div id="education_menu" class="input_text_200_bg">请选择</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -590,7 +590,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
              	 	<div id="experience_menu" class="input_text_200_bg">请选择</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -740,7 +740,7 @@ $(document).ready(function()
 			var totals=jobs_add;
 			if (jobs_add>0)
 			{			
-			$("#total").html("发布本条信息总计扣除&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}，你目前共有<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$QISHI.points_quantifier#}{#$QISHI.points_byname#}；<br />");
+			$("#total").html("发布本条信息总计扣除&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}；<br />");
 			$("#totals").val({#$points_total#}-totals);	
 			}
 	}				
@@ -748,7 +748,7 @@ $(document).ready(function()
 	{
 		if ($("#totals").val()<0)
 		{
-			{#if $QISHI.operation_mode=="2"#}
+			{#if $HIGHWAY.operation_mode=="2"#}
 			dialog({
 			  title: '系统提示',
 			  content: "您的积分不足，请申请新的服务或者充值积分！",

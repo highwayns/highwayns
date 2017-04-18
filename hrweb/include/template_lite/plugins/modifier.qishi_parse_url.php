@@ -1,5 +1,5 @@
 ﻿<?php
-function tpl_modifier_qishi_parse_url($string)
+function tpl_modifier_highway_parse_url($string)
 {
 	global $_SERVER;
 	$parse_url=parse_url(parse_url_request_url());

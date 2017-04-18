@@ -100,10 +100,6 @@ EmailAutoComplete.prototype = {
 		  }
 	   });
 	},
-	/*
-	 * 渲染下拉框提示内容
-	 * @param cfg{object}
-	 */
 	_renderHTML: function(cfg) {
 		var self = this,
 			_config = self.config,
@@ -219,9 +215,6 @@ EmailAutoComplete.prototype = {
 			}
 		}
 	},
-	/*
-	 * 鼠标移到某一项li上时
-	 */
 	_itemHover: function(parentNode) {
 		var self = this,
 			_config = self.config,
@@ -232,9 +225,6 @@ EmailAutoComplete.prototype = {
 			$(this).hasClass(_config.hoverBg) && $(this).removeClass(_config.hoverBg);
 		});
 	},
-	/*
-	 * 当输入框值为空时候 li项都删掉class hoverBg
-	 */
 	_removeBg: function(parentNode){
 		var self = this,
 			_config = self.config;

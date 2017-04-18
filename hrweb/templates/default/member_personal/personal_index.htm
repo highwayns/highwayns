@@ -1,18 +1,18 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$title#}</title>
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
-<link href="{#$QISHI.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
-<script src="{#$QISHI.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
+<link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
+<link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
+<link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
+<script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/dialog-min-common.js" type="text/javascript" language="javascript"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.cookie.js" type='text/javascript'></script>
 <script type="text/javascript">
 $(document).ready(function()
 {	
@@ -153,7 +153,7 @@ $(".refresh_resume").click(function(){
 });
 </script>
 </head>
-<body {#if $QISHI.body_bgimg#}style="background:url({#$QISHI.site_domain#}{#$QISHI.site_dir#}data/{#$QISHI.updir_images#}/{#$QISHI.body_bgimg#}) repeat-x center 38px;"{#/if#}>
+<body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 <!-- 引导 -->
 <div id="mask"></div>
@@ -163,7 +163,7 @@ $(".refresh_resume").click(function(){
     <div class="stepF"><a class="p">上一步</a><a>下一步</a><span title="关闭">关闭</span></div>
 </div>
 <!-- 引导 end-->
-<div class="page_location link_bk">当前位置：<a href="{#$QISHI.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a></div>
+<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a></div>
 <div class="usermain">
   <div class="leftmenu link_bk">
   	 {#include file="member_personal/left.htm"#}
@@ -184,9 +184,9 @@ $(".refresh_resume").click(function(){
 		  		<div class="leftbox">
 				  <div class="">
 				  	{#if $user.avatars==""#}
-				  	<img name="" src="{#$QISHI.site_template#}images/06.jpg" width="100" height="100" alt="" />
+				  	<img name="" src="{#$HIGHWAY.site_template#}images/06.jpg" width="100" height="100" alt="" />
 				  	{#else#}
-				  	<img name="" src="{#$QISHI.site_dir#}data/avatar/100/{#$user.avatars#}?rand={#$rand#}" width="100" height="100" alt="" />
+				  	<img name="" src="{#$HIGHWAY.site_dir#}data/avatar/100/{#$user.avatars#}?rand={#$rand#}" width="100" height="100" alt="" />
 				  	{#/if#}
 				  </div>
 				  <a href="personal_user.php?act=avatars"  class="edit">修改头像</a>
@@ -258,7 +258,7 @@ $(".refresh_resume").click(function(){
 		<div class="but">
 			<a class="refresh_resume" pid="{#$my_resume[list].id#}" href="javascript:void(0);">刷新简历</a>
 			<a href="personal_resume.php?act=edit_resume&pid={#$my_resume[list].id#}">修改简历</a>
-			<a target="_blank" href="{#"QS_jobslist,jobcategory:$my_resume[list].interestjobs"|qishi_url#}" class="o">匹配职位</a>
+			<a target="_blank" href="{#"HW_jobslist,jobcategory:$my_resume[list].interestjobs"|highway_url#}" class="o">匹配职位</a>
 		</div>	
 	    <div class="bottomlink link_lan"><a target="_blank" href="{#$my_resume[list].resume_url#}">预览简历</a><a class="resume_privacy" pid="{#$my_resume[list].id#}" href="javascript:void(0);">隐私设置</a><a url="personal_ajax.php?act=del_resume&pid={#$my_resume[list].id#}" href="javascript:void(0);" class="del_resume" pid="{#$my_resume[list].id#}">删除简历</a></div>
 	</div>
@@ -277,7 +277,7 @@ $(".refresh_resume").click(function(){
 	<div class="personal-rec-jobs">
 		<div class="p-rec-job-top clearfix">
 			<h2 class="f-left">推荐职位</h2>
-			<a target="_blank" href="{#"QS_jobslist"|qishi_url#}" class="underline f-right">查看更多>></a>
+			<a target="_blank" href="{#"HW_jobslist"|highway_url#}" class="underline f-right">查看更多>></a>
 		</div>
 		<div class="p-rec-data">
 			<div id="interest_jobs_list"></div>
