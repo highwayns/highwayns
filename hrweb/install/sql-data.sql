@@ -19,7 +19,7 @@
 (NUll, 'HW_floor_img5', 2, '首页楼层广告5', 1, 0);
 
 INSERT INTO `hw_ad` VALUES 
-(1, 'HW_indexfocus', 1, 1, 2, 'ソフトウェア紹介', '', 50, 0, 0, 0, '', '', '', 'http://jp.highwayns.com/wp/wp-content/themes/biz-vektor/images/headers/bussines_desk_01.jpg', 'http://jp.highwayns.com/', '海威ソフトウェア', 0, '', '', 0, 0, 1, 0, 0, '', '', '', '', 0, '', 0, 0);
+(1, 'HW_indexfocus', 1, 1, 1, 'ソフトウェア紹介', '', 50, 0, 0, 0, '', '', '', 'http://jp.highwayns.com/wp/wp-content/themes/biz-vektor/images/headers/bussines_desk_01.jpg', 'http://jp.highwayns.com/', '海威ソフトウェア', 0, '', '', 0, 0, 1, 0, 0, '', '', '', '', 0, '', 0, 0);
 
 INSERT INTO `hw_article_category` VALUES 
 (1, 0, '资讯中心', 0, '资讯中心', '', '', 1),
