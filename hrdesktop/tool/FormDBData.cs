@@ -276,7 +276,8 @@ namespace highwayns
             int row = e.RowIndex;
             int col = e.ColumnIndex;
             if (table_idx >-1 && row > -1 && col > -1)
-            {                
+            {
+                dgvData.EndEdit();
                 datas[table_idx].rows[row].cols[col] = dgvData.Rows[row].Cells[col].Value.ToString();
             }
         }
@@ -290,6 +291,11 @@ namespace highwayns
             ret = ret.Replace("http://www.74cms.com/", "http://jp.highwayns.com/");
             ret = ret.Replace("骑士CMS商业授权", "海威ソフトウェア");
             return ret;
+        }
+
+        private void dgvData_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvData.BeginEdit(true);
         }
     }
 }
