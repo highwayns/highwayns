@@ -81,7 +81,7 @@ namespace highwayns
                 string[] temp = "1, 0, '北京市', 0, '', ''".Split(',');
                 temp[0] = Convert.ToString(idx + 1);
                 idx++;
-                temp[2] = trvAddress.Nodes[i].Text;
+                temp[2] = "'"+trvAddress.Nodes[i].Text+"'";
                 Row row = new Row();
                 row.cols = temp;
                 data.rows.Add(row);
@@ -95,7 +95,7 @@ namespace highwayns
                     temp[0] = Convert.ToString(idx + 1);
                     idx++;
                     temp[1] = Convert.ToString(i + 1);
-                    temp[2] = trvAddress.Nodes[i].Nodes[j].Text;
+                    temp[2] = "'" + trvAddress.Nodes[i].Nodes[j].Text + "'";
                     Row row = new Row();
                     row.cols = temp;
                     data.rows.Add(row);
