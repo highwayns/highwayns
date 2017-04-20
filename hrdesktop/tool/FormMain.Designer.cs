@@ -38,6 +38,9 @@
             this.btnAndroid = new System.Windows.Forms.Button();
             this.btnHighwayTalk = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnGoogle = new System.Windows.Forms.Button();
+            this.btnMicrosoft = new System.Windows.Forms.Button();
+            this.btnDataClean = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -140,11 +143,44 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnGoogle
+            // 
+            this.btnGoogle.Location = new System.Drawing.Point(269, 111);
+            this.btnGoogle.Name = "btnGoogle";
+            this.btnGoogle.Size = new System.Drawing.Size(75, 23);
+            this.btnGoogle.TabIndex = 10;
+            this.btnGoogle.Text = "google";
+            this.btnGoogle.UseVisualStyleBackColor = true;
+            this.btnGoogle.Click += new System.EventHandler(this.btnGoogle_Click);
+            // 
+            // btnMicrosoft
+            // 
+            this.btnMicrosoft.Location = new System.Drawing.Point(375, 111);
+            this.btnMicrosoft.Name = "btnMicrosoft";
+            this.btnMicrosoft.Size = new System.Drawing.Size(75, 23);
+            this.btnMicrosoft.TabIndex = 11;
+            this.btnMicrosoft.Text = "Microsoft";
+            this.btnMicrosoft.UseVisualStyleBackColor = true;
+            this.btnMicrosoft.Click += new System.EventHandler(this.btnMicrosoft_Click);
+            // 
+            // btnDataClean
+            // 
+            this.btnDataClean.Location = new System.Drawing.Point(49, 149);
+            this.btnDataClean.Name = "btnDataClean";
+            this.btnDataClean.Size = new System.Drawing.Size(75, 23);
+            this.btnDataClean.TabIndex = 12;
+            this.btnDataClean.Text = "DataClean";
+            this.btnDataClean.UseVisualStyleBackColor = true;
+            this.btnDataClean.Click += new System.EventHandler(this.btnDataClean_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.btnDataClean);
+            this.Controls.Add(this.btnMicrosoft);
+            this.Controls.Add(this.btnGoogle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHighwayTalk);
             this.Controls.Add(this.btnAndroid);
@@ -173,5 +209,8 @@
         private System.Windows.Forms.Button btnAndroid;
         private System.Windows.Forms.Button btnHighwayTalk;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGoogle;
+        private System.Windows.Forms.Button btnMicrosoft;
+        private System.Windows.Forms.Button btnDataClean;
     }
 }
