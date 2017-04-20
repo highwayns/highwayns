@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Concrete element node class.

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Pre-transform that changes deprecated border attribute to CSS.

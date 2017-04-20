@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Custom validation class, accepts DTD child definitions

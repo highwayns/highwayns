@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * XHTML 1.1 Legacy module defines elements that were previously

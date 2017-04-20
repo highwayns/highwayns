@@ -1,4 +1,4 @@
-﻿HTML.AllowedElements
+HTML.AllowedElements
 TYPE: lookup/null
 VERSION: 1.3.0
 DEFAULT: NULL

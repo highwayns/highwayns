@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * XHTML 1.1 Hypertext Module, defines hypertext links. Core Module.

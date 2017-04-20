@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Responsible for creating definition caches.

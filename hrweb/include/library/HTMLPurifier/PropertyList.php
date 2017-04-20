@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Generic property list implementation

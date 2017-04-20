@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Definition cache decorator class that saves all cache retrievals

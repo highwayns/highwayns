@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Performs safe variable parsing based on types which can be used by

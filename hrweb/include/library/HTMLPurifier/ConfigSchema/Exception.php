@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Exceptions related to configuration schema

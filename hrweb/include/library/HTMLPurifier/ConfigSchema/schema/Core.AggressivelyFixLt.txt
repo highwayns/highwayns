@@ -1,4 +1,4 @@
-﻿Core.AggressivelyFixLt
+Core.AggressivelyFixLt
 TYPE: bool
 VERSION: 2.1.0
 DEFAULT: true

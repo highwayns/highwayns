@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * XHTML 1.1 Ruby Annotation Module, defines elements that indicate

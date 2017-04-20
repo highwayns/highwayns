@@ -1,4 +1,4 @@
-﻿HTML.AllowedComments
+HTML.AllowedComments
 TYPE: lookup
 VERSION: 4.4.0
 DEFAULT: array()

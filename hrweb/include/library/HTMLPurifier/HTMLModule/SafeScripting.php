@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * A "safe" script module. No inline JS is allowed, and pointed to JS

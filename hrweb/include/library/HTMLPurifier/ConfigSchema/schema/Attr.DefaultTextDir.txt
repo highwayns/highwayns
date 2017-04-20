@@ -1,4 +1,4 @@
-﻿Attr.DefaultTextDir
+Attr.DefaultTextDir
 TYPE: string
 DEFAULT: 'ltr'
 --DESCRIPTION--

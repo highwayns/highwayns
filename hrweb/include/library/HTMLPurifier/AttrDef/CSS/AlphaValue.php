@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class HTMLPurifier_AttrDef_CSS_AlphaValue extends HTMLPurifier_AttrDef_CSS_Number
 {

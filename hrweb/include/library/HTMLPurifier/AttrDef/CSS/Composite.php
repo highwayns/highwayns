@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Allows multiple validators to attempt to validate attribute.

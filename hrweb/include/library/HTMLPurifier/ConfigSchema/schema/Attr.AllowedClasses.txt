@@ -1,4 +1,4 @@
-﻿Attr.AllowedClasses
+Attr.AllowedClasses
 TYPE: lookup/null
 VERSION: 4.0.0
 DEFAULT: null

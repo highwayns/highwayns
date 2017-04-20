@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates a font family list according to CSS spec
@@ -28,6 +28,21 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
             $this->mask .= chr($i);
         }
 
+        /*
+            PHP's internal strcspn implementation is
+            O(length of string * length of mask), making it inefficient
+            for large masks.  However, it's still faster than
+            preg_match 8)
+          for (p = s1;;) {
+            spanp = s2;
+            do {
+              if (*spanp == c || p == s1_end) {
+                return p - s1;
+              }
+            } while (spanp++ < (s2_end - 1));
+            c = *++p;
+          }
+         */
         // possible optimization: invert the mask.
     }
 
@@ -110,13 +125,13 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
             //    of these codepoints is basically uniform, even for
             //    punctuation-like codepoints.  These characters can
             //    show up in non-Western pages and are supported by most
-            //    major browsers, for example: "锛汲 鏄庢湞" is a
+            //    major browsers, for example: "ＭＳ 明朝" is a
             //    legitimate font-name
-            //    <http://ja.wikipedia.org/wiki/MS_鏄庢湞>.  See
+            //    <http://ja.wikipedia.org/wiki/MS_明朝>.  See
             //    the CSS3 spec for more examples:
             //    <http://www.w3.org/TR/2011/WD-css3-fonts-20110324/localizedfamilynames.png>
             //    You can see live samples of these on the Internet:
-            //    <http://www.google.co.jp/search?q=font-family+锛汲+鏄庢湞|銈淬偡銉冦偗>
+            //    <http://www.google.co.jp/search?q=font-family+ＭＳ+明朝|ゴシック>
             //    However, most of these fonts have ASCII equivalents:
             //    for example, 'MS Mincho', and it's considered
             //    professional to use ASCII font names instead of

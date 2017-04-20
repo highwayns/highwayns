@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Pre-transform that changes converts a boolean attribute to fixed CSS

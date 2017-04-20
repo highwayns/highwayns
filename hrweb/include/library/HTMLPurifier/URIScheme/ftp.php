@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates ftp (File Transfer Protocol) URIs as defined by generic RFC 1738.

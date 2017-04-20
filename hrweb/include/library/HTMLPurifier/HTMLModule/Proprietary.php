@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Module defines proprietary tags and attributes in HTML.

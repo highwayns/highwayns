@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Class responsible for generating HTMLPurifier_Language objects, managing

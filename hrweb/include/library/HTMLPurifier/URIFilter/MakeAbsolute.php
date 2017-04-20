@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // does not support network paths
 

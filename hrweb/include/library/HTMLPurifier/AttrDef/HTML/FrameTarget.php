@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Special-case enum attribute definition that lazy loads allowed frame targets

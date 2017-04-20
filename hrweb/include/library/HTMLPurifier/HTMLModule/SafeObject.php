@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * A "safe" object module. In theory, objects permitted by this module will

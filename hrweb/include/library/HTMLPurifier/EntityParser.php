@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // if want to implement error collecting here, we'll need to use some sort
 // of global data (probably trigger_error) because it's impossible to pass

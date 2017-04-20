@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Class for handling width/height length attribute transformations to CSS

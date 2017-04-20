@@ -1,4 +1,4 @@
-﻿HTML.TidyRemove
+HTML.TidyRemove
 TYPE: lookup
 VERSION: 2.0.0
 DEFAULT: array()

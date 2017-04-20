@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * XHTML 1.1 Bi-directional Text Module, defines elements that

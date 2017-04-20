@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Component of HTMLPurifier_AttrContext that accumulates IDs to prevent dupes

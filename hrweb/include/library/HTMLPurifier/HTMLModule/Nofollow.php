@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Module adds the nofollow attribute transformation to a tags.  It

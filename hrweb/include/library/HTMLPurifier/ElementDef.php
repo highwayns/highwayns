@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Structure that stores an HTML element definition. Used by

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Forgivingly lexes HTML (SGML-style) markup into tokens.

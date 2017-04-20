@@ -1,4 +1,4 @@
-﻿HTML.AllowedCommentsRegexp
+HTML.AllowedCommentsRegexp
 TYPE: string/null
 VERSION: 4.4.0
 DEFAULT: NULL

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Takes a well formed list of tokens and fixes their nesting.

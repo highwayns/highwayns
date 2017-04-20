@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates arbitrary text according to the HTML spec.

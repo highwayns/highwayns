@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class HTMLPurifier_DefinitionCache_Decorator extends HTMLPurifier_DefinitionCache
 {

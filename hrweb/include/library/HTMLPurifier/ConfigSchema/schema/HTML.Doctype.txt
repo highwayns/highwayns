@@ -1,4 +1,4 @@
-﻿HTML.Doctype
+HTML.Doctype
 TYPE: string/null
 DEFAULT: NULL
 --DESCRIPTION--

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Injector that converts configuration directive syntax %Namespace.Directive

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Injector that auto paragraphs text in the root node based on

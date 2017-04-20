@@ -1,4 +1,4 @@
-﻿Cache.SerializerPermissions
+Cache.SerializerPermissions
 TYPE: int
 VERSION: 4.3.0
 DEFAULT: 0755

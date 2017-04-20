@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // OUT OF DATE, NEEDS UPDATING!
 // USE XMLWRITER!

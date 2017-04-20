@@ -1,4 +1,4 @@
-﻿HTML.SafeScripting
+HTML.SafeScripting
 TYPE: lookup
 VERSION: 4.5.0
 DEFAULT: array()

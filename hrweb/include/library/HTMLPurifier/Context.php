@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Registry object that contains information about the current context.

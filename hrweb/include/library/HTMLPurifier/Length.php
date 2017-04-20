@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Represents a measurable length, with a string numeric magnitude

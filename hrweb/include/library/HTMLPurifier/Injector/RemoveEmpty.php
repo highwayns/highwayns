@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class HTMLPurifier_Injector_RemoveEmpty extends HTMLPurifier_Injector
 {

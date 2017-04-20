@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Module adds the target=blank attribute transformation to a tags.  It

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Error collection class that enables HTML Purifier to report HTML

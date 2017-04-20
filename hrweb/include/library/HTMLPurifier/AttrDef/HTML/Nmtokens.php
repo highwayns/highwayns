@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates contents based on NMTOKENS attribute type.

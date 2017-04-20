@@ -1,4 +1,4 @@
-﻿URI.AllowedSchemes
+URI.AllowedSchemes
 TYPE: lookup
 --DEFAULT--
 array (

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Configuration definition, defines directives and their defaults.

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * This variable parser uses PHP's internal code engine. Because it does

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Defines common attribute collections that modules reference

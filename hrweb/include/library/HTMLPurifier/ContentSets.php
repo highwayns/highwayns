@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * @todo Unit test

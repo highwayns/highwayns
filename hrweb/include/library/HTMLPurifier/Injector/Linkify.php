@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Injector that converts http, https and ftp text URLs to actual links.

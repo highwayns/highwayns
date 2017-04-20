@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Primitive email validation class based on the regexp found at

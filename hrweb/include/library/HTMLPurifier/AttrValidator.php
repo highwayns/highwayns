@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates the attributes of a token. Doesn't manage required attributes

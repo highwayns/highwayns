@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Framework class for strings that involve multiple values.

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates name/value pairs in param tags to be used in safe objects. This

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * XHTML 1.1 Presentation Module, defines simple presentation-related

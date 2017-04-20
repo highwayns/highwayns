@@ -1,4 +1,4 @@
-﻿Core.EscapeInvalidTags
+Core.EscapeInvalidTags
 TYPE: bool
 DEFAULT: false
 --DESCRIPTION--

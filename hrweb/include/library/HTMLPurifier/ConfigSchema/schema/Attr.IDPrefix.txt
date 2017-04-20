@@ -1,4 +1,4 @@
-﻿Attr.IDPrefix
+Attr.IDPrefix
 TYPE: string
 VERSION: 1.2.0
 DEFAULT: ''

@@ -1,4 +1,4 @@
-﻿HTML.TargetBlank
+HTML.TargetBlank
 TYPE: bool
 VERSION: 4.4.0
 DEFAULT: FALSE

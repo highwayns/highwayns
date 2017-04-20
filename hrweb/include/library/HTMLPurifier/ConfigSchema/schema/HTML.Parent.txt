@@ -1,4 +1,4 @@
-﻿HTML.Parent
+HTML.Parent
 TYPE: string
 VERSION: 1.3.0
 DEFAULT: 'div'

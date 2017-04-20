@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Definition that uses different definitions depending on context.
