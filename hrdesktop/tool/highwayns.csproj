@@ -40,6 +40,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,11 +67,23 @@
     <Compile Include="FormDataBase.Designer.cs">
       <DependentUpon>FormDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDataClean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataClean.Designer.cs">
+      <DependentUpon>FormDataClean.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDBData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDBData.Designer.cs">
       <DependentUpon>FormDBData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGoogle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGoogle.Designer.cs">
+      <DependentUpon>FormGoogle.cs</DependentUpon>
     </Compile>
     <Compile Include="FormJobOnHighway.cs">
       <SubType>Form</SubType>
@@ -107,6 +121,12 @@
     <Compile Include="FormHighwayTalk.Designer.cs">
       <DependentUpon>FormHighwayTalk.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMicrosoft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMicrosoft.Designer.cs">
+      <DependentUpon>FormMicrosoft.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTranslate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,8 +150,14 @@
     <EmbeddedResource Include="FormDataBase.resx">
       <DependentUpon>FormDataBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDataClean.resx">
+      <DependentUpon>FormDataClean.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDBData.resx">
       <DependentUpon>FormDBData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGoogle.resx">
+      <DependentUpon>FormGoogle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormJobOnHighway.resx">
       <DependentUpon>FormJobOnHighway.cs</DependentUpon>
@@ -150,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHighwayTalk.resx">
       <DependentUpon>FormHighwayTalk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMicrosoft.resx">
+      <DependentUpon>FormMicrosoft.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTranslate.resx">
       <DependentUpon>FormTranslate.cs</DependentUpon>

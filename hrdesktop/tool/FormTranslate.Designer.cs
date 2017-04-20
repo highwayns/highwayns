@@ -38,6 +38,7 @@
             this.btnSelectMiddleFile = new System.Windows.Forms.Button();
             this.txtMiddleFile = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnCombineKey = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -129,11 +130,22 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Middle File";
             // 
+            // btnCombineKey
+            // 
+            this.btnCombineKey.Location = new System.Drawing.Point(232, 166);
+            this.btnCombineKey.Name = "btnCombineKey";
+            this.btnCombineKey.Size = new System.Drawing.Size(84, 23);
+            this.btnCombineKey.TabIndex = 14;
+            this.btnCombineKey.Text = "CombineKey";
+            this.btnCombineKey.UseVisualStyleBackColor = true;
+            this.btnCombineKey.Click += new System.EventHandler(this.btnCombineKey_Click);
+            // 
             // FormTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 218);
+            this.Controls.Add(this.btnCombineKey);
             this.Controls.Add(this.btnSelectMiddleFile);
             this.Controls.Add(this.txtMiddleFile);
             this.Controls.Add(this.label3);
@@ -163,5 +175,6 @@
         private System.Windows.Forms.Button btnSelectMiddleFile;
         private System.Windows.Forms.TextBox txtMiddleFile;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCombineKey;
     }
 }
