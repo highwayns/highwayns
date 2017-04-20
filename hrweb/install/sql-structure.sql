@@ -1,5 +1,5 @@
-﻿DROP TABLE IF EXISTS `qs_ad`;
-CREATE TABLE `qs_ad` (
+﻿DROP TABLE IF EXISTS `hw_ad`;
+CREATE TABLE `hw_ad` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `alias` varchar(80) NOT NULL,
   `is_display` tinyint(1) NOT NULL default '1',
@@ -35,12 +35,12 @@ CREATE TABLE `qs_ad` (
   `video_height` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `alias_starttime_deadline` (`alias`,`starttime`,`deadline`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||ad表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_admin`;
-CREATE TABLE `qs_admin` (
+DROP TABLE IF EXISTS `hw_admin`;
+CREATE TABLE `hw_admin` (
   `admin_id` smallint(5) unsigned NOT NULL auto_increment,
   `admin_name` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
@@ -51,96 +51,96 @@ CREATE TABLE `qs_admin` (
   `add_time` int(10) NOT NULL,
   `last_login_time` int(10) NOT NULL,
   `last_login_ip` varchar(15) NOT NULL,
-  PRIMARY KEY  (`admin_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`admin_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||admin表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_admin_log`;
-CREATE TABLE `qs_admin_log` (
+DROP TABLE IF EXISTS `hw_admin_log`;
+CREATE TABLE `hw_admin_log` (
   `log_id` int(10) unsigned NOT NULL auto_increment,
   `admin_name` varchar(20) NOT NULL,
   `add_time` int(10) NOT NULL,
   `log_value` varchar(255) NOT NULL,
   `log_ip` varchar(20) NOT NULL,
   `log_type` tinyint(1) unsigned NOT NULL default '1',
-  PRIMARY KEY  (`log_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`log_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||admin_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_ad_category`;
-CREATE TABLE `qs_ad_category` (
+DROP TABLE IF EXISTS `hw_ad_category`;
+CREATE TABLE `hw_ad_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `alias` varchar(100) NOT NULL,
   `type_id` int(10) unsigned NOT NULL,
   `categoryname` varchar(100) NOT NULL,
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   `expense` smallint(5) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||ad_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_article`;
-CREATE TABLE `qs_article` (
+DROP TABLE IF EXISTS `hw_article`;
+CREATE TABLE `hw_article` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` tinyint(3) unsigned NOT NULL,
   `parentid` smallint(5) unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
   `content` mediumtext NOT NULL,
-  `tit_color` varchar(10) default NULL,
+  `tit_color` varchar(10) NULL default NULL,
   `tit_b` tinyint(1) unsigned NOT NULL default '0',
-  `Small_img` varchar(80) default NULL,
-  `author` varchar(50) default NULL,
-  `source` varchar(100) default NULL,
+  `Small_img` varchar(80) NULL default NULL,
+  `author` varchar(50) NULL default NULL,
+  `source` varchar(100) NULL default NULL,
   `focos` tinyint(3) unsigned NOT NULL default '1',
   `is_display` tinyint(3) unsigned NOT NULL default '1',
   `is_url` varchar(200) NOT NULL default '0',
-  `seo_keywords` varchar(100) default NULL,
-  `seo_description` varchar(200) default NULL,
+  `seo_keywords` varchar(100) NULL default NULL,
+  `seo_description` varchar(200) NULL default NULL,
   `click` int(10) unsigned NOT NULL default '1',
   `addtime` int(10) unsigned NOT NULL,
   `article_order` smallint(5) unsigned NOT NULL default '0',
   `robot` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-  KEY `type_id` (`type_id`,`article_order`,`id`),
+  KEY `type_id_article_order_id` (`type_id`,`article_order`,`id`),
   KEY `click` (`click`),
-  KEY `focos_article_order` (`focos`,`article_order`,`id`),
+  KEY `focos_article_order_id` (`focos`,`article_order`,`id`),
   KEY `addtime` (`addtime`),
-  KEY `parentid` (`parentid`,`article_order`,`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `parentid_article_order_id` (`parentid`,`article_order`,`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
-||-_-||qs_article表创建成功！||-_-||
+||-_-||article表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_article_category`;
-CREATE TABLE `qs_article_category` (
+DROP TABLE IF EXISTS `hw_article_category`;
+CREATE TABLE `hw_article_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `parentid` smallint(5) unsigned NOT NULL,
   `categoryname` varchar(80) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
-  `title` varchar(255) default NULL,
-  `description` varchar(255) default NULL,
-  `keywords` varchar(255) default NULL,
+  `title` varchar(255) NULL default NULL,
+  `description` varchar(255) NULL default NULL,
+  `keywords` varchar(255) NULL default NULL,
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||article_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_article_property`;
-CREATE TABLE `qs_article_property` (
+DROP TABLE IF EXISTS `hw_article_property`;
+CREATE TABLE `hw_article_property` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(30) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||article_property表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_audit_reason`;
-CREATE TABLE `qs_audit_reason` (
+DROP TABLE IF EXISTS `hw_audit_reason`;
+CREATE TABLE `hw_audit_reason` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `jobs_id` int(10) unsigned NOT NULL default '0',
   `company_id` int(10) unsigned NOT NULL default '0',
@@ -151,42 +151,42 @@ CREATE TABLE `qs_audit_reason` (
   KEY `jobs_id` (`jobs_id`),
   KEY `company_id` (`company_id`),
   KEY `resume_id` (`resume_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||audit_reason表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_baiduxml`;
-CREATE TABLE `qs_baiduxml` (
+DROP TABLE IF EXISTS `hw_baiduxml`;
+CREATE TABLE `hw_baiduxml` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||baiduxml表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_baidu_submiturl`;
-CREATE TABLE `qs_baidu_submiturl` (
+DROP TABLE IF EXISTS `hw_baidu_submiturl`;
+CREATE TABLE `hw_baidu_submiturl` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||baidu_submiturl表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_captcha`;
-CREATE TABLE `qs_captcha` (
+DROP TABLE IF EXISTS `hw_captcha`;
+CREATE TABLE `hw_captcha` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` varchar(200) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||captcha表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category`;
-CREATE TABLE `qs_category` (
+DROP TABLE IF EXISTS `hw_category`;
+CREATE TABLE `hw_category` (
   `c_id` int(10) unsigned NOT NULL auto_increment,
   `c_parentid` int(10) unsigned NOT NULL,
   `c_alias` char(30) NOT NULL,
@@ -198,71 +198,71 @@ CREATE TABLE `qs_category` (
   `stat_resume` char(15) NOT NULL,
   PRIMARY KEY  (`c_id`),
   KEY `c_alias` (`c_alias`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_district`;
-CREATE TABLE `qs_category_district` (
+DROP TABLE IF EXISTS `hw_category_district`;
+CREATE TABLE `hw_category_district` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` int(10) unsigned NOT NULL default '0',
   `categoryname` varchar(30) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `stat_jobs` varchar(15) NOT NULL,
   `stat_resume` varchar(15) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||category_district表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_group`;
-CREATE TABLE `qs_category_group` (
+DROP TABLE IF EXISTS `hw_category_group`;
+CREATE TABLE `hw_category_group` (
   `g_id` int(10) unsigned NOT NULL auto_increment,
   `g_alias` varchar(60) NOT NULL,
   `g_name` varchar(100) NOT NULL,
   `g_sys` tinyint(1) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`g_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`g_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||category_group表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_jobs`;
-CREATE TABLE `qs_category_jobs` (
+DROP TABLE IF EXISTS `hw_category_jobs`;
+CREATE TABLE `hw_category_jobs` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` smallint(5) unsigned NOT NULL,
   `categoryname` varchar(80) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `stat_jobs` varchar(15) NOT NULL,
   `stat_resume` varchar(15) NOT NULL,
-  `content` text,
+  `content` text, NULL,
   PRIMARY KEY  (`id`),
   KEY `parentid` (`parentid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||category_jobs表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_category_major`;
-CREATE TABLE `qs_category_major` (
+DROP TABLE IF EXISTS `hw_category_major`;
+CREATE TABLE `hw_category_major` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` int(10) NOT NULL,
   `categoryname` varchar(50) NOT NULL,
   `category_order` int(10) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||category_major表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_color`;
-CREATE TABLE `qs_color` (
+DROP TABLE IF EXISTS `hw_color`;
+CREATE TABLE `hw_color` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||color表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_down_resume`;
-CREATE TABLE `qs_company_down_resume` (
+DROP TABLE IF EXISTS `hw_company_down_resume`;
+CREATE TABLE `hw_company_down_resume` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `resume_name` varchar(60) NOT NULL,
@@ -271,27 +271,27 @@ CREATE TABLE `qs_company_down_resume` (
   `company_name` varchar(60) NOT NULL,
   `down_addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`did`),
-  KEY `resume_uid_rid` (`resume_uid`,`resume_id`),
+  KEY `resume_uid_resume_id` (`resume_uid`,`resume_id`),
   KEY `down_addtime` (`down_addtime`),
-  KEY `company_uid_addtime` (`company_uid`,`down_addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `company_uid_down_addtime` (`company_uid`,`down_addtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||company_down_resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_favorites`;
-CREATE TABLE `qs_company_favorites` (
+DROP TABLE IF EXISTS `hw_company_favorites`;
+CREATE TABLE `hw_company_favorites` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `company_uid` int(10) unsigned NOT NULL,
   `favoritesa_ddtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`did`),
   KEY `company_uid` (`company_uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||company_favorites表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_interview`;
-CREATE TABLE `qs_company_interview` (
+DROP TABLE IF EXISTS `hw_company_interview`;
+CREATE TABLE `hw_company_interview` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `resume_name` varchar(30) NOT NULL,
@@ -309,27 +309,27 @@ CREATE TABLE `qs_company_interview` (
   `personal_look` tinyint(3) unsigned NOT NULL default '1',
   `interview_time` varchar(20) NOT NULL default '',
   PRIMARY KEY  (`did`),
-  KEY `resume_uid_resumeid` (`resume_uid`,`resume_id`),
-  KEY `company_uid_jobid` (`company_uid`,`jobs_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `resume_uid_resume_id` (`resume_uid`,`resume_id`),
+  KEY `company_uid_jobs_id` (`company_uid`,`jobs_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||company_interview表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_label_resume`;
-CREATE TABLE `qs_company_label_resume` (
+DROP TABLE IF EXISTS `hw_company_label_resume`;
+CREATE TABLE `hw_company_label_resume` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) NOT NULL,
   `personal_uid` int(10) NOT NULL,
   `resume_id` int(10) NOT NULL,
   `resume_state` tinyint(1) NOT NULL default '0',
   `resume_state_cn` varchar(20) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||company_label_resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_company_profile`;
-CREATE TABLE `qs_company_profile` (
+DROP TABLE IF EXISTS `hw_company_profile`;
+CREATE TABLE `hw_company_profile` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `tpl` varchar(60) NOT NULL,
@@ -379,35 +379,35 @@ CREATE TABLE `qs_company_profile` (
   KEY `uid` (`uid`),
   KEY `audit` (`audit`),
   KEY `companyname` (`companyname`),
-  KEY `yellowpages` (`yellowpages`,`trade`),
+  KEY `yellowpages_trade` (`yellowpages`,`trade`),
   KEY `addtime` (`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||company_profile表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_config`;
-CREATE TABLE `qs_config` (
+DROP TABLE IF EXISTS `hw_config`;
+CREATE TABLE `hw_config` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||config表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_consultant`;
-CREATE TABLE `qs_consultant` (
+DROP TABLE IF EXISTS `hw_consultant`;
+CREATE TABLE `hw_consultant` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL default '',
-  `pic` text,
+  `pic` text, NULL,
   `qq` int(15) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||consultant表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_crons`;
-CREATE TABLE `qs_crons` (
+DROP TABLE IF EXISTS `hw_crons`;
+CREATE TABLE `hw_crons` (
   `cronid` smallint(5) unsigned NOT NULL auto_increment,
   `available` tinyint(1) unsigned NOT NULL,
   `admin_set` tinyint(1) unsigned NOT NULL default '0',
@@ -419,57 +419,57 @@ CREATE TABLE `qs_crons` (
   `day` tinyint(2) NOT NULL,
   `hour` tinyint(2) NOT NULL,
   `minute` varchar(60) NOT NULL,
-  PRIMARY KEY  (`cronid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`cronid`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||crons表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_explain`;
-CREATE TABLE `qs_explain` (
+DROP TABLE IF EXISTS `hw_explain`;
+CREATE TABLE `hw_explain` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` smallint(5) unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
   `content` mediumtext NOT NULL,
-  `tit_color` varchar(10) default NULL,
+  `tit_color` varchar(10) NULL default NULL,
   `tit_b` tinyint(1) NOT NULL default '0',
   `is_display` tinyint(3) unsigned NOT NULL default '1',
   `is_url` varchar(200) NOT NULL default '0',
-  `seo_keywords` varchar(100) default NULL,
-  `seo_description` varchar(200) default NULL,
+  `seo_keywords` varchar(100) NULL default NULL,
+  `seo_description` varchar(200) NULL default NULL,
   `click` int(11) NOT NULL default '1',
   `addtime` int(10) NOT NULL,
   `show_order` smallint(5) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `type_id` (`type_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||explain表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_explain_category`;
-CREATE TABLE `qs_explain_category` (
+DROP TABLE IF EXISTS `hw_explain_category`;
+CREATE TABLE `hw_explain_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(80) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||explain_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_feedback`;
-CREATE TABLE `qs_feedback` (
+DROP TABLE IF EXISTS `hw_feedback`;
+CREATE TABLE `hw_feedback` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `infotype` tinyint(3) unsigned NOT NULL,
   `feedback` varchar(250) NOT NULL,
   `addtime` int(10) NOT NULL,
   `tel` varchar(255) NOT NULL default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||feedback表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_help`;
-CREATE TABLE `qs_help` (
+DROP TABLE IF EXISTS `hw_help`;
+CREATE TABLE `hw_help` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` tinyint(3) unsigned NOT NULL,
   `parentid` smallint(5) unsigned NOT NULL,
@@ -479,37 +479,37 @@ CREATE TABLE `qs_help` (
   `addtime` int(10) unsigned NOT NULL,
   `order` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-  KEY `type_id` (`type_id`,`order`,`id`),
-  KEY `focos_article_order` (`order`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+  KEY `type_id_order_id` (`type_id`,`order`,`id`),
+  KEY `order_id` (`order`,`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||help表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_help_category`;
-CREATE TABLE `qs_help_category` (
+DROP TABLE IF EXISTS `hw_help_category`;
+CREATE TABLE `hw_help_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `parentid` smallint(5) unsigned NOT NULL,
   `categoryname` varchar(80) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||help_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_hotword`;
-CREATE TABLE `qs_hotword` (
+DROP TABLE IF EXISTS `hw_hotword`;
+CREATE TABLE `hw_hotword` (
   `w_id` int(10) unsigned NOT NULL auto_increment,
   `w_word` varchar(120) NOT NULL,
   `w_hot` int(10) unsigned NOT NULL default '1',
   PRIMARY KEY  (`w_id`),
   KEY `w_word` (`w_word`),
   KEY `w_hot` (`w_hot`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||hotword表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_hrtools`;
-CREATE TABLE `qs_hrtools` (
+DROP TABLE IF EXISTS `hw_hrtools`;
+CREATE TABLE `hw_hrtools` (
   `h_id` int(10) unsigned NOT NULL auto_increment,
   `h_typeid` smallint(5) unsigned NOT NULL,
   `h_filename` varchar(200) NOT NULL,
@@ -517,24 +517,24 @@ CREATE TABLE `qs_hrtools` (
   `h_order` int(10) NOT NULL default '0',
   `h_color` varchar(7) NOT NULL,
   `h_strong` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`h_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`h_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||hrtools表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_hrtools_category`;
-CREATE TABLE `qs_hrtools_category` (
+DROP TABLE IF EXISTS `hw_hrtools_category`;
+CREATE TABLE `hw_hrtools_category` (
   `c_id` smallint(5) unsigned NOT NULL auto_increment,
   `c_name` varchar(80) NOT NULL,
   `c_order` int(11) NOT NULL default '0',
   `c_adminset` tinyint(3) NOT NULL default '0',
-  PRIMARY KEY  (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`c_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||hrtools_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs`;
-CREATE TABLE `qs_jobs` (
+DROP TABLE IF EXISTS `hw_jobs`;
+CREATE TABLE `hw_jobs` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `jobs_name` varchar(30) NOT NULL,
@@ -599,12 +599,12 @@ CREATE TABLE `qs_jobs` (
   KEY `company_id` (`company_id`),
   KEY `deadline` (`deadline`),
   KEY `audit` (`audit`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_contact`;
-CREATE TABLE `qs_jobs_contact` (
+DROP TABLE IF EXISTS `hw_jobs_contact`;
+CREATE TABLE `hw_jobs_contact` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `contact` varchar(80) NOT NULL,
@@ -621,12 +621,12 @@ CREATE TABLE `qs_jobs_contact` (
   `qq_show` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_contact表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_hot`;
-CREATE TABLE `qs_jobs_search_hot` (
+DROP TABLE IF EXISTS `hw_jobs_search_hot`;
+CREATE TABLE `hw_jobs_search_hot` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -650,20 +650,20 @@ CREATE TABLE `qs_jobs_search_hot` (
   `setmeal_id` smallint(5) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `click` (`click`),
-  KEY `category_hot` (`category`,`click`),
-  KEY `sdistrict_hot` (`sdistrict`,`click`),
-  KEY `district_hot` (`district`,`click`),
-  KEY `trade_hot` (`trade`,`click`),
-  KEY `subclass_hot` (`subclass`,`click`),
+  KEY `category_click` (`category`,`click`),
+  KEY `sdistrict_click` (`sdistrict`,`click`),
+  KEY `district_click` (`district`,`click`),
+  KEY `trade_click` (`trade`,`click`),
+  KEY `subclass_click` (`subclass`,`click`),
   KEY `uid` (`uid`),
   KEY `refreshtime` (`refreshtime`),
-  KEY `street_hot` (`street`,`click`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `street_click` (`street`,`click`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_search_hot表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_key`;
-CREATE TABLE `qs_jobs_search_key` (
+DROP TABLE IF EXISTS `hw_jobs_search_key`;
+CREATE TABLE `hw_jobs_search_key` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -695,13 +695,13 @@ CREATE TABLE `qs_jobs_search_key` (
   KEY `subclass` (`subclass`),
   KEY `district` (`district`),
   KEY `sdistrict` (`sdistrict`),
-  FULLTEXT KEY `key` (`key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `key` (`key`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_search_key表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_rtime`;
-CREATE TABLE `qs_jobs_search_rtime` (
+DROP TABLE IF EXISTS `hw_jobs_search_rtime`;
+CREATE TABLE `hw_jobs_search_rtime` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -726,22 +726,22 @@ CREATE TABLE `qs_jobs_search_rtime` (
   `setmeal_id` smallint(5) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `refreshtime` (`refreshtime`),
-  KEY `recommend_rtime` (`recommend`,`refreshtime`),
-  KEY `emergency_rtime` (`emergency`,`refreshtime`),
-  KEY `trade_rtime` (`trade`,`refreshtime`),
-  KEY `sdistrict_rtime` (`sdistrict`,`refreshtime`),
-  KEY `subclass_rtime` (`subclass`,`refreshtime`),
-  KEY `district_rtime` (`district`,`refreshtime`),
-  KEY `category_rtime` (`category`,`refreshtime`),
+  KEY `recommend_refreshtime` (`recommend`,`refreshtime`),
+  KEY `emergency_refreshtime` (`emergency`,`refreshtime`),
+  KEY `trade_refreshtime` (`trade`,`refreshtime`),
+  KEY `sdistrict_refreshtime` (`sdistrict`,`refreshtime`),
+  KEY `subclass_refreshtime` (`subclass`,`refreshtime`),
+  KEY `district_refreshtime` (`district`,`refreshtime`),
+  KEY `category_refreshtime` (`category`,`refreshtime`),
   KEY `uid` (`uid`),
-  KEY `map` (`map_x`,`map_y`),
-  KEY `street_rtime` (`street`,`refreshtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `map_x_map_y` (`map_x`,`map_y`),
+  KEY `street_refreshtime` (`street`,`refreshtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_search_rtime表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_scale`;
-CREATE TABLE `qs_jobs_search_scale` (
+DROP TABLE IF EXISTS `hw_jobs_search_scale`;
+CREATE TABLE `hw_jobs_search_scale` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -764,19 +764,19 @@ CREATE TABLE `qs_jobs_search_scale` (
   `setmeal_id` smallint(5) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
-  KEY `category_scale` (`category`,`scale`,`refreshtime`),
-  KEY `subclass_scale` (`subclass`,`scale`,`refreshtime`),
-  KEY `trade_scale` (`trade`,`scale`,`refreshtime`),
-  KEY `scale` (`scale`,`refreshtime`),
-  KEY `district_scale` (`district`,`scale`,`refreshtime`),
-  KEY `sdistrict_scale` (`sdistrict`,`scale`,`refreshtime`),
-  KEY `street_scale` (`street`,`scale`,`refreshtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `category_scale_refreshtime` (`category`,`scale`,`refreshtime`),
+  KEY `subclass_scale_refreshtime` (`subclass`,`scale`,`refreshtime`),
+  KEY `trade_scale_refreshtime` (`trade`,`scale`,`refreshtime`),
+  KEY `scale_refreshtime` (`scale`,`refreshtime`),
+  KEY `district_scale_refreshtime` (`district`,`scale`,`refreshtime`),
+  KEY `sdistrict_scale_refreshtime` (`sdistrict`,`scale`,`refreshtime`),
+  KEY `street_scale_refreshtime` (`street`,`scale`,`refreshtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_search_scale表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_stickrtime`;
-CREATE TABLE `qs_jobs_search_stickrtime` (
+DROP TABLE IF EXISTS `hw_jobs_search_stickrtime`;
+CREATE TABLE `hw_jobs_search_stickrtime` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -799,20 +799,20 @@ CREATE TABLE `qs_jobs_search_stickrtime` (
   `refreshtime` int(10) unsigned NOT NULL,
   `setmeal_id` smallint(5) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-  KEY `stick_rtime` (`stick`,`refreshtime`),
-  KEY `subclass_rtime` (`subclass`,`stick`,`refreshtime`),
-  KEY `trade_rtime` (`trade`,`stick`,`refreshtime`),
-  KEY `district_rtime` (`district`,`stick`,`refreshtime`),
-  KEY `sdistrict_rtime` (`sdistrict`,`stick`,`refreshtime`),
+  KEY `stick_refreshtime` (`stick`,`refreshtime`),
+  KEY `subclass_stick_refreshtime` (`subclass`,`stick`,`refreshtime`),
+  KEY `trade_stick_refreshtime` (`trade`,`stick`,`refreshtime`),
+  KEY `district_stick_refreshtime` (`district`,`stick`,`refreshtime`),
+  KEY `sdistrict_stick_refreshtime` (`sdistrict`,`stick`,`refreshtime`),
   KEY `uid` (`uid`),
-  KEY `category_rtime` (`category`,`stick`,`refreshtime`),
-  KEY `stick_street` (`street`,`stick`,`refreshtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `category_stick_refreshtime` (`category`,`stick`,`refreshtime`),
+  KEY `street_stick_refreshtime` (`street`,`stick`,`refreshtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_search_stickrtime表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_search_wage`;
-CREATE TABLE `qs_jobs_search_wage` (
+DROP TABLE IF EXISTS `hw_jobs_search_wage`;
+CREATE TABLE `hw_jobs_search_wage` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `recommend` tinyint(1) unsigned NOT NULL default '0',
@@ -834,20 +834,20 @@ CREATE TABLE `qs_jobs_search_wage` (
   `refreshtime` int(10) unsigned NOT NULL,
   `setmeal_id` smallint(5) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-  KEY `rtime_wage` (`refreshtime`,`wage`),
+  KEY `refreshtime_wage` (`refreshtime`,`wage`),
   KEY `uid` (`uid`),
-  KEY `sdistrict_wage` (`sdistrict`,`wage`,`refreshtime`),
-  KEY `district_wage` (`district`,`wage`,`refreshtime`),
-  KEY `trade_wage` (`trade`,`wage`,`refreshtime`),
-  KEY `subclass_wage` (`subclass`,`wage`,`refreshtime`),
-  KEY `category_wage` (`category`,`wage`,`refreshtime`),
-  KEY `street_wage` (`street`,`wage`,`refreshtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `sdistrict_wage_refreshtime` (`sdistrict`,`wage`,`refreshtime`),
+  KEY `district_wage_refreshtime` (`district`,`wage`,`refreshtime`),
+  KEY `trade_wage_refreshtime` (`trade`,`wage`,`refreshtime`),
+  KEY `subclass_wage_refreshtime` (`subclass`,`wage`,`refreshtime`),
+  KEY `category_wage_refreshtime` (`category`,`wage`,`refreshtime`),
+  KEY `street_wage_refreshtime` (`street`,`wage`,`refreshtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_search_wage表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_tag`;
-CREATE TABLE `qs_jobs_tag` (
+DROP TABLE IF EXISTS `hw_jobs_tag`;
+CREATE TABLE `hw_jobs_tag` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -855,12 +855,12 @@ CREATE TABLE `qs_jobs_tag` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `tag` (`tag`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_tag表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_jobs_tmp`;
-CREATE TABLE `qs_jobs_tmp` (
+DROP TABLE IF EXISTS `hw_jobs_tmp`;
+CREATE TABLE `hw_jobs_tmp` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `jobs_name` varchar(30) NOT NULL,
@@ -925,12 +925,12 @@ CREATE TABLE `qs_jobs_tmp` (
   KEY `company_id` (`company_id`),
   KEY `deadline` (`deadline`),
   KEY `audit` (`audit`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||jobs_tmp表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_link`;
-CREATE TABLE `qs_link` (
+DROP TABLE IF EXISTS `hw_link`;
+CREATE TABLE `hw_link` (
   `link_id` int(10) unsigned NOT NULL auto_increment,
   `type_id` tinyint(3) unsigned NOT NULL,
   `display` tinyint(1) unsigned NOT NULL default '1',
@@ -939,47 +939,47 @@ CREATE TABLE `qs_link` (
   `link_url` varchar(255) NOT NULL,
   `link_logo` varchar(255) NOT NULL,
   `show_order` smallint(5) unsigned NOT NULL default '50',
-  `Notes` varchar(255) default NULL,
+  `Notes` varchar(255) NULL default NULL,
   `app_notes` varchar(300) NOT NULL,
   PRIMARY KEY  (`link_id`),
   KEY `show_order` (`show_order`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||link表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_link_category`;
-CREATE TABLE `qs_link_category` (
+DROP TABLE IF EXISTS `hw_link_category`;
+CREATE TABLE `hw_link_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(80) NOT NULL,
   `c_sys` tinyint(1) unsigned NOT NULL default '0',
   `c_alias` varchar(30) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||link_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_locoyspider`;
-CREATE TABLE `qs_locoyspider` (
+DROP TABLE IF EXISTS `hw_locoyspider`;
+CREATE TABLE `hw_locoyspider` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||locoyspider表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_mailconfig`;
-CREATE TABLE `qs_mailconfig` (
+DROP TABLE IF EXISTS `hw_mailconfig`;
+CREATE TABLE `hw_mailconfig` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||mailconfig表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_mailqueue`;
-CREATE TABLE `qs_mailqueue` (
+DROP TABLE IF EXISTS `hw_mailqueue`;
+CREATE TABLE `hw_mailqueue` (
   `m_id` int(10) unsigned NOT NULL auto_increment,
   `m_type` tinyint(3) unsigned NOT NULL default '0',
   `m_addtime` int(10) unsigned NOT NULL,
@@ -990,22 +990,22 @@ CREATE TABLE `qs_mailqueue` (
   `m_body` text NOT NULL,
   PRIMARY KEY  (`m_id`),
   KEY `m_uid` (`m_uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||mailqueue表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_mail_templates`;
-CREATE TABLE `qs_mail_templates` (
+DROP TABLE IF EXISTS `hw_mail_templates`;
+CREATE TABLE `hw_mail_templates` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||mail_templates表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members`;
-CREATE TABLE `qs_members` (
+DROP TABLE IF EXISTS `hw_members`;
+CREATE TABLE `hw_members` (
   `uid` int(10) unsigned NOT NULL auto_increment,
   `utype` tinyint(1) unsigned NOT NULL default '1',
   `username` varchar(60) NOT NULL default '',
@@ -1033,24 +1033,24 @@ CREATE TABLE `qs_members` (
   `avatars` varchar(32) NOT NULL,
   `robot` tinyint(3) unsigned NOT NULL default '0',
   `consultant` smallint(5) unsigned NOT NULL,
-  `weixin_openid` varchar(50) default NULL,
+  `weixin_openid` varchar(50) NULL default NULL,
   `bindingtime` int(10) unsigned NOT NULL,
-  `remind_email_time` int(10) unsigned default NULL,
+  `remind_email_time` int(10) unsigned NULL default NULL,
   `imei` varchar(50) NOT NULL default '',
   `reg_type` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`uid`),
-  UNIQUE KEY `username` (`username`),
+  KEY `username` (`username`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`),
   KEY `qq_openid` (`qq_openid`),
   KEY `sina_access_token` (`sina_access_token`),
   KEY `taobao_access_token` (`taobao_access_token`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_charge_log`;
-CREATE TABLE `qs_members_charge_log` (
+DROP TABLE IF EXISTS `hw_members_charge_log`;
+CREATE TABLE `hw_members_charge_log` (
   `log_id` int(10) unsigned NOT NULL auto_increment,
   `log_uid` int(10) NOT NULL,
   `log_username` varchar(60) NOT NULL,
@@ -1064,26 +1064,26 @@ CREATE TABLE `qs_members_charge_log` (
   PRIMARY KEY  (`log_id`),
   KEY `log_username` (`log_username`),
   KEY `log_addtime` (`log_addtime`),
-  KEY `type_addtime` (`log_type`,`log_addtime`),
-  KEY `uid_addtime` (`log_uid`,`log_addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `log_type_log_addtime` (`log_type`,`log_addtime`),
+  KEY `log_uid_log_addtime` (`log_uid`,`log_addtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_charge_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_handsel`;
-CREATE TABLE `qs_members_handsel` (
+DROP TABLE IF EXISTS `hw_members_handsel`;
+CREATE TABLE `hw_members_handsel` (
   `id` int(10) NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `htype` varchar(60) NOT NULL,
   `addtime` int(10) NOT NULL,
   PRIMARY KEY  (`id`),
-  KEY `uid` (`uid`,`htype`,`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `uid_htype_addtime` (`uid`,`htype`,`addtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_handsel表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_info`;
-CREATE TABLE `qs_members_info` (
+DROP TABLE IF EXISTS `hw_members_info`;
+CREATE TABLE `hw_members_info` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `realname` varchar(30) NOT NULL,
@@ -1105,12 +1105,12 @@ CREATE TABLE `qs_members_info` (
   `marriage_cn` varchar(30) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_info表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_log`;
-CREATE TABLE `qs_members_log` (
+DROP TABLE IF EXISTS `hw_members_log`;
+CREATE TABLE `hw_members_log` (
   `log_id` int(10) unsigned NOT NULL auto_increment,
   `log_uid` int(10) NOT NULL,
   `log_username` varchar(60) NOT NULL,
@@ -1128,39 +1128,39 @@ CREATE TABLE `qs_members_log` (
   PRIMARY KEY  (`log_id`),
   KEY `log_username` (`log_username`),
   KEY `log_addtime` (`log_addtime`),
-  KEY `type_addtime` (`log_type`,`log_addtime`),
-  KEY `utype_addtime` (`log_utype`,`log_addtime`),
-  KEY `uid_addtime` (`log_uid`,`log_addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `log_type_log_addtime` (`log_type`,`log_addtime`),
+  KEY `log_utype_log_addtime` (`log_utype`,`log_addtime`),
+  KEY `log_uid_log_addtime` (`log_uid`,`log_addtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_points`;
-CREATE TABLE `qs_members_points` (
+DROP TABLE IF EXISTS `hw_members_points`;
+CREATE TABLE `hw_members_points` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `points` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_points表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_points_rule`;
-CREATE TABLE `qs_members_points_rule` (
+DROP TABLE IF EXISTS `hw_members_points_rule`;
+CREATE TABLE `hw_members_points_rule` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `utype` tinyint(1) NOT NULL default '1',
   `title` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `operation` tinyint(1) NOT NULL default '2',
   `value` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_points_rule表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_members_setmeal`;
-CREATE TABLE `qs_members_setmeal` (
+DROP TABLE IF EXISTS `hw_members_setmeal`;
+CREATE TABLE `hw_members_setmeal` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `effective` tinyint(3) unsigned NOT NULL default '0',
   `uid` int(10) unsigned NOT NULL,
@@ -1192,15 +1192,15 @@ CREATE TABLE `qs_members_setmeal` (
   `refresh_jobs_time` int(10) unsigned NOT NULL default '0',
   `set_sms` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-  KEY `effective_setmealid` (`effective`,`setmeal_id`),
+  KEY `effective_setmeal_id` (`effective`,`setmeal_id`),
   KEY `effective_endtime` (`effective`,`endtime`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||members_setmeal表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_navigation`;
-CREATE TABLE `qs_navigation` (
+DROP TABLE IF EXISTS `hw_navigation`;
+CREATE TABLE `hw_navigation` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `alias` varchar(100) NOT NULL,
   `urltype` tinyint(3) unsigned NOT NULL default '0',
@@ -1213,56 +1213,56 @@ CREATE TABLE `qs_navigation` (
   `url` varchar(200) NOT NULL,
   `target` varchar(100) NOT NULL,
   `navigationorder` int(10) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||navigation表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_navigation_category`;
-CREATE TABLE `qs_navigation_category` (
+DROP TABLE IF EXISTS `hw_navigation_category`;
+CREATE TABLE `hw_navigation_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `alias` varchar(100) NOT NULL,
   `categoryname` varchar(30) NOT NULL,
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||navigation_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_notice`;
-CREATE TABLE `qs_notice` (
+DROP TABLE IF EXISTS `hw_notice`;
+CREATE TABLE `hw_notice` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `type_id` smallint(5) unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
   `content` mediumtext NOT NULL,
-  `tit_color` varchar(10) default NULL,
+  `tit_color` varchar(10) NULL default NULL,
   `tit_b` tinyint(1) NOT NULL default '0',
   `is_display` tinyint(3) unsigned NOT NULL default '1',
   `is_url` varchar(200) NOT NULL default '0',
-  `seo_keywords` varchar(100) default NULL,
-  `seo_description` varchar(200) default NULL,
+  `seo_keywords` varchar(100) NULL default NULL,
+  `seo_description` varchar(200) NULL default NULL,
   `click` int(11) NOT NULL default '1',
   `addtime` int(10) NOT NULL,
   `sort` smallint(5) NOT NULL default '0',
   PRIMARY KEY  (`id`),
-  KEY `type_id` (`type_id`,`sort`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+  KEY `type_id_sort_id` (`type_id`,`sort`,`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||notice表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_notice_category`;
-CREATE TABLE `qs_notice_category` (
+DROP TABLE IF EXISTS `hw_notice_category`;
+CREATE TABLE `hw_notice_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `categoryname` varchar(80) NOT NULL,
   `sort` smallint(5) unsigned NOT NULL default '0',
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||notice_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_order`;
-CREATE TABLE `qs_order` (
+DROP TABLE IF EXISTS `hw_order`;
+CREATE TABLE `hw_order` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `utype` tinyint(2) unsigned NOT NULL default '1',
@@ -1283,12 +1283,12 @@ CREATE TABLE `qs_order` (
   KEY `addtime` (`addtime`),
   KEY `payment_name` (`payment_name`),
   KEY `oid` (`oid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||order表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_page`;
-CREATE TABLE `qs_page` (
+DROP TABLE IF EXISTS `hw_page`;
+CREATE TABLE `hw_page` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `systemclass` tinyint(3) unsigned NOT NULL default '0',
   `pagetpye` tinyint(3) unsigned NOT NULL default '1',
@@ -1303,33 +1303,33 @@ CREATE TABLE `qs_page` (
   `title` varchar(200) NOT NULL,
   `description` varchar(200) NOT NULL,
   `keywords` varchar(200) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||page表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_payment`;
-CREATE TABLE `qs_payment` (
+DROP TABLE IF EXISTS `hw_payment`;
+CREATE TABLE `hw_payment` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `listorder` int(10) unsigned NOT NULL default '50',
   `typename` varchar(15) NOT NULL,
   `byname` varchar(50) NOT NULL,
   `p_introduction` varchar(100) NOT NULL,
-  `notes` text,
-  `partnerid` varchar(80) default NULL,
-  `ytauthkey` varchar(100) default NULL,
+  `notes` text, NULL,
+  `partnerid` varchar(80) NULL default NULL,
+  `ytauthkey` varchar(100) NULL default NULL,
   `fee` varchar(6) NOT NULL default '0',
-  `parameter1` varchar(50) default NULL,
-  `parameter2` varchar(50) default NULL,
-  `parameter3` varchar(50) default NULL,
+  `parameter1` varchar(50) NULL default NULL,
+  `parameter2` varchar(50) NULL default NULL,
+  `parameter3` varchar(50) NULL default NULL,
   `p_install` tinyint(3) unsigned NOT NULL default '1',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||payment表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_personal_favorites`;
-CREATE TABLE `qs_personal_favorites` (
+DROP TABLE IF EXISTS `hw_personal_favorites`;
+CREATE TABLE `hw_personal_favorites` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `personal_uid` int(10) unsigned NOT NULL,
   `jobs_id` int(10) unsigned NOT NULL,
@@ -1337,12 +1337,12 @@ CREATE TABLE `qs_personal_favorites` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`did`),
   KEY `personal_uid` (`personal_uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||personal_favorites表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_personal_jobs_apply`;
-CREATE TABLE `qs_personal_jobs_apply` (
+DROP TABLE IF EXISTS `hw_personal_jobs_apply`;
+CREATE TABLE `hw_personal_jobs_apply` (
   `did` int(10) unsigned NOT NULL auto_increment,
   `resume_id` int(10) unsigned NOT NULL,
   `resume_name` varchar(60) NOT NULL,
@@ -1358,27 +1358,27 @@ CREATE TABLE `qs_personal_jobs_apply` (
   `is_reply` tinyint(1) unsigned NOT NULL default '0',
   `is_apply` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`did`),
-  KEY `personal_uid_id` (`personal_uid`,`resume_id`),
-  KEY `company_uid_jobid` (`company_uid`,`jobs_id`),
-  KEY `company_uid_look` (`company_uid`,`personal_look`),
-  KEY `personal_uid_addtime` (`personal_uid`,`apply_addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `personal_uid_resume_id` (`personal_uid`,`resume_id`),
+  KEY `company_uid_jobs_id` (`company_uid`,`jobs_id`),
+  KEY `company_uid_personal_look` (`company_uid`,`personal_look`),
+  KEY `personal_uid_apply_addtime` (`personal_uid`,`apply_addtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||personal_jobs_apply表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_plug`;
-CREATE TABLE `qs_plug` (
+DROP TABLE IF EXISTS `hw_plug`;
+CREATE TABLE `hw_plug` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `typename` varchar(15) NOT NULL,
   `plug_name` varchar(50) NOT NULL,
   `p_install` tinyint(3) unsigned NOT NULL default '1',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||plug表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_pms`;
-CREATE TABLE `qs_pms` (
+DROP TABLE IF EXISTS `hw_pms`;
+CREATE TABLE `hw_pms` (
   `pmid` int(10) unsigned NOT NULL auto_increment,
   `msgtype` tinyint(1) unsigned NOT NULL default '1',
   `msgfrom` varchar(30) NOT NULL,
@@ -1393,35 +1393,35 @@ CREATE TABLE `qs_pms` (
   PRIMARY KEY  (`pmid`),
   KEY `msgfromuid` (`msgfromuid`),
   KEY `msgtouid` (`msgtouid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||pms表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_pms_sys`;
-CREATE TABLE `qs_pms_sys` (
+DROP TABLE IF EXISTS `hw_pms_sys`;
+CREATE TABLE `hw_pms_sys` (
   `spmid` int(10) unsigned NOT NULL auto_increment,
   `spms_usertype` tinyint(1) unsigned NOT NULL default '0',
   `spms_type` tinyint(1) NOT NULL default '1',
   `message` varchar(250) NOT NULL,
   `dateline` int(10) NOT NULL,
-  PRIMARY KEY  (`spmid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`spmid`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||pms_sys表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_pms_sys_log`;
-CREATE TABLE `qs_pms_sys_log` (
+DROP TABLE IF EXISTS `hw_pms_sys_log`;
+CREATE TABLE `hw_pms_sys_log` (
   `lid` int(10) unsigned NOT NULL auto_increment,
   `loguid` int(10) unsigned NOT NULL,
   `pmid` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`lid`),
   KEY `loguid` (`loguid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||pms_sys_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_promotion`;
-CREATE TABLE `qs_promotion` (
+DROP TABLE IF EXISTS `hw_promotion`;
+CREATE TABLE `hw_promotion` (
   `cp_id` int(10) unsigned NOT NULL auto_increment,
   `cp_available` tinyint(1) NOT NULL default '1',
   `cp_promotionid` int(10) unsigned NOT NULL,
@@ -1436,12 +1436,12 @@ CREATE TABLE `qs_promotion` (
   PRIMARY KEY  (`cp_id`),
   KEY `cp_uid` (`cp_uid`),
   KEY `cp_endtime` (`cp_endtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||promotion表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_promotion_category`;
-CREATE TABLE `qs_promotion_category` (
+DROP TABLE IF EXISTS `hw_promotion_category`;
+CREATE TABLE `hw_promotion_category` (
   `cat_id` int(10) unsigned NOT NULL auto_increment,
   `cat_available` tinyint(1) NOT NULL default '1',
   `cat_name` varchar(30) NOT NULL,
@@ -1451,25 +1451,25 @@ CREATE TABLE `qs_promotion_category` (
   `cat_points` int(10) NOT NULL default '0',
   `cat_notes` text NOT NULL,
   `cat_order` int(10) NOT NULL default '0',
-  PRIMARY KEY  (`cat_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`cat_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||promotion_category表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_refresh_log`;
-CREATE TABLE `qs_refresh_log` (
+DROP TABLE IF EXISTS `hw_refresh_log`;
+CREATE TABLE `hw_refresh_log` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `mode` tinyint(1) unsigned NOT NULL default '0',
   `addtime` int(10) unsigned NOT NULL,
   `type` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||refresh_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_report`;
-CREATE TABLE `qs_report` (
+DROP TABLE IF EXISTS `hw_report`;
+CREATE TABLE `hw_report` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `jobs_id` int(10) unsigned NOT NULL,
@@ -1481,12 +1481,12 @@ CREATE TABLE `qs_report` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||report表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_report_resume`;
-CREATE TABLE `qs_report_resume` (
+DROP TABLE IF EXISTS `hw_report_resume`;
+CREATE TABLE `hw_report_resume` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `resume_id` int(10) unsigned NOT NULL,
@@ -1498,12 +1498,12 @@ CREATE TABLE `qs_report_resume` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||report_resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume`;
-CREATE TABLE `qs_resume` (
+DROP TABLE IF EXISTS `hw_resume`;
+CREATE TABLE `hw_resume` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `display` tinyint(3) unsigned NOT NULL default '1',
@@ -1559,27 +1559,27 @@ CREATE TABLE `qs_resume` (
   KEY `uid` (`uid`),
   KEY `refreshtime` (`refreshtime`),
   KEY `addtime` (`addtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_credent`;
-CREATE TABLE `qs_resume_credent` (
+DROP TABLE IF EXISTS `hw_resume_credent`;
+CREATE TABLE `hw_resume_credent` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
-  `name` varchar(255) character set gbk NOT NULL,
+  `name` varchar(255) NOT NULL,
   `year` int(4) NOT NULL,
   `month` int(2) NOT NULL,
-  `images` varchar(255) character set gbk NOT NULL,
+  `images` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_credent表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_district`;
-CREATE TABLE `qs_resume_district` (
+DROP TABLE IF EXISTS `hw_resume_district`;
+CREATE TABLE `hw_resume_district` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1587,13 +1587,13 @@ CREATE TABLE `qs_resume_district` (
   `sdistrict` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
-  KEY `district` (`district`,`sdistrict`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `district_sdistrict` (`district`,`sdistrict`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_district表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_education`;
-CREATE TABLE `qs_resume_education` (
+DROP TABLE IF EXISTS `hw_resume_education`;
+CREATE TABLE `hw_resume_education` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1608,27 +1608,27 @@ CREATE TABLE `qs_resume_education` (
   `todate` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_education表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_img`;
-CREATE TABLE `qs_resume_img` (
+DROP TABLE IF EXISTS `hw_resume_img`;
+CREATE TABLE `hw_resume_img` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `resume_id` int(10) unsigned NOT NULL,
-  `img` varchar(50) character set sjis NOT NULL default '',
-  `title` varchar(20) character set sjis NOT NULL default '',
+  `img` varchar(50) NOT NULL default '',
+  `title` varchar(20) NOT NULL default '',
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `resume_id` (`resume_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_img表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_jobs`;
-CREATE TABLE `qs_resume_jobs` (
+DROP TABLE IF EXISTS `hw_resume_jobs`;
+CREATE TABLE `hw_resume_jobs` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1637,28 +1637,28 @@ CREATE TABLE `qs_resume_jobs` (
   `subclass` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
-  KEY `category` (`category`,`subclass`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `category_subclass` (`category`,`subclass`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_jobs表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_language`;
-CREATE TABLE `qs_resume_language` (
+DROP TABLE IF EXISTS `hw_resume_language`;
+CREATE TABLE `hw_resume_language` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
   `language` smallint(5) NOT NULL,
-  `language_cn` varchar(50) character set gbk NOT NULL,
+  `language_cn` varchar(50) NOT NULL,
   `level` smallint(5) unsigned NOT NULL,
-  `level_cn` varchar(50) character set gbk NOT NULL,
+  `level_cn` varchar(50) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_language表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_search_key`;
-CREATE TABLE `qs_resume_search_key` (
+DROP TABLE IF EXISTS `hw_resume_search_key`;
+CREATE TABLE `hw_resume_search_key` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `display` tinyint(1) NOT NULL default '1',
   `audit` tinyint(1) unsigned NOT NULL,
@@ -1680,13 +1680,13 @@ CREATE TABLE `qs_resume_search_key` (
   `likekey` varchar(220) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
-  FULLTEXT KEY `key` (`key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `key` (`key`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_search_key表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_search_rtime`;
-CREATE TABLE `qs_resume_search_rtime` (
+DROP TABLE IF EXISTS `hw_resume_search_rtime`;
+CREATE TABLE `hw_resume_search_rtime` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `display` tinyint(1) NOT NULL default '1',
   `audit` tinyint(1) unsigned NOT NULL,
@@ -1707,16 +1707,16 @@ CREATE TABLE `qs_resume_search_rtime` (
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `refreshtime` (`refreshtime`),
-  KEY `district_rtime` (`district`,`refreshtime`),
-  KEY `photo_rtime` (`photo`,`refreshtime`),
-  KEY `sdistrict_rtime` (`sdistrict`,`refreshtime`),
-  KEY `talent_rtime` (`talent`,`refreshtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `district_refreshtime` (`district`,`refreshtime`),
+  KEY `photo_refreshtime` (`photo`,`refreshtime`),
+  KEY `sdistrict_refreshtime` (`sdistrict`,`refreshtime`),
+  KEY `talent_refreshtime` (`talent`,`refreshtime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_search_rtime表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_tag`;
-CREATE TABLE `qs_resume_tag` (
+DROP TABLE IF EXISTS `hw_resume_tag`;
+CREATE TABLE `hw_resume_tag` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1724,12 +1724,12 @@ CREATE TABLE `qs_resume_tag` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `tag` (`tag`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_tag表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_trade`;
-CREATE TABLE `qs_resume_trade` (
+DROP TABLE IF EXISTS `hw_resume_trade`;
+CREATE TABLE `hw_resume_trade` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
@@ -1737,12 +1737,12 @@ CREATE TABLE `qs_resume_trade` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `trade` (`trade`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_trade表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_training`;
-CREATE TABLE `qs_resume_training` (
+DROP TABLE IF EXISTS `hw_resume_training`;
+CREATE TABLE `hw_resume_training` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1756,12 +1756,12 @@ CREATE TABLE `qs_resume_training` (
   `todate` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_training表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_resume_work`;
-CREATE TABLE `qs_resume_work` (
+DROP TABLE IF EXISTS `hw_resume_work`;
+CREATE TABLE `hw_resume_work` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
@@ -1775,12 +1775,12 @@ CREATE TABLE `qs_resume_work` (
   `todate` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||resume_work表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_setmeal`;
-CREATE TABLE `qs_setmeal` (
+DROP TABLE IF EXISTS `hw_setmeal`;
+CREATE TABLE `hw_setmeal` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `display` tinyint(3) unsigned NOT NULL default '1',
   `apply` tinyint(3) unsigned NOT NULL default '1',
@@ -1810,13 +1810,13 @@ CREATE TABLE `qs_setmeal` (
   `refresh_jobs_space` int(10) unsigned NOT NULL default '0',
   `refresh_jobs_time` int(10) unsigned NOT NULL default '0',
   `set_sms` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||setmeal表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_simple`;
-CREATE TABLE `qs_simple` (
+DROP TABLE IF EXISTS `hw_simple`;
+CREATE TABLE `hw_simple` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `audit` tinyint(1) unsigned NOT NULL default '0',
   `pwd` varchar(60) NOT NULL,
@@ -1842,48 +1842,48 @@ CREATE TABLE `qs_simple` (
   KEY `audit_refreshtime` (`audit`,`refreshtime`),
   KEY `audit_click` (`audit`,`click`),
   KEY `deadline` (`deadline`),
-  FULLTEXT KEY `key` (`key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  KEY `key` (`key`)
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||simple表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_smsqueue`;
-CREATE TABLE `qs_smsqueue` (
+DROP TABLE IF EXISTS `hw_smsqueue`;
+CREATE TABLE `hw_smsqueue` (
   `s_id` int(10) unsigned NOT NULL auto_increment,
   `s_type` tinyint(3) unsigned NOT NULL default '0',
   `s_addtime` int(10) unsigned NOT NULL,
   `s_sendtime` int(10) unsigned NOT NULL default '0',
   `s_uid` int(10) unsigned NOT NULL default '0',
-  `s_mobile` text,
+  `s_mobile` text, NULL,
   `s_body` varchar(100) NOT NULL,
   PRIMARY KEY  (`s_id`),
   KEY `s_uid` (`s_uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||smsqueue表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_sms_config`;
-CREATE TABLE `qs_sms_config` (
+DROP TABLE IF EXISTS `hw_sms_config`;
+CREATE TABLE `hw_sms_config` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` varchar(200) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||sms_config表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_sms_templates`;
-CREATE TABLE `qs_sms_templates` (
+DROP TABLE IF EXISTS `hw_sms_templates`;
+CREATE TABLE `hw_sms_templates` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||sms_templates表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_syslog`;
-CREATE TABLE `qs_syslog` (
+DROP TABLE IF EXISTS `hw_syslog`;
+CREATE TABLE `hw_syslog` (
   `l_id` int(10) unsigned NOT NULL auto_increment,
   `l_type` tinyint(1) unsigned NOT NULL,
   `l_type_name` varchar(30) NOT NULL,
@@ -1892,13 +1892,13 @@ CREATE TABLE `qs_syslog` (
   `l_address` varchar(50) NOT NULL,
   `l_page` text NOT NULL,
   `l_str` text NOT NULL,
-  PRIMARY KEY  (`l_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`l_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||syslog表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_sys_email_log`;
-CREATE TABLE `qs_sys_email_log` (
+DROP TABLE IF EXISTS `hw_sys_email_log`;
+CREATE TABLE `hw_sys_email_log` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `send_from` varchar(50) NOT NULL,
   `send_to` varchar(50) NOT NULL,
@@ -1906,36 +1906,36 @@ CREATE TABLE `qs_sys_email_log` (
   `body` varchar(255) NOT NULL,
   `state` smallint(3) NOT NULL,
   `sendtime` int(10) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||sys_email_log表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_text`;
-CREATE TABLE `qs_text` (
+DROP TABLE IF EXISTS `hw_text`;
+CREATE TABLE `hw_text` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||text表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_tpl`;
-CREATE TABLE `qs_tpl` (
+DROP TABLE IF EXISTS `hw_tpl`;
+CREATE TABLE `hw_tpl` (
   `tpl_id` int(10) unsigned NOT NULL auto_increment,
   `tpl_type` tinyint(1) NOT NULL,
   `tpl_name` varchar(80) NOT NULL,
   `tpl_display` tinyint(1) NOT NULL default '1',
   `tpl_dir` varchar(80) NOT NULL,
   `tpl_val` int(10) NOT NULL default '0',
-  PRIMARY KEY  (`tpl_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`tpl_id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||tpl表创建成功！||-_-||
 
-DROP TABLE IF EXISTS `qs_weixin_menu`;
-CREATE TABLE `qs_weixin_menu` (
+DROP TABLE IF EXISTS `hw_weixin_menu`;
+CREATE TABLE `hw_weixin_menu` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parentid` int(10) unsigned NOT NULL default '0',
   `title` varchar(30) NOT NULL,
@@ -1944,7 +1944,8 @@ CREATE TABLE `qs_weixin_menu` (
   `url` varchar(255) NOT NULL,
   `menu_order` smallint(5) unsigned NOT NULL default '0',
   `status` tinyint(1) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk;
+  PRIMARY KEY  (`id`),
+) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
 
 ||-_-||weixin_menu表创建成功！||-_-||
+
