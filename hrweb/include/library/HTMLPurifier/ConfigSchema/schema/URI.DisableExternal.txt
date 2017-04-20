@@ -1,4 +1,4 @@
-﻿URI.DisableExternal
+URI.DisableExternal
 TYPE: bool
 VERSION: 1.2.0
 DEFAULT: false

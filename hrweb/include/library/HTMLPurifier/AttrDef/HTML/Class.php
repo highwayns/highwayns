@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Implements special behavior for class attribute (normally NMTOKENS)

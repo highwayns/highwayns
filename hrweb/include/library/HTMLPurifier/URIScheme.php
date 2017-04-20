@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validator for the components of a URI for a specific scheme

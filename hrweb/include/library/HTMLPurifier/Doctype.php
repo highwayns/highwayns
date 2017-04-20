@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Represents a document type, contains information on which modules

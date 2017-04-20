@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // must be called POST validation
 

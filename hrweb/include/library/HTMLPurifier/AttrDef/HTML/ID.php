@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates the HTML attribute ID.

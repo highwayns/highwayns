@@ -1,4 +1,4 @@
-﻿Attr.DefaultInvalidImage
+Attr.DefaultInvalidImage
 TYPE: string
 DEFAULT: ''
 --DESCRIPTION--

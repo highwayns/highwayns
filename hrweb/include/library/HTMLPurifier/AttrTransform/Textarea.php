@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Sets height/width defaults for <textarea>

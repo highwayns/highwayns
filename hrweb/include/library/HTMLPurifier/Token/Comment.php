@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Concrete comment token class. Generally will be ignored.

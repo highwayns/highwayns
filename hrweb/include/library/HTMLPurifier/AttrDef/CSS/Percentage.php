@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates a Percentage as defined by the CSS spec.

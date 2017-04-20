@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates an integer.

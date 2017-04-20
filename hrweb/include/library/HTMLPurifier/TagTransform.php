@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Defines a mutation of an obsolete tag into a valid tag.

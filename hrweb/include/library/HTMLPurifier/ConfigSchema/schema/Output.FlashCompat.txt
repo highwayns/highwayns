@@ -1,4 +1,4 @@
-﻿Output.FlashCompat
+Output.FlashCompat
 TYPE: bool
 VERSION: 4.1.0
 DEFAULT: false

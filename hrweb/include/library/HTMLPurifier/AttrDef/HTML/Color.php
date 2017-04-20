@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates a color according to the HTML spec.

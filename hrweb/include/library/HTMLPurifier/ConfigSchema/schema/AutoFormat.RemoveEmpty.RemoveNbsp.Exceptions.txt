@@ -1,4 +1,4 @@
-﻿AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions
+AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions
 TYPE: lookup
 VERSION: 4.0.0
 DEFAULT: array('td' => true, 'th' => true)

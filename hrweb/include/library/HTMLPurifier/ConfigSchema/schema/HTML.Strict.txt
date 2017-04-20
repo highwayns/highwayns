@@ -1,4 +1,4 @@
-﻿HTML.Strict
+HTML.Strict
 TYPE: bool
 VERSION: 1.3.0
 DEFAULT: false

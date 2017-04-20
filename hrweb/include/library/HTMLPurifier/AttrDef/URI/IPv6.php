@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates an IPv6 address.

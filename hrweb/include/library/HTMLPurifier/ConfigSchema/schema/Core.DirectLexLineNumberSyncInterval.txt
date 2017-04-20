@@ -1,4 +1,4 @@
-﻿Core.DirectLexLineNumberSyncInterval
+Core.DirectLexLineNumberSyncInterval
 TYPE: int
 VERSION: 2.0.0
 DEFAULT: 0

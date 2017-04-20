@@ -1,4 +1,4 @@
-﻿AutoFormat.AutoParagraph
+AutoFormat.AutoParagraph
 TYPE: bool
 VERSION: 2.0.1
 DEFAULT: false

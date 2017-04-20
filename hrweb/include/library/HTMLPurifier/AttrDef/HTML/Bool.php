@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates a boolean attribute

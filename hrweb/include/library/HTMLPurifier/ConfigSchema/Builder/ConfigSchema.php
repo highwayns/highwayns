@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Converts HTMLPurifier_ConfigSchema_Interchange to our runtime

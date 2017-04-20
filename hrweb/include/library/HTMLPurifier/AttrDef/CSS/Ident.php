@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates based on {ident} CSS grammar production

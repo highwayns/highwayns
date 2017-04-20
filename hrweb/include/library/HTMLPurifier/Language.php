@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Represents a language and defines localizable string formatting and

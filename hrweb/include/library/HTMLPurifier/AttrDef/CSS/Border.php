@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates the border property as defined by CSS.

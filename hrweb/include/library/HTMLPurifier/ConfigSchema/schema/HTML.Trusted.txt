@@ -1,4 +1,4 @@
-﻿HTML.Trusted
+HTML.Trusted
 TYPE: bool
 VERSION: 2.0.0
 DEFAULT: false

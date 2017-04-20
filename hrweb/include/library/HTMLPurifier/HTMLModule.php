@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Represents an XHTML 1.1 module, with information on elements, tags

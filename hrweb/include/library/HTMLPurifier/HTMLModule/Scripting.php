@@ -1,5 +1,11 @@
-﻿<?php
+<?php
 
+/*
+
+WARNING: THIS MODULE IS EXTREMELY DANGEROUS AS IT ENABLES INLINE SCRIPTING
+INSIDE HTML PURIFIER DOCUMENTS. USE ONLY WITH TRUSTED USER INPUT!!!
+
+*/
 
 /**
  * XHTML 1.1 Scripting module, defines elements that are used to contain

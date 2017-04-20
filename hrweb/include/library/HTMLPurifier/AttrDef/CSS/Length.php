@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Represents a Length as defined by CSS.

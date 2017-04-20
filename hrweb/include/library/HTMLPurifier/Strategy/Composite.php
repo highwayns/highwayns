@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Composite strategy that runs multiple strategies on tokens.

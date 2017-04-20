@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class HTMLPurifier_HTMLModule_Name extends HTMLPurifier_HTMLModule
 {

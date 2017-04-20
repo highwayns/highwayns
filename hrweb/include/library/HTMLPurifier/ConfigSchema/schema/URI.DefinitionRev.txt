@@ -1,4 +1,4 @@
-﻿URI.DefinitionRev
+URI.DefinitionRev
 TYPE: int
 VERSION: 2.1.0
 DEFAULT: 1

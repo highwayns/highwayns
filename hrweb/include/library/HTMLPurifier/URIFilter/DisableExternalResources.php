@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class HTMLPurifier_URIFilter_DisableExternalResources extends HTMLPurifier_URIFilter_DisableExternal
 {

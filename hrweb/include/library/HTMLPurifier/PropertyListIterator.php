@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Property list iterator. Do not instantiate this class directly.

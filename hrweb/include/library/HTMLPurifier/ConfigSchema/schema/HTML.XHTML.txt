@@ -1,4 +1,4 @@
-﻿HTML.XHTML
+HTML.XHTML
 TYPE: bool
 DEFAULT: true
 VERSION: 1.1.0

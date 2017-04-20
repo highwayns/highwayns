@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Post-transform that copies lang's value to xml:lang (and vice-versa)

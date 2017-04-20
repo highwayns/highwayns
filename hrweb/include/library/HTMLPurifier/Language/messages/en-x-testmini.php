@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // private language message file for unit testing purposes
 // this language file has no class associated with it

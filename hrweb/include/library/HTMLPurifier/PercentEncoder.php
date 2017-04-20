@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Class that handles operations involving percent-encoding in URIs.

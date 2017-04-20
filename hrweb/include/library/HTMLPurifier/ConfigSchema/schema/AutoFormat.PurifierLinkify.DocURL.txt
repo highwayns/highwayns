@@ -1,4 +1,4 @@
-﻿AutoFormat.PurifierLinkify.DocURL
+AutoFormat.PurifierLinkify.DocURL
 TYPE: string
 VERSION: 2.0.1
 DEFAULT: '#%s'

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Super-class for definition datatype objects, implements serialization

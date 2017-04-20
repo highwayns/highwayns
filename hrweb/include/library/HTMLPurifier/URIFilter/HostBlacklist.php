@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // It's not clear to me whether or not Punycode means that hostnames
 // do not have canonical forms anymore. As far as I can tell, it's

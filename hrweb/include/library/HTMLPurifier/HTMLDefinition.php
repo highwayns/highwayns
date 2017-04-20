@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Definition of the purified HTML that describes allowed children,

@@ -1,4 +1,4 @@
-﻿URI.OverrideAllowedSchemes
+URI.OverrideAllowedSchemes
 TYPE: bool
 DEFAULT: true
 --DESCRIPTION--

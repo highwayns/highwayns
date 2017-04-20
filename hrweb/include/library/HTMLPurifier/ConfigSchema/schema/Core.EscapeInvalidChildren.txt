@@ -1,4 +1,4 @@
-﻿Core.EscapeInvalidChildren
+Core.EscapeInvalidChildren
 TYPE: bool
 DEFAULT: false
 --DESCRIPTION--

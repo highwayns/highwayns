@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Abstract base node class that all others inherit from.

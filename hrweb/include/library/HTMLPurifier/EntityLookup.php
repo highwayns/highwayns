@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Object that provides entity lookup table from entity name to character

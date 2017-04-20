@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Validates https (Secure HTTP) according to http scheme.

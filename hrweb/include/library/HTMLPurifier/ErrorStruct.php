@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Records errors for particular segments of an HTML document such as tokens,

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Decorator which enables CSS properties to be disabled for specific elements.

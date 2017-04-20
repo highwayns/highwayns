@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class HTMLPurifier_URIDefinition extends HTMLPurifier_Definition
 {

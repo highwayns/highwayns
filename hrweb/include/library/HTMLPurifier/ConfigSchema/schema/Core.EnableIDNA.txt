@@ -1,4 +1,4 @@
-﻿Core.EnableIDNA
+Core.EnableIDNA
 TYPE: bool
 DEFAULT: false
 VERSION: 4.4.0

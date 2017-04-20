@@ -1,4 +1,4 @@
-﻿Test.ForceNoIconv
+Test.ForceNoIconv
 TYPE: bool
 DEFAULT: false
 --DESCRIPTION--

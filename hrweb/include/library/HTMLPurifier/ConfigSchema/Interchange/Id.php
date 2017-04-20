@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * Represents a directive ID in the interchange format.
