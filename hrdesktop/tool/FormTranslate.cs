@@ -80,7 +80,7 @@ namespace highwayns
                 string line = sr.ReadLine();
                 while (line != null)
                 {
-                    string[] temp = line.Split("[:]".ToCharArray());
+                    string[] temp = split(line, "[:]");
                     if(temp.Length==2)
                     {
                         ht[temp[0]] = temp[1];
@@ -100,6 +100,14 @@ namespace highwayns
                 foreach (string key in ht.Keys)
                 {
                     sw.WriteLine(key + "[:]" + ht[key].ToString());
+                }
+            }
+            string filename2 = filename+".key";
+            using (StreamWriter sw = new StreamWriter(filename2, false, Encoding.UTF8))
+            {
+                foreach (string key in ht.Keys)
+                {
+                    sw.WriteLine(ht[key].ToString());
                 }
             }
         }
@@ -359,5 +367,61 @@ namespace highwayns
             }
         }
 
+        private void btnCombineKey_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMiddleFile.Text))
+            {
+                MessageBox.Show("Please select a middle File");
+                return;
+            }
+            string filename = txtMiddleFile.Text;
+            loadCombineSource(filename);
+            using (StreamWriter sw = new StreamWriter(filename, false, Encoding.UTF8))
+            {
+                foreach (string key in ht.Keys)
+                {
+                    sw.WriteLine(key + "[:]" + ht[key].ToString());
+                }
+            }
+            MessageBox.Show("Combine Over!");
+        }
+        /// <summary>
+        /// Load Translate infor from middle file
+        /// </summary>
+        private void loadCombineSource(string filename)
+        {
+            string filename2 = filename + ".key";
+
+            using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+            {
+                using (StreamReader sr2 = new StreamReader(filename2, Encoding.UTF8))
+                {
+                    string line = sr.ReadLine();
+                    string line2 = sr2.ReadLine();
+                    while (line != null && line2 != null)
+                    {
+                        string[] temp = split(line,"[:]");
+                        if (temp.Length == 2)
+                        {
+                            ht[temp[0]] = line2;
+                        }
+                        line = sr.ReadLine();
+                        line2 = sr2.ReadLine();
+                    }
+                }
+            }
+
+        }
+
+        private string[] split(string line, string sep)
+        {
+            string[] ret = new string[2];
+            if (line.IndexOf(sep) > -1)
+            {
+                ret[0] = line.Substring(0, line.IndexOf(sep));
+                ret[1] = line.Substring(line.IndexOf(sep) + sep.Length);
+            }
+            return ret;
+        }
     }
 }
