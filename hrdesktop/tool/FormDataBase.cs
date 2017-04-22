@@ -220,7 +220,7 @@ namespace highwayns
                         sw.WriteLine(line);
                     }
                     line = ") ENGINE={0}  DEFAULT CHARSET={1};";
-                    line = string.Format(line, "InnoDB", "uft8");
+                    line = string.Format(line, "InnoDB", "utf8");
                     line = replace(line);
                     sw.WriteLine(line);
 

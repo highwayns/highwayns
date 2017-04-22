@@ -35,7 +35,7 @@ CREATE TABLE `hw_ad` (
   `video_height` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `alias_starttime_deadline` (`alias`,`starttime`,`deadline`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||ad表创建成功！||-_-||
 
@@ -52,7 +52,7 @@ CREATE TABLE `hw_admin` (
   `last_login_time` int(10) NOT NULL,
   `last_login_ip` varchar(15) NOT NULL,
   PRIMARY KEY  (`admin_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||admin表创建成功！||-_-||
 
@@ -65,7 +65,7 @@ CREATE TABLE `hw_admin_log` (
   `log_ip` varchar(20) NOT NULL,
   `log_type` tinyint(1) unsigned NOT NULL default '1',
   PRIMARY KEY  (`log_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||admin_log表创建成功！||-_-||
 
@@ -78,7 +78,7 @@ CREATE TABLE `hw_ad_category` (
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   `expense` smallint(5) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||ad_category表创建成功！||-_-||
 
@@ -109,7 +109,7 @@ CREATE TABLE `hw_article` (
   KEY `focos_article_order_id` (`focos`,`article_order`,`id`),
   KEY `addtime` (`addtime`),
   KEY `parentid_article_order_id` (`parentid`,`article_order`,`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||article表创建成功！||-_-||
 
@@ -124,7 +124,7 @@ CREATE TABLE `hw_article_category` (
   `keywords` varchar(255) NULL default NULL,
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||article_category表创建成功！||-_-||
 
@@ -135,7 +135,7 @@ CREATE TABLE `hw_article_property` (
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||article_property表创建成功！||-_-||
 
@@ -151,7 +151,7 @@ CREATE TABLE `hw_audit_reason` (
   KEY `jobs_id` (`jobs_id`),
   KEY `company_id` (`company_id`),
   KEY `resume_id` (`resume_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||audit_reason表创建成功！||-_-||
 
@@ -161,7 +161,7 @@ CREATE TABLE `hw_baiduxml` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||baiduxml表创建成功！||-_-||
 
@@ -171,7 +171,7 @@ CREATE TABLE `hw_baidu_submiturl` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||baidu_submiturl表创建成功！||-_-||
 
@@ -181,7 +181,7 @@ CREATE TABLE `hw_captcha` (
   `name` varchar(100) NOT NULL,
   `value` varchar(200) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||captcha表创建成功！||-_-||
 
@@ -198,7 +198,7 @@ CREATE TABLE `hw_category` (
   `stat_resume` char(15) NOT NULL,
   PRIMARY KEY  (`c_id`),
   KEY `c_alias` (`c_alias`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||category表创建成功！||-_-||
 
@@ -211,7 +211,7 @@ CREATE TABLE `hw_category_district` (
   `stat_jobs` varchar(15) NOT NULL,
   `stat_resume` varchar(15) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||category_district表创建成功！||-_-||
 
@@ -222,7 +222,7 @@ CREATE TABLE `hw_category_group` (
   `g_name` varchar(100) NOT NULL,
   `g_sys` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`g_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||category_group表创建成功！||-_-||
 
@@ -237,7 +237,7 @@ CREATE TABLE `hw_category_jobs` (
   `content` text, NULL,
   PRIMARY KEY  (`id`),
   KEY `parentid` (`parentid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||category_jobs表创建成功！||-_-||
 
@@ -248,7 +248,7 @@ CREATE TABLE `hw_category_major` (
   `categoryname` varchar(50) NOT NULL,
   `category_order` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||category_major表创建成功！||-_-||
 
@@ -257,7 +257,7 @@ CREATE TABLE `hw_color` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||color表创建成功！||-_-||
 
@@ -274,7 +274,7 @@ CREATE TABLE `hw_company_down_resume` (
   KEY `resume_uid_resume_id` (`resume_uid`,`resume_id`),
   KEY `down_addtime` (`down_addtime`),
   KEY `company_uid_down_addtime` (`company_uid`,`down_addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||company_down_resume表创建成功！||-_-||
 
@@ -286,7 +286,7 @@ CREATE TABLE `hw_company_favorites` (
   `favoritesa_ddtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`did`),
   KEY `company_uid` (`company_uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||company_favorites表创建成功！||-_-||
 
@@ -311,7 +311,7 @@ CREATE TABLE `hw_company_interview` (
   PRIMARY KEY  (`did`),
   KEY `resume_uid_resume_id` (`resume_uid`,`resume_id`),
   KEY `company_uid_jobs_id` (`company_uid`,`jobs_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||company_interview表创建成功！||-_-||
 
@@ -324,7 +324,7 @@ CREATE TABLE `hw_company_label_resume` (
   `resume_state` tinyint(1) NOT NULL default '0',
   `resume_state_cn` varchar(20) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||company_label_resume表创建成功！||-_-||
 
@@ -381,7 +381,7 @@ CREATE TABLE `hw_company_profile` (
   KEY `companyname` (`companyname`),
   KEY `yellowpages_trade` (`yellowpages`,`trade`),
   KEY `addtime` (`addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||company_profile表创建成功！||-_-||
 
@@ -391,7 +391,7 @@ CREATE TABLE `hw_config` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||config表创建成功！||-_-||
 
@@ -402,7 +402,7 @@ CREATE TABLE `hw_consultant` (
   `pic` text, NULL,
   `qq` int(15) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||consultant表创建成功！||-_-||
 
@@ -420,7 +420,7 @@ CREATE TABLE `hw_crons` (
   `hour` tinyint(2) NOT NULL,
   `minute` varchar(60) NOT NULL,
   PRIMARY KEY  (`cronid`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||crons表创建成功！||-_-||
 
@@ -441,7 +441,7 @@ CREATE TABLE `hw_explain` (
   `show_order` smallint(5) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `type_id` (`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||explain表创建成功！||-_-||
 
@@ -452,7 +452,7 @@ CREATE TABLE `hw_explain_category` (
   `category_order` smallint(5) unsigned NOT NULL default '0',
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||explain_category表创建成功！||-_-||
 
@@ -464,7 +464,7 @@ CREATE TABLE `hw_feedback` (
   `addtime` int(10) NOT NULL,
   `tel` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||feedback表创建成功！||-_-||
 
@@ -481,7 +481,7 @@ CREATE TABLE `hw_help` (
   PRIMARY KEY  (`id`),
   KEY `type_id_order_id` (`type_id`,`order`,`id`),
   KEY `order_id` (`order`,`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||help表创建成功！||-_-||
 
@@ -492,7 +492,7 @@ CREATE TABLE `hw_help_category` (
   `categoryname` varchar(80) NOT NULL,
   `category_order` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||help_category表创建成功！||-_-||
 
@@ -504,7 +504,7 @@ CREATE TABLE `hw_hotword` (
   PRIMARY KEY  (`w_id`),
   KEY `w_word` (`w_word`),
   KEY `w_hot` (`w_hot`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||hotword表创建成功！||-_-||
 
@@ -518,7 +518,7 @@ CREATE TABLE `hw_hrtools` (
   `h_color` varchar(7) NOT NULL,
   `h_strong` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`h_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||hrtools表创建成功！||-_-||
 
@@ -529,7 +529,7 @@ CREATE TABLE `hw_hrtools_category` (
   `c_order` int(11) NOT NULL default '0',
   `c_adminset` tinyint(3) NOT NULL default '0',
   PRIMARY KEY  (`c_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||hrtools_category表创建成功！||-_-||
 
@@ -599,7 +599,7 @@ CREATE TABLE `hw_jobs` (
   KEY `company_id` (`company_id`),
   KEY `deadline` (`deadline`),
   KEY `audit` (`audit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs表创建成功！||-_-||
 
@@ -621,7 +621,7 @@ CREATE TABLE `hw_jobs_contact` (
   `qq_show` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_contact表创建成功！||-_-||
 
@@ -658,7 +658,7 @@ CREATE TABLE `hw_jobs_search_hot` (
   KEY `uid` (`uid`),
   KEY `refreshtime` (`refreshtime`),
   KEY `street_click` (`street`,`click`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_search_hot表创建成功！||-_-||
 
@@ -696,7 +696,7 @@ CREATE TABLE `hw_jobs_search_key` (
   KEY `district` (`district`),
   KEY `sdistrict` (`sdistrict`),
   KEY `key` (`key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_search_key表创建成功！||-_-||
 
@@ -736,7 +736,7 @@ CREATE TABLE `hw_jobs_search_rtime` (
   KEY `uid` (`uid`),
   KEY `map_x_map_y` (`map_x`,`map_y`),
   KEY `street_refreshtime` (`street`,`refreshtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_search_rtime表创建成功！||-_-||
 
@@ -771,7 +771,7 @@ CREATE TABLE `hw_jobs_search_scale` (
   KEY `district_scale_refreshtime` (`district`,`scale`,`refreshtime`),
   KEY `sdistrict_scale_refreshtime` (`sdistrict`,`scale`,`refreshtime`),
   KEY `street_scale_refreshtime` (`street`,`scale`,`refreshtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_search_scale表创建成功！||-_-||
 
@@ -807,7 +807,7 @@ CREATE TABLE `hw_jobs_search_stickrtime` (
   KEY `uid` (`uid`),
   KEY `category_stick_refreshtime` (`category`,`stick`,`refreshtime`),
   KEY `street_stick_refreshtime` (`street`,`stick`,`refreshtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_search_stickrtime表创建成功！||-_-||
 
@@ -842,7 +842,7 @@ CREATE TABLE `hw_jobs_search_wage` (
   KEY `subclass_wage_refreshtime` (`subclass`,`wage`,`refreshtime`),
   KEY `category_wage_refreshtime` (`category`,`wage`,`refreshtime`),
   KEY `street_wage_refreshtime` (`street`,`wage`,`refreshtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_search_wage表创建成功！||-_-||
 
@@ -855,7 +855,7 @@ CREATE TABLE `hw_jobs_tag` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `tag` (`tag`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_tag表创建成功！||-_-||
 
@@ -925,7 +925,7 @@ CREATE TABLE `hw_jobs_tmp` (
   KEY `company_id` (`company_id`),
   KEY `deadline` (`deadline`),
   KEY `audit` (`audit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||jobs_tmp表创建成功！||-_-||
 
@@ -943,7 +943,7 @@ CREATE TABLE `hw_link` (
   `app_notes` varchar(300) NOT NULL,
   PRIMARY KEY  (`link_id`),
   KEY `show_order` (`show_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||link表创建成功！||-_-||
 
@@ -954,7 +954,7 @@ CREATE TABLE `hw_link_category` (
   `c_sys` tinyint(1) unsigned NOT NULL default '0',
   `c_alias` varchar(30) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||link_category表创建成功！||-_-||
 
@@ -964,7 +964,7 @@ CREATE TABLE `hw_locoyspider` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||locoyspider表创建成功！||-_-||
 
@@ -974,7 +974,7 @@ CREATE TABLE `hw_mailconfig` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||mailconfig表创建成功！||-_-||
 
@@ -990,7 +990,7 @@ CREATE TABLE `hw_mailqueue` (
   `m_body` text NOT NULL,
   PRIMARY KEY  (`m_id`),
   KEY `m_uid` (`m_uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||mailqueue表创建成功！||-_-||
 
@@ -1000,7 +1000,7 @@ CREATE TABLE `hw_mail_templates` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||mail_templates表创建成功！||-_-||
 
@@ -1045,7 +1045,7 @@ CREATE TABLE `hw_members` (
   KEY `qq_openid` (`qq_openid`),
   KEY `sina_access_token` (`sina_access_token`),
   KEY `taobao_access_token` (`taobao_access_token`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members表创建成功！||-_-||
 
@@ -1066,7 +1066,7 @@ CREATE TABLE `hw_members_charge_log` (
   KEY `log_addtime` (`log_addtime`),
   KEY `log_type_log_addtime` (`log_type`,`log_addtime`),
   KEY `log_uid_log_addtime` (`log_uid`,`log_addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_charge_log表创建成功！||-_-||
 
@@ -1078,7 +1078,7 @@ CREATE TABLE `hw_members_handsel` (
   `addtime` int(10) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid_htype_addtime` (`uid`,`htype`,`addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_handsel表创建成功！||-_-||
 
@@ -1105,7 +1105,7 @@ CREATE TABLE `hw_members_info` (
   `marriage_cn` varchar(30) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_info表创建成功！||-_-||
 
@@ -1131,7 +1131,7 @@ CREATE TABLE `hw_members_log` (
   KEY `log_type_log_addtime` (`log_type`,`log_addtime`),
   KEY `log_utype_log_addtime` (`log_utype`,`log_addtime`),
   KEY `log_uid_log_addtime` (`log_uid`,`log_addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_log表创建成功！||-_-||
 
@@ -1142,7 +1142,7 @@ CREATE TABLE `hw_members_points` (
   `points` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_points表创建成功！||-_-||
 
@@ -1155,7 +1155,7 @@ CREATE TABLE `hw_members_points_rule` (
   `operation` tinyint(1) NOT NULL default '2',
   `value` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_points_rule表创建成功！||-_-||
 
@@ -1195,7 +1195,7 @@ CREATE TABLE `hw_members_setmeal` (
   KEY `effective_setmeal_id` (`effective`,`setmeal_id`),
   KEY `effective_endtime` (`effective`,`endtime`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||members_setmeal表创建成功！||-_-||
 
@@ -1214,7 +1214,7 @@ CREATE TABLE `hw_navigation` (
   `target` varchar(100) NOT NULL,
   `navigationorder` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||navigation表创建成功！||-_-||
 
@@ -1225,7 +1225,7 @@ CREATE TABLE `hw_navigation_category` (
   `categoryname` varchar(30) NOT NULL,
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||navigation_category表创建成功！||-_-||
 
@@ -1246,7 +1246,7 @@ CREATE TABLE `hw_notice` (
   `sort` smallint(5) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `type_id_sort_id` (`type_id`,`sort`,`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||notice表创建成功！||-_-||
 
@@ -1257,7 +1257,7 @@ CREATE TABLE `hw_notice_category` (
   `sort` smallint(5) unsigned NOT NULL default '0',
   `admin_set` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||notice_category表创建成功！||-_-||
 
@@ -1283,7 +1283,7 @@ CREATE TABLE `hw_order` (
   KEY `addtime` (`addtime`),
   KEY `payment_name` (`payment_name`),
   KEY `oid` (`oid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||order表创建成功！||-_-||
 
@@ -1304,7 +1304,7 @@ CREATE TABLE `hw_page` (
   `description` varchar(200) NOT NULL,
   `keywords` varchar(200) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||page表创建成功！||-_-||
 
@@ -1324,7 +1324,7 @@ CREATE TABLE `hw_payment` (
   `parameter3` varchar(50) NULL default NULL,
   `p_install` tinyint(3) unsigned NOT NULL default '1',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||payment表创建成功！||-_-||
 
@@ -1337,7 +1337,7 @@ CREATE TABLE `hw_personal_favorites` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`did`),
   KEY `personal_uid` (`personal_uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||personal_favorites表创建成功！||-_-||
 
@@ -1362,7 +1362,7 @@ CREATE TABLE `hw_personal_jobs_apply` (
   KEY `company_uid_jobs_id` (`company_uid`,`jobs_id`),
   KEY `company_uid_personal_look` (`company_uid`,`personal_look`),
   KEY `personal_uid_apply_addtime` (`personal_uid`,`apply_addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||personal_jobs_apply表创建成功！||-_-||
 
@@ -1373,7 +1373,7 @@ CREATE TABLE `hw_plug` (
   `plug_name` varchar(50) NOT NULL,
   `p_install` tinyint(3) unsigned NOT NULL default '1',
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||plug表创建成功！||-_-||
 
@@ -1393,7 +1393,7 @@ CREATE TABLE `hw_pms` (
   PRIMARY KEY  (`pmid`),
   KEY `msgfromuid` (`msgfromuid`),
   KEY `msgtouid` (`msgtouid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||pms表创建成功！||-_-||
 
@@ -1405,7 +1405,7 @@ CREATE TABLE `hw_pms_sys` (
   `message` varchar(250) NOT NULL,
   `dateline` int(10) NOT NULL,
   PRIMARY KEY  (`spmid`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||pms_sys表创建成功！||-_-||
 
@@ -1416,7 +1416,7 @@ CREATE TABLE `hw_pms_sys_log` (
   `pmid` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`lid`),
   KEY `loguid` (`loguid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||pms_sys_log表创建成功！||-_-||
 
@@ -1436,7 +1436,7 @@ CREATE TABLE `hw_promotion` (
   PRIMARY KEY  (`cp_id`),
   KEY `cp_uid` (`cp_uid`),
   KEY `cp_endtime` (`cp_endtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||promotion表创建成功！||-_-||
 
@@ -1452,7 +1452,7 @@ CREATE TABLE `hw_promotion_category` (
   `cat_notes` text NOT NULL,
   `cat_order` int(10) NOT NULL default '0',
   PRIMARY KEY  (`cat_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||promotion_category表创建成功！||-_-||
 
@@ -1464,7 +1464,7 @@ CREATE TABLE `hw_refresh_log` (
   `addtime` int(10) unsigned NOT NULL,
   `type` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||refresh_log表创建成功！||-_-||
 
@@ -1481,7 +1481,7 @@ CREATE TABLE `hw_report` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||report表创建成功！||-_-||
 
@@ -1498,7 +1498,7 @@ CREATE TABLE `hw_report_resume` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||report_resume表创建成功！||-_-||
 
@@ -1559,7 +1559,7 @@ CREATE TABLE `hw_resume` (
   KEY `uid` (`uid`),
   KEY `refreshtime` (`refreshtime`),
   KEY `addtime` (`addtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume表创建成功！||-_-||
 
@@ -1574,7 +1574,7 @@ CREATE TABLE `hw_resume_credent` (
   `images` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_credent表创建成功！||-_-||
 
@@ -1588,7 +1588,7 @@ CREATE TABLE `hw_resume_district` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `district_sdistrict` (`district`,`sdistrict`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_district表创建成功！||-_-||
 
@@ -1608,7 +1608,7 @@ CREATE TABLE `hw_resume_education` (
   `todate` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_education表创建成功！||-_-||
 
@@ -1623,7 +1623,7 @@ CREATE TABLE `hw_resume_img` (
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `resume_id` (`resume_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_img表创建成功！||-_-||
 
@@ -1638,7 +1638,7 @@ CREATE TABLE `hw_resume_jobs` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `category_subclass` (`category`,`subclass`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_jobs表创建成功！||-_-||
 
@@ -1653,7 +1653,7 @@ CREATE TABLE `hw_resume_language` (
   `level_cn` varchar(50) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_language表创建成功！||-_-||
 
@@ -1681,7 +1681,7 @@ CREATE TABLE `hw_resume_search_key` (
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`),
   KEY `key` (`key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_search_key表创建成功！||-_-||
 
@@ -1711,7 +1711,7 @@ CREATE TABLE `hw_resume_search_rtime` (
   KEY `photo_refreshtime` (`photo`,`refreshtime`),
   KEY `sdistrict_refreshtime` (`sdistrict`,`refreshtime`),
   KEY `talent_refreshtime` (`talent`,`refreshtime`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_search_rtime表创建成功！||-_-||
 
@@ -1724,7 +1724,7 @@ CREATE TABLE `hw_resume_tag` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `tag` (`tag`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_tag表创建成功！||-_-||
 
@@ -1737,7 +1737,7 @@ CREATE TABLE `hw_resume_trade` (
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`),
   KEY `trade` (`trade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_trade表创建成功！||-_-||
 
@@ -1756,7 +1756,7 @@ CREATE TABLE `hw_resume_training` (
   `todate` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_training表创建成功！||-_-||
 
@@ -1775,7 +1775,7 @@ CREATE TABLE `hw_resume_work` (
   `todate` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||resume_work表创建成功！||-_-||
 
@@ -1811,7 +1811,7 @@ CREATE TABLE `hw_setmeal` (
   `refresh_jobs_time` int(10) unsigned NOT NULL default '0',
   `set_sms` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||setmeal表创建成功！||-_-||
 
@@ -1843,7 +1843,7 @@ CREATE TABLE `hw_simple` (
   KEY `audit_click` (`audit`,`click`),
   KEY `deadline` (`deadline`),
   KEY `key` (`key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||simple表创建成功！||-_-||
 
@@ -1858,7 +1858,7 @@ CREATE TABLE `hw_smsqueue` (
   `s_body` varchar(100) NOT NULL,
   PRIMARY KEY  (`s_id`),
   KEY `s_uid` (`s_uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||smsqueue表创建成功！||-_-||
 
@@ -1868,7 +1868,7 @@ CREATE TABLE `hw_sms_config` (
   `name` varchar(100) NOT NULL,
   `value` varchar(200) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||sms_config表创建成功！||-_-||
 
@@ -1878,7 +1878,7 @@ CREATE TABLE `hw_sms_templates` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||sms_templates表创建成功！||-_-||
 
@@ -1893,7 +1893,7 @@ CREATE TABLE `hw_syslog` (
   `l_page` text NOT NULL,
   `l_str` text NOT NULL,
   PRIMARY KEY  (`l_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||syslog表创建成功！||-_-||
 
@@ -1907,7 +1907,7 @@ CREATE TABLE `hw_sys_email_log` (
   `state` smallint(3) NOT NULL,
   `sendtime` int(10) NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||sys_email_log表创建成功！||-_-||
 
@@ -1917,7 +1917,7 @@ CREATE TABLE `hw_text` (
   `name` varchar(100) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||text表创建成功！||-_-||
 
@@ -1930,7 +1930,7 @@ CREATE TABLE `hw_tpl` (
   `tpl_dir` varchar(80) NOT NULL,
   `tpl_val` int(10) NOT NULL default '0',
   PRIMARY KEY  (`tpl_id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||tpl表创建成功！||-_-||
 
@@ -1945,7 +1945,7 @@ CREATE TABLE `hw_weixin_menu` (
   `menu_order` smallint(5) unsigned NOT NULL default '0',
   `status` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
-) ENGINE=InnoDB  DEFAULT CHARSET=uft8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 ||-_-||weixin_menu表创建成功！||-_-||
 
