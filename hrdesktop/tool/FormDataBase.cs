@@ -74,7 +74,7 @@ namespace highwayns
                                 }
                                 else
                                 {
-                                    table.fields_type.Add(line.Trim().Split(' ')[1]);
+                                    table.fields_type.Add(line.Trim().Split(' ')[1].Replace(",",""));
                                     table.fields_size.Add("");
                                 }
                                 if (line.IndexOf("NOT NULL") > -1)
@@ -204,17 +204,31 @@ namespace highwayns
                     }
                     if (!string.IsNullOrEmpty(tbl.pk))
                     {
-                        line = "  PRIMARY KEY  (`{0}`),";
+                        if(tbl.keys.Count>0)
+                            line = "  PRIMARY KEY  (`{0}`),";
+                        else
+                            line = "  PRIMARY KEY  (`{0}`)";
                         line = string.Format(line, tbl.pk);
                         line = replace(line);
                         sw.WriteLine(line);
                     }
                     for (int idx = 0; idx < tbl.keys.Count;idx++ )
                     {
-                        if(idx ==tbl.keys.Count-1)
-                            line = "  KEY `{1}` ({0})";
+                        if (tbl.keys[idx] == "`key`")
+                        {
+                            if (idx == tbl.keys.Count - 1)
+                                line = "  FULLTEXT KEY `{1}` ({0})";
+                            else
+                                line = "  FULLTEXT KEY `{1}` ({0}),";
+                        }
                         else
-                            line = "  KEY `{1}` ({0}),";
+                        {
+                            if (idx == tbl.keys.Count - 1)
+                                line = "  KEY `{1}` ({0})";
+                            else
+                                line = "  KEY `{1}` ({0}),";
+                        }
+                        
                         line = string.Format(line, tbl.keys[idx], tbl.keys[idx].Replace("`,`", "_").Replace("`", ""));
                         line = replace(line);
                         sw.WriteLine(line);
@@ -226,7 +240,7 @@ namespace highwayns
 
                     line = "";
                     sw.WriteLine(line);
-                    line = "||-_-||{0}表创建成功！||-_-||";
+                    line = "#||-_-||{0}表创建成功！||-_-||#";
                     line = string.Format(line, tbl.name.Substring(3));
                     line = replace(line);
                     sw.WriteLine(line);
