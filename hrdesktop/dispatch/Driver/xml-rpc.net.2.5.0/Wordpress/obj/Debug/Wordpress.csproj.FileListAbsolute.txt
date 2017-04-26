@@ -1,9 +1,0 @@
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\bin\Debug\Wordpress.exe
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\bin\Debug\Wordpress.pdb
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\bin\Debug\CookComputing.XmlRpcV2.dll
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\bin\Debug\CookComputing.XmlRpcV2.pdb
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\obj\Debug\Wordpress.csprojResolveAssemblyReference.cache
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\obj\Debug\Wordpress.Properties.Resources.resources
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\obj\Debug\Wordpress.csproj.GenerateResource.Cache
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\obj\Debug\Wordpress.exe
-C:\Users\gun\Documents\HPS\CJW\Driver\xml-rpc.net.2.5.0\Wordpress\obj\Debug\Wordpress.pdb

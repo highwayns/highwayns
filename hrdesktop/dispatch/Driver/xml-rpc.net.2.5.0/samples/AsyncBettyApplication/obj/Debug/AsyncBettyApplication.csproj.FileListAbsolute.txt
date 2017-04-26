@@ -1,7 +1,0 @@
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\bin\BettyAsyncApp.exe
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\bin\BettyAsyncApp.pdb
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\samples\AsyncBettyApplication\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\samples\AsyncBettyApplication\obj\Debug\AsyncBettyApplication.Form1.resources
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\samples\AsyncBettyApplication\obj\Debug\AsyncBettyApplication.csproj.GenerateResource.Cache
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\samples\AsyncBettyApplication\obj\Debug\BettyAsyncApp.exe
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\samples\AsyncBettyApplication\obj\Debug\BettyAsyncApp.pdb
