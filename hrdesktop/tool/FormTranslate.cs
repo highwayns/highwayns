@@ -21,7 +21,7 @@ namespace highwayns
         /// Translate hashtable
         /// </summary>
         private Hashtable ht = new Hashtable();
-
+        private int FileCount = 0;
         /// <summary>
         /// GetTranslate information from path into a file
         /// Translate files use the tanslate information from a file
@@ -155,7 +155,11 @@ namespace highwayns
                     }
                     else
                     {
-                        getFileTranslate(file);
+                        if(getFileTranslate(file))
+                        {
+                            FileCount++;
+                            listHis.Items.Add(FileCount.ToString()+" "+ file);
+                        }
                     }
                 }
             }
@@ -169,8 +173,9 @@ namespace highwayns
         /// get Translate information from a file
         /// </summary>
         /// <param name="file"></param>
-        private void getFileTranslate(string file)
+        private bool getFileTranslate(string file)
         {
+            bool result = false;
             using (StreamReader sr = new StreamReader(file, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
@@ -180,10 +185,12 @@ namespace highwayns
                     foreach(string str in ret)
                     {
                         ht[str] = str;
+                        result = true;
                     }
                     line = sr.ReadLine();
                 }                
             }
+            return result;
         }
         /// <summary>
         /// get Translate information from chinese.ini file
@@ -282,7 +289,9 @@ namespace highwayns
         /// <returns></returns>
         private string TranslateLine(string line)
         {
-            string[] temps = line.Split('"');
+            char splitFlg = '"';
+            if (rdbKako.Checked) splitFlg = '>';
+            string[] temps = line.Split(splitFlg);
             if (temps.Length > 2)
             {
                 for (int i = 0; i < (temps.Length - 1) / 2; i++)
@@ -348,6 +357,7 @@ namespace highwayns
                 return;
             }
             exts = txtExt.Text.Split(',');
+            listHis.Items.Clear();
             GetTranslate(txtPath.Text);
             saveHashtable(txtMiddleFile.Text);
             MessageBox.Show("GetTranslate Over!");
