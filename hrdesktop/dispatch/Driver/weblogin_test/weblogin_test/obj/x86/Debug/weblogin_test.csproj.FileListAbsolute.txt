@@ -1,8 +1,0 @@
-E:\Tokyo\chojo\weblogin_test\weblogin_test\bin\Debug\weblogin_test.exe
-E:\Tokyo\chojo\weblogin_test\weblogin_test\bin\Debug\weblogin_test.pdb
-E:\Tokyo\chojo\weblogin_test\weblogin_test\obj\x86\Debug\weblogin_test.weblogin.resources
-E:\Tokyo\chojo\weblogin_test\weblogin_test\obj\x86\Debug\weblogin_test.Properties.Resources.resources
-E:\Tokyo\chojo\weblogin_test\weblogin_test\obj\x86\Debug\weblogin_test.csproj.GenerateResource.Cache
-E:\Tokyo\chojo\weblogin_test\weblogin_test\obj\x86\Debug\weblogin_test.exe
-E:\Tokyo\chojo\weblogin_test\weblogin_test\obj\x86\Debug\weblogin_test.pdb
-E:\Tokyo\chojo\weblogin_test\weblogin_test\obj\x86\Debug\weblogin_test.csprojResolveAssemblyReference.cache

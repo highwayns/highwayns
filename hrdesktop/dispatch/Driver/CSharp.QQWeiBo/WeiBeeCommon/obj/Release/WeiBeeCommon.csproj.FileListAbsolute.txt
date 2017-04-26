@@ -1,6 +1,0 @@
-D:\WP7Projects\WeiBee\WeiBeeCommon\bin\Release\WeiBeeCommon.dll
-D:\WP7Projects\WeiBee\WeiBeeCommon\bin\Release\WeiBeeCommon.pdb
-D:\WP7Projects\WeiBee\WeiBeeCommon\bin\Release\Wintellect.Threading.dll
-D:\WP7Projects\WeiBee\WeiBeeCommon\obj\Release\ResolveAssemblyReference.cache
-D:\WP7Projects\WeiBee\WeiBeeCommon\obj\Release\WeiBeeCommon.dll
-D:\WP7Projects\WeiBee\WeiBeeCommon\obj\Release\WeiBeeCommon.pdb

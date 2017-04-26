@@ -1,5 +1,0 @@
-D:\WP7Projects\WeiBoV2.1_web\WeiBeeCommon\obj\Debug\ResolveAssemblyReference.cache
-D:\WP7Projects\WeiBoV2.1_web\WeiBeeCommon\obj\Debug\WeiBeeCommon.dll
-D:\WP7Projects\WeiBoV2.1_web\WeiBeeCommon\obj\Debug\WeiBeeCommon.pdb
-D:\WP7Projects\WeiBoV2.1_web\WeiBeeCommon\bin\Debug\WeiBeeCommon.dll
-D:\WP7Projects\WeiBoV2.1_web\WeiBeeCommon\bin\Debug\WeiBeeCommon.pdb
