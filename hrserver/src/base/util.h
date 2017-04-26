@@ -1,4 +1,4 @@
-#ifndef __UTIL_H__
+﻿#ifndef __UTIL_H__
 #define __UTIL_H__
 
 #define _CRT_SECURE_NO_DEPRECATE	// remove warning C4996, 

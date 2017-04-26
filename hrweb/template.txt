@@ -1,690 +1,2611 @@
-﻿请输验证码[:]请输验证码
-列表名:list,显示数目:500,分类ID:GET[id][:]列表名:list,显示数目:500,分类ID:GET[id]
-请选择目前状态[:]请选择目前状态
-餐饮[:]餐饮
-用户名已经存在或者不合法[:]用户名已经存在或者不合法
-上传图片失败：文件大小超过限制[:]上传图片失败：文件大小超过限制
-条职位，总共需要消耗[:]条职位，总共需要消耗
-返回上一步[:]返回上一步
-具体要求不能大于{0}个字符[:]具体要求不能大于{0}个字符
->隐藏</font></td>[:]>隐藏</font></td>
-删除成功[:]删除成功
-您的积分不足，请充值后再发布！[:]您的积分不足，请充值后再发布！
-显示数目:6,调用名称:HW_indexrecommend,列表名:ad[:]显示数目:6,调用名称:HW_indexrecommend,列表名:ad
-?act=mail_templates_edit&templates_name=set_jobsnotallow&thisname=职位审核未通过[:]?act=mail_templates_edit&templates_name=set_jobsnotallow&thisname=职位审核未通过
-列表名:page,调用:HW_jobs[:]列表名:page,调用:HW_jobs
-分页显示:1,列表名:simplelist,显示数目:15,填补字符:...,职位名长度:12,企业名长度:18,描述长度:40,关键字:GET[key],关键字类型:GET[keytype],地区分类:GET[citycategory],排序:refreshtime>desc[:]分页显示:1,列表名:simplelist,显示数目:15,填补字符:...,职位名长度:12,企业名长度:18,描述长度:40,关键字:GET[key],关键字类型:GET[keytype],地区分类:GET[citycategory],排序:refreshtime>desc
-列表名:resume,显示数目:14,照片:1,意向职位长度:18,填补字符:...,排序:rtime>desc[:]列表名:resume,显示数目:14,照片:1,意向职位长度:18,填补字符:...,排序:rtime>desc
-保密[:]保密
-列表名:comjobs,显示数目:10,显示职位:3,职位分类:3_5_6[:]列表名:comjobs,显示数目:10,显示职位:3,职位分类:3_5_6
->增加分类</span>[:]>增加分类</span>
-请输入内容[:]请输入内容
-return confirm('删除后无法恢复，你确定要删除吗？')[:]return confirm('删除后无法恢复，你确定要删除吗？')
-列表名:jobs,显示数目:40,职位名长度:12,显示职位:1,企业名长度:12,排序:rtime>desc[:]列表名:jobs,显示数目:40,职位名长度:12,显示职位:1,企业名长度:12,排序:rtime>desc
-公司logo[:]公司logo
-公开[:]公开
-推荐职位[:]推荐职位
-?act=edit_tpl&templates_name=set_payment&thisname=充值成功[:]?act=edit_tpl&templates_name=set_payment&thisname=充值成功
-您的积分不足，请申请新的服务或者充值积分！[:]您的积分不足，请申请新的服务或者充值积分！
-列表名:show,简历ID:GET[id][:]列表名:show,简历ID:GET[id]
-%Y年%m月%d日[:]%Y年%m月%d日
-请输入问题关键字[:]请输入问题关键字
-保存成功[:]保存成功
-企业名称不能小于{0}个字符[:]企业名称不能小于{0}个字符
-列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:8,列表页:HW_companyjobs,描述长度:68,会员UID:[:]列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:8,列表页:HW_companyjobs,描述长度:68,会员UID:
-请输入用户密码[:]请输入用户密码
-系统提示[:]系统提示
-公司ID[:]公司ID
-职位名称不能大于{0}个字符[:]职位名称不能大于{0}个字符
-显示数目:3,调用名称:HW_indexfootbanner,列表名:ad,文字长度:12[:]显示数目:3,调用名称:HW_indexfootbanner,列表名:ad,文字长度:12
-  ><strong>到期时间<\/strong><\/td>[:]  ><strong>到期时间<\/strong><\/td>
-请选择您要成为哪种会员[:]请选择您要成为哪种会员
-请输入管理密码[:]请输入管理密码
-类型:HW_jobs_nature,列表名:c_nature[:]类型:HW_jobs_nature,列表名:c_nature
-添加任务[:]添加任务
-列表名:category,分类ID:GET[id][:]列表名:category,分类ID:GET[id]
-列表名:category,名称长度:10,资讯小类:[:]列表名:category,名称长度:10,资讯小类:
-列表名:sclass,大类:[:]列表名:sclass,大类:
-删除[:]删除
-分享到微信[:]分享到微信
-添加属性[:]添加属性
-请填写电子邮箱[:]请填写电子邮箱
-用户名[:]用户名
-上传word失败：文件类型错误！[:]上传word失败：文件类型错误！
-列表名:categorylist,名称长度:7,资讯大类:1[:]列表名:categorylist,名称长度:7,资讯大类:1
-请选择工作经验[:]请选择工作经验
-发送帐号[:]发送帐号
-列表名:help,显示数目:25,标题长度:45,填补字符:...[:]列表名:help,显示数目:25,标题长度:45,填补字符:...
-职位名[:]职位名
-银行[:]银行
-显示数目:6,调用名称:HW_indexcentreimg,列表名:ad,文字长度:12[:]显示数目:6,调用名称:HW_indexcentreimg,列表名:ad,文字长度:12
-</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\[:]</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\
-?act=mail_templates_edit&templates_name=set_licensenotallow&thisname=营业执照审核未通过[:]?act=mail_templates_edit&templates_name=set_licensenotallow&thisname=营业执照审核未通过
-列表名:page,调用:HW_news[:]列表名:page,调用:HW_news
-正在登录...[:]正在登录...
-列表名:jobs,类型:HW_jobs,id:0[:]列表名:jobs,类型:HW_jobs,id:0
-正在发送...[:]正在发送...
-?act=mail_templates_edit&templates_name=set_order&thisname=新增订单[:]?act=mail_templates_edit&templates_name=set_order&thisname=新增订单
-保存[:]保存
-使用手机注册>>[:]使用手机注册>>
-二维码[:]二维码
-显示数目:4,调用名称:HW_floor_img2,列表名:ad,文字长度:12[:]显示数目:4,调用名称:HW_floor_img2,列表名:ad,文字长度:12
-验证码错误[:]验证码错误
-优化表[:]优化表
-请选择职位类别，精确选择职位类别可以有效提高招聘效果[:]请选择职位类别，精确选择职位类别可以有效提高招聘效果
-图片限于bmp,png,gif,jpeg,jpg格式[:]图片限于bmp,png,gif,jpeg,jpg格式
-您正在编辑的内容尚未保存，确定要离开此页吗？[:]您正在编辑的内容尚未保存，确定要离开此页吗？
-列表名:explain,显示数目:3,标题长度:6,分类ID:1[:]列表名:explain,显示数目:3,标题长度:6,分类ID:1
-类型:HW_education,列表名:c_education[:]类型:HW_education,列表名:c_education
-&nbsp;&nbsp;</strong>元，可获得：&nbsp;&nbsp;<span style=\[:]&nbsp;&nbsp;</strong>元，可获得：&nbsp;&nbsp;<span style=\
-人才等级[:]人才等级
-请输入招聘人数[:]请输入招聘人数
-帐号或者密码错误[:]帐号或者密码错误
-微信登录[:]微信登录
-设为已查看[:]设为已查看
-return confirm('你确定要删除吗？')[:]return confirm('你确定要删除吗？')
-列表名:category,资讯大类:[:]列表名:category,资讯大类:
-请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息[:]请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息
-显示数目:10,调用名称:HW_indexcentreimg_230x58,列表名:ad,文字长度:12[:]显示数目:10,调用名称:HW_indexcentreimg_230x58,列表名:ad,文字长度:12
-职位名称不能小于{0}个字符[:]职位名称不能小于{0}个字符
-请确认登录密码[:]请确认登录密码
-列表名:page,调用:HW_login[:]列表名:page,调用:HW_login
-上传word失败：你选择的文件无法上传[:]上传word失败：你选择的文件无法上传
-该职位已经行紧急推广[:]该职位已经行紧急推广
-取消订单[:]取消订单
-请输入职位名称或企业名称[:]请输入职位名称或企业名称
-该职位已变色[:]该职位已变色
-文件仅限于.doc格式[:]文件仅限于.doc格式
-已认证手机[:]已认证手机
-列表名:imglink,显示数目:14,调用名称:HW_news,类型:2[:]列表名:imglink,显示数目:14,调用名称:HW_news,类型:2
-请填写联系人[:]请填写联系人
-类型:HW_wage,列表名:li[:]类型:HW_wage,列表名:li
-列表名:pageinfo,调用:HW_noticelist[:]列表名:pageinfo,调用:HW_noticelist
-确定提交[:]确定提交
-重复新密码[:]重复新密码
-延期[:]延期
-推广天数不能小于<strong style=\[:]推广天数不能小于<strong style=\
-电话[:]电话
-列表名:c_education,类型:HW_education[:]列表名:c_education,类型:HW_education
-{#$smarty.get.key|default:请输入关键字#}[:]{#$smarty.get.key|default:请输入关键字#}
-{#$company.description#}},公司简介[:]{#$company.description#}},公司简介
-请输入您的常用邮箱[:]请输入您的常用邮箱
-设置缓存[:]设置缓存
-列表名:jobs,填补字符:...,职位名长度:14,显示数目:8,会员UID:[:]列表名:jobs,填补字符:...,职位名长度:14,显示数目:8,会员UID:
-正在绑定...[:]正在绑定...
-添加说明页[:]添加说明页
-添加栏目[:]添加栏目
-手机号[:]手机号
-&nbsp;&nbsp;</strong>天，需要扣除：&nbsp;&nbsp;<strong style=\[:]&nbsp;&nbsp;</strong>天，需要扣除：&nbsp;&nbsp;<strong style=\
-列表名:cat,名称长度:10,小类:GET[id][:]列表名:cat,名称长度:10,小类:GET[id]
-自我描述[:]自我描述
-return confirm('你确定要使用此模板吗？(提示：频繁更换模版会影响网站排名)')[:]return confirm('你确定要使用此模板吗？(提示：频繁更换模版会影响网站排名)')
-列表名:news,显示数目:9,标题长度:12,分类:1,填补字符:...[:]列表名:news,显示数目:9,标题长度:12,分类:1,填补字符:...
-生成文档[:]生成文档
-请输入联系人[:]请输入联系人
-想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}[:]想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}
-点击查看[:]点击查看
-登&nbsp;&nbsp;&nbsp;录[:]登&nbsp;&nbsp;&nbsp;录
-确定[:]确定
-紧急招聘[:]紧急招聘
-刷新简历[:]刷新简历
-下载简历[:]下载简历
-同步菜单[:]同步菜单
-类型:HW_district,id:0,列表名:c_distrcit[:]类型:HW_district,id:0,列表名:c_distrcit
-分享到新浪微博[:]分享到新浪微博
-会员名[:]会员名
-审核照片[:]审核照片
-查看全部[:]查看全部
-参数错误！[:]参数错误！
-请输入密码[:]请输入密码
-只能包含中英文、数字和下划线[:]只能包含中英文、数字和下划线
-列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:5,列表页:HW_companyjobs,描述长度:200,会员UID:[:]列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:5,列表页:HW_companyjobs,描述长度:200,会员UID:
-加载中...[:]加载中...
-刷新职位可提高职位排名，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，您选择了[:]刷新职位可提高职位排名，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，您选择了
-列表名:show,职位ID:GET[id][:]列表名:show,职位ID:GET[id]
-列表名:category,名称长度:10,资讯小类:GET[id][:]列表名:category,名称长度:10,资讯小类:GET[id]
-类型:HW_language,列表名:c_language[:]类型:HW_language,列表名:c_language
-请选择企业性质[:]请选择企业性质
-{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？[:]{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？
-请填写密码[:]请填写密码
-重新输入密码[:]重新输入密码
-投递[:]投递
-请上传图片或填写图片路径[:]请上传图片或填写图片路径
-alert('请点击右侧“浏览”选择您电脑上的图片！');return false[:]alert('请点击右侧“浏览”选择您电脑上的图片！');return false
-填写不能大于{0}个字符[:]填写不能大于{0}个字符
-return confirm('删除分类组同时也会删除此分类组下个分类，你确定要删除吗？')[:]return confirm('删除分类组同时也会删除此分类组下个分类，你确定要删除吗？')
-查看Logo[:]查看Logo
-return confirm('您确定删除吗?')[:]return confirm('您确定删除吗?')
-免费注册[:]免费注册
-显示数目:6,调用名称:HW_indexfocus,列表名:ad[:]显示数目:6,调用名称:HW_indexfocus,列表名:ad
-请输入消息内容[:]请输入消息内容
-邮件主题[:]邮件主题
-请选择[:]请选择
-请填写具体要求[:]请填写具体要求
-我拒绝[:]我拒绝
-列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc[:]列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc
-无限期[:]无限期
-用户名或密码错误！[:]用户名或密码错误！
-列表名:imglink,显示数目:14,调用名称:HW_index,类型:2[:]列表名:imglink,显示数目:14,调用名称:HW_index,类型:2
-列表名:explain,显示数目:3,开始位置:3,标题长度:6,分类ID:1[:]列表名:explain,显示数目:3,开始位置:3,标题长度:6,分类ID:1
-请输入充值金额[:]请输入充值金额
-请填写联系电话[:]请填写联系电话
-找人才[:]找人才
-请输入正确格式的邮箱[:]请输入正确格式的邮箱
-女[:]女
-导出信息[:]导出信息
-岁</li>[:]岁</li>
-列表名:c_experience,类型:HW_experience[:]列表名:c_experience,类型:HW_experience
-单号[:]单号
-发送验证短信[:]发送验证短信
-请填写公司简介[:]请填写公司简介
->{#$cat_minday#}</strong>天[:]>{#$cat_minday#}</strong>天
-解除绑定[:]解除绑定
-单笔金额不能低于{0}元[:]单笔金额不能低于{0}元
-请输入您的手机号码[:]请输入您的手机号码
-管理简历[:]管理简历
-推广职位[:]推广职位
-?act=mail_templates_edit&templates_name=set_editpwd&thisname=修改密码[:]?act=mail_templates_edit&templates_name=set_editpwd&thisname=修改密码
-列表名:company,企业ID:[:]列表名:company,企业ID:
-说明页ID:GET[id],列表名:show[:]说明页ID:GET[id],列表名:show
-return confirm('你确定要关闭吗？')[:]return confirm('你确定要关闭吗？')
-列表名:news,显示数目:6,属性:3,标题长度:80,开始位置:0,排序:article_order>desc[:]列表名:news,显示数目:6,属性:3,标题长度:80,开始位置:0,排序:article_order>desc
-?act=edit_tpl&templates_name=set_resumenotallow&thisname=简历审核未通过[:]?act=edit_tpl&templates_name=set_resumenotallow&thisname=简历审核未通过
-请填写顶距[:]请填写顶距
-return confirm('无法预览,您没有完善企业资料,现在去完善企业资料？')[:]return confirm('无法预览,您没有完善企业资料,现在去完善企业资料？')
-?act=mail_templates_edit&templates_name=set_invite&thisname=邀请面试[:]?act=mail_templates_edit&templates_name=set_invite&thisname=邀请面试
-列表名:comjobs,显示数目:10,显示职位:3,职位分类:117_120_121[:]列表名:comjobs,显示数目:10,显示职位:3,职位分类:117_120_121
-列表名:resume,显示数目:12,意向职位长度:25,填补字符:...,排序:rtime>desc[:]列表名:resume,显示数目:12,意向职位长度:25,填补字符:...,排序:rtime>desc
-列表名:wage,类型:HW_wage,显示数目:100[:]列表名:wage,类型:HW_wage,显示数目:100
-列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc[:]列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc
-?act=edit_tpl&templates_name=set_jobsallow&thisname=职位审核通过[:]?act=edit_tpl&templates_name=set_jobsallow&thisname=职位审核通过
-列表名:com_jobs_all,显示数目:3,会员UID:$list.uid[:]列表名:com_jobs_all,显示数目:3,会员UID:$list.uid
-类型:HW_experience,列表名:c_experience[:]类型:HW_experience,列表名:c_experience
-新密码不可以和旧密码相同[:]新密码不可以和旧密码相同
-找工作[:]找工作
-导入号码[:]导入号码
-修改[:]修改
-列表名:notice,显示数目:9,标题长度:12,分类:1,填补字符:...[:]列表名:notice,显示数目:9,标题长度:12,分类:1,填补字符:...
-{#$userprofile.sex_cn|default:'男'#}[:]{#$userprofile.sex_cn|default:'男'#}
-20 时[:]20 时
-充值金额为<strong style=\[:]充值金额为<strong style=\
-请输入正确的手机号[:]请输入正确的手机号
-广告标题[:]广告标题
-请输入验证码[:]请输入验证码
-列表名:property[:]列表名:property
->没有找到对应的职位。</div>[:]>没有找到对应的职位。</div>
->删除</a>[:]>删除</a>
-上传图片失败：上传目录无法写入![:]上传图片失败：上传目录无法写入!
-预览简历[:]预览简历
-列表名:help,显示数目:9,标题长度:12,填补字符:...[:]列表名:help,显示数目:9,标题长度:12,填补字符:...
-请填写公司介绍[:]请填写公司介绍
-{#$HIGHWAY.site_name#}人才信息,人才简历[:]{#$HIGHWAY.site_name#}人才信息,人才简历
-{#$company.description#}},职位列表[:]{#$company.description#}},职位列表
-使用邮箱注册>>[:]使用邮箱注册>>
-确定删除[:]确定删除
-请输入展示期限[:]请输入展示期限
-请上传FLASH或填写FLASH路径[:]请上传FLASH或填写FLASH路径
-该职位已经行紧急推荐[:]该职位已经行紧急推荐
-还原窗口[:]还原窗口
-程度[:]程度
-您的QQ、邮箱或者电话以便和您沟通，您的信息仅工作人员可见！[:]您的QQ、邮箱或者电话以便和您沟通，您的信息仅工作人员可见！
-创建简历[:]创建简历
-取消推广[:]取消推广
-扫描二维码[:]扫描二维码
-年份[:]年份
-列表名:news_list,显示数目:8,标题长度:12,填补字符:...,排序:click>desc[:]列表名:news_list,显示数目:8,标题长度:12,填补字符:...,排序:click>desc
-应届生[:]应届生
-上传[:]上传
-请选择所在地区[:]请选择所在地区
-列表名:categorylist,资讯大类:0[:]列表名:categorylist,资讯大类:0
-类型:HW_company_type,列表名:li[:]类型:HW_company_type,列表名:li
-审核[:]审核
-return confirm('你确定要解除此会员绑定吗？')[:]return confirm('你确定要解除此会员绑定吗？')
-不限[:]不限
-添加颜色[:]添加颜色
-旧密码不能大于{0}个字符[:]旧密码不能大于{0}个字符
-邮箱配置出错，请联系网站管理员[:]邮箱配置出错，请联系网站管理员
-请选择颜色[:]请选择颜色
-填写不能小于{0}个字符[:]填写不能小于{0}个字符
-?act=edit_tpl&templates_name=set_invite&thisname=邀请面试[:]?act=edit_tpl&templates_name=set_invite&thisname=邀请面试
-列表名:c_nature,类型:HW_company_type[:]列表名:c_nature,类型:HW_company_type
-医院[:]医院
-全屏[:]全屏
-  ><strong>发布时间<\/strong><\/td>[:]  ><strong>发布时间<\/strong><\/td>
-请选择要推广方案[:]请选择要推广方案
-列表名:comjobs,显示数目:10,显示职位:3,职位分类:97_98_99[:]列表名:comjobs,显示数目:10,显示职位:3,职位分类:97_98_99
-全职[:]全职
-上传word失败：文件大小超过限制[:]上传word失败：文件大小超过限制
-14 时[:]14 时
-if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}[:]if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}
-添加[:]添加
-列表名:c_jobsnature,类型:HW_jobs_nature[:]列表名:c_jobsnature,类型:HW_jobs_nature
-请确认密码[:]请确认密码
-批量删除[:]批量删除
-保存我的位置[:]保存我的位置
-输入起点！[:]输入起点！
-年[:]年
-列表名:help,显示数目:25,标题长度:45,填补字符:...,关键字:GET[key],分页显示:1[:]列表名:help,显示数目:25,标题长度:45,填补字符:...,关键字:GET[key],分页显示:1
-列表名:pageinfo,调用:HW_newslist,分类ID:GET[id][:]列表名:pageinfo,调用:HW_newslist,分类ID:GET[id]
-删除成功![:]删除成功!
-该邮箱已经被注册过！[:]该邮箱已经被注册过！
-请输入联系方式[:]请输入联系方式
-?act=mail_templates_edit&templates_name=set_reg&thisname=注册会员[:]?act=mail_templates_edit&templates_name=set_reg&thisname=注册会员
-请输入具体要求[:]请输入具体要求
-?act=edit_tpl&templates_name=set_resumeallow&thisname=简历审核通过[:]?act=edit_tpl&templates_name=set_resumeallow&thisname=简历审核通过
-类型:HW_wage,列表名:c_wage[:]类型:HW_wage,列表名:c_wage
-列表名:news,显示数目:10,标题长度:35,资讯小类:GET[id],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc[:]列表名:news,显示数目:10,标题长度:35,资讯小类:GET[id],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc
-邮箱/手机号/用户名[:]邮箱/手机号/用户名
-请输入职位名称[:]请输入职位名称
-照片认证[:]照片认证
-添加广告[:]添加广告
-请输入关键字[:]请输入关键字
-您是否要关闭您选中的职位，您共选中[:]您是否要关闭您选中的职位，您共选中
-请输入简历关键字[:]请输入简历关键字
-用户名/邮箱/已验证手机[:]用户名/邮箱/已验证手机
-请填写用户名[:]请填写用户名
-您要删除哪些信息?[:]您要删除哪些信息?
-绑定账号[:]绑定账号
-列表名:img_news,显示数目:1,标题长度:12,摘要长度:70,填补字符:...,排序:id>desc[:]列表名:img_news,显示数目:1,标题长度:12,摘要长度:70,填补字符:...,排序:id>desc
-修改备注[:]修改备注
-显示数目:4,调用名称:HW_floor_img3,列表名:ad,文字长度:12[:]显示数目:4,调用名称:HW_floor_img3,列表名:ad,文字长度:12
-计划任务正在执行，请等待...[:]计划任务正在执行，请等待...
-人民币[:]人民币
-已认证邮箱[:]已认证邮箱
-帮助ID[:]帮助ID
-立即发送[:]立即发送
-发送短信[:]发送短信
-重置[:]重置
-添加推广[:]添加推广
-置顶职位[:]置顶职位
-类型:HW_street,列表名:list[:]类型:HW_street,列表名:list
-请填写密码！[:]请填写密码！
-电话不能<{0}位数[:]电话不能<{0}位数
-输入用户名有误[:]输入用户名有误
-公交查询[:]公交查询
-{#if $list.notes#}{#$list.notes#}{#else#}无面试邀请通知{#/if#}[:]{#if $list.notes#}{#$list.notes#}{#else#}无面试邀请通知{#/if#}
-密码[:]密码
-列表名:news,显示数目:7,属性:4,标题长度:16,排序:article_order>desc[:]列表名:news,显示数目:7,属性:4,标题长度:16,排序:article_order>desc
-编辑模板[:]编辑模板
-企业名称不能大于{0}个字符[:]企业名称不能大于{0}个字符
-alert('请点击右侧“浏览”选择您电脑上的文件！');return false[:]alert('请点击右侧“浏览”选择您电脑上的文件！');return false
-列表名:sub_jobs,类型:HW_jobs,id:$list.id[:]列表名:sub_jobs,类型:HW_jobs,id:$list.id
-请填写左距或者右距[:]请填写左距或者右距
-?act=edit_tpl&templates_name=set_licensenotallow&thisname=营业执照审核未通过[:]?act=edit_tpl&templates_name=set_licensenotallow&thisname=营业执照审核未通过
-联系人[:]联系人
-列表名:experience,类型:HW_experience,显示数目:100[:]列表名:experience,类型:HW_experience,显示数目:100
-?act=edit_tpl&templates_name=set_editpwd&thisname=修改密码[:]?act=edit_tpl&templates_name=set_editpwd&thisname=修改密码
-查看[:]查看
-请选择你的学历[:]请选择你的学历
-超市[:]超市
-成功[:]成功
-{#$userprofile.marriage_cn|default:'未婚'#}[:]{#$userprofile.marriage_cn|default:'未婚'#}
-公司[:]公司
-删除套餐变更记录后将不可恢复，您确定要删除么？[:]删除套餐变更记录后将不可恢复，您确定要删除么？
-请选择所属职位，精确选择职位类别可以有效提高招聘效果[:]请选择所属职位，精确选择职位类别可以有效提高招聘效果
-立即测试[:]立即测试
-新增分类[:]新增分类
-请填写职位描述[:]请填写职位描述
-{#$company.companyname#},公司简介[:]{#$company.companyname#},公司简介
-匹配职位[:]匹配职位
-列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:76_77[:]列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:76_77
-您已经通过营业执照认证，要修改企业名请联系管理员！[:]您已经通过营业执照认证，要修改企业名请联系管理员！
-充值[:]充值
-{#if $list.notes#}{#$list.notes|nl2br#}{#else#}无面试邀请通知内容{#/if#}[:]{#if $list.notes#}{#$list.notes|nl2br#}{#else#}无面试邀请通知内容{#/if#}
-确认收款[:]确认收款
-显示数目:8,调用名称:HW_yellowpage,列表名:ad,文字长度:12[:]显示数目:8,调用名称:HW_yellowpage,列表名:ad,文字长度:12
-列表名:explain,分类ID:1[:]列表名:explain,分类ID:1
-添加文章[:]添加文章
-删除会员[:]删除会员
-请选择工作地区[:]请选择工作地区
-请输入用户名！[:]请输入用户名！
-font-family:微软雅黑;[:]font-family:微软雅黑;
-设置链接[:]设置链接
-请填写手机号[:]请填写手机号
-return confirm('您确定取消绑定吗?')[:]return confirm('您确定取消绑定吗?')
-{#$HIGHWAY.site_name#},黄页[:]{#$HIGHWAY.site_name#},黄页
-8 时[:]8 时
-列表名:joblist,类型:HW_jobs[:]列表名:joblist,类型:HW_jobs
-列表名:category,大类:[:]列表名:category,大类:
-请选择公司规模[:]请选择公司规模
-类型:HW_education,列表名:li[:]类型:HW_education,列表名:li
-列表名:newscategory,资讯大类:1,显示数目:3[:]列表名:newscategory,资讯大类:1,显示数目:3
-管理密码错误[:]管理密码错误
-请输入工作地区[:]请输入工作地区
-收藏简历[:]收藏简历
-列表名:c_province,类型:HW_district,id:0[:]列表名:c_province,类型:HW_district,id:0
-备份此模板[:]备份此模板
-列表名:img_news,显示数目:1,标题长度:12,摘要长度:70,填补字符:...,图片:1,属性:2,排序:id>desc[:]列表名:img_news,显示数目:1,标题长度:12,摘要长度:70,填补字符:...,图片:1,属性:2,排序:id>desc
-您标注的位置：[:]您标注的位置：
-列表名:notice,显示数目:10,标题长度:35,分类:GET[id],分页显示:1,摘要长度:100,填补字符:...,排序:id>desc[:]列表名:notice,显示数目:10,标题长度:35,分类:GET[id],分页显示:1,摘要长度:100,填补字符:...,排序:id>desc
-类型:HW_trade,列表名:li[:]类型:HW_trade,列表名:li
-{#if $mytpl==$li.tpl_dir#}使用中...{#else#}使用模板{#/if#}[:]{#if $mytpl==$li.tpl_dir#}使用中...{#else#}使用模板{#/if#}
-return confirm('你确定要卸载吗？')[:]return confirm('你确定要卸载吗？')
-显示数目:4,调用名称:HW_floor_img5,列表名:ad,文字长度:12[:]显示数目:4,调用名称:HW_floor_img5,列表名:ad,文字长度:12
-{#$smarty.get.key#} 资讯中心[:]{#$smarty.get.key#} 资讯中心
-请选择期望职位[:]请选择期望职位
-年</li>[:]年</li>
-return confirm('确定要删除吗？')[:]return confirm('确定要删除吗？')
->此菜单下加子菜单</a>&nbsp;&nbsp;&nbsp;&nbsp;[:]>此菜单下加子菜单</a>&nbsp;&nbsp;&nbsp;&nbsp;
-请上传或填写路径[:]请上传或填写路径
-请填写验证码[:]请填写验证码
-列表名:news,显示数目:4,属性:4,标题长度:18,排序:article_order>desc[:]列表名:news,显示数目:4,属性:4,标题长度:18,排序:article_order>desc
-添加词语[:]添加词语
-列表名:page,调用:HW_resume[:]列表名:page,调用:HW_resume
-类型:HW_scale,列表名:li[:]类型:HW_scale,列表名:li
-列表名:newscategory,资讯大类:1,显示数目:4[:]列表名:newscategory,资讯大类:1,显示数目:4
-内容不能小于{0}个字符[:]内容不能小于{0}个字符
-列表名:major,类型:HW_major,id:0[:]列表名:major,类型:HW_major,id:0
-刷新[:]刷新
-请填写宽和高[:]请填写宽和高
-<br />您推广天数为<strong style=\[:]<br />您推广天数为<strong style=\
-7月[:]7月
-顶距超过了800，多数情况下无法正确显示，推荐设置在300内[:]顶距超过了800，多数情况下无法正确显示，推荐设置在300内
-列表名:category,资讯大类:0[:]列表名:category,资讯大类:0
-列表名:li,类型:HW_trade[:]列表名:li,类型:HW_trade
-加载中..[:]加载中..
-请正确填写手机号码[:]请正确填写手机号码
-{#$show.companyname#}招聘{#$show.jobs_name#}[:]{#$show.companyname#}招聘{#$show.jobs_name#}
-列表名:news,列表页:HW_newssearch,显示数目:10,标题长度:35,关键字:GET[key],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc[:]列表名:news,列表页:HW_newssearch,显示数目:10,标题长度:35,关键字:GET[key],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc
-公司名[:]公司名
-请选择企业规模[:]请选择企业规模
-列表名:comjobs,显示数目:10,显示职位:3,职位分类:50_51_52[:]列表名:comjobs,显示数目:10,显示职位:3,职位分类:50_51_52
-11 时[:]11 时
-保存修改[:]保存修改
-上一步[:]上一步
-下一步[:]下一步
-此号码已存在,请更换[:]此号码已存在,请更换
-新增简历[:]新增简历
-两次输入的密码不同[:]两次输入的密码不同
-请正确填写联系电话[:]请正确填写联系电话
-列表名:page,调用:HW_help[:]列表名:page,调用:HW_help
-搜索简历[:]搜索简历
-发布本条信息总计扣除&nbsp;<span style=\[:]发布本条信息总计扣除&nbsp;<span style=\
-显示数目:1,调用名称:HW_newsbanner,列表名:ad[:]显示数目:1,调用名称:HW_newsbanner,列表名:ad
-完成[:]完成
-?act=mail_templates_edit&templates_name=set_addmap&thisname=开通电子地图[:]?act=mail_templates_edit&templates_name=set_addmap&thisname=开通电子地图
-设置顾问[:]设置顾问
-列表名:resume,分页显示:1,显示数目:GET[inforow],特长描述长度:130,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],行业:GET[trade],地区分类:GET[citycategory],专业:GET[major],工作经验:GET[experience],标签:GET[resumetag],学历:GET[education],性别:GET[sex],照片:GET[photo],等级:GET[talent],日期范围:GET[settr],排序:rtime>desc[:]列表名:resume,分页显示:1,显示数目:GET[inforow],特长描述长度:130,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],行业:GET[trade],地区分类:GET[citycategory],专业:GET[major],工作经验:GET[experience],标签:GET[resumetag],学历:GET[education],性别:GET[sex],照片:GET[photo],等级:GET[talent],日期范围:GET[settr],排序:rtime>desc
-列表名:img_news,显示数目:1,标题长度:12,填补字符:...,图片:1,属性:2,排序:id>desc[:]列表名:img_news,显示数目:1,标题长度:12,填补字符:...,图片:1,属性:2,排序:id>desc
-请填写广告标题[:]请填写广告标题
-请选择分类[:]请选择分类
-返回分类组[:]返回分类组
-请输入用户名[:]请输入用户名
-地址[:]地址
-立即激活[:]立即激活
-列表名:c_scale,类型:HW_scale[:]列表名:c_scale,类型:HW_scale
-上传word失败：文件上传出错！[:]上传word失败：文件上传出错！
-手机认证[:]手机认证
-?act=mail_templates_edit&templates_name=set_resumenotallow&thisname=简历审核未通过[:]?act=mail_templates_edit&templates_name=set_resumenotallow&thisname=简历审核未通过
-列表名:link,显示数目:100,调用名称:HW_news,类型:1[:]列表名:link,显示数目:100,调用名称:HW_news,类型:1
-添加菜单[:]添加菜单
-立即登录[:]立即登录
-消息[:]消息
-认证企业[:]认证企业
-请填写验证码！[:]请填写验证码！
-?act=edit_tpl&templates_name=set_applyjobs&thisname=申请职位[:]?act=edit_tpl&templates_name=set_applyjobs&thisname=申请职位
-职位ID[:]职位ID
-企业未认证[:]企业未认证
-列表名:resumetag,类型:HW_resumetag,显示数目:100[:]列表名:resumetag,类型:HW_resumetag,显示数目:100
-请正确填写电子邮箱[:]请正确填写电子邮箱
-职位[:]职位
-return confirm('还原将覆盖现有数据，你确定要这么做吗？')[:]return confirm('还原将覆盖现有数据，你确定要这么做吗？')
-请输入一个介于 {0} 和 {1} 之间的值[:]请输入一个介于 {0} 和 {1} 之间的值
-请输入密码！[:]请输入密码！
-发送邮件[:]发送邮件
-列表名:show,ID:GET[id][:]列表名:show,ID:GET[id]
-用户名/邮箱/手机号[:]用户名/邮箱/手机号
-发送验证邮件[:]发送验证邮件
-列表名:show,公告ID:GET[id][:]列表名:show,公告ID:GET[id]
-确定修改[:]确定修改
-您没有开通套餐[:]您没有开通套餐
-手机号已被注册[:]手机号已被注册
-显示数目:1,调用名称:HW_company_index,列表名:list,文字长度:12[:]显示数目:1,调用名称:HW_company_index,列表名:list,文字长度:12
-列表名:li,类型:HW_district[:]列表名:li,类型:HW_district
-请输入新密码[:]请输入新密码
-请选择现居住地[:]请选择现居住地
-修改本条信息总计扣除&nbsp;<span style=\[:]修改本条信息总计扣除&nbsp;<span style=\
-海威人材[:]海威人材
-欢迎应届生投递简历[:]欢迎应届生投递简历
-列表名:link,显示数目:100,调用名称:HW_index,类型:1[:]列表名:link,显示数目:100,调用名称:HW_index,类型:1
-正在发送邮件...[:]正在发送邮件...
-个分类，删除顶级分类同时将删除其子类，确定都要删除吗？[:]个分类，删除顶级分类同时将删除其子类，确定都要删除吗？
-{#$cat.categoryname#}，帮助[:]{#$cat.categoryname#}，帮助
-内容不能大于{0}个字符[:]内容不能大于{0}个字符
->显示</font></td>[:]>显示</font></td>
-{#$HIGHWAY.site_name#} - 按道路搜索 - 招聘岗位[:]{#$HIGHWAY.site_name#} - 按道路搜索 - 招聘岗位
-继续发布[:]继续发布
-搜&nbsp;索[:]搜&nbsp;索
-列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:[:]列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:
-列表名:news,显示数目:5,开始位置:1,标题长度:20,资讯小类:$newscategory[nclist].id,填补字符:...,排序:article_order>desc[:]列表名:news,显示数目:5,开始位置:1,标题长度:20,资讯小类:$newscategory[nclist].id,填补字符:...,排序:article_order>desc
-请填写现居住地[:]请填写现居住地
-取消安装[:]取消安装
-关闭[:]关闭
-置顶信息[:]置顶信息
-刷新成功[:]刷新成功
-列表名:news,资讯小类:$show.type_id,显示数目:7,标题长度:16,排序:article_order>desc[:]列表名:news,资讯小类:$show.type_id,显示数目:7,标题长度:16,排序:article_order>desc
-个菜单，删除顶级菜单同时将删除其子菜单，确定都要删除吗？[:]个菜单，删除顶级菜单同时将删除其子菜单，确定都要删除吗？
-请选择所属行业[:]请选择所属行业
-列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:50_51_52[:]列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:50_51_52
-请填写文字[:]请填写文字
-已验证[:]已验证
-请输入联系电话[:]请输入联系电话
-请输入会员名，输入多个请换行输入[:]请输入会员名，输入多个请换行输入
-简历[:]简历
-开始备份[:]开始备份
-添加分类组[:]添加分类组
-联系电话必须是数字[:]联系电话必须是数字
-月份[:]月份
-|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄页[:]|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄页
-该职位已置顶[:]该职位已置顶
-?act=mail_templates_edit&templates_name=set_applyjobs&thisname=申请职位[:]?act=mail_templates_edit&templates_name=set_applyjobs&thisname=申请职位
-职位描述内容不能大于{0}个字符[:]职位描述内容不能大于{0}个字符
-添加分类[:]添加分类
-所提交的错误、建议信息，尽量描述详细，以便我们更好的修改！[:]所提交的错误、建议信息，尽量描述详细，以便我们更好的修改！
-男[:]男
-{#$cat.categoryname#}的帮助信息[:]{#$cat.categoryname#}的帮助信息
-上传图片失败：文件类型错误！[:]上传图片失败：文件类型错误！
-您没有选择项目[:]您没有选择项目
-列表名:page,调用:HW_simplelist[:]列表名:page,调用:HW_simplelist
-申请套餐[:]申请套餐
-上传图片失败：附件图片只能上传4张[:]上传图片失败：附件图片只能上传4张
-#}修改{#else#}验证{#/if#}[:]#}修改{#else#}验证{#/if#}
-列表名:jobtag,类型:HW_jobtag,显示数目:100[:]列表名:jobtag,类型:HW_jobtag,显示数目:100
-请输入企业名称[:]请输入企业名称
-  ><strong>刷新时间<\/strong><\/td>[:]  ><strong>刷新时间<\/strong><\/td>
-返回[:]返回
-类型:HW_current,列表名:c_current[:]类型:HW_current,列表名:c_current
-公司简介内容不能小于{0}个字符[:]公司简介内容不能小于{0}个字符
-标记我的位置[:]标记我的位置
-刷新职位[:]刷新职位
-列表名:img_news,显示数目:1,标题长度:12,填补字符:...,资讯小类:$newscategory[nclist].id,排序:id>desc[:]列表名:img_news,显示数目:1,标题长度:12,填补字符:...,资讯小类:$newscategory[nclist].id,排序:id>desc
-请耐心等待管理员确认...[:]请耐心等待管理员确认...
-请上传logo[:]请上传logo
-列表名:category,大类:0[:]列表名:category,大类:0
-类型:HW_language_level,列表名:c_language_level[:]类型:HW_language_level,列表名:c_language_level
-会员ID[:]会员ID
-新密码不能大于{0}个字符[:]新密码不能大于{0}个字符
-列表名:nature,类型:HW_jobs_nature[:]列表名:nature,类型:HW_jobs_nature
-月[:]月
-?act=edit_tpl&templates_name=set_licenseallow&thisname=营业执照审核通过[:]?act=edit_tpl&templates_name=set_licenseallow&thisname=营业执照审核通过
-分页显示:1,列表名:company,显示数目:GET[inforow],填补字符:...,企业名长度:30,地区分类:GET[citycategory],企业性质:GET[nature],描述长度:50,关键字:GET[key],行业:GET[trade],黄页:1,规模:GET[scale],排序:id>desc[:]分页显示:1,列表名:company,显示数目:GET[inforow],填补字符:...,企业名长度:30,地区分类:GET[citycategory],企业性质:GET[nature],描述长度:50,关键字:GET[key],行业:GET[trade],黄页:1,规模:GET[scale],排序:id>desc
-请选择月薪范围[:]请选择月薪范围
-9月[:]9月
-学校[:]学校
-请输入标题[:]请输入标题
-未标注街道[:]未标注街道
-密码不能小于{0}个字符[:]密码不能小于{0}个字符
-新密码不能小于{0}个字符[:]新密码不能小于{0}个字符
-分页显示:1,列表名:jobslist,列表页:HW_street,填补字符:...,职位名长度:13,合并:$smarty.cookie.com_list,企业名长度:19,描述长度:135,道路:GET[streetid],排序:GET[sort][:]分页显示:1,列表名:jobslist,列表页:HW_street,填补字符:...,职位名长度:13,合并:$smarty.cookie.com_list,企业名长度:19,描述长度:135,道路:GET[streetid],排序:GET[sort]
-请输入您的邮箱[:]请输入您的邮箱
-发送[:]发送
-新增广告位[:]新增广告位
-继续添加[:]继续添加
-保存菜单[:]保存菜单
-?act=mail_templates_edit&templates_name=set_payment&thisname=付款成功[:]?act=mail_templates_edit&templates_name=set_payment&thisname=付款成功
-列表名:jobs,类型:HW_jobs[:]列表名:jobs,类型:HW_jobs
-列表名:news,显示数目:7,标题长度:16,排序:id>desc[:]列表名:news,显示数目:7,标题长度:16,排序:id>desc
-请填写输入广告代码[:]请填写输入广告代码
-确保的值在3-18个字节之间[:]确保的值在3-18个字节之间
-显示数目:3,调用名称:HW_indextopimg,列表名:ad,文字长度:12[:]显示数目:3,调用名称:HW_indextopimg,列表名:ad,文字长度:12
-审核简历[:]审核简历
-会员id[:]会员id
-用户名不能是手机号[:]用户名不能是手机号
-添加公告[:]添加公告
-分享到腾讯微博[:]分享到腾讯微博
-标题[:]标题
-你选择了[:]你选择了
-列表名:company,企业ID:GET[id][:]列表名:company,企业ID:GET[id]
-新增方案[:]新增方案
-{#$jobs.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs.jobs_name#}(月薪 : {#$jobs.wage_cn#})[:]{#$jobs.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs.jobs_name#}(月薪 : {#$jobs.wage_cn#})
-我同意[:]我同意
-创建[:]创建
-分享到QQ好友[:]分享到QQ好友
-手机号码[:]手机号码
-列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc[:]列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc
-列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:97_98_99[:]列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:97_98_99
-您必须同意[注册协议]才能继续下一步[:]您必须同意[注册协议]才能继续下一步
-正在登录[:]正在登录
-添加会员[:]添加会员
-列表名:nature,类型:HW_company_type,显示数目:100[:]列表名:nature,类型:HW_company_type,显示数目:100
-列表名:imglink,显示数目:14,调用名称:HW_resume,类型:2[:]列表名:imglink,显示数目:14,调用名称:HW_resume,类型:2
-展示期限不能低于1周[:]展示期限不能低于1周
-请填写：用户名 / 邮箱 / 手机号[:]请填写：用户名 / 邮箱 / 手机号
-列表名:topnews,显示数目:4,标题长度:18,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc[:]列表名:topnews,显示数目:4,标题长度:18,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc
-列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1[:]列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1
-资讯ID[:]资讯ID
-请选择出生年份[:]请选择出生年份
->[充值积分]</a><br />[:]>[充值积分]</a><br />
-添加顾问[:]添加顾问
-列表名:sclass,资讯大类:[:]列表名:sclass,资讯大类:
-您没有选中职位！[:]您没有选中职位！
-email已经存在[:]email已经存在
-旧密码不能小于{0}个字符[:]旧密码不能小于{0}个字符
-批量添加[:]批量添加
-显示数目:1,调用名称:HW_simpleallimg,列表名:ad[:]显示数目:1,调用名称:HW_simpleallimg,列表名:ad
-列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:117_120_121[:]列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:117_120_121
-列表名:resume,显示数目:7,照片:1,意向职位长度:14,填补字符:...,排序:rtime>desc[:]列表名:resume,显示数目:7,照片:1,意向职位长度:14,填补字符:...,排序:rtime>desc
-if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}[:]if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}
-企业已认证[:]企业已认证
-请输入旧密码[:]请输入旧密码
-姓名[:]姓名
-请选择支付方式[:]请选择支付方式
-添加页面[:]添加页面
-列表名:jobs,显示数目:10,职位名长度:12,企业名长度:12,紧急招聘:1,排序:refreshtime>desc[:]列表名:jobs,显示数目:10,职位名长度:12,企业名长度:12,紧急招聘:1,排序:refreshtime>desc
-用户名/手机/邮箱[:]用户名/手机/邮箱
-上传图片失败：你选择的文件无法上传[:]上传图片失败：你选择的文件无法上传
-重复输入用户密码[:]重复输入用户密码
-请选择你的专业[:]请选择你的专业
-密码错误[:]密码错误
-分享到人人网[:]分享到人人网
-请选择要推广的职位[:]请选择要推广的职位
-请选择学历要求[:]请选择学历要求
-保存分类[:]保存分类
-列表名:page,调用:HW_index[:]列表名:page,调用:HW_index
-请填写通讯地址[:]请填写通讯地址
-密码不能<{0}个字符[:]密码不能<{0}个字符
-请输入公司名称[:]请输入公司名称
-语言[:]语言
-美元[:]美元
-显示数目:1,调用名称:HW_newsbanner2,列表名:ad[:]显示数目:1,调用名称:HW_newsbanner2,列表名:ad
-你的套餐：{#$setmeal.setmeal_name#}[:]你的套餐：{#$setmeal.setmeal_name#}
-申请职位[:]申请职位
-删除所选[:]删除所选
->修改</a>&nbsp;&nbsp;&nbsp;&nbsp;[:]>修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-发布[:]发布
-?act=edit_tpl&templates_name=set_addmap&thisname=开通电子地图[:]?act=edit_tpl&templates_name=set_addmap&thisname=开通电子地图
-请选择期望行业[:]请选择期望行业
-请选择地区[:]请选择地区
-酒店[:]酒店
-请输入关键字...[:]请输入关键字...
-删除记录[:]删除记录
-发布简历[:]发布简历
-请先在地图上标记您的位置[:]请先在地图上标记您的位置
-列表名:li,类型:HW_jobs,id:[:]列表名:li,类型:HW_jobs,id:
-?act=mail_templates_edit&templates_name=set_jobsallow&thisname=职位审核通过[:]?act=mail_templates_edit&templates_name=set_jobsallow&thisname=职位审核通过
-列表名:help,显示数目:25,标题长度:45,填补字符:...,小类:GET[id],分页显示:1[:]列表名:help,显示数目:25,标题长度:45,填补字符:...,小类:GET[id],分页显示:1
-显示数目:4,调用名称:HW_floor_img1,列表名:ad,文字长度:12[:]显示数目:4,调用名称:HW_floor_img1,列表名:ad,文字长度:12
-提交[:]提交
-请输入登录密码[:]请输入登录密码
-列表名:sub_major,类型:HW_major,id:$list.id[:]列表名:sub_major,类型:HW_major,id:$list.id
-上传图片失败：上传目录不存在![:]上传图片失败：上传目录不存在!
-输入右侧验证码[:]输入右侧验证码
-列表名:c_jobs,类型:HW_street,显示数目:30[:]列表名:c_jobs,类型:HW_street,显示数目:30
-修改简历[:]修改简历
-{#$HIGHWAY.site_name#}招聘岗位[:]{#$HIGHWAY.site_name#}招聘岗位
-发布微招聘[:]发布微招聘
-列表名:company,企业ID:GET[id],企业介绍长度:150[:]列表名:company,企业ID:GET[id],企业介绍长度:150
-添加管理员[:]添加管理员
-</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，您目前共有&nbsp;&nbsp;<strong style=\[:]</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，您目前共有&nbsp;&nbsp;<strong style=\
-请填写联系地址[:]请填写联系地址
->此类下加子类</a>&nbsp;&nbsp;&nbsp;&nbsp;[:]>此类下加子类</a>&nbsp;&nbsp;&nbsp;&nbsp;
-全选/反选[:]全选/反选
-重置表单[:]重置表单
-列表名:newscategory,资讯大类:1,开始位置:3,显示数目:3[:]列表名:newscategory,资讯大类:1,开始位置:3,显示数目:3
-显示数目:4,调用名称:HW_floor_img4,列表名:ad,文字长度:12[:]显示数目:4,调用名称:HW_floor_img4,列表名:ad,文字长度:12
-金额必须是整数[:]金额必须是整数
-短信内容[:]短信内容
-请选择期望薪资[:]请选择期望薪资
-上传图片失败：企业图片最多发布8张！[:]上传图片失败：企业图片最多发布8张！
-职位描述内容不能小于{0}个字符[:]职位描述内容不能小于{0}个字符
-return confirm('你确定要取消吗？')[:]return confirm('你确定要取消吗？')
-保存成功![:]保存成功!
-删除页面[:]删除页面
-列表名:link,显示数目:100,调用名称:HW_resume,类型:1[:]列表名:link,显示数目:100,调用名称:HW_resume,类型:1
-发布职位[:]发布职位
-点击获取验证码[:]点击获取验证码
-  >&nbsp;&nbsp;&nbsp;&nbsp;<strong>职位名称<\/strong><\/td>[:]  >&nbsp;&nbsp;&nbsp;&nbsp;<strong>职位名称<\/strong><\/td>
-?act=edit_tpl&templates_name=set_order&thisname=申请充值[:]?act=edit_tpl&templates_name=set_order&thisname=申请充值
-{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs_one.jobs_name#}(月薪 : {#$jobs_one.wage_cn#})[:]{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs_one.jobs_name#}(月薪 : {#$jobs_one.wage_cn#})
-列表名:comjobs,显示数目:10,显示职位:3,职位分类:76_77[:]列表名:comjobs,显示数目:10,显示职位:3,职位分类:76_77
-展示期限必须是整数[:]展示期限必须是整数
-列表名:categorylist,大类:0[:]列表名:categorylist,大类:0
-收件地址[:]收件地址
-显示数目:3,调用名称:HW_indexcenter,列表名:ad,文字长度:12[:]显示数目:3,调用名称:HW_indexcenter,列表名:ad,文字长度:12
-上传word失败：上传目录不存在![:]上传word失败：上传目录不存在!
-分页显示:1,列表名:jobslist,填补字符:...,职位名长度:13,企业名长度:22,描述长度:135,关键字:GET[key],职位分类:GET[jobcategory],地区分类:GET[citycategory],行业:GET[trade],日期范围:GET[settr],学历:GET[education],工作经验:GET[experience],工资:GET[wage],职位性质:GET[nature],标签:GET[jobtag],公司规模:GET[scale],排序:GET[sort],合并:$smarty.cookie.com_list[:]分页显示:1,列表名:jobslist,填补字符:...,职位名长度:13,企业名长度:22,描述长度:135,关键字:GET[key],职位分类:GET[jobcategory],地区分类:GET[citycategory],行业:GET[trade],日期范围:GET[settr],学历:GET[education],工作经验:GET[experience],工资:GET[wage],职位性质:GET[nature],标签:GET[jobtag],公司规模:GET[scale],排序:GET[sort],合并:$smarty.cookie.com_list
-水平程度[:]水平程度
-账号已经被暂停，请联系管理员！[:]账号已经被暂停，请联系管理员！
-取消[:]取消
-{#$HIGHWAY.site_name#}人才信息，高级人才，求职信息，推荐人才[:]{#$HIGHWAY.site_name#}人才信息，高级人才，求职信息，推荐人才
-  ><strong>公司名称<\/strong><\/td>[:]  ><strong>公司名称<\/strong><\/td>
-请输入邮箱[:]请输入邮箱
-{#$HIGHWAY.site_name#},职位信息[:]{#$HIGHWAY.site_name#},职位信息
-由于您的套餐已过期或者超出次数限制，所以刷新职位需要消耗积分，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？[:]由于您的套餐已过期或者超出次数限制，所以刷新职位需要消耗积分，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？
-失败[:]失败
-类型:HW_experience,列表名:li[:]类型:HW_experience,列表名:li
-电子邮箱格式错误[:]电子邮箱格式错误
-验证码[:]验证码
-列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc[:]列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc
-公交[:]公交
-{#$company.companyname#},职位列表[:]{#$company.companyname#},职位列表
-列表名:topnews,显示数目:1,标题长度:20,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc[:]列表名:topnews,显示数目:1,标题长度:20,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc
- 秒后重新发送[:] 秒后重新发送
- 秒后可重新获取[:] 秒后可重新获取
-您上传的文件格式不正确[:]您上传的文件格式不正确
-列表名:show,资讯ID:GET[id][:]列表名:show,资讯ID:GET[id]
-请填写推广天数[:]请填写推广天数
-上传word失败：上传目录无法写入![:]上传word失败：上传目录无法写入!
-请输入您的用户名/手机/邮箱[:]请输入您的用户名/手机/邮箱
-上传图片失败：文件上传出错！[:]上传图片失败：文件上传出错！
-查看二维码[:]查看二维码
-请输入手机验证码[:]请输入手机验证码
-,没有自由切换模板的权限！[:],没有自由切换模板的权限！
-返回列表[:]返回列表
-登录[:]登录
-列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:3_5_6[:]列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:3_5_6
-看不请验证码？点击更换一张[:]看不请验证码？点击更换一张
-新增类别[:]新增类别
-请输入真实姓名[:]请输入真实姓名
-请上传F或填写路径[:]请上传F或填写路径
-新增[:]新增
-返 回[:]返 回
-?act=mail_templates_edit&templates_name=set_licenseallow&thisname=营业执照审核通过[:]?act=mail_templates_edit&templates_name=set_licenseallow&thisname=营业执照审核通过
-列表名:jobslist,显示数目:5,职位名长度:14,填补字符:...,排序:rtime>desc[:]列表名:jobslist,显示数目:5,职位名长度:14,填补字符:...,排序:rtime>desc
-搜索[:]搜索
-?act=edit_tpl&templates_name=set_jobsnotallow&thisname=职位审核未通过[:]?act=edit_tpl&templates_name=set_jobsnotallow&thisname=职位审核未通过
-调用名称:HW_top,列表名:list,分割:5[:]调用名称:HW_top,列表名:list,分割:5
-个职位,确定关闭吗？[:]个职位,确定关闭吗？
-分享到QQ空间[:]分享到QQ空间
-?act=mail_templates_edit&templates_name=set_resumeallow&thisname=简历审核通过[:]?act=mail_templates_edit&templates_name=set_resumeallow&thisname=简历审核通过
-选择图片[:]选择图片
+﻿企业查看收到的简历无需下载：</td[:]企业查看收到的简历无需下载：</td
+公共场所不建议自动登录，以防账号丢失</div[:]公共场所不建议自动登录，以防账号丢失</div
+ 调用名称用于在模板中调用此广告位</span[:] 调用名称用于在模板中调用此广告位</span
+下载高级人才简历：</td[:]下载高级人才简历：</td
+<!--当教育经历存在，则显示这个按钮 --[:]<!--当教育经历存在，则显示这个按钮 --
+积分充值提醒：</td[:]积分充值提醒：</td
+职位描述</h3[:]职位描述</h3
+系统提示 - 骑士PHP人才系统(www.jp.highwayns.com)</title[:]系统提示 - 骑士PHP人才系统(www.jp.highwayns.com)</title
+行业：{#$list.trade_cn#}</p[:]行业：{#$list.trade_cn#}</p
+第三方流量统计代码：</td[:]第三方流量统计代码：</td
+到期日期</td[:]到期日期</td
+{#$smarty.get.key#}- 帮助 - {#$HIGHWAY.site_name#}</title[:]{#$smarty.get.key#}- 帮助 - {#$HIGHWAY.site_name#}</title
+7天</span[:]7天</span
+简历下载设置</div[:]简历下载设置</div
+<a id="updateName" title="修改" href="javascript:;"[:]<a id="updateName" title="修改" href="javascript:;"
+机构名称</td[:]机构名称</td
+<!-- 40%以下背景颜色为#fb1238。80%以下为#ff9900。80%以上为#2db228 --[:]<!-- 40%以下背景颜色为#fb1238。80%以下为#ff9900。80%以上为#2db228 --
+(如此项为“游客可见”或“已登录会员可见”，网站将会失去重要赢利点)</span[:](如此项为“游客可见”或“已登录会员可见”，网站将会失去重要赢利点)</span
+状态</th[:]状态</th
+服务器解译引擎</td[:]服务器解译引擎</td
+发布招聘默认有效期：</td[:]发布招聘默认有效期：</td
+您还没有发起过面试邀请！</div[:]您还没有发起过面试邀请！</div
+发布招聘职位数</td[:]发布招聘职位数</td
+<input type="button" value="公交查询" class="bus_submit"/[:]<input type="button" value="公交查询" class="bus_submit"/
+21 时</option[:]21 时</option
+<input type="button"   id="nav_add_language" value="添加"  class="but55lan_add"/[:]<input type="button"   id="nav_add_language" value="添加"  class="but55lan_add"/
+职位推广-变色</div[:]职位推广-变色</div
+{#$company_profile.trade_cn|default:"请选择"#}</div[:]{#$company_profile.trade_cn|default:"请选择"#}</div
+推广期限：</td[:]推广期限：</td
+{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.wage#}{#"HW_wage,"|cat:$smarty.get.wage|highway_categoryname#} - {#/if#}{#if $smarty.get.jobtag#}{#"HW_jobtag,"|cat:$smarty.get.jobtag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}{#if $smarty.get.nature#}{#"HW_jobs_nature,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}{#if $smarty.get.scale#}{#"HW_scale,"|cat:$smarty.get.scale|highway_categoryname#} - {#/if#}职位列表  - {#$HIGHWAY.site_name#}</title[:]{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.wage#}{#"HW_wage,"|cat:$smarty.get.wage|highway_categoryname#} - {#/if#}{#if $smarty.get.jobtag#}{#"HW_jobtag,"|cat:$smarty.get.jobtag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}{#if $smarty.get.nature#}{#"HW_jobs_nature,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}{#if $smarty.get.scale#}{#"HW_scale,"|cat:$smarty.get.scale|highway_categoryname#} - {#/if#}职位列表  - {#$HIGHWAY.site_name#}</title
+我的{#$HIGHWAY.points_byname#}：</span[:]我的{#$HIGHWAY.points_byname#}：</span
+显示颜色：</td[:]显示颜色：</td
+操作IP</td[:]操作IP</td
+职位亮点：</td[:]职位亮点：</td
+已选条件：</div[:]已选条件：</div
+欢迎使用QQ帐号登录{#$HIGHWAY.site_name#}</p[:]欢迎使用QQ帐号登录{#$HIGHWAY.site_name#}</p
+求职意向</span[:]求职意向</span
+<input type="checkbox" value="银行" id="bank" class="serch"/[:]<input type="checkbox" value="银行" id="bank" class="serch"/
+经验：{#$job_list.experience_cn#}</div[:]经验：{#$job_list.experience_cn#}</div
+文档大小<em  style="font-size:10px;"[:]文档大小<em  style="font-size:10px;"
+28 日</option[:]28 日</option
+邮箱认证：</span[:]邮箱认证：</span
+不限制</td[:]不限制</td
+关闭</a[:]关闭</a
+已完成</span[:]已完成</span
+暂时关闭原因：</td[:]暂时关闭原因：</td
+设置密码：</div[:]设置密码：</div
+学历要求：{#$job_list.education_cn#}</div[:]学历要求：{#$job_list.education_cn#}</div
+创建简历</h1[:]创建简历</h1
+已收藏的简历：</span[:]已收藏的简历：</span
+付款完成</label[:]付款完成</label
+等待审核</span[:]等待审核</span
+字母检索：</div[:]字母检索：</div
+设置新密码</div[:]设置新密码</div
+选择套餐：</td[:]选择套餐：</td
+资讯分类</h5[:]资讯分类</h5
+(个人简历审核通过是否通知)</td[:](个人简历审核通过是否通知)</td
+企业hr工作中其他事项的参考标准，可以自定义选择添加。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:11"|highway_url#}" class="more"[:]企业hr工作中其他事项的参考标准，可以自定义选择添加。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:11"|highway_url#}" class="more"
+0为不延长</span[:]0为不延长</span
+创建简历</div[:]创建简历</div
+添加备注：</td[:]添加备注：</td
+调用名</td[:]调用名</td
+获得证书</div[:]获得证书</div
+<a class="audit_email" title="{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;"[:]<a class="audit_email" title="{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;"
+<input name="weixin_default_pic" type="file" id="weixin_default_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/[:]<input name="weixin_default_pic" type="file" id="weixin_default_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/
+未验证</div[:]未验证</div
+女</a[:]女</a
+<input type="checkbox" value="酒店" id="hotel"  class="serch"/[:]<input type="checkbox" value="酒店" id="hotel"  class="serch"/
+赠送服务套餐：</td[:]赠送服务套餐：</td
+到期时间</div[:]到期时间</div
+最后登录IP：</td[:]最后登录IP：</td
+ 联 系 人：</td[:] 联 系 人：</td
+删除讲师</label[:]删除讲师</label
+ 工作地区：</td[:] 工作地区：</td
+<input type="checkbox" value="公交" id="bus" class="serch"/[:]<input type="checkbox" value="公交" id="bus" class="serch"/
+ 默认职位招聘状态：</td[:] 默认职位招聘状态：</td
+手机：</td[:]手机：</td
+联系人QQ号码：</td[:]联系人QQ号码：</td
+顾问修改职位</label[:]顾问修改职位</label
+新发布微招聘默认审核状态：</td[:]新发布微招聘默认审核状态：</td
+您是个人用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=2"[:]您是个人用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=2"
+ip地址：<br /[:]ip地址：<br /
+登录</a[:]登录</a
+29 日</option[:]29 日</option
+ 公司介绍：</td[:] 公司介绍：</td
+企业认证后可以提升企业形象和品牌，使企业招聘更真实，让求职者更信任。<a href="company_info.php?act=company_auth" class="underline"[:]企业认证后可以提升企业形象和品牌，使企业招聘更真实，让求职者更信任。<a href="company_info.php?act=company_auth" class="underline"
+请选择正确的年龄范围</label[:]请选择正确的年龄范围</label
+ 已申请的职位</div[:] 已申请的职位</div
+电子邮箱：</div[:]电子邮箱：</div
+"+i+"岁</li[:]"+i+"岁</li
+编辑邮件模板 <span style="color:#0033CC"[:]编辑邮件模板 <span style="color:#0033CC"
+认证通过</a[:]认证通过</a
+当前{#$HIGHWAY.points_byname#}：<span[:]当前{#$HIGHWAY.points_byname#}：<span
+<input type="button" name="btnForIndexSearch" id="btnForIndexSearch" value="搜索" class="search-submit" /[:]<input type="button" name="btnForIndexSearch" id="btnForIndexSearch" value="搜索" class="search-submit" /
+企业顾问</div[:]企业顾问</div
+提示：当您的手机通过认证后，可以用手机号直接登录；可以用手机修改密码；{#$notice#}</span[:]提示：当您的手机通过认证后，可以用手机号直接登录；可以用手机修改密码；{#$notice#}</span
+参加招聘会设定：</td[:]参加招聘会设定：</td
+申请时间：</td[:]申请时间：</td
+预订时间</th[:]预订时间</th
+发送测试短信</div[:]发送测试短信</div
+微商圈设置</div[:]微商圈设置</div
+(会员订单付款完成是否邮件通知)</td[:](会员订单付款完成是否邮件通知)</td
+[反选]</span[:][反选]</span
+<input type="button" name="usernamesave" id="newusernamesave" value="修改"  class="but220lan"/[:]<input type="button" name="usernamesave" id="newusernamesave" value="修改"  class="but220lan"/
+(随机范围：男,女)</span[:](随机范围：男,女)</span
+ 次</p[:] 次</p
+新增关键词</div[:]新增关键词</div
+已经过期</span[:]已经过期</span
+数据库服务器地址，一般为localhost</td[:]数据库服务器地址，一般为localhost</td
+所属广告位</td[:]所属广告位</td
+ 修改职位</div[:] 修改职位</div
+(0为不送短信)</span[:](0为不送短信)</span
+个人</div[:]个人</div
+ 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning"[:] 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning"
+或职位名称：</td[:]或职位名称：</td
+温馨提示：企业logo是企业的象征，上传尺寸请不要超过300×110像素，图片大小不超过 500KB，允许格式：jpg/gif/png</p[:]温馨提示：企业logo是企业的象征，上传尺寸请不要超过300×110像素，图片大小不超过 500KB，允许格式：jpg/gif/png</p
+程度</div[:]程度</div
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写特长描述。</div[:]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写特长描述。</div
+{#if $li.report_type == 1#}虚假信息{#elseif $li.report_type == 2#}电话不通{#else#}其它原因{#/if#}</td[:]{#if $li.report_type == 1#}虚假信息{#elseif $li.report_type == 2#}电话不通{#else#}其它原因{#/if#}</td
+扫描二维码并点击关注，轻松求职。海量<br /[:]扫描二维码并点击关注，轻松求职。海量<br /
+单号</li[:]单号</li
+规模：{#$company.scale_cn#}</li[:]规模：{#$company.scale_cn#}</li
+<a href="{#"reply_id:1,reply_cn:企业未查看"|highway_parse_url#}"[:]<a href="{#"reply_id:1,reply_cn:企业未查看"|highway_parse_url#}"
+<input type="checkbox" name="chkAll" id="chk2" title="全选/反选" class="checkbox" /[:]<input type="checkbox" name="chkAll" id="chk2" title="全选/反选" class="checkbox" /
+邀请高级面试剩余：</td[:]邀请高级面试剩余：</td
+地区：{#$company.district_cn#}</li[:]地区：{#$company.district_cn#}</li
+已选：</span[:]已选：</span
+已申请职位</div[:]已申请职位</div
+移动端允许查看联系方式：</td[:]移动端允许查看联系方式：</td
+姓名显示：</td[:]姓名显示：</td
+专&nbsp;&nbsp;业：<span id="base_info_major_cn"[:]专&nbsp;&nbsp;业：<span id="base_info_major_cn"
+编辑会员 <span style="color:#0066CC"[:]编辑会员 <span style="color:#0066CC"
+未完善企业资料</span[:]未完善企业资料</span
+<input type="submit" name="basic_save" id="basic_save" value="保存"  class="but100lan"/[:]<input type="submit" name="basic_save" id="basic_save" value="保存"  class="but100lan"/
+对外公开联系电话</label[:]对外公开联系电话</label
+您访问的页面不存在！</title[:]您访问的页面不存在！</title
+填写数字，0代表若干</span[:]填写数字，0代表若干</span
+链接地址：</div[:]链接地址：</div
+刷新简历</label[:]刷新简历</label
+确定</button[:]确定</button
+已查看<span[:]已查看<span
+<input type="button" value="申请职位" class="all-down-btn deliver" /[:]<input type="button" value="申请职位" class="all-down-btn deliver" /
+显示顺序：</td[:]显示顺序：</td
+<input type="button" detype="HW_resumelist" id="searcnbtn" value="搜&nbsp;索" /[:]<input type="button" detype="HW_resumelist" id="searcnbtn" value="搜&nbsp;索" /
+系统当前版本：v{#$system_info.version#}.{#$system_info.release#}<span id="update_notice"[:]系统当前版本：v{#$system_info.version#}.{#$system_info.release#}<span id="update_notice"
+备注：</td[:]备注：</td
+(如：铜板、元宝等，默认为“积分”)</span[:](如：铜板、元宝等，默认为“积分”)</span
+我已注册，现在就</p[:]我已注册，现在就</p
+开启QQ登录：</td[:]开启QQ登录：</td
+<a href="{#"settr:,settr_cn:全部"|highway_parse_url#}"[:]<a href="{#"settr:,settr_cn:全部"|highway_parse_url#}"
+管理员日志</a[:]管理员日志</a
+<input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/[:]<input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/
+高级人才设置</div[:]高级人才设置</div
+公司规模：</div[:]公司规模：</div
+ 地图标注</div[:] 地图标注</div
+生成密码：</td[:]生成密码：</td
+附件上传</div[:]附件上传</div
+[全选]</span[:][全选]</span
+设置本任务的任务名称</span[:]设置本任务的任务名称</span
+<a href="{#"generalize:stick,generalize_cn:置顶"|highway_parse_url#}"[:]<a href="{#"generalize:stick,generalize_cn:置顶"|highway_parse_url#}"
+付款金额</td[:]付款金额</td
+上传logo</a[:]上传logo</a
+待开通高级人才</a[:]待开通高级人才</a
+所属菜单:</td[:]所属菜单:</td
+邀请普通人才</div[:]邀请普通人才</div
+【注册】</a[:]【注册】</a
+[模版开发手册]</a[:][模版开发手册]</a
+取消订单</a[:]取消订单</a
+工作性质：{#$show.nature_cn#}{#/if#}</div[:]工作性质：{#$show.nature_cn#}{#/if#}</div
+设置登录名</div[:]设置登录名</div
+开启微信公众平台：</td[:]开启微信公众平台：</td
+创建时间：</td[:]创建时间：</td
+ 项</div[:] 项</div
+姓名：</td[:]姓名：</td
+ 职位管理</div[:] 职位管理</div
+允许关键字搜索：</td[:]允许关键字搜索：</td
+背景颜色：</td[:]背景颜色：</td
+联系人：</td[:]联系人：</td
+密码</a[:]密码</a
+查看订单</div[:]查看订单</div
+链接页面：</td[:]链接页面：</td
+外部链接：</td[:]外部链接：</td
+默认显示状态：</td[:]默认显示状态：</td
+修改友情链接</div[:]修改友情链接</div
+修改职位</label[:]修改职位</label
+游客可见</label[:]游客可见</label
+手机</dt[:]手机</dt
+ 收到的简历</div[:] 收到的简历</div
+注册IP</td[:]注册IP</td
+开启微信扫描绑定账户：</td[:]开启微信扫描绑定账户：</td
+类别</th[:]类别</th
+触屏版</a[:]触屏版</a
+(企业邀请个人面试是否通知个人)</td[:](企业邀请个人面试是否通知个人)</td
+特长标签：</div[:]特长标签：</div
+添加类型</div[:]添加类型</div
+非审核通过</a[:]非审核通过</a
+<a href="?act=mail_templates_edit&templates_name=set_reg&thisname=注册会员"[:]<a href="?act=mail_templates_edit&templates_name=set_reg&thisname=注册会员"
+支付方式</td[:]支付方式</td
+修改个人头像</label[:]修改个人头像</label
+显示状态：</td[:]显示状态：</td
+操作类型</td[:]操作类型</td
+薪资待遇：{#$job_list.wage_cn#}</div[:]薪资待遇：{#$job_list.wage_cn#}</div
+营业执照审核未通过：</td[:]营业执照审核未通过：</td
+说明:</td[:]说明:</td
+修改密码</a[:]修改密码</a
+请选择所属分类：</option[:]请选择所属分类：</option
+禁止重复</label[:]禁止重复</label
+新注册会员赠送服务：</td[:]新注册会员赠送服务：</td
+字符数量：</td[:]字符数量：</td
+语言</div[:]语言</div
+功能不打折</h2[:]功能不打折</h2
+{#highway_hrtools_category set="列表名:category,分类ID:GET[id]"#}{#$category.0.c_name#} - HR工具箱</title[:]{#highway_hrtools_category set="列表名:category,分类ID:GET[id]"#}{#$category.0.c_name#} - HR工具箱</title
+友情链接<span[:]友情链接<span
+(共找到{#$totaljob#}条)</span[:](共找到{#$totaljob#}条)</span
+修改文档</div[:]修改文档</div
+顺序</td[:]顺序</td
+待开通</span[:]待开通</span
+企业模版设置</div[:]企业模版设置</div
+变色</a[:]变色</a
+增加分类</span[:]增加分类</span
+菜单关键字</td[:]菜单关键字</td
+链接事件</option[:]链接事件</option
+对方已查看<span class="check"[:]对方已查看<span class="check"
+安全认证</a[:]安全认证</a
+{#if $show.display == '1'#}公开{#else#}保密{#/if#}</span[:]{#if $show.display == '1'#}公开{#else#}保密{#/if#}</span
+支付方式简短描述</td[:]支付方式简短描述</td
+地区类别<i class="fliter-clear-icon"[:]地区类别<i class="fliter-clear-icon"
+收件人地址:</td[:]收件人地址:</td
+职位类别：{#$job_list.category_cn#}</div[:]职位类别：{#$job_list.category_cn#}</div
+选择标题颜色：</div[:]选择标题颜色：</div
+编辑模板文件：<span style="color:#003399"[:]编辑模板文件：<span style="color:#003399"
+下载高级简历剩余：</td[:]下载高级简历剩余：</td
+简历被浏览 <span[:]简历被浏览 <span
+<a href="{#"jobsid:,jobname:全部职位"|highway_parse_url#}"[:]<a href="{#"jobsid:,jobname:全部职位"|highway_parse_url#}"
+模糊匹配阀值</div[:]模糊匹配阀值</div
+<span title="关闭"[:]<span title="关闭"
+<a href="?act=mail_templates_edit&templates_name=set_resumeallow&thisname=简历审核通过"[:]<a href="?act=mail_templates_edit&templates_name=set_resumeallow&thisname=简历审核通过"
+简历列表</strong[:]简历列表</strong
+完全公开</div[:]完全公开</div
+验证码：</div[:]验证码：</div
+个人会员申请课程</a[:]个人会员申请课程</a
+上传营业执照：</div[:]上传营业执照：</div
+重置</a[:]重置</a
+会员登录</h4[:]会员登录</h4
+新增邮件任务</div[:]新增邮件任务</div
+有 效 期：</td[:]有 效 期：</td
+创建时间:{#$payment[payment].addtime|date_format:"%Y-%m-%d %H:%M"#} | 支付方式:{#$payment[payment].payment_name#}</p[:]创建时间:{#$payment[payment].addtime|date_format:"%Y-%m-%d %H:%M"#} | 支付方式:{#$payment[payment].payment_name#}</p
+已验证</div[:]已验证</div
+会员中心</a[:]会员中心</a
+ 错误类型：</td[:] 错误类型：</td
+颜色：</td[:]颜色：</td
+手机</td[:]手机</td
+审核通过	</span[:]审核通过	</span
+可见</a[:]可见</a
+2.请妥善保存管理密码，管理密码可用于修改/删除信息！</p[:]2.请妥善保存管理密码，管理密码可用于修改/删除信息！</p
+ 或 <a href="{#$HIGHWAY.site_dir#}"[:] 或 <a href="{#$HIGHWAY.site_dir#}"
+腾讯QQ</span[:]腾讯QQ</span
+{#$list.startyear#}年{#$list.startmonth#}月至{#$list.endyear#}年{#$list.endmonth#}</td[:]{#$list.startyear#}年{#$list.startmonth#}月至{#$list.endyear#}年{#$list.endmonth#}</td
+删除下载简历</label[:]删除下载简历</label
+填写数字，"0"为若干</span[:]填写数字，"0"为若干</span
+(完整指数：{#$list.complete_percent#}%)</td[:](完整指数：{#$list.complete_percent#}%)</td
+分钟：</td[:]分钟：</td
+{#if $show.district_cn#}期望地区：{#$show.district_cn#}{#/if#}{#if $show.trade_cn#}<span[:]{#if $show.district_cn#}期望地区：{#$show.district_cn#}{#/if#}{#if $show.trade_cn#}<span
+有无顾问</div[:]有无顾问</div
+修改说明页</div[:]修改说明页</div
+简历质量</div[:]简历质量</div
+充值成功：</td[:]充值成功：</td
+修改属性分类</div[:]修改属性分类</div
+个人会员 </a[:]个人会员 </a
+添加文档</div[:]添加文档</div
+公开状态：</td[:]公开状态：</td
+账户名</div[:]账户名</div
+欢迎回来，<a href="{#$user_url#}" class="underline"[:]欢迎回来，<a href="{#$user_url#}" class="underline"
+调用名称(必填)：</td[:]调用名称(必填)：</td
+	密码</div[:]	密码</div
+(个人简历审核通过是否邮件通知)</td[:](个人简历审核通过是否邮件通知)</td
+(0为不提醒，如设置为10则积分少于10时会员中心提醒充值)</span[:](0为不提醒，如设置为10则积分少于10时会员中心提醒充值)</span
+邮箱地址：</td[:]邮箱地址：</td
+ 份简历，您已创建 <span[:] 份简历，您已创建 <span
+单号</td[:]单号</td
+出生年份：<span id="base_info_birthdate"[:]出生年份：<span id="base_info_birthdate"
+<a href="?act=mail_templates_edit&templates_name=set_editpwd&thisname=修改密码"[:]<a href="?act=mail_templates_edit&templates_name=set_editpwd&thisname=修改密码"
+简历处理率</p[:]简历处理率</p
+广告位名称：</td[:]广告位名称：</td
+设置不可用则任务不会执行</span[:]设置不可用则任务不会执行</span
+公司介绍</a[:]公司介绍</a
+2M以上</td[:]2M以上</td
+添加</div[:]添加</div
+30 日</option[:]30 日</option
+创建时间</td[:]创建时间</td
+系统信息</div[:]系统信息</div
+<input name="" type="button" value="管理简历" class="but180lan" onclick="javascript:location.href='company_recruitment.php?act=apply_jobs'"[:]<input name="" type="button" value="管理简历" class="but180lan" onclick="javascript:location.href='company_recruitment.php?act=apply_jobs'"
+应付金额：</td[:]应付金额：</td
+CSRF防御</div[:]CSRF防御</div
+审核中</label[:]审核中</label
+会员申请</td[:]会员申请</td
+{#else#}<a href="company_info.php?act=company_profile" onClick="return confirm('无法预览,您没有完善企业资料,现在去完善企业资料？')"[:]{#else#}<a href="company_info.php?act=company_profile" onClick="return confirm('无法预览,您没有完善企业资料,现在去完善企业资料？')"
+元等于：</td[:]元等于：</td
+目前积分</td[:]目前积分</td
+地图标注</a[:]地图标注</a
+消息</li[:]消息</li
+电子地图设置</div[:]电子地图设置</div
+<input type="button"   id="nav_add_training" value="添加"  class="but55lan_add"/[:]<input type="button"   id="nav_add_training" value="添加"  class="but55lan_add"/
+ 联系地址：</td[:] 联系地址：</td
+类别：</td[:]类别：</td
+新增简历照片后照片默认审核状态：</td[:]新增简历照片后照片默认审核状态：</td
+邮件主题</td[:]邮件主题</td
+微信昵称：</div[:]微信昵称：</div
+ 方便求职者合理计划面试乘车路线</p[:] 方便求职者合理计划面试乘车路线</p
+选择专业类别</span[:]选择专业类别</span
+日</option[:]日</option
+到期时间：</td[:]到期时间：</td
+调用名：</td[:]调用名：</td
+ — 网站每天新增大量职位，高薪等你挑</div[:] — 网站每天新增大量职位，高薪等你挑</div
+方案名称：</td[:]方案名称：</td
+<input type="submit" name="Submit" value="上传" id="up" class="but_upload" /[:]<input type="submit" name="Submit" value="上传" id="up" class="but_upload" /
+手机{#if $user.mobile_audit=="1"#}已{#else#}未{#/if#}认证</a[:]手机{#if $user.mobile_audit=="1"#}已{#else#}未{#/if#}认证</a
+培训课程</td[:]培训课程</td
+会员注册协议 - {#$HIGHWAY.site_name#}</title[:]会员注册协议 - {#$HIGHWAY.site_name#}</title
+删除经理人简历</label[:]删除经理人简历</label
+延长推广时间：</td[:]延长推广时间：</td
+未认证企业修改职位后审核状态为：</td[:]未认证企业修改职位后审核状态为：</td
+<input type="button" value="免费注册" class="index-reg-btn" onclick='window.location.href="{#$reg_url#}"'/[:]<input type="button" value="免费注册" class="index-reg-btn" onclick='window.location.href="{#$reg_url#}"'/
+上传文件：</td[:]上传文件：</td
+MySQL版本</td[:]MySQL版本</td
+公司名称</td[:]公司名称</td
+word简历</div[:]word简历</div
+您的账号已绑定微信号，可直接微信 <a href="{#"HW_login"|highway_url#}"[:]您的账号已绑定微信号，可直接微信 <a href="{#"HW_login"|highway_url#}"
+推广职位：</td[:]推广职位：</td
+邮箱{#if $user.email_audit=="1"#}已{#else#}未{#/if#}认证</a[:]邮箱{#if $user.email_audit=="1"#}已{#else#}未{#/if#}认证</a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写工作经历。</div[:]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写工作经历。</div
+(个人简历审核未通过是否通知)</td[:](个人简历审核未通过是否通知)</td
+资讯ID</li[:]资讯ID</li
+<input type="button" value="创建" class="btn-65-30blue btn-big-font DialogSubmit" /[:]<input type="button" value="创建" class="btn-65-30blue btn-big-font DialogSubmit" /
+为了吸引更多求职者的关注，建议您：<a href="javascript:;" class="underline set_promotion" catid="3" jobid="{#$jobs_one.id#}"[:]为了吸引更多求职者的关注，建议您：<a href="javascript:;" class="underline set_promotion" catid="3" jobid="{#$jobs_one.id#}"
+到期{#/if#}{#else#}已经到期{#/if#}<span class="small"[:]到期{#/if#}{#else#}已经到期{#/if#}<span class="small"
+不限</div[:]不限</div
+修改职位</a[:]修改职位</a
+{#if $jobs.minage#}{#$jobs.minage#}{#else#}请选择{#/if#}</div[:]{#if $jobs.minage#}{#$jobs.minage#}{#else#}请选择{#/if#}</div
+准入密钥：</td[:]准入密钥：</td
+姓名</li[:]姓名</li
+取消推广</label[:]取消推广</label
+联系地址：</td[:]联系地址：</td
+ — 无限量收取求职者投递的简历</div[:] — 无限量收取求职者投递的简历</div
+服务时间：</td[:]服务时间：</td
+打开微信扫描二维码</p[:]打开微信扫描二维码</p
+延期职位</a[:]延期职位</a
+选择意向行业</span[:]选择意向行业</span
+不接收            </label[:]不接收            </label
+<input type="submit" name="save_work" id="save_work" value="保存"  class="but100lan"/[:]<input type="submit" name="save_work" id="save_work" value="保存"  class="but100lan"/
+已有账号？直接绑定</h2[:]已有账号？直接绑定</h2
+管理密码：</td[:]管理密码：</td
+过多的项目设置邮件通知会消耗系统资源。<br /[:]过多的项目设置邮件通知会消耗系统资源。<br /
+<input type="text" class="sign_up_input_name" placeholder="请输入用户名" name="username" id="username" /[:]<input type="text" class="sign_up_input_name" placeholder="请输入用户名" name="username" id="username" /
+申请高级人才说明：</td[:]申请高级人才说明：</td
+选择时间</div[:]选择时间</div
+微商圈</p[:]微商圈</p
+是否显示：</td[:]是否显示：</td
+手机号：</td[:]手机号：</td
+订单说明：</td[:]订单说明：</td
+重新开通服务套餐</div[:]重新开通服务套餐</div
+<a class="{#if $user.mobile_audit=="1"#}edit_mobile{#else#}audit_mobile{#/if#}" title="{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;"[:]<a class="{#if $user.mobile_audit=="1"#}edit_mobile{#else#}audit_mobile{#/if#}" title="{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;"
+修改企业资料 - <span style="color:#0066CC"[:]修改企业资料 - <span style="color:#0066CC"
+<input type="submit" value="立即登录" class="index-login-btn" id="login_submit"/[:]<input type="submit" value="立即登录" class="index-login-btn" id="login_submit"/
+个人会员允许发布简历：</td[:]个人会员允许发布简历：</td
+修改广告位：<span style="color:#006699"[:]修改广告位：<span style="color:#006699"
+新浪微博</span[:]新浪微博</span
+照片显示：</td[:]照片显示：</td
+删除人才库</label[:]删除人才库</label
+标题加粗：</td[:]标题加粗：</td
+ 企业Logo</div[:] 企业Logo</div
+<a href="{#"settr:7,settr_cn:最近一周"|highway_parse_url#}"[:]<a href="{#"settr:7,settr_cn:最近一周"|highway_parse_url#}"
+线路查询</h4[:]线路查询</h4
+验证码宽度：</td[:]验证码宽度：</td
+(职位审核通过是否邮件通知)</td[:](职位审核通过是否邮件通知)</td
+{#if $company_profile.audit==1#}{#$company_profile.companyname#}<span class="vtip c" title="您已经通过营业执照认证，要修改企业名请联系管理员！"[:]{#if $company_profile.audit==1#}{#$company_profile.companyname#}<span class="vtip c" title="您已经通过营业执照认证，要修改企业名请联系管理员！"
+开通企业电子地图：</td[:]开通企业电子地图：</td
+有效日期：</td[:]有效日期：</td
+ 充值订单</div[:] 充值订单</div
+未认证企业发布职位后审核状态为：</td[:]未认证企业发布职位后审核状态为：</td
+<a href="?act=edit_tpl&templates_name=set_resumeallow&thisname=简历审核通过"[:]<a href="?act=edit_tpl&templates_name=set_resumeallow&thisname=简历审核通过"
+PHP版本</td[:]PHP版本</td
+发职位</p[:]发职位</p
+审核通过</label[:]审核通过</label
+简历列表数最大为：</td[:]简历列表数最大为：</td
+照片审核状态：</td[:]照片审核状态：</td
+&nbsp;（服务期限：{#if $setmeal.days=="0"#}无限制{#else#}{#$setmeal.days#}天{#/if#}）</td[:]&nbsp;（服务期限：{#if $setmeal.days=="0"#}无限制{#else#}{#$setmeal.days#}天{#/if#}）</td
+三月内</a[:]三月内</a
+姓氏</label[:]姓氏</label
+增加顶级分类</span[:]增加顶级分类</span
+链接名称：</td[:]链接名称：</td
+3天内</a[:]3天内</a
+<input name="" type="button" value="发布职位" class="but180lan" onclick="javascript:location.href='company_jobs.php?act=addjobs'"[:]<input name="" type="button" value="发布职位" class="but180lan" onclick="javascript:location.href='company_jobs.php?act=addjobs'"
+危险的提交</div[:]危险的提交</div
+服务到期时间提前几天提醒：</td[:]服务到期时间提前几天提醒：</td
+为了保障你的账号安全，请先帮助我们验证身份，如手机号丢失，请联系网站管理员修改</p[:]为了保障你的账号安全，请先帮助我们验证身份，如手机号丢失，请联系网站管理员修改</p
+公司ID</li[:]公司ID</li
+公司名</li[:]公司名</li
+链接LOGO：</td[:]链接LOGO：</td
+用户名：</td[:]用户名：</td
+学历要求：{#$show.education_cn#}</div[:]学历要求：{#$show.education_cn#}</div
+当前位置：<a href="{#$HIGHWAY.main_domain#}"[:]当前位置：<a href="{#$HIGHWAY.main_domain#}"
+内置</span[:]内置</span
+系统内置</span[:]系统内置</span
+链接优化：</td[:]链接优化：</td
+ 招聘人数：</td[:] 招聘人数：</td
+分类名称</td[:]分类名称</td
+<input type="button" value="立即登录" class="index-login-btn" /[:]<input type="button" value="立即登录" class="index-login-btn" /
+包含各种人事招聘和人才面试专用表格文档，招聘专员可根据需求自行下载hr资料，实现人企互聘第一步。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:1"|highway_url#}" class="more"[:]包含各种人事招聘和人才面试专用表格文档，招聘专员可根据需求自行下载hr资料，实现人企互聘第一步。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:1"|highway_url#}" class="more"
+申请时间</td[:]申请时间</td
+骑士人才系统管理中心</div[:]骑士人才系统管理中心</div
+修改密码</label[:]修改密码</label
+下载简历</label[:]下载简历</label
+邀请面试：</td[:]邀请面试：</td
+期望月薪：</td[:]期望月薪：</td
+ 或 <b[:] 或 <b
+我们已经向您的邮箱{#$usinfo.email#}发送了一封激活邮件，请点击邮件中的链接完成修改！</p[:]我们已经向您的邮箱{#$usinfo.email#}发送了一封激活邮件，请点击邮件中的链接完成修改！</p
+{#elseif $list.talent=="3"#}高级待审{#else#}普通{#/if#}</div[:]{#elseif $list.talent=="3"#}高级待审{#else#}普通{#/if#}</div
+{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}投递时间{#/if#}<i class="filter-icon"[:]{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}投递时间{#/if#}<i class="filter-icon"
+电子邮箱：</td[:]电子邮箱：</td
+安全认证</div[:]安全认证</div
+审核中的职位：</span[:]审核中的职位：</span
+<input type="password" class="sign_up_input_pwd" placeholder="请输入登录密码" name="password" id="password" /[:]<input type="password" class="sign_up_input_pwd" placeholder="请输入登录密码" name="password" id="password" /
+消息类型</div[:]消息类型</div
+绑定昵称</th[:]绑定昵称</th
+邀请高级人才面试</td[:]邀请高级人才面试</td
+ &nbsp;修改联系方式同步到职位</label[:] &nbsp;修改联系方式同步到职位</label
+简历收藏夹容量</td[:]简历收藏夹容量</td
+猎头顾问套餐操作</label[:]猎头顾问套餐操作</label
+简历等级</div[:]简历等级</div
+审核中</span[:]审核中</span
+关注后会自动弹出立即绑定的消息，点击<br /[:]关注后会自动弹出立即绑定的消息，点击<br /
+验证身份</div[:]验证身份</div
+工资</td[:]工资</td
+<input type="submit" name="submitlogin" id="login" value="立即登录" class="but_login_335" /[:]<input type="submit" name="submitlogin" id="login" value="立即登录" class="but_login_335" /
+申请高级人才简历完整指数要求：</td[:]申请高级人才简历完整指数要求：</td
+ 默认职位审核状态：</td[:] 默认职位审核状态：</td
+工资待遇：<span[:]工资待遇：<span
+企业Logo</a[:]企业Logo</a
+审核通过</span[:]审核通过</span
+已认证邮箱</span[:]已认证邮箱</span
+资讯中心 -  {#$category.categoryname#} - {#$HIGHWAY.site_name#}</title[:]资讯中心 -  {#$category.categoryname#} - {#$HIGHWAY.site_name#}</title
+{#if $loginlog#}上次登录：{#$loginlog.log_addtime|date_format:"%Y-%m-%d %H:%M"#}{#else#}首次登录： {#$user.reg_time|date_format:"%Y-%m-%d %H:%M"#}{#/if#} <a href="company_user.php?act=login_log" class="underline"[:]{#if $loginlog#}上次登录：{#$loginlog.log_addtime|date_format:"%Y-%m-%d %H:%M"#}{#else#}首次登录： {#$user.reg_time|date_format:"%Y-%m-%d %H:%M"#}{#/if#} <a href="company_user.php?act=login_log" class="underline"
+首页</a[:]首页</a
+不可用</span[:]不可用</span
+分类ID：</td[:]分类ID：</td
+刷新时间降序</label[:]刷新时间降序</label
+高级职位搜索</div[:]高级职位搜索</div
+期望职位</div[:]期望职位</div
+核实情况</td[:]核实情况</td
+点击</td[:]点击</td
+个人会员申请课程</label[:]个人会员申请课程</label
+顾问姓名</td[:]顾问姓名</td
+我的订单</a[:]我的订单</a
+举报信息</a[:]举报信息</a
+简历照片</div[:]简历照片</div
+推荐职位</h3[:]推荐职位</h3
+找人才</p[:]找人才</p
+{#$list.age#}岁/{#$list.education_cn#}/{#$list.experience_cn#}</div[:]{#$list.age#}岁/{#$list.education_cn#}/{#$list.experience_cn#}</div
+具体要求：</td[:]具体要求：</td
+关键词：</td[:]关键词：</td
+网站Logo： </td[:]网站Logo： </td
+添加反馈</a[:]添加反馈</a
+文字类型：</td[:]文字类型：</td
+{#$smarty.get.key#} - 资讯中心 - {#$HIGHWAY.site_name#}</title[:]{#$smarty.get.key#} - 资讯中心 - {#$HIGHWAY.site_name#}</title
+系统赠送</a[:]系统赠送</a
+取消</span[:]取消</span
+选择颜色:</td[:]选择颜色:</td
+邮箱验证后，可以通过邮箱随时取回账户密码，接收个人申请职位邮件。</dd[:]邮箱验证后，可以通过邮箱随时取回账户密码，接收个人申请职位邮件。</dd
+公司性质：</div[:]公司性质：</div
+[立即绑定]</a[:][立即绑定]</a
+职位推广-变色</td[:]职位推广-变色</td
+顶距(必填)：</td[:]顶距(必填)：</td
+登录失败</span[:]登录失败</span
+地区：{#$list.district_cn#}</p[:]地区：{#$list.district_cn#}</p
+提示：请输入筛选条件,删除后将不可恢复,谨慎操作！</h2[:]提示：请输入筛选条件,删除后将不可恢复,谨慎操作！</h2
+&nbsp;&nbsp;&nbsp;&nbsp;数字越大越靠前</span[:]&nbsp;&nbsp;&nbsp;&nbsp;数字越大越靠前</span
+<input type="password" name="password" id="password" placeholder="密码" class="login-input" /[:]<input type="password" name="password" id="password" placeholder="密码" class="login-input" /
+确认密码</div[:]确认密码</div
+所属类型：</td[:]所属类型：</td
+添加时间</th[:]添加时间</th
+文字广告的显示内容</span[:]文字广告的显示内容</span
+&nbsp;&nbsp;缓存时间：</td[:]&nbsp;&nbsp;缓存时间：</td
+已下载的简历：</span[:]已下载的简历：</span
+官方微信</p[:]官方微信</p
+HR工具</p[:]HR工具</p
+系统内容：</td[:]系统内容：</td
+手机：<span id="base_info_telephone"[:]手机：<span id="base_info_telephone"
+一月内</a[:]一月内</a
+基本设置</div[:]基本设置</div
+分类名称:</td[:]分类名称:</td
+职位名称：</td[:]职位名称：</td
+发信人邮件地址：</td[:]发信人邮件地址：</td
+<a href="{#"settr:30,settr_cn:一月内"|highway_parse_url#}"[:]<a href="{#"settr:30,settr_cn:一月内"|highway_parse_url#}"
+忘记密码？</a[:]忘记密码？</a
+最后登录ip：</td[:]最后登录ip：</td
+推广期限(天)：</td[:]推广期限(天)：</td
+开启</label[:]开启</label
+ 个职位正在招聘中</div[:] 个职位正在招聘中</div
+修改方案：<span style="color:#006699"[:]修改方案：<span style="color:#006699"
+新增属性分类</div[:]新增属性分类</div
+积分量词：</td[:]积分量词：</td
+对外公开联系人</label[:]对外公开联系人</label
+免费获取激活短信</a[:]免费获取激活短信</a
+修改企业模版</a[:]修改企业模版</a
+性质：{#$list.nature_cn#}</p[:]性质：{#$list.nature_cn#}</p
+ 对外公开联系人</label[:] 对外公开联系人</label
+密码确认：</td[:]密码确认：</td
+如:http://www.jp.highwayns.com</span[:]如:http://www.jp.highwayns.com</span
+高级人才 </a[:]高级人才 </a
+企业审核日志</div[:]企业审核日志</div
+基础设置</div[:]基础设置</div
+数据库用户名：</td[:]数据库用户名：</td
+企业服务</h4[:]企业服务</h4
+		  4、获得商业授权之后，您可以将本软件应用于商业用途，同时依据所购买的授权类型中确定的技术支持内容，自购买时刻起，在技术支持期限内拥有通过指定的方式获得指定范围内的技术支持服务。商业授权用户享有反映和提出意见的权力，相关意见将被作为首要考虑，但没有一定被采纳的承诺或保证。 <br /[:]		  4、获得商业授权之后，您可以将本软件应用于商业用途，同时依据所购买的授权类型中确定的技术支持内容，自购买时刻起，在技术支持期限内拥有通过指定的方式获得指定范围内的技术支持服务。商业授权用户享有反映和提出意见的权力，相关意见将被作为首要考虑，但没有一定被采纳的承诺或保证。 <br /
+工作经历：</div[:]工作经历：</div
+绑定时间</td[:]绑定时间</td
+浏览<span[:]浏览<span
+用户名</div[:]用户名</div
+更新时间</a[:]更新时间</a
+投诉内容</td[:]投诉内容</td
+链接状态</div[:]链接状态</div
+通讯地址：</td[:]通讯地址：</td
+环境检查</h3[:]环境检查</h3
+ — 微信招聘让企业更出色，招人更便捷</div[:] — 微信招聘让企业更出色，招人更便捷</div
+延长推广时间</a[:]延长推广时间</a
+{#if $smarty.get.settr_cn==''#}下载时间{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class="filter-icon"[:]{#if $smarty.get.settr_cn==''#}下载时间{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class="filter-icon"
+{#$cat.categoryname#}- 帮助 - {#$HIGHWAY.site_name#}</title[:]{#$cat.categoryname#}- 帮助 - {#$HIGHWAY.site_name#}</title
+{#$list.age#}岁</div[:]{#$list.age#}岁</div
+<img src="{#$HIGHWAY.site_template#}images/icon-error.png" alt="失败" /[:]<img src="{#$HIGHWAY.site_template#}images/icon-error.png" alt="失败" /
+专属标识</td[:]专属标识</td
+ 默认职位分类无法匹配则为：</td[:] 默认职位分类无法匹配则为：</td
+学历要求：{#$list.education_cn|default:"不限"#}&nbsp;&nbsp;|&nbsp;&nbsp;工作经验：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;职位性质：{#$list.nature_cn|default:"全职"#}&nbsp;&nbsp;|&nbsp;&nbsp;招聘人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:"不限"#}</p[:]学历要求：{#$list.education_cn|default:"不限"#}&nbsp;&nbsp;|&nbsp;&nbsp;工作经验：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;职位性质：{#$list.nature_cn|default:"全职"#}&nbsp;&nbsp;|&nbsp;&nbsp;招聘人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:"不限"#}</p
+验 证 码：</td[:]验 证 码：</td
+有效职位<span[:]有效职位<span
+{#$company.companyname#} - 职位列表 - {#$HIGHWAY.site_name#}</title[:]{#$company.companyname#} - 职位列表 - {#$HIGHWAY.site_name#}</title
+注册</label[:]注册</label
+发送间隔时间：</td[:]发送间隔时间：</td
+关键字检索：</div[:]关键字检索：</div
+0 时</option[:]0 时</option
+2   日</option[:]2   日</option
+返回上一页</a[:]返回上一页</a
+修改颜色</div[:]修改颜色</div
+个人</a[:]个人</a
+职位到期</a[:]职位到期</a
+职位审核未通过：</td[:]职位审核未通过：</td
+修改帮助</div[:]修改帮助</div
+套餐消费明细</a[:]套餐消费明细</a
+等待确认</span[:]等待确认</span
+或图片地址：</td[:]或图片地址：</td
+服务套餐操作</label[:]服务套餐操作</label
+[退出登录]</a[:][退出登录]</a
+(企业开通电子地图是否通知)</td[:](企业开通电子地图是否通知)</td
+性别要求：{#$show.sex_cn#}</div[:]性别要求：{#$show.sex_cn#}</div
+无效职位<span[:]无效职位<span
+{#if $smarty.get.photo == 1#}有照片{#elseif $smarty.get.photo == 0#}无照片{#/if#}<i class="fliter-clear-icon"[:]{#if $smarty.get.photo == 1#}有照片{#elseif $smarty.get.photo == 0#}无照片{#/if#}<i class="fliter-clear-icon"
+4 时</option[:]4 时</option
+申请广告位</a[:]申请广告位</a
+21 日</option[:]21 日</option
+设置服务套餐</div[:]设置服务套餐</div
+感兴趣简历</p[:]感兴趣简历</p
+企业</div[:]企业</div
+非自助申请</a[:]非自助申请</a
+验证方式：</td[:]验证方式：</td
+正在更新缓存，请稍候......</td[:]正在更新缓存，请稍候......</td
+设置星期几执行本任务，“*”为不限制，本设置会覆盖下面的“日”设定</span[:]设置星期几执行本任务，“*”为不限制，本设置会覆盖下面的“日”设定</span
+修改职位状态</label[:]修改职位状态</label
+友情链接申请 - {#$HIGHWAY.site_name#}</title[:]友情链接申请 - {#$HIGHWAY.site_name#}</title
+<input type="button"   id="nav_add_education" value="添加"  class="but55lan_add"/[:]<input type="button"   id="nav_add_education" value="添加"  class="but55lan_add"/
+强制会员认证email：</td[:]强制会员认证email：</td
+显示</font[:]显示</font
+(默认为空表示不做修改，填0为不限制,如填写：3，则延长3天，-3 则减少3天)</span[:](默认为空表示不做修改，填0为不限制,如填写：3，则延长3天，-3 则减少3天)</span
+ {#if $list.apply=="1"#}允许{#else#}<span style="color: #999999"[:] {#if $list.apply=="1"#}允许{#else#}<span style="color: #999999"
+置顶</a[:]置顶</a
+投诉类型</div[:]投诉类型</div
+刷新课程</label[:]刷新课程</label
+<a id="updatePassword" title="修改" href="javascript:;"[:]<a id="updatePassword" title="修改" href="javascript:;"
+会员ID</td[:]会员ID</td
+婚姻状况：<span id="base_info_marriage_cn"[:]婚姻状况：<span id="base_info_marriage_cn"
+ 份</div[:] 份</div
+ 重新提交</div[:] 重新提交</div
+新增帮助</div[:]新增帮助</div
+恭喜您，职位发布成功！</div[:]恭喜您，职位发布成功！</div
+短信模板请勿添加HTML。<br /[:]短信模板请勿添加HTML。<br /
+启用验证码</div[:]启用验证码</div
+默认企业认证状态：</td[:]默认企业认证状态：</td
+收件地址</li[:]收件地址</li
+年龄：</td[:]年龄：</td
+<a href="{#"settr:7,settr_cn:一周内"|highway_parse_url#}"[:]<a href="{#"settr:7,settr_cn:一周内"|highway_parse_url#}"
+<a href="{#"reply_id:5,reply_cn:待定"|highway_parse_url#}"[:]<a href="{#"reply_id:5,reply_cn:待定"|highway_parse_url#}"
+职位推广-推荐</div[:]职位推广-推荐</div
+[变色]</span[:][变色]</span
+工具箱内提供各种形式的考勤表格供hr参考，以维护企业正常的工作秩序，严肃企业纪律。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:6"|highway_url#}" class="more"[:]工具箱内提供各种形式的考勤表格供hr参考，以维护企业正常的工作秩序，严肃企业纪律。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:6"|highway_url#}" class="more"
+女</div[:]女</div
+未显示职位<span class="check"[:]未显示职位<span class="check"
+(0表示免费) </span[:](0表示免费) </span
+您的套餐为{#$setmeal_name#}，目前{#$promotion_name#}剩余 {#$num#} 条，推广时间为 {#$days#} 天！ </p[:]您的套餐为{#$setmeal_name#}，目前{#$promotion_name#}剩余 {#$num#} 条，推广时间为 {#$days#} 天！ </p
+{#if $userprofile.birthday#}{#$userprofile.birthday#}{#else#}请选择{#/if#}</div[:]{#if $userprofile.birthday#}{#$userprofile.birthday#}{#else#}请选择{#/if#}</div
+营业执照</td[:]营业执照</td
+未到期</a[:]未到期</a
+SMTP服务帐户名：</td[:]SMTP服务帐户名：</td
+所属分类：</td[:]所属分类：</td
+进入会员中心</a[:]进入会员中心</a
+籍&nbsp;&nbsp;贯：<span id="base_info_householdaddress"[:]籍&nbsp;&nbsp;贯：<span id="base_info_householdaddress"
+修改企业模版</label[:]修改企业模版</label
+紧急招聘</h4[:]紧急招聘</h4
+最后登录ip</td[:]最后登录ip</td
+主动申请 <span[:]主动申请 <span
+经理人简历  </td[:]经理人简历  </td
+职位推广</label[:]职位推广</label
+官方网站</a[:]官方网站</a
+状态：</td[:]状态：</td
+高级人才</label[:]高级人才</label
+收到简历</td[:]收到简历</td
+HR工具箱</title[:]HR工具箱</title
+ — 注册企业会员，轻轻松松招聘人才</div[:] — 注册企业会员，轻轻松松招聘人才</div
+修改邮件任务</div[:]修改邮件任务</div
+上传简历照片大小不能超过：</td[:]上传简历照片大小不能超过：</td
+缩&nbsp;&nbsp;略&nbsp;&nbsp;图：</td[:]缩&nbsp;&nbsp;略&nbsp;&nbsp;图：</td
+微信版</a[:]微信版</a
+套餐余量</h3[:]套餐余量</h3
+选择简历模板</div[:]选择简历模板</div
+23 日</option[:]23 日</option
+[已暂停]</span[:][已暂停]</span
+作机会一手掌握。</p[:]作机会一手掌握。</p
+公司id</li[:]公司id</li
+声明：未经过商业授权仅供学习和测试之用，不允许二次开发和用于商业用途，否则追究法律责任。</p[:]声明：未经过商业授权仅供学习和测试之用，不允许二次开发和用于商业用途，否则追究法律责任。</p
+4 日</option[:]4 日</option
+下载高级人才简历</div[:]下载高级人才简历</div
+积分规则</h3[:]积分规则</h3
+顾问QQ</td[:]顾问QQ</td
+审核状态</div[:]审核状态</div
+发送短信</div[:]发送短信</div
+<input type="password" class="sign_up_input_pwd" placeholder="请确认登录密码" name="password2" id="password2" /[:]<input type="password" class="sign_up_input_pwd" placeholder="请确认登录密码" name="password2" id="password2" /
+推广期每天消耗积分：</td[:]推广期每天消耗积分：</td
+ 代码(必填):</td[:] 代码(必填):</td
+如：/images/123.swf 或 http://www.jp.highwayns.com/123.swf</span[:]如：/images/123.swf 或 http://www.jp.highwayns.com/123.swf</span
+查看更多[:]查看更多
+(个人申请了职位是否通知企业)</td[:](个人申请了职位是否通知企业)</td
+<input type="submit" value="保存" id="save_profile" class="but100lan" onclick="$(window).unbind('beforeunload');"/[:]<input type="submit" value="保存" id="save_profile" class="but100lan" onclick="$(window).unbind('beforeunload');"/
+允许会员申请此服务：</td[:]允许会员申请此服务：</td
+{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}收藏时间{#/if#}<i class="filter-icon"[:]{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}收藏时间{#/if#}<i class="filter-icon"
+创建经理人简历</label[:]创建经理人简历</label
+推广颜色：</td[:]推广颜色：</td
+设置简历模版</label[:]设置简历模版</label
+ 职位收藏夹</div[:] 职位收藏夹</div
+客户服务热线：{#$site_tel#}</p[:]客户服务热线：{#$site_tel#}</p
+修改头像</a[:]修改头像</a
+精准查询职位。</p[:]精准查询职位。</p
+婚姻状况：</td[:]婚姻状况：</td
+高级简历下载设置</div[:]高级简历下载设置</div
+删除下载简历</a[:]删除下载简历</a
+友情链接申请</h5[:]友情链接申请</h5
+(0为不允许使用人才库)</span[:](0为不允许使用人才库)</span
+顶级菜单</option[:]顶级菜单</option
+禁止访问IP</div[:]禁止访问IP</div
+您的账号没绑定手机或邮箱，请联系网站管理员或拔打{#$HIGHWAY.site_name#}客服电话{#$HIGHWAY.top_tel#}！</p[:]您的账号没绑定手机或邮箱，请联系网站管理员或拔打{#$HIGHWAY.site_name#}客服电话{#$HIGHWAY.top_tel#}！</p
+{#$list.year#}年{#$list.month#}月</div[:]{#$list.year#}年{#$list.month#}月</div
+职位最大并发数：</td[:]职位最大并发数：</td
+人民币</li[:]人民币</li
+设置哪一分钟执行本任务，留空为不限制</span[:]设置哪一分钟执行本任务，留空为不限制</span
+读取权限</td[:]读取权限</td
+职位信息</h3[:]职位信息</h3
+长期</span[:]长期</span
+身高：</td[:]身高：</td
+帐号状态：</td[:]帐号状态：</td
+修改</a[:]修改</a
+正常</a[:]正常</a
+选择职位类别</span[:]选择职位类别</span
+每天刷新普通职位次数限制：</td[:]每天刷新普通职位次数限制：</td
+操作</div[:]操作</div
+密码</dt[:]密码</dt
+设置</div[:]设置</div
+{#if $smarty.get.streetid#}{#"HW_street,"|cat:$smarty.get.streetid|highway_categoryname#}{#else#}按道路搜索{#/if#}  - 职位列表  - {#$HIGHWAY.site_name#}</title[:]{#if $smarty.get.streetid#}{#"HW_street,"|cat:$smarty.get.streetid|highway_categoryname#}{#else#}按道路搜索{#/if#}  - 职位列表  - {#$HIGHWAY.site_name#}</title
+我的积分</a[:]我的积分</a
+&nbsp;天</td[:]&nbsp;天</td
+<input type="checkbox" name=" " title="全选/反选" id="chk"/[:]<input type="checkbox" name=" " title="全选/反选" id="chk"/
+ 安全助手</div[:] 安全助手</div
+导出word简历</a[:]导出word简历</a
+恭喜您成功注册{#if $user.utype==1#}企业{#elseif $user.utype==2#}个人{#/if#}用户</div[:]恭喜您成功注册{#if $user.utype==1#}企业{#elseif $user.utype==2#}个人{#/if#}用户</div
+添加到人才库</label[:]添加到人才库</label
+"+i+"年</li[:]"+i+"年</li
+期望职位：<span id="base_intention_jobs"[:]期望职位：<span id="base_intention_jobs"
+是否赠送积分：</td[:]是否赠送积分：</td
+培训会员积分操作</label[:]培训会员积分操作</label
+<input name="sex"  type="radio" value="1"  title="男" {#if $jobs.sex == "1"#}checked="checked"{#/if#} /[:]<input name="sex"  type="radio" value="1"  title="男" {#if $jobs.sex == "1"#}checked="checked"{#/if#} /
+求助</a[:]求助</a
+会员过期套餐过期后套餐自动变更为：</td[:]会员过期套餐过期后套餐自动变更为：</td
+广告标题只为识别辨认不同广告条目之用，并不在广告中显示</span[:]广告标题只为识别辨认不同广告条目之用，并不在广告中显示</span
+对不起！没有找到您要的信息！</td[:]对不起！没有找到您要的信息！</td
+开通机构电子地图</label[:]开通机构电子地图</label
+操作时间</td[:]操作时间</td
+意见/建议：&nbsp; <a href="admin_feedback.php?act=suggest_list&replyinfo=1" id="t8"[:]意见/建议：&nbsp; <a href="admin_feedback.php?act=suggest_list&replyinfo=1" id="t8"
+	手机</div[:]	手机</div
+培训机构</a[:]培训机构</a
+删除职位收藏</a[:]删除职位收藏</a
+{#if $list.display=="1"#}公开{#elseif $list.display=="2"#}保密{#/if#}</span[:]{#if $list.display=="1"#}公开{#elseif $list.display=="2"#}保密{#/if#}</span
+邀请普通人才面试</td[:]邀请普通人才面试</td
+<input type="submit" name="Submit" value="修改" class="admin_submit"   /[:]<input type="submit" name="Submit" value="修改" class="admin_submit"   /
+文字广告</div[:]文字广告</div
+推荐职位<span[:]推荐职位<span
+我要建议</div[:]我要建议</div
+方案排序：</td[:]方案排序：</td
+{#if $smarty.get.settr == 3#}3天内{#elseif $smarty.get.settr == 7#}7天内{#elseif $smarty.get.settr == 15#}15天内{#elseif $smarty.get.settr == 30#}30天内{#/if#}<i class="fliter-clear-icon"[:]{#if $smarty.get.settr == 3#}3天内{#elseif $smarty.get.settr == 7#}7天内{#elseif $smarty.get.settr == 15#}15天内{#elseif $smarty.get.settr == 30#}30天内{#/if#}<i class="fliter-clear-icon"
+其他设置</div[:]其他设置</div
+如：建设与东环路交叉口鼎元时代中心</span[:]如：建设与东环路交叉口鼎元时代中心</span
+状态</td[:]状态</td
+<input name="submit" type="submit" class="admin_submit"    value="保存"/[:]<input name="submit" type="submit" class="admin_submit"    value="保存"/
+ 联系电话：</td[:] 联系电话：</td
+照片：</td[:]照片：</td
+ 地址 </td[:] 地址 </td
+推荐天数设定：</td[:]推荐天数设定：</td
+搜索引擎优化(SEO)</div[:]搜索引擎优化(SEO)</div
+简历完整度：{#$my_resume[list].complete_percent#}%</div[:]简历完整度：{#$my_resume[list].complete_percent#}%</div
+已认证</span[:]已认证</span
+设置哪一日执行本任务，“*”为不限制</span[:]设置哪一日执行本任务，“*”为不限制</span
+点击事件</option[:]点击事件</option
+网址：<a target="_blank" href="{#$company.website#}" rel="nofollow"[:]网址：<a target="_blank" href="{#$company.website#}" rel="nofollow"
+<a href="{#"reply_id:3,reply_cn:合适"|highway_parse_url#}"[:]<a href="{#"reply_id:3,reply_cn:合适"|highway_parse_url#}"
+待付款...</span[:]待付款...</span
+待开通高级人才：&nbsp;<a href="admin_personal.php?talent=3" id="t4"[:]待开通高级人才：&nbsp;<a href="admin_personal.php?talent=3" id="t4"
+针对公司出差问题，提供相关的出差规定、出差情况记录表等，准确掌握员工工作动态，明晰公司财务清单。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:7"|highway_url#}" class="more"[:]针对公司出差问题，提供相关的出差规定、出差情况记录表等，准确掌握员工工作动态，明晰公司财务清单。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:7"|highway_url#}" class="more"
+执行充值时间：</td[:]执行充值时间：</td
+(营业执照审核通过是否邮件通知)</td[:](营业执照审核通过是否邮件通知)</td
+验证码设置</div[:]验证码设置</div
+{#$show.title#}- 帮助 - {#$HIGHWAY.site_name#}</title[:]{#$show.title#}- 帮助 - {#$HIGHWAY.site_name#}</title
+简历名称：<strong id="base_info_title"[:]简历名称：<strong id="base_info_title"
+<input type="button" value="收藏简历" class="all-down-btn allfavorites" /[:]<input type="button" value="收藏简历" class="all-down-btn allfavorites" /
+认证未通过</a[:]认证未通过</a
+秒后可重新获取</a[:]秒后可重新获取</a
+隐私设置</a[:]隐私设置</a
+未查看<span class="no_check"[:]未查看<span class="no_check"
+建议</a[:]建议</a
+职位性质：{#$show.nature_cn#}</div[:]职位性质：{#$show.nature_cn#}</div
+23 时</option[:]23 时</option
+期望工作地：</td[:]期望工作地：</td
+修改企业信息</label[:]修改企业信息</label
+认证中</label[:]认证中</label
+VIP特权介绍</h3[:]VIP特权介绍</h3
+通知内容</div[:]通知内容</div
+开通电子地图</a[:]开通电子地图</a
+ 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning"[:] 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning"
+一</option[:]一</option
+万</td[:]万</td
+登录时间：</td[:]登录时间：</td
+页面加载中....</div[:]页面加载中....</div
+新增分类组</div[:]新增分类组</div
+(请用“|”隔开多个手机号码)</span[:](请用“|”隔开多个手机号码)</span
+标注机构电子地图</label[:]标注机构电子地图</label
+企业联系方式：</td[:]企业联系方式：</td
+请输入管理密码：</td[:]请输入管理密码：</td
+删除简历</label[:]删除简历</label
+折扣价：</td[:]折扣价：</td
+照片简历<span[:]照片简历<span
+到期时间</td[:]到期时间</td
+修改机构信息</label[:]修改机构信息</label
+发送指定会员系统消息<span class="admin_note"[:]发送指定会员系统消息<span class="admin_note"
+帐户名：</td[:]帐户名：</td
+编辑</td[:]编辑</td
+终点：<input type="text" name="end" value="{#$company.address#}" class="addr_inpt" readonly/[:]终点：<input type="text" name="end" value="{#$company.address#}" class="addr_inpt" readonly/
+帮助中心</h4[:]帮助中心</h4
+设置电子地图坐标</a[:]设置电子地图坐标</a
+绑定第三方账号后，你可以用绑定账号直接登录{#$HIGHWAY.site_name#}，便于账号密码记忆。</dd[:]绑定第三方账号后，你可以用绑定账号直接登录{#$HIGHWAY.site_name#}，便于账号密码记忆。</dd
+编辑模板</div[:]编辑模板</div
+7   日</option[:]7   日</option
+微招聘列表</a[:]微招聘列表</a
+支付方式描述：</td[:]支付方式描述：</td
+过期信息设置</div[:]过期信息设置</div
+认证通过</label[:]认证通过</label
+你可以用HTML美化邮件内容模板。</p[:]你可以用HTML美化邮件内容模板。</p
+管理员详情</div[:]管理员详情</div
+关于我们</h4[:]关于我们</h4
+只差一步，即可完成登录设置</h2[:]只差一步，即可完成登录设置</h2
+最大职位并发数为<span[:]最大职位并发数为<span
+设置到期时间，格式 yyyy-mm-dd，留空为不限制</span[:]设置到期时间，格式 yyyy-mm-dd，留空为不限制</span
+验证码图片高度，建议在 20 - 50 范围内取值，0为自适应</span[:]验证码图片高度，建议在 20 - 50 范围内取值，0为自适应</span
+找回密码：</td[:]找回密码：</td
+标题:</td[:]标题:</td
+发布简历：</td[:]发布简历：</td
+高级人才</a[:]高级人才</a
+套餐类型</div[:]套餐类型</div
+ 已上传</a[:] 已上传</a
+语言能力：</td[:]语言能力：</td
+是否显示过期招聘信息：</td[:]是否显示过期招聘信息：</td
+<input name="company_currency"  type="radio" value="人民币" {#if $show.company_currency eq "人民币"#}checked="checked"{#/if#} /[:]<input name="company_currency"  type="radio" value="人民币" {#if $show.company_currency eq "人民币"#}checked="checked"{#/if#} /
+现在就去申请</a[:]现在就去申请</a
+[充值积分]</a[:][充值积分]</a
+招聘人数：</td[:]招聘人数：</td
+删除后无法恢复，您确定要删除吗？</span[:]删除后无法恢复，您确定要删除吗？</span
+注册时间</td[:]注册时间</td
+申请说明：</div[:]申请说明：</div
+微信头条信息大图： </td[:]微信头条信息大图： </td
+1.您当前的IP是：{#$ip#}，请不要发布虚假、违法信息！   </p[:]1.您当前的IP是：{#$ip#}，请不要发布虚假、违法信息！   </p
+{#$jobs.category_cn|default:"请选择"#}</div[:]{#$jobs.category_cn|default:"请选择"#}</div
+删除职位</label[:]删除职位</label
+个，现发布中<span[:]个，现发布中<span
+已经有帐号，登录与QQ帐号关联登录</p[:]已经有帐号，登录与QQ帐号关联登录</p
+公告：</td[:]公告：</td
+EncodingAESKey(消息加解密密钥)：</td[:]EncodingAESKey(消息加解密密钥)：</td
+机型通用</h2[:]机型通用</h2
+未查看<span class="h"[:]未查看<span class="h"
+<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /[:]<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /
+填写账户信息</div[:]填写账户信息</div
+可用标签：</td[:]可用标签：</td
+选择图片</div[:]选择图片</div
+招聘人数：{#$show.amount#}人</div[:]招聘人数：{#$show.amount#}人</div
+链接地址</td[:]链接地址</td
+新浪微博帐号登录设置</div[:]新浪微博帐号登录设置</div
+用户名</td[:]用户名</td
+下载普通人才简历</div[:]下载普通人才简历</div
+30天</span[:]30天</span
+菜单类型</td[:]菜单类型</td
+邮箱：<span id="base_info_email"[:]邮箱：<span id="base_info_email"
+属性名称:</td[:]属性名称:</td
+简历</a[:]简历</a
+ 认证管理</div[:] 认证管理</div
+查看职位申请</label[:]查看职位申请</label
+邮件内容</td[:]邮件内容</td
+会员UID：</td[:]会员UID：</td
+已认证企业发布职位后审核状态为：</td[:]已认证企业发布职位后审核状态为：</td
+期望从事的行业：</td[:]期望从事的行业：</td
+默认为系统前台目录下的'baiduxml'目录</span[:]默认为系统前台目录下的'baiduxml'目录</span
+等待发送</a[:]等待发送</a
+我的消息</div[:]我的消息</div
+立即进入 <a href="{#$user.url#}"[:]立即进入 <a href="{#$user.url#}"
+基本资料</a[:]基本资料</a
+{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}邀请简历{#/if#}<i class="filter-icon"[:]{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}邀请简历{#/if#}<i class="filter-icon"
+{#$setmeal[key].days#}天</td[:]{#$setmeal[key].days#}天</td
+简历名称：<font style="font-weight:bold"[:]简历名称：<font style="font-weight:bold"
+{#if $smarty.get.look=='1'#}对方未查看{#elseif $smarty.get.look=='2'#}对方已查看{#else#}查看状态{#/if#}<i class="filter-icon"[:]{#if $smarty.get.look=='1'#}对方未查看{#elseif $smarty.get.look=='2'#}对方已查看{#else#}查看状态{#/if#}<i class="filter-icon"
+<a href="javascript:void(0);" class="login-type wx" title="微信登录"[:]<a href="javascript:void(0);" class="login-type wx" title="微信登录"
+添加职位收藏</a[:]添加职位收藏</a
+收藏</a[:]收藏</a
+{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"HW_resumetag,"|cat:$smarty.get.resumetag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.sex=="1"#}男 - {#/if#}{#if $smarty.get.sex=="2"#}女 - {#/if#}{#if $smarty.get.photo=="1"#}有照片 - {#/if#}{#if $smarty.get.photo=="0"#}无照片 - {#/if#}{#if $smarty.get.talent=="1"#}普通简历 - {#/if#}{#if $smarty.get.talent=="2"#}高级简历 - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}简历列表  - {#$HIGHWAY.site_name#}</title[:]{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"HW_resumetag,"|cat:$smarty.get.resumetag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.sex=="1"#}男 - {#/if#}{#if $smarty.get.sex=="2"#}女 - {#/if#}{#if $smarty.get.photo=="1"#}有照片 - {#/if#}{#if $smarty.get.photo=="0"#}无照片 - {#/if#}{#if $smarty.get.talent=="1"#}普通简历 - {#/if#}{#if $smarty.get.talent=="2"#}高级简历 - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}简历列表  - {#$HIGHWAY.site_name#}</title
+&nbsp;至&nbsp;</td[:]&nbsp;至&nbsp;</td
+链接</td[:]链接</td
+您上传的营业执照<span[:]您上传的营业执照<span
+25 日</option[:]25 日</option
+我的简历</div[:]我的简历</div
+申请职位</a[:]申请职位</a
+恭喜您，您已成功安装骑士cms！</div[:]恭喜您，您已成功安装骑士cms！</div
+职位列表</strong[:]职位列表</strong
+ 默认有效天数：</td[:] 默认有效天数：</td
+短信内容</li[:]短信内容</li
+(请填写收费金额)</span[:](请填写收费金额)</span
+原价：{#$setmeal[key].original_price#}元</del[:]原价：{#$setmeal[key].original_price#}元</del
+电话</li[:]电话</li
+广告位名称</td[:]广告位名称</td
+页面设置</div[:]页面设置</div
+(允许格式为：gif/jpg/bmp/png，文件大小：1000KB)</span[:](允许格式为：gif/jpg/bmp/png，文件大小：1000KB)</span
+文字内容(必填)：</td[:]文字内容(必填)：</td
+完善的求职管理中心，随时随地查看职位<br /[:]完善的求职管理中心，随时随地查看职位<br /
+四</option[:]四</option
+登录时间 </div[:]登录时间 </div
+所属行业：</td[:]所属行业：</td
+网站域名：</td[:]网站域名：</td
+17   日</option[:]17   日</option
+发送失败</span[:]发送失败</span
+举报信息</label[:]举报信息</label
+生成用户名：</td[:]生成用户名：</td
+任职时间：</td[:]任职时间：</td
+调用名称：</td[:]调用名称：</td
+友情链接</div[:]友情链接</div
+SMTP 端口：</td[:]SMTP 端口：</td
+支付金额：</div[:]支付金额：</div
+查看邀请面试</label[:]查看邀请面试</label
+已经到期</a[:]已经到期</a
+紧急招聘</h3[:]紧急招聘</h3
+简历被下载 <span[:]简历被下载 <span
+允许紧急职位：<span style="position:relative;"[:]允许紧急职位：<span style="position:relative;"
+管理员账号</h3[:]管理员账号</h3
+一年内</a[:]一年内</a
+企业行业无法匹配则为：</td[:]企业行业无法匹配则为：</td
+教育经历：</div[:]教育经历：</div
+分钟 <span style="color:#666666"[:]分钟 <span style="color:#666666"
+	注册类型</div[:]	注册类型</div
+骑士人才系统官方网站</a[:]骑士人才系统官方网站</a
+  注册类型</div[:]  注册类型</div
+要求：{#$li.detailed#}{#if $li.show_detail#}<a href="javascript:void(0);" class="show_detailed" id="{#$li.id#}"[:]要求：{#$li.detailed#}{#if $li.show_detail#}<a href="javascript:void(0);" class="show_detailed" id="{#$li.id#}"
+你的浏览器不支持框架</body[:]你的浏览器不支持框架</body
+修改职位- <span style="color:#0066CC"[:]修改职位- <span style="color:#0066CC"
+工具</a[:]工具</a
+邀请普通面试剩余：</td[:]邀请普通面试剩余：</td
+公司</li[:]公司</li
+手机号</td[:]手机号</td
+招聘会标题</th[:]招聘会标题</th
+为了吸引更多求职者应聘，提高企业招聘效率，<br /[:]为了吸引更多求职者应聘，提高企业招聘效率，<br /
+新闻标题：</td[:]新闻标题：</td
+(职位审核未通过是否通知)</td[:](职位审核未通过是否通知)</td
+<input type="button" name="btnForIndexSearch" id="btnForIndexSearch" code="HW_jobslist" value="搜索" class="search-submit" /[:]<input type="button" name="btnForIndexSearch" id="btnForIndexSearch" code="HW_jobslist" value="搜索" class="search-submit" /
+{#if $smarty.get.settr_cn==''#}收藏时间{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class="filter-icon"[:]{#if $smarty.get.settr_cn==''#}收藏时间{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class="filter-icon"
+页面类型：</td[:]页面类型：</td
+<a href="{#"HW_helpsearch"|highway_url#}?key={#"推荐"|escape:"url"#}"[:]<a href="{#"HW_helpsearch"|highway_url#}?key={#"推荐"|escape:"url"#}"
+期望行业：{#$show.trade_cn#}{#/if#}</div[:]期望行业：{#$show.trade_cn#}{#/if#}</div
+<a href="{#"generalize:recommend,generalize_cn:推荐"|highway_parse_url#}"[:]<a href="{#"generalize:recommend,generalize_cn:推荐"|highway_parse_url#}"
+上传</div[:]上传</div
+网站底部联系地址：</td[:]网站底部联系地址：</td
+缓存说明</strong[:]缓存说明</strong
+新增广告位</div[:]新增广告位</div
+帮助分类</div[:]帮助分类</div
+每月：</td[:]每月：</td
+意见反馈</title[:]意见反馈</title
+18 日</option[:]18 日</option
+手机浏览器输入网址</h2[:]手机浏览器输入网址</h2
+企业信息</td[:]企业信息</td
+充值最低额度：</td[:]充值最低额度：</td
+注：只三级分类添加范例即可</span[:]注：只三级分类添加范例即可</span
+企业认证状态默认：</td[:]企业认证状态默认：</td
+企业规模无法匹配则为：</td[:]企业规模无法匹配则为：</td
+网站公告</h5[:]网站公告</h5
+<input type="submit" name="submitsave" id="submitsave" value="发布"  class="but180lan" onclick="$(window).unbind('beforeunload');"/[:]<input type="submit" name="submitsave" id="submitsave" value="发布"  class="but180lan" onclick="$(window).unbind('beforeunload');"/
+联系方式设置</div[:]联系方式设置</div
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXX技术有限公司成立于2000年,是XXX投资有限公司与美国XXX公司合资兴建的中外合资企业,引进美国海XXX专利技术,专业从事XX研究开发和生产应用.<br /[:]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXX技术有限公司成立于2000年,是XXX投资有限公司与美国XXX公司合资兴建的中外合资企业,引进美国海XXX专利技术,专业从事XX研究开发和生产应用.<br /
+姓名</div[:]姓名</div
+电子邮件：</td[:]电子邮件：</td
+[更换QQ帐号]</a[:][更换QQ帐号]</a
+发布后不能修改</span[:]发布后不能修改</span
+图片说明文字：</td[:]图片说明文字：</td
+"all"#}<!--超级管理员登录并且不是修改超级管理员的资料--[:]"all"#}<!--超级管理员登录并且不是修改超级管理员的资料--
+Flash广告</div[:]Flash广告</div
+新发布简历默认审核状态：</td[:]新发布简历默认审核状态：</td
+恭喜您，您的营业执照已<span[:]恭喜您，您的营业执照已<span
+备注</a[:]备注</a
+充值金额：</td[:]充值金额：</td
+<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" /[:]<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" /
+微信认证后可以随时随地了解职位最新动态，提高招聘效率。<a href="company_user.php?act=authenticate" class="underline"[:]微信认证后可以随时随地了解职位最新动态，提高招聘效率。<a href="company_user.php?act=authenticate" class="underline"
+未认证</label[:]未认证</label
+我的套餐</a[:]我的套餐</a
+	确认密码</div[:]	确认密码</div
+修改企业资料后认证状态：</td[:]修改企业资料后认证状态：</td
+参加招聘会场次</td[:]参加招聘会场次</td
+ 可用 </td[:] 可用 </td
+注册成功</div[:]注册成功</div
+Flash高度(必填)：</td[:]Flash高度(必填)：</td
+更多筛选：</div[:]更多筛选：</div
+<input type="checkbox" value="餐饮" id="catering"  class="serch"/[:]<input type="checkbox" value="餐饮" id="catering"  class="serch"/
+{#if $jobs.maxage#}{#$jobs.maxage#}{#else#}请选择{#/if#}</div[:]{#if $jobs.maxage#}{#$jobs.maxage#}{#else#}请选择{#/if#}</div
+创建时间</div[:]创建时间</div
+审核未通过</a[:]审核未通过</a
+广告管理</a[:]广告管理</a
+19 日</option[:]19 日</option
+职位审核通过：</td[:]职位审核通过：</td
+导航关联标记：</td[:]导航关联标记：</td
+官方论坛</a[:]官方论坛</a
+简历完整度：</td[:]简历完整度：</td
+(个人简历审核未通过是否邮件通知)</td[:](个人简历审核未通过是否邮件通知)</td
+修改帐号状态</label[:]修改帐号状态</label
+添加时间降序</label[:]添加时间降序</label
+ 职位名称：</td[:] 职位名称：</td
+18 时</option[:]18 时</option
+无套餐</span[:]无套餐</span
+尺寸</td[:]尺寸</td
+可面议</label[:]可面议</label
+火车头采集规则请到论坛下载！</p[:]火车头采集规则请到论坛下载！</p
+hr下载合适的合同范本作为跟人才之间的契约协议签订，成功实现企业和人才之间的双向选择。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:4"|highway_url#}" class="more"[:]hr下载合适的合同范本作为跟人才之间的契约协议签订，成功实现企业和人才之间的双向选择。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:4"|highway_url#}" class="more"
+用户状态</div[:]用户状态</div
+&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，您目前共有&nbsp;&nbsp;<strong style=\"color: #FF6600;\"[:]&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，您目前共有&nbsp;&nbsp;<strong style=\"color: #FF6600;\"
+创建简历</label[:]创建简历</label
+20 日</option[:]20 日</option
+求职意向：</div[:]求职意向：</div
+发送选择：</td[:]发送选择：</td
+关闭会员注册：</td[:]关闭会员注册：</td
+发布时间：{#$list.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span[:]发布时间：{#$list.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+大小(字节)</td[:]大小(字节)</td
+可用模板</div[:]可用模板</div
+<input name="submit3" type="button" class="admin_submit"   id="ADD"  value="确定"/[:]<input name="submit3" type="button" class="admin_submit"   id="ADD"  value="确定"/
+ 职位性质无法匹配则为：</td[:] 职位性质无法匹配则为：</td
+新增导航栏</div[:]新增导航栏</div
+数据表前缀：</td[:]数据表前缀：</td
+链接名称：</div[:]链接名称：</div
+地区：{#$job_list.district_cn#}</div[:]地区：{#$job_list.district_cn#}</div
+方案说明：</td[:]方案说明：</td
+发布普通招聘剩余：</td[:]发布普通招聘剩余：</td
+内容超过70个字符将自动截取</span[:]内容超过70个字符将自动截取</span
+26 日</option[:]26 日</option
+允许置顶职位：<span style="position:relative;"[:]允许置顶职位：<span style="position:relative;"
+所属分类:</td[:]所属分类:</td
+欢迎您，{#$user.username#}</h1[:]欢迎您，{#$user.username#}</h1
+等待认证</span[:]等待认证</span
+如：/images/logo.gif 或 http://www.baidu.com/img/baidu_logo.gif</span[:]如：/images/logo.gif 或 http://www.baidu.com/img/baidu_logo.gif</span
+(0为不允许)</span[:](0为不允许)</span
+申请状态</div[:]申请状态</div
+描述</td[:]描述</td
+管理中心首页</a[:]管理中心首页</a
+中设置<br/[:]中设置<br/
+修改简历的照片后照片审核状态：</td[:]修改简历的照片后照片审核状态：</td
+三</option[:]三</option
+(营业执照审核通过是否通知)</td[:](营业执照审核通过是否通知)</td
+当前模板</div[:]当前模板</div
+在 <span style="color:#0066CC"[:]在 <span style="color:#0066CC"
+时间</td[:]时间</td
+登录日志</a[:]登录日志</a
+会员注册协议</div[:]会员注册协议</div
+设置哪一小时执行本任务，“*”为不限制</span[:]设置哪一小时执行本任务，“*”为不限制</span
+职位名称</div[:]职位名称</div
+紧急</a[:]紧急</a
+24 日</option[:]24 日</option
+每周：</td[:]每周：</td
+顾问姓名：{#$consultant.name#}&nbsp;&nbsp;&nbsp;&nbsp;顾问QQ：{#$consultant.qq#}</h2[:]顾问姓名：{#$consultant.name#}&nbsp;&nbsp;&nbsp;&nbsp;顾问QQ：{#$consultant.qq#}</h2
+投诉者</td[:]投诉者</td
+是</label[:]是</label
+管理员姓名：</td[:]管理员姓名：</td
+审核通过</a[:]审核通过</a
+下载普通简历剩余：</td[:]下载普通简历剩余：</td
+ &nbsp;&nbsp;&nbsp;(默认为接收：当有人给此岗位投递简历时，系统会发一份通知邮件提醒查看)</span[:] &nbsp;&nbsp;&nbsp;(默认为接收：当有人给此岗位投递简历时，系统会发一份通知邮件提醒查看)</span
+专业名称</td[:]专业名称</td
+绑定后，您可以使用{#$third_name#}直接登录</p[:]绑定后，您可以使用{#$third_name#}直接登录</p
+新增颜色</div[:]新增颜色</div
+操作类型</div[:]操作类型</div
+账户管理</div[:]账户管理</div
+{#if $is_paid=='1'#}未完成{#elseif $is_paid=='2'#}已支付{#else#}订单状态{#/if#}<i class="filter-icon"[:]{#if $is_paid=='1'#}未完成{#elseif $is_paid=='2'#}已支付{#else#}订单状态{#/if#}<i class="filter-icon"
+简历审核日志</div[:]简历审核日志</div
+该企业共发布了 <span[:]该企业共发布了 <span
+百度地图AK:</td[:]百度地图AK:</td
+删除反馈</label[:]删除反馈</label
+起止年月</td[:]起止年月</td
+分类：</td[:]分类：</td
+温馨提醒：您的的服务已经到期，建议您尽快<a href="company_service.php?act=setmeal_list"[:]温馨提醒：您的的服务已经到期，建议您尽快<a href="company_service.php?act=setmeal_list"
+简历审核未通过：</td[:]简历审核未通过：</td
+热门关键字：<a href="{#"HW_helpsearch"|highway_url#}?key={#"找回密码"|escape:"url"#}"[:]热门关键字：<a href="{#"HW_helpsearch"|highway_url#}?key={#"找回密码"|escape:"url"#}"
+公司规模</td[:]公司规模</td
+增加订单</label[:]增加订单</label
+搜索时间设置</div[:]搜索时间设置</div
+网站公告- {#$HIGHWAY.site_name#}</title[:]网站公告- {#$HIGHWAY.site_name#}</title
+对不起！没有找到您要的信息！</div[:]对不起！没有找到您要的信息！</div
+{#if $smarty.get.state_cn==''#}标签{#else#}{#$smarty.get.state_cn#}{#/if#}<i class="filter-icon"[:]{#if $smarty.get.state_cn==''#}标签{#else#}{#$smarty.get.state_cn#}{#/if#}<i class="filter-icon"
+网站后台</a[:]网站后台</a
+热门道路：</div[:]热门道路：</div
+请用微信扫描上方二维码，在打开的页面中点击“关注”</td[:]请用微信扫描上方二维码，在打开的页面中点击“关注”</td
+推广天数最多：</td[:]推广天数最多：</td
+申请</a[:]申请</a
+方案名称尽量控制在5个字符左右</span[:]方案名称尽量控制在5个字符左右</span
+<input type="checkbox" name="chkAll"   id="chk" title="全选/反选" /[:]<input type="checkbox" name="chkAll"   id="chk" title="全选/反选" /
+推广方案</div[:]推广方案</div
+期限</td[:]期限</td
+对外公开联系邮箱</label[:]对外公开联系邮箱</label
+操作</td[:]操作</td
+四、有限担保和免责声明</strong[:]四、有限担保和免责声明</strong
+<a href="{#"state:,state_cn:全部"|highway_parse_url#}"[:]<a href="{#"state:,state_cn:全部"|highway_parse_url#}"
+[全不选]</span[:][全不选]</span
+发送时间</td[:]发送时间</td
+发布日期：{#$jobs.addtime|date_format:"%Y-%m-%d %H:%M"#}，截止日期：{#$jobs.deadline|date_format:"%Y-%m-%d %H:%M"#}<input name="olddeadline" type="hidden" value="{#$jobs.deadline#}" /[:]发布日期：{#$jobs.addtime|date_format:"%Y-%m-%d %H:%M"#}，截止日期：{#$jobs.deadline|date_format:"%Y-%m-%d %H:%M"#}<input name="olddeadline" type="hidden" value="{#$jobs.deadline#}" /
+或者Flash地址：</td[:]或者Flash地址：</td
+月份饼图</a[:]月份饼图</a
+名称：</td[:]名称：</td
+您还没有创建简历，建议您立即创建。</span[:]您还没有创建简历，建议您立即创建。</span
+验证方式</div[:]验证方式</div
+<a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm('您确定删除吗?')"[:]<a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm('您确定删除吗?')"
+ 修改密码</div[:] 修改密码</div
+系统</a[:]系统</a
+举报时间</div[:]举报时间</div
+22   时</option[:]22   时</option
+积分代替名：</td[:]积分代替名：</td
+{#if $userprofile.education#}{#$userprofile.education_cn#}{#else#}请选择{#/if#}</div[:]{#if $userprofile.education#}{#$userprofile.education_cn#}{#else#}请选择{#/if#}</div
+微招聘列表</strong[:]微招聘列表</strong
+我预定的展位</div[:]我预定的展位</div
+<a href="?act=edit_tpl&templates_name=set_applyjobs&thisname=申请职位"[:]<a href="?act=edit_tpl&templates_name=set_applyjobs&thisname=申请职位"
+自由切换模板</td[:]自由切换模板</td
+分卷文档名称前缀：</td[:]分卷文档名称前缀：</td
+{#if $smarty.get.reply_cn#}{#$smarty.get.reply_cn#}{#else#}投递反馈{#/if#}<i class="filter-icon"[:]{#if $smarty.get.reply_cn#}{#$smarty.get.reply_cn#}{#else#}投递反馈{#/if#}<i class="filter-icon"
+19 时</option[:]19 时</option
+付款方式</div[:]付款方式</div
+联 系 人：</td[:]联 系 人：</td
+延长有效期：</td[:]延长有效期：</td
+联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}</p[:]联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}</p
+如何绑定微信公众号</h2[:]如何绑定微信公众号</h2
+操作积分：</td[:]操作积分：</td
+打开方式：</td[:]打开方式：</td
+2.请妥善保存管理密码，管理密码可用于修改/删除信息！{#if $HIGHWAY.simple_tel_edit=="0"#}联系电话发布后不可修改！{#/if#}</p[:]2.请妥善保存管理密码，管理密码可用于修改/删除信息！{#if $HIGHWAY.simple_tel_edit=="0"#}联系电话发布后不可修改！{#/if#}</p
+7   时</option[:]7   时</option
+会员类型</div[:]会员类型</div
+审核通过<span[:]审核通过<span
+ IP归属地</td[:] IP归属地</td
+最新职位</h3[:]最新职位</h3
+帮助ID</li[:]帮助ID</li
+邮件内容：</td[:]邮件内容：</td
+您可以通过发送测试邮件来调试配置信息。<br /[:]您可以通过发送测试邮件来调试配置信息。<br /
+<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /[:]<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /
+岗位职责：{#$list.briefly#}</div[:]岗位职责：{#$list.briefly#}</div
+{#$list.click#}次</td[:]{#$list.click#}次</td
+缓存是当查询数据时，会把结果序列化后保存到文件中，以后同样的查询就不用查询数据库，而是从缓存中获得。这一改进使得程序速度得以太幅度提升。<br /[:]缓存是当查询数据时，会把结果序列化后保存到文件中，以后同样的查询就不用查询数据库，而是从缓存中获得。这一改进使得程序速度得以太幅度提升。<br /
+认证状态</td[:]认证状态</td
+ 基本资料</div[:] 基本资料</div
+文件路径：</td[:]文件路径：</td
+，请重新上传！</div[:]，请重新上传！</div
+20 时</option[:]20 时</option
+职位</a[:]职位</a
+修改分类</div[:]修改分类</div
+求职管理</h2[:]求职管理</h2
+面试邀请</div[:]面试邀请</div
+解除绑定</a[:]解除绑定</a
+<a href="?act=mail_templates_edit&templates_name=set_licenseallow&thisname=营业执照审核通过"[:]<a href="?act=mail_templates_edit&templates_name=set_licenseallow&thisname=营业执照审核通过"
+重复密码</div[:]重复密码</div
+请输入职位ID：</td[:]请输入职位ID：</td
+企业</a[:]企业</a
+普通人才</a[:]普通人才</a
+增减积分：</td[:]增减积分：</td
+修改职位状态</a[:]修改职位状态</a
+，请耐心等待……</div[:]，请耐心等待……</div
+简历编号</label[:]简历编号</label
+套餐余量[:]套餐余量
+支付方式：</td[:]支付方式：</td
+售价：</td[:]售价：</td
+个人会员</strong[:]个人会员</strong
+删除职位</a[:]删除职位</a
+所属分类</td[:]所属分类</td
+系统超级管理员权限不允许修改！</div[:]系统超级管理员权限不允许修改！</div
+有效状态</div[:]有效状态</div
+完成邮箱认证可以即时邮件接收简历动态，让你不错过每次工作机会！ <a href="personal/personal_user.php?act=authenticate" class="underline"[:]完成邮箱认证可以即时邮件接收简历动态，让你不错过每次工作机会！ <a href="personal/personal_user.php?act=authenticate" class="underline"
+<img src="images/sms.gif" border="0" title="发送短信" /[:]<img src="images/sms.gif" border="0" title="发送短信" /
+创建简历</a[:]创建简历</a
+<input type="button"  class="but100_30hui" value="预览简历" onclick="javascript:window.open('{#$list.resume_url#}')"/[:]<input type="button"  class="but100_30hui" value="预览简历" onclick="javascript:window.open('{#$list.resume_url#}')"/
+一、本授权协议适用且仅适用于 74CMS 商业版 3.x.x 版本，74CMS官方对本授权协议的最终解释权。</strong[:]一、本授权协议适用且仅适用于 74CMS 商业版 3.x.x 版本，74CMS官方对本授权协议的最终解释权。</strong
+ 认证状态：</td[:] 认证状态：</td
+申请时间</div[:]申请时间</div
+当前套餐：<span[:]当前套餐：<span
+申请[:]申请
+推广方案：</td[:]推广方案：</td
+核实情况</div[:]核实情况</div
+手续费</td[:]手续费</td
+新增分类</div[:]新增分类</div
+视频广告</div[:]视频广告</div
+ 自定义页面</td[:] 自定义页面</td
+地址：{#$li.district_cn#}{#if $li.district_cn#}-{#$li.sdistrict_cn#}{#/if#}</div[:]地址：{#$li.district_cn#}{#if $li.district_cn#}-{#$li.sdistrict_cn#}{#/if#}</div
+请选择</div[:]请选择</div
+(注册会员成功后发送邮件通知)</td[:](注册会员成功后发送邮件通知)</td
+删除简历</a[:]删除简历</a
+SMTP服务器地址：</td[:]SMTP服务器地址：</td
+开始时间</td[:]开始时间</td
+[取消绑定]</a[:][取消绑定]</a
+添加个人会员</div[:]添加个人会员</div
+服务套餐列表</div[:]服务套餐列表</div
+发送内容:</td[:]发送内容:</td
+普通</a[:]普通</a
+发布招聘：</td[:]发布招聘：</td
+网站域名</div[:]网站域名</div
+选择意向地区</span[:]选择意向地区</span
+自我描述：</td[:]自我描述：</td
+12   日</option[:]12   日</option
+{#$days#}天</td[:]{#$days#}天</td
+正在备份，请稍候......</td[:]正在备份，请稍候......</td
+学历：{#$job_list.education_cn#}</div[:]学历：{#$job_list.education_cn#}</div
+重新发送</a[:]重新发送</a
+手机已验证</a[:]手机已验证</a
+接收会员</td[:]接收会员</td
+金额</div[:]金额</div
+顾问发布职位</label[:]顾问发布职位</label
+数据库名称：</td[:]数据库名称：</td
+文字链接：</td[:]文字链接：</td
+用户名</dt[:]用户名</dt
+两周内求职情况</h3[:]两周内求职情况</h3
+简历列表</a[:]简历列表</a
+(企业开通电子地图是否邮件通知)</td[:](企业开通电子地图是否邮件通知)</td
+未查看的简历：</span[:]未查看的简历：</span
+积分操作</a[:]积分操作</a
+出错提示</td[:]出错提示</td
+否</label[:]否</label
+文字</label[:]文字</label
+认证授权：<span id="certification"[:]认证授权：<span id="certification"
+所属会员：</td[:]所属会员：</td
+记录数</td[:]记录数</td
+<a href="?act=mail_templates_edit&templates_name=set_order&thisname=新增订单"[:]<a href="?act=mail_templates_edit&templates_name=set_order&thisname=新增订单"
+下载高级简历</td[:]下载高级简历</td
+分类选择</div[:]分类选择</div
+<input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" class="checkbox" /[:]<input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" class="checkbox" /
+<a href="?act=mail_templates_edit&templates_name=set_licensenotallow&thisname=营业执照审核未通过"[:]<a href="?act=mail_templates_edit&templates_name=set_licensenotallow&thisname=营业执照审核未通过"
+申请VIP套餐</a[:]申请VIP套餐</a
+设置运营模式</div[:]设置运营模式</div
+手机浏览</h3[:]手机浏览</h3
+查看职位申请</a[:]查看职位申请</a
+简历名称：</td[:]简历名称：</td
+特长标签<i class="fliter-clear-icon"[:]特长标签<i class="fliter-clear-icon"
+删除面试邀请</a[:]删除面试邀请</a
+短信内容</td[:]短信内容</td
+共有 <span[:]共有 <span
+意向行业<i class="fliter-clear-icon"[:]意向行业<i class="fliter-clear-icon"
+索引文档名称：</td[:]索引文档名称：</td
+开启CSRF防御：</td[:]开启CSRF防御：</td
+会员默认套餐设置</div[:]会员默认套餐设置</div
+等待审核</a[:]等待审核</a
+系统提示！</title[:]系统提示！</title
+公开：允许所有企业查看您的简历。如果不想被某些企业查看到，请在<b[:]公开：允许所有企业查看您的简历。如果不想被某些企业查看到，请在<b
+订单内容：</div[:]订单内容：</div
+修改个人头像</a[:]修改个人头像</a
+安装向导 - 骑士PHP人才系统(www.jp.highwayns.com)</title[:]安装向导 - 骑士PHP人才系统(www.jp.highwayns.com)</title
+金额</td[:]金额</td
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写教育经历。</div[:]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写教育经历。</div
+显示</td[:]显示</td
+文档路径</td[:]文档路径</td
+页面名称：</td[:]页面名称：</td
+待审核简历</a[:]待审核简历</a
+还原</a[:]还原</a
+设置简历隐私</a[:]设置简历隐私</a
+申请职位</label[:]申请职位</label
+我的套餐：</span[:]我的套餐：</span
+举报信息：&nbsp;<a href="admin_feedback.php?act=report_list" id="t7"[:]举报信息：&nbsp;<a href="admin_feedback.php?act=report_list" id="t7"
+QQ互设置</div[:]QQ互设置</div
+所属公司</td[:]所属公司</td
+更新时间：{#$list.refreshtime|date:"Y-m-d"#}</span[:]更新时间：{#$list.refreshtime|date:"Y-m-d"#}</span
+套餐名称：</td[:]套餐名称：</td
+上传图片：</td[:]上传图片：</td
+道路搜索</a[:]道路搜索</a
+此组分类下还没有分类，请添加。</div[:]此组分类下还没有分类，请添加。</div
+添加说明页</div[:]添加说明页</div
+三、协议规定的约束和限制</strong[:]三、协议规定的约束和限制</strong
+ — 简历投递无限量，是金子总会发光</div[:] — 简历投递无限量，是金子总会发光</div
+半年内</a[:]半年内</a
+参数配置</li[:]参数配置</li
+月份</div[:]月份</div
+服务超期或超出规定条数启用积分消费：</td[:]服务超期或超出规定条数启用积分消费：</td
+添加企业会员</div[:]添加企业会员</div
+版本：</td[:]版本：</td
+排序：</td[:]排序：</td
+邮件主题</li[:]邮件主题</li
+工作地点：{#$job_list.district_cn#}</div[:]工作地点：{#$job_list.district_cn#}</div
+<input type="submit" name="Submit3" value="提交" class="admin_submit"   /[:]<input type="submit" name="Submit3" value="提交" class="admin_submit"   /
+会员积分：</td[:]会员积分：</td
+修改顾问资料</label[:]修改顾问资料</label
+邀请时间</div[:]邀请时间</div
+发布微招聘：</td[:]发布微招聘：</td
+公告分类</div[:]公告分类</div
+简历管理</div[:]简历管理</div
+邮件内容:</td[:]邮件内容:</td
+删除logo</label[:]删除logo</label
+官方微信</span[:]官方微信</span
+简历：</td[:]简历：</td
+意向地区<i class="fliter-clear-icon"[:]意向地区<i class="fliter-clear-icon"
+ 性别无法匹配则为：</td[:] 性别无法匹配则为：</td
+工作地区</div[:]工作地区</div
+发送测试邮件</div[:]发送测试邮件</div
+3 时</option[:]3 时</option
+ 联系邮箱：</td[:] 联系邮箱：</td
+验证类型：</td[:]验证类型：</td
+登录</label[:]登录</label
+ 学历要求：</td[:] 学历要求：</td
+浮动广告</div[:]浮动广告</div
+生成信息最大数：</td[:]生成信息最大数：</td
+您也可以&nbsp;<a class="c" href="javascript:void(0)" id="change_reg_type" reg_type="1"[:]您也可以&nbsp;<a class="c" href="javascript:void(0)" id="change_reg_type" reg_type="1"
+(每天消耗{#$points_perday#}{#$points_quantifier#}{#$points_byname#})</td[:](每天消耗{#$points_perday#}{#$points_quantifier#}{#$points_byname#})</td
+下一篇：没有了</a[:]下一篇：没有了</a
+文字颜色：</td[:]文字颜色：</td
+工作经验：<span id="base_info_experience_cn"[:]工作经验：<span id="base_info_experience_cn"
+版本</td[:]版本</td
+姓&nbsp;&nbsp;名：<span id="base_info_fullname"[:]姓&nbsp;&nbsp;名：<span id="base_info_fullname"
+广告列表</strong[:]广告列表</strong
+帮助</a[:]帮助</a
+职位月薪：</div[:]职位月薪：</div
+预定成功</span[:]预定成功</span
+不限</td[:]不限</td
+会员类型：</div[:]会员类型：</div
+未审核</a[:]未审核</a
+网站备案号(ICP)：</td[:]网站备案号(ICP)：</td
+{#if $userprofile.experience#}{#$userprofile.experience_cn#}{#else#}请选择{#/if#}</div[:]{#if $userprofile.experience#}{#$userprofile.experience_cn#}{#else#}请选择{#/if#}</div
+其他类<span class="admin_note" style="color: rgb(153, 153, 153);"[:]其他类<span class="admin_note" style="color: rgb(153, 153, 153);"
+简历模版</div[:]简历模版</div
+猎头顾问取消订单</label[:]猎头顾问取消订单</label
+二</option[:]二</option
+工具箱内提供各种辞职申请范本，企业可以进行参考，制定合理的离职流程。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:10"|highway_url#}" class="more"[:]工具箱内提供各种辞职申请范本，企业可以进行参考，制定合理的离职流程。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:10"|highway_url#}" class="more"
+系统提示</div[:]系统提示</div
+修改关键词</div[:]修改关键词</div
+验证码：</td[:]验证码：</td
+邮件内容模版：</td[:]邮件内容模版：</td
+培训会员取消订单</label[:]培训会员取消订单</label
+简历姓名默认显示方式：</td[:]简历姓名默认显示方式：</td
+删除人才库</a[:]删除人才库</a
+推荐</a[:]推荐</a
+验证码字符产生扭曲效果</span[:]验证码字符产生扭曲效果</span
+禁止修改联系电话可过滤虚假信息</span[:]禁止修改联系电话可过滤虚假信息</span
+支付方式：</div[:]支付方式：</div
+所有<span[:]所有<span
+应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#} <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh"[:]应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#} <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh"
+<input type="checkbox" name="chkAll"  id="chk" title="全选/反选" class="checkbox" /[:]<input type="checkbox" name="chkAll"  id="chk" title="全选/反选" class="checkbox" /
+积分消费明细</h3[:]积分消费明细</h3
+抱歉 SORRY !</h2[:]抱歉 SORRY !</h2
+<textarea name="detailed" id="detailed" class="input_text_400" style="height:60px;" onblur="if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}" onfocus="if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}"[:]<textarea name="detailed" id="detailed" class="input_text_400" style="height:60px;" onblur="if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}" onfocus="if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}"
+确认订单</p[:]确认订单</p
+职位管理</div[:]职位管理</div
+简历完整度：</div[:]简历完整度：</div
+(允许格式为：swf，文件大小：1000KB)</span[:](允许格式为：swf，文件大小：1000KB)</span
+<input type="text" name="cityForIndexSearch" id="cityForIndexSearch" placeholder="请输入工作地区" /[:]<input type="text" name="cityForIndexSearch" id="cityForIndexSearch" placeholder="请输入工作地区" /
+现居住地：<span id="base_info_residence"[:]现居住地：<span id="base_info_residence"
+简历等级：</td[:]简历等级：</td
+默认：</td[:]默认：</td
+企业所在地区无法匹配则为：</td[:]企业所在地区无法匹配则为：</td
+联系电话禁止重复可阻止垃圾信息</span[:]联系电话禁止重复可阻止垃圾信息</span
+匹配</a[:]匹配</a
+真实姓名</label[:]真实姓名</label
+<a href="{#"HW_helpsearch"|highway_url#}?key={#"置顶"|escape:"url"#}"[:]<a href="{#"HW_helpsearch"|highway_url#}?key={#"置顶"|escape:"url"#}"
+招聘信息采集设置</div[:]招聘信息采集设置</div
+请在左侧表单中输入你要查找的值。</div[:]请在左侧表单中输入你要查找的值。</div
+模版名称：{#$li.tpl_name#} <a href="{#$HIGHWAY.site_dir#}company/company-show.php?id={#$com_info.id#}&style={#$li.tpl_dir#}" class="underline" target="_blank"[:]模版名称：{#$li.tpl_name#} <a href="{#$HIGHWAY.site_dir#}company/company-show.php?id={#$com_info.id#}&style={#$li.tpl_dir#}" class="underline" target="_blank"
+<input type="checkbox" name="" title="全选/反选" id="chk"/[:]<input type="checkbox" name="" title="全选/反选" id="chk"/
+(会员下充值订单是否邮件通知)</td[:](会员下充值订单是否邮件通知)</td
+<a href="?act=mail_templates_edit&templates_name=set_jobsallow&thisname=职位审核通过"[:]<a href="?act=mail_templates_edit&templates_name=set_jobsallow&thisname=职位审核通过"
+<input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /[:]<input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /
+最近30天会员注册趋势</div[:]最近30天会员注册趋势</div
+修改分类组</div[:]修改分类组</div
+投递</a[:]投递</a
+简历搜索</div[:]简历搜索</div
+<a href="?act=mail_templates_edit&templates_name=set_invite&thisname=邀请面试"[:]<a href="?act=mail_templates_edit&templates_name=set_invite&thisname=邀请面试"
+联系电话重复：</td[:]联系电话重复：</td
+课程搜索</div[:]课程搜索</div
+服务开始时间</td[:]服务开始时间</td
+工作经历</div[:]工作经历</div
+ 秒后跳转到第一个链接地址。{#/if#}</div[:] 秒后跳转到第一个链接地址。{#/if#}</div
+发送失败</a[:]发送失败</a
+自助申请</a[:]自助申请</a
+举办日期</th[:]举办日期</th
+删除logo</a[:]删除logo</a
+首字母索引:</td[:]首字母索引:</td
+<a href="?act=mail_templates_edit&templates_name=set_addmap&thisname=开通电子地图"[:]<a href="?act=mail_templates_edit&templates_name=set_addmap&thisname=开通电子地图"
+{#$info.district_cn|default:"请选择"#}</div[:]{#$info.district_cn|default:"请选择"#}</div
+综合排序</a[:]综合排序</a
+LOGO地址：</div[:]LOGO地址：</div
+宽度(必填)：</td[:]宽度(必填)：</td
+发送帐号</li[:]发送帐号</li
+设置会员UID后，当鼠标移动到图片上将会显示相关的职位和企业信息</span[:]设置会员UID后，当鼠标移动到图片上将会显示相关的职位和企业信息</span
+您提交的营业执照<span[:]您提交的营业执照<span
+内容</a[:]内容</a
+调用名称</td[:]调用名称</td
+ — 注册个人会员，免费创建多份简历</div[:] — 注册个人会员，免费创建多份简历</div
+会员登录</h1[:]会员登录</h1
+结束时间：</td[:]结束时间：</td
+关闭更新时间：</td[:]关闭更新时间：</td
+设置</a[:]设置</a
+Flash宽度(必填)：</td[:]Flash宽度(必填)：</td
+发布招聘职位</div[:]发布招聘职位</div
+版权所有：骑士cms<br /[:]版权所有：骑士cms<br /
+(0表示免费)</span[:](0表示免费)</span
+接收</label[:]接收</label
+自动刷新时间点：</td[:]自动刷新时间点：</td
+企业主页</a[:]企业主页</a
+最多上传4张，每张最大800KB,支持jpg/gif/bmp/png格式 <br /[:]最多上传4张，每张最大800KB,支持jpg/gif/bmp/png格式 <br /
+开启微博帐号登录：</td[:]开启微博帐号登录：</td
+接受会员：</td[:]接受会员：</td
+系统页面：</td[:]系统页面：</td
+删除后不可恢复！</p[:]删除后不可恢复！</p
+已查看<span class="check"[:]已查看<span class="check"
+充值记录</a[:]充值记录</a
+查看</a[:]查看</a
+服务期</td[:]服务期</td
+公司简介范例：</td[:]公司简介范例：</td
+免费注册</a[:]免费注册</a
+范例:</td[:]范例:</td
+<input type="submit" name="delete" value="确定" class="admin_submit"    /[:]<input type="submit" name="delete" value="确定" class="admin_submit"    /
+职位推广-紧急</td[:]职位推广-紧急</td
+至</td[:]至</td
+个人简介</div[:]个人简介</div
+信息筛选方式：</td[:]信息筛选方式：</td
+<input type="button" detype="HW_jobslist" id="searcnbtn" value="搜&nbsp;索" /[:]<input type="button" detype="HW_jobslist" id="searcnbtn" value="搜&nbsp;索" /
+	{#$third_name#}昵称</div[:]	{#$third_name#}昵称</div
+隐藏姓名</div[:]隐藏姓名</div
+申请职位：</td[:]申请职位：</td
+联系方式：</td[:]联系方式：</td
+招聘岗位</div[:]招聘岗位</div
+ 我预定的展位</div[:] 我预定的展位</div
+验证码文字大小，建议在 12 - 50 范围内取值</span[:]验证码文字大小，建议在 12 - 50 范围内取值</span
+密码：</td[:]密码：</td
+内容：</td[:]内容：</td
+{#$smarty.get.key|default:"请输入关键字"#}</div[:]{#$smarty.get.key|default:"请输入关键字"#}</div
+{#if $payment[payment].is_paid==1#}未完成{#/if#}{#if $payment[payment].is_paid==2#}<span style="color:#4CA51F"[:]{#if $payment[payment].is_paid==1#}未完成{#/if#}{#if $payment[payment].is_paid==2#}<span style="color:#4CA51F"
+修改时间</td[:]修改时间</td
+请在地图上找到您的具体位置，然后点击地图右上角“标记我的位置”，标记位置完成后点击“保存我的位置”。</p[:]请在地图上找到您的具体位置，然后点击地图右上角“标记我的位置”，标记位置完成后点击“保存我的位置”。</p
+积分变化</div[:]积分变化</div
+审核状态</td[:]审核状态</td
+(会员修改密码后是否邮件通知)</td[:](会员修改密码后是否邮件通知)</td
+搜索模式：</td[:]搜索模式：</td
+文件</td[:]文件</td
+意见类型：</td[:]意见类型：</td
+只能上传doc/ppt/xls/rtf文件</span[:]只能上传doc/ppt/xls/rtf文件</span
+用邮箱接收简历?</td[:]用邮箱接收简历?</td
+登录成功</a[:]登录成功</a
+下次执行时间</td[:]下次执行时间</td
+保存到桌面</a[:]保存到桌面</a
+执行</a[:]执行</a
+ 文档路径 </td[:] 文档路径 </td
+申请说明</h5[:]申请说明</h5
+立即咨询</a[:]立即咨询</a
+<input type="button" class="refresh_resume but100_30lan" value="刷新简历" pid="{#$list.id#}"/[:]<input type="button" class="refresh_resume but100_30lan" value="刷新简历" pid="{#$list.id#}"/
+地址</li[:]地址</li
+所在地区：</td[:]所在地区：</td
+(0为不允许使用人才库) </span[:](0为不允许使用人才库) </span
+套餐价格：</td[:]套餐价格：</td
+选择意向职位</span[:]选择意向职位</span
+密&nbsp;&nbsp;&nbsp;&nbsp;码：</td[:]密&nbsp;&nbsp;&nbsp;&nbsp;码：</td
+hr可以适时参考工具箱内的资料表单，制定合理人性的薪酬制度，在众多招聘企业中一招制胜。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:5"|highway_url#}" class="more"[:]hr可以适时参考工具箱内的资料表单，制定合理人性的薪酬制度，在众多招聘企业中一招制胜。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:5"|highway_url#}" class="more"
+删除反馈</a[:]删除反馈</a
+<input name="sex"  type="radio" value="2"  title="女"  {#if $jobs.sex == "2"#}checked="checked"{#/if#} /[:]<input name="sex"  type="radio" value="2"  title="女"  {#if $jobs.sex == "2"#}checked="checked"{#/if#} /
+<input type="submit" name="Submit3" value="确定提交" class="admin_submit"   /[:]<input type="submit" name="Submit3" value="确定提交" class="admin_submit"   /
+更改课程状态</label[:]更改课程状态</label
+职位</li[:]职位</li
+自助申请说明：</td[:]自助申请说明：</td
+公开</td[:]公开</td
+<input type="checkbox" value="医院" id="hospital" class="serch"/[:]<input type="checkbox" value="医院" id="hospital" class="serch"/
+您的账户剩余<span[:]您的账户剩余<span
+基本信息 </div[:]基本信息 </div
+置顶天数设定：</td[:]置顶天数设定：</td
+		    1、未获商业授权之前，不得将本软件用于任何用途。购买商业授权请登录 www.74CMS.com 了解最新说明。<br /[:]		    1、未获商业授权之前，不得将本软件用于任何用途。购买商业授权请登录 www.74CMS.com 了解最新说明。<br /
+分类组名称:</td[:]分类组名称:</td
+<a href="?act=edit_tpl&templates_name=set_resumenotallow&thisname=简历审核未通过"[:]<a href="?act=edit_tpl&templates_name=set_resumenotallow&thisname=简历审核未通过"
+套餐余量</div[:]套餐余量</div
+工作地区无法匹配则为：</td[:]工作地区无法匹配则为：</td
+会员登录：</td[:]会员登录：</td
+注册IP：</td[:]注册IP：</td
+&nbsp;&nbsp;&nbsp;&nbsp;[已屏蔽]</span[:]&nbsp;&nbsp;&nbsp;&nbsp;[已屏蔽]</span
+工作经验：</td[:]工作经验：</td
+投诉简历</a[:]投诉简历</a
+(0为不允许使用推荐职位)</span[:](0为不允许使用推荐职位)</span
+淘宝账号</span[:]淘宝账号</span
+联系方式：<span[:]联系方式：<span
+移动互联</h4[:]移动互联</h4
+已登录且有发布职位的猎头可下载</label[:]已登录且有发布职位的猎头可下载</label
+(0表示不限制)</span[:](0表示不限制)</span
+ 登录地址 </td[:] 登录地址 </td
+(范围:1-100，如设置为100则为精确匹配，推荐设为：50-80)</span[:](范围:1-100，如设置为100则为精确匹配，推荐设为：50-80)</span
+11 日</option[:]11 日</option
+申请充值会员：</td[:]申请充值会员：</td
+（该简历由手机发布）</span[:]（该简历由手机发布）</span
+验证码高度：</td[:]验证码高度：</td
+验证码图片宽度，建议在 60 - 180 范围内取值，0为自适应</span[:]验证码图片宽度，建议在 60 - 180 范围内取值，0为自适应</span
+微信邦定：</span[:]微信邦定：</span
+职位搜索</div[:]职位搜索</div
+30天内</a[:]30天内</a
+申请友情链接：</td[:]申请友情链接：</td
+手机号</li[:]手机号</li
+订单单号：</td[:]订单单号：</td
+教育经历</div[:]教育经历</div
+ 项&nbsp;&nbsp;已选 <strong id="arsmajor" class="text-warning"[:] 项&nbsp;&nbsp;已选 <strong id="arsmajor" class="text-warning"
+待开通高级人才 </a[:]待开通高级人才 </a
+发送成功</span[:]发送成功</span
+<input name="submit2" type="submit" class="admin_submit"    value="保存"/[:]<input name="submit2" type="submit" class="admin_submit"    value="保存"/
+个职位。</div[:]个职位。</div
+公司网址：</td[:]公司网址：</td
+<img src="{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.wap_domain#}/wap-resume-show.php?id={#$show.id#}" alt="二维码" width="74" height="74" /[:]<img src="{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.wap_domain#}/wap-resume-show.php?id={#$show.id#}" alt="二维码" width="74" height="74" /
+官方动态</div[:]官方动态</div
+安装目录：</td[:]安装目录：</td
+&nbsp;说明：请详细描述该职位，内容可包括：职位要求，岗位职责等。</div[:]&nbsp;说明：请详细描述该职位，内容可包括：职位要求，岗位职责等。</div
+周边查询</b[:]周边查询</b
+取消</a[:]取消</a
+填写账户名</div[:]填写账户名</div
+{#if $header_nav=="getpass"#}密码找回{#elseif $header_nav=="login"#}欢迎登录{#else#}免费注册{#/if#}</div[:]{#if $header_nav=="getpass"#}密码找回{#elseif $header_nav=="login"#}欢迎登录{#else#}免费注册{#/if#}</div
+企业已查看<span[:]企业已查看<span
+<a href="?act=mail_templates_edit&templates_name=set_applyjobs&thisname=申请职位"[:]<a href="?act=mail_templates_edit&templates_name=set_applyjobs&thisname=申请职位"
+套餐类型：</td[:]套餐类型：</td
+<input name="sex"  type="radio" value="3"  title="不限" {#if $jobs.sex == "3"#}checked="checked"{#/if#} /[:]<input name="sex"  type="radio" value="3"  title="不限" {#if $jobs.sex == "3"#}checked="checked"{#/if#} /
+过多的项目设置短信通知会消耗系统资源。<br /[:]过多的项目设置短信通知会消耗系统资源。<br /
+消息提醒：<a href="company_user.php?act=pm" class="underline"[:]消息提醒：<a href="company_user.php?act=pm" class="underline"
+[验]</span[:][验]</span
+应付款金额：</td[:]应付款金额：</td
+<input type="file" name="logo"  style="height:24px; width:272px; font-size:12px; line-height:20px;"  onkeydown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/[:]<input type="file" name="logo"  style="height:24px; width:272px; font-size:12px; line-height:20px;"  onkeydown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/
+积分规则</a[:]积分规则</a
+<input type="text" class="input_text_300" placeholder="请输入问题关键字" name="key" id="key" /[:]<input type="text" class="input_text_300" placeholder="请输入问题关键字" name="key" id="key" /
+选择分类：</td[:]选择分类：</td
+月薪： {#$job_list.wage_cn#}</div[:]月薪： {#$job_list.wage_cn#}</div
+不显示</span[:]不显示</span
+企业会员使用此模版需要支付的积分，0为免费</span[:]企业会员使用此模版需要支付的积分，0为免费</span
+恢复</a[:]恢复</a
+74cms V3.6 个人版 20150923</div[:]74cms V3.6 个人版 20150923</div
+15 日</option[:]15 日</option
+职位：</td[:]职位：</td
+<a href="{#"state:2,state_cn:不合适"|highway_parse_url#}"[:]<a href="{#"state:2,state_cn:不合适"|highway_parse_url#}"
+原价：</td[:]原价：</td
+<input type="checkbox" value="学校" id="scholl" class="serch"/[:]<input type="checkbox" value="学校" id="scholl" class="serch"/
+审核未通过</span[:]审核未通过</span
+说明页：</td[:]说明页：</td
+职位推广-推荐</td[:]职位推广-推荐</td
+添加日期</td[:]添加日期</td
+订单描述：</td[:]订单描述：</td
+已完成</a[:]已完成</a
+更换</div[:]更换</div
+上一篇：{#$show.prev_title#}</a[:]上一篇：{#$show.prev_title#}</a
+告诉朋友，让大家一起帮你找人！</div[:]告诉朋友，让大家一起帮你找人！</div
+邮件发送记录</div[:]邮件发送记录</div
+身&nbsp;&nbsp;高：<span id="base_info_height"[:]身&nbsp;&nbsp;高：<span id="base_info_height"
+获取短信验证码</a[:]获取短信验证码</a
+13 日</option[:]13 日</option
+密码修改</a[:]密码修改</a
+会员ID：</td[:]会员ID：</td
+手机频道</a[:]手机频道</a
+修改广告 <span style="color:#0033CC"[:]修改广告 <span style="color:#0033CC"
+帮助中心</h2[:]帮助中心</h2
+联系方式</h3[:]联系方式</h3
+顾问刷新职位</label[:]顾问刷新职位</label
+认证状态</div[:]认证状态</div
+反馈内容：</td[:]反馈内容：</td
+删除职位申请</a[:]删除职位申请</a
+ 安全认证</div[:] 安全认证</div
+审核未通过</label[:]审核未通过</label
+审核未通过<span[:]审核未通过<span
+收藏的简历</div[:]收藏的简历</div
+错误描述</td[:]错误描述</td
+取消订单</label[:]取消订单</label
+MySQL 版本：{#$system_info.mysql_ver#}</td[:]MySQL 版本：{#$system_info.mysql_ver#}</td
+账号绑定</a[:]账号绑定</a
+<input type="file" name="logo" id="logo" class="input_text_200"  onkeydown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/[:]<input type="file" name="logo" id="logo" class="input_text_200"  onkeydown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/
+本地上传：</td[:]本地上传：</td
+<input type="checkbox" name=" " title="全选/反选" id="chk" /[:]<input type="checkbox" name=" " title="全选/反选" id="chk" /
+筛选</span[:]筛选</span
+发起面试邀请</label[:]发起面试邀请</label
+<input name="submit" type="submit" class="admin_submit"    value="保存修改"/[:]<input name="submit" type="submit" class="admin_submit"    value="保存修改"/
+接受人：</td[:]接受人：</td
+职位名称</td[:]职位名称</td
+淘宝帐号登录设置</div[:]淘宝帐号登录设置</div
+上传营业执照</a[:]上传营业执照</a
+<input type="submit" name="Submit" value="提交" class="but150cheng" /[:]<input type="submit" name="Submit" value="提交" class="but150cheng" /
+邮箱已验证</a[:]邮箱已验证</a
+留空为不修改管理密码</span[:]留空为不修改管理密码</span
+账户信息</h2[:]账户信息</h2
+最大发送数量：</td[:]最大发送数量：</td
+ 审核状态：</td[:] 审核状态：</td
+(不可修改，您可以删除本条信息再次发布)</span[:](不可修改，您可以删除本条信息再次发布)</span
+载入中...</span[:]载入中...</span
+消息内容：</td[:]消息内容：</td
+(会员下充值订单是否通知)</td[:](会员下充值订单是否通知)</td
+数据表没有碎片，不需要再优化。</div[:]数据表没有碎片，不需要再优化。</div
+邀请高级人才</div[:]邀请高级人才</div
+目前积分(套餐)</td[:]目前积分(套餐)</td
+SMTP服务密码：</td[:]SMTP服务密码：</td
+选择搜索时间范围：</td[:]选择搜索时间范围：</td
+{#$show.fullname#}的个人简历 - {#$HIGHWAY.site_name#}</title[:]{#$show.fullname#}的个人简历 - {#$HIGHWAY.site_name#}</title
+修改课程</label[:]修改课程</label
+(职位审核未通过是否邮件通知)</td[:](职位审核未通过是否邮件通知)</td
+图片广告</div[:]图片广告</div
+开始时间：</td[:]开始时间：</td
+或LOGO地址：</td[:]或LOGO地址：</td
+分类名称(必填)：</td[:]分类名称(必填)：</td
+面试/申请：<a href="personal_apply.php?act=interview"[:]面试/申请：<a href="personal_apply.php?act=interview"
+0为不限制</span[:]0为不限制</span
+照片简历</h3[:]照片简历</h3
+完成状态</div[:]完成状态</div
+<a href="{#"settr:3,settr_cn:最近三天"|highway_parse_url#}"[:]<a href="{#"settr:3,settr_cn:最近三天"|highway_parse_url#}"
+服务天数：</td[:]服务天数：</td
+菜单状态:</td[:]菜单状态:</td
+更多</span[:]更多</span
+申请高级人才</label[:]申请高级人才</label
+使用合作网站账号登录：</p[:]使用合作网站账号登录：</p
+开通电子地图</label[:]开通电子地图</label
+{#$company_profile.street_cn|default:"未标注街道"#}</div[:]{#$company_profile.street_cn|default:"未标注街道"#}</div
+刷新时间：</td[:]刷新时间：</td
+删除职位收藏</label[:]删除职位收藏</label
+11 时</option[:]11 时</option
+搜索</button[:]搜索</button
+扫一扫，立即打开</p[:]扫一扫，立即打开</p
+企业性质无法匹配则为：</td[:]企业性质无法匹配则为：</td
+完整度：{#$list.complete_percent#}%<span style="color:#FF0000"[:]完整度：{#$list.complete_percent#}%<span style="color:#FF0000"
+注册提醒</a[:]注册提醒</a
+单个文档包含信息总数：</td[:]单个文档包含信息总数：</td
+刷新经理人简历</label[:]刷新经理人简历</label
+管理密码可用于前台修改和删除信息</span[:]管理密码可用于前台修改和删除信息</span
+打开方式</td[:]打开方式</td
+一周内自动登录</span[:]一周内自动登录</span
+<input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" /[:]<input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" /
+学校名称</td[:]学校名称</td
+{#if $cominfo_flge#}{#$company.companyname#}{#else#}未完善企业资料{#/if#}</h2[:]{#if $cominfo_flge#}{#$company.companyname#}{#else#}未完善企业资料{#/if#}</h2
+开通电子地图</td[:]开通电子地图</td
+它已在你轻盈的指尖上！</p[:]它已在你轻盈的指尖上！</p
+修改职位</div[:]修改职位</div
+选择地区类别</span[:]选择地区类别</span
+修改</span[:]修改</span
+验证码干扰点数量，建议在 0 - 1000 范围内取值 </span[:]验证码干扰点数量，建议在 0 - 1000 范围内取值 </span
+确认收款后系统将会自动为会员充值积分或开通服务，此操作无法撤销。</p[:]确认收款后系统将会自动为会员充值积分或开通服务，此操作无法撤销。</p
+最新职位</h5[:]最新职位</h5
+网站首页</a[:]网站首页</a
+内容</td[:]内容</td
+<input type="submit" value="搜索" class="but70lan" id="search_go" /[:]<input type="submit" value="搜索" class="but70lan" id="search_go" /
+修改</div[:]修改</div
+上传图片：</div[:]上传图片：</div
+服务热线</p[:]服务热线</p
+照片审核通过</a[:]照片审核通过</a
+小时：</td[:]小时：</td
+(会员充值成功是否通知)</td[:](会员充值成功是否通知)</td
+日志</a[:]日志</a
+添加课程</label[:]添加课程</label
+职位ID</li[:]职位ID</li
+互联网账户存在被盗风险，建议你定期更改密码以保护账户安全。</dd[:]互联网账户存在被盗风险，建议你定期更改密码以保护账户安全。</dd
+详细</a[:]详细</a
+系统检测到此次提交属非法提交或超时提交。请 <a href="javascript:history.go(-1);"[:]系统检测到此次提交属非法提交或超时提交。请 <a href="javascript:history.go(-1);"
+已经到期</span[:]已经到期</span
+15 时</option[:]15 时</option
+编辑短信模板 <span style="color:#0033CC"[:]编辑短信模板 <span style="color:#0033CC"
+到期后系统将自动删除</span[:]到期后系统将自动删除</span
+ 添加职位</div[:] 添加职位</div
+设置经理人简历</label[:]设置经理人简历</label
+ 审核状态 </td[:] 审核状态 </td
+显示排序：</td[:]显示排序：</td
+[不完整]</span[:][不完整]</span
+免费短信条数：</td[:]免费短信条数：</td
+[已屏蔽]</span[:][已屏蔽]</span
+ 认证通过后会明显提高企业信誉度</p[:] 认证通过后会明显提高企业信誉度</p
+60%的简历。反之为非可见简历<br /[:]60%的简历。反之为非可见简历<br /
+注册时间</div[:]注册时间</div
+我的消息{#if $total#}<span class="h"[:]我的消息{#if $total#}<span class="h"
+查看课程申请</label[:]查看课程申请</label
+查看联系方式设置</div[:]查看联系方式设置</div
+营业执照审核通过：</td[:]营业执照审核通过：</td
+所属企业：</td[:]所属企业：</td
+关于我们</h2[:]关于我们</h2
+13 时</option[:]13 时</option
+理由：</td[:]理由：</td
+ 收到的面试邀请</div[:] 收到的面试邀请</div
+可见状态</div[:]可见状态</div
+27   日</option[:]27   日</option
+接收会员</div[:]接收会员</div
+修改联系电话：</td[:]修改联系电话：</td
+编辑公告</div[:]编辑公告</div
+{#if $smarty.get.sex == 1#}男{#elseif $smarty.get.sex == 2#}女{#/if#}<i class="fliter-clear-icon"[:]{#if $smarty.get.sex == 1#}男{#elseif $smarty.get.sex == 2#}女{#/if#}<i class="fliter-clear-icon"
+通过友情链接分类可以在多个页面调用不同的友情链接！</p[:]通过友情链接分类可以在多个页面调用不同的友情链接！</p
+立即激活账号</a[:]立即激活账号</a
+(用户可参加招聘会场次)</span[:](用户可参加招聘会场次)</span
+工作经验：{#$job_list.experience_cn#}</div[:]工作经验：{#$job_list.experience_cn#}</div
+添 加 到：</td[:]添 加 到：</td
+年</div[:]年</div
+当进行了数据恢复、升级或者工作出现异常的时候，您可以使用本功能重新生成缓存。更新缓存的时候，可能让服务器负载升高，请尽量避开会员访问的高峰时间 <br /[:]当进行了数据恢复、升级或者工作出现异常的时候，您可以使用本功能重新生成缓存。更新缓存的时候，可能让服务器负载升高，请尽量避开会员访问的高峰时间 <br /
+或填写路径：</td[:]或填写路径：</td
+伪静态规则：</td[:]伪静态规则：</td
+数据大小</td[:]数据大小</td
+发送邮件</div[:]发送邮件</div
+生成备份数据库</div[:]生成备份数据库</div
+系统消息<span[:]系统消息<span
+{#$jobs.district_cn|default:"请选择"#}</div[:]{#$jobs.district_cn|default:"请选择"#}</div
+(0为不缓存,建议设为180 以上) </span[:](0为不缓存,建议设为180 以上) </span
+自我描述</div[:]自我描述</div
+{#$info.sdistrict_cn|default:"请选择"#}</div[:]{#$info.sdistrict_cn|default:"请选择"#}</div
+工作性质：<span id="base_nature_cn"[:]工作性质：<span id="base_nature_cn"
+此菜单下加子菜单</a[:]此菜单下加子菜单</a
+{#$company_profile.nature_cn|default:"请选择"#}</div[:]{#$company_profile.nature_cn|default:"请选择"#}</div
+筛选条件：</td[:]筛选条件：</td
+应届生</li[:]应届生</li
+文章分类</div[:]文章分类</div
+申请周期：</td[:]申请周期：</td
+账户状态</div[:]账户状态</div
+<a href="{#"HW_helpsearch"|highway_url#}?key={#"电子地图"|escape:"url"#}"[:]<a href="{#"HW_helpsearch"|highway_url#}?key={#"电子地图"|escape:"url"#}"
+福利亮点：</div[:]福利亮点：</div
+{#if $smarty.section.payment.index==0#}支付方式：{#/if#}</td[:]{#if $smarty.section.payment.index==0#}支付方式：{#/if#}</td
+礼品卡</a[:]礼品卡</a
+<a href="{#"generalize:emergency,generalize_cn:紧急"|highway_parse_url#}"[:]<a href="{#"generalize:emergency,generalize_cn:紧急"|highway_parse_url#}"
+展示期限：</td[:]展示期限：</td
+删除</a[:]删除</a
+ （单笔金额不能低于{#$HIGHWAY.payment_min#}元）&nbsp; 1元 = {#$HIGHWAY.payment_rate#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}</td[:] （单笔金额不能低于{#$HIGHWAY.payment_min#}元）&nbsp; 1元 = {#$HIGHWAY.payment_rate#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}</td
+工作经验无法匹配则为：</td[:]工作经验无法匹配则为：</td
+标题</li[:]标题</li
+ 性别要求：</td[:] 性别要求：</td
+新增系统消息</div[:]新增系统消息</div
+显示编号</div[:]显示编号</div
+语言能力</div[:]语言能力</div
+上次执行时间</td[:]上次执行时间</td
+  手机</div[:]  手机</div
+缓存</td[:]缓存</td
+修改讲师</label[:]修改讲师</label
+订单号：</td[:]订单号：</td
+此类下添加子类</a[:]此类下添加子类</a
+下载普通人才简历：</td[:]下载普通人才简历：</td
+删除职位申请</label[:]删除职位申请</label
+<a href="?act=mail_templates_edit&templates_name=set_resumenotallow&thisname=简历审核未通过"[:]<a href="?act=mail_templates_edit&templates_name=set_resumenotallow&thisname=简历审核未通过"
+卸载</a[:]卸载</a
+账号绑定</dt[:]账号绑定</dt
+其他职位</h3[:]其他职位</h3
+干扰线数量：</td[:]干扰线数量：</td
+(如：个、只、把等，默认为“点”)</span[:](如：个、只、把等，默认为“点”)</span
+保持不变</label[:]保持不变</label
+刷新职位</label[:]刷新职位</label
+特长标签：</td[:]特长标签：</td
+操作记录</span[:]操作记录</span
+邮箱已认证</div[:]邮箱已认证</div
+<!--当工作经历存在，则显示这个按钮 --[:]<!--当工作经历存在，则显示这个按钮 --
+ 我的简历</div[:] 我的简历</div
+照片审核</div[:]照片审核</div
+简历联系方式：</td[:]简历联系方式：</td
+招聘职位：</td[:]招聘职位：</td
+刷新普通职位时间间隔：</td[:]刷新普通职位时间间隔：</td
+ “0”不消耗</span[:] “0”不消耗</span
+<a href="{#"state:3,state_cn:待定"|highway_parse_url#}"[:]<a href="{#"state:3,state_cn:待定"|highway_parse_url#}"
+名称</td[:]名称</td
+新增短信任务</div[:]新增短信任务</div
+<a href="?act=mail_templates_edit&templates_name=set_payment&thisname=付款成功"[:]<a href="?act=mail_templates_edit&templates_name=set_payment&thisname=付款成功"
+更多<i class="nav-more"[:]更多<i class="nav-more"
+企业性质：</td[:]企业性质：</td
+生成会员设置</div[:]生成会员设置</div
+预定方式</th[:]预定方式</th
+添加到人才库</a[:]添加到人才库</a
+{#if $auto_redirect#}如果您不做出选择，将在 <span id="spanSeconds"[:]{#if $auto_redirect#}如果您不做出选择，将在 <span id="spanSeconds"
+无需下载，没有平台、机型的限制，触屏<br /[:]无需下载，没有平台、机型的限制，触屏<br /
+已婚</div[:]已婚</div
+基本信息</span[:]基本信息</span
+QQ绑定：</td[:]QQ绑定：</td
+照片公开设置：</td[:]照片公开设置：</td
+图片链接：</td[:]图片链接：</td
+Web端允许查看联系方式：</td[:]Web端允许查看联系方式：</td
+允许公司名称重复：</td[:]允许公司名称重复：</td
+完善顾问资料</label[:]完善顾问资料</label
+<input name="" type="button" value="搜索简历" class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"[:]<input name="" type="button" value="搜索简历" class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"
+ 结束时间：</td[:] 结束时间：</td
+高级</span[:]高级</span
+全部职位分类<i class="sotr-icon"[:]全部职位分类<i class="sotr-icon"
+正在上传，请稍后...</td[:]正在上传，请稍后...</td
+顾问删除职位</label[:]顾问删除职位</label
+{#highway_news_category set="列表名:category,名称长度:10,资讯小类:GET[id]"#}<!--获取资讯分类名称 --[:]{#highway_news_category set="列表名:category,名称长度:10,资讯小类:GET[id]"#}<!--获取资讯分类名称 --
+可见简历<span[:]可见简历<span
+不允许</td[:]不允许</td
+等待发送</span[:]等待发送</span
+职位联系方式：</td[:]职位联系方式：</td
+让企业品牌更红，让招聘效率更高，<span[:]让企业品牌更红，让招聘效率更高，<span
+验证码</div[:]验证码</div
+头衔：</td[:]头衔：</td
+公司名片</h3[:]公司名片</h3
+<a href="?act=edit_tpl&templates_name=set_jobsnotallow&thisname=职位审核未通过"[:]<a href="?act=edit_tpl&templates_name=set_jobsnotallow&thisname=职位审核未通过"
+该企业共有{#$list.jobs_num#}个职位，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline"[:]该企业共有{#$list.jobs_num#}个职位，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline"
+查看更多内容[:]查看更多内容
+在招职位</p[:]在招职位</p
+期望岗位性质：</td[:]期望岗位性质：</td
+照片可见</div[:]照片可见</div
+会员购买</a[:]会员购买</a
+排序</td[:]排序</td
+行业</td[:]行业</td
+是否扭曲字符：</td[:]是否扭曲字符：</td
+<a href="?act=edit_tpl&templates_name=set_editpwd&thisname=修改密码"[:]<a href="?act=edit_tpl&templates_name=set_editpwd&thisname=修改密码"
+五</option[:]五</option
+附件上传</td[:]附件上传</td
+证书名称：</td[:]证书名称：</td
+充值比例：<strong[:]充值比例：<strong
+默认缩放级别：</td[:]默认缩放级别：</td
+已上传</a[:]已上传</a
+安装向导-骑士PHP人才系统(www.jp.highwayns.com)</title[:]安装向导-骑士PHP人才系统(www.jp.highwayns.com)</title
+账号安全</a[:]账号安全</a
+(允许格式为：swf/flv/f4v，文件大小：5000KB,大文件请从FTP上传)</span[:](允许格式为：swf/flv/f4v，文件大小：5000KB,大文件请从FTP上传)</span
+等级</td[:]等级</td
+支付</span[:]支付</span
+模板路径：</td[:]模板路径：</td
+&nbsp;公开</label[:]&nbsp;公开</label
+一月内到期</a[:]一月内到期</a
+有效期截至：</td[:]有效期截至：</td
+已认证企业</strong[:]已认证企业</strong
+文章属性</div[:]文章属性</div
+<input type="submit" name="basic_info_save" id="basic_info_save" value="保存"  class="but100lan"/[:]<input type="submit" name="basic_info_save" id="basic_info_save" value="保存"  class="but100lan"/
+职位过期是指职位有效期过期或服务有效期过期，修改此项仅对新发布的职位有效</span[:]职位过期是指职位有效期过期或服务有效期过期，修改此项仅对新发布的职位有效</span
+网站后台管理中心 - Powered by 74CMS</title[:]网站后台管理中心 - Powered by 74CMS</title
+ 碎片byte</td[:] 碎片byte</td
+工作地区：{#$show.district_ch#}{#if $show.sdistrict_ch#}-{#$show.sdistrict_ch#}{#/if#}</div[:]工作地区：{#$show.district_ch#}{#if $show.sdistrict_ch#}-{#$show.sdistrict_ch#}{#/if#}</div
+16 日</option[:]16 日</option
+待审核照片 ：&nbsp;<a href="admin_personal.php?act=list&photo_audit=2" id="t6"[:]待审核照片 ：&nbsp;<a href="admin_personal.php?act=list&photo_audit=2" id="t6"
+{#if $smarty.get.jobs_type_cn#}{#$smarty.get.jobs_type_cn#}{#else#}普通职位{#/if#}<i class="filter-icon"[:]{#if $smarty.get.jobs_type_cn#}{#$smarty.get.jobs_type_cn#}{#else#}普通职位{#/if#}<i class="filter-icon"
+系统页面ID：</td[:]系统页面ID：</td
+ 安全设置 [:] 安全设置 
+原窗口</span[:]原窗口</span
+举报类型</div[:]举报类型</div
+邮箱未验证</a[:]邮箱未验证</a
+紧急天数设定：</td[:]紧急天数设定：</td
+ 职位类别：</td[:] 职位类别：</td
+美元</li[:]美元</li
+隐藏</font[:]隐藏</font
+接收手机:</td[:]接收手机:</td
+(允许格式为：gif/jpg/bmp/png/swf，文件大小：1000KB)</span[:](允许格式为：gif/jpg/bmp/png/swf，文件大小：1000KB)</span
+  招聘状态：</td[:]  招聘状态：</td
+服务到期时间</td[:]服务到期时间</td
+<input type="button" value="立即登录" class="sign_up_but_login" onclick="window.location='{#"HW_login"|highway_url#}'"/[:]<input type="button" value="立即登录" class="sign_up_but_login" onclick="window.location='{#"HW_login"|highway_url#}'"/
+<a href="{#"HW_helpsearch"|highway_url#}?key={#"模版"|escape:"url"#}"[:]<a href="{#"HW_helpsearch"|highway_url#}?key={#"模版"|escape:"url"#}"
+ 发布公司 </td[:] 发布公司 </td
+没有任何信息！</div[:]没有任何信息！</div
+暂停</span[:]暂停</span
+轻松搞定！</p[:]轻松搞定！</p
+(职位审核通过是否通知)</td[:](职位审核通过是否通知)</td
+7天内</a[:]7天内</a
+推广天数最少：{#$cat_minday#}天<br /[:]推广天数最少：{#$cat_minday#}天<br /
+企业LOGO文件限制：</td[:]企业LOGO文件限制：</td
+代码广告</div[:]代码广告</div
+删除课程申请</label[:]删除课程申请</label
+有</a[:]有</a
+新增管理员</div[:]新增管理员</div
+邮件标题：</td[:]邮件标题：</td
+招聘人数：{#if $li.amount=="0"#}若干{#else#}{#$li.amount#}{#/if#}人</li[:]招聘人数：{#if $li.amount=="0"#}若干{#else#}{#$li.amount#}{#/if#}人</li
+专业名称：</td[:]专业名称：</td
+其他账户登录：</span[:]其他账户登录：</span
+<input type="submit" name="Submit" value="确定提交" class="admin_submit"   /[:]<input type="submit" name="Submit" value="确定提交" class="admin_submit"   /
+完善机构信息</label[:]完善机构信息</label
+添加方式</td[:]添加方式</td
+{#if $c_type!=''#}{#$c_type#}{#else#}收支状态{#/if#}<i class="filter-icon"[:]{#if $c_type!=''#}{#$c_type#}{#else#}收支状态{#/if#}<i class="filter-icon"
+高级搜索</a[:]高级搜索</a
+设置电子地图坐标</label[:]设置电子地图坐标</label
+日志类型</td[:]日志类型</td
+ “0”为不限制</span[:] “0”为不限制</span
+抱歉，没有符合此条件的信息！</div[:]抱歉，没有符合此条件的信息！</div
+付款状态：</td[:]付款状态：</td
+个人简历：</td[:]个人简历：</td
+六</option[:]六</option
+骑士cms人才系统</div[:]骑士cms人才系统</div
+修改经理人简历</label[:]修改经理人简历</label
+学校名称：</td[:]学校名称：</td
+下新增分类</div[:]下新增分类</div
+培训会员套餐操作</label[:]培训会员套餐操作</label
+以表单和文字形式记录企业和员工的主要经历、政治面貌、素质文化等内容，作为企业文化的内在凭证。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:2"|highway_url#}" class="more"[:]以表单和文字形式记录企业和员工的主要经历、政治面貌、素质文化等内容，作为企业文化的内在凭证。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:2"|highway_url#}" class="more"
+ 元</td[:] 元</td
+目前套餐</td[:]目前套餐</td
+{#if $payment[payment].pay_type==1#}套餐订单{#elseif $payment[payment].pay_type==2#}广告订单{#elseif $payment[payment].pay_type==3#}短信订单{#elseif $payment[payment].pay_type==4#}积分订单{#/if#}</div[:]{#if $payment[payment].pay_type==1#}套餐订单{#elseif $payment[payment].pay_type==2#}广告订单{#elseif $payment[payment].pay_type==3#}短信订单{#elseif $payment[payment].pay_type==4#}积分订单{#/if#}</div
+ 请选职位两点（最多选择5个）</h3[:] 请选职位两点（最多选择5个）</h3
+求职状态：<span id="base_current_cn"[:]求职状态：<span id="base_current_cn"
+<img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" alt="二维码" width="100" height="100" /[:]<img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" alt="二维码" width="100" height="100" /
+籍贯：</td[:]籍贯：</td
+微信号：</td[:]微信号：</td
+[急聘]</span[:][急聘]</span
+推荐简历</h4[:]推荐简历</h4
+开启后可有效防御CSRF攻击、跨域提交数据、重复提交表单等操作。</span[:]开启后可有效防御CSRF攻击、跨域提交数据、重复提交表单等操作。</span
+删除机构logo</label[:]删除机构logo</label
+<a href="?act=edit_tpl&templates_name=set_order&thisname=申请充值"[:]<a href="?act=edit_tpl&templates_name=set_order&thisname=申请充值"
+人投递简历</div[:]人投递简历</div
+&nbsp;编号</label[:]&nbsp;编号</label
+我们已经向您的邮箱<span id="send_email"[:]我们已经向您的邮箱<span id="send_email"
+ <a href="?act=explain_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')"[:] <a href="?act=explain_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')"
+名称:</td[:]名称:</td
+发送帐号</td[:]发送帐号</td
+10 日</option[:]10 日</option
+如要设为强制认证手机需开启短信模块</span[:]如要设为强制认证手机需开启短信模块</span
+9 时</option[:]9 时</option
+培训内容：</td[:]培训内容：</td
+网站管理员</a[:]网站管理员</a
+修改消息</div[:]修改消息</div
+求职意向</div[:]求职意向</div
+找回成功</div[:]找回成功</div
+回到顶部</div[:]回到顶部</div
+来源：</td[:]来源：</td
+官方论坛：<a href="http://www.jp.highwayns.com/bbs" target="_blank"[:]官方论坛：<a href="http://www.jp.highwayns.com/bbs" target="_blank"
+ 已下载的简历</div[:] 已下载的简历</div
+刷新信息可提高信息排名！</p[:]刷新信息可提高信息排名！</p
+投诉</a[:]投诉</a
+<a href="?act=edit_tpl&templates_name=set_payment&thisname=充值成功"[:]<a href="?act=edit_tpl&templates_name=set_payment&thisname=充值成功"
+展示模版：</td[:]展示模版：</td
+投诉类型</td[:]投诉类型</td
+ 面试邀请</div[:] 面试邀请</div
+登录IP</div[:]登录IP</div
+正在安装...</div[:]正在安装...</div
+<!-- pc登录class="pc" --[:]<!-- pc登录class="pc" --
+添加时间</td[:]添加时间</td
+ 我的消息</div[:] 我的消息</div
+高度(必填)：</td[:]高度(必填)：</td
+创简历</p[:]创简历</p
+新增推广</div[:]新增推广</div
+我的头像</a[:]我的头像</a
+<a href="?act=edit_tpl&templates_name=set_addmap&thisname=开通电子地图"[:]<a href="?act=edit_tpl&templates_name=set_addmap&thisname=开通电子地图"
+培训经历</div[:]培训经历</div
+赠送数量：</td[:]赠送数量：</td
+<input type="submit" name="Submit" value="保存" class="admin_submit"[:]<input type="submit" name="Submit" value="保存" class="admin_submit"
+手机</div[:]手机</div
+性&nbsp;&nbsp;别：<span id="base_info_sex_cn"[:]性&nbsp;&nbsp;别：<span id="base_info_sex_cn"
+修改新闻</div[:]修改新闻</div
+简历等级：{#if $list.talent=="2"#}<span style="color:#FF6600"[:]简历等级：{#if $list.talent=="2"#}<span style="color:#FF6600"
+邮箱验证后，可以通过邮箱随时取回账户密码，接收企业面试邀请邮件。</dd[:]邮箱验证后，可以通过邮箱随时取回账户密码，接收企业面试邀请邮件。</dd
+推动电子地图，系统将自动获取坐标</td[:]推动电子地图，系统将自动获取坐标</td
+0为不提醒</span[:]0为不提醒</span
+新增广告</div[:]新增广告</div
+[置顶]</span[:][置顶]</span
+微信绑定：</span[:]微信绑定：</span
+描述说明：</h2[:]描述说明：</h2
+联系方式</div[:]联系方式</div
+分享到</span[:]分享到</span
+14 日</option[:]14 日</option
+三天内</a[:]三天内</a
+个人版授权协议  适用于个人版用户</h2[:]个人版授权协议  适用于个人版用户</h2
+待处理事务</div[:]待处理事务</div
+正在上传，请稍后！</div[:]正在上传，请稍后！</div
+学历要求</td[:]学历要求</td
+[不显示]</span[:][不显示]</span
+其他类</td[:]其他类</td
+显示</span[:]显示</span
+新浪微博</a[:]新浪微博</a
+营业执照：</td[:]营业执照：</td
+其他说明：</td[:]其他说明：</td
+(请设定天数)</span[:](请设定天数)</span
+(0为不限制)</span[:](0为不限制)</span
+服务器软件：{#$system_info.web_server#}<br /[:]服务器软件：{#$system_info.web_server#}<br /
+6 时</option[:]6 时</option
+10 时</option[:]10 时</option
+友情链接申请要求</div[:]友情链接申请要求</div
+客服：{#$consultant.name#}</p[:]客服：{#$consultant.name#}</p
+礼品卡充值：</td[:]礼品卡充值：</td
+套餐名称</td[:]套餐名称</td
+推荐职位</h2[:]推荐职位</h2
+三天内到期</a[:]三天内到期</a
+修改个人资料</a[:]修改个人资料</a
+<input name="check" type="submit" class="admin_submit" id="check"    value="立即测试" /[:]<input name="check" type="submit" class="admin_submit" id="check"    value="立即测试" /
+延长推广时间</label[:]延长推广时间</label
+已下载的简历</div[:]已下载的简历</div
+位置</td[:]位置</td
+点击次数：</td[:]点击次数：</td
+如：/images/logo.swf 或 http://www.baidu.com/img/baidu_logo.swf</span[:]如：/images/logo.swf 或 http://www.baidu.com/img/baidu_logo.swf</span
+设置本任务的执行程序文件名，请勿包含路径，程序脚本统一存放于 ./include/crons/ 目录中</span[:]设置本任务的执行程序文件名，请勿包含路径，程序脚本统一存放于 ./include/crons/ 目录中</span
+子分类</div[:]子分类</div
+9 日</option[:]9 日</option
+<input type="button"   id="nav_add_credent" value="添加"  class="but55lan_add"/[:]<input type="button"   id="nav_add_credent" value="添加"  class="but55lan_add"/
+网站名称：</td[:]网站名称：</td
+系统分类</span[:]系统分类</span
+{#if $smarty.get.jname#}{#$smarty.get.jname#}{#else#}面试职位{#/if#}<i class="filter-icon"[:]{#if $smarty.get.jname#}{#$smarty.get.jname#}{#else#}面试职位{#/if#}<i class="filter-icon"
+退出登录</a[:]退出登录</a
+认证与审核状态设置</div[:]认证与审核状态设置</div
+审核与认证设置</div[:]审核与认证设置</div
+头衔</td[:]头衔</td
+模糊匹配阀值：</td[:]模糊匹配阀值：</td
+ 应届生亦可</label[:] 应届生亦可</label
+普通消息</a[:]普通消息</a
+每天刷新简历次数限制：</td[:]每天刷新简历次数限制：</td
+年份</div[:]年份</div
+最新职位、紧急招聘、一键刷简历、即时收面试通知……<br /[:]最新职位、紧急招聘、一键刷简历、即时收面试通知……<br /
+页面关联标记</td[:]页面关联标记</td
+操作记录</a[:]操作记录</a
+充值/订单</div[:]充值/订单</div
+ 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning"[:] 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning"
+个人求职</h4[:]个人求职</h4
+ 元{#/if#} &nbsp;<span class="del"[:] 元{#/if#} &nbsp;<span class="del"
+应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}{#if $li.status==1#}  <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh"[:]应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}{#if $li.status==1#}  <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh"
+查看完整地图（含公交查询）</a[:]查看完整地图（含公交查询）</a
+三月内到期</a[:]三月内到期</a
+微信扫一扫</span[:]微信扫一扫</span
+PHP 版本：{#$system_info.php_ver#}</td[:]PHP 版本：{#$system_info.php_ver#}</td
+账号管理</div[:]账号管理</div
+类型：</td[:]类型：</td
+菜单KEY:</td[:]菜单KEY:</td
+刷新</strong[:]刷新</strong
+最后登录时间：</td[:]最后登录时间：</td
+邮件标题:</td[:]邮件标题:</td
+头像</a[:]头像</a
+7日内自动登录</span[:]7日内自动登录</span
+允许推荐职位：<span style="position:relative;"[:]允许推荐职位：<span style="position:relative;"
+验证类型</div[:]验证类型</div
+ 个职位。<a target="_blank" href="{#$list.0.count_url#}"[:] 个职位。<a target="_blank" href="{#$list.0.count_url#}"
+屏蔽</span[:]屏蔽</span
+提示：您当前安装的是个人版软件，高端用户请选择企业版。</p[:]提示：您当前安装的是个人版软件，高端用户请选择企业版。</p
+刷新简历时间间隔：</td[:]刷新简历时间间隔：</td
+管理</a[:]管理</a
+调用ID：</td[:]调用ID：</td
+或者路径：</td[:]或者路径：</td
+编辑</a[:]编辑</a
+订单备注：</div[:]订单备注：</div
+手机认证：</span[:]手机认证：</span
+ 对外公开联系邮箱</label[:] 对外公开联系邮箱</label
+职位推广-紧急</div[:]职位推广-紧急</div
+6 日</option[:]6 日</option
+未认证</a[:]未认证</a
+<input type="submit" name="set_caching" value="确定" class="admin_submit"[:]<input type="submit" name="set_caching" value="确定" class="admin_submit"
+企业会员</strong[:]企业会员</strong
+{#$payment.week#}周</td[:]{#$payment.week#}周</td
+网站底部其他说明：</td[:]网站底部其他说明：</td
+订单号</div[:]订单号</div
+热度</a[:]热度</a
+发布中的职位：</span[:]发布中的职位：</span
+(0为不允许使用置顶职位)</span[:](0为不允许使用置顶职位)</span
+高级简历下载要求：</td[:]高级简历下载要求：</td
+栏目名称(必填)：</td[:]栏目名称(必填)：</td
+ 登录日志</div[:] 登录日志</div
+元</td[:]元</td
+薪资待遇</a[:]薪资待遇</a
+关闭</label[:]关闭</label
+快速完成账号激活<br /[:]快速完成账号激活<br /
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写培训经历。</div[:]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写培训经历。</div
+触屏版允许查看简历联系方式：</td[:]触屏版允许查看简历联系方式：</td
+公司名称</div[:]公司名称</div
+职位导航<span[:]职位导航<span
+<input type="submit" name="save_language" id="save_language" value="保存"  class="but100lan"/[:]<input type="submit" name="save_language" id="save_language" value="保存"  class="but100lan"/
+服务套餐操作</a[:]服务套餐操作</a
+16 时</option[:]16 时</option
+手机未验证</a[:]手机未验证</a
+年龄要求：</td[:]年龄要求：</td
+收件地址</td[:]收件地址</td
+登录失败</a[:]登录失败</a
+<input type="text" name="username" id="username" placeholder="用户名/手机/邮箱" class="login-input" /[:]<input type="text" name="username" id="username" placeholder="用户名/手机/邮箱" class="login-input" /
+还没有帐号?</p[:]还没有帐号?</p
+行业类别<i class="fliter-clear-icon"[:]行业类别<i class="fliter-clear-icon"
+培训时间：</td[:]培训时间：</td
+客观全面的自我评价更容易获得企业的好感，快来完善以获得HR的亲睐！</div[:]客观全面的自我评价更容易获得企业的好感，快来完善以获得HR的亲睐！</div
+&nbsp;数字越大越靠前</span[:]&nbsp;数字越大越靠前</span
+类型</td[:]类型</td
+(共找到{#$total_val#}条)</span[:](共找到{#$total_val#}条)</span
+添加顾问</div[:]添加顾问</div
+完成手机认证可以提高简历可信度，获得更多企业青睐！ <a href="personal_user.php?act=authenticate" class="underline"[:]完成手机认证可以提高简历可信度，获得更多企业青睐！ <a href="personal_user.php?act=authenticate" class="underline"
+无效原因</div[:]无效原因</div
+<input type="submit" name="set_refresh" value="确定" class="admin_submit"    /[:]<input type="submit" name="set_refresh" value="确定" class="admin_submit"    /
+14 时</option[:]14 时</option
+顾问照片</label[:]顾问照片</label
+验证码类<span class="admin_note" style="color: rgb(153, 153, 153);"[:]验证码类<span class="admin_note" style="color: rgb(153, 153, 153);"
+性质：{#$company.nature_cn#}</li[:]性质：{#$company.nature_cn#}</li
+提供各类员工培训参考，包含出国培训、新进职员培训等，为企业提供多样的培训意见，提高员工素质能力。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:8"|highway_url#}" class="more"[:]提供各类员工培训参考，包含出国培训、新进职员培训等，为企业提供多样的培训意见，提高员工素质能力。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:8"|highway_url#}" class="more"
+上传机构logo</label[:]上传机构logo</label
+新增菜单</div[:]新增菜单</div
+排序:</td[:]排序:</td
+验证码干扰线数量，建议在 0 - 10 范围内取值 </span[:]验证码干扰线数量，建议在 0 - 10 范围内取值 </span
+{#if $list.log_address#}{#$list.log_address#}{#else#}未知{#/if#}</div[:]{#if $list.log_address#}{#$list.log_address#}{#else#}未知{#/if#}</div
+链接地址：</td[:]链接地址：</td
+(共找到{#$total#}条)</span[:](共找到{#$total#}条)</span
+所有简历<span class="check"[:]所有简历<span class="check"
+17   时</option[:]17   时</option
+成功安装</li[:]成功安装</li
+最后登录时间</td[:]最后登录时间</td
+允许修改</label[:]允许修改</label
+我的套餐：<span[:]我的套餐：<span
+（点击职位模板后会自动填充职位描述）</font[:]（点击职位模板后会自动填充职位描述）</font
+照片待审核</a[:]照片待审核</a
+您可以通过添加备注来区分订单。</p[:]您可以通过添加备注来区分订单。</p
+数字越大越靠前</span[:]数字越大越靠前</span
+取消推广</a[:]取消推广</a
+<a href="{#"settr:3,settr_cn:三天内"|highway_parse_url#}"[:]<a href="{#"settr:3,settr_cn:三天内"|highway_parse_url#}"
+注册会员：</td[:]注册会员：</td
+开通电子地图：</td[:]开通电子地图：</td
+ 企业资料</div[:] 企业资料</div
+此类下加子类</a[:]此类下加子类</a
+此链接为自主申请友情链接，默认显示状态为：不显示，您可以通过修改显示状态让其显示在页面</div[:]此链接为自主申请友情链接，默认显示状态为：不显示，您可以通过修改显示状态让其显示在页面</div
+<input name="weixin_first_pic" type="file" id="weixin_first_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/[:]<input name="weixin_first_pic" type="file" id="weixin_first_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/
+男</div[:]男</div
+升级VIP套餐</a[:]升级VIP套餐</a
+申请高级人才</a[:]申请高级人才</a
+{#$company_profile.currency|default:"人民币"#}</div[:]{#$company_profile.currency|default:"人民币"#}</div
+配置</div[:]配置</div
+完成账号创建后，即可直接登录哦！</p[:]完成账号创建后，即可直接登录哦！</p
+<input type="submit" value="完成" name="reg" id="reg" class="sign_up_but_sign" /[:]<input type="submit" value="完成" name="reg" id="reg" class="sign_up_but_sign" /
+支付</a[:]支付</a
+操作系统：{#$system_info.os#}</td[:]操作系统：{#$system_info.os#}</td
+{#if $HIGHWAY.resume_privacy=="1"#}完全公开{#elseif $HIGHWAY.resume_privacy=="2"#}显示编号{#elseif $HIGHWAY.resume_privacy=="3"#}隐藏名字{#/if#}</div[:]{#if $HIGHWAY.resume_privacy=="1"#}完全公开{#elseif $HIGHWAY.resume_privacy=="2"#}显示编号{#elseif $HIGHWAY.resume_privacy=="3"#}隐藏名字{#/if#}</div
+   版权所有 | 仿冒必究</p[:]   版权所有 | 仿冒必究</p
+ 头像</div[:] 头像</div
+邀请高级人才面试数：</td[:]邀请高级人才面试数：</td
+ 操作时间 </td[:] 操作时间 </td
+工作经验：{#$show.experience_cn#}&nbsp;{#if $show.graduate=="1"#}(应届生亦可){#/if#}</div[:]工作经验：{#$show.experience_cn#}&nbsp;{#if $show.graduate=="1"#}(应届生亦可){#/if#}</div
+下载普通简历</td[:]下载普通简历</td
+提交订单</p[:]提交订单</p
+相关阅读</h5[:]相关阅读</h5
+职位收藏夹</div[:]职位收藏夹</div
+修改短信任务</div[:]修改短信任务</div
+来源</td[:]来源</td
+原认证手机：</td[:]原认证手机：</td
+已到期</a[:]已到期</a
+<input type="submit" name="save_credent" id="save_credent" value="保存"  class="but100lan"/[:]<input type="submit" name="save_credent" id="save_credent" value="保存"  class="but100lan"/
+虚假信息</a[:]虚假信息</a
+<input type="submit" name="set_audit" value="确定" class="admin_submit"    /[:]<input type="submit" name="set_audit" value="确定" class="admin_submit"    /
+待付款</a[:]待付款</a
+收到面试邀请 <span[:]收到面试邀请 <span
+联系电话(底部)：</td[:]联系电话(底部)：</td
+<input type="button"  class="but100_30hui" value="修改简历" onclick="javascript:location.href='?act=edit_resume&pid={#$list.id#}' "/[:]<input type="button"  class="but100_30hui" value="修改简历" onclick="javascript:location.href='?act=edit_resume&pid={#$list.id#}' "/
+上传logo</label[:]上传logo</label
+培训会员增加订单</label[:]培训会员增加订单</label
+新闻资讯：</td[:]新闻资讯：</td
+开启淘宝帐号登录：</td[:]开启淘宝帐号登录：</td
+薪资待遇</div[:]薪资待遇</div
+[论坛]</a[:][论坛]</a
+(营业执照审核未通过是否邮件通知)</td[:](营业执照审核未通过是否邮件通知)</td
+积分充值</a[:]积分充值</a
+会员注册：</td[:]会员注册：</td
+海量职位</h2[:]海量职位</h2
+职位类别<i class="fliter-clear-icon"[:]职位类别<i class="fliter-clear-icon"
+文章属性：</td[:]文章属性：</td
+查看：<span id="click"[:]查看：<span id="click"
+到期后自动删除</span[:]到期后自动删除</span
+套餐使用明细</h3[:]套餐使用明细</h3
+提示：在应聘过程中用人单位以任何名义向应聘者收取费用都属于违法内容！</div[:]提示：在应聘过程中用人单位以任何名义向应聘者收取费用都属于违法内容！</div
+(0为不允许) </span[:](0为不允许) </span
+您是企业用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=1"[:]您是企业用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=1"
+个人会员</a[:]个人会员</a
+开始安装</li[:]开始安装</li
+微信列表小图： </td[:]微信列表小图： </td
+联系方式：<a href="javascript:void(0);" class="show_tel" id="{#$li.id#}"[:]联系方式：<a href="javascript:void(0);" class="show_tel" id="{#$li.id#}"
+邮件注册会员激活：</td[:]邮件注册会员激活：</td
+<a href="{#"reply_id:6,reply_cn:未接通"|highway_parse_url#}"[:]<a href="{#"reply_id:6,reply_cn:未接通"|highway_parse_url#}"
+用户名</li[:]用户名</li
+招聘人数：{#$job_list.amount#} 人</div[:]招聘人数：{#$job_list.amount#} 人</div
+共可创建 <span[:]共可创建 <span
+<input type="file" name="upfile"    onkeydown="alert('请点击右侧“浏览”选择您电脑上的文件！');return false"   style="height:21px; width:210px; border:1px #999999 solid" /[:]<input type="file" name="upfile"    onkeydown="alert('请点击右侧“浏览”选择您电脑上的文件！');return false"   style="height:21px; width:210px; border:1px #999999 solid" /
+干扰点数量：</td[:]干扰点数量：</td
+未收取费用</a[:]未收取费用</a
+培训机构：</td[:]培训机构：</td
+更多[:]更多
+开启采集接口：</td[:]开启采集接口：</td
+请选择推广方案</option[:]请选择推广方案</option
+当前位置：<a href="{#$HIGHWAY.site_dir#}"[:]当前位置：<a href="{#$HIGHWAY.site_dir#}"
+版权所有&copy;2015，74CMS.com 保留所有权利。 <br /[:]版权所有&copy;2015，74CMS.com 保留所有权利。 <br /
+<input type="checkbox" name="chkAll"  id="chk" title="全选/反选" /[:]<input type="checkbox" name="chkAll"  id="chk" title="全选/反选" /
+作者：</td[:]作者：</td
+会员名</li[:]会员名</li
+允许重复</label[:]允许重复</label
+推广类型</div[:]推广类型</div
+您访问的页面丢了！</p[:]您访问的页面丢了！</p
+登录密码：</td[:]登录密码：</td
+工作地区：<span id="base_district_cn"[:]工作地区：<span id="base_district_cn"
+上传营业执照</label[:]上传营业执照</label
+{#if $smarty.get.jobname==''#}应聘职位{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"[:]{#if $smarty.get.jobname==''#}应聘职位{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"
+项目</td[:]项目</td
+手机已认证</div[:]手机已认证</div
+职场资讯<span[:]职场资讯<span
+选择行业类别</span[:]选择行业类别</span
+添加公告</div[:]添加公告</div
+发布时间</td[:]发布时间</td
+资讯采集设置</div[:]资讯采集设置</div
+文档名称：</td[:]文档名称：</td
+添加时间：</td[:]添加时间：</td
+手机认证后，可以通过手机随时取回账户密码，向个人发送面试邀请短信。<a href="company_user.php?act=authenticate" class="underline"[:]手机认证后，可以通过手机随时取回账户密码，向个人发送面试邀请短信。<a href="company_user.php?act=authenticate" class="underline"
+<a href="{#"generalize:highlight,generalize_cn:套色"|highway_parse_url#}"[:]<a href="{#"generalize:highlight,generalize_cn:套色"|highway_parse_url#}"
+最新简历</h3[:]最新简历</h3
+{#$list.education_cn#} | {#$list.experience_cn#} | 意向：{#$list.intention_jobs#}</div[:]{#$list.education_cn#} | {#$list.experience_cn#} | 意向：{#$list.intention_jobs#}</div
+对方未查看<span class="no_check"[:]对方未查看<span class="no_check"
+简历发布成功</h2[:]简历发布成功</h2
+匹配职位</a[:]匹配职位</a
+期望岗位：{#$show.intention_jobs#}</div[:]期望岗位：{#$show.intention_jobs#}</div
+3 日</option[:]3 日</option
+最新资讯</h5[:]最新资讯</h5
+ <img src="images/email.gif" border="0" title="发送邮件" /[:] <img src="images/email.gif" border="0" title="发送邮件" /
+非可见简历<span[:]非可见简历<span
+联系人</li[:]联系人</li
+ 所属分类 </td[:] 所属分类 </td
+{#if $userprofile.major#}{#$userprofile.major_cn#}{#else#}请选择{#/if#}</div[:]{#if $userprofile.major#}{#$userprofile.major_cn#}{#else#}请选择{#/if#}</div
+当前简历：{#$title#}</h4[:]当前简历：{#$title#}</h4
+添加反馈</label[:]添加反馈</label
+发送失败时：</td[:]发送失败时：</td
+修改微招聘后审核状态变为：</td[:]修改微招聘后审核状态变为：</td
+属实</a[:]属实</a
+包含工作内容、员工纪律等一系列直接涉及员工福利和工作性质的资料。帮助hr快速专业的落实人才工作。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:3"|highway_url#}" class="more"[:]包含工作内容、员工纪律等一系列直接涉及员工福利和工作性质的资料。帮助hr快速专业的落实人才工作。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:3"|highway_url#}" class="more"
+照片审核未通过</a[:]照片审核未通过</a
+9月</div[:]9月</div
+已认证邮箱</div[:]已认证邮箱</div
+等待审核<span[:]等待审核<span
+申请会员</td[:]申请会员</td
+次</div[:]次</div
+<a href="{#"reply_id:4,reply_cn:不合适"|highway_parse_url#}"[:]<a href="{#"reply_id:4,reply_cn:不合适"|highway_parse_url#}"
+未上传</span[:]未上传</span
+邮箱认证后，可以通过邮箱取回账户密码，且接收简历。<a href="company_user.php?act=authenticate" class="underline"[:]邮箱认证后，可以通过邮箱取回账户密码，且接收简历。<a href="company_user.php?act=authenticate" class="underline"
+学历</td[:]学历</td
+{#if $resume_basic.display_name=="1"#}完全公开{#elseif $resume_basic.display_name=="2"#}显示编号{#elseif $resume_basic.display_name=="3"#}隐藏名字{#/if#}</div[:]{#if $resume_basic.display_name=="1"#}完全公开{#elseif $resume_basic.display_name=="2"#}显示编号{#elseif $resume_basic.display_name=="3"#}隐藏名字{#/if#}</div
+[待开通高级人才]</span[:][待开通高级人才]</span
+确认</a[:]确认</a
+		  2、用户出于自愿而使用本软件，您必须了解使用本软件的风险，在尚未购买产品技术服务之前，我们不承诺对免费用户提供任何形式的技术支持、使用担保，也不承担任何因使用本软件而产生问题的相关责任。 <br /[:]		  2、用户出于自愿而使用本软件，您必须了解使用本软件的风险，在尚未购买产品技术服务之前，我们不承诺对免费用户提供任何形式的技术支持、使用担保，也不承担任何因使用本软件而产生问题的相关责任。 <br /
+套色天数设定：</td[:]套色天数设定：</td
+剩余{#$HIGHWAY.points_byname#}：<span[:]剩余{#$HIGHWAY.points_byname#}：<span
+行业：{#$company.trade_cn#}</li[:]行业：{#$company.trade_cn#}</li
+一周内</a[:]一周内</a
+加入人才库</a[:]加入人才库</a
+关闭后将不对外展示招聘信息，您确定要关闭吗？</span[:]关闭后将不对外展示招聘信息，您确定要关闭吗？</span
+手机号码</li[:]手机号码</li
+修改简历后审核状态变为：</td[:]修改简历后审核状态变为：</td
+<input type="button" value="免费注册" class="index-reg-btn" /[:]<input type="button" value="免费注册" class="index-reg-btn" /
+禁止修改</label[:]禁止修改</label
+<img src="{#$company.logo#}" alt="公司logo" width="198" height="68" /[:]<img src="{#$company.logo#}" alt="公司logo" width="198" height="68" /
+74cms是一个采用 PHP 和 MySQL 构建的高效人才系统解决方案 <a href="http://www.jp.highwayns.com/bbs" target="_blank"[:]74cms是一个采用 PHP 和 MySQL 构建的高效人才系统解决方案 <a href="http://www.jp.highwayns.com/bbs" target="_blank"
+修改微招聘</div[:]修改微招聘</div
+<a href="?act=edit_tpl&templates_name=set_invite&thisname=邀请面试"[:]<a href="?act=edit_tpl&templates_name=set_invite&thisname=邀请面试"
+更新时间：{#$show.refreshtime|date_format:"%Y-%m-%d"#}</div[:]更新时间：{#$show.refreshtime|date_format:"%Y-%m-%d"#}</div
+职位列表</h3[:]职位列表</h3
+修改企业信息</a[:]修改企业信息</a
+职 位 发 布 成 功<a href="?act=addjobs" class="underline"[:]职 位 发 布 成 功<a href="?act=addjobs" class="underline"
+资讯</a[:]资讯</a
+最高学历：<span id="base_info_education_cn"[:]最高学历：<span id="base_info_education_cn"
+允许职位套色：<span style="position:relative;"[:]允许职位套色：<span style="position:relative;"
+不能超过5000，建议设为3000</span[:]不能超过5000，建议设为3000</span
+电话咨询：<br /[:]电话咨询：<br /
+期望从事行业：{#$list.trade_cn_#} | 期望从事岗位：{#$list.intention_jobs_#}</div[:]期望从事行业：{#$list.trade_cn_#} | 期望从事岗位：{#$list.intention_jobs_#}</div
+男</a[:]男</a
+年龄要求：{#if $show.age=="-"#}不限{#else#}{#$show.age#}岁{#/if#}</div[:]年龄要求：{#if $show.age=="-"#}不限{#else#}{#$show.age#}岁{#/if#}</div
+企业：</td[:]企业：</td
+简历审核：</td[:]简历审核：</td
+职位推广-置顶</div[:]职位推广-置顶</div
+刷新简历</a[:]刷新简历</a
+企业未查看<span class="h"[:]企业未查看<span class="h"
+您的套餐：<span[:]您的套餐：<span
+职位推广-置顶</td[:]职位推广-置顶</td
+职位名</li[:]职位名</li
+简历打印</a[:]简历打印</a
+目录权限检测</h3[:]目录权限检测</h3
+更多操作</div[:]更多操作</div
+附件</div[:]附件</div
+<input type="file" name="Small_img"    onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"   style="height:21px; width:210px; border:1px #999999 solid" /[:]<input type="file" name="Small_img"    onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"   style="height:21px; width:210px; border:1px #999999 solid" /
+[更改]</a[:][更改]</a
+无</a[:]无</a
+，{#if $setmeal_endtime#}{#if $setmeal_endtime=="无限期"#}无限期{#else#}还有<span[:]，{#if $setmeal_endtime#}{#if $setmeal_endtime=="无限期"#}无限期{#else#}还有<span
+默认中心点Y坐标：</td[:]默认中心点Y坐标：</td
+新闻分类：</td[:]新闻分类：</td
+{#if $resume_basic.word_resume#}更换{#else#}上传{#/if#}</div[:]{#if $resume_basic.word_resume#}更换{#else#}上传{#/if#}</div
+联系方式图形化 <span class="admin_note"[:]联系方式图形化 <span class="admin_note"
+删除面试邀请</label[:]删除面试邀请</label
+<input type="submit" name="set_url" value="确定" class="admin_submit"    /[:]<input type="submit" name="set_url" value="确定" class="admin_submit"    /
+5.1以上</td[:]5.1以上</td
+方案名称</td[:]方案名称</td
+招聘职位</a[:]招聘职位</a
+默认中心点X坐标：</td[:]默认中心点X坐标：</td
+强制会员认证手机：</td[:]强制会员认证手机：</td
+付款成功：</td[:]付款成功：</td
+(会员修改密码后是否通知)</td[:](会员修改密码后是否通知)</td
+垃圾信息过滤</div[:]垃圾信息过滤</div
+户籍所在地：</td[:]户籍所在地：</td
+微信二维码图片： </td[:]微信二维码图片： </td
+不属实</a[:]不属实</a
+修改个人资料</label[:]修改个人资料</label
+ 招聘人数无法匹配则为：</td[:] 招聘人数无法匹配则为：</td
+[查看logo]</a[:][查看logo]</a
+不可见</a[:]不可见</a
+{#if $li.audit == 2#}属实{#elseif $li.audit == 3#}不属实{#else#}未审核{#/if#}</td[:]{#if $li.audit == 2#}属实{#elseif $li.audit == 3#}不属实{#else#}未审核{#/if#}</td
+数字越大，排序越靠前</span[:]数字越大，排序越靠前</span
+积分消费明细</a[:]积分消费明细</a
+其他</td[:]其他</td
+程序开发：74cms程序开发组</td[:]程序开发：74cms程序开发组</td
+没有相关信息！</li[:]没有相关信息！</li
+填写数据库信息</h3[:]填写数据库信息</h3
+{#if $show.wage_cn#}期望月薪：{#$show.wage_cn#}{#/if#}{#if $show.nature_cn#}<span[:]{#if $show.wage_cn#}期望月薪：{#$show.wage_cn#}{#/if#}{#if $show.nature_cn#}<span
+待审核职位：&nbsp;<a href="admin_company.php?jobtype=2&audit=2" id="t1"[:]待审核职位：&nbsp;<a href="admin_company.php?jobtype=2&audit=2" id="t1"
+文字大小：</td[:]文字大小：</td
+触屏版域名：</td[:]触屏版域名：</td
+新增服务套餐</div[:]新增服务套餐</div
+文章排序：</td[:]文章排序：</td
+广告标题</li[:]广告标题</li
+分类显示</div[:]分类显示</div
+开启短信发送：</td[:]开启短信发送：</td
+有效时间：</td[:]有效时间：</td
+暂时关闭网站：</td[:]暂时关闭网站：</td
+已认证企业修改职位后审核状态为：</td[:]已认证企业修改职位后审核状态为：</td
+认证失败</label[:]认证失败</label
+微信公众平台设置</div[:]微信公众平台设置</div
+待认证企业：&nbsp;<a href="admin_company.php?act=company_list&audit=2" id="t3"[:]待认证企业：&nbsp;<a href="admin_company.php?act=company_list&audit=2" id="t3"
+上一篇：没有了</a[:]上一篇：没有了</a
+联系邮箱：</td[:]联系邮箱：</td
+7月</div[:]7月</div
+新增订单：</td[:]新增订单：</td
+性别：</td[:]性别：</td
+现价：{#$setmeal[key].expense#}元</p[:]现价：{#$setmeal[key].expense#}元</p
+邮箱：</td[:]邮箱：</td
+添加方式：</td[:]添加方式：</td
+停止</a[:]停止</a
+专业：{#$list.major_cn#} | 期望工作性质：{#$list.nature_cn#} | 目前求职状态：{#$list.current_cn#}</p[:]专业：{#$list.major_cn#} | 期望工作性质：{#$list.nature_cn#} | 目前求职状态：{#$list.current_cn#}</p
+照片简历</a[:]照片简历</a
+修改企业推广</div[:]修改企业推广</div
+{#if $pay_type=='1'#}套餐订单{#elseif $pay_type=='2'#}广告订单{#elseif $pay_type=='3'#}短信订单{#elseif $pay_type=='4'#}积分订单{#else#}订单类别{#/if#}<i class="filter-icon"[:]{#if $pay_type=='1'#}套餐订单{#elseif $pay_type=='2'#}广告订单{#elseif $pay_type=='3'#}短信订单{#elseif $pay_type=='4'#}积分订单{#else#}订单类别{#/if#}<i class="filter-icon"
+<input type="checkbox" value="超市" id="supermarket" class="serch"/[:]<input type="checkbox" value="超市" id="supermarket" class="serch"/
+[恢复默认]</a[:][恢复默认]</a
+ 可面议</label[:] 可面议</label
+已登录且有发布职位的企业可下载</label[:]已登录且有发布职位的企业可下载</label
+广告位</div[:]广告位</div
+友情链接</a[:]友情链接</a
+手机验证后，可以通过手机随时取回账户密码，接收企业面试邀请短信。</dd[:]手机验证后，可以通过手机随时取回账户密码，接收企业面试邀请短信。</dd
+使用合作账号登录</p[:]使用合作账号登录</p
+<input type="submit" name="save_education" id="save_education" value="保存"  class="but100lan"/[:]<input type="submit" name="save_education" id="save_education" value="保存"  class="but100lan"/
+筛选类型</div[:]筛选类型</div
+<input type="submit" name="Submit" value="保存" class="admin_submit"   /[:]<input type="submit" name="Submit" value="保存" class="admin_submit"   /
+人才库容量：</td[:]人才库容量：</td
+学历要求无法匹配则为：</td[:]学历要求无法匹配则为：</td
+ 收藏的简历</div[:] 收藏的简历</div
+薪资待遇无法匹配则为：</td[:]薪资待遇无法匹配则为：</td
+意见</a[:]意见</a
+允许</td[:]允许</td
+{#/if#}&nbsp;已读{#if $msg_total2[:]{#/if#}&nbsp;已读{#if $msg_total2
+一周内到期</a[:]一周内到期</a
+<input type="radio" name="display" value="2" title="保密"/[:]<input type="radio" name="display" value="2" title="保密"/
+为您推荐职位</h2[:]为您推荐职位</h2
+删除</span[:]删除</span
+修改简历</a[:]修改简历</a
+有效期截至：{#if $li.deadline=="0"#}长期有效{#else#}{#$li.deadline|date_format:"%Y-%m-%d"#}{#/if#}</li[:]有效期截至：{#if $li.deadline=="0"#}长期有效{#else#}{#$li.deadline|date_format:"%Y-%m-%d"#}{#/if#}</li
+天，需要扣除：&nbsp;&nbsp;<strong style=\"color: #009900;\"[:]天，需要扣除：&nbsp;&nbsp;<strong style=\"color: #009900;\"
+积分操作</label[:]积分操作</label
+职位列表数最大为：</td[:]职位列表数最大为：</td
+加</option[:]加</option
+微招聘</a[:]微招聘</a
+邮件标题模版：</td[:]邮件标题模版：</td
+最多选 <strong class="text-warning"[:]最多选 <strong class="text-warning"
+  密码</div[:]  密码</div
+<input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/[:]<input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/
+保存</a[:]保存</a
+没有可申请的套餐！</div[:]没有可申请的套餐！</div
+所属会员</td[:]所属会员</td
+<input type="button" name="importnum" class="admin_submit" id="importnum" value="导入号码"/[:]<input type="button" name="importnum" class="admin_submit" id="importnum" value="导入号码"/
+邮箱</dt[:]邮箱</dt
+(删除后此会员将无法登录，无法管理已发布的信息等)<span[:](删除后此会员将无法登录，无法管理已发布的信息等)<span
+找工作</p[:]找工作</p
+查找公众号：<b[:]查找公众号：<b
+高级</a[:]高级</a
+收取费用</div[:]收取费用</div
+照片</td[:]照片</td
+我是招聘单位，我想出现在这里</a[:]我是招聘单位，我想出现在这里</a
+企业关注度：</div[:]企业关注度：</div
+ 0为免费</span[:] 0为免费</span
+无</td[:]无</td
+<a href="{#"settr:14,settr_cn:最近两周"|highway_parse_url#}"[:]<a href="{#"settr:14,settr_cn:最近两周"|highway_parse_url#}"
+<input type="checkbox" name="chkAll" id="chk" title="全选/反选" class="checkbox" /[:]<input type="checkbox" name="chkAll" id="chk" title="全选/反选" class="checkbox" /
+ 创建简历</div[:] 创建简历</div
+微商圈</a[:]微商圈</a
+添加计划任务</div[:]添加计划任务</div
+添加职位</label[:]添加职位</label
+安全助手</div[:]安全助手</div
+应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</p[:]应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</p
+<a href="{#"reply_id:2,reply_cn:待反馈"|highway_parse_url#}"[:]<a href="{#"reply_id:2,reply_cn:待反馈"|highway_parse_url#}"
+操作系统</td[:]操作系统</td
+密钥：</td[:]密钥：</td
+(营业执照审核未通过是否通知)</td[:](营业执照审核未通过是否通知)</td
+15天</span[:]15天</span
+已认证手机</span[:]已认证手机</span
+待审核简历：&nbsp;<a href="admin_personal.php?audit=2&tabletype=2" id="t2"[:]待审核简历：&nbsp;<a href="admin_personal.php?audit=2&tabletype=2" id="t2"
+任务脚本：</td[:]任务脚本：</td
+<input type="text" class="sign_up_input_mail" placeholder="请输入您的常用邮箱" name="email" id="email" /[:]<input type="text" class="sign_up_input_mail" placeholder="请输入您的常用邮箱" name="email" id="email" /
+未推广</a[:]未推广</a
+查看邀请面试</a[:]查看邀请面试</a
+申请页面：</div[:]申请页面：</div
+(充值人民币与积分兑换比例)</span[:](充值人民币与积分兑换比例)</span
+{#$list.startyear#}年{#$list.startmonth#}月-{#if $list.todate!='1'#}{#$list.endyear#}年{#$list.endmonth#}月{#else#}至今{#/if#}<span[:]{#$list.startyear#}年{#$list.startmonth#}月-{#if $list.todate!='1'#}{#$list.endyear#}年{#$list.endmonth#}月{#else#}至今{#/if#}<span
+绑定时间</th[:]绑定时间</th
+完整指数 </td[:]完整指数 </td
+网站名称</div[:]网站名称</div
+您的邮箱：</td[:]您的邮箱：</td
+再次输入密码：</td[:]再次输入密码：</td
+您的权限不足，不能进行这项操作！</div[:]您的权限不足，不能进行这项操作！</div
+未分配顾问</a[:]未分配顾问</a
+<input type="text" name="tel" id="tel" class="input_text_500" placeholder="您的QQ、邮箱或者电话以便和您沟通，您的信息仅工作人员可见！" /[:]<input type="text" name="tel" id="tel" class="input_text_500" placeholder="您的QQ、邮箱或者电话以便和您沟通，您的信息仅工作人员可见！" /
+<a href="?act=mail_templates_edit&templates_name=set_jobsnotallow&thisname=职位审核未通过"[:]<a href="?act=mail_templates_edit&templates_name=set_jobsnotallow&thisname=职位审核未通过"
+付款完成</a[:]付款完成</a
+套餐到期</a[:]套餐到期</a
+邀请普通人才面试数：</td[:]邀请普通人才面试数：</td
+可用：</td[:]可用：</td
+加粗：</td[:]加粗：</td
+职位所属企业：</td[:]职位所属企业：</td
+文档保存目录：</td[:]文档保存目录：</td
+展开</a[:]展开</a
+模板文件名</td[:]模板文件名</td
+<input type="checkbox" name="chkAll"   id="chk2" title="全选/反选" /[:]<input type="checkbox" name="chkAll"   id="chk2" title="全选/反选" /
+添加职位收藏</label[:]添加职位收藏</label
+刷新时间</div[:]刷新时间</div
+刷新时间</td[:]刷新时间</td
+联系方式</td[:]联系方式</td
+联系电话(顶部)：</td[:]联系电话(顶部)：</td
+附件简历：</td[:]附件简历：</td
+验证码可以避免恶意注册及恶意发布，启用验证码会使得部分操作变得繁琐，建议仅在必需时打开</span[:]验证码可以避免恶意注册及恶意发布，启用验证码会使得部分操作变得繁琐，建议仅在必需时打开</span
+公司规模：</td[:]公司规模：</td
+会员id</li[:]会员id</li
+企业{#if $company.audit=="1"#}已{#else#}未{#/if#}认证</a[:]企业{#if $company.audit=="1"#}已{#else#}未{#/if#}认证</a
+没有找到对应的职位信息</div[:]没有找到对应的职位信息</div
+[退出]</a[:][退出]</a
+<input name="company_currency"  type="radio" value="美元" {#if $show.company_currency eq "美元"#}checked="checked"{#/if#} /[:]<input name="company_currency"  type="radio" value="美元" {#if $show.company_currency eq "美元"#}checked="checked"{#/if#} /
+新增新闻</div[:]新增新闻</div
+公司名称：</td[:]公司名称：</td
+ 增值服务</div[:] 增值服务</div
+<input name="weixin_img" type="file" id="weixin_img" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/[:]<input name="weixin_img" type="file" id="weixin_img" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/
+<input type="button"   id="nav_add_work" value="添加"  class="but55lan_add"/[:]<input type="button"   id="nav_add_work" value="添加"  class="but55lan_add"/
+目录文件</td[:]目录文件</td
+数据库主机：</td[:]数据库主机：</td
+提示：</h2[:]提示：</h2
+触屏版，海量职位一手掌握</h1[:]触屏版，海量职位一手掌握</h1
+福利亮点<i class="fliter-clear-icon"[:]福利亮点<i class="fliter-clear-icon"
+已绑定</span[:]已绑定</span
+<input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /[:]<input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /
+2   时</option[:]2   时</option
+ 发布职位</div[:] 发布职位</div
+ 开始时间：</td[:] 开始时间：</td
+季度饼图</a[:]季度饼图</a
+默认属性：</td[:]默认属性：</td
+注册地址</td[:]注册地址</td
+输入您的平台账号和密码，再也不用担<br /[:]输入您的平台账号和密码，再也不用担<br /
+收件会员：</td[:]收件会员：</td
+ 天</td[:] 天</td
+名称：{#$templates.info.name#}<br /[:]名称：{#$templates.info.name#}<br /
+没有找到对应的信息！</div[:]没有找到对应的信息！</div
+左距(选填)：</td[:]左距(选填)：</td
+只差一步，即可激活您的账号</h1[:]只差一步，即可激活您的账号</h1
+视频宽度(必填)：</td[:]视频宽度(必填)：</td
+恭喜您！企业基本信息保存成功！</h5[:]恭喜您！企业基本信息保存成功！</h5
+已关闭</span[:]已关闭</span
+如:http://www.123.com/abc/123.doc</span[:]如:http://www.123.com/abc/123.doc</span
+写入权限</td[:]写入权限</td
+短信发送规则</div[:]短信发送规则</div
+猎头顾问积分操作</label[:]猎头顾问积分操作</label
+发布职位</div[:]发布职位</div
+增加订单</a[:]增加订单</a
+联系电话：</td[:]联系电话：</td
+修改顾问</div[:]修改顾问</div
+订单状态：</div[:]订单状态：</div
+{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}投递简历{#/if#}<i class="filter-icon"[:]{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}投递简历{#/if#}<i class="filter-icon"
+修改帐号状态</a[:]修改帐号状态</a
+欢迎登录 {#$HIGHWAY.site_name#} 管理中心！</div[:]欢迎登录 {#$HIGHWAY.site_name#} 管理中心！</div
+不限</a[:]不限</a
+{#$company_profile.scale_cn|default:"请选择"#}</div[:]{#$company_profile.scale_cn|default:"请选择"#}</div
+猎头顾问</a[:]猎头顾问</a
+无法匹配Email则为随机字符加：</td[:]无法匹配Email则为随机字符加：</td
+企业信息采集设置</div[:]企业信息采集设置</div
+<input type="submit" name="Submit" value="添加" class="admin_submit"   /[:]<input type="submit" name="Submit" value="添加" class="admin_submit"   /
+您推广天数为<strong style=\"color:#009900\"[:]您推广天数为<strong style=\"color:#009900\"
+广告标题(必填)：</td[:]广告标题(必填)：</td
+职位状态<i class="filter-icon"[:]职位状态<i class="filter-icon"
+禁用</span[:]禁用</span
+更新</p[:]更新</p
+获得时间：</td[:]获得时间：</td
+后台登录：</td[:]后台登录：</td
+<input name="choose_tpl_btn" data="{#$li.tpl_dir#}" type="button" value="{#if $mytpl==$li.tpl_dir#}使用中...{#else#}使用模板{#/if#}" class="{#if $mytpl==$li.tpl_dir#}but100cheng{#else#}but100lan{#/if#}" /[:]<input name="choose_tpl_btn" data="{#$li.tpl_dir#}" type="button" value="{#if $mytpl==$li.tpl_dir#}使用中...{#else#}使用模板{#/if#}" class="{#if $mytpl==$li.tpl_dir#}but100cheng{#else#}but100lan{#/if#}" /
+网站后台管理中心- Powered by 74CMS</title[:]网站后台管理中心- Powered by 74CMS</title
+ 属性 </td[:] 属性 </td
+手续费：</td[:]手续费：</td
+ 刷新时间 </td[:] 刷新时间 </td
+密码</div[:]密码</div
+<a href="?act=edit_tpl&templates_name=set_licensenotallow&thisname=营业执照审核未通过"[:]<a href="?act=edit_tpl&templates_name=set_licensenotallow&thisname=营业执照审核未通过"
+确认密码：</div[:]确认密码：</div
+隐藏名字</div[:]隐藏名字</div
+模版价格：{#if $li.tpl_val=="0"#}免费{#else#}<span[:]模版价格：{#if $li.tpl_val=="0"#}免费{#else#}<span
+环境检查</li[:]环境检查</li
+(0为不允许使用紧急职位)</span[:](0为不允许使用紧急职位)</span
+ 个职位</p[:] 个职位</p
+设置简历隐私</label[:]设置简历隐私</label
+邮箱</div[:]邮箱</div
+调用名:</td[:]调用名:</td
+手机频道 - {#$HIGHWAY.site_name#}</title[:]手机频道 - {#$HIGHWAY.site_name#}</title
+有效期：</td[:]有效期：</td
+会员ID</li[:]会员ID</li
+减</option[:]减</option
+认证通过</span[:]认证通过</span
+   &nbsp;公开状态：<font style="font-weight:bold"[:]   &nbsp;公开状态：<font style="font-weight:bold"
+等待认证</a[:]等待认证</a
+期望薪资：<span id="base_wage_cn"[:]期望薪资：<span id="base_wage_cn"
+营业执照</a[:]营业执照</a
+或填写文件路径：</td[:]或填写文件路径：</td
+小贴士</div[:]小贴士</div
+12   时</option[:]12   时</option
+服务价</td[:]服务价</td
+多种绩效考核办法标准，为企业提供全面的参考，正面引导员工的工作行为和工作业绩，实现企业战略目标。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:9"|highway_url#}" class="more"[:]多种绩效考核办法标准，为企业提供全面的参考，正面引导员工的工作行为和工作业绩，实现企业战略目标。&nbsp;&nbsp;<a href="{#"HW_hrtoolslist,id:9"|highway_url#}" class="more"
+应届生亦可</label[:]应届生亦可</label
+会员服务套餐- 修改</div[:]会员服务套餐- 修改</div
+企业会员</a[:]企业会员</a
+发送成功</a[:]发送成功</a
+刷新时间：{#$list.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</span[:]刷新时间：{#$list.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</span
+测试接口:</td[:]测试接口:</td
+报表说明：</h2[:]报表说明：</h2
+(已到期)</span[:](已到期)</span
+下一篇：{#$show.next_title#}</a[:]下一篇：{#$show.next_title#}</a
+待付款企业订单：&nbsp;<a href="admin_company.php?act=order_list&is_paid=1" id="t5"[:]待付款企业订单：&nbsp;<a href="admin_company.php?act=order_list&is_paid=1" id="t5"
+修改导航分类 <span style="color:#0033CC"[:]修改导航分类 <span style="color:#0033CC"
+或会员ID：</td[:]或会员ID：</td
+新增友情链接</div[:]新增友情链接</div
+[推荐]</span[:][推荐]</span
+推广天数最少：</td[:]推广天数最少：</td
+<textarea name="detailed" id="detailed" class="simpleinput400" style="height:60px;" onblur="if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}" onfocus="if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}"[:]<textarea name="detailed" id="detailed" class="simpleinput400" style="height:60px;" onblur="if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}" onfocus="if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}"
+简历下载要求：</td[:]简历下载要求：</td
+最新职位<span[:]最新职位<span
+所在街道：</td[:]所在街道：</td
+上传机构营业执照</label[:]上传机构营业执照</label
+骑士cms所需配置</td[:]骑士cms所需配置</td
+简历照片</a[:]简历照片</a
+热点推荐</h5[:]热点推荐</h5
+其它原因</a[:]其它原因</a
+官方微信</div[:]官方微信</div
+您的权限不足</div[:]您的权限不足</div
+管理员修改</a[:]管理员修改</a
+邮件发送规则</div[:]邮件发送规则</div
+用户名和邮箱都能作为登录{#$HIGHWAY.site_name#}的帐户名。</dd[:]用户名和邮箱都能作为登录{#$HIGHWAY.site_name#}的帐户名。</dd
+详情</a[:]详情</a
+广告</a[:]广告</a
+生成时间</td[:]生成时间</td
+发起面试邀请</a[:]发起面试邀请</a
+8 时</option[:]8 时</option
+期望行业：<span id="base_trade_cn"[:]期望行业：<span id="base_trade_cn"
+内容不能超过70个字符</span[:]内容不能超过70个字符</span
+意向职位<i class="fliter-clear-icon"[:]意向职位<i class="fliter-clear-icon"
+安装</a[:]安装</a
+注册</a[:]注册</a
+输入指定密码：</td[:]输入指定密码：</td
+学历：</td[:]学历：</td
+修改密码</div[:]修改密码</div
+收件人：</td[:]收件人：</td
+已收取费用</a[:]已收取费用</a
+(充值积分单笔金额不能低于)</span[:](充值积分单笔金额不能低于)</span
+积分</td[:]积分</td
+意见与建议</a[:]意见与建议</a
+垃圾信息关键字<br /[:]垃圾信息关键字<br /
+工作经验：</div[:]工作经验：</div
+添加职位</a[:]添加职位</a
+注册资金：</td[:]注册资金：</td
+密码修改</div[:]密码修改</div
+推广天数最多：{#$cat_maxday#}天</p[:]推广天数最多：{#$cat_maxday#}天</p
+ 数字越大，排序越靠前</span[:] 数字越大，排序越靠前</span
+ 职位性质：</td[:] 职位性质：</td
+<a href="{#"generalize:,generalize_cn:全部"|highway_parse_url#}"[:]<a href="{#"generalize:,generalize_cn:全部"|highway_parse_url#}"
+性别要求</td[:]性别要求</td
+上传营业执照文件限制：</td[:]上传营业执照文件限制：</td
+提示：手机用于登录、{#$notice#}。修改成功后，请使用新手机登录{#$site_name#}。</span[:]提示：手机用于登录、{#$notice#}。修改成功后，请使用新手机登录{#$site_name#}。</span
+新密码：</td[:]新密码：</td
+就读时间：</td[:]就读时间：</td
+消息{#if $total#}<span class="h"[:]消息{#if $total#}<span class="h"
+下载简历</a[:]下载简历</a
+ 项&nbsp;&nbsp;已选 <strong id="arstag" class="text-warning"[:] 项&nbsp;&nbsp;已选 <strong id="arstag" class="text-warning"
+注册资金无法匹配则为：</td[:]注册资金无法匹配则为：</td
+企业资料</div[:]企业资料</div
+移动端</a[:]移动端</a
+修改计划任务</div[:]修改计划任务</div
+微信招聘</a[:]微信招聘</a
+<input type="button" detype="HW_companylist" id="searcnbtn" value="搜&nbsp;索" /[:]<input type="button" detype="HW_companylist" id="searcnbtn" value="搜&nbsp;索" /
+ 次</div[:] 次</div
+活跃度：</div[:]活跃度：</div
+<input name="submit" type="submit" class="admin_submit"    value="确定" onclick="document.getElementById('selecttplcache').style.display='none';document.getElementById('hide').style.display='block';"/[:]<input name="submit" type="submit" class="admin_submit"    value="确定" onclick="document.getElementById('selecttplcache').style.display='none';document.getElementById('hide').style.display='block';"/
+新增微招聘</div[:]新增微招聘</div
+职位类别：{#$show.category_cn#}</div[:]职位类别：{#$show.category_cn#}</div
+属性</td[:]属性</td
+已认证手机</div[:]已认证手机</div
+微信 “扫一扫” 工作 “码” 上找</h4[:]微信 “扫一扫” 工作 “码” 上找</h4
+添加讲师</label[:]添加讲师</label
+操作说明：</td[:]操作说明：</td
+数据库密码：</td[:]数据库密码：</td
+投诉时间</td[:]投诉时间</td
+更新选项</div[:]更新选项</div
+用户名：</div[:]用户名：</div
+专业类别<i class="fliter-clear-icon"[:]专业类别<i class="fliter-clear-icon"
+右距(选填)：</td[:]右距(选填)：</td
+列表</a[:]列表</a
+允许会员切换模板：</td[:]允许会员切换模板：</td
+登录地点</div[:]登录地点</div
+基本信息</div[:]基本信息</div
+天到期{#/if#}{#else#}已经到期{#/if#}<span class="small"[:]天到期{#/if#}{#else#}已经到期{#/if#}<span class="small"
+插件名称：</td[:]插件名称：</td
+所有会员</a[:]所有会员</a
+31 日</option[:]31 日</option
+(支持TXT文本，多个号码请换行)</span[:](支持TXT文本，多个号码请换行)</span
+ ({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em[:] ({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em
+<a href="javascript:;" notes="{#if $list.notes#}{#$list.notes|nl2br#}{#else#}无面试邀请通知内容{#/if#}" class="data-ctrl underline check-detail"[:]<a href="javascript:;" notes="{#if $list.notes#}{#$list.notes|nl2br#}{#else#}无面试邀请通知内容{#/if#}" class="data-ctrl underline check-detail"
+ 邮件设置”中设置。<br /[:] 邮件设置”中设置。<br /
+8 日</option[:]8 日</option
+{#$list.age#}岁</td[:]{#$list.age#}岁</td
+修改简历</label[:]修改简历</label
+显示状态</div[:]显示状态</div
+<input type="submit" name="save_training" id="save_training" value="保存"  class="but100lan"/[:]<input type="submit" name="save_training" id="save_training" value="保存"  class="but100lan"/
+{#if $smarty.get.talent == 1#}普通简历{#elseif $smarty.get.talent == 2#}高级简历{#/if#}<i class="fliter-clear-icon"[:]{#if $smarty.get.talent == 1#}普通简历{#elseif $smarty.get.talent == 2#}高级简历{#/if#}<i class="fliter-clear-icon"
+<input type="submit" name="delete" value="确定删除" class="admin_submit"/[:]<input type="submit" name="delete" value="确定删除" class="admin_submit"/
+当前服务器</td[:]当前服务器</td
+开启微信扫描登录：</td[:]开启微信扫描登录：</td
+秒后重新发送</a[:]秒后重新发送</a
+ 会员服务</div[:] 会员服务</div
+期望从事的岗位：</td[:]期望从事的岗位：</td
+微信已认证</div[:]微信已认证</div
+预定招聘会展位</label[:]预定招聘会展位</label
+没有找到对应的职位。</div[:]没有找到对应的职位。</div
+顾问设置职位状态</label[:]顾问设置职位状态</label
+<input type="text" class="text span190 text-lg" name="postcaptcha" id="postcaptcha" placeholder="输入右侧验证码" /[:]<input type="text" class="text span190 text-lg" name="postcaptcha" id="postcaptcha" placeholder="输入右侧验证码" /
+如：分类名称为：鼎元时代中心则为：<strong[:]如：分类名称为：鼎元时代中心则为：<strong
+已分配顾问</a[:]已分配顾问</a
+1 时</option[:]1 时</option
+没有找到对应的订单信息！</div[:]没有找到对应的订单信息！</div
+{#if $smarty.section.payment.index==0#}充值方式：{#/if#}</td[:]{#if $smarty.section.payment.index==0#}充值方式：{#/if#}</td
+请输入关键字</div[:]请输入关键字</div
+验证码字符数量，建议在 2 - 6 范围内取值，0 为随机</span[:]验证码字符数量，建议在 2 - 6 范围内取值，0 为随机</span
+提示：		请输入筛选条件,删除后将不可恢复,谨慎操作！</h2[:]提示：		请输入筛选条件,删除后将不可恢复,谨慎操作！</h2
+附件描述</div[:]附件描述</div
+<input type="submit" name="Submit" id="Submit" value="提交" class="but130lan" /[:]<input type="submit" name="Submit" id="Submit" value="提交" class="but130lan" /
+更新时间：{#$show.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</div[:]更新时间：{#$show.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</div
+排序</span[:]排序</span
+{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"HW_company_type,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}黄页  - {#$HIGHWAY.site_name#}</title[:]{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"HW_company_type,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}黄页  - {#$HIGHWAY.site_name#}</title
+海量职位，随时随地任您搜！<br /[:]海量职位，随时随地任您搜！<br /
+简历搜索</a[:]简历搜索</a
+二、协议许可的权利</strong[:]二、协议许可的权利</strong
+电话不通</a[:]电话不通</a
+ 调用名 </td[:] 调用名 </td
+菜单类型:</td[:]菜单类型:</td
+工作职责：</td[:]工作职责：</td
+设置订单</div[:]设置订单</div
+5 时</option[:]5 时</option
+每天允许申请职位：</td[:]每天允许申请职位：</td
+搜索次数：</td[:]搜索次数：</td
+公告</a[:]公告</a
+15天内</a[:]15天内</a
+招聘信息</a[:]招聘信息</a
+这里</a[:]这里</a
+权限</a[:]权限</a
+<textarea name="feedback" id="feedback" placeholder="所提交的错误、建议信息，尽量描述详细，以便我们更好的修改！"[:]<textarea name="feedback" id="feedback" placeholder="所提交的错误、建议信息，尽量描述详细，以便我们更好的修改！"
+通知类<span class="admin_note" style="color: rgb(153, 153, 153);"[:]通知类<span class="admin_note" style="color: rgb(153, 153, 153);"
+删除课程</label[:]删除课程</label
+视频高度(必填)：</td[:]视频高度(必填)：</td
+培训课程：</td[:]培训课程：</td
+22   日</option[:]22   日</option
+添加时间</div[:]添加时间</div
+微信{#if $user.weixin_openid#}已{#else#}未{#/if#}认证</a[:]微信{#if $user.weixin_openid#}已{#else#}未{#/if#}认证</a
+特长标签</div[:]特长标签</div
+ 搜索次数 </td[:] 搜索次数 </td
+注册时间：</td[:]注册时间：</td
+顶级分类</option[:]顶级分类</option
+请上传.DOC格式的附件(文件大小2M以内)</p[:]请上传.DOC格式的附件(文件大小2M以内)</p
+Web端允许查看简历联系方式：</td[:]Web端允许查看简历联系方式：</td
+网站配置</div[:]网站配置</div
+或企业名称：</td[:]或企业名称：</td
+发送了一封激活邮件，请点击邮件中的链接完成注册！</p[:]发送了一封激活邮件，请点击邮件中的链接完成注册！</p
+刷新职位</a[:]刷新职位</a
+ 元 <span style="display:none" id="points_expense"[:] 元 <span style="display:none" id="points_expense"
+<a href="{#"jobs_type:,jobs_type_cn:普通职位"|highway_parse_url#}"[:]<a href="{#"jobs_type:,jobs_type_cn:普通职位"|highway_parse_url#}"
+只差一步，即可完成登录设置</h1[:]只差一步，即可完成登录设置</h1
+简历审核通过：</td[:]简历审核通过：</td
+<a href="{#"state:4,state_cn:未接通"|highway_parse_url#}"[:]<a href="{#"state:4,state_cn:未接通"|highway_parse_url#}"
+无损移植PC端所有核心功能，简约而不简<br /[:]无损移植PC端所有核心功能，简约而不简<br /
+<a href="{#"state:1,state_cn:合适"|highway_parse_url#}"[:]<a href="{#"state:1,state_cn:合适"|highway_parse_url#}"
+(0为不允许使用职位套色)</span[:](0为不允许使用职位套色)</span
+订单编号：</div[:]订单编号：</div
+0为不限制，如设为10000，则每次最多生成10000个职位</span[:]0为不限制，如设为10000，则每次最多生成10000个职位</span
+说明</td[:]说明</td
+使用中文验证码需要把中文汉字的TTF文件上传到 data/font/cn 目录下，系统将随机使用里面的字体文件作为验证码的文字</span[:]使用中文验证码需要把中文汉字的TTF文件上传到 data/font/cn 目录下，系统将随机使用里面的字体文件作为验证码的文字</span
+&nbsp;&nbsp;&nbsp;<a href="?act=set_meal_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')"[:]&nbsp;&nbsp;&nbsp;<a href="?act=set_meal_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')"
+ 默认职位应聘邮件通知：</td[:] 默认职位应聘邮件通知：</td
+设置简历模版</a[:]设置简历模版</a
+关闭</div[:]关闭</div
+管理员开通</a[:]管理员开通</a
+欢迎使用{#$third_name#}帐号登录{#$HIGHWAY.site_name#}<br /[:]欢迎使用{#$third_name#}帐号登录{#$HIGHWAY.site_name#}<br /
+修改密码：</td[:]修改密码：</td
+{#if $smarty.get.generalize_cn==''#}推广状态{#else#}{#$smarty.get.generalize_cn#}{#/if#}<i class="filter-icon"[:]{#if $smarty.get.generalize_cn==''#}推广状态{#else#}{#$smarty.get.generalize_cn#}{#/if#}<i class="filter-icon"
+延期职位</label[:]延期职位</label
+1 日</option[:]1 日</option
+未婚</div[:]未婚</div
+ 对外公开联系电话</label[:] 对外公开联系电话</label
+淘宝</a[:]淘宝</a
+新增导航分类 </div[:]新增导航分类 </div
+ 官方论坛：<a href="http://www.jp.highwayns.com" target="_blank"[:] 官方论坛：<a href="http://www.jp.highwayns.com" target="_blank"
+公开设置：</td[:]公开设置：</td
+<a href="?act=edit_tpl&templates_name=set_licenseallow&thisname=营业执照审核通过"[:]<a href="?act=edit_tpl&templates_name=set_licenseallow&thisname=营业执照审核通过"
+职位暂停</a[:]职位暂停</a
+职位审核日志</div[:]职位审核日志</div
+猎头顾问增加订单</label[:]猎头顾问增加订单</label
+填写订单</p[:]填写订单</p
+会员积分设置</div[:]会员积分设置</div
+手机验证后，可以通过手机随时取回账户密码，向个人发送面试邀请短信。</dd[:]手机验证后，可以通过手机随时取回账户密码，向个人发送面试邀请短信。</dd
+岗位职责：</p[:]岗位职责：</p
+5 日</option[:]5 日</option
+日志类型</div[:]日志类型</div
+旧密码：</td[:]旧密码：</td
+新密码</div[:]新密码</div
+标题：</td[:]标题：</td
+起点：<input type="text" name="start" value="" class="addr_inpt"/[:]起点：<input type="text" name="start" value="" class="addr_inpt"/
+<a href="?act=edit_tpl&templates_name=set_jobsallow&thisname=职位审核通过"[:]<a href="?act=edit_tpl&templates_name=set_jobsallow&thisname=职位审核通过"

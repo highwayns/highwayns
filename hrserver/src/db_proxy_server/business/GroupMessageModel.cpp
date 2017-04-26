@@ -1,4 +1,4 @@
-/*================================================================
+﻿/*================================================================
  *   Copyright (C) 2014 All rights reserved.
  *
  *   文件名称：GroupMessageModel.cpp
@@ -443,7 +443,7 @@ void CGroupMessageModel::getLastMsg(uint32_t nGroupId, uint32_t &nMsgId, string 
                 nFromId = pResultSet->GetInt("userId");
                 if(nMsgType == IM::BaseDefine::MSG_TYPE_GROUP_AUDIO)
                 {
-                    // "[语音]"加密后的字符串
+                    // "[音声]"加密后的字符串
                     strMsgData = strAudioEnc;
                 }
                 else

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Common.h
  *
  *  Created on: 2014年11月12日

@@ -1,4 +1,4 @@
-//
+﻿//
 //  base64.cpp
 //  pushservice
 //

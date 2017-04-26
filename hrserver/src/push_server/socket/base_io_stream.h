@@ -1,4 +1,4 @@
-#ifndef _BASE_IO_STREAM_H
+﻿#ifndef _BASE_IO_STREAM_H
 #define _BASE_IO_STREAM_H
 #include "../type/base_type.h"
 #include "base_socket.hpp"

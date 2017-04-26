@@ -1,4 +1,4 @@
-/**	@file buffer_Loop.hpp
+﻿/**	@file buffer_Loop.hpp
  *	@note 
  *	@brief 环形存储块的类
  *

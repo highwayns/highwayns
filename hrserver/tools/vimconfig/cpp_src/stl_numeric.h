@@ -1,4 +1,4 @@
-// Numeric functions implementation -*- C++ -*-
+﻿// Numeric functions implementation -*- C++ -*-
 
 // Copyright (C) 2001, 2004, 2005 Free Software Foundation, Inc.
 //

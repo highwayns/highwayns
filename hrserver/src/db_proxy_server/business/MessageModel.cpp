@@ -1,4 +1,4 @@
-/*================================================================
+﻿/*================================================================
  *   Copyright (C) 2014 All rights reserved.
  *
  *   文件名称：MessageModel.cpp
@@ -291,7 +291,7 @@ void CMessageModel::getLastMsg(uint32_t nFromId, uint32_t nToId, uint32_t& nMsgI
                     nMsgType = IM::BaseDefine::MsgType(pResultSet->GetInt("type"));
                     if (nMsgType == IM::BaseDefine::MSG_TYPE_SINGLE_AUDIO)
                     {
-                        // "[语音]"加密后的字符串
+                        // "[音声]"加密后的字符串
                         strMsgData = strAudioEnc;
                     }
                     else

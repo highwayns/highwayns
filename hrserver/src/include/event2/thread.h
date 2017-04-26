@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2008-2012 Niels Provos and Nick Mathewson
  *
  * Redistribution and use in source and binary forms, with or without

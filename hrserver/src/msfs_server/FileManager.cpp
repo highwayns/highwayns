@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Multimedia Small File Storage System 
  * File Manager Singleton implement to manage file store and download operation
  * author potian@mogujie.com

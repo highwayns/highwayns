@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ProxyConn.h
  *
  *	Connection from IM MsgServer

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * GroupChat.h
  *
  *  Created on: 2014-1-3

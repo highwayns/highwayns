@@ -1,4 +1,4 @@
-#ifndef _SOCKET_IO_DEFINE_H
+﻿#ifndef _SOCKET_IO_DEFINE_H
 #define _SOCKET_IO_DEFINE_H
 //
 #include "stdio.h"

@@ -302,7 +302,7 @@ namespace highwayns
                     }
                 }
             }
-            return string.Join("\"",temps);
+            return string.Join(splitFlg.ToString(), temps);
         }
         /// <summary>
         /// get translate information from one line
@@ -312,7 +312,9 @@ namespace highwayns
         private List<string> getTranslate(string line)
         {
             List<string> ret = new List<string>();
-            string[] temps = line.Split('"');
+            char splitFlg = '"';
+            if (rdbKako.Checked) splitFlg = '>';
+            string[] temps = line.Split(splitFlg);
             if(temps.Length>2)
             {
                 for(int i=0;i<(temps.Length-1)/2;i++)

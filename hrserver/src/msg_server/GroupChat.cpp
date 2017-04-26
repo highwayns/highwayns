@@ -1,4 +1,4 @@
-/*
+﻿/*
  * GroupChat.cpp
  *
  *  Created on: 2014-1-3

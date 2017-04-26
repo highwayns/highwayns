@@ -1,4 +1,4 @@
-/* SDS (Simple Dynamic Strings), A C dynamic strings library.
+﻿/* SDS (Simple Dynamic Strings), A C dynamic strings library.
  *
  * Copyright (c) 2006-2014, Salvatore Sanfilippo <antirez at gmail dot com>
  * All rights reserved.

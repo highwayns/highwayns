@@ -1,4 +1,4 @@
-//
+﻿//
 //  UserInfo.cpp
 //  im-server-TT
 //

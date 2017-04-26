@@ -1,4 +1,4 @@
-// std::rel_ops implementation -*- C++ -*-
+﻿// std::rel_ops implementation -*- C++ -*-
 
 // Copyright (C) 2001, 2002, 2004, 2005 Free Software Foundation, Inc.
 //
