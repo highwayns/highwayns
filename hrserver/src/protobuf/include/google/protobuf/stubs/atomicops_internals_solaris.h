@@ -1,4 +1,4 @@
-// Copyright 2014 Google Inc. All rights reserved.
+﻿// Copyright 2014 Google Inc. All rights reserved.
 // https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without

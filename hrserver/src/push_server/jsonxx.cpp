@@ -1,4 +1,4 @@
-// -*- mode: c++; c-basic-offset: 4; -*-
+﻿// -*- mode: c++; c-basic-offset: 4; -*-
 
 // Author: Hong Jiang <hong@hjiang.net>
 // Contributors:

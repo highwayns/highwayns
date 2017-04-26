@@ -1,4 +1,4 @@
-#ifndef _BASE_MSG_H
+﻿#ifndef _BASE_MSG_H
 #define _BASE_MSG_H
 
 #include "socket_io.h"

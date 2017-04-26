@@ -1,4 +1,4 @@
-// The template and inlines for the -*- C++ -*- gslice_array class.
+﻿// The template and inlines for the -*- C++ -*- gslice_array class.
 
 // Copyright (C) 1997, 1998, 1999, 2000, 2001, 2004, 2005
 // Free Software Foundation, Inc.

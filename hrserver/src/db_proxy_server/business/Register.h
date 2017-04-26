@@ -1,4 +1,4 @@
-#ifndef __IM_REGISTER_H__
+﻿#ifndef __IM_REGISTER_H__
 #define __IM_REGISTER_H__
 
 #include "ImPduBase.h"

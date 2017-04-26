@@ -1,4 +1,4 @@
-/*
+﻿/*
  * TokenValidator.h
  *
  *  Created on: 2013-10-2

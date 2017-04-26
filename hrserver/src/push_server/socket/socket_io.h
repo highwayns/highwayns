@@ -1,4 +1,4 @@
-#ifndef _SOCKET_IO_H
+﻿#ifndef _SOCKET_IO_H
 #define _SOCKET_IO_H
 
 #if (defined(_WIN32) || defined(_WIN64))

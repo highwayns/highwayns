@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  Multimdia Small File Storage Sytem
  *  File Operation In Linux System
  *  @author potian@mogujie.com

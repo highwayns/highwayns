@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 
 namespace msfs {
 	// Replaces all occurrences of "search" with "replace".

@@ -1,4 +1,4 @@
-// -fno-exceptions Support -*- C++ -*-
+﻿// -fno-exceptions Support -*- C++ -*-
 
 // Copyright (C) 2001, 2003 Free Software Foundation, Inc.
 //

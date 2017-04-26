@@ -1,4 +1,4 @@
-#ifndef __CLIENT_WORKER_H__
+﻿#ifndef __CLIENT_WORKER_H__
 #define __CLIENT_WORKER_H__
 
 #include <vector>

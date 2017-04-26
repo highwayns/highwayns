@@ -1,4 +1,4 @@
-/*
+﻿/*
  * MsgConn.cpp
  *
  *  Created on: 2013-7-5
@@ -517,15 +517,15 @@ void CMsgConn::_HandleLoginRequest(CImPdu* pPdu)
     // CDBServConn* pDbConn = get_db_serv_conn_for_login();
     // if (!pDbConn) {
     //     result = IM::BaseDefine::REFUSE_REASON_NO_DB_SERVER;
-    //     result_string = "服务端异常";
+    //     result_string = "サービス側異常";
     // }
     // else if (!is_login_server_available()) {
     //     result = IM::BaseDefine::REFUSE_REASON_NO_LOGIN_SERVER;
-    //     result_string = "服务端异常";
+    //     result_string = "サービス側異常";
     // }
     // else if (!is_route_server_available()) {
     //     result = IM::BaseDefine::REFUSE_REASON_NO_ROUTE_SERVER;
-    //     result_string = "服务端异常";
+    //     result_string = "サービス側異常";
     // }
     
     // if (result) {

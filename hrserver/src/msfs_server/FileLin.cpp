@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  Multimedia Small File Storage System
  *  File Operation API implement in Linux OS
  *  @author potian@mogujie.com
