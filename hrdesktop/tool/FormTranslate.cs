@@ -291,6 +291,7 @@ namespace highwayns
         {
             char splitFlg = '"';
             if (rdbKako.Checked) splitFlg = '>';
+            else if (rdoSingle.Checked) splitFlg = '\'';
             string[] temps = line.Split(splitFlg);
             if (temps.Length > 2)
             {
@@ -314,6 +315,7 @@ namespace highwayns
             List<string> ret = new List<string>();
             char splitFlg = '"';
             if (rdbKako.Checked) splitFlg = '>';
+            else if (rdoSingle.Checked) splitFlg = '\'';
             string[] temps = line.Split(splitFlg);
             if(temps.Length>2)
             {
