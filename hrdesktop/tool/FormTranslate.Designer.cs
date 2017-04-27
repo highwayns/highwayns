@@ -42,6 +42,7 @@
             this.listHis = new System.Windows.Forms.ListBox();
             this.rdbQuota = new System.Windows.Forms.RadioButton();
             this.rdbKako = new System.Windows.Forms.RadioButton();
+            this.rdoSingle = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -174,11 +175,22 @@
             this.rdbKako.Text = ">";
             this.rdbKako.UseVisualStyleBackColor = true;
             // 
+            // rdoSingle
+            // 
+            this.rdoSingle.AutoSize = true;
+            this.rdoSingle.Location = new System.Drawing.Point(242, 24);
+            this.rdoSingle.Name = "rdoSingle";
+            this.rdoSingle.Size = new System.Drawing.Size(25, 16);
+            this.rdoSingle.TabIndex = 18;
+            this.rdoSingle.Text = "\'";
+            this.rdoSingle.UseVisualStyleBackColor = true;
+            // 
             // FormTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 467);
+            this.Controls.Add(this.rdoSingle);
             this.Controls.Add(this.rdbKako);
             this.Controls.Add(this.rdbQuota);
             this.Controls.Add(this.listHis);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.ListBox listHis;
         private System.Windows.Forms.RadioButton rdbQuota;
         private System.Windows.Forms.RadioButton rdbKako;
+        private System.Windows.Forms.RadioButton rdoSingle;
     }
 }
