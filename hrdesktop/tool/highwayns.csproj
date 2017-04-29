@@ -196,6 +196,9 @@
       <DependentUpon>FormAndroid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <Content Include="JobList.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="KEN_ALL_ROME.CSV">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
