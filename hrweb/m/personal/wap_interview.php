@@ -25,7 +25,7 @@ elseif ($act == 'interview')
 	$total_sql="SELECT COUNT(*) AS num FROM  ".table('company_interview')." as i {$wheresql}";
 	$count=$db->get_total($total_sql);
 	$limit=" LIMIT {$start},{$perpage}";
-	$smarty->assign('title','收到的面试邀请 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','面接誘い一覧 - 個人会員センター - '.$_CFG['site_name']);
 
 	$sql="select * from ".table("company_interview")." as i $wheresql order by i.interview_addtime ".$limit;
 	$interview=$db->getall($sql);

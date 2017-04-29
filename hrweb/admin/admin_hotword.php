@@ -36,7 +36,7 @@ elseif($act == 'add')
 elseif($act == 'addsave')
 {
 	check_token();
-	$setsqlarr['w_word']=trim($_POST['w_word'])?trim($_POST['w_word']):adminmsg('关键词必须填写！',1);
+	$setsqlarr['w_word']=trim($_POST['w_word'])?trim($_POST['w_word']):adminmsg('キーワードが必須！',1);
 	$setsqlarr['w_hot']=intval($_POST['w_hot']);
 	if (get_hotword_obtainword($setsqlarr['w_word']))
 	{
@@ -58,8 +58,8 @@ elseif($act == 'edit')
 elseif($act == 'editsave')
 {
 	check_token();
-	$id = !empty($_POST['id']) ? intval($_POST['id']) : adminmsg('参数错误',1);
-	$setsqlarr['w_word']=trim($_POST['w_word'])?trim($_POST['w_word']):adminmsg('关键词必须填写！',1);
+	$id = !empty($_POST['id']) ? intval($_POST['id']) : adminmsg('パラメータエラー',1);
+	$setsqlarr['w_word']=trim($_POST['w_word'])?trim($_POST['w_word']):adminmsg('キーワードが必須！',1);
 	$setsqlarr['w_hot']=intval($_POST['w_hot']);
 	$word=get_hotword_obtainword($setsqlarr['w_word']);
 	if ($word['w_id'] && $word['w_id']<>$id)

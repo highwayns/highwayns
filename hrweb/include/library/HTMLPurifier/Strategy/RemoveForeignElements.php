@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Removes all unrecognized tags from the list of tokens.

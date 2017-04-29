@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Chainable filters for custom URI processing.

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Generates HTML from tokens.

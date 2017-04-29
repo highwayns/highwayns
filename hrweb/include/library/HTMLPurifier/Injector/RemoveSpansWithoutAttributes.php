@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Injector that removes spans with no attributes

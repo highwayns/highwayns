@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Defines allowed child nodes and validates nodes against it.

@@ -4,7 +4,7 @@ require_once(dirname(dirname(__FILE__)).'/include/common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'add';
 if ($_PLUG['simple']['p_install']==1)
 {
-showmsg('管理员已关闭该模块！',1);
+showmsg('管理员は該当モジュールを閉じった！',1);
 }
 require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
@@ -31,11 +31,11 @@ elseif ($act=="addsave")
 		showmsg("验证码错误",1);
 	}
 	$setsqlarr['audit']=intval($_CFG['simple_add_audit']);
-	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):showmsg('您没有填写职位名称！',1);
+	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):showmsg('職位を選択してください！',1);
 	$setsqlarr['amount']=intval($_POST['amount']);
-	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):showmsg('您没有填写单位名称！',1);
-	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):showmsg('您没有填写联系人！',1);
-	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):showmsg('您没有填写联系电话！',1);
+	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):showmsg('会社の名称を入力してください！',1);
+	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):showmsg('連絡先を入力してください！',1);
+	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):showmsg('連絡電話入力してください！',1);
 	if(preg_match("/^\d*$/",$setsqlarr['tel']))
 	{
 		if ($captcha['simple_tel_repeat']=='0')
@@ -44,13 +44,13 @@ elseif ($act=="addsave")
 			$info=$db->getone($sql);
 			if (!empty($info))
 			{
-			showmsg('电话号码已经存在！',1);
+			showmsg('携帯番号がすでに存在！',1);
 			}
 		}
 	}
 	else
 	{
-	showmsg('电话号码格式错误！',1);
+	showmsg('電話番号フォーマット不正！',1);
 	}
 	$setsqlarr['district']=intval($_POST['district']);
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict']);
@@ -65,7 +65,7 @@ elseif ($act=="addsave")
 	{
 	$setsqlarr['deadline']=strtotime("{$validity} day");
 	}
-	$setsqlarr['pwd']=trim($_POST['pwd'])?trim($_POST['pwd']):showmsg('您没有填写管理密码！',1);
+	$setsqlarr['pwd']=trim($_POST['pwd'])?trim($_POST['pwd']):showmsg('管理パスワードを入力してください！',1);
 	$setsqlarr['pwd_hash']=substr(md5(uniqid().mt_rand()),mt_rand(0,6),6);
 	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['addip']=$online_ip;
@@ -177,13 +177,13 @@ elseif ($act=="editsave")
 	{
 	$setsqlarr['audit']=intval($_CFG['simple_edit_audit']);
 	}
-	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):showmsg('您没有填写职位名称！',1);
+	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):showmsg('職位を選択してください！',1);
 	$setsqlarr['amount']=intval($_POST['amount']);
-	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):showmsg('您没有填写单位名称！',1);
-	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):showmsg('您没有填写联系人！',1);
+	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):showmsg('会社の名称を入力してください！',1);
+	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):showmsg('連絡先を入力してください！',1);
 	if ($_CFG['simple_tel_edit']=="1")
 	{
-		$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):showmsg('您没有填写联系电话！',1);
+		$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):showmsg('連絡電話入力してください！',1);
 		if(preg_match("/^\d*$/",$setsqlarr['tel']))
 		{
 			if ($captcha['simple_tel_repeat']=='0')
@@ -192,7 +192,7 @@ elseif ($act=="editsave")
 				$info=$db->getone($sql);
 				if (!empty($info))
 				{
-				showmsg('电话号码已经存在！',1);
+				showmsg('携帯番号がすでに存在！',1);
 				}
 			}
 		}	
@@ -285,14 +285,14 @@ elseif($act == "get_simple_detailed"){
 	$id=intval($_GET['id']);
 	$sql = "select detailed from ".table('simple')." where id=".$id;
 	$detailed = $db->getone($sql);
-	exit("要求：".$detailed['detailed'].'<a href="javascript:void(0);" class="hidden_detailed" id="'.$id.'">[收起]</a>');
+	exit("要求：".$detailed['detailed'].'<a href="javascript:void(0);" class="hidden_detailed" id="'.$id.'">[閉じる]</a>');
 }
 elseif($act == "hidden_simple_detailed"){
 	$id=intval($_GET['id']);
 	$sql = "select detailed from ".table('simple')." where id=".$id;
 	$detailed = $db->getone($sql);
 	$detailed['detailed'] = cut_str($detailed['detailed'],40,0,"...");
-	exit("要求：".$detailed['detailed'].'<a href="javascript:void(0);" class="show_detailed" id="'.$id.'">[展开]</a>');
+	exit("要求：".$detailed['detailed'].'<a href="javascript:void(0);" class="show_detailed" id="'.$id.'">[展開]</a>');
 }
 elseif($act == "get_sdistrict"){
 	$id = intval($_GET['id']);

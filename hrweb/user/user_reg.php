@@ -47,7 +47,7 @@ elseif ($act=='activate')
 				}
 				else
 				{
-				showmsg('激活失败，用户名错误！',0);
+				showmsg('Active失敗，ユーザ名エラー！',0);
 				}
 				$smarty->display('user/activate.htm');
 	}
@@ -63,7 +63,7 @@ elseif ($act=='activate_save')
 			$link[1]['text'] = "网站首页";
 			$link[1]['href'] = $_CFG['site_dir'];
 			$_SESSION['activate_username']="";
-			showmsg('激活成功，即将进入会员中心！',2,$link);
+			showmsg('Active成功，会員センターへ！',2,$link);
 			exit(); 
 		}
 		else
@@ -123,7 +123,7 @@ elseif ($act=='reg')
 	if(intval($_GET['type'])==4 && $_PLUG['train']['p_install']==1){
 		showmsg("管理员已关闭培训模块,禁止注册！",1);
 	}
-	$smarty->assign('title','会员注册 - '.$_CFG['site_name']);
+	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 	$_SESSION['reg_token']=$token;
 	$smarty->assign('token',$token);
@@ -141,13 +141,13 @@ elseif($act =="reg_step2")
 		$link[0]['href'] = "?act=reg";
 		showmsg("注册失败，非正常链接",0,$link);
 	}
-	$sqlarr['utype']=$_POST['utype']?intval($_POST['utype']):showmsg('请选择会员类型');
-	$sqlarr['mobile']=$_POST['mobile']?trim($_POST['mobile']):showmsg('请输入手机号');
+	$sqlarr['utype']=$_POST['utype']?intval($_POST['utype']):showmsg('会員タイプ選択');
+	$sqlarr['mobile']=$_POST['mobile']?trim($_POST['mobile']):showmsg('携帯番号を入力してください');
 	$sqlarr['reg_type']=1;
 	$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 	$_SESSION['reg_token']=$token;
 	$smarty->assign('token',$token);
-	$smarty->assign('title','会员注册 - '.$_CFG['site_name']);
+	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$smarty->assign('sqlarr',$sqlarr);
 	$smarty->display('user/reg-step2.htm');
 }
@@ -178,8 +178,8 @@ elseif($act =="reg_step2_email")
 		$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 		$_SESSION['reg_token']=$token;
 		$smarty->assign('token',$token);
-		$sqlarr['utype']=$_GET['utype']?intval($_GET['utype']):showmsg('请选择会员类型');
-		$sqlarr['email']=$_GET['email']?trim($_GET['email']):showmsg('请输入邮箱');
+		$sqlarr['utype']=$_GET['utype']?intval($_GET['utype']):showmsg('会員タイプ選択');
+		$sqlarr['email']=$_GET['email']?trim($_GET['email']):showmsg('メールを入力してください');
 	}
 	else
 	{
@@ -189,15 +189,15 @@ elseif($act =="reg_step2_email")
 			$link[0]['href'] = "?act=reg";
 			showmsg("注册失败，非正常链接",0,$link);
 		}
-		$sqlarr['utype']=$_POST['utype']?intval($_POST['utype']):showmsg('请选择会员类型');
-		$sqlarr['email']=$_POST['email']?trim($_POST['email']):showmsg('请输入邮箱');
+		$sqlarr['utype']=$_POST['utype']?intval($_POST['utype']):showmsg('会員タイプ選択');
+		$sqlarr['email']=$_POST['email']?trim($_POST['email']):showmsg('メールを入力してください');
 		$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 		$_SESSION['reg_token']=$token;
 		$smarty->assign('token',$token);
 	}
 	$sqlarr['reg_type']=2;
 	$smarty->assign('sqlarr',$sqlarr);
-	$smarty->assign('title','会员注册 - '.$_CFG['site_name']);
+	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$smarty->display('user/reg-step2.htm');
 }
 // 保存注册信息
@@ -244,23 +244,23 @@ elseif($act =="reg_step3")
 		{
 		switch ($user['utype']) {
 			case '1':
-				$utype_cn='企业'; 
+				$utype_cn='企業'; 
 				break;
 			case '2':
-				$utype_cn='个人'; 
+				$utype_cn='個人'; 
 				break;
 			case '3':
-				$utype_cn='猎头'; 
+				$utype_cn='ヘッドハンター'; 
 				break;
 			case '4':
-				$utype_cn='培训'; 
+				$utype_cn='訓練'; 
 				break;
 		}
 		dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_mail.php?uid=".$user['uid']."&key=".asyn_userkey($user['uid'])."&sendemail=".$email."&sendusername=".$user['username']."&sendpassword=".$password."&utype=".$utype_cn."&act=reg");
 		}
 		$user['uc_url']=$login_js['uc_login'];
 		$user['url']=$login_js['hw_login'];
-		$smarty->assign('title','会员注册 - '.$_CFG['site_name']);
+		$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 		$smarty->assign('user',$user);
 		setcookie("isFirstReg",1, time()+3600*24);
 		$smarty->display('user/reg-step3.htm');

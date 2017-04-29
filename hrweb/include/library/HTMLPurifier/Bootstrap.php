@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // constants are slow, so we use as few as possible
 if (!defined('HTMLPURIFIER_PREFIX')) {

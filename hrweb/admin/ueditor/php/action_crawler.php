@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * 抓取远程图片
  * User: Jinqn

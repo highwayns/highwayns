@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Definition that allows a set of elements, and allows no children.

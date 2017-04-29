@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Factory for token generation.

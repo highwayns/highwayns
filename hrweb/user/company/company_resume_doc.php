@@ -239,7 +239,7 @@ $htm.='
 	}
 	else
 	{
-	 $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size: 12px;padding-top: 20px;"><tr>没有填写工作经历</tr></table>';
+	 $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size: 12px;padding-top: 20px;"><tr>仕事履歴を入力してください</tr></table>';
 	}
 	// 培训经历
 	$htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0">

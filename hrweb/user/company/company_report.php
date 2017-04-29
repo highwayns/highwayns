@@ -4,7 +4,7 @@ require_once(dirname(__FILE__) . '/company_common.php');
 $smarty->assign('leftmenu',"index");
 if ($act=='report')
 {
-	$smarty->assign('title','举报信息 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','情報報告 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('url',$_SERVER['HTTP_REFERER']);
 	$smarty->display('member_company/company_report.htm');
 }
@@ -17,9 +17,9 @@ elseif ($act=='report_save')
 	{
 	showmsg("您已经举报过此简历！",1,$link);
 	}
-	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):showmsg('请输入相关描述！',1);
-	$setsqlarr['resume_id']=$_POST['resume_id']?intval($_POST['resume_id']):showmsg('没有简历ID',1);
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):showmsg('没有简历',1);
+	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):showmsg('説明を入力してください！',1);
+	$setsqlarr['resume_id']=$_POST['resume_id']?intval($_POST['resume_id']):showmsg('履歴書IDなし',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):showmsg('履歴書がありません',1);
 	$setsqlarr['resume_addtime']=intval($_POST['resume_addtime']);
 	$setsqlarr['uid']=$_SESSION['uid'];
 	$setsqlarr['addtime']=time();

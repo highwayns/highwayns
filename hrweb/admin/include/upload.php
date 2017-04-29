@@ -13,7 +13,7 @@ if (!($upfilename===''))
 { 
 if (!is_uploaded_file($upfile['tmp_name'])) 
 { 
-adminmsg('上传图片失败：你选择的文件无法上传',0);
+adminmsg('画像アップロード失敗：選択されたファイルアップロードができません',0);
 exit(); 
 } 
 if ($max_size>0 && $upfile['size']/1024>$max_size) 
@@ -33,7 +33,7 @@ exit();
 //$uploadname = $name ? md5(uniqid(rand())).".".$ext_name : $upfilename; 
 if (!move_uploaded_file($upfile['tmp_name'], $dir.$uploadname)) 
 { 
-adminmsg('上传图片失败：文件上传出错！',0);
+adminmsg('画像アップロード失敗：ファイルアップロードエラー！',0);
  exit(); 
 } 
 return $uploadname; 

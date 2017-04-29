@@ -49,14 +49,14 @@ elseif($act == 'edit')
 elseif($act == 'editsave')
 {
 	check_token();
-	$setsqlarr['h_filename']=!empty($_POST['h_filename'])?trim($_POST['h_filename']):adminmsg('文档名称不能为空！',1);
-	$setsqlarr['h_typeid']=intval($_POST['h_typeid'])>0?intval($_POST['h_typeid']):adminmsg('请选择分类！',1);
+	$setsqlarr['h_filename']=!empty($_POST['h_filename'])?trim($_POST['h_filename']):adminmsg('文章名を入力してください！',1);
+	$setsqlarr['h_typeid']=intval($_POST['h_typeid'])>0?intval($_POST['h_typeid']):adminmsg('分類を選択してください！',1);
 	$setsqlarr['h_color']=trim($_POST['h_color']);
 	$setsqlarr['h_strong']=intval($_POST['h_strong']);
 	$setsqlarr['h_order']=intval($_POST['h_order']);
 	if (empty($_FILES['upfile']['name']) && empty($_POST['url']))
 	{
-	adminmsg('请上传文件或者填写文件路径！',1);
+	adminmsg('ファイルアップロードして又はパスを入力してください！',1);
 	}
 	if ($_FILES['upfile']['name'])
 		{
@@ -65,7 +65,7 @@ elseif($act == 'editsave')
 			$setsqlarr['h_fileurl']=_asUpFiles($hrtools_updir,"upfile",3000,'doc/ppt/xls/rtf',true);
 			if (empty($setsqlarr['h_fileurl']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['h_fileurl']=$hrtools_dir.date("Y/m/").$setsqlarr['h_fileurl'];
 		}
@@ -88,14 +88,14 @@ elseif($act == 'add')
 elseif($act == 'addsave')
 {	
 	check_token();
-	$setsqlarr['h_filename']=!empty($_POST['h_filename'])?trim($_POST['h_filename']):adminmsg('文档名称不能为空！',1);
-	$setsqlarr['h_typeid']=intval($_POST['h_typeid'])>0?intval($_POST['h_typeid']):adminmsg('请选择分类！',1);
+	$setsqlarr['h_filename']=!empty($_POST['h_filename'])?trim($_POST['h_filename']):adminmsg('文章名を入力してください！',1);
+	$setsqlarr['h_typeid']=intval($_POST['h_typeid'])>0?intval($_POST['h_typeid']):adminmsg('分類を選択してください！',1);
 	$setsqlarr['h_color']=trim($_POST['h_color']);
 	$setsqlarr['h_strong']=intval($_POST['h_strong']);
 	$setsqlarr['h_order']=intval($_POST['h_order']);
 	if (empty($_FILES['upfile']['name']) && empty($_POST['url']))
 	{
-	adminmsg('请上传文件或者填写文件路径！',1);
+	adminmsg('ファイルアップロードして又はパスを入力してください！',1);
 	}
 	if ($_FILES['upfile']['name'])
 		{
@@ -104,7 +104,7 @@ elseif($act == 'addsave')
 			$setsqlarr['h_fileurl']=_asUpFiles($hrtools_updir,"upfile",3000,'doc/ppt/xls/rtf',true);
 			if (empty($setsqlarr['h_fileurl']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['h_fileurl']=$hrtools_dir.date("Y/m/").$setsqlarr['h_fileurl'];
 		}
@@ -191,7 +191,7 @@ elseif($act == 'edit_category_save')
 {
 	check_token();
 	$id=intval($_POST['id']);	
-	$setsqlarr['c_name']=!empty($_POST['c_name'])?trim($_POST['c_name']):adminmsg('请填写分类名称！',1);
+	$setsqlarr['c_name']=!empty($_POST['c_name'])?trim($_POST['c_name']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['c_order']=intval($_POST['c_order']);
 	$link[0]['text'] = "查看修改结果";
 	$link[0]['href'] = '?act=edit_category&id='.$id;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * A "safe" embed module. See SafeObject. This is a proprietary element.

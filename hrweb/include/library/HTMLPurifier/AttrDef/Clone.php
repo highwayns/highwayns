@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Dummy AttrDef that mimics another AttrDef, BUT it generates clones

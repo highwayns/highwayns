@@ -24,7 +24,7 @@ elseif($act=="user_email"){
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_email_key#}',$_SESSION['send_email_key'],$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-	$contents=str_replace('{#$notice#}','接收HR面试邀请',$contents);
+	$contents=str_replace('{#$notice#}','面接誘いをアクセプト',$contents);
 	exit($contents);
 }	
 elseif($act=="user_mobile"){
@@ -35,7 +35,7 @@ elseif($act=="user_mobile"){
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-	$contents=str_replace('{#$notice#}','接收HR来电',$contents);
+	$contents=str_replace('{#$notice#}','HR電話許可',$contents);
 	exit($contents);
 }
 elseif($act=="old_mobile"){
@@ -56,7 +56,7 @@ elseif($act=="edit_mobile"){
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-	$contents=str_replace('{#$notice#}','接收HR来电',$contents);
+	$contents=str_replace('{#$notice#}','HR電話許可',$contents);
 	exit($contents);
 }
 elseif($act=="tpl"){
@@ -73,7 +73,7 @@ elseif($act=="tpl"){
 	$html = "";
 	if(!empty($resumetpl)){
 		foreach ($resumetpl as $key => $value) {
-			$html_l.='<label><input type="radio" id="tpl_pid" name="resume_tpl" value="'.$value["tpl_dir"].'" class="radio set_tpl" '.($resume_basic['tpl']==$value['tpl_dir']?'checked':'').'>'.$value["tpl_name"].($resume_basic['tpl']==$value['tpl_dir']?'<span>[当前]</span>':'').'</label>';
+			$html_l.='<label><input type="radio" id="tpl_pid" name="resume_tpl" value="'.$value["tpl_dir"].'" class="radio set_tpl" '.($resume_basic['tpl']==$value['tpl_dir']?'checked':'').'>'.$value["tpl_name"].($resume_basic['tpl']==$value['tpl_dir']?'<span>[現在]</span>':'').'</label>';
 			$html.='<div class="resume_box tpl_img'.$value["tpl_dir"].'" '.($resume_basic['tpl']==$value['tpl_dir']?'style="display:block"':'style="display:none"').'>
 					<div class="img"><img src="'.$_CFG["site_dir"].'templates/tpl_resume/'.$value["tpl_dir"].'/thumbnail.jpg" alt="" /></div>
 					<p style="margin-top:10px;"><a target="_blank" href="'.$resume_url.'&style='.$value["tpl_dir"].'">[预览]</a></p>
@@ -121,7 +121,7 @@ elseif($act == "refresh_resume"){
 	}
 	else 
 	{
-	refresh_resume($resumeid,$_SESSION['uid'])?exit("1"):exit('操作失败！');
+	refresh_resume($resumeid,$_SESSION['uid'])?exit("1"):exit('操作失敗！');
 	}
 }
 elseif($act == "del_resume_edu"){

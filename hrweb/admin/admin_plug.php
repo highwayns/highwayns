@@ -17,9 +17,9 @@ elseif($act == 'uninstall_plug')
 	check_token();
 	if(uninstall_plug($_GET['id'])){
 		refresh_plug_cache();
-		adminmsg('关闭成功', 2);
+		adminmsg('閉じる成功', 2);
 	}else{
-		adminmsg('关闭失败', 1);
+		adminmsg('閉じる失敗', 1);
 	}
 
 			
@@ -29,9 +29,9 @@ elseif($act == 'install_plug')
 	check_token();
 	if(install_plug($_GET['id'])){
 		refresh_plug_cache();
-		adminmsg('开启成功', 2);
+		adminmsg('Active成功', 2);
 	}else{
-		adminmsg('开启失败', 1);
+		adminmsg('Active失敗', 1);
 	}
 }
 ?>

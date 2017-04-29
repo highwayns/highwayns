@@ -32,7 +32,7 @@ elseif($act == 'add_page')
 elseif($act == 'add_page_save')
 {
 	check_token();
-    substr($_POST['alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
+    substr($_POST['alias'],0,3)=='HW_'?adminmsg('Call名は HW_ 含まれている！',1):'';
 	if (ck_page_alias($_POST['alias']))
 	{
 	adminmsg("调用ID ".$_POST['alias']." 已经存在！请重新填写",1);
@@ -45,12 +45,12 @@ elseif($act == 'add_page_save')
 	}
 $setsqlarr['systemclass']=0;
 $setsqlarr['pagetpye']=trim($_POST['pagetpye'])?trim($_POST['pagetpye']):1;
-$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('调用ID不能为空！',1);
-$setsqlarr['pname']=trim($_POST['pname'])?trim($_POST['pname']):adminmsg('您没有填写页面名称！',1);
+$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Call IDを入力してください！',1);
+$setsqlarr['pname']=trim($_POST['pname'])?trim($_POST['pname']):adminmsg('ページ名を入力してください！',1);
 $setsqlarr['tag']=trim($_POST['tag']);
 $setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):0;
-$setsqlarr['file']=trim($_POST['file'])?trim($_POST['file']):adminmsg('您没有填写文件路径！',1);
-$setsqlarr['tpl']=trim($_POST['tpl'])?trim($_POST['tpl']):adminmsg('您没有填写模板路径！',1);
+$setsqlarr['file']=trim($_POST['file'])?trim($_POST['file']):adminmsg('ファイルパスを入力してください！',1);
+$setsqlarr['tpl']=trim($_POST['tpl'])?trim($_POST['tpl']):adminmsg('テンプレートパスを入力してください！',1);
 $setsqlarr['rewrite']=trim($_POST['rewrite']);
 $setsqlarr['caching']=intval($_POST['caching']);
 $setsqlarr['title']=trim($_POST['title']);
@@ -87,14 +87,14 @@ elseif($act == 'edit_page_save')
 	if ($_POST['systemclass']<>"1")//非系统内置
 	{
 	$setsqlarr['pagetpye']=trim($_POST['pagetpye'])?trim($_POST['pagetpye']):1;
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('调用ID不能为空！',1);
-	substr($_POST['alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Call IDを入力してください！',1);
+	substr($_POST['alias'],0,3)=='HW_'?adminmsg('Call名は HW_ 含まれている！',1):'';
 	}
-$setsqlarr['pname']=trim($_POST['pname'])?trim($_POST['pname']):adminmsg('您没有填写页面名称！',1);
+$setsqlarr['pname']=trim($_POST['pname'])?trim($_POST['pname']):adminmsg('ページ名を入力してください！',1);
 $setsqlarr['tag']=trim($_POST['tag']);
 $setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):0;
-$setsqlarr['file']=trim($_POST['file'])?trim($_POST['file']):adminmsg('您没有填写文件路径！',1);
-$setsqlarr['tpl']=trim($_POST['tpl'])?trim($_POST['tpl']):adminmsg('您没有填写模板路径！',1);
+$setsqlarr['file']=trim($_POST['file'])?trim($_POST['file']):adminmsg('ファイルパスを入力してください！',1);
+$setsqlarr['tpl']=trim($_POST['tpl'])?trim($_POST['tpl']):adminmsg('テンプレートパスを入力してください！',1);
 $setsqlarr['rewrite']=trim($_POST['rewrite']);
 $setsqlarr['caching']=intval($_POST['caching']);
 $setsqlarr['title']=trim($_POST['title']);

@@ -25,7 +25,7 @@ elseif($act == 'site_setsave')
 			{
 				//填写管理员日志
 				write_log("后台设置网站LOGO失败", $_SESSION['admin_name'],3);
-				adminmsg('更新站点设置失败', 1);
+				adminmsg('設定更新失敗', 1);
 			}
 			//填写管理员日志
 			write_log("后台成功设置网站LOGO", $_SESSION['admin_name'],3);
@@ -38,7 +38,7 @@ elseif($act == 'site_setsave')
 			{
 				//填写管理员日志
 				write_log("后台设置网站背景失败", $_SESSION['admin_name'],3);
-				adminmsg('更新站点设置失败', 1);
+				adminmsg('設定更新失敗', 1);
 			}
 			//填写管理员日志
 			write_log("后台成功设置网站背景", $_SESSION['admin_name'],3);
@@ -50,14 +50,14 @@ elseif($act == 'site_setsave')
 			{
 				//填写管理员日志
 				write_log("后台设置网站默认背景失败", $_SESSION['admin_name'],3);
-				adminmsg('更新站点设置失败', 1);
+				adminmsg('設定更新失敗', 1);
 			}
 			//填写管理员日志
 			write_log("后台成功设置网站默认背景", $_SESSION['admin_name'],3);
 		}
 		foreach($_POST as $k => $v)
 		{
-		!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('更新站点设置失败', 1):"";
+		!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('設定更新失敗', 1):"";
 		}
 		refresh_cache('config');
 		//填写管理员日志
@@ -85,11 +85,11 @@ elseif($act == 'set_save')
 	check_permissions($_SESSION['admin_purview'],"mb_set");
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('設定更新失敗', 1):"";
 	}
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('text')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('text')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('config');
 	refresh_cache('text');
@@ -110,7 +110,7 @@ elseif($act == 'search_save')
 	check_permissions($_SESSION['admin_purview'],"set_search");
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('設定更新失敗', 1):"";
 	}
 	//填写管理员日志
 	write_log("后台成功更新搜索设置", $_SESSION['admin_name'],3);

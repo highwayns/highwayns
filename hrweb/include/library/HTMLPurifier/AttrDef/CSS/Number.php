@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates a number as defined by the CSS spec.

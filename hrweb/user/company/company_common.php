@@ -31,7 +31,7 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 	{
 	$link[0]['text'] = "会员中心";
 	$link[0]['href'] = url_rewrite('HW_login');
-	showmsg('您访问的页面需要 企业会员 登录！',1,$link);
+	showmsg('このページは企業会員登録必要です！',1,$link);
 	}
 	$act = !empty($_GET['act']) ? trim($_GET['act']) : 'index';
 	$smarty->cache = false;
@@ -44,7 +44,7 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 	{
 		$link[0]['text'] = "返回会员中心首页";
 		$link[0]['href'] = 'company_index.php?act=';
-	exit(showmsg('您的账号处于暂停状态，请联系管理员设为正常后进行操作！',1,$link));	
+	exit(showmsg('アカウントが停止されました，管理者に連絡してください！',1,$link));	
 	}
 	elseif (empty($user))
 	{
@@ -60,7 +60,7 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 		$link[0]['href'] = 'company_user.php?act=authenticate';
 		$link[1]['text'] = "网站首页";
 		$link[1]['href'] = $_CFG['site_dir'];
-		showmsg('您的邮箱未认证，认证后才能进行其他操作！',1,$link,true,6);
+		showmsg('メールアドレスが認定しません，認定してください！',1,$link,true,6);
 		exit();
 	}
 	$sms=get_cache('sms_config');
@@ -70,7 +70,7 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 		$link[0]['href'] = 'company_user.php?act=authenticate';
 		$link[1]['text'] = "网站首页";
 		$link[1]['href'] = $_CFG['site_dir'];
-		showmsg('您的手机未认证，认证后才能进行其他操作！',1,$link,true,6);
+		showmsg('携帯番号認定しません！',1,$link,true,6);
 		exit();
 	}
 	$smarty->assign('sms',$sms);

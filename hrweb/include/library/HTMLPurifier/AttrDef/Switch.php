@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Decorator that, depending on a token, switches between two definitions.

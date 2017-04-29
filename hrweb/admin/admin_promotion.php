@@ -179,7 +179,7 @@ elseif($act == 'edit_category')
 elseif($act=='edit_category_save')
 {	
 	check_token();
-	$setsqlarr['cat_name']=trim($_POST['cat_name'])?trim($_POST['cat_name']):adminmsg('您没有填写方案名称！',1);
+	$setsqlarr['cat_name']=trim($_POST['cat_name'])?trim($_POST['cat_name']):adminmsg('ケース名称を入力してください！',1);
 	$setsqlarr['cat_available']=intval($_POST['cat_available']);
 	$setsqlarr['cat_minday']=intval($_POST['cat_minday']);
 	$setsqlarr['cat_maxday']=intval($_POST['cat_maxday']);

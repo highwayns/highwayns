@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * A zipper is a purely-functional data structure which contains

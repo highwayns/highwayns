@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * XHTML 1.1 Object Module, defines elements for generic object inclusion

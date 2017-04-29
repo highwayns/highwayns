@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Abstract class representing Definition cache managers that implements

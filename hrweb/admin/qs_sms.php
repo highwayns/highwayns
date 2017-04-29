@@ -24,11 +24,11 @@ elseif($act == 'sms_send')
 	$url=trim($_REQUEST['url']);
 	if (empty($txt))
 	{
-	crmmsg('短信内容不能为空！',0);
+	crmmsg('ショートメッセージの内容をにゅうりょくしてください！',0);
 	}
 	if (empty($mobile))
 	{
-	crmmsg('手机不能为空！',0);
+	crmmsg('携帯番号が必須！',0);
 	}
 	if (!preg_match("/^(13|15|18|14)\d{9}$/",$mobile))
 	{

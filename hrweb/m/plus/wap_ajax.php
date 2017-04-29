@@ -326,8 +326,8 @@ elseif($act == 'jobs_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="job_show_box telbox"><h2>联系方式</h2>';
-  			$html.='<div class="nolog_txt">个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a></div></div>';
+			$html='<div class="job_show_box telbox"><h2>ご連絡</h2>';
+  			$html.='<div class="nolog_txt">個人会員は<a href="wap_login.php">[登録]</a>後連絡先をご覧ください<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a></div></div>';
 			}
 		}
 		elseif($_CFG['showjobcontact_wap']=='2')
@@ -342,15 +342,15 @@ elseif($act == 'jobs_contact')
 				else
 				{
 				$show=false;
-				$html='<div class="job_show_box telbox"><h2>联系方式</h2>';
-				$html.='<div class="nolog_txt">您没有发布简历或者简历无效，发布简历后才可以查看联系方式。</div></div>';
+				$html='<div class="job_show_box telbox"><h2>ご連絡</h2>';
+				$html.='<div class="nolog_txt">履歴書作成しません又は履歴書無効です，履歴書作成したら、連絡先見えます。</div></div>';
 				}
 			}
 			else
 			{
 			$show=false;
-			$html='<div class="job_show_box telbox"><h2>联系方式</h2>';
-  			$html.='<div class="nolog_txt">个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a></div></div>';
+			$html='<div class="job_show_box telbox"><h2>ご連絡</h2>';
+  			$html.='<div class="nolog_txt">個人会員は<a href="wap_login.php">[登録]</a>後連絡先をご覧ください<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a></div></div>';
 			}
 		}
 		if ($show)
@@ -363,7 +363,7 @@ elseif($act == 'jobs_contact')
 			// $contact=$val['contact_show']=='1'?"联系人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系人：企业设置不对外公开<br />";
 			// $telephone=$val['telephone_show']=='1'?"联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系电话：企业设置不对外公开<br />";
 			// $address=$val['address_show']=='1'?"联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系地址：企业设置不对外公开<br />";
-			// $html='<div class="title"><h2>联系方式</h2></div><div class="txt telbox">';
+			// $html='<div class="title"><h2>ご連絡</h2></div><div class="txt telbox">';
 			// $html.=$contact.$telephone.$address;
 			// $html.='</div><div class="telimg"><a href="tel://'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			// }
@@ -373,7 +373,7 @@ elseif($act == 'jobs_contact')
 			$telephone=$val['telephone_show']=='1'?"联系电话：{$val['telephone']}<br />":"联系电话：企业设置不对外公开<br />";
 			$address=$val['email_show']=='1'?"联系邮箱：{$val['email']}<br />":"联系邮箱：企业设置不对外公开<br /></div>";
 			$tel=$val["telephone_show"]=='1'?$val['telephone']:"";
-			$html='<div class="job_show_box telbox"><h2>联系方式</h2>';
+			$html='<div class="job_show_box telbox"><h2>ご連絡</h2>';
 			$html.=$contact.$telephone.$address;
 			$html.='<div class="telimg"><a href="tel:'.$tel.'"><img src="./images/23.jpg" alt="" /></a></div></div>';
 			// }
@@ -405,8 +405,8 @@ elseif($act == 'company_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='個人会員は<a href="wap_login.php">[登録]</a>後連絡先を見えます<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -422,7 +422,7 @@ elseif($act == 'company_contact')
 				else
 				{
 				$show=false;
-				$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+				$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 				$html.="您没有发布简历或者简历无效，发布简历后才可以查看联系方式。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[查看我的简历]</a>";
 				$html.='</div><div class="telimg"></div>';
 				}
@@ -430,8 +430,8 @@ elseif($act == 'company_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='個人会員は<a href="wap_login.php">[登録]</a>後連絡先を見えます<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -445,7 +445,7 @@ elseif($act == 'company_contact')
 			$contact=$val['contact_show']=='1'?"联系人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系人：企业设置不对外公开<br />";
 			$telephone=$val['telephone_show']=='1'?"联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系电话：企业设置不对外公开<br />";
 			$address=$val['email_show']=='1'?"联系邮箱：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系邮箱：企业设置不对外公开<br />";
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="tel:'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
@@ -454,7 +454,7 @@ elseif($act == 'company_contact')
 			$contact=$val['contact_show']=='1'?"联系人：{$val['contact']}<br />":"联系人：企业设置不对外公开<br />";
 			$telephone=$val['telephone_show']=='1'?"联系电话：{$val['telephone']}<br />":"联系电话：企业设置不对外公开<br />";
 			$address=$val['email_show']=='1'?"联系邮箱：{$val['email']}<br />":"联系邮箱：企业设置不对外公开<br />";
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="tel:'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
@@ -484,8 +484,8 @@ elseif($act == 'resume_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="resume_show_box" id=""><div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='企业会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="resume_show_box" id=""><div class="title"><h2>連絡先</h2></div><div class="txt">';
+			$html.='企業会員は<a href="wap_login.php">[登録]</a>後連絡先を見える<br />アカウントない場合？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div></div>';
 			}
 		}
@@ -507,8 +507,8 @@ elseif($act == 'resume_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="resume_show_box" id=""><div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='企业会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="resume_show_box" id=""><div class="title"><h2>連絡先</h2></div><div class="txt">';
+			$html.='企業会員は<a href="wap_login.php">[登録]</a>後連絡先を見える<br />アカウントない場合？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div></div>';
 			}
 		}
@@ -519,7 +519,7 @@ elseif($act == 'resume_contact')
 			// if ($_CFG['contact_img_resume']=='2')
 			// {
 			// $token=md5($val['fullname'].$id.$val['telephone']);
-			// $html='<div class="resume_show_box" id=""><div class="title"><h2>联系方式</h2></div><div class="txt">';
+			// $html='<div class="resume_show_box" id=""><div class="title"><h2>連絡先</h2></div><div class="txt">';
 			// $html.="联 系 人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
 			// $html.="联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
 			// $html.="联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=5&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
@@ -529,7 +529,7 @@ elseif($act == 'resume_contact')
 			// }
 			// else
 			// {
-			$html='<div class="resume_show_box" id=""><div class="title"><h2>联系方式</h2></div><div class="txt">';
+			$html='<div class="resume_show_box" id=""><div class="title"><h2>連絡先</h2></div><div class="txt">';
 			$html.="联 系 人：".$val['fullname']."<br />";
 			$html.="联系电话：".$val['telephone']."<br />";
 			$html.="联系地址：".$val['residence']."<br />";
@@ -555,7 +555,7 @@ elseif($act=="ajax_interview_list")
 	{
 		foreach($interviewarray as $list)
 		{
-			$interviewhtml.='<div class="interview_list_content" did="'.$list['did'].'"><div class="list_centent_left"><h4>'.$list['company_name'].'</h4><div class="l_bottom"><div class="l_bottom_l">邀请您面试&nbsp;&nbsp;"'.$list['jobs_name'].'"</div><div class="l_bottom_r">'.date('Y-m-d',$list['addtime']).'</div><div class="clear"></div></div></div><div class="list_centent_right"><img src="../images/36.gif" alt="" /></div><div class="clear"></div></div>';
+			$interviewhtml.='<div class="interview_list_content" did="'.$list['did'].'"><div class="list_centent_left"><h4>'.$list['company_name'].'</h4><div class="l_bottom"><div class="l_bottom_l">面接を誘う&nbsp;&nbsp;"'.$list['jobs_name'].'"</div><div class="l_bottom_r">'.date('Y-m-d',$list['addtime']).'</div><div class="clear"></div></div></div><div class="list_centent_right"><img src="../images/36.gif" alt="" /></div><div class="clear"></div></div>';
 		}
 		exit($interviewhtml);
 	}

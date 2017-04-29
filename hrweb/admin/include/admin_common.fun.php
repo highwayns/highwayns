@@ -30,10 +30,10 @@ function adminmsg($msg_detail, $msg_type = 0, $links = array(), $auto_redirect =
 	global $smarty;
     if (count($links) == 0)
     {
-        $links[0]['text'] = '返回上一页';
+        $links[0]['text'] = '前頁へ';
         $links[0]['href'] = 'javascript:history.go(-1)';
     }
-   $smarty->assign('ur_here',     '系统提示');
+   $smarty->assign('ur_here',     'システムからのお知らせ');
    $smarty->assign('msg_detail',  $msg_detail);
    $smarty->assign('msg_type',    $msg_type);
    $smarty->assign('links',       $links);
@@ -211,11 +211,11 @@ function write_static_cache($cache_file_path, $config_arr)
 		$fp = @fopen($cache_file_path, 'wb+');
 		if (!$fp)
 		{
-			exit('生成缓存文件失败');
+			exit('Ｃａｃｈｅファイル作成失敗');
 		}
 		if (!@fwrite($fp, trim($content)))
 		{
-			exit('生成缓存文件失败');
+			exit('Ｃａｃｈｅファイル作成失敗');
 		}
 		@fclose($fp);
 	}
@@ -516,14 +516,14 @@ function makejs_classify()
 	}
 	$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/cache_classify.js', 'wb+');
 	if (!$fp){
-			exit('生成JS文件失败');
+			exit('JSファイル作成失敗');
 		}
 	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$content=iconv(HIGHWAY_DBCHARSET,"utf-8//IGNORE",$content);
 	}
 	 if (!@fwrite($fp, trim($content))){
-			exit('写入JS文件失败');
+			exit('JSファイル書き込む失敗');
 		}
 	@fclose($fp);
 }

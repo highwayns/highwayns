@@ -16,7 +16,7 @@ elseif ($act == 'password_edit')
 {
 	$uid = intval($_SESSION['uid']);
 	$smarty->assign('total',$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$uid}' OR msgtouid='{$uid}') AND `new`='1'"));
-	$smarty->assign('title','修改密码 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','パスワード変更 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->display("wap/personal/wap-password.html");
 
 	
@@ -25,12 +25,12 @@ elseif ($act == 'save_password')
 {	
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$arr['username']=$_SESSION['username'];
-	$arr['oldpassword']=trim($_POST['oldpassword'])?trim($_POST['oldpassword']):exit('请输入旧密码！');
-	$arr['password']=trim($_POST['password'])?trim($_POST['password']):exit('请输入新密码！');
-	if ($arr['password']!=trim($_POST['password1'])) exit('两次输入密码不相同，请重新输入！');
+	$arr['oldpassword']=trim($_POST['oldpassword'])?trim($_POST['oldpassword']):exit('旧パスワードを入力してください！');
+	$arr['password']=trim($_POST['password'])?trim($_POST['password']):exit('新パスワードを入力してください！');
+	if ($arr['password']!=trim($_POST['password1'])) exit('パスワードが一致しません，再度入力してください！');
 	//edit_password()修改密码的方法
 	$info=edit_password($arr);
-	if ($info==-1) exit('旧密码输入错误，请重新输入！');
+	if ($info==-1) exit('旧パスワード間違いました！');
 	if ($info==$_SESSION['username']){
 		//发送邮件
 		$mailconfig=get_cache('mailconfig');
@@ -53,7 +53,7 @@ elseif ($act == 'save_password')
 		}
 		//往会员日志表里记录
 		write_memberslog($_SESSION['uid'],2,1004 ,$_SESSION['username'],"修改密码");
-		exit('密码修改成功！');
+		exit('パスワード更新失敗！');
 	 }
 }
 

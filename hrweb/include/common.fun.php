@@ -10,10 +10,10 @@ function showmsg($msg_detail, $msg_type = 0, $links = array(), $auto_redirect = 
 	global $smarty;
     if (count($links) == 0)
     {
-        $links[0]['text'] = '返回上一页';
+        $links[0]['text'] = '前頁へ';
         $links[0]['href'] = 'javascript:history.go(-1)';
     }
-   $smarty->assign('ur_here',     '系统提示');
+   $smarty->assign('ur_here',     'システムからのお知らせ');
    $smarty->assign('msg_detail',  $msg_detail);
    $smarty->assign('msg_type',    $msg_type);
    $smarty->assign('links',       $links);
@@ -982,11 +982,11 @@ function write_cache($cache, $json, $dir)
 		$fp = @fopen($cachename, 'wb+');
 		if (!$fp)
 		{
-			exit('生cache文件失败，请设置“'.$dir.'”的读写权限');
+			exit('cacheファイル作成失敗，設定してください“'.$dir.'”の読みと書き権限');
 		}
 		if (!@fwrite($fp, trim($content)))
 		{
-			exit('生cache文件失败，请设置“'.$dir.'”的读写权限');
+			exit('cacheファイル作成失敗，設定してください“'.$dir.'”の読みと書き権限');
 		}
 		@fclose($fp);
 	}

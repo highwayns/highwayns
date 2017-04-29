@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates a rel/rev link attribute against a directive of allowed values

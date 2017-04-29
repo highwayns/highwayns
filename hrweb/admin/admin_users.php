@@ -36,14 +36,14 @@ elseif($act == 'add_users_save')
 {
 	check_token();
 	if ($_SESSION['admin_purview']<>"all")adminmsg("权限不足！",1);
-	$setsqlarr['admin_name']=trim($_POST['admin_name'])?trim($_POST['admin_name']):adminmsg('请填写用户名！',1);
-	if (get_admin_one($setsqlarr['admin_name']))adminmsg('用户名已经存在！',1);
-	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):adminmsg('请填写email！',1);
-	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$setsqlarr['email']))adminmsg('email格式错误！',1);
-	$password=trim($_POST['password'])?trim($_POST['password']):adminmsg('请填写密码',1);
-	if (strlen($password)<6)adminmsg('密码不能少于6位！',1);
-	if ($password<>trim($_POST['password1']))adminmsg('两次输入的密码不相同！',1);
-	$setsqlarr['rank']=trim($_POST['rank'])?trim($_POST['rank']):adminmsg('请填写头衔',1);
+	$setsqlarr['admin_name']=trim($_POST['admin_name'])?trim($_POST['admin_name']):adminmsg('ユーザ名を入力してください！',1);
+	if (get_admin_one($setsqlarr['admin_name']))adminmsg('該当ユーザすでに存在する！',1);
+	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):adminmsg('Emailを入力してください！',1);
+	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$setsqlarr['email']))adminmsg('emailフォーマットエラー！',1);
+	$password=trim($_POST['password'])?trim($_POST['password']):adminmsg('パスワードを入力してください',1);
+	if (strlen($password)<6)adminmsg('パスワード不能少于6位！',1);
+	if ($password<>trim($_POST['password1']))adminmsg('パスワード一致しません！',1);
+	$setsqlarr['rank']=trim($_POST['rank'])?trim($_POST['rank']):adminmsg('タイトルを入力してください',1);
 	$setsqlarr['add_time']=time();
 	$setsqlarr['last_login_time']=0;
 	$setsqlarr['last_login_ip']="从未";
@@ -56,11 +56,11 @@ elseif($act == 'add_users_save')
 		write_log("后台添加用户名为".$setsqlarr['admin_name']."的管理员", $_SESSION['admin_name'],3);
 		$link[0]['text'] = "返回列表";
 		$link[0]['href'] ="?act=";
-		adminmsg('添加成功！',2,$link);
+		adminmsg('追加成功！',2,$link);
 	}
 	else
 	{
-	adminmsg('添加失败',1);
+	adminmsg('追加失敗',1);
 	}	
 }
 elseif($act == 'del_users')
@@ -114,9 +114,9 @@ elseif($act == 'edit_users_info_save' && $_SESSION['admin_purview']=="all")//超
 		$id=intval($_POST['id']);
 		$account=get_admin_account($id);
 		if ($account['purview']=="all")adminmsg("参数错误！",1);//超级管理员的资料不能修改
-		$setsqlarr['admin_name']=trim($_POST['admin_name'])?trim($_POST['admin_name']):adminmsg('用户名不能为空！',1);
-		$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):adminmsg('email不能为空！',1);
-		$setsqlarr['rank']=trim($_POST['rank'])?trim($_POST['rank']):adminmsg('头衔不能为空！',1);
+		$setsqlarr['admin_name']=trim($_POST['admin_name'])?trim($_POST['admin_name']):adminmsg('ユーザ名が必須！',1);
+		$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):adminmsg('emailを入力してください！',1);
+		$setsqlarr['rank']=trim($_POST['rank'])?trim($_POST['rank']):adminmsg('タイトルを入力してください！',1);
 			$sql = "select * from ".table('admin')." where admin_name = '".$$setsqlarr['admin_name']."' AND admin_id<>".$id;
 			$ck_info=$db->getone($sql);
 			if (!empty($ck_info))adminmsg("用户名有重复！",1);

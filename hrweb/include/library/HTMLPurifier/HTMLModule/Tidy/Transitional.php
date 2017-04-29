@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class HTMLPurifier_HTMLModule_Tidy_Transitional extends HTMLPurifier_HTMLModule_Tidy_XHTMLAndHTML4
 {

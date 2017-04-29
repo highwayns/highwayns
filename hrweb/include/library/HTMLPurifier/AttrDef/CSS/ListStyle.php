@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates shorthand CSS property list-style.

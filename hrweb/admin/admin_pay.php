@@ -15,13 +15,13 @@ if($act == 'list')
 elseif($act == 'uninstall_payment')
 {
 	check_token();
-	uninstall_payment($_GET['id'])?adminmsg('成功卸载', 2):adminmsg('卸载失败', 1);
+	uninstall_payment($_GET['id'])?adminmsg('アンインストール成功', 2):adminmsg('アンインストール失敗', 1);
 }
 elseif($act == 'action_payment')
 {
 	get_token();
 	$payment=get_payment_one($_GET['name']);
-	if (!$payment) adminmsg('获取失败', 1);
+	if (!$payment) adminmsg('取得失敗', 1);
 	require_once("../include/payment/".$payment['typename'].".php");
 	$smarty->assign('show',$payment);
 	$smarty->assign('pay',pay_info());
@@ -44,6 +44,6 @@ elseif($act == 'save_payment')
 	$wheresql=" id=".$setsqlarr['id']." ";
 	$link[0]['text'] = "返回支付方式列表";
 	$link[0]['href'] = '?';
-	!$db->updatetable(table('payment'), $setsqlarr,$wheresql)?adminmsg('保存失败！', 1):adminmsg('保存成功！', 2,$link);
+	!$db->updatetable(table('payment'), $setsqlarr,$wheresql)?adminmsg('保存失敗！', 1):adminmsg('保存成功！', 2,$link);
 }
 ?>

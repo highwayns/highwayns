@@ -40,12 +40,12 @@ elseif($act=="company_info_save")
 	$company_info=get_company(intval($_SESSION['uid']));
 	$_POST=array_map("utf8_to_gbk", $_POST);
 	$setsqlarr['uid']=intval($_SESSION['uid']);
-	$setsqlarr['companyname']=trim($_POST['companyname'])?trim($_POST['companyname']):exit('您没有输入企业名称！');
-	$setsqlarr['nature']=trim($_POST['nature'])?intval($_POST['nature']):exit('您选择企业性质！');
+	$setsqlarr['companyname']=trim($_POST['companyname'])?trim($_POST['companyname']):exit('企業名称を入力してください！');
+	$setsqlarr['nature']=trim($_POST['nature'])?intval($_POST['nature']):exit('企業の性質を選択してください！');
 	$setsqlarr['nature_cn']=trim($_POST['nature_cn']);
-	$setsqlarr['trade']=trim($_POST['trade'])?intval($_POST['trade']):exit('您选择所属行业！');
+	$setsqlarr['trade']=trim($_POST['trade'])?intval($_POST['trade']):exit('業界を選択してください！');
 	$setsqlarr['trade_cn']=trim($_POST['trade_cn']);
-	$setsqlarr['district']=intval($_POST['district'])>0?intval($_POST['district']):exit('您选择所属地区！');
+	$setsqlarr['district']=intval($_POST['district'])>0?intval($_POST['district']):exit('所属地区を選択してください！');
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict']);
 	$setsqlarr['district_cn']=trim($_POST['district_cn']);
 	if (intval($_POST['street'])>0)
@@ -53,16 +53,16 @@ elseif($act=="company_info_save")
 	$setsqlarr['street']=intval($_POST['street']);
 	$setsqlarr['street_cn']=trim($_POST['street_cn']);
 	}
-	$setsqlarr['scale']=trim($_POST['scale'])?trim($_POST['scale']):exit('您选择公司规模！');
+	$setsqlarr['scale']=trim($_POST['scale'])?trim($_POST['scale']):exit('会社規模を選択してください！');
 	$setsqlarr['scale_cn']=trim($_POST['scale_cn']);
 	$setsqlarr['registered']=trim($_POST['registered']);
 	$setsqlarr['currency']=trim($_POST['currency']);
-	$setsqlarr['address']=trim($_POST['address'])?trim($_POST['address']):exit('请填写通讯地址！');
-	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):exit('请填写联系人！');
-	$setsqlarr['telephone']=trim($_POST['telephone'])?trim($_POST['telephone']):exit('请填写联系电话！');
-	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):exit('请填写联系邮箱！');
+	$setsqlarr['address']=trim($_POST['address'])?trim($_POST['address']):exit('連絡先を入力してください！');
+	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):exit('連絡者を入力してください！');
+	$setsqlarr['telephone']=trim($_POST['telephone'])?trim($_POST['telephone']):exit('電話番号を入力してください！');
+	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):exit('メールを入力してください！');
 	$setsqlarr['website']=trim($_POST['website']);
-	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):exit('请填写公司简介！');
+	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):exit('会社の紹介を入力してください！');
 	
 	
 	$setsqlarr['contact_show']=1;
@@ -90,8 +90,8 @@ elseif($act=="company_info_save")
 				$jobarr['scale_cn']=$setsqlarr['scale_cn'];
 				$jobarr['street']=$setsqlarr['street'];
 				$jobarr['street_cn']=$setsqlarr['street_cn'];			
-				if (!$db->updatetable(table('jobs'),$jobarr," uid=".$setsqlarr['uid']."")) exit('修改公司名称出错！');
-				if (!$db->updatetable(table('jobs_tmp'),$jobarr," uid=".$setsqlarr['uid']."")) exit('修改公司名称出错！');
+				if (!$db->updatetable(table('jobs'),$jobarr," uid=".$setsqlarr['uid']."")) exit('会社名修正エラー！');
+				if (!$db->updatetable(table('jobs_tmp'),$jobarr," uid=".$setsqlarr['uid']."")) exit('会社名修正エラー！');
 				$soarray['trade']=$jobarr['trade'];
 				$soarray['scale']=$jobarr['scale'];
 				$soarray['street']=$setsqlarr['street'];

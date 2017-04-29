@@ -60,7 +60,7 @@ function jobs_one($id)
 			wap_update_interview(intval($_SESSION['uid']),$val['id']);
 		}
 	}
-	$val['amount']=$val['amount']=="0"?'若干':$val['amount'];
+	$val['amount']=$val['amount']=="0"?'多少':$val['amount'];
 	$profile=company_one($val['company_id']);
 	$val['company']=$profile;
 	$val['contents'] = htmlspecialchars_decode($val['contents'],ENT_QUOTES);
@@ -87,7 +87,7 @@ function hunter_jobs_one($id)
 	$wheresql=" WHERE id='{$id}'";
 	$sql = "select * from ".table('hunter_jobs').$wheresql." LIMIT 1";
 	$val=$db->getone($sql);
-	$val['amount']=$val['amount']=="0"?'若干':$val['amount'];
+	$val['amount']=$val['amount']=="0"?'多少':$val['amount'];
 	$profile=hunter_one($val['uid']);
 	$val['company']=$profile;
 	return $val;
@@ -150,10 +150,10 @@ function WapShowMsg($msg_detail, $msg_type = 0, $links = array())
 	global $smarty;
     if (count($links) == 0)
     {
-        $links[0]['text'] = '返回上一页';
+        $links[0]['text'] = '前頁へ';
         $links[0]['href'] = 'javascript:history.go(-1)';
     }
-   $smarty->assign('ur_here',     '系统提示');
+   $smarty->assign('ur_here',     'システムからのお知らせ');
    $smarty->assign('msg_type',    $msg_type);
    $smarty->assign('msg_detail',  $msg_detail);
    $smarty->assign('links',       $links);

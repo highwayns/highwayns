@@ -162,18 +162,18 @@ elseif ($act=="top_loginform")
 	$contents='';
 	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
 	{
-		$contents='欢迎&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登录！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#0066cc">[会员中心]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" style="color:#0066cc">[退出]</a>';
+		$contents='ようこそ&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登録！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#0066cc">[会員センター]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" style="color:#0066cc">[終了]</a>';
 	}
 	elseif ($_SESSION['activate_username'] && defined('UC_API'))
 	{
-		$contents=' &nbsp;&nbsp;您的帐号 {#$activate_username#} 需激活后才可以使用！ <a href="{#$activate_url#}" style="color:#339900">立即激活</a>';
+		$contents=' &nbsp;&nbsp;アカウント {#$activate_username#} はＡｃｉｔｖｅしません！ <a href="{#$activate_url#}" style="color:#339900">Ａｃｔｉｖｅ</a>';
 	}
 	else
 	{	
 		if (isset($_GET['block'])) {
-			$contents='您好，欢迎访问{#$site_name#}'.$block.'！';
+			$contents='こんにちは，{#$site_name#}へいらっしゃいませ'.$block.'！';
 		} else {
-			$contents='欢迎来到{#$site_name#}！&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$login_url#}" style="color:#0066cc" >[登录]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$reg_url#}" style="color:#0066cc">[免费注册]</a>';
+			$contents='ようこそ{#$site_name#}！&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$login_url#}" style="color:#0066cc" >[登録]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$reg_url#}" style="color:#0066cc">[無料登録]</a>';
 		}
 	}
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
@@ -186,7 +186,7 @@ elseif ($act=="top_loginform")
 		$user_url=$_CFG['site_dir']."user/company/company_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='2')
@@ -194,7 +194,7 @@ elseif ($act=="top_loginform")
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='4')
@@ -202,7 +202,7 @@ elseif ($act=="top_loginform")
 			$user_url=$_CFG['site_dir']."user/train/train_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='3')
@@ -210,7 +210,7 @@ elseif ($act=="top_loginform")
 			$user_url=$_CFG['site_dir']."user/hunter/hunter_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
@@ -298,7 +298,7 @@ elseif ($act=="loginform")
 		    $result_arr = json_decode($result,true);
 		    $ticket = urlencode($result_arr["ticket"]);
 		    $img_html = '<img width="120" height="120" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='.$ticket.'">';
-			$weixin_html = '<div id="codeLogin"><div class="code-login" id="login_container">'.$img_html.'</div><p>打开微信扫描二维码</p></div>';
+			$weixin_html = '<div id="codeLogin"><div class="code-login" id="login_container">'.$img_html.'</div><p>Wechatでバーコードを読む</p></div>';
 			$weixin_html_header='<div class="wechat-login"><a href="javascript:;" class="loginicon wx"></a></div>';
 		}else{
 			$weixin_html_header='';
@@ -314,12 +314,12 @@ elseif ($act=="loginform")
 				$log=$db->getone("SELECT * FROM ".table('members_log')." WHERE log_uid=$_SESSION[uid] AND log_type='1001' ORDER BY log_id DESC LIMIT 0,1");
 				if(!empty($log))
 				{
-					$last_login_time='上次登录：'.date("Y-m-d H:i",$log['log_addtime']);
+					$last_login_time='前回登録：'.date("Y-m-d H:i",$log['log_addtime']);
 				}
 				else
 				{
 					$log=$db->getone("SELECT reg_time from ".table("members")." where uid=$_SESSION[uid]");
-					$last_login_time='注册时间：'.date("Y-m-d H:i",$log['reg_time']);
+					$last_login_time='登録時間：'.date("Y-m-d H:i",$log['reg_time']);
 				}
 				
 			}
@@ -328,12 +328,12 @@ elseif ($act=="loginform")
 				$log=$db->getone("SELECT * FROM ".table('members_log')." WHERE log_uid=$_SESSION[uid] AND log_type='1001' ORDER BY log_id DESC LIMIT 1,1");
 				if(!empty($log))
 				{
-					$last_login_time='上次登录：'.date("Y-m-d H:i",$log['log_addtime']);
+					$last_login_time='前回登録：'.date("Y-m-d H:i",$log['log_addtime']);
 				}
 				else
 				{
 					$log=$db->getone("SELECT reg_time from ".table("members")." where uid=$_SESSION[uid]");
-					$last_login_time='注册时间：'.date("Y-m-d H:i",$log['reg_time']);
+					$last_login_time='登録時間：'.date("Y-m-d H:i",$log['reg_time']);
 				}
 			}
 		}

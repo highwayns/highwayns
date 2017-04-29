@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validate all attributes in the tokens.

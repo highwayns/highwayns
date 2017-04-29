@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * XHTML 1.1 Forms module, defines all form-related elements found in HTML 4.

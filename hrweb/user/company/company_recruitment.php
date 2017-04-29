@@ -28,7 +28,7 @@ if ($act=='apply_jobs')
 	$page = new page(array('total'=>$total, 'perpage'=>$perpage));
 	$offset=($page->nowindex-1)*$perpage;
 	$smarty->assign('act',$act);
-	$smarty->assign('title','收到的职位申请 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','職位申請 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('jobs_apply',get_apply_jobs($offset,$perpage,$joinsql.$wheresql));
 	if($total>$perpage)
 	{
@@ -85,7 +85,7 @@ elseif ($act=='down_resume_list')
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('title','已下载的简历 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','已ダウンロード的履歴書 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$smarty->assign('list',get_down_resume($offset,$perpage,$joinsql.$wheresql));
 	if($total_val>$perpage)
@@ -142,7 +142,7 @@ elseif ($act=='favorites_list')
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
 	$offset=($page->nowindex-1)*$perpage;
-	$smarty->assign('title','企业人才库 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','企業人材一覧 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$smarty->assign('favorites',get_favorites($offset, $perpage,$joinsql.$wheresql));
 	if($total_val>$perpage)
@@ -186,7 +186,7 @@ elseif ($act=='interview_list')
 	$offset=($currenpage-1)*$perpage;
 	$resume = get_interview($offset, $perpage,$joinsql.$wheresql);
 	$smarty->assign('act',$act);
-	$smarty->assign('title','我发起的面试邀请 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','面接誘い - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('resume',$resume);
 	$count1=count_interview($_SESSION['uid'],1,$jobsid);//未查看
 	$count2=count_interview($_SESSION['uid'],2,$jobsid);//已查看

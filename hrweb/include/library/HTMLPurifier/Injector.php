@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Injects tokens into the document while parsing for well-formedness.

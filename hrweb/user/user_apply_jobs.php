@@ -316,7 +316,7 @@ elseif ($act=="app_save")
 						$user=$db->getone("select username from ".table('members')." where uid ={$jobs['uid']} limit 1");
 						$jobs_url=url_rewrite('HW_jobsshow',array('id'=>$jobs['id']));
 						$resume_url=url_rewrite('HW_resumeshow',array('id'=>$resumeid));
-						$message=$resume_basic['fullname'].'申请了您发布的职位：<a href="'.$jobs_url.'" target="_blank">'.$jobs['jobs_name'].'</a>,<a href="'.$resume_url.'" target="_blank">点击查看</a>';
+						$message=$resume_basic['fullname'].'ご配布された職位を申し込みました：<a href="'.$jobs_url.'" target="_blank">'.$jobs['jobs_name'].'</a>,<a href="'.$resume_url.'" target="_blank">閲覧</a>';
 						write_pmsnotice($jobs['uid'],$user['username'],$message);
 					}
 					write_memberslog($_SESSION['uid'],2,1301,$_SESSION['username'],"投递了简历，职位:{$jobs['jobs_name']}");

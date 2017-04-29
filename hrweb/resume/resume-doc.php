@@ -17,7 +17,7 @@ if(($_SESSION['utype']=='2' && $_SESSION['uid']==$uid) || $_SESSION['utype']=='1
 }else{
 	$flag=false;
 }
-if(!$flag) {showmsg('您没有权限！只有个人用户和企业用户可以转换简历',1);exit();}
+if(!$flag) {showmsg('権限がない！個人ユーザと企業ユーザだけ履歴書変換が使える',1);exit();}
 $wheresql=" WHERE  id='{$id}'  AND uid='{$uid}' ";
 $sql = "select * from ".table('resume').$wheresql." LIMIT  1";
 $val=$db->getone($sql);
@@ -236,7 +236,7 @@ if($val['work_list'])
 }
 else
 {
- $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size: 12px;padding-top: 20px;"><tr>没有填写工作经历</tr></table>';
+ $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size: 12px;padding-top: 20px;"><tr>仕事履歴を入力してください</tr></table>';
 }
 // 培训经历
 $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0">
@@ -325,7 +325,7 @@ echo $htm;
 }
 else
 {
- showmsg('简历不存在！',1);
+ showmsg('履歴書存在しません！',1);
  exit();
 }
 function get_this_education($uid,$pid)

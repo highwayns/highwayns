@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Pre-transform that changes proprietary background attribute to CSS.

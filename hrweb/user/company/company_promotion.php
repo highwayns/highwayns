@@ -11,7 +11,7 @@ if ($act=='tpl')
 		$link[0]['href'] = 'company_info.php?act=company_profile';
 		showmsg("请先填写您的企业资料！",1,$link);
 		}
-	$smarty->assign('title','选择模版 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','テンプレート選択 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('comtpl',get_comtpl());
 	if ($company_profile['tpl']=="")
 	{

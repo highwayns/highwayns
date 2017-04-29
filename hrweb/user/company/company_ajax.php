@@ -5,10 +5,10 @@ if($act=="company_profile_save_succeed"){
 	$tpl='../../templates/'.$_CFG['template_dir']."member_company/ajax_companyprofile_save_succeed_box.htm";
 	$contents=file_get_contents($tpl);
 	if($company_profile['map_open'] == '1'){
-		$save_msg = '您接下来就可以发布职位啦！ <br />';
-		$opt_button = '<div class="but130cheng " onclick="javascript:location.href=\'company_jobs.php?act=addjobs\'">发布职位</div>';
+		$save_msg = '職位配布できました！ <br />';
+		$opt_button = '<div class="but130cheng " onclick="javascript:location.href=\'company_jobs.php?act=addjobs\'">職位配布</div>';
 	}else{ 
-		$save_msg = '为了让求职者更直观的了解公司所在位置，合理计划 <br />面试出行路线，98%的企业已开通了电子地图。';
+		$save_msg = '会社の住所がわかりやすくため， 面接ルートを<br />設定しましょう，98%の会社は電子地図を利用しています。';
 		$opt_button = '<div class="but130cheng" onclick="javascript:location.href=\'company_info.php?act=company_map_open\'">立即开通</div>
 		<div class="but130hui but_right" onclick="javascript:location.href=\'company_jobs.php?act=addjobs\'">发布职位</div>';
 	}
@@ -23,7 +23,7 @@ elseif($act=="user_email"){
 	$contents=str_replace('{#$email#}',$user["email"],$contents);
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_email_key#}',$_SESSION['send_email_key'],$contents);
-	$contents=str_replace('{#$notice#}','接收职位申请邮件',$contents);
+	$contents=str_replace('{#$notice#}','職位申し込めメール受信',$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 	exit($contents);
 }	
@@ -34,7 +34,7 @@ elseif($act=="user_mobile"){
 	$contents=str_replace('{#$mobile#}',$user["mobile"],$contents);
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
-	$contents=str_replace('{#$notice#}','接收职位申请通知',$contents);
+	$contents=str_replace('{#$notice#}','職位申し込み受信',$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 	exit($contents);
 }
@@ -54,7 +54,7 @@ elseif($act=="edit_mobile"){
 	$contents=file_get_contents($tpl);
 	$_SESSION['send_mobile_key']=mt_rand(100000, 999999);
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
-	$contents=str_replace('{#$notice#}','接收职位申请通知',$contents);
+	$contents=str_replace('{#$notice#}','職位申し込み受信',$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 	exit($contents);
 }
@@ -262,7 +262,7 @@ elseif($act=="promotion_add_save"){
 					write_memberslog($uid,1,9002,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天，套餐内剩余{$pro_cat['cat_name']}条数：{$setmeal[$user_pname]}条。",2,1018,"{$pro_cat['cat_name']}","-{$days}","{$setmeal[$user_pname]}");//9002是套餐操作
 				}
 				write_memberslog($uid,1,3004,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天。");
-				exit('推广成功！');
+				exit('お勧め成功！');
 			}
 	}
 	else
@@ -282,14 +282,14 @@ elseif($act=='order_detail')
 	$contents=str_replace('{#$order_addtime#}',date('Y-m-d',$order['addtime']),$contents);
 	if($order['is_paid']=='1')
 	{
-		$contents=str_replace('{#$order_is_paid#}','未完成',$contents);
-		$button = '<a href="?act=payment&order_id={#$order_id#}"><input type="button" value="支付" class="btn-65-30blue btn-big-font" /></a>';
+		$contents=str_replace('{#$order_is_paid#}','未完了',$contents);
+		$button = '<a href="?act=payment&order_id={#$order_id#}"><input type="button" value="支払" class="btn-65-30blue btn-big-font" /></a>';
 		$contents=str_replace('{#$button#}',$button,$contents);
 	}
 	else
 	{
-		$contents=str_replace('{#$order_is_paid#}','已支付',$contents);
-		$button = '<input type="button" value="已支付" class="btn-65-30blue btn-big-font" />';
+		$contents=str_replace('{#$order_is_paid#}','支払い済み',$contents);
+		$button = '<input type="button" value="支払ました" class="btn-65-30blue btn-big-font" />';
 		$contents=str_replace('{#$button#}',$button,$contents);
 	}
 	$contents=str_replace('{#$order_des#}',$order['description'],$contents);
@@ -299,7 +299,7 @@ elseif($act=='order_detail')
 	}
 	else
 	{
-		$contents=str_replace('{#$order_amount#}','兑换'.$order['amount'].'积分',$contents);
+		$contents=str_replace('{#$order_amount#}','チャージ'.$order['amount'].'ポイント',$contents);
 	}
 	$contents=str_replace('{#$order_payname#}',get_payment_info($order['payment_name'],ture),$contents);
 	if($order['notes'])
@@ -335,11 +335,11 @@ elseif($act == "sendtoemail")
 	$show_contact = false;
 	if($_CFG['showapplycontact']=='1' || $_CFG['showresumecontact']=='0')
 	{
-		$show_contact = '<p>手机号码：'.$resume_basic["telephone"].' 电子邮箱：'.$resume_basic["email"].'</p>';
+		$show_contact = '<p>携帯番号：'.$resume_basic["telephone"].' 電子メール：'.$resume_basic["email"].'</p>';
 	}
 	else
 	{
-		$show_contact = '<p>联系方式：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
+		$show_contact = '<p>ご連絡：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>クリック</a></p>';
 	}	
 	$htm='<div style="width: 900px;margin: 0 auto;font-size: 14px;">
 		<div style="margin-bottom:10px">

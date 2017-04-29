@@ -8,7 +8,7 @@ require_once(HIGHWAY_ROOT_PATH . 'include/74cms_version.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '1';
 if(file_exists(HIGHWAY_ROOT_PATH.'data/install.lock')&&$act!='5')
 {
-exit('您已经安装过本系统，如果想重新安装，请删除data目录下install.lock文件');
+exit('システムすでにインストールしました，再インストールには，dataフォルダーにのinstall.lockファイルを削除してください。');
 }
 if($act =="1")
 {
@@ -49,19 +49,19 @@ if($act =="4")
     $admin_email = isset($_POST['admin_email']) ? trim($_POST['admin_email']) : '';
 	if($dbhost == '' || $dbname == ''|| $dbuser == ''|| $admin_name == ''|| $admin_pwd == '' || $admin_pwd1 == '' || $admin_email == '')
 	{
-		install_showmsg('您填写的信息不完整，请核对');
+		install_showmsg('未入力情報があります、チェックしてください');
 	}
 	if($admin_pwd != $admin_pwd1)
 	{
-		install_showmsg('您两次输入的密码不一致');
+		install_showmsg('パスワードが一致しません');
 	}
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$admin_email))
 	{
-		install_showmsg('电子邮箱格式错误！');
+		install_showmsg('メールアドレスエラー！');
 	}
 	if(!$db = @mysql_connect($dbhost, $dbuser, $dbpass))
 	{
-		install_showmsg('连接数据库错误，请核对信息是否正确');
+		install_showmsg('DB接続エアー，接続情報を確認してください');
 	}
 	if (mysql_get_server_info()<5.0) exit("安装失败，请使用mysql5以上版本");
 	if (mysql_get_server_info() > '4.1')
@@ -75,13 +75,13 @@ if($act =="4")
 	mysql_query("CREATE DATABASE IF NOT EXISTS `{$dbname}`;",$db);
 	if(!mysql_select_db($dbname))
 	{
-		install_showmsg('选择数据库错误，请检查是否拥有权限或存在此数据库');
+		install_showmsg('DB選択エラー、DBの存在と権限をチェックしてください');
 	}
 	mysql_query("SET NAMES '".HIGHWAY_DBCHARSET."',character_set_client=binary,sql_mode='';",$db);
 	ob_end_clean();
 	$html ="";
 	$html.= "<script type=\"text/javascript\">\n";
-	$html.= "$('#installing').append('<p>数据库创建成功！...</p>');\n";
+	$html.= "$('#installing').append('<p>データベース作成成功！...</p>');\n";
 	$html.= "var div = document.getElementById('installing');";
 	$html.= "div.scrollTop = div.scrollHeight;";
 	$html.= "</script>";
@@ -106,11 +106,11 @@ if($act =="4")
 	$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/config.php', 'wb+');
 	if (!$fp)
 	{
-		install_showmsg('打开配置文件失败');
+		install_showmsg('設置ファイル開く失敗');
 	}
 	if (!@fwrite($fp, trim($content)))
 	{
-		install_showmsg('写入配置文件失败');
+		install_showmsg('設定ファイル書き込む失敗');
 	}
 	@fclose($fp);
 	$site_domain = "http://".$_SERVER['HTTP_HOST'];
@@ -130,7 +130,7 @@ if($act =="4")
 	$install_smarty->display('step4.htm');
   	if(!$fp = @fopen(dirname(__FILE__).'/sql-structure.sql','rb'))
 	{
-		install_showmsg('打开文件sql-structure.sql出错，请检查文件是否存在');
+		install_showmsg('ファイルsql-structure.sql開くエラー，ファイル存在チェックしてください');
 	}
 	$query = '';
 	while(!feof($fp))
@@ -172,7 +172,7 @@ if($act =="4")
 	$query = '';
 	if(!$fp = @fopen(dirname(__FILE__).'/sql-data.sql','rb'))
 	{
-		install_showmsg('打开文件sql-data.sql出错，请检查文件是否存在');
+		install_showmsg('ファイルsql-data.sql開くエラー，ファイル存在チェックしてください');
 	}
 	while(!feof($fp))
 	{
@@ -192,7 +192,7 @@ if($act =="4")
 	@fclose($fp);	
 	$html ="";
 	$html.= "<script type=\"text/javascript\">\n";
-	$html.= "$('#installing').append('<p>基础数据添加成功！...</p>');\n";
+	$html.= "$('#installing').append('<p>基本データ追加成功！...</p>');\n";
 	$html.= "var div = document.getElementById('installing');";
 	$html.= "div.scrollTop = div.scrollHeight;";
 	$html.= "</script>";
@@ -202,7 +202,7 @@ if($act =="4")
 	$query = '';
 	if(!$fp = @fopen(dirname(__FILE__).'/sql-hrtools.sql','rb'))
 	{
-		install_showmsg('打开文件sql-hrtools.sql出错，请检查文件是否存在');
+		install_showmsg('ファイルsql-hrtools.sql開くエラー，ファイルをチェックしてください');
 	}
 	while(!feof($fp))
 	{
@@ -222,7 +222,7 @@ if($act =="4")
 	@fclose($fp);
 	$html ="";
 	$html.= "<script type=\"text/javascript\">\n";
-	$html.= "$('#installing').append('<p>hr工具箱数据添加成功！...</p>');\n";
+	$html.= "$('#installing').append('<p>hrツールデータ追加成功！...</p>');\n";
 	$html.= "var div = document.getElementById('installing');";
 	$html.= "div.scrollTop = div.scrollHeight;";
 	$html.= "</script>";
@@ -232,7 +232,7 @@ if($act =="4")
 	$query = '';
 	if(!$fp = @fopen(dirname(__FILE__).'/sql-hotword.sql','rb'))
 	{
-		install_showmsg('打开文件sql-hotword.sql出错，请检查文件是否存在');
+		install_showmsg('ファイルsql-hotword.sql開くエラー，ファイルをチェックしてください');
 	}
 	while(!feof($fp))
 	{
@@ -252,7 +252,7 @@ if($act =="4")
 	@fclose($fp);
 	$html ="";
 	$html.= "<script type=\"text/javascript\">\n";
-	$html.= "$('#installing').append('<p>热门关键词数据添加成功！...</p>');\n";
+	$html.= "$('#installing').append('<p>ホットワード追加成功！...</p>');\n";
 	$html.= "var div = document.getElementById('installing');";
 	$html.= "div.scrollTop = div.scrollHeight;";
 	$html.= "</script>";
@@ -263,7 +263,7 @@ if($act =="4")
 	mysql_query("UPDATE `{$pre}config` SET value = '{$site_domain}' WHERE name = 'site_domain'", $db);
 	$pwd_hash=randstr();
 	$admin_md5pwd=md5($admin_pwd.$pwd_hash.$HW_pwdhash);
-	mysql_query("INSERT INTO `{$pre}admin` (admin_id,admin_name, email, pwd,pwd_hash, purview, rank,add_time, last_login_time, last_login_ip) VALUES (1, '$admin_name', '$admin_email', '$admin_md5pwd', '$pwd_hash', 'all','超级管理员', '$timestamp', '$timestamp', '')",$db);
+	mysql_query("INSERT INTO `{$pre}admin` (admin_id,admin_name, email, pwd,pwd_hash, purview, rank,add_time, last_login_time, last_login_ip) VALUES (1, '$admin_name', '$admin_email', '$admin_md5pwd', '$pwd_hash', 'all','管理者', '$timestamp', '$timestamp', '')",$db);
 	//生成静态缓存
 	require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
@@ -293,7 +293,7 @@ if($act =="4")
 	makejs_classify();
 	$html ="";
 	$html.= "<script type=\"text/javascript\">\n";
-	$html.= "$('#installing').append('<p>缓存数据添加成功！...</p><p>安装完成！</p>');\n";
+	$html.= "$('#installing').append('<p>Ｃａｃｈｅデータ追加成功！...</p><p>インストール完了！</p>');\n";
 	$html.= "var div = document.getElementById('installing');";
 	$html.= "div.scrollTop = div.scrollHeight;";
 	$html.= "</script>";

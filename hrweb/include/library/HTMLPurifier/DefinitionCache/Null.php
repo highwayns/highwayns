@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Null cache object to use when no caching is on.

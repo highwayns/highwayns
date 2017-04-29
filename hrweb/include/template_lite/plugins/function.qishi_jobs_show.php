@@ -68,7 +68,7 @@ function tpl_function_highway_jobs_show($params, &$smarty)
 		{
 		$val['deadline']=$val['setmeal_deadline'];
 		}
-		$val['amount']=$val['amount']=="0"?'若干':$val['amount'];
+		$val['amount']=$val['amount']=="0"?'多少':$val['amount'];
 		$val['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$val['id']));
 		$profile=GetJobsCompanyProfile($val['company_id']);
 		$val['company']=$profile;

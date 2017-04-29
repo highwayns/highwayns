@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Pre-transform that changes deprecated name attribute to ID if necessary

@@ -29,7 +29,7 @@ elseif($act == 'login' && !empty($code))
 	$token=$token['access_token'];
 	if (empty($token))
 	{
-	exit('登录失败！token获取失败');
+	exit('登録失敗！token取得失敗');
 	}
 	else
 	{
@@ -50,7 +50,7 @@ elseif($act == 'login' && !empty($code))
 					if (!empty($_SESSION['uid']) && !empty($_SESSION['utype']))
 					{
 					$db->query("UPDATE ".table('members')." SET sina_access_token = '{$token}'  WHERE uid='{$_SESSION[uid]}' AND sina_access_token='' LIMIT 1");
-					exit('绑定帐号成功！');
+					exit('アカウント設定成功！');
 					}
 					else
 					{
@@ -70,7 +70,7 @@ elseif ($act=='reg')
 	else
 	{
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$smarty->assign('title','完善信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','情報補完 - '.$_CFG['site_name']);
 		$smarty->assign('sinaurl',"?act=");
 		$smarty->display('user/connect-sina.htm');
 	}
@@ -109,7 +109,7 @@ elseif ($act=='reg_save')
 	{
 		unset($_SESSION["sina_access_token"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		exit('注册失败！');
+		exit('登録失敗！');
 	}
 	
 }

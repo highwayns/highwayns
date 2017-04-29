@@ -4,7 +4,7 @@ require_once(dirname(__FILE__) . '/personal_common.php');
 $smarty->assign('leftmenu',"index");
 if ($act=='report')
 {
-	$smarty->assign('title','举报信息 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','情報報告 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('url',$_SERVER['HTTP_REFERER']);
 	$smarty->display('member_personal/personal_report.htm');
 }
@@ -17,9 +17,9 @@ elseif ($act=='report_save')
 	{
 	showmsg("您已经举报过此职位！",1,$link);
 	}
-	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):showmsg('请输入相关描述！',1);
-	$setsqlarr['jobs_id']=$_POST['jobs_id']?intval($_POST['jobs_id']):showmsg('没有职位ID',1);
-	$setsqlarr['jobs_name']=trim($_POST['jobs_name'])?trim($_POST['jobs_name']):showmsg('没有职位名称',1);
+	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):showmsg('説明を入力してください！',1);
+	$setsqlarr['jobs_id']=$_POST['jobs_id']?intval($_POST['jobs_id']):showmsg('職位IDなし',1);
+	$setsqlarr['jobs_name']=trim($_POST['jobs_name'])?trim($_POST['jobs_name']):showmsg('職位名称を入力してください',1);
 	$setsqlarr['jobs_addtime']=intval($_POST['jobs_addtime']);
 	$setsqlarr['uid']=$_SESSION['uid'];
 	$setsqlarr['addtime']=time();

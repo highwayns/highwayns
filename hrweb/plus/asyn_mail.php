@@ -53,11 +53,11 @@ elseif($act == 'jobs_apply')
 	$show_contact = false;
 	if($_CFG['showapplycontact']=='1' || $_CFG['showresumecontact']=='0')
 	{
-		$show_contact = '<p>手机号码：'.$resume_basic["telephone"].' 电子邮箱：'.$resume_basic["email"].'</p>';
+		$show_contact = '<p>携帯番号：'.$resume_basic["telephone"].' 電子メール：'.$resume_basic["email"].'</p>';
 	}
 	else
 	{
-		$show_contact = '<p>联系方式：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
+		$show_contact = '<p>ご連絡：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>クリック</a></p>';
 	}	
 	$htm='<div style="width: 900px;margin: 0 auto;font-size: 14px;">
 		<div style="margin-bottom:10px">

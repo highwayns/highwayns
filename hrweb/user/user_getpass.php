@@ -11,7 +11,7 @@ $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'enter';
 $smarty->assign('header_nav',"getpass");
 if ($act=='enter')
 {
-	$smarty->assign('title','找回密码 - '.$_CFG['site_name']);
+	$smarty->assign('title','パスワード取得 - '.$_CFG['site_name']);
 	$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
@@ -51,7 +51,7 @@ elseif ($act=='get_pass_step2')
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
 	$smarty->assign('usinfo',$usinfo);
-	$smarty->assign('title','找回密码 - 验证身份-'.$_CFG['site_name']);
+	$smarty->assign('title','找回パスワード - 验证身份-'.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step2.htm');
 }
 // 找回密码 第三步
@@ -69,7 +69,7 @@ elseif($act == 'get_pass_step3')
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
 	$smarty->assign('userinfo',$userinfo);
-	$smarty->assign('title','找回密码 - 设置新密码-'.$_CFG['site_name']);
+	$smarty->assign('title','パスワード送信 - 新パスワード設定-'.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step3.htm');
 }
 elseif($act=="get_pass_step3_email")
@@ -103,7 +103,7 @@ elseif($act=="get_pass_step3_email")
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
 	$smarty->assign('userinfo',$userinfo);
-	$smarty->assign('title','找回密码 - 设置新密码-'.$_CFG['site_name']);
+	$smarty->assign('title','パスワード送信 - 新パスワード設定-'.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step3.htm');
 }
 // 保存 密码
@@ -140,7 +140,7 @@ elseif($act == "get_pass_save")
 // 找回密码 第四步
 elseif($act == "get_pass_sucess")
 {
-	$smarty->assign('title','找回密码 - 找回成功 - '.$_CFG['site_name']);
+	$smarty->assign('title','パスワード忘れた - 送信成功 - '.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step4.htm');
 }
 unset($smarty);

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * KindEditor PHP
  *
@@ -32,29 +32,29 @@ $save_path = realpath($save_path) . '/';
 if (!empty($_FILES['imgFile']['error'])) {
 	switch($_FILES['imgFile']['error']){
 		case '1':
-			$error = '超过php.ini允许的大小。';
+			$error = 'php.iniに設定のサイズを超えました。';
 			break;
 		case '2':
-			$error = '超过表单允许的大小。';
+			$error = 'テーブルフィールド設定サイズ超えました。';
 			break;
 		case '3':
-			$error = '图片只有部分被上传。';
+			$error = '画像部分アップロードしました。';
 			break;
 		case '4':
-			$error = '请选择图片。';
+			$error = '画像を選択してください。';
 			break;
 		case '6':
-			$error = '找不到临时目录。';
+			$error = '一時フォルダー見つかりません。';
 			break;
 		case '7':
-			$error = '写文件到硬盘出错。';
+			$error = 'ファイル書き込むエラー。';
 			break;
 		case '8':
 			$error = 'File upload stopped by extension。';
 			break;
 		case '999':
 		default:
-			$error = '未知错误。';
+			$error = '未知エラー。';
 	}
 	alert($error);
 }

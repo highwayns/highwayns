@@ -18,11 +18,11 @@
 		  if(file_exists($ttf)){
 		   $this->img_ttf=$ttf;
 		  }else{
-		   exit('字体文件：'.$ttf.'不存在！'); 
+		   exit('フォントファイル：'.$ttf.'存在しない！'); 
 		  }
 		   $this->imgyesno();
 		}else{
-	      exit('图片文件:'.$img.'不存在');
+	      exit('图片文件:'.$img.'存在しない');
 	   } 
 	 }
 	 private function imgyesno(){	
@@ -34,7 +34,7 @@
              case 1:$this->img_im = imagecreatefromgif($this->image);break; 
              case 2:$this->img_im = imagecreatefromjpeg($this->image);break; 
              case 3:$this->img_im = imagecreatefrompng($this->image);break; 
-             default:exit('图片格式不支持水印'); 
+             default:exit('画像フォーマットはウォーターマックできない'); 
 		}
 		   $this->img_text();
 	 }
@@ -60,7 +60,7 @@
           case 1:imagegif($this->img_im,$this->image);break; 
           case 2:imagejpeg($this->img_im,$this->image);break; 
           case 3:imagepng($this->img_im,$this->image);break; 
-          default: exit('水印图片失败'); 
+          default: exit('ウォーターマック画像失敗'); 
         } 
 	 }
 	 //显示图片

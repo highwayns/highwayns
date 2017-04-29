@@ -34,11 +34,11 @@ if($act == 'list')
 elseif($act == 'mailqueue_add')
 {
 	get_token();
-	$label[]=array('{sitename}','网站名称');
-	$label[]=array('{sitedomain}','网站域名');
-	$label[]=array('{sitelogo}','网站LOGO');
-	$label[]=array('{address}','联系地址');
-	$label[]=array('{tel}','联系电话');
+	$label[]=array('{sitename}','ウェブ名');
+	$label[]=array('{sitedomain}','ドメイン');
+	$label[]=array('{sitelogo}','ウェブLOGO');
+	$label[]=array('{address}','連絡先');
+	$label[]=array('{tel}','連絡電話');
 	$smarty->assign('label',$label);
 	$smarty->assign('navlabel','add');
 	$smarty->display('mailqueue/admin_mailqueue_add.htm');
@@ -46,14 +46,14 @@ elseif($act == 'mailqueue_add')
 elseif($act == 'mailqueue_add_save')
 {
 	check_token();
-	$setsqlarr['m_mail']=trim($_POST['m_mail'])?trim($_POST['m_mail']):adminmsg('邮件地址必须填写！',1);
+	$setsqlarr['m_mail']=trim($_POST['m_mail'])?trim($_POST['m_mail']):adminmsg('メールアドレスを入力してください！',1);
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$setsqlarr['m_mail'])) 
     {
-	adminmsg('邮箱格式错误！',1);
+	adminmsg('メールフォーマットエラー！',1);
     }
 	$uid=$db->getone('select uid from '.table('members')." where email= '{$setsqlarr['m_mail']}' limit 1 ");
-	$setsqlarr['m_subject']=trim($_POST['m_subject'])?replace_label($_POST['m_subject']):adminmsg('邮件标题必须填写！',1);	
-	$setsqlarr['m_body']=trim($_POST['m_body'])?replace_label($_POST['m_body']):adminmsg('邮件内容必须填写！',1);
+	$setsqlarr['m_subject']=trim($_POST['m_subject'])?replace_label($_POST['m_subject']):adminmsg('タイトルを入力してください！',1);	
+	$setsqlarr['m_body']=trim($_POST['m_body'])?replace_label($_POST['m_body']):adminmsg('メール内容が必須！',1);
 	$setsqlarr['m_addtime']=time();
 	$setsqlarr['m_uid']=$uid['uid'];
 	$link[0]['text'] = "继续添加";
@@ -66,11 +66,11 @@ elseif($act == 'mailqueue_add_save')
 elseif($act == 'mailqueue_edit')
 {
 	get_token();
-	$label[]=array('{sitename}','网站名称');
-	$label[]=array('{sitedomain}','网站域名');
-	$label[]=array('{sitelogo}','网站LOGO');
-	$label[]=array('{address}','联系地址');
-	$label[]=array('{tel}','联系电话');
+	$label[]=array('{sitename}','ウェブ名');
+	$label[]=array('{sitedomain}','ドメイン');
+	$label[]=array('{sitelogo}','ウェブLOGO');
+	$label[]=array('{address}','連絡先');
+	$label[]=array('{tel}','連絡電話');
 	$smarty->assign('label',$label);
 	$smarty->assign('show',get_mailqueue_one($_GET['id']));
 	$smarty->display('mailqueue/admin_mailqueue_edit.htm');
@@ -78,13 +78,13 @@ elseif($act == 'mailqueue_edit')
 elseif($act == 'mailqueue_edit_save')
 {
 	check_token();
-	$setsqlarr['m_mail']=trim($_POST['m_mail'])?trim($_POST['m_mail']):adminmsg('邮件地址必须填写！',1);
+	$setsqlarr['m_mail']=trim($_POST['m_mail'])?trim($_POST['m_mail']):adminmsg('メールアドレスを入力してください！',1);
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/", $setsqlarr['m_mail'])) 
     {
-	adminmsg('邮箱格式错误！',1);
+	adminmsg('メールフォーマットエラー！',1);
     }
-	$setsqlarr['m_subject']=trim($_POST['m_subject'])?replace_label($_POST['m_subject']):adminmsg('邮件标题必须填写！',1);
-	$setsqlarr['m_body']=trim($_POST['m_body'])?replace_label($_POST['m_body']):adminmsg('邮件内容必须填写！',1);
+	$setsqlarr['m_subject']=trim($_POST['m_subject'])?replace_label($_POST['m_subject']):adminmsg('タイトルを入力してください！',1);
+	$setsqlarr['m_body']=trim($_POST['m_body'])?replace_label($_POST['m_body']):adminmsg('メール内容が必須！',1);
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = '?';
 	$wheresql=" m_id='".intval($_POST['id'])."' ";
@@ -93,13 +93,13 @@ elseif($act == 'mailqueue_edit_save')
 elseif($act == 'mailqueue_batchadd')
 {
 	get_token();
-	$label[]=array('{sitename}','网站名称');
-	$label[]=array('{sitedomain}','网站域名');
-	$label[]=array('{username}','会员用户名');
-	$label[]=array('{lastlogintime}','最后登录时间');
-	$label2[]=array('{sitelogo}','网站LOGO');
-	$label2[]=array('{address}','联系地址');
-	$label2[]=array('{tel}','联系电话');
+	$label[]=array('{sitename}','ウェブ名');
+	$label[]=array('{sitedomain}','ドメイン');
+	$label[]=array('{username}','会員ユーザ名');
+	$label[]=array('{lastlogintime}','最後登録時間');
+	$label2[]=array('{sitelogo}','ウェブLOGO');
+	$label2[]=array('{address}','連絡先');
+	$label2[]=array('{tel}','連絡電話');
 	$smarty->assign('label',$label);
 	$smarty->assign('label2',array_merge($label,$label2));
 	$smarty->assign('navlabel','batchadd');
@@ -120,8 +120,8 @@ elseif($act == 'mailqueue_batchadd_save')
 		$data=strtotime("-{$selsettr} day");
 		$wheresql.=" last_login_time<".$data;
 	}
-	$m_subject=!empty($_POST['m_subject'])?trim($_POST['m_subject']):adminmsg('邮件标题必须填写！',1);	
-	$m_body=!empty($_POST['m_body'])?trim($_POST['m_body']):adminmsg('邮件内容必须填写！',1);
+	$m_subject=!empty($_POST['m_subject'])?trim($_POST['m_subject']):adminmsg('タイトルを入力してください！',1);	
+	$m_body=!empty($_POST['m_body'])?trim($_POST['m_body']):adminmsg('メール内容が必須！',1);
 	$result = $db->query("SELECT * FROM ".table('members').$wheresql);
 	$n=0;
 	while($user = $db->fetch_array($result))
@@ -230,7 +230,7 @@ elseif($act == 'send')
 				{
 				$link[0]['text'] = "返回邮件列队";
 				$link[0]['href'] = '?act=list';
-				adminmsg('邮件发送发生错误！'.$senderr,0,$link);
+				adminmsg('メール送信エラー！'.$senderr,0,$link);
 				}
 				else
 				{

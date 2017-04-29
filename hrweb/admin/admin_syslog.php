@@ -56,18 +56,18 @@ elseif($act == 'pidel_syslog_del')
 {
 	check_token();
 	$l_type=$_POST['l_type'];
-	if(empty($l_type))	adminmsg('请选择错误类型！',1);
+	if(empty($l_type))	adminmsg('エラータイプを選択してください！',1);
 	$starttime=intval(convert_datefm($_POST['starttime'],2));
 	if (empty($starttime))
 	{
-	adminmsg('请填写开始时间！',1);
+	adminmsg('開始時間を入力してください！',1);
 	}	
 	$endtime=intval(convert_datefm($_POST['endtime'],2));
 	if (empty($endtime))
 	{
-	adminmsg('请填写结束时间！',1);
+	adminmsg('終了時間を入力してください！',1);
 	}	
-	if($starttime >$endtime) adminmsg('开始时间不能大于结束时间！',1);
+	if($starttime >$endtime) adminmsg('開始時間が終了時間より大きい！',1);
 	$link[0]['text'] = "返回日志列表";
 	$link[0]['href'] = '?act=list';
 	$link[1]['text'] = "继续删除";

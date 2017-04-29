@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Converts a stream of HTMLPurifier_Token into an HTMLPurifier_Node,

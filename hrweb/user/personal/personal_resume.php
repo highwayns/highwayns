@@ -8,7 +8,7 @@ if ($act=='resume_list')
 {
 	$wheresql=" WHERE uid='".$_SESSION['uid']."' ";
 	$sql="SELECT * FROM ".table('resume').$wheresql;
-	$smarty->assign('title','我的简历 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','マイ履歴書 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$total=$db->get_total("SELECT COUNT(*) AS num FROM ".table('resume')." WHERE uid='{$_SESSION['uid']}'");
 	$smarty->assign('total',$total);
@@ -31,7 +31,7 @@ elseif ($act=='refresh')
 		}
 		else 
 		{
-		refresh_resume($resumeid,$_SESSION['uid'])?showmsg('操作成功！',2):showmsg('操作失败！',0);
+		refresh_resume($resumeid,$_SESSION['uid'])?showmsg('操作成功！',2):showmsg('操作失敗！',0);
 		}
 }
 //删除简历
@@ -39,7 +39,7 @@ elseif ($act=='del_resume')
 {
 	if (intval($_GET['id'])==0)
 	{
-	exit('您没有选择简历！');
+	exit('履歴書を選択してください！');
 	}
 	else
 	{
@@ -74,7 +74,7 @@ elseif ($act=='make1')
 	$smarty->assign('pid',$pid);
 	$smarty->assign('user',$user);
 	$smarty->assign('userprofile',get_userprofile($_SESSION['uid']));
-	$smarty->assign('title','我的简历 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','マイ履歴書 - 個人会員センター - '.$_CFG['site_name']);
 	$captcha=get_cache('captcha');
 	$smarty->assign('verify_resume',$captcha['verify_resume']);
 	$smarty->assign('go_resume_show',$_GET['go_resume_show']);
@@ -94,7 +94,7 @@ elseif ($act=='make1_save')
 		showmsg("系统验证码错误",1);
 	}
 	$setsqlarr['uid']=intval($_SESSION['uid']);
-	$setsqlarr['telephone']=trim($_POST['mobile'])?trim($_POST['mobile']):showmsg('请填写手机号！',1);
+	$setsqlarr['telephone']=trim($_POST['mobile'])?trim($_POST['mobile']):showmsg('携帯番号を入力してください！',1);
 	if($user['mobile_audit']!="1")
 	{
 		$members['mobile']=$telephone;
@@ -107,20 +107,20 @@ elseif ($act=='make1_save')
 	}
 	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):"未命名简历";
 	check_word($_CFG['filter'],$_POST['title'])?showmsg($_CFG['filter_tips'],0):'';
-	$setsqlarr['fullname']=trim($_POST['fullname'])?trim($_POST['fullname']):showmsg('请填写姓名！',1);
+	$setsqlarr['fullname']=trim($_POST['fullname'])?trim($_POST['fullname']):showmsg('名前を入力してください！',1);
 	check_word($_CFG['filter'],$_POST['fullname'])?showmsg($_CFG['filter_tips'],0):'';
 	$setsqlarr['display_name']=intval($_POST['display_name']);
-	$setsqlarr['sex']=trim($_POST['sex'])?intval($_POST['sex']):showmsg('请选择性别！',1);
+	$setsqlarr['sex']=trim($_POST['sex'])?intval($_POST['sex']):showmsg('性別を選択してください！',1);
 	$setsqlarr['sex_cn']=trim($_POST['sex_cn']);
-	$setsqlarr['birthdate']=intval($_POST['birthdate'])>1945?intval($_POST['birthdate']):showmsg('请正确填写出生年份',1);
-	$setsqlarr['residence']=trim($_POST['residence'])?trim($_POST['residence']):showmsg('请填写现居住地！',1);
-	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):showmsg('请选择学历',1);
+	$setsqlarr['birthdate']=intval($_POST['birthdate'])>1945?intval($_POST['birthdate']):showmsg('正い年を入力してください',1);
+	$setsqlarr['residence']=trim($_POST['residence'])?trim($_POST['residence']):showmsg('現在住所を入力してください！',1);
+	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):showmsg('学歴を選択してください',1);
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
-	$setsqlarr['major']=intval($_POST['major'])?intval($_POST['major']):showmsg('请选择专业',1);
+	$setsqlarr['major']=intval($_POST['major'])?intval($_POST['major']):showmsg('専門を入力してください',1);
 	$setsqlarr['major_cn']=trim($_POST['major_cn']);
-	$setsqlarr['experience']=$_POST['experience']?$_POST['experience']:showmsg('请选择工作经验',1);
+	$setsqlarr['experience']=$_POST['experience']?$_POST['experience']:showmsg('仕事経験を入力してください',1);
 	$setsqlarr['experience_cn']=trim($_POST['experience_cn']);
-	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):showmsg('请填写邮箱！',1);
+	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):showmsg('メールを入力してください！',1);
 	if($user['email_audit']!="1")
 	{
 		$members['email']=$setsqlarr['email'];
@@ -137,16 +137,16 @@ elseif ($act=='make1_save')
 	$setsqlarr['householdaddress']=trim($_POST['householdaddress']);
 	$setsqlarr['marriage']=intval($_POST['marriage']);
 	$setsqlarr['marriage_cn']=trim($_POST['marriage_cn']);;
-	$setsqlarr['intention_jobs']=trim($_POST['intention_jobs'])?trim($_POST['intention_jobs']):showmsg('请选择意向职位！',1);
-	$setsqlarr['trade']=$_POST['trade']?trim($_POST['trade']):showmsg('请选择期望行业！',1);
+	$setsqlarr['intention_jobs']=trim($_POST['intention_jobs'])?trim($_POST['intention_jobs']):showmsg('希望職位を選択してください！',1);
+	$setsqlarr['trade']=$_POST['trade']?trim($_POST['trade']):showmsg('希望業界を選択してください！',1);
 	$setsqlarr['trade_cn']=trim($_POST['trade_cn']);
-	$setsqlarr['district_cn']=$_POST['district_cn']?trim($_POST['district_cn']):showmsg('请选择期望工作地区！',1);
-	$setsqlarr['nature']=intval($_POST['nature'])?intval($_POST['nature']):showmsg('请选择期望岗位性质！',1);
+	$setsqlarr['district_cn']=$_POST['district_cn']?trim($_POST['district_cn']):showmsg('希望仕事地区を選択してください！',1);
+	$setsqlarr['nature']=intval($_POST['nature'])?intval($_POST['nature']):showmsg('希望職位の性質を選択してください！',1);
 	$setsqlarr['nature_cn']=trim($_POST['nature_cn']);
 	//目前状态
-	$setsqlarr['current']=intval($_POST['current'])?intval($_POST['current']):showmsg('请选择目前状态！',1);
+	$setsqlarr['current']=intval($_POST['current'])?intval($_POST['current']):showmsg('現状を選択してください！',1);
 	$setsqlarr['current_cn']=trim($_POST['current_cn']);
-	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):showmsg('请选择期望薪资！',1);
+	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):showmsg('希望給料を選択してください！',1);
 	$setsqlarr['wage_cn']=trim($_POST['wage_cn']);
 	$setsqlarr['refreshtime']=$timestamp;
 	$setsqlarr['audit']=intval($_CFG['audit_resume']);
@@ -165,9 +165,9 @@ elseif ($act=='make1_save')
 	$db->inserttable(table('resume_search_key'),$searchtab);
 	$db->inserttable(table('resume_search_rtime'),$searchtab);
 	if (empty($pid))showmsg("保存失败！",0);
-	add_resume_jobs($pid,$_SESSION['uid'],$_POST['intention_jobs_id'])?"":showmsg('保存失败！',0);
-	add_resume_district($pid,$_SESSION['uid'],$_POST['district'])?"":showmsg('保存失败！',0);
-	add_resume_trade($pid,$_SESSION['uid'],$_POST['trade'])?"":showmsg('保存失败！',0);
+	add_resume_jobs($pid,$_SESSION['uid'],$_POST['intention_jobs_id'])?"":showmsg('保存失敗！',0);
+	add_resume_district($pid,$_SESSION['uid'],$_POST['district'])?"":showmsg('保存失敗！',0);
+	add_resume_trade($pid,$_SESSION['uid'],$_POST['trade'])?"":showmsg('保存失敗！',0);
 	check_resume($_SESSION['uid'],$pid);
 	write_memberslog($_SESSION['uid'],2,1101,$_SESSION['username'],"创建了简历");
 	
@@ -197,7 +197,7 @@ elseif($act=='make1_succeed'){
 	$pid = intval($_GET['pid']);
 	$smarty->assign('pid',$pid);
 	$smarty->assign('resume_basic',get_resume_basic($_SESSION['uid'],$pid));
-	$smarty->assign('title','我的简历 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','マイ履歴書 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->display('member_personal/personal_make_resume_step1_succeed.htm');
 }
 elseif($act=='ajax_get_interest_jobs'){
@@ -224,7 +224,7 @@ elseif($act=='ajax_get_interest_jobs'){
 }
 elseif($act == 'ajax_save_basic_info')
 {
-	$telephone=trim($_POST['mobile'])?trim($_POST['mobile']):exit('请填写手机号！');
+	$telephone=trim($_POST['mobile'])?trim($_POST['mobile']):exit('携帯番号を入力してください！');
 	$resume_basic=get_resume_basic($_SESSION['uid'],$_REQUEST['pid']);
 	$setsqlarr['telephone']=$telephone;
 	if($user['mobile_audit']!="1")
@@ -236,20 +236,20 @@ elseif($act == 'ajax_save_basic_info')
 		unset($members['mobile'],$members_info['phone']);
 	}
 	$setsqlarr['title']=utf8_to_gbk(trim($_POST['title']));
-	$setsqlarr['fullname']=trim($_POST['fullname'])?utf8_to_gbk(trim($_POST['fullname'])):exit('请填写姓名！');
+	$setsqlarr['fullname']=trim($_POST['fullname'])?utf8_to_gbk(trim($_POST['fullname'])):exit('名前を入力してください！');
 	check_word($_CFG['filter'],$setsqlarr['fullname'])?exit($_CFG['filter_tips']):'';
 	$setsqlarr['display_name']=intval($_POST['display_name']);
-	$setsqlarr['sex']=trim($_POST['sex'])?intval($_POST['sex']):exit('请选择性别！');
+	$setsqlarr['sex']=trim($_POST['sex'])?intval($_POST['sex']):exit('性別を選択してください！');
 	$setsqlarr['sex_cn']=utf8_to_gbk(trim($_POST['sex_cn']));
-	$setsqlarr['birthdate']=intval($_POST['birthdate'])>1945?intval($_POST['birthdate']):exit('请正确填写出生年份');
-	$setsqlarr['residence']=trim($_POST['residence'])?utf8_to_gbk(trim($_POST['residence'])):exit('请填写现居住地！');
-	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('请选择学历');
+	$setsqlarr['birthdate']=intval($_POST['birthdate'])>1945?intval($_POST['birthdate']):exit('正い年を入力してください');
+	$setsqlarr['residence']=trim($_POST['residence'])?utf8_to_gbk(trim($_POST['residence'])):exit('現在住所を入力してください！');
+	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('学歴を選択してください');
 	$setsqlarr['education_cn']=utf8_to_gbk(trim($_POST['education_cn']));
-	$setsqlarr['major']=intval($_POST['major'])?intval($_POST['major']):exit('请选择专业');
+	$setsqlarr['major']=intval($_POST['major'])?intval($_POST['major']):exit('専門を入力してください');
 	$setsqlarr['major_cn']=utf8_to_gbk(trim($_POST['major_cn']));
-	$setsqlarr['experience']=$_POST['experience']?$_POST['experience']:exit('请选择工作经验');
+	$setsqlarr['experience']=$_POST['experience']?$_POST['experience']:exit('仕事経験を入力してください');
 	$setsqlarr['experience_cn']=utf8_to_gbk(trim($_POST['experience_cn']));
-	$setsqlarr['email']=trim($_POST['email'])?utf8_to_gbk(trim($_POST['email'])):exit('请填写邮箱！');
+	$setsqlarr['email']=trim($_POST['email'])?utf8_to_gbk(trim($_POST['email'])):exit('メールを入力してください！');
 	if($user['email_audit']!="1")
 	{
 		$members['email']=$setsqlarr['email'];
@@ -279,7 +279,7 @@ elseif($act == 'ajax_save_basic_info')
 elseif($act == 'ajax_save_titl')
 {
 	$setsqlarr['uid']=intval($_SESSION['uid']);
-	$setsqlarr['title']=utf8_to_gbk(trim($_POST['title']))?utf8_to_gbk(trim($_POST['title'])):exit('请填写简历名称！');
+	$setsqlarr['title']=utf8_to_gbk(trim($_POST['title']))?utf8_to_gbk(trim($_POST['title'])):exit('履歴書名を入力してください！');
 	check_word($_CFG['filter'],$setsqlarr['title'])?exit($_CFG['filter_tips']):''; 
 	$db->updatetable(table('resume'),$setsqlarr," id='".intval($_POST['pid'])."'  AND uid='{$setsqlarr['uid']}'"); 
 	$title = $setsqlarr['title'];
@@ -290,23 +290,23 @@ elseif ($act=='ajax_save_basic')
 {
 	$setsqlarr['uid']=intval($_SESSION['uid']);
 	 
-	$setsqlarr['intention_jobs']=utf8_to_gbk(trim($_POST['intention_jobs']))?utf8_to_gbk(trim($_POST['intention_jobs'])):exit('请选择意向职位！');
-	$setsqlarr['trade']=$_POST['trade']?trim($_POST['trade']):exit('请选择期望行业！');
+	$setsqlarr['intention_jobs']=utf8_to_gbk(trim($_POST['intention_jobs']))?utf8_to_gbk(trim($_POST['intention_jobs'])):exit('希望職位を選択してください！');
+	$setsqlarr['trade']=$_POST['trade']?trim($_POST['trade']):exit('希望業界を選択してください！');
 	$setsqlarr['trade_cn']=utf8_to_gbk(trim($_POST['trade_cn']));
-	$setsqlarr['district_cn']=utf8_to_gbk(trim($_POST['district_cn']))?utf8_to_gbk(trim($_POST['district_cn'])):exit('请选择期望工作地区！');
-	$setsqlarr['nature']=intval($_POST['nature'])?intval($_POST['nature']):exit('请选择期望岗位性质！');
+	$setsqlarr['district_cn']=utf8_to_gbk(trim($_POST['district_cn']))?utf8_to_gbk(trim($_POST['district_cn'])):exit('希望仕事地区を選択してください！');
+	$setsqlarr['nature']=intval($_POST['nature'])?intval($_POST['nature']):exit('希望職位の性質を選択してください！');
 	$setsqlarr['nature_cn']=utf8_to_gbk(trim($_POST['nature_cn']));
 	//目前状态
-	$setsqlarr['current']=intval($_POST['current'])?intval($_POST['current']):exit('请选择目前状态！');
+	$setsqlarr['current']=intval($_POST['current'])?intval($_POST['current']):exit('現状を選択してください！');
 	$setsqlarr['current_cn']=utf8_to_gbk(trim($_POST['current_cn']));
-	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):exit('请选择期望薪资！');
+	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):exit('希望給料を選択してください！');
 	$setsqlarr['wage_cn']=utf8_to_gbk(trim($_POST['wage_cn']));
 	$setsqlarr['refreshtime']=$timestamp;
 	$_CFG['audit_edit_resume']!="-1"?$setsqlarr['audit']=intval($_CFG['audit_edit_resume']):"";
 	$db->updatetable(table('resume'),$setsqlarr," id='".intval($_REQUEST['pid'])."'  AND uid='{$setsqlarr['uid']}'");
-	add_resume_jobs(intval($_REQUEST['pid']),$_SESSION['uid'],$_POST['intention_jobs_id'])?"":showmsg('保存失败！',0);
-	add_resume_district(intval($_REQUEST['pid']),$_SESSION['uid'],$_POST['district'])?"":showmsg('保存失败！',0);
-	add_resume_trade(intval($_REQUEST['pid']),$_SESSION['uid'],$_POST['trade'])?"":showmsg('保存失败！',0);
+	add_resume_jobs(intval($_REQUEST['pid']),$_SESSION['uid'],$_POST['intention_jobs_id'])?"":showmsg('保存失敗！',0);
+	add_resume_district(intval($_REQUEST['pid']),$_SESSION['uid'],$_POST['district'])?"":showmsg('保存失敗！',0);
+	add_resume_trade(intval($_REQUEST['pid']),$_SESSION['uid'],$_POST['trade'])?"":showmsg('保存失敗！',0);
 	check_resume($_SESSION['uid'],intval($_REQUEST['pid']));
 	$title = utf8_to_gbk(trim($_POST['title']));
 	write_memberslog($_SESSION['uid'],2,1105,$_SESSION['username'],"修改了简历({$title})");
@@ -352,11 +352,11 @@ elseif($act=='save_education'){
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_REQUEST['pid']);
 	
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('简历不存在！');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
 	$resume_education=get_resume_education($_SESSION['uid'],$_REQUEST['pid']);
-	if (count($resume_education)>=6) exit('教育经历不能超过6条！');
+	if (count($resume_education)>=6) exit('教育履歴は6件まで！');
 	$school = utf8_to_gbk(trim($_POST['school']));
 	$speciality = utf8_to_gbk(trim($_POST['speciality']));
 	$education_cn = utf8_to_gbk(trim($_POST['education_cn']));
@@ -372,20 +372,20 @@ elseif($act=='save_education'){
 			exit("请选择就读时间！");
 		}
 		if(intval(($_POST['edu_start_year']))>intval(date('Y'))){
-			exit('就读开始时间不允许大于毕业时间');
+			exit('学校開始年月が終了年月より大きい');
 		}
 		if(intval($_POST['edu_start_year']) == intval(date('Y')) && intval(($_POST['edu_start_month']))>=intval(date('m'))){
-			exit('就读开始月份不允许大于毕业时间');
+			exit('学校開始時間が終了時間より大きい');
 		}
 	} else {
 		if(trim($_POST['edu_start_year'])==""||trim($_POST['edu_start_month'])==""||trim($_POST['edu_end_year'])==""||trim($_POST['edu_end_month'])==""){
 			exit("请选择就读时间！");
 		}
 		if(intval(($_POST['edu_start_year']))>intval($_POST['edu_end_year'])){
-			exit('就读开始时间不允许大于毕业时间');
+			exit('学校開始年月が終了年月より大きい');
 		}
 		if(intval($_POST['edu_start_year']) == intval($_POST['edu_end_year']) && intval(($_POST['edu_start_month']))>=intval($_POST['edu_end_month'])){
-			exit('就读开始月份不允许大于毕业时间');
+			exit('学校開始時間が終了時間より大きい');
 		}
 	}
 	$setsqlarr['startyear'] = intval($_POST['edu_start_year']);
@@ -417,7 +417,7 @@ elseif($act=='ajax_get_education_list'){
 			// 判断结束时间是否至今
 			$datehtm = '';
 			if($value["todate"] == 1) {
-				$datehtm = '至今';
+				$datehtm = '今まで';
 			} else {
 				$datehtm = $value["endyear"].'年'.$value["endmonth"].'月';
 			}
@@ -452,10 +452,10 @@ elseif ($act=='edit_education')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	if ($uid==0 || $pid==0) exit('简历不存在！');
+	if ($uid==0 || $pid==0) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
-	$id=intval($_GET['id'])?intval($_GET['id']):exit('参数错误！');
+	$id=intval($_GET['id'])?intval($_GET['id']):exit('パラメータエラー！');
 	$education_edit = get_resume_education_one($_SESSION['uid'],$pid,$id);
 	foreach ($education_edit as $key => $value) {
 		$education_edit[$key] = gbk_to_utf8($value);
@@ -471,22 +471,22 @@ elseif ($act=='del_education')
 	if ($db->query($sql))
 	{
 	check_resume($_SESSION['uid'],intval($_REQUEST['pid']));//更新简历完成状态
-	exit('删除成功！');
+	exit('削除成功！');
 	}
 	else
 	{
-	exit('删除失败！');
+	exit('削除失敗！');
 	}	
 }
 elseif($act=='save_work'){
 	$id=intval($_POST['id']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_REQUEST['pid']);
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('简历不存在！');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
 	$resume_work=get_resume_work($_SESSION['uid'],$_REQUEST['pid']);
-	if (count($resume_work)>=6) exit('工作经历不能超过6条！');
+	if (count($resume_work)>=6) exit('仕事履歴書６件まで！');
 
 	$companyname = utf8_to_gbk(trim($_POST['companyname']));
 	$jobs = utf8_to_gbk(trim($_POST['jobs']));
@@ -501,20 +501,20 @@ elseif($act=='save_work'){
 			exit("请选择任职时间！");
 		}
 		if(intval(($_POST['work_start_year']))>intval(date('Y'))){
-			exit('工作开始时间不允许大于工作结束时间');
+			exit('仕事開始年月が終了年月より大きい');
 		}
 		if(intval($_POST['work_start_year']) == intval(date('Y')) && intval(($_POST['work_start_month']))>=intval(date('m'))){
-				exit('工作开始月份不允许大于工作结束时间');
+				exit('仕事開始年月が終了年月より大きい');
 		}
 	} else {
 		if(trim($_POST['work_start_year'])==""||trim($_POST['work_start_month'])==""||trim($_POST['work_end_year'])==""||trim($_POST['work_end_month'])==""){
 			exit("请选择任职时间！");
 		}
 		if(intval(($_POST['work_start_year']))>intval($_POST['work_end_year'])){
-			exit('工作开始时间不允许大于工作结束时间');
+			exit('仕事開始年月が終了年月より大きい');
 		}
 		if(intval($_POST['work_start_year']) == intval($_POST['work_end_year']) && intval(($_POST['work_start_month']))>=intval($_POST['work_end_month'])){
-				exit('工作开始月份不允许大于工作结束时间');
+				exit('仕事開始年月が終了年月より大きい');
 		}
 	}
 	$setsqlarr['startyear'] = intval($_POST['work_start_year']);
@@ -549,7 +549,7 @@ elseif($act=='ajax_get_work_list'){
 			// 判断结束时间是否至今
 			$datehtm = '';
 			if($value["todate"] == 1) {
-				$datehtm = '至今';
+				$datehtm = '今まで';
 			} else {
 				$datehtm = $value["endyear"].'年'.$value["endmonth"].'月';
 			}
@@ -587,10 +587,10 @@ elseif ($act=='edit_work')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	if ($uid==0 || $pid==0) exit('简历不存在！');
+	if ($uid==0 || $pid==0) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
-	$id=intval($_GET['id'])?intval($_GET['id']):exit('参数错误！');
+	$id=intval($_GET['id'])?intval($_GET['id']):exit('パラメータエラー！');
 	$work_edit = get_resume_work_one($_SESSION['uid'],$pid,$id);
 	foreach ($work_edit as $key => $value) {
 		$work_edit[$key] = gbk_to_utf8($value);
@@ -606,22 +606,22 @@ elseif ($act=='del_work')
 	if ($db->query($sql))
 	{
 	check_resume($_SESSION['uid'],intval($_REQUEST['pid']));//更新简历完成状态
-	exit('删除成功！');
+	exit('削除成功！');
 	}
 	else
 	{
-	exit('删除失败！');
+	exit('削除失敗！');
 	}	
 }
 elseif($act=='save_training'){
 	$id=intval($_POST['id']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_REQUEST['pid']);
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('简历不存在！');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
 	$resume_training=get_resume_training($_SESSION['uid'],$_REQUEST['pid']);
-	if (count($resume_training)>=6) exit('培训经历不能超过6条！');
+	if (count($resume_training)>=6) exit('訓練履歴６件まで！');
 	
 	$agency = utf8_to_gbk(trim($_POST['agency']));
 	$course = utf8_to_gbk(trim($_POST['course']));
@@ -636,20 +636,20 @@ elseif($act=='save_training'){
 			exit("请选择培训时间！");
 		}
 		if(intval(($_POST['training_start_year']))>intval(date('Y'))){
-			exit('培训开始时间不允许大于培训结束时间');
+			exit('訓練開始年月が終了年月より大きい');
 		}
 		if(intval($_POST['training_start_year']) == intval(date('Y')) && intval(($_POST['training_start_month']))>=intval(date('m'))){
-				exit('培训开始月份不允许大于培训结束时间');
+				exit('訓練開始年月が終了年月より大きい。');
 		}
 	} else {
 		if(trim($_POST['training_start_year'])==""||trim($_POST['training_start_month'])==""||trim($_POST['training_end_year'])==""||trim($_POST['training_end_month'])==""){
 			exit("请选择培训时间！");
 		}
 		if(intval(($_POST['training_start_year']))>intval($_POST['training_end_year'])){
-			exit('培训开始时间不允许大于培训结束时间');
+			exit('訓練開始年月が終了年月より大きい');
 		}
 		if(intval($_POST['training_start_year']) == intval($_POST['training_end_year']) && intval(($_POST['training_start_month']))>=intval($_POST['training_end_month'])){
-				exit('培训开始月份不允许大于培训结束时间');
+				exit('訓練開始年月が終了年月より大きい。');
 		}
 	}
 	$setsqlarr['startyear'] = intval($_POST['training_start_year']);
@@ -683,7 +683,7 @@ elseif($act=='ajax_get_training_list'){
 			// 判断结束时间是否至今
 			$datehtm = '';
 			if($value["todate"] == 1) {
-				$datehtm = '至今';
+				$datehtm = '今まで';
 			} else {
 				$datehtm = $value["endyear"].'年'.$value["endmonth"].'月';
 			}
@@ -718,10 +718,10 @@ elseif ($act=='edit_training')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	if ($uid==0 || $pid==0) exit('简历不存在！');
+	if ($uid==0 || $pid==0) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
-	$id=intval($_GET['id'])?intval($_GET['id']):exit('参数错误！');
+	$id=intval($_GET['id'])?intval($_GET['id']):exit('パラメータエラー！');
 	$training_edit = get_resume_training_one($_SESSION['uid'],$pid,$id);
 	foreach ($training_edit as $key => $value) {
 		$training_edit[$key] = gbk_to_utf8($value);
@@ -737,11 +737,11 @@ elseif ($act=='del_training')
 	if ($db->query($sql))
 	{
 	check_resume($_SESSION['uid'],intval($_REQUEST['pid']));//更新简历完成状态
-	exit('删除成功！');
+	exit('削除成功！');
 	}
 	else
 	{
-	exit('删除失败！');
+	exit('削除失敗！');
 	}	
 }
 //语言
@@ -779,11 +779,11 @@ elseif($act=='save_language'){
 	$id=intval($_POST['id']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_REQUEST['pid']);
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('简历不存在！');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
 	$resume_language=get_resume_language($_SESSION['uid'],$_REQUEST['pid']);
-	if (count($resume_language)>=6) exit('语言能力不能超过6条！');
+	if (count($resume_language)>=6) exit('言語能力6件まで！');
  
 	$language_cn = utf8_to_gbk(trim($_POST['language_cn']));
 	$language_level_cn = utf8_to_gbk(trim($_POST['language_level_cn']));
@@ -811,10 +811,10 @@ elseif ($act=='edit_language')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	if ($uid==0 || $pid==0) exit('简历不存在！');
+	if ($uid==0 || $pid==0) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
-	$id=intval($_GET['id'])?intval($_GET['id']):exit('参数错误！');
+	$id=intval($_GET['id'])?intval($_GET['id']):exit('パラメータエラー！');
 	$language_edit = get_resume_language_one($_SESSION['uid'],$pid,$id);
 	foreach ($language_edit as $key => $value) {
 		$language_edit[$key] = gbk_to_utf8($value);
@@ -830,11 +830,11 @@ elseif ($act=='del_language')
 	if ($db->query($sql))
 	{
 	check_resume($_SESSION['uid'],intval($_REQUEST['pid']));//更新简历完成状态
-	exit('删除成功！');
+	exit('削除成功！');
 	}
 	else
 	{
-	exit('删除失败！');
+	exit('削除失敗！');
 	}	
 }
 //证书
@@ -871,11 +871,11 @@ elseif($act=='save_credent'){
 	$id=intval($_POST['id']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_REQUEST['pid']);
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('简历不存在！');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 ) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
 	$resume_language=get_resume_language($_SESSION['uid'],$_REQUEST['pid']);
-	if (count($resume_language)>=6) exit('证书不能超过6条！');
+	if (count($resume_language)>=6) exit('証書は6件まで！');
  
 	$credent = utf8_to_gbk(trim($_POST['credent'])); 
 	check_word($_CFG['filter'],$setsqlarr['credent'])?exit($_CFG['filter_tips']):'';
@@ -900,10 +900,10 @@ elseif ($act=='edit_credent')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	if ($uid==0 || $pid==0) exit('简历不存在！');
+	if ($uid==0 || $pid==0) exit('履歴書存在しません！');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_REQUEST['pid']));
 	if (empty($resume_basic)) exit("请先填写简历基本信息！");
-	$id=intval($_GET['id'])?intval($_GET['id']):exit('参数错误！');
+	$id=intval($_GET['id'])?intval($_GET['id']):exit('パラメータエラー！');
 	$credent_edit = get_resume_credent_one($_SESSION['uid'],$pid,$id);
 	foreach ($credent_edit as $key => $value) {
 		$credent_edit[$key] = gbk_to_utf8($value);
@@ -923,16 +923,16 @@ elseif ($act=='del_credent')
 	if ($db->query($sql))
 	{ 
 	check_resume($_SESSION['uid'],intval($_REQUEST['pid']));//更新简历完成状态
-	exit('删除成功！');
+	exit('削除成功！');
 	}
 	else
 	{
-	exit('删除失败！');
+	exit('削除失敗！');
 	}	
 }//上传证书
 elseif ($act=='credent_photo')
 {	 
-	!$_FILES['credent_photo']['name']?exit('请上传图片！'):"";
+	!$_FILES['credent_photo']['name']?exit('画像をアップロードしてください！'):"";
 	require_once(HIGHWAY_ROOT_PATH.'include/cut_upload.php');  
 	$up_res_original="../../data/credent_photo/"; 
 	$cdate = date("Y/m/d/");
@@ -950,7 +950,7 @@ elseif ($act=='word_upload')
 {	
 	$pid=intval($_GET['pid']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
-	!$_FILES['word_resume']['name']?exit('请上传文件！'):""; 
+	!$_FILES['word_resume']['name']?exit('ファイルをアップロードしてください！'):""; 
 	require_once(HIGHWAY_ROOT_PATH.'include/cut_upload.php');
 	$up_res_original="../../data/word/"; 
 	$cdate = date("Y/m/d/");
@@ -994,7 +994,7 @@ elseif($act == "ajax_resume_img_save")
 		exit("-7");
 	}
 	require_once(HIGHWAY_ROOT_PATH.'include/upload.php');
-	!$_FILES['resume_img']['name']?exit('请上传图片！'):"";
+	!$_FILES['resume_img']['name']?exit('画像をアップロードしてください！'):"";
 	$datedir=date("Y/m/d/");
 	$up_dir="../../data/photo/".$datedir;
 	make_dir($up_dir);
@@ -1121,7 +1121,7 @@ elseif ($act=='edit_resume')
 	$smarty->assign('act',$act);
 	$smarty->assign('pid',$pid);
 	$smarty->assign('user',$user);
-	$smarty->assign('title','我的简历 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','マイ履歴書 - 個人会員センター - '.$_CFG['site_name']);
 	$captcha=get_cache('captcha');
 	$smarty->assign('verify_resume',$captcha['verify_resume']);
 	$smarty->assign('go_resume_show',$_GET['go_resume_show']);
@@ -1154,7 +1154,7 @@ elseif ($act=='talent_save')
 	$wheresql=" uid='{$uid}' AND id='{$pid}' ";
 	$db->updatetable(table('resume'),$setsqlarr,$wheresql);
 	write_memberslog($uid,2,1107,$_SESSION['username'],"申请高级人才");
-	showmsg('申请成功，请等待管理员审核！',2);
+	showmsg('申し込み成功，審査中！',2);
 }
 unset($smarty);
 ?>

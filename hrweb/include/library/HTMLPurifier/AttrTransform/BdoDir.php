@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // this MUST be placed in post, as it assumes that any value in dir is valid
 

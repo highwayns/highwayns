@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * XHTML 1.1 Text Module, defines basic text containers. Core Module.

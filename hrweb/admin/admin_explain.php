@@ -55,8 +55,8 @@ elseif($act == 'editsave')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"explain_edit");
-	$id = !empty($_POST['id']) ? intval($_POST['id']) : adminmsg('参数错误',1);
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('说明页名字不能为空！',1);
+	$id = !empty($_POST['id']) ? intval($_POST['id']) : adminmsg('パラメータエラー',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('説明ページの名称を入力してください！',1);
 	$setsqlarr['type_id']=trim($_POST['type_id'])?intval($_POST['type_id']):0;
 	$setsqlarr['content']=trim($_POST['content']);
 	$setsqlarr['tit_color']=trim($_POST['tit_color']);
@@ -86,7 +86,7 @@ elseif($act == 'addsave')
 {	
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"explain_add");
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('说明页名字不能为空！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('説明ページの名称を入力してください！',1);
 	$setsqlarr['type_id']=trim($_POST['type_id'])?intval($_POST['type_id']):0;
 	$setsqlarr['content']=trim($_POST['content']);
 	$setsqlarr['tit_color']=trim($_POST['tit_color']);
@@ -186,7 +186,7 @@ elseif($act == 'edit_category_save')
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"explain_category");
 	$id=intval($_POST['id']);	
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('请填写分类名称！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
 	$link[0]['text'] = "查看修改结果";
 	$link[0]['href'] = '?act=edit_category&id='.$id;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Parser that uses PHP 5's DOM extension (part of the core).

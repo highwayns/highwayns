@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Takes tokens makes them well-formed (balance end tags, etc.)

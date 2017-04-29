@@ -76,11 +76,11 @@ elseif($act == 'ad_add_save')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"ad_add");
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写标题！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('タイトル入力してください！',1);
 	$setsqlarr['is_display']=trim($_POST['is_display'])?trim($_POST['is_display']):0;
-	$setsqlarr['category_id']=trim($_POST['category_id'])?trim($_POST['category_id']):adminmsg('您没有填写广告分类！',1);
-	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('您没有填写广告类型！',1);
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('参数错误，调用ID不存在！',1);
+	$setsqlarr['category_id']=trim($_POST['category_id'])?trim($_POST['category_id']):adminmsg('広告タイプを選択してください！',1);
+	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('広告タイプを選択してください！',1);
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('パラメータエラー，Call　IDが存在しない！',1);
 	$setsqlarr['show_order']=intval($_POST['show_order']);
 	$setsqlarr['note']=trim($_POST['note']);	
 		if ($_POST['starttime']=="")
@@ -102,7 +102,7 @@ elseif($act == 'ad_add_save')
 	//文字
 	if ($setsqlarr['type_id']=="1")
 	{
-	$setsqlarr['text_content']=trim($_POST['text_content'])?trim($_POST['text_content']):adminmsg('您没有填写文字内容！',1);
+	$setsqlarr['text_content']=trim($_POST['text_content'])?trim($_POST['text_content']):adminmsg('文字内容を入力してください！',1);
 	$setsqlarr['text_url']=trim($_POST['text_url']);
 	$setsqlarr['text_color']=trim($_POST['tit_color']);
 	}
@@ -111,7 +111,7 @@ elseif($act == 'ad_add_save')
 	{
 		if (empty($_FILES['img_file']['name']) && empty($_POST['img_path']))
 		{
-		adminmsg('请上传图片或者填写图片路径！',1);
+		adminmsg('画像アップロードしてまたはパスを入力してください！',1);
 		}
 		if ($_FILES['img_file']['name'])
 		{
@@ -120,7 +120,7 @@ elseif($act == 'ad_add_save')
 			$setsqlarr['img_path']=_asUpFiles($ads_updir,"img_file",1000,'gif/jpg/bmp/png',true);
 			if (empty($setsqlarr['img_path']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['img_path']=$ads_dir.date("Y/m/d/").$setsqlarr['img_path'];
 		}
@@ -135,16 +135,16 @@ elseif($act == 'ad_add_save')
 	//代码
 	elseif ($setsqlarr['type_id']=="3")
 	{
-	$setsqlarr['code_content']=trim($_POST['code_content'])?trim($_POST['code_content']):adminmsg('您没有填写代码！',1);
+	$setsqlarr['code_content']=trim($_POST['code_content'])?trim($_POST['code_content']):adminmsg('コードを入力してください！',1);
 	}
 	//FLASH
 	elseif ($setsqlarr['type_id']=="4")
 	{
-	$setsqlarr['flash_width']=!empty($_POST['flash_width'])?intval($_POST['flash_width']):adminmsg('您没有填写flash宽度！',1);
-	$setsqlarr['flash_height']=!empty($_POST['flash_height'])?intval($_POST['flash_height']):adminmsg('您没有填写flash高度！',1);
+	$setsqlarr['flash_width']=!empty($_POST['flash_width'])?intval($_POST['flash_width']):adminmsg('flashの広さを入力してください！',1);
+	$setsqlarr['flash_height']=!empty($_POST['flash_height'])?intval($_POST['flash_height']):adminmsg('flashの高さを入力してください！',1);
 		if (empty($_FILES['flash_file']['name']) && empty($_POST['flash_path']))
 			{
-			adminmsg('请上传FLASH或者填写FLASH路径！',1);
+			adminmsg('FLASHファイルアップロードして、またはパースを入力してください！',1);
 			}
 			if ($_FILES['flash_file']['name'])
 			{
@@ -153,7 +153,7 @@ elseif($act == 'ad_add_save')
 				$setsqlarr['flash_path']=_asUpFiles($ads_updir,"flash_file",1000,'swf/SWF',true);
 				if (empty($setsqlarr['flash_path']))
 				{
-				adminmsg('上传文件失败！',1);
+				adminmsg('ファイルアップロード失敗！',1);
 				}
 				$setsqlarr['flash_path']=$ads_dir.date("Y/m/d/").$setsqlarr['flash_path'];
 			}
@@ -167,15 +167,15 @@ elseif($act == 'ad_add_save')
 	{
 	$setsqlarr['floating_type']=$_POST['floating_type']?trim($_POST['floating_type']):1;	
 	$setsqlarr['floating_url']=trim($_POST['floating_url']);
-	$setsqlarr['floating_width']=$_POST['floating_width']?intval($_POST['floating_width']):adminmsg('您没有填写宽度！',1);
-	$setsqlarr['floating_height']=$_POST['floating_height']?intval($_POST['floating_height']):adminmsg('您没有填写高度！',1);
+	$setsqlarr['floating_width']=$_POST['floating_width']?intval($_POST['floating_width']):adminmsg('広さを設定してください！',1);
+	$setsqlarr['floating_height']=$_POST['floating_height']?intval($_POST['floating_height']):adminmsg('高さを入力してください！',1);
 	$setsqlarr['floating_left']=$_POST['floating_left']<>""?intval($_POST['floating_left']):"";
 	$setsqlarr['floating_right']=$_POST['floating_right']<>""?intval($_POST['floating_right']):"";
-	if ($setsqlarr['floating_left']==="" && $setsqlarr['floating_right']==="") adminmsg('左边距和右边距至少填写一项！',1);
+	if ($setsqlarr['floating_left']==="" && $setsqlarr['floating_right']==="") adminmsg('左又は右マージン設定してください！',1);
 	$setsqlarr['floating_top']=$_POST['floating_top']?intval($_POST['floating_top']):0;
 		if (empty($_FILES['floating_file']['name']) && empty($_POST['floating_path']))
 		{
-		adminmsg('请上传文件或者填写路径！',1);
+		adminmsg('ファイルアップロードしてまたはパスを入力して！',1);
 		}
 		if ($_FILES['floating_file']['name'])
 		{
@@ -192,7 +192,7 @@ elseif($act == 'ad_add_save')
 			$setsqlarr['floating_path']=_asUpFiles($ads_updir,"floating_file",1000,$filetype,true);
 			if (empty($setsqlarr['floating_path']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['floating_path']=$ads_dir.date("Y/m/d/").$setsqlarr['floating_path'];
 		}
@@ -204,11 +204,11 @@ elseif($act == 'ad_add_save')
 	//视频
 	elseif ($setsqlarr['type_id']=="6")
 	{
-	$setsqlarr['video_width']=$_POST['video_width']?intval($_POST['video_width']):adminmsg('您没有填写宽度！',1);
-	$setsqlarr['video_height']=$_POST['video_height']?intval($_POST['video_height']):adminmsg('您没有填写高度！',1);
+	$setsqlarr['video_width']=$_POST['video_width']?intval($_POST['video_width']):adminmsg('広さを設定してください！',1);
+	$setsqlarr['video_height']=$_POST['video_height']?intval($_POST['video_height']):adminmsg('高さを入力してください！',1);
 		if (empty($_FILES['video_file']['name']) && empty($_POST['video_path']))
 		{
-		adminmsg('请上传文件或者填写路径！',1);
+		adminmsg('ファイルアップロードしてまたはパスを入力して！',1);
 		}
 		if ($_FILES['video_file']['name'])
 		{
@@ -217,7 +217,7 @@ elseif($act == 'ad_add_save')
 			$setsqlarr['video_path']=_asUpFiles($ads_updir,"video_file",5000,"swf/flv/f4v",true);
 			if (empty($setsqlarr['video_path']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['video_path']=$ads_dir.date("Y/m/d/").$setsqlarr['video_path'];
 		}
@@ -249,7 +249,7 @@ elseif($act == 'edit_ad')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"ad_edit");
-	$id=!empty($_GET['id'])?intval($_GET['id']):adminmsg('没有广告id！',1);
+	$id=!empty($_GET['id'])?intval($_GET['id']):adminmsg('広告idなし！',1);
 	$ad=get_ad_one($id);
 	$smarty->assign('ad',$ad);
 	$smarty->assign('ad_category',get_ad_category());//广告位分类列表
@@ -263,11 +263,11 @@ elseif($act == 'ad_edit_save')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"ad_edit");
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写标题！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('タイトル入力してください！',1);
 	$setsqlarr['is_display']=trim($_POST['is_display'])?trim($_POST['is_display']):0;
-	$setsqlarr['category_id']=trim($_POST['category_id'])?trim($_POST['category_id']):adminmsg('您没有填写广告分类！',1);
-	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('您没有填写广告类型！',1);
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('参数错误，调用ID不存在！',1);
+	$setsqlarr['category_id']=trim($_POST['category_id'])?trim($_POST['category_id']):adminmsg('広告タイプを選択してください！',1);
+	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('広告タイプを選択してください！',1);
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('パラメータエラー，Call　IDが存在しない！',1);
 	$setsqlarr['show_order']=intval($_POST['show_order']);
 	$setsqlarr['note']=trim($_POST['note']);	
 		if ($_POST['starttime']=="")
@@ -289,7 +289,7 @@ elseif($act == 'ad_edit_save')
 	//文字
 	if ($setsqlarr['type_id']=="1")
 	{
-	$setsqlarr['text_content']=trim($_POST['text_content'])?trim($_POST['text_content']):adminmsg('您没有填写文字内容！',1);
+	$setsqlarr['text_content']=trim($_POST['text_content'])?trim($_POST['text_content']):adminmsg('文字内容を入力してください！',1);
 	$setsqlarr['text_url']=trim($_POST['text_url']);
 	$setsqlarr['text_color']=trim($_POST['tit_color']);
 	}
@@ -298,7 +298,7 @@ elseif($act == 'ad_edit_save')
 	{
 		if (empty($_FILES['img_file']['name']) && empty($_POST['img_path']))
 		{
-		adminmsg('请上传图片或者填写图片路径！',1);
+		adminmsg('画像アップロードしてまたはパスを入力してください！',1);
 		}
 		if ($_FILES['img_file']['name'])
 		{
@@ -307,7 +307,7 @@ elseif($act == 'ad_edit_save')
 			$setsqlarr['img_path']=_asUpFiles($ads_updir,"img_file",1000,'gif/jpg/bmp/png',true);
 			if (empty($setsqlarr['img_path']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['img_path']=$ads_dir.date("Y/m/d/").$setsqlarr['img_path'];
 		}
@@ -322,16 +322,16 @@ elseif($act == 'ad_edit_save')
 	//代码
 	elseif ($setsqlarr['type_id']=="3")
 	{
-	$setsqlarr['code_content']=trim($_POST['code_content'])?trim($_POST['code_content']):adminmsg('您没有填写代码！',1);
+	$setsqlarr['code_content']=trim($_POST['code_content'])?trim($_POST['code_content']):adminmsg('コードを入力してください！',1);
 	}
 	//FLASH
 	elseif ($setsqlarr['type_id']=="4")
 	{
-	$setsqlarr['flash_width']=!empty($_POST['flash_width'])?intval($_POST['flash_width']):adminmsg('您没有填写flash宽度！',1);
-	$setsqlarr['flash_height']=!empty($_POST['flash_height'])?intval($_POST['flash_height']):adminmsg('您没有填写flash高度！',1);
+	$setsqlarr['flash_width']=!empty($_POST['flash_width'])?intval($_POST['flash_width']):adminmsg('flashの広さを入力してください！',1);
+	$setsqlarr['flash_height']=!empty($_POST['flash_height'])?intval($_POST['flash_height']):adminmsg('flashの高さを入力してください！',1);
 		if (empty($_FILES['flash_file']['name']) && empty($_POST['flash_path']))
 			{
-			adminmsg('请上传FLASH或者填写FLASH路径！',1);
+			adminmsg('FLASHファイルアップロードして、またはパースを入力してください！',1);
 			}
 			if ($_FILES['flash_file']['name'])
 			{
@@ -340,7 +340,7 @@ elseif($act == 'ad_edit_save')
 				$setsqlarr['flash_path']=_asUpFiles($ads_updir,"flash_file",1000,'swf/SWF',true);
 				if (empty($setsqlarr['flash_path']))
 				{
-				adminmsg('上传文件失败！',1);
+				adminmsg('ファイルアップロード失敗！',1);
 				}
 				$setsqlarr['flash_path']=$ads_dir.date("Y/m/d/").$setsqlarr['flash_path'];
 			}
@@ -354,15 +354,15 @@ elseif($act == 'ad_edit_save')
 	{
 	$setsqlarr['floating_type']=$_POST['floating_type']?trim($_POST['floating_type']):1;	
 	$setsqlarr['floating_url']=trim($_POST['floating_url']);
-	$setsqlarr['floating_width']=$_POST['floating_width']?intval($_POST['floating_width']):adminmsg('您没有填写宽度！',1);
-	$setsqlarr['floating_height']=$_POST['floating_height']?intval($_POST['floating_height']):adminmsg('您没有填写高度！',1);
+	$setsqlarr['floating_width']=$_POST['floating_width']?intval($_POST['floating_width']):adminmsg('広さを設定してください！',1);
+	$setsqlarr['floating_height']=$_POST['floating_height']?intval($_POST['floating_height']):adminmsg('高さを入力してください！',1);
 	$setsqlarr['floating_left']=$_POST['floating_left']<>""?intval($_POST['floating_left']):"";
 	$setsqlarr['floating_right']=$_POST['floating_right']<>""?intval($_POST['floating_right']):"";
-	if ($setsqlarr['floating_left']==="" && $setsqlarr['floating_right']==="") adminmsg('左边距和右边距至少填写一项！',1);
+	if ($setsqlarr['floating_left']==="" && $setsqlarr['floating_right']==="") adminmsg('左又は右マージン設定してください！',1);
 	$setsqlarr['floating_top']=$_POST['floating_top']?intval($_POST['floating_top']):0;
 		if (empty($_FILES['floating_file']['name']) && empty($_POST['floating_path']))
 		{
-		adminmsg('请上传文件或者填写路径！',1);
+		adminmsg('ファイルアップロードしてまたはパスを入力して！',1);
 		}
 		if ($_FILES['floating_file']['name'])
 		{
@@ -379,7 +379,7 @@ elseif($act == 'ad_edit_save')
 			$setsqlarr['floating_path']=_asUpFiles($ads_updir,"floating_file",1000,$filetype,true);
 			if (empty($setsqlarr['floating_path']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['floating_path']=$ads_dir.date("Y/m/d/").$setsqlarr['floating_path'];
 		}
@@ -391,11 +391,11 @@ elseif($act == 'ad_edit_save')
 	//视频
 	elseif ($setsqlarr['type_id']=="6")
 	{
-	$setsqlarr['video_width']=$_POST['video_width']?intval($_POST['video_width']):adminmsg('您没有填写宽度！',1);
-	$setsqlarr['video_height']=$_POST['video_height']?intval($_POST['video_height']):adminmsg('您没有填写高度！',1);
+	$setsqlarr['video_width']=$_POST['video_width']?intval($_POST['video_width']):adminmsg('広さを設定してください！',1);
+	$setsqlarr['video_height']=$_POST['video_height']?intval($_POST['video_height']):adminmsg('高さを入力してください！',1);
 		if (empty($_FILES['video_file']['name']) && empty($_POST['video_path']))
 		{
-		adminmsg('请上传文件或者填写路径！',1);
+		adminmsg('ファイルアップロードしてまたはパスを入力して！',1);
 		}
 		if ($_FILES['video_file']['name'])
 		{
@@ -404,7 +404,7 @@ elseif($act == 'ad_edit_save')
 			$setsqlarr['video_path']=_asUpFiles($ads_updir,"video_file",5000,"swf/flv/f4v",true);
 			if (empty($setsqlarr['video_path']))
 			{
-			adminmsg('上传文件失败！',1);
+			adminmsg('ファイルアップロード失敗！',1);
 			}
 			$setsqlarr['video_path']=$ads_dir.date("Y/m/d/").$setsqlarr['video_path'];
 		}
@@ -472,12 +472,12 @@ elseif($act=='ad_category_add_save')
 	check_token();
 	$link[0]['text'] = "返回上一页";
 	$link[0]['href'] ="?act=ad_category";
-	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('您没有广告位名称！',1);
+	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('広告名称を入力してください！',1);
 	$setsqlarr['expense'] = intval($_POST['expense']);
-	$setsqlarr['alias']=$_POST['alias']?trim($_POST['alias']):adminmsg('您没有填写调用名称！',1);
-	substr($setsqlarr['alias'],0,3)=='HW_'?adminmsg('自定义广告位调用名称不允许 HW_ 开头！',1):'';
-	ck_category_alias($setsqlarr['alias'])?adminmsg('调用名称已经存在，请换一个调用名称！',1):'';
-	$setsqlarr['type_id']=$_POST['type_id']?intval($_POST['type_id']):adminmsg('您没有选择广告类型！',1);
+	$setsqlarr['alias']=$_POST['alias']?trim($_POST['alias']):adminmsg('Call名を入力してください！',1);
+	substr($setsqlarr['alias'],0,3)=='HW_'?adminmsg('カスタマイズ広告名は HW_ を含まれています！',1):'';
+	ck_category_alias($setsqlarr['alias'])?adminmsg('Call名すでに存在、変更してください！',1):'';
+	$setsqlarr['type_id']=$_POST['type_id']?intval($_POST['type_id']):adminmsg('広告タイプを選択してください！',1);
 	if(!$db->inserttable(table('ad_category'),$setsqlarr))
 	{
 		//填写管理员日志
@@ -529,11 +529,11 @@ elseif($act=='ad_category_edit_save')
 	$link[0]['text'] = "返回广告位列表";
 	$link[0]['href'] ="?act=ad_category";
 	if(intval($_POST['admin_set'])!=1){
-		$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有广告位名称！',1);
-		$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名称！',1);
-		substr($setsqlarr['alias'],0,3)=='HW_'?adminmsg('自定义广告位调用名称不允许 HW_ 开头！',1):'';
-		ck_category_alias($setsqlarr['alias'],$_POST['id'])?adminmsg('调用名称已经存在，请换一个调用名称！',1):'';
-		$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('您没有选择广告类型！',1);
+		$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('広告名称を入力してください！',1);
+		$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Call名を入力してください！',1);
+		substr($setsqlarr['alias'],0,3)=='HW_'?adminmsg('カスタマイズ広告名は HW_ を含まれています！',1):'';
+		ck_category_alias($setsqlarr['alias'],$_POST['id'])?adminmsg('Call名すでに存在、変更してください！',1):'';
+		$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):adminmsg('広告タイプを選択してください！',1);
 	}
 	$setsqlarr['expense'] = intval($_POST['expense']);
 	$wheresql=" id='".intval($_POST['id'])."'";

@@ -113,30 +113,30 @@ elseif($act=="jobs_add_save")
 	$setsqlarr['company_id']=$company_info['id'];
 	$setsqlarr['company_addtime']=$company_info['addtime'];
 	$setsqlarr['company_audit']=$company_info['audit'];
-	$setsqlarr['jobs_name']=!empty($_POST['jobs_name'])?trim($_POST['jobs_name']):exit('请填写职位名称！');
-	$setsqlarr['nature']=intval($_POST['nature'])?trim($_POST['nature']):exit('请选择职位性质!');
-	$setsqlarr['nature_cn']=trim($_POST['nature_cn'])?trim($_POST['nature_cn']):exit('请选择职位性质!');
+	$setsqlarr['jobs_name']=!empty($_POST['jobs_name'])?trim($_POST['jobs_name']):exit('職位名を入力してください！');
+	$setsqlarr['nature']=intval($_POST['nature'])?trim($_POST['nature']):exit('職位性質を選択してください!');
+	$setsqlarr['nature_cn']=trim($_POST['nature_cn'])?trim($_POST['nature_cn']):exit('職位性質を選択してください!');
 	$setsqlarr['topclass']=intval($_POST['topclass']);
-	$setsqlarr['category']=!empty($_POST['category'])?intval($_POST['category']):exit('请选择职位类别！');
+	$setsqlarr['category']=!empty($_POST['category'])?intval($_POST['category']):exit('職業種類を選択してください！');
 	$setsqlarr['subclass']=intval($_POST['subclass']);
 	$setsqlarr['category_cn']=trim($_POST['category_cn']);
-	$setsqlarr['amount']=intval($_POST['amount'])?intval($_POST['amount']):exit('请填写招聘人数!');
-	$setsqlarr['district']=!empty($_POST['district'])?intval($_POST['district']):exit('请选择工作地区！');
+	$setsqlarr['amount']=intval($_POST['amount'])?intval($_POST['amount']):exit('募集人数を入力してください!');
+	$setsqlarr['district']=!empty($_POST['district'])?intval($_POST['district']):exit('仕事地区を選択してください！');
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict']);
 	$setsqlarr['district_cn']=trim($_POST['district_cn']);
-	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):exit('请选择薪资待遇！');		
+	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):exit('給料選択してください！');		
 	$setsqlarr['wage_cn']=trim($_POST['wage_cn']);
 	// $setsqlarr['negotiable']=intval($_POST['negotiable']);
 	// $setsqlarr['tag']=trim($_POST['tag']);
 	$setsqlarr['sex']=intval($_POST['sex'])?intval($_POST['sex']):exit("请选择性别!");
 	$setsqlarr['sex_cn']=trim($_POST['sex_cn']);
-	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('请选择学历要求！');		
+	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('学歴要求を入力してください！');		
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
-	$setsqlarr['experience']=intval($_POST['experience'])?intval($_POST['experience']):exit('请选择工作经验！');		
+	$setsqlarr['experience']=intval($_POST['experience'])?intval($_POST['experience']):exit('仕事経験を選択してください！');		
 	$setsqlarr['experience_cn']=trim($_POST['experience_cn']);
 	$setsqlarr['graduate']=intval($_POST['graduate']);
 	// $setsqlarr['age']=trim($_POST['minage'])."-".trim($_POST['maxage']);
-	$setsqlarr['contents']=!empty($_POST['contents'])?trim($_POST['contents']):exit('您没有填写职位描述！');
+	$setsqlarr['contents']=!empty($_POST['contents'])?trim($_POST['contents']):exit('職位説明を入力してください！');
 	check_word($_CFG['filter'],$_POST['contents'])?exit($_CFG['filter_tips']):'';
 	$setsqlarr['trade']=$company_info['trade'];
 	$setsqlarr['trade_cn']=$company_info['trade_cn'];
@@ -163,8 +163,8 @@ elseif($act=="jobs_add_save")
 	{
 	$setsqlarr['audit']=intval($_CFG['audit_unexaminedcom_addjob']);
 	}
-	$setsqlarr_contact['contact']=!empty($_POST['contact'])?trim($_POST['contact']):exit('您没有填写联系人！');
-	$setsqlarr_contact['telephone']=!empty($_POST['telephone'])?trim($_POST['telephone']):exit('您没有填写联系电话！');
+	$setsqlarr_contact['contact']=!empty($_POST['contact'])?trim($_POST['contact']):exit('連絡先を入力してください！');
+	$setsqlarr_contact['telephone']=!empty($_POST['telephone'])?trim($_POST['telephone']):exit('連絡電話入力してください！');
 	check_word($_CFG['filter'],$_POST['telephone'])?exit($_CFG['filter_tips']):'';
 
 	$setsqlarr_contact['contact_show']=1;
@@ -317,30 +317,30 @@ elseif($act=="jobs_edit_save")
 			exit("您的套餐已经到期，请重新开通");
 		}
 	}
-	$setsqlarr['jobs_name']=!empty($_POST['jobs_name'])?trim($_POST['jobs_name']):exit('请填写职位名称！');
-	$setsqlarr['nature']=intval($_POST['nature'])?trim($_POST['nature']):exit('请选择职位性质!');
-	$setsqlarr['nature_cn']=trim($_POST['nature_cn'])?trim($_POST['nature_cn']):exit('请选择职位性质!');
+	$setsqlarr['jobs_name']=!empty($_POST['jobs_name'])?trim($_POST['jobs_name']):exit('職位名を入力してください！');
+	$setsqlarr['nature']=intval($_POST['nature'])?trim($_POST['nature']):exit('職位性質を選択してください!');
+	$setsqlarr['nature_cn']=trim($_POST['nature_cn'])?trim($_POST['nature_cn']):exit('職位性質を選択してください!');
 	$setsqlarr['topclass']=intval($_POST['topclass']);
-	$setsqlarr['category']=!empty($_POST['category'])?intval($_POST['category']):exit('请选择职位类别！');
+	$setsqlarr['category']=!empty($_POST['category'])?intval($_POST['category']):exit('職業種類を選択してください！');
 	$setsqlarr['subclass']=intval($_POST['subclass']);
 	$setsqlarr['category_cn']=trim($_POST['category_cn']);
-	$setsqlarr['amount']=intval($_POST['amount'])?intval($_POST['amount']):exit('请填写招聘人数!');
-	$setsqlarr['district']=!empty($_POST['district'])?intval($_POST['district']):exit('请选择工作地区！');
+	$setsqlarr['amount']=intval($_POST['amount'])?intval($_POST['amount']):exit('募集人数を入力してください!');
+	$setsqlarr['district']=!empty($_POST['district'])?intval($_POST['district']):exit('仕事地区を選択してください！');
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict']);
 	$setsqlarr['district_cn']=trim($_POST['district_cn']);
-	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):exit('请选择薪资待遇！');		
+	$setsqlarr['wage']=intval($_POST['wage'])?intval($_POST['wage']):exit('給料選択してください！');		
 	$setsqlarr['wage_cn']=trim($_POST['wage_cn']);
 	// $setsqlarr['negotiable']=intval($_POST['negotiable']);
 	// $setsqlarr['tag']=trim($_POST['tag']);
 	$setsqlarr['sex']=intval($_POST['sex'])?intval($_POST['sex']):exit("请选择性别!");
 	$setsqlarr['sex_cn']=trim($_POST['sex_cn']);
-	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('请选择学历要求！');		
+	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('学歴要求を入力してください！');		
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
-	$setsqlarr['experience']=intval($_POST['experience'])?intval($_POST['experience']):exit('请选择工作经验！');		
+	$setsqlarr['experience']=intval($_POST['experience'])?intval($_POST['experience']):exit('仕事経験を選択してください！');		
 	$setsqlarr['experience_cn']=trim($_POST['experience_cn']);
 	$setsqlarr['graduate']=intval($_POST['graduate']);
 	// $setsqlarr['age']=trim($_POST['minage'])."-".trim($_POST['maxage']);
-	$setsqlarr['contents']=!empty($_POST['contents'])?trim($_POST['contents']):exit('您没有填写职位描述！');
+	$setsqlarr['contents']=!empty($_POST['contents'])?trim($_POST['contents']):exit('職位説明を入力してください！');
 	check_word($_CFG['filter'],$_POST['contents'])?exit($_CFG['filter_tips']):'';
 	if ($add_mode=='1'){
 		$setsqlarr['setmeal_deadline']=0;
@@ -366,8 +366,8 @@ elseif($act=="jobs_edit_save")
 	{
 	$_CFG['audit_unexaminedcom_editjob']<>"-1"?$setsqlarr['audit']=intval($_CFG['audit_unexaminedcom_editjob']):'';
 	}
-	$setsqlarr_contact['contact']=!empty($_POST['contact'])?trim($_POST['contact']):exit('您没有填写联系人！');
-	$setsqlarr_contact['telephone']=!empty($_POST['telephone'])?trim($_POST['telephone']):exit('您没有填写联系电话！');
+	$setsqlarr_contact['contact']=!empty($_POST['contact'])?trim($_POST['contact']):exit('連絡先を入力してください！');
+	$setsqlarr_contact['telephone']=!empty($_POST['telephone'])?trim($_POST['telephone']):exit('連絡電話入力してください！');
 	check_word($_CFG['filter'],$_POST['telephone'])?exit($_CFG['filter_tips']):'';
 
 	$setsqlarr_contact['contact_show']=1;

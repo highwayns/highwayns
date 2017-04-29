@@ -164,7 +164,7 @@ elseif($act == 'get_user_info')
 	$html="用户名：{$info['username']}&nbsp;&nbsp;<span style=\"color:#0033CC\">(uid:{$info['uid']})</span><br/>";
 	if (!empty($info['mobile']))
 	{
-	$mobile_audit=$info['mobile_audit']=="1"?'<span style="color:#009900">[已验证]</span>':'<span style="color:#FF9900">[未验证]</span>';
+	$mobile_audit=$info['mobile_audit']=="1"?'<span style="color:#009900">[検証済み]</span>':'<span style="color:#FF9900">[未検証]</span>';
 	$info['mobile']=$info['mobile'].$mobile_audit;
 	}
 	else
@@ -172,7 +172,7 @@ elseif($act == 'get_user_info')
 	$info['mobile']='----';
 	}
 	$html.="手机：{$info['mobile']}<br/>";
-	$email_audit=$info['email_audit']=="1"?'<span style="color:#009900">[已验证]</span>':'<span style="color:#FF9900">[未验证]</span>';
+	$email_audit=$info['email_audit']=="1"?'<span style="color:#009900">[検証済み]</span>':'<span style="color:#FF9900">[未検証]</span>';
 	$html.="邮箱：{$info['email']}{$email_audit}<br/>";
 	$info['reg_time']=$info['reg_time']?date("Y/m/d H:i",$info['reg_time']):'----';
 	$html.="注册时间：{$info['reg_time']}<br/>";

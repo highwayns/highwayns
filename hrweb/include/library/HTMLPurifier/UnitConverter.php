@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Class for converting between different unit-lengths as specified by

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class HTMLPurifier_ConfigSchema_InterchangeBuilder
 {

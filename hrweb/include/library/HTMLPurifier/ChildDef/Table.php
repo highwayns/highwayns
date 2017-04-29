@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Definition for tables.  The general idea is to extract out all of the

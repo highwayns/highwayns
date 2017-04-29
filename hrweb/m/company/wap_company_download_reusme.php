@@ -112,15 +112,15 @@ elseif($act=="ajax_download_resume_add")
 		{
 			if (empty($setmeal) || ($setmeal['endtime']<time() && $setmeal['endtime']<>"0"))
 			{
-				exit('您的服务已到期,您可以登录网页版申请服务！');
+				exit('サービス期限切れた,ウェブで申し込みしてください！');
 			}
 			elseif ($resume['talent_']=='2' && $setmeal['download_resume_senior']<=0)
 			{
-				exit('您下载高级人才数量已经超出限制,您可以登录网页版申请服务！');
+				exit('高級人材のダウンロード数を超えました。ウェブで申し込みしてください！');
 			}
 			elseif ($resume['talent_']=='1' && $setmeal['download_resume_ordinary']<=0)
 			{
-				exit('你下载简历数量已经超出了限制,您可以登录网页版申请服务！');
+				exit('履歴書ダウンロード数を超えました、サービスを申請してください！');
 			}
 			else
 			{
@@ -136,11 +136,11 @@ elseif($act=="ajax_download_resume_add")
 			{
 				if (!empty($setmeal) && $_CFG['setmeal_to_points']=="1")
 				{
-					exit('你的服务已到期或超出服务条数。您可以登录网页版申请服务');
+					exit('サービス期限切れましたまた件数を超えました。ウェブ版で登録して申し込みしてください');
 				}
 				else
 				{
-					exit('你的'.$_CFG['points_byname'].' 不足，请充值后下载');
+					exit('あなたの'.$_CFG['points_byname'].' 足りない，振込後ダウンロード');
 				}			
 			}else{
 				exit("ok");

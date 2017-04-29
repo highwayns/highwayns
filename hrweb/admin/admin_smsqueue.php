@@ -34,11 +34,11 @@ if($act == 'list')
 elseif($act == 'smsqueue_add')
 {
 	get_token();
-	$label[]=array('{sitename}','网站名称');
-	$label[]=array('{sitedomain}','网站域名');
-	$label[]=array('{sitelogo}','网站LOGO');
-	$label[]=array('{address}','联系地址');
-	$label[]=array('{tel}','联系电话');
+	$label[]=array('{sitename}','ウェブ名');
+	$label[]=array('{sitedomain}','ドメイン');
+	$label[]=array('{sitelogo}','ウェブLOGO');
+	$label[]=array('{address}','連絡先');
+	$label[]=array('{tel}','連絡電話');
 	$smarty->assign('label',$label);
 	$smarty->assign('navlabel','add');
 	$smarty->display('smsqueue/admin_smsqueue_add.htm');
@@ -46,9 +46,9 @@ elseif($act == 'smsqueue_add')
 elseif($act == 'smsqueue_add_save')
 {
 	check_token();
-	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('手机号码必须填写！',1);
-	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('携帯番号を入力してください！',1);
+	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('ショートメッセージ内容を入力してください',1);
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('ショートメッセージ70文字まで，再入力してください！',1):'';
 	$mobile_arr=explode('|',$setsqlarr['s_sms']);
 	$mobile_arr=array_unique($mobile_arr);
 	foreach($mobile_arr as $list){
@@ -78,9 +78,9 @@ elseif($act == 'smsqueue_edit')
 elseif($act == 'smsqueue_edit_save')
 {
 	check_token();
-	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('手机号码必须填写！',1);
-	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	$setsqlarr['s_sms']=trim($_POST['s_sms'])?trim($_POST['s_sms']):adminmsg('携帯番号を入力してください！',1);
+	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('ショートメッセージ内容を入力してください',1);
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('ショートメッセージ70文字まで，再入力してください！',1):'';
 	$wheresql=" s_id='".intval($_POST['id'])."' ";
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = '?';
@@ -102,8 +102,8 @@ elseif($act == 'smsqueue_batchadd')
 elseif($act == 'smsqueue_batchadd_save')
 {
 	check_token();
-	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('请填写短信内容',1);
-	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('短信内容超过70个字，请重新输入！',1):'';
+	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('ショートメッセージ内容を入力してください',1);
+	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('ショートメッセージ70文字まで，再入力してください！',1):'';
 	$selutype=intval($_POST['selutype']);
 	$selsettr=intval($_POST['selsettr']);
 	if ($selutype>0)
@@ -243,7 +243,7 @@ elseif($act == 'send')
 				{
 				$link[0]['text'] = "返回短信列队";
 				$link[0]['href'] = '?act=list';
-				adminmsg('短信发送发生错误！'.$senderr,0,$link);
+				adminmsg('ショートメッセージ発送エラー！'.$senderr,0,$link);
 				}
 				else
 				{
@@ -340,9 +340,9 @@ elseif($act == 'export_info')
  	$result = $db->query("SELECT * FROM ".table('members').$wheresql);
  	while($v = $db->fetch_array($result))
 	{
-			$v['mobile']=$v['mobile']?$v['mobile']:'未填写';
-			$v['email']=$v['email']?$v['email']:'未填写';
-			$contents.= '★ 用户名：'.$v['username'].'                 手机号：'.$v['mobile'].'                     邮箱：'.$v['email']."\r\n\r\n"; 
+			$v['mobile']=$v['mobile']?$v['mobile']:'未入力';
+			$v['email']=$v['email']?$v['email']:'未入力';
+			$contents.= '★ ユーザ名：'.$v['username'].'                 携帯：'.$v['mobile'].'                     メール：'.$v['email']."\r\n\r\n"; 
 	}
   	$time=date("Y-m-d H:i:s",time());
 	$header="===================================会员信息文件，符合条件的总计{$total_val}个，导出时间：{$time}========================================"."\r\n\r\n";

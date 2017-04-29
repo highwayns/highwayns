@@ -56,7 +56,7 @@ elseif ($act == 'set')
 	check_permissions($_SESSION['admin_purview'],"tpl_edit");
 	$templates_info=get_templates_info("../templates/".trim($_REQUEST['tpl_dir'])."/info.txt");
 	$tpl_dir = trim($_REQUEST['tpl_dir'])."/";
-	!$db->query("UPDATE ".table('config')." SET value='{$tpl_dir}' WHERE name='template_dir'")?adminmsg('设置失败',1):"";
+	!$db->query("UPDATE ".table('config')." SET value='{$tpl_dir}' WHERE name='template_dir'")?adminmsg('设置失敗',1):"";
 	refresh_cache("config");
 		$dir="../temp/templates_c/".$tpl_dir;
 		if (!file_exists($dir)) mkdir($dir);
@@ -90,7 +90,7 @@ elseif ($act == 'edit')
 		}
 		else
 		{
-		adminmsg('读取模板目录出错，请检查读写权限', 0);
+		adminmsg('テンプレートフォルダーエラー，権限チェックしてください', 0);
 		}
 	$smarty->assign('list',$list);
 	$templates['dir']=$tpl_dir;
@@ -105,9 +105,9 @@ elseif ($act == 'edit_file')
 	check_permissions($_SESSION['admin_purview'],"tpl_edit");
 	$file = $_GET['tpl_name'];
 	$file_dir='../templates/'.$_GET['tpl_dir'].'/'.$file;
-	if (substr($file_dir,-4)==".php") exit(adminmsg('打开目标模板文件失败', 0));
+	if (substr($file_dir,-4)==".php") exit(adminmsg('テンプレートファイル開く失敗', 0));
 	if(!$handle = @fopen($file_dir, 'rb')){
-	adminmsg('打开目标模板文件失败', 0);
+	adminmsg('テンプレートファイル開く失敗', 0);
 	}
 	$tpl['content'] = fread($handle, filesize($file_dir));
 	$tpl['content'] = htmlentities($tpl['content'], ENT_QUOTES, HIGHWAY_CHARSET);
@@ -124,7 +124,7 @@ elseif ($act == 'do_edit')
 	$tpl_name = !empty($_POST['tpl_name']) ? trim($_POST['tpl_name']) : '';
 	$tpl_content = !empty($_POST['tpl_content']) ? deep_stripslashes($_POST['tpl_content']) : '';
 		if(empty($tpl_name)){
-	adminmsg('保存模板文件出错', 0);
+	adminmsg('テンプレートファイル保存エラー', 0);
 		}
 		$temp_arr = explode(".", $tpl_name);
 		$file_ext = array_pop($temp_arr);
@@ -140,14 +140,14 @@ elseif ($act == 'do_edit')
 		adminmsg("打开目标模版文件 $tpl_name 失败，请检查模版目录的权限",0);
 		}
 		if(fwrite($handle, $tpl_content) === false){
-			adminmsg('写入目标 $tpl_name 失败,请检查读写权限',0);
+			adminmsg('目標 $tpl_name に書き失敗しました。権限チェックしてください',0);
 		}
 		fclose($handle);
 		$link[0]['text'] = "继续编辑此文件";
 		$link[0]['href'] =$_SERVER['HTTP_REFERER'];
 		$link[1]['text'] = "返回模板文件列表";
 		$link[1]['href'] ="?act=edit&tpl_dir=".$_POST['tpl_dir'];
-		adminmsg('编辑模板成功',2,$link);
+		adminmsg('テンプレート編集成功',2,$link);
 }
 elseif ($act == 'com_tpl')
 {
@@ -163,7 +163,7 @@ elseif ($act == 'com_tpl_save')
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"tpl_company");
 	$tpl_company=trim($_POST['tpl_company']);
-	!$db->query("UPDATE ".table('config')." SET value='{$tpl_company}' WHERE name='tpl_company'")?adminmsg('更新站点设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='{$tpl_company}' WHERE name='tpl_company'")?adminmsg('設定更新失敗', 1):"";
 	refresh_cache('config');
 	$tpl_id=$_POST['tpl_id'];
 	if (is_array($_POST['tpl_id']) && count($_POST['tpl_id'])>0)
@@ -199,7 +199,7 @@ elseif ($act == 'refresh_tpl')
 	{
 	$db->query("Delete from ".table('tpl')." WHERE  ".implode(" and ",$dararray)." AND  tpl_type='$type'");
 	}
-	adminmsg('刷新成功',2);
+	adminmsg('更新成功',2);
 }
 elseif ($act == 'resume_tpl')
 {
@@ -215,7 +215,7 @@ elseif ($act == 'resume_tpl_save')
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"tpl_resume");
 	$tpl_personal=trim($_POST['tpl_personal']);
-	!$db->query("UPDATE ".table('config')." SET value='{$tpl_personal}' WHERE name='tpl_personal'")?adminmsg('更新站点设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='{$tpl_personal}' WHERE name='tpl_personal'")?adminmsg('設定更新失敗', 1):"";
 	refresh_cache('config');
 	$tpl_id=$_POST['tpl_id'];
 	if (is_array($_POST['tpl_id']) && count($_POST['tpl_id'])>0)
