@@ -277,7 +277,7 @@ elseif($act == 'set_account_save')
 	$setsqlarr['qq_openid']='';
 	}
 	$thisuid=intval($_POST['thisuid']);	
-	if (strlen($setsqlarr['username'])<3) adminmsg('用户名必须为3位以上！',1);
+	if (strlen($setsqlarr['username'])<3) adminmsg('ユーザ名3桁以上が必須！',1);
 	$getusername=get_user_inusername($setsqlarr['username']);
 	if (!empty($getusername)  && $getusername['uid']<>$thisuid)
 	{
@@ -288,12 +288,12 @@ elseif($act == 'set_account_save')
 	{
 		if (empty($setsqlarr['mobile']))
 		{
-		adminmsg('手机号码为空！',1);
+		adminmsg('携帯電話は入力しません！',1);
 		}
 	}
 	if (!empty($setsqlarr['mobile']) && !preg_match("/^(13|15|14|17|18)\d{9}$/",$setsqlarr['mobile']))
 	{
-	adminmsg('手机号码错误！',1);
+	adminmsg('携帯番号エラー！',1);
 	}
 	$getemail=get_user_inemail($setsqlarr['email']);
 	if (!empty($getemail)  && $getemail['uid']<>$thisuid)
@@ -305,12 +305,12 @@ elseif($act == 'set_account_save')
 	{
 		if (empty($setsqlarr['mobile']))
 		{
-		adminmsg('手机号码为空！',1);
+		adminmsg('携帯電話は入力しません！',1);
 		}
 	}
 	if (!empty($setsqlarr['mobile']) && !preg_match("/^(13|15|14|17|18)\d{9}$/",$setsqlarr['mobile']))
 	{
-	adminmsg('手机号码错误！',1);
+	adminmsg('携帯番号エラー！',1);
 	}
 	$getmobile=get_user_inmobile($setsqlarr['mobile']);
 	if (!empty($setsqlarr['mobile']) && !empty($getmobile)  && $getmobile['uid']<>$thisuid)
@@ -325,18 +325,18 @@ elseif($act == 'set_account_save')
 		write_log("修改会员uid为".$thisuid."的基本信息", $_SESSION['admin_name'],3);
 		$link[0]['text'] = "返回列表";
 		$link[0]['href'] = $_POST['url'];
-		adminmsg('修改成功！',2,$link);
+		adminmsg('修正成功！',2,$link);
 	}
 	else
 	{
-		adminmsg('修改失败！',1);
+		adminmsg('修正失敗！',1);
 	}
 }
 elseif($act == 'userpass_edit')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"per_user_edit");
-	if (strlen(trim($_POST['password']))<6) adminmsg('新密码必须为6位以上！',1);
+	if (strlen(trim($_POST['password']))<6) adminmsg('新パスワード必须为6位以上！',1);
 	$user_info=get_member_one($_POST['memberuid']);
 	$pwd_hash=$user_info['pwd_hash'];
 	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$HW_pwdhash);	
@@ -352,7 +352,7 @@ elseif($act == 'userpass_edit')
 		}
 		else
 		{
-			adminmsg('操作失败！',1);
+			adminmsg('操作失敗！',1);
 		}
 }
 elseif($act == 'members_add')
@@ -367,27 +367,27 @@ elseif($act == 'members_add_save')
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"per_user_add");	
 	require_once(ADMIN_ROOT_PATH.'include/admin_user_fun.php');
-	if (strlen(trim($_POST['username']))<3) adminmsg('用户名必须为3位以上！',1);
-	if (strlen(trim($_POST['password']))<6) adminmsg('密码必须为6位以上！',1);
-	$sql['username'] = !empty($_POST['username']) ? trim($_POST['username']):adminmsg('请填写用户名！',1);
-	$sql['password'] = !empty($_POST['password']) ? trim($_POST['password']):adminmsg('请填写密码！',1);	
+	if (strlen(trim($_POST['username']))<3) adminmsg('ユーザ名3桁以上が必須！',1);
+	if (strlen(trim($_POST['password']))<6) adminmsg('パスワードは6桁以上が必要！',1);
+	$sql['username'] = !empty($_POST['username']) ? trim($_POST['username']):adminmsg('ユーザ名を入力してください！',1);
+	$sql['password'] = !empty($_POST['password']) ? trim($_POST['password']):adminmsg('パスワードを入力してください！',1);	
 	if ($sql['password']<>trim($_POST['password1']))
 	{
-	adminmsg('两次输入的密码不相同！',1);
+	adminmsg('パスワード一致しません！',1);
 	}
-	$sql['utype'] = !empty($_POST['member_type']) ? intval($_POST['member_type']):adminmsg('你没有选择注册类型！',1);
+	$sql['utype'] = !empty($_POST['member_type']) ? intval($_POST['member_type']):adminmsg('登録タイプを選択してください！',1);
 	if (empty($_POST['email']) || !preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$_POST['email']))
 	{
-	adminmsg('电子邮箱格式错误！',1);
+	adminmsg('メールアドレスエラー！',1);
 	}
 	$sql['email']= trim($_POST['email']);
 	if (get_user_inusername($sql['username']))
 	{
-	adminmsg('该用户名已经被使用！',1);
+	adminmsg('該当ユーザ名すでに存在！',1);
 	}
 	if (get_user_inemail($sql['email']))
 	{
-	adminmsg('该 Email 已经被注册！',1);
+	adminmsg('該当 Email既に使用中 ！',1);
 	}
 	$sql['pwd_hash'] = randstr();
 	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$HW_pwdhash);
@@ -401,7 +401,7 @@ elseif($act == 'members_add_save')
 		write_memberslog($insert_id,1,1000,$sql['username'],"管理员在后台新增会员");
 		$link[0]['text'] = "返回列表";
 		$link[0]['href'] = "?act=members_list";
-		adminmsg('添加成功！',2,$link);
+		adminmsg('追加成功！',2,$link);
 	}	
 }
 elseif($act == 'resume_show')
@@ -415,7 +415,7 @@ elseif($act == 'resume_show')
 	{
 	$link[0]['text'] = "返回简历列表";
 	$link[0]['href'] = '?act=list';
-	adminmsg('简历不存在或已经被删除！',1,$link);
+	adminmsg('履歴書が存在しません！',1,$link);
 	}
 	$smarty->assign('random',mt_rand());
 	$smarty->assign('time',time());
@@ -481,7 +481,7 @@ elseif($act == 'userstatus_edit')
 	}
 	else
 	{
-	adminmsg('操作失败！',1);
+	adminmsg('操作失敗！',1);
 	}
 }
 ?>

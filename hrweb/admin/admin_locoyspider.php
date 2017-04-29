@@ -45,7 +45,7 @@ elseif($act == 'set_save')
 	if (intval($_POST['search_threshold'])>100 || intval($_POST['search_threshold'])==0) unset($_POST['search_threshold']);
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('locoyspider')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('更新失败', 1):"";
+	!$db->query("UPDATE ".table('locoyspider')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('更新失敗', 1):"";
 	}
 	refresh_cache('locoyspider');
 	write_log("设置火车头配置", $_SESSION['admin_name'],3);

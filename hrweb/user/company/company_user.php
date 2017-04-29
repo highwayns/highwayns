@@ -5,7 +5,7 @@ $smarty->assign('leftmenu',"user");
 if ($act=='binding')
 {
 	$smarty->assign('user',$user);
-	$smarty->assign('title','账号绑定 - 会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','アカウント設定 - 会員センター - '.$_CFG['site_name']);
 	$smarty->display('member_company/company_binding.htm');
 }
 elseif ($act=='pm')
@@ -35,7 +35,7 @@ elseif ($act=='pm')
 	get_pms_no_num();
 	$smarty->assign('pms',get_pms($offset,$perpage,$sql));
 	$smarty->assign('total',$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$uid}' OR msgtouid='{$uid}') AND `new`='1'"));
-	$smarty->assign('title','短消息 - 会员中心 - '.$_CFG['site_name']);	
+	$smarty->assign('title','ショートメッセージ - 会員センター - '.$_CFG['site_name']);	
 	$smarty->assign('page',$page->show(3));
 	$smarty->assign('uid',$uid); 
 
@@ -62,7 +62,7 @@ elseif ($act=='authenticate')
 	$uid = intval($_SESSION['uid']);
 	$smarty->assign('user',$user);
 	$smarty->assign('re_audit',$_GET['re_audit']);
-	$smarty->assign('title','认证管理 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','認定管理 - 企業会員センター - '.$_CFG['site_name']);
 	$_SESSION['send_key']=mt_rand(100000, 999999);
 	$smarty->assign('send_key',$_SESSION['send_key']);
 	/**
@@ -93,7 +93,7 @@ elseif ($act=='authenticate')
 //修改密码
 elseif ($act=='password_edit')
 {
-	$smarty->assign('title','修改密码 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','修改パスワード - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->display('member_company/company_password.htm');
 }
 //保存修改密码
@@ -101,11 +101,11 @@ elseif ($act=='save_password')
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$arr['username']=$_SESSION['username'];
-	$arr['oldpassword']=trim($_POST['oldpassword'])?trim($_POST['oldpassword']):showmsg('请输入旧密码！',1);
-	$arr['password']=trim($_POST['password'])?trim($_POST['password']):showmsg('请输入新密码！',1);
-	if ($arr['password']!=trim($_POST['password1'])) showmsg('两次输入密码不相同，请重新输入！',1);
+	$arr['oldpassword']=trim($_POST['oldpassword'])?trim($_POST['oldpassword']):showmsg('旧パスワードを入力してください！',1);
+	$arr['password']=trim($_POST['password'])?trim($_POST['password']):showmsg('新パスワードを入力してください！',1);
+	if ($arr['password']!=trim($_POST['password1'])) showmsg('パスワードが一致しません，再度入力してください！',1);
 	$info=edit_password($arr);
-	if ($info==-1) showmsg('旧密码输入错误，请重新输入！',1);
+	if ($info==-1) showmsg('旧パスワード間違いました！',1);
 	if ($info==$_SESSION['username']){
 			//sendemail
 			$mailconfig=get_cache('mailconfig');
@@ -120,7 +120,7 @@ elseif ($act=='save_password')
 			{
 				dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_sms.php?uid={$_SESSION['uid']}&key=".asyn_userkey($_SESSION['uid'])."&act=set_editpwd&newpassword={$arr['password']}");
 			}
-			showmsg('密码修改成功！',2);
+			showmsg('パスワード更新失敗！',2);
 	}
 }
 //保存修改用户名
@@ -129,7 +129,7 @@ elseif ($act=='save_username')
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$arr['uid']=$_SESSION['uid'];
 	$_POST['newusername'] = utf8_to_gbk($_POST['newusername']);
-	$arr['newusername']=trim($_POST['newusername'])?trim($_POST['newusername']):showmsg('新用户名！',1);
+	$arr['newusername']=trim($_POST['newusername'])?trim($_POST['newusername']):showmsg('新ユーザ名！',1);
 	$row_newname = $db->getone("SELECT * FROM ".table('members')." WHERE username='{$arr['newusername']}' LIMIT 1");
 	if($row_newname)
 	{
@@ -143,17 +143,17 @@ elseif ($act=='save_username')
 elseif ($act=='del_qq_binding')
 {
 	$db->query("UPDATE ".table('members')." SET qq_openid = ''  WHERE uid='{$_SESSION[uid]}' LIMIT 1");
-	exit('解除腾讯QQ绑定成功！');
+	exit('QQ解除成功！');
 }
 elseif ($act=='del_sina_binding')
 {
 	$db->query("UPDATE ".table('members')." SET sina_access_token = ''  WHERE uid='{$_SESSION[uid]}' LIMIT 1");
-	exit('解除新浪微博绑定成功！');
+	exit('Webo設定解除成功！');
 }
 elseif ($act=='del_taobao_binding')
 {
 	$db->query("UPDATE ".table('members')." SET taobao_access_token = ''  WHERE uid='{$_SESSION[uid]}' LIMIT 1");
-	exit('解除淘宝账号绑定成功！');
+	exit('Taobaoアカウントを解除する！');
 }
 
 //会员登录日志
@@ -176,7 +176,7 @@ elseif ($act=='login_log')
 	$offset=($currenpage-1)*$perpage;
 	$smarty->assign('loginlog',get_user_loginlog($offset, $perpage,$wheresql));
 	$smarty->assign('page',$page->show(3));
-	$smarty->assign('title','会员登录日志 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','会員登録ログ - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->display('member_company/company_user_loginlog.htm');
 }
 

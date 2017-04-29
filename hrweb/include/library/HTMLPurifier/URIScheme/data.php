@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Implements data: URI for base64 encoded images supported by GD.

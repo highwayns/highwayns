@@ -596,13 +596,13 @@ function edit_company_audit($uid,$audit,$reason,$pms_notice)
 		//发送站内信
 		if ($pms_notice=='1')
 		{
-			$reasonpm=$reason==''?'无':$reason;
-			if($audit=='1') {$note='成功通过网站管理员审核!';}elseif($audit=='2'){$note='正在审核中!';}else{$note='未通过网站管理员审核！';}
+			$reasonpm=$reason==''?'無し':$reason;
+			if($audit=='1') {$note='管理者審査合格!';}elseif($audit=='2'){$note='審査中!';}else{$note='審査不合格！';}
 			$result = $db->query("SELECT companyname,uid FROM ".table('company_profile')." WHERE uid IN ({$sqlin})");
 			while($list = $db->fetch_array($result))
 			{
 				$user_info=get_user($list['uid']);
-				$setsqlarr['message']="您的公司：{$list['companyname']},".$note.'其他说明：'.$reasonpm;
+				$setsqlarr['message']="您的公司：{$list['companyname']},".$note.'その他説明：'.$reasonpm;
 				$setsqlarr['msgtype']=1;
 				$setsqlarr['msgtouid']=$user_info['uid'];
 				$setsqlarr['msgtoname']=$user_info['username'];
@@ -614,7 +614,7 @@ function edit_company_audit($uid,$audit,$reason,$pms_notice)
 		}
 		//审核未通过增加原因
 		if($audit=='3'){
-			$reasona=$reason==''?'原因：无':'原因：'.$reason;
+			$reasona=$reason==''?'原因：なし':'原因：'.$reason;
 			foreach($uid as $list){
 				$auditsqlarr['company_id']=$list;
 				$auditsqlarr['reason']=$reasona;
@@ -750,7 +750,7 @@ function get_order_list($offset,$perpage,$get_sql= '')
 	while($row = $db->fetch_array($result))
 	{
 		if($row['payment_name'] == 'points'){
-			$row['payment_name']='积分';
+			$row['payment_name']='ポイント';
 		}else{
 			$row['payment_name']=get_payment_info($row['payment_name'],true);
 		} 
@@ -1305,15 +1305,15 @@ function edit_setmeal_notes($setarr,$setmeal){
 			}elseif($key=='jobsfair_num'){
 				$str.=",参加招聘会数：{$setmeal['jobsfair_num']}-{$setarr['jobsfair_num']}";
 			}elseif($key=='change_templates'){
-					$flag=$setmeal['change_templates']=='1'?'允许':'不允许';
-					$flag1=$setarr['change_templates']=='1'?'允许':'不允许';
+					$flag=$setmeal['change_templates']=='1'?'許可':'許可しません';
+					$flag1=$setarr['change_templates']=='1'?'許可':'許可しません';
 				$str.=",自由切换模板：{$flag}-{$flag1}";
 			}elseif($key=='map_open'){
-					$flag=$setmeal['map_open']=='1'?'允许':'不允许';
-					$flag1=$setarr['map_open']=='1'?'允许':'不允许';
+					$flag=$setmeal['map_open']=='1'?'許可':'許可しません';
+					$flag1=$setarr['map_open']=='1'?'許可':'許可しません';
 				$str.=",电子地图：{$flag}-{$flag1}";
 			}elseif($key=='endtime'){
-				if($setarr['endtime']=='1970-01-01') $setarr['endtime']='无限期';
+				if($setarr['endtime']=='1970-01-01') $setarr['endtime']='無期限';
 				$str.=",修改套餐到期时间：{$setmeal['endtime']}~{$setarr['endtime']}";
 			}elseif($key=='log_amount' && $value){
 				$str.=",收取套餐金额：{$value} 元";

@@ -27,7 +27,7 @@ elseif ($act=='login_go')
 	$_SESSION["accessToken"] = trim($_GET['accessToken']);
 	if (empty($_SESSION["openid"]))
 	{
-		showmsg('登录失败！openid获取不到',0);
+		showmsg('登録失敗！openid取得できません',0);
 	}
 	else
 	{
@@ -62,7 +62,7 @@ elseif ($act=='login_go')
 					$link[0]['text'] = "进入会员中心";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					showmsg('绑定QQ帐号成功！',2,$link);
+					showmsg('QQアカウント設定成功！',2,$link);
 				}
 				else
 				{
@@ -90,7 +90,7 @@ elseif ($act=='reg')
 		$jsoninfo = json_decode($output, true);
 		$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$smarty->assign('title','补充信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','補完情報 - '.$_CFG['site_name']);
 		$smarty->assign('third_name',"QQ");
 		$smarty->assign('qqurl',"?act=");
 		$smarty->assign('nickname',$nickname);
@@ -129,7 +129,7 @@ elseif ($act=='reg_save')
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 		$link[0]['text'] = "返回首页";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
-		showmsg('注册失败！',0,$link);
+		showmsg('登録失敗！',0,$link);
 	}
 }
 
@@ -176,7 +176,7 @@ elseif ($act=='binding_callback')
 					$link[0]['href'] = "?act=binding";
 					$link[1]['text'] = "进入会员中心";
 					$link[1]['href'] =get_member_url($_SESSION['utype']);
-					showmsg('此QQ帐号已经绑定了其他会员,请换一个QQ帐号！',2,$link);
+					showmsg('このQQアカウントがすでに使っています！',2,$link);
 			}
 			else
 			{	
@@ -195,7 +195,7 @@ elseif ($act=='binding_callback')
 					$link[0]['text'] = "进入会员中心";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					showmsg('绑定QQ帐号成功！',2,$link);
+					showmsg('QQアカウント設定成功！',2,$link);
 			}
 }
 ?>

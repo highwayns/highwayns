@@ -141,11 +141,11 @@ elseif($act == 'simple_add_save')
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"simple_add");
 	$setsqlarr['audit']=1;
-	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):adminmsg('您没有填写职位名称！',1);
+	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):adminmsg('職位を選択してください！',1);
 	$setsqlarr['amount']=intval($_POST['amount']);
-	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):adminmsg('您没有填写单位名称！',1);
-	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):adminmsg('您没有填写联系人！',1);
-	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):adminmsg('您没有填写联系电话！',1);
+	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):adminmsg('会社の名称を入力してください！',1);
+	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):adminmsg('連絡先を入力してください！',1);
+	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):adminmsg('連絡電話入力してください！',1);
 	$setsqlarr['district']=intval($_POST['district']);
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict']);
 	$district_cn = explode("/",trim($_POST['district_cn']));
@@ -160,7 +160,7 @@ elseif($act == 'simple_add_save')
 	{
 	$setsqlarr['deadline']=strtotime("{$validity} day");
 	}
-	$setsqlarr['pwd']=trim($_POST['pwd'])?trim($_POST['pwd']):adminmsg('您没有填写管理密码！',1);
+	$setsqlarr['pwd']=trim($_POST['pwd'])?trim($_POST['pwd']):adminmsg('管理パスワードを入力してください！',1);
 	$setsqlarr['pwd_hash']=substr(md5(uniqid().mt_rand()),mt_rand(0,6),6);
 	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['addip']=$online_ip;
@@ -212,11 +212,11 @@ elseif($act == 'simple_edit_save')
 		$info=$db->getone("select * from ".table('simple')." where id = '{$id}' LIMIT 1");
 		$setsqlarr['pwd']=md5(md5($_POST['pwd']).$info['pwd_hash'].$HW_pwdhash);
 	}
-	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):adminmsg('您没有填写职位名称！',1);
+	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):adminmsg('職位を選択してください！',1);
 	$setsqlarr['amount']=intval($_POST['amount']);
-	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):adminmsg('您没有填写单位名称！',1);
-	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):adminmsg('您没有填写联系人！',1);
-	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):adminmsg('您没有填写联系电话！',1);
+	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):adminmsg('会社の名称を入力してください！',1);
+	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):adminmsg('連絡先を入力してください！',1);
+	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):adminmsg('連絡電話入力してください！',1);
 	$setsqlarr['district']=intval($_POST['district'])?intval($_POST['district']):adminmsg("您没有选择地区");
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict'])?intval($_POST['sdistrict']):adminmsg("您没有选择地区");
 	$district_cn = explode("/",trim($_POST['district_cn']));

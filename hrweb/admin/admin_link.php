@@ -69,7 +69,7 @@ elseif($act =='addsave')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"link_add");
-	$setsqlarr['link_name']=$_POST['link_name']?trim($_POST['link_name']):adminmsg('链接名称不能为空！',1);
+	$setsqlarr['link_name']=$_POST['link_name']?trim($_POST['link_name']):adminmsg('リンク名を入力してください！',1);
 	$setsqlarr['link_url']=$_POST['link_url'];
 	$setsqlarr['alias']=$_POST['alias'];
 	$setsqlarr['show_order'] =intval($_POST['show_order']);
@@ -81,7 +81,7 @@ elseif($act =='addsave')
 		$setsqlarr['link_logo']=_asUpFiles($upfiles_dir, "logo", 1024*2, 'jpg/gif/png',true);
 		if (empty($setsqlarr['link_logo']))
 		{
-		adminmsg('上传图片出错！',1);
+		adminmsg('画像アップロード失敗！',1);
 		}
 		else
 		{
@@ -115,7 +115,7 @@ elseif($act =='editsave')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"link_edit");
-	$setsqlarr['link_name']=$_POST['link_name']?trim($_POST['link_name']):adminmsg('链接名称不能为空！',1);
+	$setsqlarr['link_name']=$_POST['link_name']?trim($_POST['link_name']):adminmsg('リンク名を入力してください！',1);
 	$setsqlarr['link_url']=$_POST['link_url'];
 	$setsqlarr['alias']=$_POST['alias'];
 	$setsqlarr['show_order'] =intval($_POST['show_order']);
@@ -126,7 +126,7 @@ elseif($act =='editsave')
 		$setsqlarr['link_logo']=_asUpFiles($upfiles_dir, "logo", 1024*2, 'jpg/gif/png',true);
 		if (empty($setsqlarr['link_logo']))
 		{
-		adminmsg('上传图片出错！',1);
+		adminmsg('画像アップロード失敗！',1);
 		}
 		else
 		{
@@ -162,9 +162,9 @@ elseif($act == 'add_category_save')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"link_category");	
-	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('您没有填写分类名称！',1);
-	$setsqlarr['c_alias']=$_POST['c_alias']?trim($_POST['c_alias']):adminmsg('您没有填调用名称！',1);
-	substr($setsqlarr['c_alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
+	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('分類を選択してください！',1);
+	$setsqlarr['c_alias']=$_POST['c_alias']?trim($_POST['c_alias']):adminmsg('Ｃａｌｌ名を入力してください！',1);
+	substr($setsqlarr['c_alias'],0,3)=='HW_'?adminmsg('Call名は HW_ 含まれている！',1):'';
 	$category=get_link_category_name($setsqlarr['c_alias']);
 	if ($category)
 	{
@@ -191,9 +191,9 @@ elseif($act == 'edit_category_save')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"link_category");	
-	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('您没有填写分类名称！',1);
-	$setsqlarr['c_alias']=$_POST['c_alias']?trim($_POST['c_alias']):adminmsg('您没有填调用名称！',1);
-	substr($setsqlarr['c_alias'],0,3)=='HW_'?adminmsg('调用名称不允许 HW_ 开头！',1):'';
+	$setsqlarr['categoryname']=$_POST['categoryname']?trim($_POST['categoryname']):adminmsg('分類を選択してください！',1);
+	$setsqlarr['c_alias']=$_POST['c_alias']?trim($_POST['c_alias']):adminmsg('Ｃａｌｌ名を入力してください！',1);
+	substr($setsqlarr['c_alias'],0,3)=='HW_'?adminmsg('Call名は HW_ 含まれている！',1):'';
 	$category=get_link_category_name($setsqlarr['c_alias']);
 	if ($category && $category['id']<>$_POST['id'])
 	{
@@ -235,11 +235,11 @@ elseif($act == 'link_set_save')
 	check_permissions($_SESSION['admin_purview'],"mb_set");
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('text')." SET value='$v' WHERE name='$k'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('text')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('config');
 	refresh_cache('text');

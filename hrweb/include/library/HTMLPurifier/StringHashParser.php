@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Parses string hash files. File format is as such:

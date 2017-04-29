@@ -44,7 +44,7 @@ $mypage['tag']?$page_select=$mypage['tag']:'';
 require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 	if ($_CFG['isclose'])
 	{
-				$smarty->assign('info',$_CFG['close_reason']=$_CFG['close_reason']?$_CFG['close_reason']:'站点暂时关闭...');
+				$smarty->assign('info',$_CFG['close_reason']=$_CFG['close_reason']?$_CFG['close_reason']:'サイト一時閉じる...');
 				$smarty->display('warning.htm');
 				exit();
 	}

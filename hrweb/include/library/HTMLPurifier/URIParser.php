@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Parses a URI into the components and fragment identifier as specified

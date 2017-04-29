@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Definition that disallows all elements.

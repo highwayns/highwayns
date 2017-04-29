@@ -9,7 +9,7 @@ $smarty->cache = false;
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'enter';
 if ($act=='enter')
 {
-	$smarty->assign('title','找回密码 - '.$_CFG['site_name']);
+	$smarty->assign('title','パスワード取得 - '.$_CFG['site_name']);
 	$captcha=get_cache('captcha');
 	$smarty->assign('verify_getpwd',$captcha['verify_getpwd']);
 	$smarty->assign('sms',get_cache('sms_config'));
@@ -22,16 +22,16 @@ elseif ($act=='get_pass')
 
 	$captcha=get_cache('captcha');
 	$postcaptcha = trim($_POST['postcaptcha']);
-	$postusername=trim($_POST['username'])?trim($_POST['username']):exit('请填写用户名');
+	$postusername=trim($_POST['username'])?trim($_POST['username']):exit('ユーザ名を入力してください');
 	if (empty($_POST['email']) || !preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$_POST['email']))
 	{
-	echo '电子邮箱格式错误！';
+	echo 'メールアドレスエラー！';
 	}
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
 	$userinfo=get_user_inusername($postusername);
 	if (empty($userinfo) || $userinfo['email']<>$_POST['email'])
 	{
-	echo '用户名或注册邮箱填写错误';
+	echo 'ユーザ名またはメール不正';
 	}
 	else
 	{
@@ -44,13 +44,13 @@ elseif ($act=='get_pass')
 					$md5password=md5(md5($arr['password']).$userinfo['pwd_hash'].$HW_pwdhash);
 					if (!$db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE uid='{$userinfo['uid']}'"))
 					{
-					echo '密码修改失败';
+					echo 'パスワード変更失敗';
 					}
-					echo '密码修改成功请查看您的邮箱';
+					echo 'パスワード修正成功、メールをご覧ください';
 				}
 				else
 				{
-					echo '邮件发送失败，请联系网站管理员';
+					echo 'ファイル送信失敗，管理者に連絡してください';
 				}
 	}
 }

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Simple transformation, just change tag name to something else,

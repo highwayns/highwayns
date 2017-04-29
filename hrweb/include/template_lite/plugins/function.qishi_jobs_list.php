@@ -535,7 +535,7 @@ if (isset($aset['page']))
 			{
 				$row['briefly']=strip_tags($row['contents']);
 			}
-			$row['amount']=$row['amount']=="0"?'若干':$row['amount'];
+			$row['amount']=$row['amount']=="0"?'多少':$row['amount'];
 			$row['briefly_']=strip_tags($row['contents']);
 			$row['companyname_']=$row['companyname'];
 			$row['companyname']=cut_str($row['companyname'],$aset['companynamelen'],0,$aset['dot']);

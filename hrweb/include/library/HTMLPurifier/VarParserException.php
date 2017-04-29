@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Exception type for HTMLPurifier_VarParser

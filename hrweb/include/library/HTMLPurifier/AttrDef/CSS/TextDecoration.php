@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates the value for the CSS property text-decoration

@@ -33,7 +33,7 @@ elseif($act == 'email_set_save')
 		{
 			 if (empty($_POST['smtpservers'][$i]) || empty($_POST['smtpusername'][$i]) || empty($_POST['smtppassword'][$i]) || empty($_POST['smtpfrom'][$i]) || empty($_POST['smtpport'][$i]))
 			{
-			adminmsg('您填写的资料不完整!',1);
+			adminmsg('資料を追加してください!',1);
 			}
 		}
 		$_POST['smtpservers']=implode('|-_-|',$_POST['smtpservers']);
@@ -43,7 +43,7 @@ elseif($act == 'email_set_save')
 		$_POST['smtpport']=implode('|-_-|',$_POST['smtpport']);
 	}
 	foreach($_POST as $k => $v){
-	!$db->query("UPDATE ".table('mailconfig')." SET value='$v' WHERE name='$k'")?adminmsg('更新站点设置失败', 1):"";
+	!$db->query("UPDATE ".table('mailconfig')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('mailconfig');
 	write_log("设置邮件配置", $_SESSION['admin_name'],3);
@@ -60,16 +60,16 @@ elseif($act == 'email_testing')
 	check_token();
 	$mailconfig=get_cache('mailconfig');
 	$txt="您好！这是一封检测邮件服务器设置的测试邮件。收到此邮件，意味着您的邮件服务器设置正确！您可以进行其它邮件发送的操作了！";
-	$check_smtp=trim($_POST['check_smtp'])?trim($_POST['check_smtp']):adminmsg('收件人地址必须填写', 1);
-	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$check_smtp))adminmsg('email格式错误！',1);
+	$check_smtp=trim($_POST['check_smtp'])?trim($_POST['check_smtp']):adminmsg('宛先アドレスを入力してください', 1);
+	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$check_smtp))adminmsg('emailフォーマットエラー！',1);
 	if (smtp_mail($check_smtp,"海威人材测试邮件",$txt))
 	{
 	write_log("测试邮件发送成功！", $_SESSION['admin_name'],3);
-	adminmsg('测试邮件发送成功！',2);
+	adminmsg('テストメール送信成功！',2);
 	}
 	else
 	{
-	adminmsg('测试邮件发送失败！',1);
+	adminmsg('テストメール送信失敗！',1);
 	}
 }
 elseif($act == 'email_set_templates')
@@ -91,7 +91,7 @@ elseif($act == 'email_rule_save')
 	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('mailconfig')." SET value='$v' WHERE name='$k'")?adminmsg('更新站点设置失败', 1):"";
+	!$db->query("UPDATE ".table('mailconfig')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('mailconfig');
 	write_log("设置邮件发送规则", $_SESSION['admin_name'],3);
@@ -102,37 +102,37 @@ elseif($act == 'mail_templates_edit')
 	get_token();
 	$templates_name=trim($_GET['templates_name']);
 	$label=array();
-	$label[]=array('{sitename}','网站名称');
-	$label[]=array('{sitedomain}','网站域名');
+	$label[]=array('{sitename}','ウェブ名');
+	$label[]=array('{sitedomain}','ドメイン');
 	//生成标签
 	if ($templates_name=='set_reg')
 	{
-	$label[]=array('{username}','用户名');
-	$label[]=array('{password}','密码');
-	$label[]=array('{utype}','会员类型');
+	$label[]=array('{username}','ユーザ名');
+	$label[]=array('{password}','パスワード');
+	$label[]=array('{utype}','会員タイプ');
 	}
 	elseif ($templates_name=='set_applyjobs')
 	{
-	$label[]=array('{personalfullname}','申请人');
-	$label[]=array('{jobsname}','申请职位名称');
+	$label[]=array('{personalfullname}','申込者');
+	$label[]=array('{jobsname}','申し込み職位名称');
 	}
 	elseif ($templates_name=='set_invite')
 	{
-	$label[]=array('{companyname}','邀请方(公司名称)');
+	$label[]=array('{companyname}','誘い元(会社名称)');
 	}
 	elseif ($templates_name=='set_order')
 	{
-	$label[]=array('{paymenttpye}','付款方式');
-	$label[]=array('{amount}','金额');
-	$label[]=array('{oid}','订单号');
+	$label[]=array('{paymenttpye}','支払い方式');
+	$label[]=array('{amount}','金額');
+	$label[]=array('{oid}','オーダー番号');
 	}
 	elseif ($templates_name=='set_editpwd')
 	{
-	$label[]=array('{newpassword}','新密码');
+	$label[]=array('{newpassword}','新パスワード');
 	}
 	elseif ($templates_name=='set_jobsallow' || $templates_name=='set_jobsnotallow')
 	{
-	$label[]=array('{jobsname}','职位名称');
+	$label[]=array('{jobsname}','職位名称');
 	}
 	//-end
 	if ($templates_name)
@@ -155,8 +155,8 @@ elseif($act == 'templates_save')
 	$templates_value=trim($_POST['templates_value']);
 	$templates_name=trim($_POST['templates_name']);
 	$title=trim($_POST['title']);
-	!$db->query("UPDATE ".table('mail_templates')." SET value='".$templates_value."' WHERE name='".$templates_name."'")?adminmsg('设置失败', 1):"";
-	!$db->query("UPDATE ".table('mail_templates')." SET value='".$title."' WHERE name='".$templates_name."_title'")?adminmsg('设置失败', 1):"";
+	!$db->query("UPDATE ".table('mail_templates')." SET value='".$templates_value."' WHERE name='".$templates_name."'")?adminmsg('设置失敗', 1):"";
+	!$db->query("UPDATE ".table('mail_templates')." SET value='".$title."' WHERE name='".$templates_name."_title'")?adminmsg('设置失敗', 1):"";
 	$link[0]['text'] = "返回上一页";
 	$link[0]['href'] ="?act=email_set_templates";
 	refresh_cache('mail_templates');
@@ -198,15 +198,15 @@ elseif($act == 'email_send')
 	$url=trim($_REQUEST['url']);
 	if (!$uid)
 	{
-	adminmsg('用户UID错误！',0);
+	adminmsg('ユーザUIDエラー！',0);
 	}
-	$setsqlarr['m_mail']=trim($_POST['email'])?trim($_POST['email']):adminmsg('邮件地址必须填写！',1);
+	$setsqlarr['m_mail']=trim($_POST['email'])?trim($_POST['email']):adminmsg('メールアドレスを入力してください！',1);
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$setsqlarr['m_mail'])) 
     {
-	adminmsg('邮箱格式错误！',1);
+	adminmsg('メールフォーマットエラー！',1);
     }
-	$setsqlarr['m_subject']=trim($_POST['subject'])?trim($_POST['subject']):adminmsg('邮件标题必须填写！',1);	
-	$setsqlarr['m_body']=trim($_POST['body'])?trim($_POST['body']):adminmsg('邮件内容必须填写！',1);
+	$setsqlarr['m_subject']=trim($_POST['subject'])?trim($_POST['subject']):adminmsg('タイトルを入力してください！',1);	
+	$setsqlarr['m_body']=trim($_POST['body'])?trim($_POST['body']):adminmsg('メール内容が必須！',1);
 	$setsqlarr['m_addtime']=time();
 	$setsqlarr['m_uid']=$uid;
 	if(smtp_mail($setsqlarr['m_mail'],$setsqlarr['m_subject'],$setsqlarr['m_body'])){
@@ -242,12 +242,12 @@ elseif ($act=='again_send')
 		$setsqlarr['m_sendtime']=time();
 		$setsqlarr['m_type']=1;//发送成功
 		!$db->updatetable(table('mailqueue'),$setsqlarr,$wheresql);
-		adminmsg('发送成功',2);
+		adminmsg('送信成功',2);
 	}else{
 		$setsqlarr['m_sendtime']=time();
 		$setsqlarr['m_type']=2;
 		!$db->updatetable(table('mailqueue'),$setsqlarr,$wheresql);
-		adminmsg('发送失败',0);
+		adminmsg('送信失敗',0);
 	}
 		
 }

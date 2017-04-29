@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Performs validations on HTMLPurifier_ConfigSchema_Interchange

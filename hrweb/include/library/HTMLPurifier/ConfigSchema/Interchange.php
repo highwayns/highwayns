@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Generic schema interchange format that can be converted to a runtime

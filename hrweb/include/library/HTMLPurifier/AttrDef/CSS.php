@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates the HTML attribute style, otherwise known as CSS.

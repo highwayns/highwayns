@@ -25,7 +25,7 @@ foreach($flist as $key => $file)
 {
 	if (file_exists($xmldir.$file))
 	{
-	$flistd[$key]['file_type'] = $file==$xmlset['indexname']?'<span style="color:#FF6600">索引文档</span>':'资源文档';
+	$flistd[$key]['file_type'] = $file==$xmlset['indexname']?'<span style="color:#FF6600">Indexファイル</span>':'資源ファイル';
 	$flistd[$key]['file_size'] = round(filesize($xmldir.$file)/1024/1024,2);
 	$flistd[$key]['file_time'] = filemtime($xmldir.$file);	
 	$flistd[$key]['file_url'] = $_CFG['site_domain'].$_CFG['site_dir'].$trimxmldir.$file;
@@ -46,7 +46,7 @@ elseif($act == 'setsave')
 		$_POST['xmlpagesize']=intval($_POST['xmlpagesize'])==0?1:intval($_POST['xmlpagesize']);
 		foreach($_POST as $k => $v)
 		{
-		!$db->query("UPDATE ".table('baiduxml')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('保存失败', 1):"";
+		!$db->query("UPDATE ".table('baiduxml')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('保存失敗', 1):"";
 		}
 		refresh_cache('baiduxml');
 		write_log("修改百度开放平台配置", $_SESSION['admin_name'],3);

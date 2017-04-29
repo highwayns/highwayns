@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Interchange component class describing configuration directives.

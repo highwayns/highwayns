@@ -40,13 +40,13 @@ function meal_log_pie($pie_type='1',$utype='1')
 		}elseif($pie_type=='2'){
 			$date=date('n',$row['log_addtime']);
 			if($date>=1 && $date<4){
-				$datelist['第一季度']+=$row['log_amount'];
+				$datelist['第一季節']+=$row['log_amount'];
 			}elseif($date>=4 && $date<=6){
-				$datelist['第二季度']+=$row['log_amount'];
+				$datelist['第二季節']+=$row['log_amount'];
 			}elseif($date>6 && $date<=9){
-				$datelist['第三季度']+=$row['log_amount'];
+				$datelist['第三季節']+=$row['log_amount'];
 			}elseif($date>9 && $date<=12){
-				$datelist['第四季度']+=$row['log_amount'];
+				$datelist['第四季節']+=$row['log_amount'];
 			}
 		}
 	}		
@@ -67,13 +67,13 @@ function meal_train_log_pie($pie_type='1',$utype='1')
 		}elseif($pie_type=='2'){
 			$date=date('n',$row['log_addtime']);
 			if($date>=1 && $date<4){
-				$datelist['第一季度']+=$row['log_amount'];
+				$datelist['第一季節']+=$row['log_amount'];
 			}elseif($date>=4 && $date<=6){
-				$datelist['第二季度']+=$row['log_amount'];
+				$datelist['第二季節']+=$row['log_amount'];
 			}elseif($date>6 && $date<=9){
-				$datelist['第三季度']+=$row['log_amount'];
+				$datelist['第三季節']+=$row['log_amount'];
 			}elseif($date>9 && $date<=12){
-				$datelist['第四季度']+=$row['log_amount'];
+				$datelist['第四季節']+=$row['log_amount'];
 			}
 		}
 	}		
@@ -94,13 +94,13 @@ function meal_hunter_log_pie($pie_type='1',$utype='3')
 		}elseif($pie_type=='2'){
 			$date=date('n',$row['log_addtime']);
 			if($date>=1 && $date<4){
-				$datelist['第一季度']+=$row['log_amount'];
+				$datelist['第一季節']+=$row['log_amount'];
 			}elseif($date>=4 && $date<=6){
-				$datelist['第二季度']+=$row['log_amount'];
+				$datelist['第二季節']+=$row['log_amount'];
 			}elseif($date>6 && $date<=9){
-				$datelist['第三季度']+=$row['log_amount'];
+				$datelist['第三季節']+=$row['log_amount'];
 			}elseif($date>9 && $date<=12){
-				$datelist['第四季度']+=$row['log_amount'];
+				$datelist['第四季節']+=$row['log_amount'];
 			}
 		}
 	}		
@@ -147,18 +147,18 @@ function write_xml($xml, $array)
 		$fp = @fopen($xmlname, 'wb+');
 		if (!$fp)
 		{
-			exit('生xml文件失败，请设置后台目录“statement”的读写权限');
+			exit('xmlファイル作成失敗，“statement”フォルダーの権限を設定してください');
 		}
 		if (!@fwrite($fp, trim($content)))
 		{
-			exit('生xml文件失败，请设置后台目录“statement”的读写权限');
+			exit('xmlファイル作成失敗，“statement”フォルダーの権限を設定してください');
 		}
 		@fclose($fp);
 	}
 }
 function write_client($xml,$array)
 {
-	$content = '<chart ShowAboutMenuItem="0"  numberPrefix=" "  exportEnabled="1" exportShowMenuItem="1" exportAtClient="1" exportHandler="fcExporter1" baseFont="宋体"  baseFontSize="14" bgColor="#FFFFFF" shadowAlpha="100" canvasBgColor="#FFFFFF"  >\n';
+	$content = '<chart ShowAboutMenuItem="0"  numberPrefix=" "  exportEnabled="1" exportShowMenuItem="1" exportAtClient="1" exportHandler="fcExporter1" baseFont="明朝"  baseFontSize="14" bgColor="#FFFFFF" shadowAlpha="100" canvasBgColor="#FFFFFF"  >\n';
 	foreach($array as $key => $value)
 	{
 	$content .= "<set name='{$key}' value='{$value}' /> \n";
@@ -170,11 +170,11 @@ function write_client($xml,$array)
 		$fp = @fopen($xmlname, 'wb+');
 		if (!$fp)
 		{
-			exit('生xml文件失败，请设置后台目录“statement”的读写权限');
+			exit('xmlファイル作成失敗，“statement”フォルダーの権限を設定してください');
 		}
 		if (!@fwrite($fp, trim($content)))
 		{
-			exit('生xml文件失败，请设置后台目录“statement”的读写权限');
+			exit('xmlファイル作成失敗，“statement”フォルダーの権限を設定してください');
 		}
 		@fclose($fp);
 	}

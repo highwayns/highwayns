@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates the HTML type length (not to be confused with CSS's length).

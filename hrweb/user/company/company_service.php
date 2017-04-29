@@ -17,7 +17,7 @@ if ($act=='j_account')
 	$my_points = get_user_points(intval($_SESSION['uid']));
 	$smarty->assign('points',$my_points);
 	$smarty->assign('act','j_account');
-	$smarty->assign('title','我的账户 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','マイアカウント - 企業会員センター - '.$_CFG['site_name']);
 	//积分消费明细
 	if(trim($_GET['detail']) == '1')
 	{
@@ -69,7 +69,7 @@ elseif ($act=='t_account')
 	$my_setmeal = get_user_setmeal($_SESSION['uid']);
 	$smarty->assign('setmeal',$my_setmeal);
 	$smarty->assign('act','t_account');
-	$smarty->assign('title','我的账户 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','マイアカウント - 企業会員センター - '.$_CFG['site_name']);
 	//套餐消费明细
 	if(trim($_GET['detail']) == '1')
 	{
@@ -120,7 +120,7 @@ elseif ($act=='order_list')
 	$page = new page(array('total'=>$db->get_total($total_sql), 'perpage'=>$perpage));
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('title','充值记录 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','振込履歴 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$smarty->assign('is_paid',$is_paid);
 	$smarty->assign('payment',get_order_all($offset, $perpage,$wheresql));
@@ -132,7 +132,7 @@ elseif ($act=='order_list')
 }
 elseif ($act=='order_add')
 {
-	$smarty->assign('title','在线充值 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','振込み - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('payment',get_payment());
 	$smarty->assign('points',get_user_points($_SESSION['uid']));
 	$smarty->display('member_company/company_order_add.htm');
@@ -153,7 +153,7 @@ elseif ($act=='order_add_save')
 	$link[0]['href'] = '?act=order_list&is_paid=1';
 	showmsg("未处理的订单不能超过 5 条，请先处理后再次申请！",1,$link,true,8);
 	}
-	$amount=(trim($_POST['amount'])).(intval($_POST['amount']))?trim($_POST['amount']):showmsg('请填写充值金额！',1);
+	$amount=(trim($_POST['amount'])).(intval($_POST['amount']))?trim($_POST['amount']):showmsg('金額を入力してください！',1);
 	($amount<$_CFG['payment_min'])?showmsg("单笔充值金额不能少于 ".$_CFG['payment_min']." 元！",1):'';
 	$payment_name=empty($_POST['payment_name'])?showmsg("请选择付款方式！",1):$_POST['payment_name'];
 	$paymenttpye=get_payment_info($payment_name);
@@ -199,7 +199,7 @@ elseif ($act=='payment')
 		if (empty($payment_form)) showmsg("在线支付参数错误！",0);
 	}
 	$smarty->assign('points',get_user_points($_SESSION['uid']));
-	$smarty->assign('title','付款 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','支払 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('fee',$fee);
 	$smarty->assign('amount',$myorder['amount']);
 	$smarty->assign('oid',$order['oid']);
@@ -212,7 +212,7 @@ elseif ($act=='order_del')
 	$link[0]['text'] = "返回上一页";
 	$link[0]['href'] = '?act=order_list';
 	$id=intval($_GET['id']);
-	del_order($_SESSION['uid'],$id)?showmsg('取消成功！',2,$link):showmsg('取消失败！',1);
+	del_order($_SESSION['uid'],$id)?showmsg('取消成功！',2,$link):showmsg('取消失敗！',1);
 }
 elseif ($act=='setmeal_list')
 {
@@ -224,7 +224,7 @@ elseif ($act=='setmeal_list')
 	}
 	$smarty->assign('user_setmeal',$setmeal);
 	$smarty->assign('setmeal_endtime',$setmeal_endtime);
-	$smarty->assign('title','服务列表 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','サービス一覧 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('setmeal',get_setmeal());
 	$smarty->display('member_company/company_setmeal_list.htm');
 }
@@ -239,7 +239,7 @@ elseif ($act=='setmeal_order_add')
 	}
 	$smarty->assign('user_setmeal',$setmeal);
 	$smarty->assign('setmeal_endtime',$setmeal_endtime);
-	$smarty->assign('title','申请服务 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','サービス申し込み - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('setmeal',get_setmeal_one($setmealid));
 	$smarty->assign('payment',get_payment());
 	$smarty->display('member_company/company_order_add_setmeal.htm');
@@ -298,7 +298,7 @@ elseif ($act=='setmeal_order_add_save')
 }
 elseif ($act=='feedback')
 {
-	$smarty->assign('title','用户反馈 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','ユーザフィード - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('feedback',get_feedback($_SESSION['uid']));
 	$smarty->display('member_company/company_feedback.htm');
 }
@@ -307,7 +307,7 @@ elseif ($act=='feedback_save')
 	$get_feedback=get_feedback($_SESSION['uid']);
 	if (count($get_feedback)>=5) 
 	{
-	showmsg('反馈信息不能超过5条！',1);
+	showmsg('フィードバック情報5件まで！',1);
 	exit();
 	}
 	$setsqlarr['infotype']=intval($_POST['infotype']);
@@ -322,7 +322,7 @@ elseif ($act=='feedback_save')
 elseif ($act=='del_feedback')
 {
 	$id=intval($_GET['id']);
-	del_feedback($id,$_SESSION['uid'])?showmsg('删除成功！',2):showmsg('删除失败！',1);
+	del_feedback($id,$_SESSION['uid'])?showmsg('削除成功！',2):showmsg('削除失敗！',1);
 }
 unset($smarty);
 ?>

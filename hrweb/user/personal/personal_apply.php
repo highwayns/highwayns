@@ -64,7 +64,7 @@ elseif ($act=='interview')
 	{
 		$smarty->assign('page',$page->show(3));
 	}
-	$smarty->assign('title','收到的面试邀请 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','面接誘い一覧 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$count[0]=count_interview($_SESSION['uid'],$jobs_type,1);  //未看
 	$count[1]=count_interview($_SESSION['uid'],$jobs_type,2);  //已看
@@ -118,7 +118,7 @@ elseif ($act=='favorites')
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('title','职位收藏夹 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','職位お気に入り - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$joinsql=" LEFT JOIN ".table('jobs')." as  j  ON f.jobs_id=j.id ";
 	$smarty->assign('favorites',get_favorites($offset,$perpage,$joinsql.$wheresql));
@@ -201,7 +201,7 @@ elseif ($act=='apply_jobs')
 	$offset=($currenpage-1)*$perpage;
 	$joinsql.=" LEFT JOIN ".table('jobs')." AS j ON a.jobs_id=j.id ";
 	$smarty->assign('jobs_apply',get_apply_jobs($offset,$perpage,$joinsql,$wheresql));
-	$smarty->assign('title','已申请的职位 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','申し込み職位 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	if($total_val > $perpage)
 	{

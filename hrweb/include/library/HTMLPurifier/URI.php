@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * HTML Purifier's internal representation of a URI.

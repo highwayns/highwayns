@@ -31,7 +31,7 @@ elseif($act == 'setsave')
 	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('更新站点设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('config');
 	adminmsg("保存成功！",2);
@@ -68,7 +68,7 @@ elseif($act == 'captcha_save')
 	}
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('captcha')." SET value='$v' WHERE name='$k'")?adminmsg('更新站点设置失败', 1):"";
+	!$db->query("UPDATE ".table('captcha')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('captcha');
 	write_log("配置安全设置", $_SESSION['admin_name'],3);

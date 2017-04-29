@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Configuration object that triggers customizable behavior.

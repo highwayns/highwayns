@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Abstract class of a tag token (start, end or empty), and its behavior.

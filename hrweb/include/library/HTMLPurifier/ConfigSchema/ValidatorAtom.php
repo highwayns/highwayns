@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Fluent interface for validating the contents of member variables.

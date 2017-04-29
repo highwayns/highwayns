@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates a URI as defined by RFC 3986.

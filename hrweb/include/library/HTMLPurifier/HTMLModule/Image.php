@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * XHTML 1.1 Image Module provides basic image embedding.

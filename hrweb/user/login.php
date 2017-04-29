@@ -70,7 +70,7 @@ elseif ($act=='login')
     /**
      * 微信扫描登录end
      */
-	$smarty->assign('title','会员登录 - '.$_CFG['site_name']);
+	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$smarty->assign('error',$_GET['error']);
 	$smarty->assign('url',$_GET['url']);
 	$captcha=get_cache('captcha');

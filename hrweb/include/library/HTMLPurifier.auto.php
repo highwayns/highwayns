@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * This is a stub include that automatically configures the include path.

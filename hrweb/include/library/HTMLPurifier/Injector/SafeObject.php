@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Adds important param elements to inside of object in order to make

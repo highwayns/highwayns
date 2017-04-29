@@ -48,7 +48,7 @@ elseif ($act=="clear_cache")
 		}
 		else
 		{
-		adminmsg('请选择项目！',1);
+		adminmsg('項目を選択してください！',1);
 		}
 	adminmsg('更新成功！',2);
 }

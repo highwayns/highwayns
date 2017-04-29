@@ -22,7 +22,7 @@ elseif($act == 'setsave')
 	$_POST['addnotice']=intval($_POST['addnotice']);
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('baidu_submiturl')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('baidu_submiturl')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('baidu_submiturl');
 	write_log("修改百度链接提交配置", $_SESSION['admin_name'],3);

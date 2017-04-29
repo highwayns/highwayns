@@ -18,12 +18,12 @@ elseif($act == 'login' && !empty($top_parameters))
 	require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 	if (empty($top_sign))
 	{
-	exit('参数错误！');
+	exit('パラメータエラー！');
 	}
 	$base64str=base64_encode(md5($top_parameters.$_CFG['taobao_appsecret'],TRUE ));
 	if ($base64str<>$top_sign)
 	{
-	exit('参数非法！');
+	exit('パラメータ不正！');
 	}
 	else
 	{
@@ -33,7 +33,7 @@ elseif($act == 'login' && !empty($top_parameters))
 	}
 	if (empty($token))
 	{
-	exit('登录失败！token获取失败');
+	exit('登録失敗！token取得失敗');
 	}
 	else
 	{
@@ -54,7 +54,7 @@ elseif($act == 'login' && !empty($top_parameters))
 					if (!empty($_SESSION['uid']) && !empty($_SESSION['utype']))
 					{
 					$db->query("UPDATE ".table('members')." SET taobao_access_token = '{$token}'  WHERE uid='{$_SESSION[uid]}' AND taobao_access_token='' LIMIT 1");
-					exit('绑定帐号成功！');
+					exit('アカウント設定成功！');
 					}
 					else
 					{
@@ -74,7 +74,7 @@ elseif ($act=='reg')
 	else
 	{
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$smarty->assign('title','完善信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','情報補完 - '.$_CFG['site_name']);
 		$smarty->assign('t_url',"?act=");
 		$smarty->display('wap/wap-bind-taobao.html');
 	}
@@ -113,7 +113,7 @@ elseif ($act=='reg_save')
 	{
 		unset($_SESSION["taobao_access_token"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		exit('注册失败！');
+		exit('登録失敗！');
 	}
 	
 }

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Concrete comment node class.

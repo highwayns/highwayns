@@ -30,8 +30,8 @@ elseif($act == 'add')
 elseif($act == 'add_save')
 {
 	check_token();
-$setsqlarr['name']=!empty($_POST['name'])?trim($_POST['name']):adminmsg('名称不能为空',1);
-$setsqlarr['filename']=!empty($_POST['filename'])?trim($_POST['filename']):adminmsg('任务脚本不能为空',1);
+$setsqlarr['name']=!empty($_POST['name'])?trim($_POST['name']):adminmsg('名称が必須',1);
+$setsqlarr['filename']=!empty($_POST['filename'])?trim($_POST['filename']):adminmsg('タスクスクリプトを入力してください',1);
 $setsqlarr['weekday']=intval($_POST['weekday']);
 $setsqlarr['day']=intval($_POST['day']);
 $setsqlarr['hour']=trim($_POST['hour']);
@@ -65,8 +65,8 @@ elseif($act == 'edit_save')
 	check_token();
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] ="?act=";
-	$setsqlarr['name']=!empty($_POST['name'])?trim($_POST['name']):adminmsg('名称不能为空',1);
-	$setsqlarr['filename']=!empty($_POST['filename'])?trim($_POST['filename']):adminmsg('任务脚本不能为空',1);
+	$setsqlarr['name']=!empty($_POST['name'])?trim($_POST['name']):adminmsg('名称が必須',1);
+	$setsqlarr['filename']=!empty($_POST['filename'])?trim($_POST['filename']):adminmsg('タスクスクリプトを入力してください',1);
 	$setsqlarr['weekday']=intval($_POST['weekday']);
 	$setsqlarr['day']=intval($_POST['day']);
 	$setsqlarr['hour']=intval($_POST['hour']);

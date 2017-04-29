@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Experimental HTML5-based parser using Jeroen van der Meer's PH5P library.

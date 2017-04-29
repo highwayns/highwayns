@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates a font family list according to CSS spec

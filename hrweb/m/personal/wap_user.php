@@ -299,13 +299,13 @@ elseif($act == "resume_work_save")
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_POST['pid']);
 
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 )exit('简历不存在');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 )exit('履歴書存在しない');
 
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_POST['pid']));
-	if (empty($resume_basic)) exit('请先填写简历基本信息');
+	if (empty($resume_basic)) exit('履歴書基本情報を入力してください');
 	$resume_work=get_resume_work($_SESSION['uid'],intval($_POST['pid']));
-	if (count($resume_work)>=6)  exit('工作经历不能超过6条');
-	$setsqlarr['companyname'] = trim($_POST['companyname'])?trim($_POST['companyname']):exit('请填写公司名称！');
+	if (count($resume_work)>=6)  exit('仕事履歴は6件まで');
+	$setsqlarr['companyname'] = trim($_POST['companyname'])?trim($_POST['companyname']):exit('会社の名称を入力してください！');
 	$setsqlarr['jobs'] = trim($_POST['jobs'])?trim($_POST['jobs']):exit("请填写职位名称！");
 	if(trim($_POST['startyear'])==""||trim($_POST['startmonth'])==""||trim($_POST['endyear'])==""||trim($_POST['endmonth'])==""){
 		exit("请选择任职时间!");
@@ -371,12 +371,12 @@ elseif($act == "resume_education_save")
 	$id=intval($_POST['id']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_POST['pid']);
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 )exit('简历不存在');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 )exit('履歴書存在しない');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_POST['pid']));
-	if (empty($resume_basic)) exit('请先填写简历基本信息');
+	if (empty($resume_basic)) exit('履歴書基本情報を入力してください');
 	$resume_education=get_resume_education($_SESSION['uid'],intval($_POST['pid']));
-	if (count($resume_education)>=6)  exit('教育经历不能超过6条');
-	$setsqlarr['school'] = trim($_POST['school'])?trim($_POST['school']):exit('请填写学校名称！');
+	if (count($resume_education)>=6)  exit('教育履歴６件まで');
+	$setsqlarr['school'] = trim($_POST['school'])?trim($_POST['school']):exit('学校名を入力してください！');
 	$setsqlarr['speciality'] = trim($_POST['speciality'])?trim($_POST['speciality']):WapShowMsg("请填写专业名称！");
 	if(trim($_POST['startyear'])==""||trim($_POST['startmonth'])==""||trim($_POST['endyear'])==""||trim($_POST['endmonth'])==""){
 		exit("请选择就读时间！");
@@ -441,12 +441,12 @@ elseif($act == "resume_train_save")
 	$id=intval($_POST['id']);
 	$setsqlarr['uid'] = intval($_SESSION['uid']);
 	$setsqlarr['pid'] = intval($_POST['pid']);
-	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 )exit('简历不存在');
+	if ($setsqlarr['uid']==0 || $setsqlarr['pid']==0 )exit('履歴書存在しない');
 	$resume_basic=get_resume_basic(intval($_SESSION['uid']),intval($_POST['pid']));
-	if (empty($resume_basic)) exit('请先填写简历基本信息');
+	if (empty($resume_basic)) exit('履歴書基本情報を入力してください');
 	$resume_training=get_resume_training($_SESSION['uid'],intval($_POST['pid']));
-	if (count($resume_training)>=6)  exit('培训经历不能超过6条');
-	$setsqlarr['agency'] = trim($_POST['agency'])?trim($_POST['agency']):exit('请填写培训机构名称！');
+	if (count($resume_training)>=6)  exit('訓練履歴は6件まで');
+	$setsqlarr['agency'] = trim($_POST['agency'])?trim($_POST['agency']):exit('訓練機構の名称を入力してください！');
 	$setsqlarr['course'] = trim($_POST['course'])?trim($_POST['course']):exit("请填写培训专业名称！");
 	if(trim($_POST['startyear'])==""||trim($_POST['startmonth'])==""||trim($_POST['endyear'])==""||trim($_POST['endmonth'])==""){
 		exit("请选择培训时间！");

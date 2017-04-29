@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Defines allowed CSS attributes and what their values are.

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * XHTML 1.1 Iframe Module provides inline frames.

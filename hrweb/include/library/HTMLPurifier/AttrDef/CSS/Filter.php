@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Microsoft's proprietary filter: CSS property

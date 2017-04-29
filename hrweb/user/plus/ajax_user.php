@@ -166,15 +166,15 @@ elseif ($act=="top_loginform")
 	$contents='';
 	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
 	{
-		$contents='欢迎&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登录！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}">[会员中心]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" >[退出]</a>';
+		$contents='よこそ&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登録！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}">[会員センター]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" >[終了]</a>';
 	}
 	elseif ($_SESSION['activate_username'] && defined('UC_API'))
 	{
-		$contents=' &nbsp;&nbsp;您的帐号 {#$activate_username#} 需激活后才可以使用！ <a href="{#$activate_url#}" style="color:#339900">立即激活</a>';
+		$contents=' &nbsp;&nbsp;アカウント {#$activate_username#} はＡｃｉｔｖｅしません！ <a href="{#$activate_url#}" style="color:#339900">Ａｃｔｉｖｅ</a>';
 	}
 	else
 	{	
-		$contents='欢迎来到{#$site_name#}！&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$login_url#}" >[登录]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$reg_url#}" >[免费注册]</a>';
+		$contents='よこそ{#$site_name#}！&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$login_url#}" >[登録]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$reg_url#}" >[無料登録]</a>';
 	}
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
@@ -186,7 +186,7 @@ elseif ($act=="top_loginform")
 		$user_url=$_CFG['site_dir']."user/company/company_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='2')
@@ -194,7 +194,7 @@ elseif ($act=="top_loginform")
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='4')
@@ -202,7 +202,7 @@ elseif ($act=="top_loginform")
 			$user_url=$_CFG['site_dir']."user/train/train_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='3')
@@ -210,7 +210,7 @@ elseif ($act=="top_loginform")
 			$user_url=$_CFG['site_dir']."user/hunter/hunter_index.php";
 			if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
@@ -248,7 +248,7 @@ elseif ($act=="loginform")
 			$user_url=$_CFG['site_dir']."user/company/company_index.php";
 			 if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='2')
@@ -256,7 +256,7 @@ elseif ($act=="loginform")
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
 			 if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='4')
@@ -264,7 +264,7 @@ elseif ($act=="loginform")
 			$user_url=$_CFG['site_dir']."user/train/train_index.php";
 			 if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		if ($_COOKIE['QS']['utype']=='3')
@@ -272,7 +272,7 @@ elseif ($act=="loginform")
 			$user_url=$_CFG['site_dir']."user/hunter/hunter_index.php";
 			 if($_COOKIE['QS']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
 			 }
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);

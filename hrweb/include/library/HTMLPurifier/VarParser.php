@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Parses string representations into their corresponding native PHP

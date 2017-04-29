@@ -19,11 +19,11 @@ elseif($act == 'set_save')
 	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('text')." SET value='$v' WHERE name='$k'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('text')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('config');
 	refresh_cache('text');	
@@ -42,7 +42,7 @@ elseif($act == 'modeselect_save')
  	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('config');
 	//填写管理员日志
@@ -66,7 +66,7 @@ elseif($act == 'set_points_save')
 	foreach($ids as $k =>  $id)
 	{
 	$id=intval($id);
-	!$db->query("UPDATE ".table('members_points_rule')." SET value='{$value[$k]}', operation='{$operation[$k]}' WHERE id='{$id}' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('members_points_rule')." SET value='{$value[$k]}', operation='{$operation[$k]}' WHERE id='{$id}' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_points_rule_cache();
 	//填写管理员日志
@@ -78,7 +78,7 @@ elseif($act == 'set_points_config_save')
 	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('config');
 	adminmsg("保存成功！",2);
@@ -101,7 +101,7 @@ elseif($act == 'set_meal_add')
 elseif($act == 'set_meal_add_save')
 {
 	check_token();
-	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('套餐名称不能为空！',1);
+	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('コース名称を入力してください！',1);
 	$setsqlarr['days']=intval($_POST['days']);
 	$setsqlarr['original_price']=intval($_POST['original_price']);
 	$setsqlarr['expense']=intval($_POST['expense']);
@@ -160,7 +160,7 @@ elseif($act == 'set_meal_edit')
 elseif($act == 'set_meal_edit_save')
 {
 	check_token();
-	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('套餐名称不能为空！',1);
+	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('コース名称を入力してください！',1);
 	$setsqlarr['days']=intval($_POST['days']);
 	$setsqlarr['original_price']=intval($_POST['original_price']);
 	$setsqlarr['expense']=intval($_POST['expense']);
@@ -226,7 +226,7 @@ elseif($act == 'reg_service_save')
 	write_log("后台更新配置文件", $_SESSION['admin_name'],3);
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('config');
 	adminmsg("保存成功！",2);

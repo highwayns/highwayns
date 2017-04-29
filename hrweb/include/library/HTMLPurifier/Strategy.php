@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Supertype for classes that define a strategy for modifying/purifying tokens.

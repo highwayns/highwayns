@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Transforms FONT tags to the proper form (SPAN with CSS styling)

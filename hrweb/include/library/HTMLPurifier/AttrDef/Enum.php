@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // Enum = Enumerated
 /**

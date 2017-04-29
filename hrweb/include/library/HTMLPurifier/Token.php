@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Abstract base token class that all others inherit from.

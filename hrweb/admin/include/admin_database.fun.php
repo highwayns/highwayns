@@ -9,13 +9,13 @@ function write_head($table){
 }
 function write_file($file, $sql){
 	/*if(!$fp=@fopen($file, "w+")){
-		adminmsg('打开目标文件出错');
+		adminmsg('目標ファイル開くエラー');
 	}
 	if(!@fwrite($fp, $sql)){
-		adminmsg('写入数据出错');
+		adminmsg('データ書き失敗しました');
 	}
 	if(!@fclose($fp)){
-		adminmsg('关闭目标文件出错');
+		adminmsg('目標ファイル閉じる失敗');
 	}*/
     @file_put_contents($file, $sql);
 	return true;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates a MultiLength as defined by the HTML spec.

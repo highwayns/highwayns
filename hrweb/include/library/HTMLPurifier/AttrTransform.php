@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Processes an entire attribute array for corrections needing multiple values.

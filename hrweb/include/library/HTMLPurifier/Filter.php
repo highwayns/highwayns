@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Represents a pre or post processing filter on HTML Purifier's output

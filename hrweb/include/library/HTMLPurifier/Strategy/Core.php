@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Core strategy composed of the big four strategies.

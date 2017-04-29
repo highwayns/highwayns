@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * A UTF-8 specific character encoder that handles cleaning and transforming.

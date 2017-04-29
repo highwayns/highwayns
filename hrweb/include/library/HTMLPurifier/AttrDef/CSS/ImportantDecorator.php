@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Decorator which enables !important to be used in CSS values.

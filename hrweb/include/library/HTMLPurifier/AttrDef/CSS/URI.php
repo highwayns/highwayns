@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Validates a URI in CSS syntax, which uses url('http://example.com')

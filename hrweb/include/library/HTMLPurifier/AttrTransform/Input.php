@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Performs miscellaneous cross attribute validation and filtering for

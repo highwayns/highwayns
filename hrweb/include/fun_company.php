@@ -25,21 +25,21 @@ function get_jobs($offset,$perpage,$get_sql= '',$countresume=false)
 		$row['jobcategory'] = intval($row['topclass']).".".intval($row['category']).".".intval($row['subclass']);
 		if($row['audit']==3){
 			$row['status'] = 4;
-			$row['status_cn'] = '未通过';
+			$row['status_cn'] = '未通す';
 			$sql = "select reason from ".table('audit_reason')." where jobs_id=$row[id] ";
 			$reason_arr=$db->getone($sql);
 			$row['reason']=$reason_arr["reason"];
 		}
 		elseif($row['audit']==2){
 			$row['status'] = 3;
-			$row['status_cn'] = '审核中';
+			$row['status_cn'] = '審査中';
 		}
 		elseif($row['display']==2 || ($row['deadline']<time())){
 			$row['status'] = 2;
-			$row['status_cn'] = '已关闭';
+			$row['status_cn'] = '閉じった';
 		}else{
 			$row['status'] = 1;
-			$row['status_cn'] = '发布中';
+			$row['status_cn'] = '配布中';
 		}
 		if ($countresume)
 		{
@@ -334,7 +334,7 @@ function get_payment_info($typename,$name=false)
 	global $db;
 	if($typename == 'points')
 	{
-		return '积分兑换';
+		return 'ポイント変換';
 	}
 	$sql = "select * from ".table('payment')." where typename ='".$typename."' AND p_install='2' LIMIT 1";
 	$val=$db->getone($sql);

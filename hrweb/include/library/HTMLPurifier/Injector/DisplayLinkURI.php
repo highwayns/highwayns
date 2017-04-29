@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Injector that displays the URL of an anchor instead of linking to it, in addition to showing the text of the link.

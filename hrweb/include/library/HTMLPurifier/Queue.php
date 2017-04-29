@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * A simple array-backed queue, based off of the classic Okasaki

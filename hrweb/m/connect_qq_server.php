@@ -6,7 +6,7 @@ $login_allback="{$_CFG['wap_domain']}/connect_qq_server.php?act=login_allback" ;
 $binding_callback="{$_CFG['wap_domain']}/connect_qq_server.php?act=binding_callback" ;
 if (!function_exists('json_decode'))
 {
-exit('您的php不支持json_decode');
+exit('このphpはjson_decode使えない');
 }
 if ($_CFG['qq_appid']=="0" || empty($_CFG['qq_appid']) || empty($_CFG['qq_appkey']))
 {
@@ -93,7 +93,7 @@ elseif ($act=='login_allback')
 					require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}'  WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					exit('绑定QQ帐号成功！');
+					exit('QQアカウント設定成功！');
 				}
 				else
 				{
@@ -122,7 +122,7 @@ elseif ($act=='reg')
 		$jsoninfo = json_decode($output, true);
 		$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$smarty->assign('title','补充信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','補完情報 - '.$_CFG['site_name']);
 		$smarty->assign('qqurl',"?act=");
 		$smarty->assign('nickname',$nickname);
 		$smarty->display('wap/wap-bind.html');
@@ -240,13 +240,13 @@ elseif ($act=='binding_callback')
 			require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 			if (!empty($user))
 			{
-					exit('此QQ帐号已经绑定了其他会员,请换一个QQ帐号！');
+					exit('このQQアカウントがすでに使っています！');
 			}
 			else
 			{
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}'  WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					exit('绑定QQ帐号成功！');
+					exit('QQアカウント設定成功！');
 			}
 }
 function get_url_contents($url)

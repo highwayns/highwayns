@@ -66,9 +66,9 @@ elseif($act == 'addsave')
 {
 	check_permissions($_SESSION['admin_purview'],"article_add");
 	check_token();
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写标题！',1);
-	$setsqlarr['type_id']=!empty($_POST['type_id'])?intval($_POST['type_id']):adminmsg('您没有选择分类！',1);
-	$setsqlarr['content']=!empty($_POST['content'])?trim($_POST['content']):adminmsg('您没有内容！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('タイトル入力してください！',1);
+	$setsqlarr['type_id']=!empty($_POST['type_id'])?intval($_POST['type_id']):adminmsg('分類を選択してください！',1);
+	$setsqlarr['content']=!empty($_POST['content'])?trim($_POST['content']):adminmsg('内容を入力してください！',1);
 	$setsqlarr['tit_color']=trim($_POST['tit_color']);
 	$setsqlarr['tit_b']=intval($_POST['tit_b']);
 	$setsqlarr['author']=trim($_POST['author']);
@@ -123,9 +123,9 @@ elseif($act == 'editsave')
 	check_permissions($_SESSION['admin_purview'],"article_edit");
 	check_token();
 	$id=intval($_POST['id']);
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写标题！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('タイトル入力してください！',1);
 	$setsqlarr['type_id']=trim($_POST['type_id'])?intval($_POST['type_id']):0;
-	$setsqlarr['content']=!empty($_POST['content'])?trim($_POST['content']):adminmsg('您没有内容！',1);
+	$setsqlarr['content']=!empty($_POST['content'])?trim($_POST['content']):adminmsg('内容を入力してください！',1);
 	$setsqlarr['tit_color']=trim($_POST['tit_color']);
 	$setsqlarr['tit_b']=intval($_POST['tit_b']);
 	$setsqlarr['author']=trim($_POST['author']);
@@ -241,7 +241,7 @@ elseif($act == 'edit_property_save')
 	check_permissions($_SESSION['admin_purview'],"article_property");
 	check_token();
 	$id=intval($_POST['id']);
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('请填写分类名称！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);	
 	$link[0]['text'] = "查看修改结果";
 	$link[0]['href'] = '?act=edit_property&id='.$id;
@@ -332,7 +332,7 @@ elseif($act == 'edit_category_save')
 	check_token();
 	$id=intval($_POST['id']);
 	$setsqlarr['parentid']=trim($_POST['parentid'])?intval($_POST['parentid']):0;
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('请填写分类名称！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['category_order']=!empty($_POST['category_order'])?intval($_POST['category_order']):0;	
 	$setsqlarr['title']=$_POST['title'];
     $setsqlarr['description']=$_POST['description'];

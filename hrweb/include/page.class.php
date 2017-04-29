@@ -5,10 +5,10 @@ die('Access Denied!');
 }
 class page{
  var $page_name="page";
- var $next_page='下一页';
- var $pre_page='上一页';
- var $first_page='首页';
- var $last_page='尾页';
+ var $next_page='次頁';
+ var $pre_page='前頁';
+ var $first_page='トップ';
+ var $last_page='尾頁';
  var $pre_bar='<<';
  var $next_bar='>>';
  var $format_left='';
@@ -238,37 +238,37 @@ class page{
 
    case '1':
 
-    $this->next_page='下一页';
+    $this->next_page='次頁';
 
-    $this->pre_page='上一页';
+    $this->pre_page='前頁';
 
-    return $this->pre_page().$this->nowbar().$this->next_page().'第'.$this->select().'页';
+    return $this->pre_page().$this->nowbar().$this->next_page().'第'.$this->select().'ページ';
 
     break;
 
    case '2':
 
-    $this->next_page='下一页';
+    $this->next_page='次頁';
 
-    $this->pre_page='上一页';
+    $this->pre_page='前頁';
 
-    $this->first_page='首页';
+    $this->first_page='トップ';
 
-    $this->last_page='尾页';
+    $this->last_page='尾頁';
 
-    return $this->first_page().$this->pre_page().'[第'.$this->nowindex.'页]'.$this->next_page().$this->last_page().'第'.$this->select().'页';
+    return $this->first_page().$this->pre_page().'[第'.$this->nowindex.'ページ]'.$this->next_page().$this->last_page().'第'.$this->select().'ページ';
 
     break;
 
    case '3':
 
-    $this->next_page='下一页';
+    $this->next_page='次頁';
 
-    $this->pre_page='上一页';
+    $this->pre_page='前頁';
 
-    $this->first_page='首页';
+    $this->first_page='トップ';
 
-    $this->last_page='尾页';
+    $this->last_page='尾頁';
 
 
     return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<li class=\"page_all\">".$this->nowindex."/".$this->totalpage."页</li><div class=\"clear\"></div>";
@@ -308,15 +308,15 @@ class page{
   // 带跳转分页
   case '8':
 
-    $this->next_page='下一页';
+    $this->next_page='次頁';
 
-    $this->pre_page='上一页';
+    $this->pre_page='前頁';
 
-    $this->first_page='首页';
+    $this->first_page='トップ';
 
-    $this->last_page='尾页';
+    $this->last_page='尾頁';
 
-    $this->go_page='跳转';
+    $this->go_page='Jump';
 
     return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<li class=\"page_all\">".$this->nowindex."/".$this->totalpage."页</li><li style='line-height:23px;'>".$this->go_page()."</li><div class=\"clear\"></div>";
 
@@ -338,7 +338,7 @@ class page{
       }
       $page_input.='<input type="hidden" name="'.$key.'" value="'.$value.'">';
    }
-   return '<form method="GET" class="page_form">'.$page_input.'到 <input type="text" name="page" size="1" class="page_input"> 页 <input type="submit" class="page_submit" value="'.$this->go_page.'"></form>';
+   return '<form method="GET" class="page_form">'.$page_input.' <input type="text" name="page" size="1" class="page_input"> ページまで <input type="submit" class="page_submit" value="'.$this->go_page.'"></form>';
   }
 
  function _set_url($url="")

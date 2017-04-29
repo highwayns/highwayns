@@ -25,11 +25,11 @@ elseif($act == 'email_send')
 	$url=trim($_REQUEST['url']);
 	if (empty($subject) || empty($body))
 	{
-	crmmsg('标题和内容不能为空！',0);
+	crmmsg('タイトルと内容を入力してください！',0);
 	}
 	if (empty($email))
 	{
-	crmmsg('收件人不能为空！',0);
+	crmmsg('メールを入力してください！',0);
 	}
 	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$email))
 	{

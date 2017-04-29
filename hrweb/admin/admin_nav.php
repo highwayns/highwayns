@@ -44,18 +44,18 @@ elseif($act == 'site_navigation_add')
 elseif($act == 'site_navigation_add_save')
 {
 	check_token();
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写栏目名称！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('コラム名称を入力してください！',1);
 	$setsqlarr['urltype']=intval($_POST['urltype']);
 		if ($setsqlarr['urltype']=="1")
 		{
-		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('您没有填写链接地址！',1);
+		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('リンクアドレスを入力してください！',1);
 		}
 		else
 		{
-		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('页面调用名丢失！',1);
+		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('ページCall名称をロストしました！',1);
 		}
 	$setsqlarr['list_id']=trim($_POST['list_id']);
-	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('您没有填写打开方式！',1);
+	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('開く方式を入力してください！',1);
 	$setsqlarr['navigationorder']=intval($_POST['navigationorder']);
 	$setsqlarr['display']=$_POST['display'];
 	$setsqlarr['color']=$_POST['tit_color'];
@@ -105,19 +105,19 @@ elseif($act == 'site_navigation_edit')
 elseif($act == 'site_navigation_edit_save')
 {
 	check_token();
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写栏目名称！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('コラム名称を入力してください！',1);
 	$setsqlarr['urltype']=intval($_POST['urltype']);
 		if ($setsqlarr['urltype']=="1")
 		{
-		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('您没有填写链接地址！',1);
+		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('リンクアドレスを入力してください！',1);
 		}
 		else
 		{
-		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('页面调用名丢失！',1);
+		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('ページCall名称をロストしました！',1);
 		}
 		//exit($setsqlarr['pagealias']);
 	$setsqlarr['list_id']=trim($_POST['list_id']);
-	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('您没有填写打开方式！',1);
+	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('開く方式を入力してください！',1);
 	$setsqlarr['navigationorder']=intval($_POST['navigationorder']);
 	$setsqlarr['display']=$_POST['display'];
 	$setsqlarr['color']=$_POST['tit_color'];
@@ -154,8 +154,8 @@ elseif($act == 'site_navigation_category_add')
 elseif($act == 'site_navigation_category_add_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有填写名称！',1);
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('名称を入力してください！',1);
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Ｃａｌｌ名を入力してください！',1);
 		if (stripos($setsqlarr['alias'],"hw_")===0)
 		{
 			adminmsg("调用名不能用“hw_”开通",0);
@@ -201,8 +201,8 @@ elseif($act == 'site_navigation_category_edit')
 elseif($act == 'site_navigation_category_edit_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有填写名称！',1);
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('名称を入力してください！',1);
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Ｃａｌｌ名を入力してください！',1);
 	if (stripos($setsqlarr['alias'],"hw_")===0)
 		{
 			adminmsg("调用名不能用“hw_”开通",0);

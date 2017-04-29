@@ -299,7 +299,8 @@ namespace highwayns
                 {
                     if (IsKanji(temps[i * 2 + 1]))
                     {
-                        temps[i * 2 + 1] = ht[temps[i * 2 + 1]].ToString();
+                        if(ht[temps[i * 2 + 1]]!=null)
+                            temps[i * 2 + 1] = ht[temps[i * 2 + 1]].ToString();
                     }
                 }
             }

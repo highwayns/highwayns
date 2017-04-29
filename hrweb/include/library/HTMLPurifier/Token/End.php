@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Concrete end token class.

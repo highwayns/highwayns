@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Global exception class for HTML Purifier; any exceptions we throw

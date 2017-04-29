@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class HTMLPurifier_URIFilter_Munge extends HTMLPurifier_URIFilter
 {

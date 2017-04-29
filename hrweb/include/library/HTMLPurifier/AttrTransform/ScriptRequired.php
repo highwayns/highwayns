@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Implements required attribute stipulation for <script>

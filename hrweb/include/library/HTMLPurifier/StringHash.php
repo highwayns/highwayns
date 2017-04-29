@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * This is in almost every respect equivalent to an array except

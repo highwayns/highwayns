@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Registry for retrieving specific URI scheme validator objects.

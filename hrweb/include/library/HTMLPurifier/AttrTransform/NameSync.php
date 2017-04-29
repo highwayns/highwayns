@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Post-transform that performs validation to the name attribute; if

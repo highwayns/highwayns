@@ -17,7 +17,7 @@ function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false)
 	{
 		if (!is_uploaded_file($upfile['tmp_name'])) 
 		{ 
-		// showmsg('上传图片失败：你选择的文件无法上传',0);
+		// showmsg('画像アップロード失敗：選択されたファイルアップロードができません',0);
 		exit("-3"); 
 		} 
 		elseif ($max_size>0 && $upfile['size']/1024>$max_size) 
@@ -61,7 +61,7 @@ function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false)
 			}
 			if (!move_uploaded_file($upfile['tmp_name'], $dir.$uploadname)) 
 			{ 
-				// showmsg('上传图片失败：文件上传出错！',0);
+				// showmsg('画像アップロード失敗：ファイルアップロードエラー！',0);
 				exit("-6"); 
 			} 
 			return $uploadname; 

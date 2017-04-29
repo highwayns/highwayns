@@ -5,7 +5,7 @@ $smarty->assign('leftmenu',"index");
 if ($act=='index')
 {
 	$uid=intval($_SESSION['uid']);
-	$smarty->assign('title','个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('user',$user);
 
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');

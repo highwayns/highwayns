@@ -38,7 +38,7 @@ elseif($act == 'login' && !empty($code))
 	{
 	$link[0]['text'] = "返回上一页";
 	$link[0]['href'] = "{$_CFG['site_dir']}user/connect_sina.php";
-	showmsg('登录失败！token获取失败',0);
+	showmsg('登録失敗！token取得失敗',0);
 	}
 	else
 	{
@@ -58,7 +58,7 @@ elseif($act == 'login' && !empty($code))
 					$db->query("UPDATE ".table('members')." SET sina_access_token = '{$sina_user_id}',sina_nick = '{$sina_nickname}', sina_binding_time = '{$time}' WHERE uid='{$_SESSION[uid]}' AND sina_access_token='' LIMIT 1"); 
 					$link[0]['text'] = "进入会员中心";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
-					showmsg('绑定帐号成功！',2,$link);
+					showmsg('アカウント設定成功！',2,$link);
 					}
 					else
 					{
@@ -79,7 +79,7 @@ elseif ($act=='reg')
 	else
 	{
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$smarty->assign('title','完善信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','情報補完 - '.$_CFG['site_name']);
 		$smarty->assign('third_name',"Sina");
 		$smarty->assign('sinaurl',"?act=");
 		$smarty->assign('nickname',$_SESSION['sina_nickname']);
@@ -121,7 +121,7 @@ elseif ($act=='reg_save')
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 		$link[0]['text'] = "返回首页";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
-		showmsg('注册失败！',0,$link);
+		showmsg('登録失敗！',0,$link);
 	}
 	
 }

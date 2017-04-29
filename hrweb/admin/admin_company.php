@@ -272,7 +272,7 @@ elseif ($act=='editjobs_save')
 	$id=intval($_POST['id']);
 	$company_id=intval($_POST['company_id']);
     $company_profile=get_company_one_id($company_id);
-	$setsqlarr['jobs_name']=trim($_POST['jobs_name'])?trim($_POST['jobs_name']):adminmsg('您没有填写职位名称！',1);
+	$setsqlarr['jobs_name']=trim($_POST['jobs_name'])?trim($_POST['jobs_name']):adminmsg('職位を選択してください！',1);
 	$setsqlarr['nature']=intval($_POST['nature']);
 	$setsqlarr['nature_cn']=trim($_POST['nature_cn']);	
 	$setsqlarr['topclass']=intval($_POST['topclass']);
@@ -294,7 +294,7 @@ elseif ($act=='editjobs_save')
 	$setsqlarr['experience']=intval($_POST['experience']);
 	$setsqlarr['experience_cn']=trim($_POST['experience_cn']);
 	$setsqlarr['graduate']=intval($_POST['graduate']);
-	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):adminmsg('您没有填写职位描述！',1);	
+	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):adminmsg('職位説明を入力してください！',1);	
 	$setsqlarr['key']=$setsqlarr['jobs_name'].$company_profile['companyname'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
 	require_once(HIGHWAY_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
@@ -473,18 +473,18 @@ elseif ($act=='company_profile_save')
 	$contents=array();
 	$id=intval($_POST['id']);
 	$setsqlarr['audit']=intval($_POST['audit']);
-	$setsqlarr['companyname']=trim($_POST['companyname'])?trim($_POST['companyname']):adminmsg('您没有输入企业名称！',1);
-	$setsqlarr['nature']=trim($_POST['nature'])?trim($_POST['nature']):adminmsg('您选择企业性质！',1);
-	$setsqlarr['nature_cn']=trim($_POST['nature_cn'])?trim($_POST['nature_cn']):adminmsg('您选择企业性质！',1);
-	$setsqlarr['trade']=trim($_POST['trade'])?trim($_POST['trade']):adminmsg('您选择所属行业！',1);
-	$setsqlarr['trade_cn']=trim($_POST['trade_cn'])?trim($_POST['trade_cn']):adminmsg('您选择所属行业！',1);
-	$setsqlarr['district_cn']=trim($_POST['district_cn'])?trim($_POST['district_cn']):adminmsg('您选择所属地区！',1);
+	$setsqlarr['companyname']=trim($_POST['companyname'])?trim($_POST['companyname']):adminmsg('企業名称を入力してください！',1);
+	$setsqlarr['nature']=trim($_POST['nature'])?trim($_POST['nature']):adminmsg('企業の性質を選択してください！',1);
+	$setsqlarr['nature_cn']=trim($_POST['nature_cn'])?trim($_POST['nature_cn']):adminmsg('企業の性質を選択してください！',1);
+	$setsqlarr['trade']=trim($_POST['trade'])?trim($_POST['trade']):adminmsg('業界を選択してください！',1);
+	$setsqlarr['trade_cn']=trim($_POST['trade_cn'])?trim($_POST['trade_cn']):adminmsg('業界を選択してください！',1);
+	$setsqlarr['district_cn']=trim($_POST['district_cn'])?trim($_POST['district_cn']):adminmsg('所属地区を選択してください！',1);
 	$setsqlarr['district']=intval($_POST['district']);
 	$setsqlarr['sdistrict']=intval($_POST['sdistrict']);
 	$setsqlarr['street']=intval($_POST['street']);
 	$setsqlarr['street_cn']=trim($_POST['street_cn']);
-	$setsqlarr['scale']=trim($_POST['scale'])?trim($_POST['scale']):adminmsg('您选择公司规模！',1);
-	$setsqlarr['scale_cn']=trim($_POST['scale_cn'])?trim($_POST['scale_cn']):adminmsg('您选择公司规模！',1);	
+	$setsqlarr['scale']=trim($_POST['scale'])?trim($_POST['scale']):adminmsg('会社規模を選択してください！',1);
+	$setsqlarr['scale_cn']=trim($_POST['scale_cn'])?trim($_POST['scale_cn']):adminmsg('会社規模を選択してください！',1);	
 	$setsqlarr['registered']=trim($_POST['registered']);
 	$setsqlarr['currency']=trim($_POST['currency']);
 	$setsqlarr['address']=trim($_POST['address']);
@@ -492,7 +492,7 @@ elseif ($act=='company_profile_save')
 	$setsqlarr['telephone']=trim($_POST['telephone']);
 	$setsqlarr['email']=trim($_POST['email']);
 	$setsqlarr['website']=trim($_POST['website']);
-	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):adminmsg('请填写公司简介！',1);
+	$setsqlarr['contents']=trim($_POST['contents'])?trim($_POST['contents']):adminmsg('会社の紹介を入力してください！',1);
 		$setsqlarr['contact_show']=intval($_POST['contact_show']);
 	$setsqlarr['email_show']=intval($_POST['email_show']);
 	$setsqlarr['telephone_show']=intval($_POST['telephone_show']);
@@ -510,8 +510,8 @@ elseif ($act=='company_profile_save')
 				$jobarr['scale_cn']=$setsqlarr['scale_cn'];
 				$jobarr['street']=$setsqlarr['street'];
 				$jobarr['street_cn']=$setsqlarr['street_cn'];
-				if (!$db->updatetable(table('jobs'),$jobarr," uid=".intval($_POST['cuid'])."")) adminmsg('修改职位部分出错！',0);
-				if (!$db->updatetable(table('jobs_tmp'),$jobarr," uid=".intval($_POST['cuid'])."")) adminmsg('修改职位部分出错！',0);
+				if (!$db->updatetable(table('jobs'),$jobarr," uid=".intval($_POST['cuid'])."")) adminmsg('職位修正エラー！',0);
+				if (!$db->updatetable(table('jobs_tmp'),$jobarr," uid=".intval($_POST['cuid'])."")) adminmsg('職位修正エラー！',0);
 				$soarray['trade']=$jobarr['trade'];
 				$soarray['scale']=$jobarr['scale'];
 				$soarray['street']=$setsqlarr['street'];
@@ -589,7 +589,7 @@ elseif($act == 'order_notes_save')
 	check_token();
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = $_POST['url'];
-	!$db->query("UPDATE ".table('order')." SET  notes='".$_POST['notes']."' WHERE id='".intval($_GET['id'])."'")?adminmsg('操作失败',1):adminmsg("操作成功！",2,$link);
+	!$db->query("UPDATE ".table('order')." SET  notes='".$_POST['notes']."' WHERE id='".intval($_GET['id'])."'")?adminmsg('操作失敗',1):adminmsg("操作成功！",2,$link);
 }
 //设置充值记录（收款开通）
 elseif($act == 'order_set')
@@ -609,11 +609,11 @@ elseif($act == 'order_set_save')
 		{
 		$link[0]['text'] = "返回列表";
 		$link[0]['href'] = $_POST['url'];
-		!$db->query("UPDATE ".table('order')." SET notes='".$_POST['notes']."' WHERE id=".intval($_GET['id'])."  LIMIT 1 ")?adminmsg('操作失败',1):adminmsg("操作成功！",2,$link);
+		!$db->query("UPDATE ".table('order')." SET notes='".$_POST['notes']."' WHERE id=".intval($_GET['id'])."  LIMIT 1 ")?adminmsg('操作失敗',1):adminmsg("操作成功！",2,$link);
 		}
 		else
 		{
-		adminmsg('操作失败',1);
+		adminmsg('操作失敗',1);
 		}
 }
 //取消会员充值申请
@@ -757,7 +757,7 @@ elseif($act == 'meal_log')
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
 	$meallog = get_meal_members_log($offset,$perpage,$joinsql.$wheresql.$oederbysql,$operation_mode);
-	$smarty->assign('pageheader','企业管理');
+	$smarty->assign('pageheader','企業管理');
 	$smarty->assign('navlabel','meal_log');
 	$smarty->assign('meallog',$meallog);
 	$smarty->assign('page',$page->show(3));
@@ -911,27 +911,27 @@ elseif($act == 'members_add_save')
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"com_user_add");
 	require_once(ADMIN_ROOT_PATH.'include/admin_user_fun.php');
-	if (strlen(trim($_POST['username']))<3) adminmsg('用户名必须为3位以上！',1);
-	if (strlen(trim($_POST['password']))<6) adminmsg('密码必须为6位以上！',1);
-	$sql['username'] = !empty($_POST['username']) ? trim($_POST['username']):adminmsg('请填写用户名！',1);
-	$sql['password'] = !empty($_POST['password']) ? trim($_POST['password']):adminmsg('请填写密码！',1);	
+	if (strlen(trim($_POST['username']))<3) adminmsg('ユーザ名3桁以上が必須！',1);
+	if (strlen(trim($_POST['password']))<6) adminmsg('パスワードは6桁以上が必要！',1);
+	$sql['username'] = !empty($_POST['username']) ? trim($_POST['username']):adminmsg('ユーザ名を入力してください！',1);
+	$sql['password'] = !empty($_POST['password']) ? trim($_POST['password']):adminmsg('パスワードを入力してください！',1);	
 	if ($sql['password']<>trim($_POST['password1']))
 	{
-	adminmsg('两次输入的密码不相同！',1);
+	adminmsg('パスワード一致しません！',1);
 	}
-	$sql['utype'] = !empty($_POST['member_type']) ? intval($_POST['member_type']):adminmsg('你没有选择注册类型！',1);
+	$sql['utype'] = !empty($_POST['member_type']) ? intval($_POST['member_type']):adminmsg('登録タイプを選択してください！',1);
 	if (empty($_POST['email']) || !preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$_POST['email']))
 	{
-	adminmsg('电子邮箱格式错误！',1);
+	adminmsg('メールアドレスエラー！',1);
 	}
 	$sql['email']= trim($_POST['email']);
 	if (get_user_inusername($sql['username']))
 	{
-	adminmsg('该用户名已经被使用！',1);
+	adminmsg('該当ユーザ名すでに存在！',1);
 	}
 	if (get_user_inemail($sql['email']))
 	{
-	adminmsg('该 Email 已经被注册！',1);
+	adminmsg('該当 Email既に使用中 ！',1);
 	}
 	$sql['pwd_hash'] = randstr();
 	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$HW_pwdhash);
@@ -980,7 +980,7 @@ elseif($act == 'members_add_save')
 	$link[1]['text'] = "继续添加";
 	$link[1]['href'] = "?act=members_add";
 	write_log("添加会员".$sql['username'], $_SESSION['admin_name'],3);
-	adminmsg('添加成功！',2,$link);
+	adminmsg('追加成功！',2,$link);
 }
 //设置顾问
 elseif($act == 'consultant_install')
@@ -1021,7 +1021,7 @@ elseif($act == 'consultant_install_save')
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = "?act=members_list";
 	write_log("为企业uid为".$tuid."的企业设置顾问,顾问id为".$id, $_SESSION['admin_name'],3);
-	adminmsg('设置成功！',2,$link);
+	adminmsg('設定成功！',2,$link);
 }
 elseif($act == 'user_edit')
 {
@@ -1053,7 +1053,7 @@ elseif($act == 'set_account_save')
 	$setsqlarr['qq_openid']='';
 	}
 	$thisuid=intval($_POST['company_uid']);	
-	if (strlen($setsqlarr['username'])<3) adminmsg('用户名必须为3位以上！',1);
+	if (strlen($setsqlarr['username'])<3) adminmsg('ユーザ名3桁以上が必須！',1);
 	$getusername=get_user_inusername($setsqlarr['username']);
 	if (!empty($getusername)  && $getusername['uid']<>$thisuid)
 	{
@@ -1061,7 +1061,7 @@ elseif($act == 'set_account_save')
 	}
 	if (empty($setsqlarr['email']) || !preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$setsqlarr['email']))
 	{
-	adminmsg('电子邮箱格式错误！',1);
+	adminmsg('メールアドレスエラー！',1);
 	}
 	$getemail=get_user_inemail($setsqlarr['email']);
 	if (!empty($getemail)  && $getemail['uid']<>$thisuid)
@@ -1070,7 +1070,7 @@ elseif($act == 'set_account_save')
 	}
 	if (!empty($setsqlarr['mobile']) && !preg_match("/^(13|15|14|17|18)\d{9}$/",$setsqlarr['mobile']))
 	{
-	adminmsg('手机号码错误！',1);
+	adminmsg('携帯番号エラー！',1);
 	}
 	$getmobile=get_user_inmobile($setsqlarr['mobile']);
 	if (!empty($setsqlarr['mobile']) && !empty($getmobile)  && $getmobile['uid']<>$thisuid)
@@ -1090,19 +1090,19 @@ elseif($act == 'set_account_save')
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = $_POST['url'];
 	write_log("修改会员uid为".$thisuid."的基本信息", $_SESSION['admin_name'],3);
-	adminmsg('修改成功！',2,$link);
+	adminmsg('修正成功！',2,$link);
 	}
 	else
 	{
-	adminmsg('修改失败！',1);
+	adminmsg('修正失敗！',1);
 	}
 }
 elseif($act == 'userpoints_edit')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"com_user_edit");
-	if (intval($_POST['points'])<1) adminmsg('请输入积分！',1);
-	if (trim($_POST['points_notes'])=='') adminmsg('请填写积分操作说明！',1);
+	if (intval($_POST['points'])<1) adminmsg('ポイント入力してください！',1);
+	if (trim($_POST['points_notes'])=='') adminmsg('ポイント操作説明を入力してください！',1);
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = $_POST['url'];
 	$user=get_user($_POST['company_uid']);
@@ -1151,12 +1151,12 @@ elseif($act == 'set_setmeal_save')
 		}
 		else
 		{
-		adminmsg('操作失败！',1);
+		adminmsg('操作失敗！',1);
 		}
 	}
 	else
 	{
-	adminmsg('请选择服务套餐！',1);
+	adminmsg('コースを選択してください！',1);
 	}	
 }
 elseif($act == 'edit_setmeal_save')
@@ -1187,7 +1187,7 @@ elseif($act == 'edit_setmeal_save')
 		$setendtime=convert_datefm($_POST['setendtime'],2);
 		if ($setendtime=='')
 		{
-		adminmsg('日期格式错误！',0);	
+		adminmsg('日付フォーマットエラー！',0);	
 		}
 		else
 		{
@@ -1215,7 +1215,7 @@ elseif($act == 'edit_setmeal_save')
 	if ($company_uid)
 	{
 			$setmeal=get_user_setmeal($company_uid);
-			if (!$db->updatetable(table('members_setmeal'),$setsqlarr," uid=".$company_uid."")) adminmsg('修改出错！',0);
+			if (!$db->updatetable(table('members_setmeal'),$setsqlarr," uid=".$company_uid."")) adminmsg('修正エラー！',0);
 		//会员套餐变更记录。管理员后台修改会员套餐：修改会员。3表示：管理员后台修改
 			$setmeal['endtime']=date('Y-m-d',$setmeal['endtime']);
 			$setsqlarr['endtime']=date('Y-m-d',$setsqlarr['endtime']);
@@ -1230,8 +1230,8 @@ elseif($act == 'edit_setmeal_save')
 			if ($setsqlarr['endtime']<>"")
 			{
 				$setmeal_deadline['setmeal_deadline']=$setmealtime;
-				if (!$db->updatetable(table('jobs'),$setmeal_deadline," uid='{$company_uid}' AND add_mode='2' "))adminmsg('修改出错！',0);
-				if (!$db->updatetable(table('jobs_tmp'),$setmeal_deadline," uid='{$company_uid}' AND add_mode='2' "))adminmsg('修改出错！',0);
+				if (!$db->updatetable(table('jobs'),$setmeal_deadline," uid='{$company_uid}' AND add_mode='2' "))adminmsg('修正エラー！',0);
+				if (!$db->updatetable(table('jobs_tmp'),$setmeal_deadline," uid='{$company_uid}' AND add_mode='2' "))adminmsg('修正エラー！',0);
 				distribution_jobs_uid($company_uid);
 			}
 	}
@@ -1244,7 +1244,7 @@ elseif($act == 'userpass_edit')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"com_user_edit");
-	if (strlen(trim($_POST['password']))<6) adminmsg('新密码必须为6位以上！',1);
+	if (strlen(trim($_POST['password']))<6) adminmsg('新パスワード必须为6位以上！',1);
 	require_once(ADMIN_ROOT_PATH.'include/admin_user_fun.php');
 	$user_info=get_user_inusername($_POST['username']);
 	$pwd_hash=$user_info['pwd_hash'];
@@ -1258,7 +1258,7 @@ elseif($act == 'userpass_edit')
 	}
 	else
 	{
-	adminmsg('操作失败！',1);
+	adminmsg('操作失敗！',1);
 	}
 }
 elseif($act == 'userstatus_edit')
@@ -1274,7 +1274,7 @@ elseif($act == 'userstatus_edit')
 	}
 	else
 	{
-	adminmsg('操作失败！',1);
+	adminmsg('操作失敗！',1);
 	}
 }
 elseif($act == 'del_auditreason')
@@ -1347,7 +1347,7 @@ elseif($act == 'consultant_manage')
 	$sql = "select * from ".table('consultant')." where id = {$id}";
 	$consultant = $db->getone($sql);
 	if(empty($consultant)){
-		adminmsg('顾问丢失',1);
+		adminmsg('顧問失った',1);
 	}
 	//分页
 	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
@@ -1388,9 +1388,9 @@ elseif($act == 'resetting')
 	}
 	//对这些会员进行重置顾问
 	if($db->updatetable(table('members'),array('consultant'=>0)," uid in ({$member_del_id}) ")){
-		adminmsg('重置成功!',2);
+		adminmsg('再設置成功!',2);
 	}else{
-		adminmsg('重置过程失败!',0);
+		adminmsg('再設定失敗!',0);
 	}
 	
 
@@ -1406,10 +1406,10 @@ elseif($act == 'consultant_add_save')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"consultant_add");
-	$setsqlarr['name'] = !empty($_POST['name']) ? trim($_POST['name']):adminmsg('请填写姓名！',1);
-	$setsqlarr['qq'] = !empty($_POST['qq']) ? trim($_POST['qq']):adminmsg('请填写QQ！',1);	
+	$setsqlarr['name'] = !empty($_POST['name']) ? trim($_POST['name']):adminmsg('名前を入力してください！',1);
+	$setsqlarr['qq'] = !empty($_POST['qq']) ? trim($_POST['qq']):adminmsg('QQ番号を入力してください！',1);	
 	
-	!$_FILES['pic']['name']?adminmsg('请上传照片！',1):"";
+	!$_FILES['pic']['name']?adminmsg('写真をアップロード！',1):"";
 	$upload_image_dir="../data/".$_CFG['updir_images']."/".date("Y/m/d/");
 	make_dir($upload_image_dir);
 	require_once(dirname(__FILE__).'/include/upload.php');
@@ -1422,7 +1422,7 @@ elseif($act == 'consultant_add_save')
 	$link[0]['href'] = "?act=consultant";
 	$link[1]['text'] = "继续添加";
 	$link[1]['href'] = "?act=consultant_add";
-	adminmsg('添加成功！',2,$link);
+	adminmsg('追加成功！',2,$link);
 }
 elseif($act == 'consultant_edit')
 {
@@ -1446,8 +1446,8 @@ elseif($act == 'consultant_edit_save')
 		adminmsg("请选择顾问！",1);
 	}
 	$consultant = get_consultant_one($id);
-	$setsqlarr['name'] = !empty($_POST['name']) ? trim($_POST['name']):adminmsg('请填写姓名！',1);
-	$setsqlarr['qq'] = !empty($_POST['qq']) ? trim($_POST['qq']):adminmsg('请填写QQ！',1);	
+	$setsqlarr['name'] = !empty($_POST['name']) ? trim($_POST['name']):adminmsg('名前を入力してください！',1);
+	$setsqlarr['qq'] = !empty($_POST['qq']) ? trim($_POST['qq']):adminmsg('QQ番号を入力してください！',1);	
 	if($_FILES['pic']['name']){
 		$upload_image_dir="../data/".$_CFG['updir_images']."/".date("Y/m/d/");
 		make_dir($upload_image_dir);
@@ -1463,7 +1463,7 @@ elseif($act == 'consultant_edit_save')
 	$link[0]['href'] = "?act=consultant";
 	$link[1]['text'] = "查看修改结果";
 	$link[1]['href'] = "?act=consultant_edit&id={$id}";
-	adminmsg('修改成功！',2,$link);
+	adminmsg('修正成功！',2,$link);
 }
 elseif($act == "consultant_del"){
 	check_permissions($_SESSION['admin_purview'],"consultant_del");

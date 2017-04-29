@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Our in-house implementation of a parser.

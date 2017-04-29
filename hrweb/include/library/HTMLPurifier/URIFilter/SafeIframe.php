@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Implements safety checks for safe iframes.

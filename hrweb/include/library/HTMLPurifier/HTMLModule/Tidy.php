@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Abstract class for a set of proprietary modules that clean up (tidy)

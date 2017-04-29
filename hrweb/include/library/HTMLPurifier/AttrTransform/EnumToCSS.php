@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Generic pre-transform that converts an attribute with a fixed number of
