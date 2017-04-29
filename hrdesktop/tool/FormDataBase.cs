@@ -316,8 +316,8 @@ namespace highwayns
                     {
                         execel.setValue(2, idx, (idx - 6).ToString());
                         execel.setValue(3, idx, tables[i].fields[j]);
-                        execel.setValue(4, idx, tables[i].fields_type[j].Replace("(","").Replace(")",""));
-                        execel.setValue(5, idx, tables[i].fields_size[j]);
+                        execel.setValue(4, idx, tables[i].fields_type[j]);
+                        execel.setValue(5, idx, tables[i].fields_size[j].Replace("(", "").Replace(")", ""));
                         if(tables[i].fields_null[j]== "NOT NULL")
                             execel.setValue(7, idx, "○");
                         if(tables[i].pk.IndexOf(tables[i].fields[j])>-1)
