@@ -69,28 +69,28 @@ if (empty($_FILES) === false) {
 	$file_size = $_FILES['imgFile']['size'];
 	//检查文件名
 	if (!$file_name) {
-		alert("请选择文件。");
+		alert("ファイルを選択してください。");
 	}
 	//检查目录
 	if (@is_dir($save_path) === false) {
-		alert("上传目录不存在。");
+		alert("アップロードフォルダーが存在しません。");
 	}
 	//检查目录写权限
 	if (@is_writable($save_path) === false) {
-		alert("上传目录没有写权限。");
+		alert("アップロードフォルダー書けない。");
 	}
 	//检查是否已上传
 	if (@is_uploaded_file($tmp_name) === false) {
-		alert("上传失败。");
+		alert("アップロード失敗。");
 	}
 	//检查文件大小
 	if ($file_size > $max_size) {
-		alert("上传文件大小超过限制。");
+		alert("アップロードファイルサイズが超えた。");
 	}
 	//检查目录名
 	$dir_name = empty($_GET['dir']) ? 'image' : trim($_GET['dir']);
 	if (empty($ext_arr[$dir_name])) {
-		alert("目录名不正确。");
+		alert("フォルダー名不正。");
 	}
 	//获得文件扩展名
 	$temp_arr = explode(".", $file_name);
@@ -99,7 +99,7 @@ if (empty($_FILES) === false) {
 	$file_ext = strtolower($file_ext);
 	//检查扩展名
 	if (in_array($file_ext, $ext_arr[$dir_name]) === false) {
-		alert("上传文件扩展名是不允许的扩展名。\n只允许" . implode(",", $ext_arr[$dir_name]) . "格式。");
+		alert("アップロードファイル拡張子禁止。\n下記のみ" . implode(",", $ext_arr[$dir_name]) . "フォーマット。");
 	}
 	//创建文件夹
 	if ($dir_name !== '') {
@@ -120,7 +120,7 @@ if (empty($_FILES) === false) {
 	//移动文件
 	$file_path = $save_path . $new_file_name;
 	if (move_uploaded_file($tmp_name, $file_path) === false) {
-		alert("上传文件失败。");
+		alert("アップロードファイル失敗。");
 	}
 	@chmod($file_path, 0644);
 	$file_url = $save_url . $new_file_name;

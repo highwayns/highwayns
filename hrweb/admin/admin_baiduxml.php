@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'xmllist';
 $smarty->assign('act',$act);
-$smarty->assign('pageheader',"百度开放平台");
+$smarty->assign('pageheader',"Baiduプレートフォーム");
 if($act == 'xmllist')
 {
 $xmlset=get_cache('baiduxml');
@@ -49,7 +49,7 @@ elseif($act == 'setsave')
 		!$db->query("UPDATE ".table('baiduxml')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('保存失敗', 1):"";
 		}
 		refresh_cache('baiduxml');
-		write_log("修改百度开放平台配置", $_SESSION['admin_name'],3);
+		write_log("Baiduプレートフォーム配置変更", $_SESSION['admin_name'],3);
 		adminmsg("保存成功！",2);
 }
 elseif($act == 'del')
@@ -59,15 +59,15 @@ elseif($act == 'del')
 	$file_name=$_POST['file_name'];
 	if (empty($file_name))
 	{
-	adminmsg("请选择文档！",1);
+	adminmsg("文書を選択してください！",1);
 	}
 	if (!is_array($file_name)) $file_name=array($file_name);
 	foreach($file_name as $f )
 	{
 	@unlink($xmldir.$f);
 	}
-	write_log("删除百度开放平台文档", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！",2);
+	write_log("Baiduプレートフォーム文書を削除する", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！",2);
 }
 elseif($act == 'make')
 {
@@ -120,7 +120,7 @@ elseif($act == 'make')
 	{
 		if ($total===0)
 		{
-		adminmsg("没有数据可以生成！",1);
+		adminmsg("生成できるデータがありません！",1);
 		}
 		else
 		{
@@ -134,11 +134,11 @@ elseif($act == 'make')
 				$index[]=array($_CFG['site_domain'].$_CFG['site_dir'].$xmlfile,$atime);
 			}
 			$baiduxml->XML_index_put($xmldir.$xmlset['indexname'],$index);
-			$link[0]['text'] = "查看结果";
+			$link[0]['text'] = "結果閲覧";
 			$link[0]['href'] = '?act=xmllist';
 			$pageli--;
 			$total=$total-$err;
-			adminmsg("生成完成！总计生成{$pageli}个资源文档，1个索引文档，{$total}个职位生成成功，{$err}个职位生成失败",2,$link);
+			adminmsg("生成完了！生成{$pageli}件資源文書，1件インデックス文書，{$total}件職生成成功，{$err}件職位生成失敗",2,$link);
 		}	
 	}
 	else
@@ -147,16 +147,16 @@ elseif($act == 'make')
 		if ($baiduxml->XML_put($xmlname))
 		{
 		$pageli++;
-		$link[0]['text'] = "系统将自动继续...";
+		$link[0]['text'] = "システム自動続く...";
 		$link[0]['href'] = "?act=make&total=".$total."&pageli=".$pageli."&err=".$err;
-		adminmsg("{$xmlname}生成成功,系统将自动继续...", 1,$link,true,2);
+		adminmsg("{$xmlname}生成成功,システム自動続く...", 1,$link,true,2);
 		exit();
 		}
 		else
 		{
-		$link[0]['text'] = "返回列表";
+		$link[0]['text'] = "一覧に戻る";
 		$link[0]['href'] = '?act=xmllist';
-		adminmsg("生成失败！",1,$link);
+		adminmsg("生成失敗！",1,$link);
 		}
 	}	
 }

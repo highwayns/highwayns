@@ -8,97 +8,97 @@ foreach($arrset as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
-	case "显示数目":
+	case "表示数目":
 		$aset['row'] = $a[1];
 		break;
-	case "应届生简历":
+	case "新卒履歴書":
 		$aset['campu_sresume'] = $a[1];
 		break;
-	case "更新时间":
+	case "更新時間":
 		$aset['refreshtime'] = $a[1];
 		break;
-	case "开始位置":
+	case "開始位置":
 		$aset['start'] = $a[1];
 		break;
-	case "姓名长度":
+	case "姓名長さ":
 		$aset['namelen'] = $a[1];
 		break;
-	case "特长描述长度":
+	case "特徴説明長さ":
 		$aset['specialtylen'] = $a[1];
 		break;
-	case "意向职位长度":
+	case "意向職位長さ":
 		$aset['jobslen'] = $a[1];
 		break;
-	case "专业长度":
+	case "専門長さ":
 		$aset['majorlen'] = $a[1];
 		break;
-	case "填补字符":
+	case "記号を入力してください":
 		$aset['dot'] = $a[1];
 		break;
-	case "日期范围":
+	case "日期範囲":
 		$aset['settr'] = $a[1];
 		break;
-	case "职位分类":
+	case "職位分類":
 		$aset['jobcategory'] = trim($a[1]);
 		break;
-	case "职位大类":
+	case "職位大分類":
 		$aset['category'] = trim($a[1]);
 		break;
-	case "职位小类":
+	case "職位小类":
 		$aset['subclass'] = trim($a[1]);
 		break;
-	case "地区分类":
+	case "地区分類":
 		$aset['citycategory'] = trim($a[1]);
 		break;
-	case "地区大类":
+	case "地区大分類":
 		$aset['district'] = $a[1];
 		break;
-	case "地区小类":
+	case "地区小分類":
 		$aset['sdistrict'] = $a[1];
 		break;
-	case "行业":
+	case "業界":
 		$aset['trade'] = trim($a[1]);
 		break;
-	case "专业":
+	case "専門":
 		$aset['major'] = trim($a[1]);
 		break;
-	case "标签":
+	case "タグ":
 		$aset['tag'] = $a[1];
 		break;
-	case "学历":
+	case "学歴":
 		$aset['education'] = $a[1];
 		break;
-	case "工作经验":
+	case "仕事経験":
 		$aset['experience'] = $a[1];
 		break;
-	case "等级":
+	case "級別":
 		$aset['talent'] = $a[1];
 		break;
 	case "性别":
 		$aset['sex'] = $a[1];  // 添加搜索条件  男 女
 		break;
-	case "照片":
+	case "写真":
 		$aset['photo'] = $a[1];
 		break;
-	case "关键字":
+	case "キーワード":
 		$aset['key'] = $a[1];
 		break;
-	case "排序":
+	case "ソート":
 		$aset['displayorder'] = $a[1];
 		break;
-	case "分页显示":
+	case "ページごと表示":
 		$aset['paged'] = $a[1];
 		break;
-	case "页面":
+	case "ページ":
 		$aset['showname'] = $a[1];
 		break;
-	case "列表页":
+	case "一覧ページ":
 		$aset['listpage'] = $a[1];
 		break;
-	case "浏览过的简历":
+	case "閲覧済み履歴書":
 		$aset['readresume'] = $a[1];
 		break;
 	}
@@ -480,9 +480,9 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 			elseif($row['display_name']=="3")
 			{ 
 				if($row['sex']==1){
-				$row['fullname']=cut_str($row['fullname'],1,0,"先生");
+				$row['fullname']=cut_str($row['fullname'],1,0,"男");
 				}elseif($row['sex'] == 2){
-				$row['fullname']=cut_str($row['fullname'],1,0,"女士");
+				$row['fullname']=cut_str($row['fullname'],1,0,"女");
 				}else{
 				$row['fullname']=cut_str($row['fullname'],1,0,"**");
 				}	

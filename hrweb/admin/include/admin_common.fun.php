@@ -348,7 +348,7 @@ function getsubdirs($dir) {
 function makejs_classify()
 {
 	global $db;
-	$content = "//JavaScript Document 生成时间：".date("Y-m-d  H:i:s")."\n\n";
+	$content = "//JavaScript Document 生成時間：".date("Y-m-d  H:i:s")."\n\n";
 	$sql = "select * from ".table('category_district')." where parentid=0 order BY category_order desc,id asc";
 	$list=$db->getall($sql);
 	foreach($list as $parent)

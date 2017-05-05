@@ -26,7 +26,7 @@ if($act == 'suggest_list')
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
 	$list = get_feedback_list($offset,$perpage,$wheresql);
-	$smarty->assign('pageheader',"意见和建议");
+	$smarty->assign('pageheader',"アドバイス");
 	$smarty->assign('infotype',$_GET['infotype']);
 	$smarty->assign('perpage',$perpage);
 	$smarty->assign('list',$list);//列表
@@ -40,15 +40,15 @@ elseif($act == 'del_feedback')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"suggest_del");
-	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("你没有选择项目！",1);
+	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("项目を選択してください！",1);
 	if ($num=del_feedback($id))
 	{
-	write_log("删除意见建议,共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("アッドベス削除,削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'report_list')
@@ -82,7 +82,7 @@ elseif($act == 'report_list')
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
 	$list = get_report_list($offset,$perpage,$joinsql.$wheresql.$oederbysql,$type);
-	$smarty->assign('pageheader',"举报信息");
+	$smarty->assign('pageheader',"情報報告");
 	$smarty->assign('list',$list);
 	$smarty->assign('page',$page->show(3));
 	if($type==1){
@@ -107,16 +107,16 @@ elseif($act == 'report_perform')
 		$audit=intval($_POST['audit']);
 		if (empty($id))
 		{
-		adminmsg("您没有选择项目！",1);
+		adminmsg("项目を選択してください！",1);
 		}
 		if ($num=report_audit($id,$audit,$type,$rid))
 		{
-		write_log("设置举报信息审核状态，共影响{$num}行 ", $_SESSION['admin_name'],3);
-		adminmsg("设置成功！共影响 {$num}行 ",2);
+		write_log("情報報告審査状態設定，影響された行数{$num}行 ", $_SESSION['admin_name'],3);
+		adminmsg("設定成功！影響行数 {$num}行 ",2);
 		}
 		else
 		{
-		adminmsg("设置失败！",0);
+		adminmsg("設定失敗！",0);
 		}
 	}
 }
@@ -124,32 +124,32 @@ elseif($act == 'del_report')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"report_del");
-	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("你没有选择项目！",1);
+	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("项目を選択してください！",1);
 	$id=$_REQUEST['id'];
 	if ($num=del_report($id))
 	{
-	write_log("删除举报信息，共删除{$num}行 ", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("情報報告削除，削除行数{$num}行 ", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'del_report_resume')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"report_del");
-	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("你没有选择项目！",1);
+	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("项目を選択してください！",1);
 	$id=$_REQUEST['id'];
 	if ($num=del_report_resume($id))
 	{
-	write_log("删除举报简历信息，共删除{$num}行 ", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("履歴書報告削除，削除件数{$num}件 ", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 ?>

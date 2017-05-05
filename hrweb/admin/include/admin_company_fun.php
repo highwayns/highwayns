@@ -191,7 +191,7 @@ function del_jobs($id)
 		if (!$db->query("Delete from ".table('jobs_search_stickrtime')." WHERE id IN ({$sqlin})")) return false;
 		if (!$db->query("Delete from ".table('jobs_search_wage')." WHERE id IN ({$sqlin})")) return false;
 		if (!$db->query("Delete from ".table('jobs_tag')." WHERE pid IN ({$sqlin}) ")) return false;
-		write_log("删除职位id为".$sqlin."的职位,共删除".$return."行", $_SESSION['admin_name'],3);
+		write_log("削除された職位idは".$sqlin."の職位,削除件数".$return."行", $_SESSION['admin_name'],3);
 		return $return;
 	}
 	else
@@ -214,7 +214,7 @@ function edit_jobs_audit($id,$audit,$reason,$pms_notice='1')
 		$return=$return+$db->affected_rows();
 		if (!$db->query("update  ".table('jobs_tmp')." SET audit={$audit}  WHERE id IN ({$sqlin})")) return false;
 		$return=$return+$db->affected_rows();
-		write_log("将职位id为".$sqlin."的职位,审核状态设置为".$audit."共处理".$return."行", $_SESSION['admin_name'],3);
+		write_log("職位id次に".$sqlin."の職位,審査状態設定は".$audit."処理件数".$return."行", $_SESSION['admin_name'],3);
 		distribution_jobs($id);
 			//发送站内信
 			if ($pms_notice=='1')
@@ -224,7 +224,7 @@ function edit_jobs_audit($id,$audit,$reason,$pms_notice='1')
 					while($list = $db->fetch_array($result))
 					{
 						$user_info=get_user($list['uid']);
-						$setsqlarr['message']=$audit=='1'?"您发布的职位：{$list['jobs_name']},成功通过网站管理员审核！":"您发布的职位：{$list['jobs_name']},未通过网站管理员审核,{$reason}";
+						$setsqlarr['message']=$audit=='1'?"配布された職位：{$list['jobs_name']},管理者審査合格！":"配布された職位：{$list['jobs_name']},ウェブ管理者の審査が未合格,{$reason}";
 						$setsqlarr['msgtype']=1;
 						$setsqlarr['msgtouid']=$user_info['uid'];
 						$setsqlarr['msgtoname']=$user_info['username'];
@@ -350,7 +350,7 @@ function refresh_company($uid,$refresjobs=false)
 		$return=$return+$db->affected_rows();
 		}
 	}
-	write_log("刷新企业uid为".$sqlin."的企业,共刷新".$return."行", $_SESSION['admin_name'],3);
+	write_log("企業uidを次の更新".$sqlin."の企業,更新件数".$return."行", $_SESSION['admin_name'],3);
 	return $return;
 }
 function refresh_jobs($id)
@@ -374,7 +374,7 @@ function refresh_jobs($id)
 		if (!$db->query("update  ".table('jobs_search_stickrtime')."  SET refreshtime='{$time}' WHERE id IN ({$sqlin})")) return false;
 		if (!$db->query("update  ".table('jobs_search_wage')."  SET refreshtime='{$time}' WHERE id IN ({$sqlin})")) return false;
 	}
-	write_log("刷新职位id为".$sqlin."的职位,共刷新".$return."行", $_SESSION['admin_name'],3);
+	write_log("更新職位idは".$sqlin."の職位,更新件数".$return."行", $_SESSION['admin_name'],3);
 	return $return;
 }
 function delay_jobs($id,$days)
@@ -497,7 +497,7 @@ function delay_jobs($id,$days)
 		}
 	}
 	//返回 : 总共数 , 成功数 , 失败数
-	write_log("延期职位id为".$sqlin."的职位,共处理".$total."行，延期成功".$return."失败".$fail, $_SESSION['admin_name'],3);
+	write_log("延期職位idは".$sqlin."の職位,処理件数".$total."行，延期成功".$return."失敗".$fail, $_SESSION['admin_name'],3);
 	return $total.','.$return.','.$fail;
 	
 }
@@ -536,7 +536,7 @@ function delay_meal($id,$days)
 			}
 		}
 	}
-	write_log("延期企业uid为".$sqlin."的企业套餐,共延期".$return."行", $_SESSION['admin_name'],3);
+	write_log("延期企業uidは".$sqlin."の企業コース,延期件数".$return."行", $_SESSION['admin_name'],3);
 	return $return;
 	
 }
@@ -592,7 +592,7 @@ function edit_company_audit($uid,$audit,$reason,$pms_notice)
 		if (!$db->query("update  ".table('company_profile')." SET audit='{$audit}'  WHERE uid IN ({$sqlin})")) return false;
 		if (!$db->query("update  ".table('jobs')." SET company_audit='{$audit}'  WHERE uid IN ({$sqlin})")) return false;
 		if (!$db->query("update  ".table('jobs_tmp')." SET company_audit='{$audit}'  WHERE uid IN ({$sqlin})")) return false;
-		write_log("将企业uid为".$sqlin."的企业的认证状态修改为".$audit, $_SESSION['admin_name'],3);
+		write_log("企業uidを次に".$sqlin."の企業の認定状態下記に変更：".$audit, $_SESSION['admin_name'],3);
 		//发送站内信
 		if ($pms_notice=='1')
 		{
@@ -602,7 +602,7 @@ function edit_company_audit($uid,$audit,$reason,$pms_notice)
 			while($list = $db->fetch_array($result))
 			{
 				$user_info=get_user($list['uid']);
-				$setsqlarr['message']="您的公司：{$list['companyname']},".$note.'その他説明：'.$reasonpm;
+				$setsqlarr['message']="御社：{$list['companyname']},".$note.'その他説明：'.$reasonpm;
 				$setsqlarr['msgtype']=1;
 				$setsqlarr['msgtouid']=$user_info['uid'];
 				$setsqlarr['msgtoname']=$user_info['username'];
@@ -708,7 +708,7 @@ function del_company($uid)
 		@unlink($certificate_dir.$row['certificate_img']);
 		}
 		if (!$db->query("Delete from ".table('company_profile')." WHERE uid IN ({$sqlin})")) return false;
-		write_log("删除企业uid为".$sqlin."的企业资料", $_SESSION['admin_name'],3);
+		write_log("削除された企業uidは".$sqlin."の企業資料", $_SESSION['admin_name'],3);
 	return true;
 	}
 	return false;
@@ -734,7 +734,7 @@ function del_company_alljobs($uid)
 		$db->query("Delete from ".table('jobs_search_stickrtime')." WHERE uid IN ({$sqlin})");
 		$db->query("Delete from ".table('jobs_search_wage')." WHERE uid IN ({$sqlin})");
 		$db->query("Delete from ".table('jobs_tag')." WHERE uid IN ({$sqlin})");
-		write_log("删除企业uid为".$sqlin."的企业发布的职位", $_SESSION['admin_name'],3);
+		write_log("削除された企業uidは".$sqlin."の企業配布された職位", $_SESSION['admin_name'],3);
 		return true;
 	}
 	return false;
@@ -777,7 +777,7 @@ function del_order($id)
 	if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 	{
 		if (!$db->query("Delete from ".table('order')." WHERE id IN (".$sqlin.")  AND is_paid=1 ")) return false;
-		write_log("取消订单id为".$sqlin."的订单", $_SESSION['admin_name'],3);	
+		write_log("取消オーダーidは".$sqlin."のオーダー", $_SESSION['admin_name'],3);	
 		return true;
 	}
 	return false;
@@ -845,7 +845,7 @@ function del_meal_log($id)
 	if (!preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin)) return false;
 	if (!$db->query("Delete from ".table('members_charge_log')." WHERE log_id IN ({$sqlin})")) return false;
 	$num=$db->affected_rows();
-	write_log("删除企业会员套餐变更记录id为".$sqlin."的套餐变更记录,共删除".$num."行", $_SESSION['admin_name'],3);
+	write_log("企業会員コース削除、变更レコードidは".$sqlin."のコース记录变更,削除件数".$num."行", $_SESSION['admin_name'],3);
 	return $db->affected_rows();
 }
 
@@ -881,7 +881,7 @@ function delete_company_user($uid)
 		if (!$db->query("Delete from ".table('members_points')." WHERE uid IN (".$sqlin.")")) return false;
 		if (!$db->query("Delete from ".table('order')." WHERE uid IN (".$sqlin.")")) return false;
 		if (!$db->query("Delete from ".table('members_setmeal')." WHERE uid IN (".$sqlin.")")) return false; 
-		write_log("删除会员uid为".$sqlin, $_SESSION['admin_name'],3);
+		write_log("削除された会員のuidは".$sqlin, $_SESSION['admin_name'],3);
 		return true;		
 	}
 	return false;
@@ -923,7 +923,7 @@ function order_paid($v_oid)
 		{
 				report_deal($order['uid'],1,$order['points']);				
 				$user_points=get_user_points($order['uid']);
-				$notes="操作人：{$_SESSION['admin_name']},说明：确认收款。收款金额：{$order['amount']} 。".date('Y-m-d H:i',time())."通过：".get_payment_info($order['payment_name'],true)." 成功充值 ".$order['amount']."元，(+{$order['points']})，(剩余:{$user_points}),订单:{$v_oid}";					
+				$notes="操作人：{$_SESSION['admin_name']},説明：支払確認。支払金額：{$order['amount']} 。".date('Y-m-d H:i',time())."合格：".get_payment_info($order['payment_name'],true)." 振込成功 ".$order['amount']."円，(+{$order['points']})，(残る:{$user_points}),オーダー:{$v_oid}";					
 				write_memberslog($order['uid'],1,9001,$user['username'],$notes);
 				//会员套餐变更记录。管理员后台设置会员订单购买成功。4表示：管理员后台开通
 				write_setmeallog($order['uid'],$user['username'],$notes,4,$order['amount'],$ismoney,1,1);
@@ -932,7 +932,7 @@ function order_paid($v_oid)
 		{
 				set_members_setmeal($order['uid'],$order['setmeal']);
 				$setmeal=get_setmeal_one($order['setmeal']);
-				$notes="操作人：{$_SESSION['admin_name']},说明：确认收款，收款金额：{$order['amount']} 。".date('Y-m-d H:i',time())."通过：".get_payment_info($order['payment_name'],true)." 成功充值 ".$order['amount']."元并开通{$setmeal['setmeal_name']}";
+				$notes="操作人：{$_SESSION['admin_name']},説明：振込確認，金額：{$order['amount']} 。".date('Y-m-d H:i',time())."合格：".get_payment_info($order['payment_name'],true)." 振込成功 ".$order['amount']."{$setmeal['setmeal_name']}を有効にする";
 				write_memberslog($order['uid'],1,9002,$user['username'],$notes);
 				//会员套餐变更记录。管理员后台设置会员订单购买成功。4表示：管理员后台开通
 				write_setmeallog($order['uid'],$user['username'],$notes,4,$order['amount'],$ismoney,2,1);
@@ -943,7 +943,7 @@ function order_paid($v_oid)
 	{	 
 		$sql = "UPDATE ".table('order')." SET is_paid= '2',payment_time='{$timestamp}' WHERE oid='{$v_oid}' LIMIT 1 ";	//is_paid =2 为确定支付
 		if (!$db->query($sql)) return false; 
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"申请广告位：<strong>{$order['description']}</strong>，(花费： {$order['amount']})。",1,1020,"申请广告位","-{$order['amount']}","{$user_points}"); 
+		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"広告位申し込み：<strong>{$order['description']}</strong>，(ポイント： {$order['amount']})。",1,1020,"広告位を申し込み","-{$order['amount']}","{$user_points}"); 
 	}
 	elseif($order['pay_type'] == '3')		//短信支付
 	{	
@@ -953,7 +953,7 @@ function order_paid($v_oid)
 		if($order['setmeal'] > 0){	//查看短信套餐
 			set_members_sms($order['uid'],intval($order['setmeal']));	//支付成功，向用户增加短信条数
 			$user_points = get_user_setmeal($order['uid']);
-			write_memberslog($_SESSION['uid'],1,9003,$_SESSION['username'],"短信充值套餐：<strong>{$order['description']}</strong>，(- {$order['amount']})，(剩余:{$user_points['set_sms']})",1,1020,"申请广告位","- {$order['amount']}","{$user_points['set_sms']}");
+			write_memberslog($_SESSION['uid'],1,9003,$_SESSION['username'],"ショートメッセージ振込コース：<strong>{$order['description']}</strong>，(- {$order['amount']})，(残る:{$user_points['set_sms']})",1,1020,"広告位を申し込み","- {$order['amount']}","{$user_points['set_sms']}");
 		}
 	} 
 		//发送邮件
@@ -970,7 +970,7 @@ function order_paid($v_oid)
 	dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_sms.php?uid=".$order['uid']."&key=".asyn_userkey($order['uid'])."&act=set_payment");
 	}
 	//sms
-	write_log("将订单号为".$v_oid."的订单设置为确认收款", $_SESSION['admin_name'],3);
+	write_log("オーダー番号は".$v_oid."のオーダー振込済みに設定", $_SESSION['admin_name'],3);
 	return true;
 }
 function report_deal($uid,$i_type=1,$points=0)
@@ -1012,7 +1012,7 @@ function gift_points($uid,$gift,$ptype,$points)
 				report_deal($vuid,$ptype,$points);
 				$user=get_user($vuid);
 				$mypoints=get_user_points($vuid);
-				write_memberslog($vuid,1,9001,$user['username']," 成为已认证企业({$operator}{$points})，(剩余:{$mypoints})",1,1013,"认证营业执照","{$operator}{$points}","{$mypoints}");
+				write_memberslog($vuid,1,9001,$user['username']," 成为已認定企業({$operator}{$points})，(残る:{$mypoints})",1,1013,"謄本認定","{$operator}{$points}","{$mypoints}");
 				$db->query("INSERT INTO ".table('members_handsel')." (uid,htype,addtime) VALUES ('{$vuid}', '{$gift}','{$time}')");			
 				}
 			}			
@@ -1050,7 +1050,7 @@ function del_setmeal_one($id)
 	global $db;
 	if (!$db->query("Delete from ".table('setmeal')." WHERE id=".intval($id)." ")) return false;
 	//填写管理员日志
-	write_log("后台删除id为".$id."的套餐", $_SESSION['admin_name'],3);
+	write_log("削除idは".$id."のコース", $_SESSION['admin_name'],3);
 	return true;
 }
 function set_members_setmeal($uid,$setmealid)
@@ -1147,12 +1147,12 @@ function del_promotion($id)
 	foreach ($id as $did)
 	{
 		$info=$db->getone("select p.*,m.username from ".table('promotion')." AS p INNER JOIN  ".table('members')." as m ON p.cp_uid=m.uid WHERE p.cp_id='".intval($did)."' LIMIT 1");
-		write_memberslog($info['cp_uid'],1,3006,$info['username'],"管理员取消推广，职位ID:{$info['cp_jobid']}");
+		write_memberslog($info['cp_uid'],1,3006,$info['username'],"管理者は広告を取消しました，職位ID:{$info['cp_jobid']}");
 		cancel_promotion($info['cp_jobid'],$info['cp_promotionid']);
 		$db->query("Delete from ".table('promotion')." WHERE cp_id ='".intval($did)."'");
 		$n+=$db->affected_rows();
 	}
-	write_log("删除推广id为".$id."的推广,共删除".$n."行", $_SESSION['admin_name'],3);
+	write_log("削された除広告idは".$id."の広告,削除件数".$n."行", $_SESSION['admin_name'],3);
 	return $n;
 }
 function get_promotion_one($id)
@@ -1275,51 +1275,51 @@ function edit_setmeal_notes($setarr,$setmeal){
 	if($diff_arr){
 		foreach($diff_arr as $key=>$value){
 			if($key=='jobs_ordinary'){
-				$str.="普通职位：{$setmeal['jobs_ordinary']}-{$setarr['jobs_ordinary']}";
+				$str.="普通職位：{$setmeal['jobs_ordinary']}-{$setarr['jobs_ordinary']}";
 			}elseif($key=='download_resume_ordinary'){
-				$str.=",下载普通人才简历：{$setmeal['download_resume_ordinary']}-{$setarr['download_resume_ordinary']}";
+				$str.=",普通人材履歴書ダウンロード：{$setmeal['download_resume_ordinary']}-{$setarr['download_resume_ordinary']}";
 			}elseif($key=='download_resume_senior'){
-				$str.=",下载高级人才简历：{$setmeal['download_resume_senior']}-{$setarr['download_resume_senior']}";
+				$str.=",高级人材履歴書ダウンロード：{$setmeal['download_resume_senior']}-{$setarr['download_resume_senior']}";
 			}elseif($key=='interview_ordinary'){
-				$str.=",邀请普通人才面试数：{$setmeal['interview_ordinary']}-{$setarr['interview_ordinary']}";
+				$str.=",普通人材面接誘える件数：{$setmeal['interview_ordinary']}-{$setarr['interview_ordinary']}";
 			}elseif($key=='interview_senior'){
-				$str.=",邀请高级人才面试数：{$setmeal['interview_senior']}-{$setarr['interview_senior']}";
+				$str.=",高级人材面接誘い数：{$setmeal['interview_senior']}-{$setarr['interview_senior']}";
 			}elseif($key=='talent_pool'){
-				$str.=",人才库容量：{$setmeal['talent_pool']}-{$setarr['talent_pool']}";
+				$str.=",人材庫容量：{$setmeal['talent_pool']}-{$setarr['talent_pool']}";
 			}elseif($key=='recommend_num'){
-				$str.=",允许推荐职位数：{$setmeal['recommend_num']}-{$setarr['recommend_num']}";
+				$str.=",推荐職位許可数：{$setmeal['recommend_num']}-{$setarr['recommend_num']}";
 			}elseif($key=='recommend_days'){
-				$str.=",推荐职位天数设定：{$setmeal['recommend_days']}-{$setarr['recommend_days']}";
+				$str.=",おすすめ職位日数设定：{$setmeal['recommend_days']}-{$setarr['recommend_days']}";
 			}elseif($key=='stick_num'){
-				$str.=",允许置顶职位数：{$setmeal['stick_num']}-{$setarr['stick_num']}";
+				$str.=",トップにする可能な職位数：{$setmeal['stick_num']}-{$setarr['stick_num']}";
 			}elseif($key=='stick_days'){
-				$str.=",置顶天数设定：{$setmeal['stick_days']}-{$setarr['stick_days']}";
+				$str.=",トップにする日数設定：{$setmeal['stick_days']}-{$setarr['stick_days']}";
 			}elseif($key=='emergency_num'){
-				$str.=",允许紧急职位数：{$setmeal['emergency_num']}-{$setarr['emergency_num']}";
+				$str.=",緊急職位許可数：{$setmeal['emergency_num']}-{$setarr['emergency_num']}";
 			}elseif($key=='emergency_days'){
-				$str.=",紧急职位天数设定：{$setmeal['emergency_days']}-{$setarr['emergency_days']}";
+				$str.=",紧急職位日数设定：{$setmeal['emergency_days']}-{$setarr['emergency_days']}";
 			}elseif($key=='highlight_num'){
-				$str.=",允许套色职位数：{$setmeal['highlight_num']}-{$setarr['highlight_num']}";
+				$str.=",色付き可能職位数：{$setmeal['highlight_num']}-{$setarr['highlight_num']}";
 			}elseif($key=='highlight_days'){
-				$str.=",套色职位天数设定：{$setmeal['highlight_days']}-{$setarr['highlight_days']}";
+				$str.=",色つけ職位日数設定：{$setmeal['highlight_days']}-{$setarr['highlight_days']}";
 			}elseif($key=='jobsfair_num'){
-				$str.=",参加招聘会数：{$setmeal['jobsfair_num']}-{$setarr['jobsfair_num']}";
+				$str.=",募集会参加回数：{$setmeal['jobsfair_num']}-{$setarr['jobsfair_num']}";
 			}elseif($key=='change_templates'){
 					$flag=$setmeal['change_templates']=='1'?'許可':'許可しません';
 					$flag1=$setarr['change_templates']=='1'?'許可':'許可しません';
-				$str.=",自由切换模板：{$flag}-{$flag1}";
+				$str.=",テンプレート切替：{$flag}-{$flag1}";
 			}elseif($key=='map_open'){
 					$flag=$setmeal['map_open']=='1'?'許可':'許可しません';
 					$flag1=$setarr['map_open']=='1'?'許可':'許可しません';
-				$str.=",电子地图：{$flag}-{$flag1}";
+				$str.=",電子地図：{$flag}-{$flag1}";
 			}elseif($key=='endtime'){
 				if($setarr['endtime']=='1970-01-01') $setarr['endtime']='無期限';
-				$str.=",修改套餐到期时间：{$setmeal['endtime']}~{$setarr['endtime']}";
+				$str.=",コース期限切れ時間変更：{$setmeal['endtime']}~{$setarr['endtime']}";
 			}elseif($key=='log_amount' && $value){
-				$str.=",收取套餐金额：{$value} 元";
+				$str.=",コース金額：{$value} 円";
 			}
 		}
-		$strend=$str?"操作人：{$_SESSION['admin_name']}。说明：".$str:'';
+		$strend=$str?"操作者：{$_SESSION['admin_name']}。説明：".$str:'';
 		return $strend;
 	}else{
 		return '';
@@ -1346,7 +1346,7 @@ function get_consultant($offset,$perpage,$get_sql= '')
 function del_consultant($id){
 	global $db;
 	$db->query("delete from ".table('consultant')." where id=".$id);
-	write_log("删除顾问id为".$id."的顾问", $_SESSION['admin_name'],3);
+	write_log("削除された顧問idは".$id."の顧問", $_SESSION['admin_name'],3);
 	return true;
 }
 function set_user_status($status,$uid)

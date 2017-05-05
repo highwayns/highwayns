@@ -7,7 +7,7 @@ require_once(ADMIN_ROOT_PATH.'include/upload.php');
 $upfiles_dir="../data/link/";
 $files_dir=$_CFG['site_dir']."data/link/";
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
-$smarty->assign('pageheader',"友情链接");
+$smarty->assign('pageheader',"相互リンク");
 if($act == 'list')
 {
 	get_token();
@@ -49,11 +49,11 @@ elseif($act == 'del_link')
 	$id=$_REQUEST['id'];
 	if ($num=del_link($id))
 	{
-	adminmsg("删除成功！共删除".$num."行",2);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act =='add')
@@ -92,13 +92,13 @@ elseif($act =='addsave')
 	{
 		$setsqlarr['link_logo']=trim($_POST['link_logo']);
 	}
-	$link[0]['text'] = "继续添加链接";
+	$link[0]['text'] = "続く追加	";
 	$link[0]['href'] = '?act=add';
-	$link[1]['text'] = "返回友情链接列表";
+	$link[1]['text'] = "相互リンク一覧に戻る";
 	$link[1]['href'] = '?';
 	//填写管理员日志
-	write_log("后台添加友情链接", $_SESSION['admin_name'],3);
-	!$db->inserttable(table('link'),$setsqlarr)?adminmsg("添加失败！",0):adminmsg("添加成功！",2,$link);
+	write_log("相互リンク追加", $_SESSION['admin_name'],3);
+	!$db->inserttable(table('link'),$setsqlarr)?adminmsg("追加失敗！",0):adminmsg("追加成功！",2,$link);
 }
 elseif($act =='edit')
 {
@@ -137,11 +137,11 @@ elseif($act =='editsave')
 	{
 		$setsqlarr['link_logo']=trim($_POST['link_logo']);
 	}
-	$link[0]['text'] = "返回上一页";
+	$link[0]['text'] = "前頁に戻る";
 	$link[0]['href'] = $_POST['url'];
 	//填写管理员日志
-	write_log("后台修改友情链接", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('link'),$setsqlarr," link_id =".intval($_POST['id']))?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("相互リンク変更", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('link'),$setsqlarr," link_id =".intval($_POST['id']))?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'category')
 {
@@ -168,15 +168,15 @@ elseif($act == 'add_category_save')
 	$category=get_link_category_name($setsqlarr['c_alias']);
 	if ($category)
 	{
-	adminmsg("调用名已经存在！",0);
+	adminmsg("Call名既に存在します！",0);
 	}
 	else
 	{
-	$link[0]['text'] = "返回分类管理";
+	$link[0]['text'] = "分類管理に戻る";
 	$link[0]['href'] = '?act=category';
-	$link[1]['text'] = "继续添加分类";
+	$link[1]['text'] = "続く分類追加";
 	$link[1]['href'] = "?act=category_add";
-	!$db->inserttable(table('link_category'),$setsqlarr)?adminmsg("添加失败！",0):adminmsg("添加成功！",2,$link);
+	!$db->inserttable(table('link_category'),$setsqlarr)?adminmsg("追加失敗！",0):adminmsg("追加成功！",2,$link);
 	}	
 }
 elseif($act == 'category_edit')
@@ -197,13 +197,13 @@ elseif($act == 'edit_category_save')
 	$category=get_link_category_name($setsqlarr['c_alias']);
 	if ($category && $category['id']<>$_POST['id'])
 	{
-	adminmsg("调用名已经存在！",0);
+	adminmsg("Call名既に存在します！",0);
 	}
 	else
 	{
-	$link[0]['text'] = "返回分类管理";
+	$link[0]['text'] = "分類管理に戻る";
 	$link[0]['href'] = '?act=category';
-	!$db->updatetable(table('link_category'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	!$db->updatetable(table('link_category'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 	}	
 }
 elseif($act == 'del_category')
@@ -213,11 +213,11 @@ elseif($act == 'del_category')
 	$id=$_REQUEST['id'];
 	if ($num=del_category($id))
 	{
-	adminmsg("删除成功！共删除".$num."行",2);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'link_set')

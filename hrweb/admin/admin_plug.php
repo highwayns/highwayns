@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_plug_fun.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"site_plug");
-$smarty->assign('pageheader',"模块管理");
+$smarty->assign('pageheader',"モジュール管理");
 if($act == 'list')
 {	
 	get_token();

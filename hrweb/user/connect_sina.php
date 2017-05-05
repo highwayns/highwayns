@@ -36,7 +36,7 @@ elseif($act == 'login' && !empty($code))
 	$sina_nickname = iconv('utf-8','utf8',$info['screen_name']);
 	if (empty($sina_user_id))
 	{
-	$link[0]['text'] = "返回上一页";
+	$link[0]['text'] = "前頁に戻る";
 	$link[0]['href'] = "{$_CFG['site_dir']}user/connect_sina.php";
 	showmsg('登録失敗！token取得失敗',0);
 	}
@@ -56,7 +56,7 @@ elseif($act == 'login' && !empty($code))
 					{
 					$time=time();
 					$db->query("UPDATE ".table('members')." SET sina_access_token = '{$sina_user_id}',sina_nick = '{$sina_nickname}', sina_binding_time = '{$time}' WHERE uid='{$_SESSION[uid]}' AND sina_access_token='' LIMIT 1"); 
-					$link[0]['text'] = "进入会员中心";
+					$link[0]['text'] = "会員中心へ";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					showmsg('アカウント設定成功！',2,$link);
 					}
@@ -119,7 +119,7 @@ elseif ($act=='reg_save')
 		unset($_SESSION["sina_access_token"]);
 		unset($_SESSION["sina_nickname"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$link[0]['text'] = "返回首页";
+		$link[0]['text'] = "トップに戻る";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
 		showmsg('登録失敗！',0,$link);
 	}

@@ -26,7 +26,7 @@ global $db;
 if (!intval($id)) return false;
 $sql= "UPDATE ".table('payment')." SET p_install='1' WHERE id='$id'";
 if (!$db->query($sql))return false;
-write_log("卸载id为".$id."的支付方式", $_SESSION['admin_name'],3);
+write_log("アンロードidは".$id."の支払方式", $_SESSION['admin_name'],3);
 return true;
 }
 //修改支付列表排序

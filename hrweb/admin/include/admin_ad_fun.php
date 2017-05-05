@@ -50,7 +50,7 @@ function del_ad($id)
 		if (!$db->query("Delete from ".table('ad')." WHERE id IN (".$sqlin.") ")) return false;
 		$return=$return+$db->affected_rows();
 		//填写管理员日志
-		write_log("后台删除广告成功", $_SESSION['admin_name'],3);
+		write_log("広告削除成功", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }
@@ -59,7 +59,7 @@ function del_ad_category($id)
 	global $db;
 	if (!$db->query("Delete from ".table('ad_category')." WHERE id  = ".intval($id)." AND admin_set<>'1'")) return false; 
 	//填写管理员日志
-	write_log("后台成功删除广告位", $_SESSION['admin_name'],3);
+	write_log("広告位削除成功", $_SESSION['admin_name'],3);
 	return true;
 }
 function ck_category_alias($alias,$noid=NULL){

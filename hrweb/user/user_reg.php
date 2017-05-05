@@ -58,9 +58,9 @@ elseif ($act=='activate_save')
 		if($activateinfo>0)
 		{
 			$login_url=user_login($_SESSION['activate_username'],$_POST['pwd'],1,false);
-			$link[0]['text'] = "进入会员中心";
+			$link[0]['text'] = "会員中心へ";
 			$link[0]['href'] = $login_url['hw_login'];
-			$link[1]['text'] = "网站首页";
+			$link[1]['text'] = "ウェブ首页";
 			$link[1]['href'] = $_CFG['site_dir'];
 			$_SESSION['activate_username']="";
 			showmsg('Active成功，会員センターへ！',2,$link);
@@ -70,23 +70,23 @@ elseif ($act=='activate_save')
 		{
 			if ($activateinfo==-10)
 			{
-			$html="密码输入错误";
+			$html="パスワード入力エラー";
 			}
 			elseif($activateinfo==-1)
 			{
-			$html="激活会员类型丢失";
+			$html="Active会員タイプ失った";
 			}
 			elseif($activateinfo==-2)
 			{
-			$html="电子邮箱有重复";
+			$html="電子メールボックス重複あり";
 			}
 			elseif($activateinfo==-3)
 			{
-			$html="手机有重复";
+			$html="携帯番号重複";
 			}
 			elseif($activateinfo==-4)
 			{
-			$html="用户名有重复";
+			$html="ユーザ名重複しました";
 			}
 			else
 			{
@@ -103,9 +103,9 @@ elseif ($act=='activate_save')
 			unset($_SESSION['activate_username']);
 			unset($_SESSION['activate_email']);
 			unset($_SESSION["openid"]);
-			$link[0]['text'] = "重新登录";
+			$link[0]['text'] = "再登録";
 			$link[0]['href'] = url_rewrite('HW_login');
-			showmsg("激活失败，原因：{$html}",0,$link);
+			showmsg("Active失敗，原因：{$html}",0,$link);
 			exit();
 		}
 }
@@ -116,12 +116,12 @@ elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['QS']['username
 // 注册第一步
 elseif ($act=='reg')
 {
-	if ($_CFG['closereg']=='1')showmsg("网站暂停会员注册，请稍后再次尝试！",1);
+	if ($_CFG['closereg']=='1')showmsg("ウェブ会員登録停止しています，後程試してください！",1);
 	if(intval($_GET['type'])==3 && $_PLUG['hunter']['p_install']==1){
-		showmsg("管理员已关闭猎头模块,禁止注册！",1);
+		showmsg("管理者は人材紹介モジュールを無効にしました,登録禁止！",1);
 	}
 	if(intval($_GET['type'])==4 && $_PLUG['train']['p_install']==1){
-		showmsg("管理员已关闭培训模块,禁止注册！",1);
+		showmsg("管理者訓練モジュールを閉じた,登録禁止！",1);
 	}
 	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$token=substr(md5(mt_rand(100000, 999999)), 8,16);
@@ -137,9 +137,9 @@ elseif($act =="reg_step2")
 	global $_CFG;
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['reg_token'])
 	{
-		$link[0]['text'] = "注册失败,重新注册";
+		$link[0]['text'] = "登録失敗,再登録";
 		$link[0]['href'] = "?act=reg";
-		showmsg("注册失败，非正常链接",0,$link);
+		showmsg("登録失敗，リンク正しくない",0,$link);
 	}
 	$sqlarr['utype']=$_POST['utype']?intval($_POST['utype']):showmsg('会員タイプ選択');
 	$sqlarr['mobile']=$_POST['mobile']?trim($_POST['mobile']):showmsg('携帯番号を入力してください');
@@ -164,16 +164,16 @@ elseif($act =="reg_step2_email")
 		$end_time=$time+24*3600;
 		if($end_time<time())
 		{
-			$link[0]['text'] = "重新注册";
+			$link[0]['text'] = "再登録";
 			$link[0]['href'] = "?act=reg";
-			showmsg("注册失败,链接过期",0,$link);
+			showmsg("登録失敗,リンク期間きれ",0,$link);
 		}
 		$key_str=substr(md5($email.$time),8,16);
 		if($key_str!=$key)
 		{
-			$link[0]['text'] = "重新注册";
+			$link[0]['text'] = "再登録";
 			$link[0]['href'] = "?act=reg";
-			showmsg("注册失败,key错误",0,$link);
+			showmsg("登録失敗,keyエラー",0,$link);
 		}
 		$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 		$_SESSION['reg_token']=$token;
@@ -185,9 +185,9 @@ elseif($act =="reg_step2_email")
 	{
 		if(empty($_POST['token']) || $_POST['token']!=$_SESSION['reg_token'])
 		{
-			$link[0]['text'] = "注册失败,重新注册";
+			$link[0]['text'] = "登録失敗,再登録";
 			$link[0]['href'] = "?act=reg";
-			showmsg("注册失败，非正常链接",0,$link);
+			showmsg("登録失敗，リンク正しくない",0,$link);
 		}
 		$sqlarr['utype']=$_POST['utype']?intval($_POST['utype']):showmsg('会員タイプ選択');
 		$sqlarr['email']=$_POST['email']?trim($_POST['email']):showmsg('メールを入力してください');
@@ -206,23 +206,23 @@ elseif($act =="reg_step3")
 	global $db,$HW_pwdhash,$_CFG,$timestamp;
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['reg_token'])
 	{
-		$link[0]['text'] = "注册失败,重新注册";
+		$link[0]['text'] = "登録失敗,再登録";
 		$link[0]['href'] = "?act=reg";
-		showmsg("注册失败，非正常链接",0,$link);
+		showmsg("登録失敗，リンク正しくない",0,$link);
 	}
 	unset($_SESSION['reg_token']);
 	// 注册信息
-	$reg_type=$_POST['reg_type']?intval($_POST['reg_type']):showmsg("注册方式错误");
-	$member_type=$_POST['utype']?intval($_POST['utype']):showmsg("选择注册会员");
-	$password=$_POST['password']?trim($_POST['password']):showmsg("请输入密码");
+	$reg_type=$_POST['reg_type']?intval($_POST['reg_type']):showmsg("登録方式エラー");
+	$member_type=$_POST['utype']?intval($_POST['utype']):showmsg("選択登録会員");
+	$password=$_POST['password']?trim($_POST['password']):showmsg("パスワードを入力してください");
 	if($reg_type==1)
 	{
-		$mobile=$_POST['mobile']?trim($_POST['mobile']):showmsg("注册手机号丢失");
+		$mobile=$_POST['mobile']?trim($_POST['mobile']):showmsg("登録携帯番号が失った");
 		$rst=user_register($reg_type,$password,$member_type,"",$mobile,false);
 	}
 	else
 	{
-		$email=$_POST['email']?trim($_POST['email']):showmsg("注册邮箱号丢失");
+		$email=$_POST['email']?trim($_POST['email']):showmsg("登録メールボックスが失った");
 		$rst=user_register($reg_type,$password,$member_type,$email,"",$uc_reg=true);
 	}
 	if($rst>0)
@@ -267,9 +267,9 @@ elseif($act =="reg_step3")
 	}
 	else
 	{
-		$link[0]['text'] = "注册失败,重新注册";
+		$link[0]['text'] = "登録失敗,再登録";
 		$link[0]['href'] = "?act=reg";
-		showmsg("注册失败",0,$link);
+		showmsg("登録失敗",0,$link);
 	}
 }
 unset($smarty);

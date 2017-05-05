@@ -90,7 +90,7 @@ class wechatCallbackapiTest extends mysql
         switch ($object->Event)
         {
             case "subscribe":
-                $this->content = "回复j返回紧急招聘，回复n返回最新招聘！您可以尝试输入职位名称如“会计”，系统将会返回您要找的信息，我们努力打造最人性化的服务平台，谢谢关注。";
+                $this->content = "回答bj緊急募集に戻る，回答n最新募集に戻る！職位名称例えば“会计”を入力して，システムは探している情報を返事する，個性化サービスプレートフォームを創立しています，有難うございます。";
                 break;
             case "SCAN":
                 $this->actionScan($object);
@@ -122,7 +122,7 @@ class wechatCallbackapiTest extends mysql
 		  $this->query($sql);
                 break;
             default:
-                $this->content = "回复j返回紧急招聘，回复n返回最新招聘！您可以尝试输入职位名称如“会计”，系统将会返回您要找的信息，我们努力打造最人性化的服务平台，谢谢关注。";
+                $this->content = "回答bj緊急募集に戻る，回答n最新募集に戻る！職位名称例えば“会计”を入力して，システムは探している情報を返事する，個性化サービスプレートフォームを創立しています，有難うございます。";
                 break;
         }
         if(is_array($this->content)){
@@ -240,7 +240,7 @@ $item_str</Articles>
 	private function check_weixin_open($object){
 		if(APIOPEN=='0')
 		{
-			$this->content="网站微信接口已经关闭";
+			$this->content="ウェブWechatインターフェースすでに閉じた";
 			$this->transmitText($object,$this->content);
 		}
 	}
@@ -248,9 +248,9 @@ $item_str</Articles>
 	private function clickBinding($object){
 		$usinfo = $this->get_user_info($object->FromUserName);
 		if(!empty($usinfo)){
-			$this->content="您已经绑定过了!";
+			$this->content="既に設定しました!";
 		}else{
-			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>请先绑定帐号</a>";
+			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>設定アカウントをさきに設定してください</a>";
 		}
 	}
     //获取已申请职位列表
@@ -261,14 +261,14 @@ $item_str</Articles>
 			$apply_obj = $this->query("select * from ".table('personal_jobs_apply')." where personal_uid=".$uid);
 			while($row = $this->fetch_array($apply_obj)){
 				$jobs_url = WAP_DOMAIN."wap-jobs-show.php?id=".$row['jobs_id']."&from=".$object->FromUserName;
-				$look = intval($row['personal_look'])==1?"未查看":"已查看";
+				$look = intval($row['personal_look'])==1?"未閲覧":"閲覧済み";
 				$this->content.="【".date('Y-m-d',$row['apply_addtime'])."】【".$look."】\n<a href='".$jobs_url."'>".$row['jobs_name']."</a>\n".$row['company_name']."\n--------------------------\n";
 			}
 			if(empty($this->content)){
-				$this->content = "没有找到对应的信息!";
+				$this->content = "情報を見つかりません!";
 			}
 		}else{
-			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>请先绑定帐号</a>";
+			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>設定アカウントをさきに設定してください</a>";
 		}
 	}
     //刷新简历
@@ -280,9 +280,9 @@ $item_str</Articles>
 			$this->query("update ".table('resume')." set refreshtime=".$time." where uid=".$uid);
 			$this->query("update ".table('resume_search_key')." set refreshtime=".$time." where uid=".$uid);
 			$this->query("update ".table('resume_search_rtime')." set refreshtime=".$time." where uid=".$uid);
-			$this->content = "刷新成功!";
+			$this->content = "更新成功!";
 		}else{
-			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>请先绑定帐号</a>";
+			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>設定アカウントをさきに設定してください</a>";
 		}
 	}
     //获取面试邀请列表
@@ -294,13 +294,13 @@ $item_str</Articles>
 			while($row = $this->fetch_array($interview_obj)){
 				$jobs_url = WAP_DOMAIN."wap-jobs-show.php?id=".$row['jobs_id']."&from=".$object->FromUserName;
 				$company_url = WAP_DOMAIN."wap-company-show.php?id=".$row['company_id']."&from=".$object->FromUserName;
-				$this->content.="【".date('Y-m-d',$row['interview_addtime'])."】\n<a href='".$company_url."'>".$row['company_name']."</a>邀请你面试<a href='".$jobs_url."'>".$row['jobs_name']."</a>\n--------------------------\n";
+				$this->content.="【".date('Y-m-d',$row['interview_addtime'])."】\n<a href='".$company_url."'>".$row['company_name']."</a>面接誘い<a href='".$jobs_url."'>".$row['jobs_name']."</a>\n--------------------------\n";
 			}
 			if(empty($this->content)){
-				$this->content = "没有找到对应的信息!";
+				$this->content = "情報を見つかりません!";
 			}
 		}else{
-			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>请先绑定帐号</a>";
+			$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>設定アカウントをさきに設定してください</a>";
 		}
 	}
     //点击其他条件搜索
@@ -370,9 +370,9 @@ $item_str</Articles>
 					elseif($row['display_name']=="3")
 					{
 						if($row['sex']==1){
-						$fullname=cut_str($row['fullname'],1,0,"先生");
+						$fullname=cut_str($row['fullname'],1,0,"男");
 						}elseif($row['sex'] == 2){
-						$fullname=cut_str($row['fullname'],1,0,"女士");
+						$fullname=cut_str($row['fullname'],1,0,"女");
 						}
 					}
 					else
@@ -388,7 +388,7 @@ $item_str</Articles>
 		}
 		if(empty($this->content))
 		{
-			$this->content="没有找到相应的信息";
+			$this->content="情報見つかりません";
 		}
 	}
     //扫描事件
@@ -398,25 +398,25 @@ $item_str</Articles>
 		{
 			$usinfo = $this->get_user_info($object->FromUserName);
 			if(!empty($usinfo)){
-				$this->content = "<a href='".WAP_DOMAIN."wap_login.php?act=weixin_login&openid=".$object->FromUserName."&uid=".$usinfo['uid']."&event_key=".$event_key."'>点此立即登录".SITE_NAME."网页</a>";
+				$this->content = "<a href='".WAP_DOMAIN."wap_login.php?act=weixin_login&openid=".$object->FromUserName."&uid=".$usinfo['uid']."&event_key=".$event_key."'>クリックして登録".SITE_NAME."ウェブ</a>";
 			}else{
-				$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>请先绑定帐号</a>";
+				$this->content="<a href='".WAP_DOMAIN."wap-binding.php?from=".$object->FromUserName."'>設定アカウントをさきに設定してください</a>";
 			}
 		}
 		elseif($event_key>10000000 && $event_key<=20000000)
 		{
-			$this->content = "请选择会员注册类型.<a href='".WAP_DOMAIN."wap_login.php?act=weixin_reg&openid=".$object->FromUserName."&event_key=".$event_key."&utype=1'>企业会员</a>；<a href='".WAP_DOMAIN."wap_login.php?act=weixin_reg&openid=".$object->FromUserName."&event_key=".$event_key."&utype=2'>个人会员</a>";
+			$this->content = "会員タイプを選択してください.<a href='".WAP_DOMAIN."wap_login.php?act=weixin_reg&openid=".$object->FromUserName."&event_key=".$event_key."&utype=1'>企業会員</a>；<a href='".WAP_DOMAIN."wap_login.php?act=weixin_reg&openid=".$object->FromUserName."&event_key=".$event_key."&utype=2'>個人会員</a>";
 		}
 		elseif($event_key>20000000 && $event_key<=30000000)
 		{
 			$usinfo = $this->get_user_info($object->FromUserName);
 			if($usinfo){
-				$this->content="您好，您的账号(".$usinfo['username'].")已成功设置安全登录。<a href='".WAP_DOMAIN."wap-binding.php?act=change_binding&from=".$object->FromUserName."'>切换绑定</a>";
+				$this->content="こんにちは，アカウント(".$usinfo['username'].")安全登録設定成功。<a href='".WAP_DOMAIN."wap-binding.php?act=change_binding&from=".$object->FromUserName."'>切り替え設定</a>";
 			}else{
 				$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/weixin/'.($event_key%10).'/'.$event_key.'.txt', 'wb+');
 				@fwrite($fp, $object->FromUserName);
 				@fclose($fp);
-				$this->content="绑定成功";
+				$this->content="設定成功";
 			}
 		}
 	}
@@ -469,7 +469,7 @@ $item_str</Articles>
 		}
 		if(empty($this->content))
 		{
-			$this->content="没有找到包含关键字 {$keyword} 的信息，试试其他关键字";
+			$this->content="キーワード {$keyword}を含まれた 情報を見つかりません，その他キーワードを試してみてください";
 		}
 	}
 }

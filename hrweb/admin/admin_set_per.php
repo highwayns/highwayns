@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'set';
 $smarty->assign('act',$act);
-$smarty->assign('pageheader',"个人设置");
+$smarty->assign('pageheader',"個人設定");
 check_permissions($_SESSION['admin_purview'],"set_per");	
 if($act == 'set')
 {
@@ -17,7 +17,7 @@ elseif($act == 'set_save')
 {
 	check_token();
 	//填写管理员日志
-	write_log("后台更新设置", $_SESSION['admin_name'],3);
+	write_log("設定更新", $_SESSION['admin_name'],3);
 	foreach($_POST as $k => $v)
 	{
 	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";

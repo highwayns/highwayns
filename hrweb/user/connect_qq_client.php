@@ -59,7 +59,7 @@ elseif ($act=='login_go')
 					$time=time();
 					require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}',qq_nick ='{$nickname}' ,qq_binding_time = '{$time}' WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
-					$link[0]['text'] = "进入会员中心";
+					$link[0]['text'] = "会員中心へ";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					$_SESSION['uqqid']=$_SESSION['openid'];
 					showmsg('QQアカウント設定成功！',2,$link);
@@ -127,7 +127,7 @@ elseif ($act=='reg_save')
 	else
 	{
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$link[0]['text'] = "返回首页";
+		$link[0]['text'] = "トップに戻る";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
 		showmsg('登録失敗！',0,$link);
 	}
@@ -172,9 +172,9 @@ elseif ($act=='binding_callback')
 			require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 			if (!empty($user))
 			{
-					$link[0]['text'] = "用别的QQ帐号绑定";
+					$link[0]['text'] = "その他QQアカウント設定";
 					$link[0]['href'] = "?act=binding";
-					$link[1]['text'] = "进入会员中心";
+					$link[1]['text'] = "会員中心へ";
 					$link[1]['href'] =get_member_url($_SESSION['utype']);
 					showmsg('このQQアカウントがすでに使っています！',2,$link);
 			}
@@ -192,7 +192,7 @@ elseif ($act=='binding_callback')
 					$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
 					$time=time();
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION[openid]}', qq_nick = '{$nickname}', qq_binding_time = '{$time}' WHERE uid='".$_SESSION['uid']."' AND qq_openid='' LIMIT 1");
-					$link[0]['text'] = "进入会员中心";
+					$link[0]['text'] = "会員中心へ";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					$_SESSION['uqqid']=$_SESSION['openid'];
 					showmsg('QQアカウント設定成功！',2,$link);

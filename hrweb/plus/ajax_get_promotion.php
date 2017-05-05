@@ -90,7 +90,7 @@ if ($act=="get_promotion_one")
     <tr>
       <td height="25">&nbsp;</td>
       <td>
-	  <input type="button" name="set_promotion" value="确定" class="user_submit set_promotion"/>
+	  <input type="button" name="set_promotion" value="確定" class="user_submit set_promotion"/>
  </td>
     </tr>';
 	}elseif($operation_mode==2){
@@ -150,7 +150,7 @@ if ($act=="get_promotion_one")
      <tr>
       <td height="25">&nbsp;</td>
       <td>
-	  <input type="button" name="set_promotion" value="确定" class="user_submit set_promotion"/>
+	  <input type="button" name="set_promotion" value="確定" class="user_submit set_promotion"/>
  </td>
     </tr>';
 		}
@@ -164,7 +164,7 @@ elseif($act == "promotion_save"){
 	$jobs = array_map("addslashes",$jobs);
 	if($jobs['deadline']<time()){
 		exit("-1");
-		// showmsg("该职位已到期，请先延期！",1);
+		// showmsg("该職位期限切れた，延期してください！",1);
 	}
 	$days=intval($_GET['pdays']);
 	$_GET['val']="#".trim($_GET['val']);
@@ -190,7 +190,7 @@ elseif($act == "promotion_save"){
 						if ($points>$user_points)
 						{
 							exit("-2");
-						// showmsg("你的".$_CFG['points_byname']."不够进行此次操作，请先充值！",1,$link);
+						// showmsg("貴方の".$_CFG['points_byname']."ポイント足りない，振込してください！",1,$link);
 						}else{
 							$_CFG['operation_mode']=1;
 						}
@@ -199,7 +199,7 @@ elseif($act == "promotion_save"){
 					}
 				}else{
 					exit("-3");
-					// showmsg("你的套餐已到期或套餐内剩余{$pro_cat['cat_name']}不够，请尽快开通新套餐",1,$link);
+					// showmsg("コース期限切れたまたはコース内残る{$pro_cat['cat_name']}足りない，新コースを申し込みしてください",1,$link);
 				}
 			}else{
 				$_CFG['operation_mode']=2;
@@ -225,7 +225,7 @@ elseif($act == "promotion_save"){
 		if (!empty($info))
 		{
 			exit("-4");
-		// showmsg("此职位正在推广中，请选择其他职位或其他方案",1);
+		// showmsg("この職位は広告中，その他職位或その他ケースを選択してください",1);
 		}
 		$setsqlarr['cp_available']=1;
 		$setsqlarr['cp_promotionid']=intval($_GET['promotionid']);
@@ -239,7 +239,7 @@ elseif($act == "promotion_save"){
 		$setsqlarr['cp_hour']=intval($_GET['hour']);
 		if ($setsqlarr['cp_promotionid']=="4" && empty($setsqlarr['cp_val']))
 		{
-		showmsg("请选择颜色！",1);
+		showmsg("色を選択してください！",1);
 		}
 			if ($db->inserttable(table('promotion'),$setsqlarr))
 			{
@@ -248,18 +248,18 @@ elseif($act == "promotion_save"){
 				{
 					report_deal($_SESSION['uid'],2,$points);
 					$user_points=get_user_points($_SESSION['uid']);
-					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天，(-{$points})，(剩余:{$user_points})");
+					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，広告 {$days} 日，(-{$points})，(残る:{$user_points})");
 				}elseif($_CFG['operation_mode']=='2'){
 					$user_pname=trim($_GET['pro_name']);
 					action_user_setmeal($_SESSION['uid'],$user_pname); //更新套餐中相应推广方式的条数
 					$setmeal=get_user_setmeal($_SESSION['uid']);//获取会员套餐
-					write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天，套餐内剩余{$pro_cat['cat_name']}条数：{$setmeal[$user_pname]}条。");//9002是套餐操作
+					write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，広告 {$days} 日，コース内残る{$pro_cat['cat_name']}件数：{$setmeal[$user_pname]}件。");//9002是套餐操作
 				}
-				write_memberslog($_SESSION['uid'],1,3004,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天。");
+				write_memberslog($_SESSION['uid'],1,3004,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，広告 {$days} 日。");
 				if ($_GET['golist'])
 				{
 					exit("1");
-				// showmsg("推广成功！",2,$link);
+				// showmsg("広告成功！",2,$link);
 				}
 				else
 				{
@@ -270,7 +270,7 @@ elseif($act == "promotion_save"){
 	else
 	{
 	exit("0");
-	//showmsg("参数错误",0);
+	//showmsg("パラメータエラー",0);
 	}
 }
 

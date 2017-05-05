@@ -61,7 +61,7 @@ function get_jobs_one($id,$uid='')
 	$val=!empty($tb1)?$tb1:$tb2;
 	if (empty($val)) return false;
 	$val['contact']=$db->getone("select * from ".table('jobs_contact')." where pid='{$val['id']}' LIMIT 1 ");
-	$val['deadline_days']=($val['deadline']-$timestamp)>0?"距到期时间还有<strong style=\"color:#FF0000\">".sub_day($val['deadline'],$timestamp)."</strong>":"<span style=\"color:#FF6600\">目前已过期</span>";
+	$val['deadline_days']=($val['deadline']-$timestamp)>0?"期間切れるまで<strong style=\"color:#FF0000\">".sub_day($val['deadline'],$timestamp)."</strong>":"<span style=\"color:#FF6600\">今期限切れた</span>";
 	$val['jobs_url']=url_rewrite('HW_jobsshow',array('id'=>$val['id']));
 	return $val;
 }
@@ -98,7 +98,7 @@ function del_jobs($del_id,$uid)
 	if (!$db->query("Delete from ".table('jobs_search_stickrtime')." WHERE id IN ({$sqlin}) {$uidsql}")) return false;
 	if (!$db->query("Delete from ".table('jobs_search_wage')." WHERE id IN ({$sqlin}) {$uidsql}")) return false;
 	if (!$db->query("Delete from ".table('jobs_tag')." WHERE pid IN ({$sqlin}) {$uidsql}")) return false;
-	write_memberslog($_SESSION['uid'],1,2003,$_SESSION['username'],"删除职位({$sqlin})");
+	write_memberslog($_SESSION['uid'],1,2003,$_SESSION['username'],"職位削除({$sqlin})");
 	}
 	return $return;
 }
@@ -126,7 +126,7 @@ function activate_jobs($idarr,$display,$uid)
 			if (!$db->query("update ".table('jobs_tmp')."  SET display='{$display}' WHERE id IN ({$sqlin}) {$uidsql}")) return false;
 		}
 		distribution_jobs($idarr,$uid);
-		write_memberslog($_SESSION['uid'],1,2005,$_SESSION['username'],"将职位激活状态设为:{$display},职位ID为：{$sqlin}");
+		write_memberslog($_SESSION['uid'],1,2005,$_SESSION['username'],"職位下記状態へ設定:{$display},職位IDは：{$sqlin}");
 		return true;
 	}
 	return false;
@@ -361,7 +361,7 @@ function add_order($uid,$pay_type,$oid,$amount,$payment_name,$description,$addti
 	$setsqlarr['points']=$points;
 	$setsqlarr['setmeal']=$setmeal;
 	$setsqlarr['utype']=$utype;
-	write_memberslog($uid,1,3001,$_SESSION['username'],"添加订单，编号{$oid}，金额{$amount}元");
+	write_memberslog($uid,1,3001,$_SESSION['username'],"オーダー追加，番号{$oid}，金額{$amount}円");
 	$userinfo=get_user_info($uid);
 		//sendemail
 		$mailconfig=get_cache('mailconfig');
@@ -388,7 +388,7 @@ function add_order($uid,$pay_type,$oid,$amount,$payment_name,$description,$addti
 function del_order($uid,$id)
 {
 	global $db;
-	write_memberslog($_SESSION['uid'],1,3002,$_SESSION['username'],"取消订单，订单id{$id}");
+	write_memberslog($_SESSION['uid'],1,3002,$_SESSION['username'],"オーダー取消，オーダーid{$id}");
 	return $db->query("Delete from ".table('order')." WHERE id='".intval($id)."' AND uid=".intval($uid)." AND is_paid=1  LIMIT 1 ");
 }
 //获取充值记录列表
@@ -441,7 +441,7 @@ function order_paid($v_oid )
 		{
 				report_deal($order['uid'],1,$order['points']);				
 				$user_points=get_user_points($order['uid']);
-				$notes=date('Y-m-d H:i',time())."通过：".get_payment_info($order['payment_name'],true)." 成功充值 ".$order['amount']."元，(+{$order['points']})，(剩余:{$user_points}),订单:{$v_oid}";					
+				$notes=date('Y-m-d H:i',time())."合格：".get_payment_info($order['payment_name'],true)." 振込成功 ".$order['amount']."円，(+{$order['points']})，(残る:{$user_points}),オーダー:{$v_oid}";					
 				write_memberslog($order['uid'],1,9001,$user['username'],$notes); 
 				//会员套餐变更记录。会员购买成功。2表示：会员自己购买
 				write_setmeallog($order['uid'],$user['username'],$notes,2,$order['amount'],$ismoney,1);
@@ -452,7 +452,7 @@ function order_paid($v_oid )
 				set_members_setmeal($order['uid'],$order['setmeal']);
 				$setmeal=get_setmeal_one($order['setmeal']);
 				
-				$notes=date('Y-m-d H:i',time())."通过：".get_payment_info($order['payment_name'],true)." 成功充值 ".$order['amount']."元并开通{$setmeal['setmeal_name']}";
+				$notes=date('Y-m-d H:i',time())."合格：".get_payment_info($order['payment_name'],true)." 振込成功 ".$order['amount']."{$setmeal['setmeal_name']}を有効にする";
 				write_memberslog($order['uid'],1,9002,$user['username'],$notes);
 				//会员套餐变更记录。会员购买成功。2表示：会员自己购买
 				write_setmeallog($order['uid'],$user['username'],$notes,2,$order['amount'],$ismoney,2,1);
@@ -527,7 +527,7 @@ function del_down_resume($id,$uid)
 	$sqlin=implode(",",$id);
 	if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 	{
-	write_memberslog($_SESSION['uid'],1,4002,$_SESSION['username'],"删除已下载简历({$sqlin})");
+	write_memberslog($_SESSION['uid'],1,4002,$_SESSION['username'],"ダウンロードされた履歴書を削除({$sqlin})");
 	$return=0;
 	$db->query("Delete from ".table('company_down_resume')." WHERE did IN ({$sqlin}) {$wheresql}");
 	$return=$return+$db->affected_rows();
@@ -542,7 +542,7 @@ function del_apply_jobs($id,$uid)
 	$sqlin=implode(",",$id);
 	if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 	{
-	write_memberslog($_SESSION['uid'],1,4002,$_SESSION['username'],"删除职位申请({$sqlin})");
+	write_memberslog($_SESSION['uid'],1,4002,$_SESSION['username'],"職位申し込み削除({$sqlin})");
 	$return=0;
 	$db->query("Delete from ".table('personal_jobs_apply')." WHERE did IN ({$sqlin}) {$wheresql}");
 	$return=$return+$db->affected_rows();
@@ -592,11 +592,11 @@ function add_favorites($id,$company_uid)
 				$setarr['company_uid']=$company_uid;
 				$setarr['favoritesa_ddtime']=$timestamp;
 				$db->inserttable(table("company_favorites"),$setarr);
-				write_memberslog($_SESSION['uid'],1,5001,$_SESSION['username'],"将简历({$v})添加至人才库");
+				write_memberslog($_SESSION['uid'],1,5001,$_SESSION['username'],"履歴書({$v})を人材庫に追加");
 				$i++;
 			}
 		}
-		write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"添加简历至人才库",2,1017,"添加人才库",$i,$count-$i);
+		write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"履歴書を人材庫に追加",2,1017,"追加人材庫",$i,$count-$i);
 		return $i;
 }
 //检测人才库中是否已经存在
@@ -636,10 +636,10 @@ function get_favorites($offset,$perpage,$get_sql= '')
 		elseif ($row['display_name']=="3")
 		{
 			if($row['sex']==1){
-				$row['fullname']=cut_str($row['fullname'],1,0,"先生");
+				$row['fullname']=cut_str($row['fullname'],1,0,"男");
 			}
 			elseif($row['sex']==2){
-				$row['fullname']=cut_str($row['fullname'],1,0,"女士");
+				$row['fullname']=cut_str($row['fullname'],1,0,"女");
 			}
 		}
 		$y=date("Y");
@@ -664,7 +664,7 @@ function del_favorites($del_id,$uid)
 	{
 		if (!$db->query("Delete from ".table('company_favorites')." WHERE did IN ({$sqlin}) {$uidsql}")) return false;
 		$return=$return+$db->affected_rows();
-		write_memberslog($_SESSION['uid'],$_SESSION['utype'],5002,$_SESSION['username'],"删除人才库人才({$sqlin})");		
+		write_memberslog($_SESSION['uid'],$_SESSION['utype'],5002,$_SESSION['username'],"人材庫人材削除({$sqlin})");		
 		return $return;
 	}
 }
@@ -702,7 +702,7 @@ function del_interview($del_id,$uid)
 	$sqlin=implode(",",$del_id);
 	if (!preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin)) return false;
 	if (!$db->query("Delete from ".table('company_interview')." WHERE did IN ({$sqlin}) {$uidsql}")) return false;
-	write_memberslog($_SESSION['uid'],1,6002,$_SESSION['username'],"删除面试邀请({$sqlin})");
+	write_memberslog($_SESSION['uid'],1,6002,$_SESSION['username'],"面接誘い削除({$sqlin})");
 	return true;
 }
 //邀请记录列表
@@ -745,10 +745,10 @@ function get_apply_jobs($offset,$perpage,$get_sql= '')
 		elseif ($row['display_name']=="3")
 		{
 			if($row['sex']==1){
-				$row['fullname']=cut_str($row['fullname'],1,0,"先生");
+				$row['fullname']=cut_str($row['fullname'],1,0,"男");
 			}
 			elseif($row['sex']==2){
-				$row['fullname']=cut_str($row['fullname'],1,0,"女士");
+				$row['fullname']=cut_str($row['fullname'],1,0,"女");
 			}
 		}
 		$row['jobs_name_']=cut_str($row['jobs_name'],7,0,"...");
@@ -781,7 +781,7 @@ function set_apply($id,$uid,$setlook)
 			$sql="select m.username from ".table('personal_jobs_apply')." AS a JOIN ".table('members')." AS m ON a.personal_uid=m.uid WHERE a.did='{$aid}' LIMIT 1";
 			$user=$db->getone($sql);
 			$user = array_map("addslashes", $user);
-			write_memberslog($_SESSION['uid'],1,2006,$_SESSION['username'],"查看了 {$user['username']} 的职位申请");
+			write_memberslog($_SESSION['uid'],1,2006,$_SESSION['username'],"{$user['username']} の職位申し込みを閲覧しました");
 		}
 	return $db->updatetable(table('personal_jobs_apply'),$setsqlarr,$wheresql);
 }
@@ -869,7 +869,7 @@ function set_user_status($status,$uid)
 	if (!$db->query("UPDATE ".table('jobs')." SET user_status= {$status} WHERE uid={$uid} ")) return false;
 	if (!$db->query("UPDATE ".table('jobs_tmp')." SET user_status= {$status} WHERE uid={$uid} ")) return false;
 	distribution_jobs_uid($uid);
-	write_memberslog($_SESSION['uid'],1,1003,$_SESSION['username'],"修改帐号状态");
+	write_memberslog($_SESSION['uid'],1,1003,$_SESSION['username'],"アカウント状態変更しました");
 	return true;
 }
 function get_feedback($uid)
@@ -884,7 +884,7 @@ function del_feedback($id,$uid)
 {
 	global $db;
 	if (!$db->query("Delete from ".table('feedback')." WHERE id='".intval($id)."' AND uid='".intval($uid)."'  ")) return false;
-	write_memberslog($_SESSION['uid'],1,7002,$_SESSION['username'],"删除反馈信息:({$del_id})");
+	write_memberslog($_SESSION['uid'],1,7002,$_SESSION['username'],"削除フィードバック情報:({$del_id})");
 	return true;
 }
 function set_consultant($uid){
@@ -1019,10 +1019,10 @@ function get_resume_basic($id)
 	elseif ($val['display_name']=="3")
 	{
 		if($val['sex']==1){
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 		}
 		elseif($val['sex']==2){
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 		}
 	}
 	return $val;
@@ -1092,7 +1092,7 @@ function get_promotion($uid,$promotionid)
 	$row['jobs_name']=cut_str($row['jobs_name'],12,0,"...");
 	if (empty($row['jobs_name']))
 	{
-	$row['jobs_name']="职位已经删除";
+	$row['jobs_name']="職位がすでに削除された";
 	}
 	if (!empty($row['highlight']))
 	{
@@ -1205,7 +1205,7 @@ function promotion_del($idarr,$uid)
 		}
 		if (!$db->query("Delete from ".table('promotion')." WHERE cp_id in ('{$sqlin}') AND cp_uid='{$uid}'")) return false;
 		$return=$return+$db->affected_rows();
-		write_memberslog($_SESSION['uid'],1,3006,$_SESSION['username'],"删除职位推广，(id:{$idarr})");
+		write_memberslog($_SESSION['uid'],1,3006,$_SESSION['username'],"職位広告削除，(id:{$idarr})");
 	}
 	return $return;
 }
@@ -1376,10 +1376,10 @@ function get_talent_resume_basic($id)
 	elseif ($val['display_name']=="3")
 	{
 		if($val['sex']==1){
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 		}
 		elseif($val['sex']==2){
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 		}
 	}
 	return $val;

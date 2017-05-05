@@ -266,11 +266,11 @@ elseif($act == 'ajaxresumelist'){
 			{
 				if($value['sex']==1)
 				{
-					$value['fullname']=cut_str($value['fullname'],1,0,"先生");
+					$value['fullname']=cut_str($value['fullname'],1,0,"男");
 				}
 				elseif($value['sex']==2)
 				{
-					$value['fullname']=cut_str($value['fullname'],1,0,"女士");
+					$value['fullname']=cut_str($value['fullname'],1,0,"女");
 				}
 				$value['fullname_']=$value['fullname'];	
 			}
@@ -360,18 +360,18 @@ elseif($act == 'jobs_contact')
 			// if ($_CFG['contact_img_job']=='2')
 			// {
 			// $token=md5($val['contact'].$id.$val['telephone']);
-			// $contact=$val['contact_show']=='1'?"联系人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系人：企业设置不对外公开<br />";
-			// $telephone=$val['telephone_show']=='1'?"联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系电话：企业设置不对外公开<br />";
-			// $address=$val['address_show']=='1'?"联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系地址：企业设置不对外公开<br />";
+			// $contact=$val['contact_show']=='1'?"連絡者：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡者：企業設定未公開<br />";
+			// $telephone=$val['telephone_show']=='1'?"電話番号：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"電話番号：企業設定公開しません<br />";
+			// $address=$val['address_show']=='1'?"連絡先：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡先：企業設定公開しません<br />";
 			// $html='<div class="title"><h2>ご連絡</h2></div><div class="txt telbox">';
 			// $html.=$contact.$telephone.$address;
 			// $html.='</div><div class="telimg"><a href="tel://'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			// }
 			// else
 			// {
-			$contact=$val['contact_show']=='1'?"<div class='txt_box'>联系人：{$val['contact']}<br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：{$val['telephone']}<br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['email_show']=='1'?"联系邮箱：{$val['email']}<br />":"联系邮箱：企业设置不对外公开<br /></div>";
+			$contact=$val['contact_show']=='1'?"<div class='txt_box'>連絡者：{$val['contact']}<br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：{$val['telephone']}<br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['email_show']=='1'?"連絡メールボックス：{$val['email']}<br />":"連絡メールボックス：企業設定公開しません<br /></div>";
 			$tel=$val["telephone_show"]=='1'?$val['telephone']:"";
 			$html='<div class="job_show_box telbox"><h2>ご連絡</h2>';
 			$html.=$contact.$telephone.$address;
@@ -423,7 +423,7 @@ elseif($act == 'company_contact')
 				{
 				$show=false;
 				$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
-				$html.="您没有发布简历或者简历无效，发布简历后才可以查看联系方式。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[查看我的简历]</a>";
+				$html.="配布履歴書なし或者履歴書无效，履歴書配布後に連絡先を閲覧できる。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[私の履歴書閲覧]</a>";
 				$html.='</div><div class="telimg"></div>';
 				}
 			}
@@ -442,18 +442,18 @@ elseif($act == 'company_contact')
 			if ($_CFG['contact_img_com']=='2')
 			{
 			$token=md5($val['contact'].$id.$val['telephone']);
-			$contact=$val['contact_show']=='1'?"联系人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['email_show']=='1'?"联系邮箱：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系邮箱：企业设置不对外公开<br />";
+			$contact=$val['contact_show']=='1'?"連絡者：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['email_show']=='1'?"連絡メールボックス：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡メールボックス：企業設定公開しません<br />";
 			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="tel:'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
 			else
 			{
-			$contact=$val['contact_show']=='1'?"联系人：{$val['contact']}<br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：{$val['telephone']}<br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['email_show']=='1'?"联系邮箱：{$val['email']}<br />":"联系邮箱：企业设置不对外公开<br />";
+			$contact=$val['contact_show']=='1'?"連絡者：{$val['contact']}<br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：{$val['telephone']}<br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['email_show']=='1'?"連絡メールボックス：{$val['email']}<br />":"連絡メールボックス：企業設定公開しません<br />";
 			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="tel:'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
@@ -520,19 +520,19 @@ elseif($act == 'resume_contact')
 			// {
 			// $token=md5($val['fullname'].$id.$val['telephone']);
 			// $html='<div class="resume_show_box" id=""><div class="title"><h2>連絡先</h2></div><div class="txt">';
-			// $html.="联 系 人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
-			// $html.="联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
-			// $html.="联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=5&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
+			// $html.="連　絡 者：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
+			// $html.="電話番号：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
+			// $html.="連絡先：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=5&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
 			// $html.="<div align=\"center\"><br/><img src=\"{$_CFG['site_template']}images/64.gif\"  border=\"0\" id=\"invited\"/></div>";
-			// $html.="<div align=\"center\"><span class=\"add_resume_pool\">[添加到人才库]</span><br/><br/></div>";
+			// $html.="<div align=\"center\"><span class=\"add_resume_pool\">[人材庫に追加]</span><br/><br/></div>";
 			// $html.='</div><div class="telimg"><a href="tel://'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div></div>';
 			// }
 			// else
 			// {
 			$html='<div class="resume_show_box" id=""><div class="title"><h2>連絡先</h2></div><div class="txt">';
-			$html.="联 系 人：".$val['fullname']."<br />";
-			$html.="联系电话：".$val['telephone']."<br />";
-			$html.="联系地址：".$val['residence']."<br />";
+			$html.="連　絡　者：".$val['fullname']."<br />";
+			$html.="電話番号：".$val['telephone']."<br />";
+			$html.="連絡先：".$val['residence']."<br />";
 			$html.='</div><div class="telimg"><a href="tel:'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div></div>';
 			// }
 			exit($html);
@@ -612,7 +612,7 @@ elseif ($act == 'invited_add')
 	$resume=resume_one($_POST["resume_id"]);
 	$jobs=jobs_one($_POST["jobs_id"]);
 	if($_SESSION['utype']!=1){
-		exit("企业会员请登录后邀请面试");
+		exit("企業会員登録後面接を誘い");
 	}
 
 	if (check_interview($_POST["resume_id"],$_POST["jobs_id"],$_SESSION['uid']))
@@ -629,11 +629,11 @@ elseif ($act == 'invited_add')
 	{
 		if($resume['sex']==1)
 		{
-			$addarr['resume_name']=cut_str($resume['fullname'],1,0,"先生");
+			$addarr['resume_name']=cut_str($resume['fullname'],1,0,"男");
 		}
 		elseif($resume['sex']==2)
 		{
-			$addarr['resume_name']=cut_str($resume['fullname'],1,0,"女士");
+			$addarr['resume_name']=cut_str($resume['fullname'],1,0,"女");
 		}
 	}
 	else
@@ -661,15 +661,15 @@ elseif ($act == 'invited_add')
 		{
 			action_user_setmeal($_SESSION['uid'],"interview_senior");
 			$setmeal=get_user_setmeal($_SESSION['uid']);
-			write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"邀请了 {$resume_user['username']} 面试，还可以邀请高级人才 {$setmeal['interview_senior']} 次",2,1007,"邀请高级人才面试","1","{$setmeal['interview_senior']}");
-			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username'],"邀请了 {$resume_user['username']} 面试");
+			write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username']," {$resume_user['username']} を面接誘いました，高级人材面接誘える {$setmeal['interview_senior']} 回",2,1007,"高级人材面接誘い","1","{$setmeal['interview_senior']}");
+			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username']," {$resume_user['username']} 面接を誘う");
 		}
 		else
 		{				 
 			action_user_setmeal($_SESSION['uid'],"interview_ordinary");
 			$setmeal=get_user_setmeal($_SESSION['uid']);
-			write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"邀请了 {$resume_user['username']} 面试，还可以邀请普通人才 {$setmeal['interview_ordinary']} 次",2,1006,"邀请普通人才面试","1","{$setmeal['interview_ordinary']}");
-			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username'],"邀请了 {$resume_user['username']} 面试");				
+			write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username']," {$resume_user['username']} 面接を誘いました，普通人材 {$setmeal['interview_ordinary']} 回誘えます",2,1006,"普通人材面接誘い","1","{$setmeal['interview_ordinary']}");
+			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username']," {$resume_user['username']} 面接を誘う");				
 		}			
 	}
 	//积分模式	 
@@ -681,7 +681,7 @@ elseif ($act == 'invited_add')
 		$ptype=$resume['talent_']=='2'?$points_rule['interview_invite_advanced']['type']:$points_rule['interview_invite']['type'];
 		if  ($mypoints<$points)
 		{
-			exit("您的积分不够");
+			exit("ポイント足りない");
 		}
 		$db->inserttable(table('company_interview'),$addarr);
 		if ($points>0)
@@ -690,11 +690,11 @@ elseif ($act == 'invited_add')
 			$user_points=get_user_points($_SESSION['uid']);
 			$operator=$ptype=="1"?"+":"-";
 			if($resume['talent_']=='2'){
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"邀请 {$resume_user['username']} 面试({$operator}{$points}),(剩余:{$user_points})",1,1007,"邀请高级人才面试","{$operator}{$points}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," {$resume_user['username']} 面接を誘う({$operator}{$points}),(残る:{$user_points})",1,1007,"高级人材面接誘い","{$operator}{$points}","{$user_points}");
 			}else{
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"邀请 {$resume_user['username']} 面试({$operator}{$points}),(剩余:{$user_points})",1,1006,"邀请普通人才面试","{$operator}{$points}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," {$resume_user['username']} 面接を誘う({$operator}{$points}),(残る:{$user_points})",1,1006,"普通人材面接誘い","{$operator}{$points}","{$user_points}");
 			}
-			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username'],"邀请 {$resume_user['username']} 面试");
+			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username']," {$resume_user['username']} を面接誘う");
 		}		
 	}
 	//混合模式
@@ -707,13 +707,13 @@ elseif ($act == 'invited_add')
 		$user_jobs=get_auditjobs($_SESSION['uid']);
 		if (count($user_jobs)==0)
 		{
-			exit("邀请失败，你没有发布招聘信息或者信息没有审核通过!");
+			exit("誘い失敗，募集情報配布なしまたは者情報審査NG!");
 		}
 		//然后看他的套餐是否允许
 		$setmeal = get_user_setmeal(intval($_SESSION['uid']));
 		if (empty($setmeal) || ($setmeal['endtime']<time() && $setmeal['endtime']<>"0"))
 		{
-			exit("您的服务已到期 !");
+			exit("サービス期限切れた !");
 		}
 		elseif($resume['talent_']=='2' && $setmeal['interview_senior']<=0)
 		{
@@ -725,13 +725,13 @@ elseif ($act == 'invited_add')
 				//减积分
 				if(intval($ptype) == 2 && ($mypoints < $points))
 				{
-					exit("您邀请面试次数已经超出限制 , 并且积分不足 !");
+					exit("面接誘う回数が設定値を超えた , 且つポイント不足 !");
 				}
 				$is_points = '1';
 			}
 			else
 			{
-				exit("你邀请高级人才面试次数已经超出了限制。");
+				exit("高级人材面接誘い回数は制限を超えました。");
 			}
 		}
 		elseif ($resume['talent_']=='1' && $setmeal['interview_ordinary']<=0)
@@ -744,13 +744,13 @@ elseif ($act == 'invited_add')
 				//减积分
 				if(intval($ptype) == 2 && ($mypoints < $points))
 				{
-					exit("您邀请面试次数已经超出限制 , 并且积分不足 !");
+					exit("面接誘う回数が設定値を超えた , 且つポイント不足 !");
 				}
 				$is_points = '1';
 			}
 			else
 			{
-				exit("你邀请高级人才面试次数已经超出了限制。");
+				exit("高级人材面接誘い回数は制限を超えました。");
 			}
 		}
 		//写日志以及插数据库
@@ -761,10 +761,10 @@ elseif ($act == 'invited_add')
 			$resume_talent = $resume['talent_']=='1'?'interview_ordinary':'interview_senior';
 			action_user_setmeal($_SESSION['uid'],$resume_talent);
 			$setmeal=get_user_setmeal($_SESSION['uid']);
-			$messgae = $resume['talent_']=='1'?"邀请了 {$resume_user['username']} 面试，还可以邀请普通人才 {$setmeal['interview_ordinary']} 次":"邀请了 {$resume_user['username']} 面试，还可以邀请高级人才 {$setmeal['interview_senior']} 次";
-			$message_type = $resume['talent_']=='1'?"邀请普通人才面试":"邀请高级人才面试";
+			$messgae = $resume['talent_']=='1'?" {$resume_user['username']} 面接を誘いました，普通人材 {$setmeal['interview_ordinary']} 回誘えます":" {$resume_user['username']} を面接誘いました，高级人材面接誘える {$setmeal['interview_senior']} 回";
+			$message_type = $resume['talent_']=='1'?"普通人材面接誘い":"高级人材面接誘い";
 			write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],$messgae,2,1007,$message_type,"1","{$setmeal['interview_senior']}");
-			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username'],"邀请了 {$resume_user['username']} 面试");
+			write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username']," {$resume_user['username']} 面接を誘う");
 		}
 		else
 		{
@@ -774,11 +774,11 @@ elseif ($act == 'invited_add')
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$ptype=="1"?"+":"-";
 				if($resume['talent_']=='2'){
-					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"邀请 {$resume_user['username']} 面试({$operator}{$points}),(剩余:{$user_points})",1,1007,"邀请高级人才面试","{$operator}{$points}","{$user_points}");
+					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," {$resume_user['username']} 面接を誘う({$operator}{$points}),(残る:{$user_points})",1,1007,"高级人材面接誘い","{$operator}{$points}","{$user_points}");
 				}else{
-					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"邀请 {$resume_user['username']} 面试({$operator}{$points}),(剩余:{$user_points})",1,1006,"邀请普通人才面试","{$operator}{$points}","{$user_points}");
+					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," {$resume_user['username']} 面接を誘う({$operator}{$points}),(残る:{$user_points})",1,1006,"普通人材面接誘い","{$operator}{$points}","{$user_points}");
 				}
-				write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username'],"邀请 {$resume_user['username']} 面试");
+				write_memberslog($_SESSION['uid'],1,6001,$_SESSION['username']," {$resume_user['username']} を面接誘う");
 			}
 		}
 
@@ -801,7 +801,7 @@ elseif ($act == 'invited_add')
 		$user=$db->getone("select username from ".table('members')." where uid ={$resume['uid']} limit 1");
 		$jobs_url=url_rewrite('HW_jobsshow',array('id'=>$jobs['id']));
 		$company_url=url_rewrite('HW_companyshow',array('id'=>$jobs['company_id']));
-		$message=$jobs['companyname']."邀请您参加公司面试，面试职位：<a href=\"{$jobs_url}\" target=\"_blank\"> {$jobs['jobs_name']} </a>，<a href=\"{$company_url}\" target=\"_blank\">点击查看公司详情</a>";
+		$message=$jobs['companyname']."会社面接誘いがあります，面接職位：<a href=\"{$jobs_url}\" target=\"_blank\"> {$jobs['jobs_name']} </a>，<a href=\"{$company_url}\" target=\"_blank\">会社詳細情報を閲覧</a>";
 		write_pmsnotice($resume['uid'],$user['username'],$message);
 	}
 	
@@ -817,7 +817,7 @@ elseif ($act == 'invited_add')
 				'url' => $jobs_url,
 				'topcolor' => "#7B68EE",
 				'data' => array(
-					'first' => array('value' => urlencode(gbk_to_utf8($jobs['companyname']."邀请您参加公司面试")),
+					'first' => array('value' => urlencode(gbk_to_utf8($jobs['companyname']."会社面接を誘う")),
 									'color' => "#743A3A",
 						),
 					'job' => array('value' => urlencode(gbk_to_utf8($jobs['jobs_name'])),
@@ -826,7 +826,7 @@ elseif ($act == 'invited_add')
 					'company' => array('value' => urlencode(gbk_to_utf8($jobs['companyname'])),
 									'color' => "#743A3A",
 						),
-					'time' => array('value' => urlencode(gbk_to_utf8("请点击查看")),
+					'time' => array('value' => urlencode(gbk_to_utf8("クリックして閲覧")),
 									'color' => "#743A3A",
 						),
 					'address' => array('value' => urlencode(gbk_to_utf8($jobs['contact']['address'])),

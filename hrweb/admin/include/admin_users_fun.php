@@ -26,7 +26,7 @@ function del_users($id,$purview='')
 	if (!$db->query("Delete from ".table('admin')." WHERE admin_id=".intval($id)." AND purview<>'all' ")) return false;
 	$return=$return+$db->affected_rows();	
 	//填写管理员日志
-	write_log("后台删除id为".$id."的管理员", $_SESSION['admin_name'],3);
+	write_log("削除idは".$id."の管理者", $_SESSION['admin_name'],3);
 	return $return;
 }
 function get_admin_log($offset,$perpage,$get_sql= '')

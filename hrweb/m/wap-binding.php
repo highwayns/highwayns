@@ -17,21 +17,21 @@ elseif($act == 'binding_save')
 	$fromUsername = trim($_POST['from']);
 	if(empty($fromUsername)){
 		$smarty->assign("from",$_POST['from']);
-		$smarty->assign('err',"绑定失败！请返回微信重新绑定");
+		$smarty->assign('err',"設定失敗！Wechat重新設定に戻る");
 		$smarty->display('wap/wap-binding.html');
 		die;
 	}
 	$username = trim($_POST['username']);
 	if(empty($username)){
 		$smarty->assign("from",$_POST['from']);
-		$smarty->assign('err',"请输入用户名");
+		$smarty->assign('err',"ユーザ名を入力してください");
 		$smarty->display('wap/wap-binding.html');
 		die;
 	}
 	$password = trim($_POST['password']);
 	if(empty($password)){
 		$smarty->assign("from",$_POST['from']);
-		$smarty->assign('err',"请输入密码");
+		$smarty->assign('err',"パスワードを入力してください");
 		$smarty->display('wap/wap-binding.html');
 		die;
 	}
@@ -41,7 +41,7 @@ elseif($act == 'binding_save')
 	if(!empty($usinfo)){
 		if($usinfo['weixin_openid']){
 			$smarty->assign("from",$_POST['from']);
-			$smarty->assign('err',"您已绑定了微信帐号");
+			$smarty->assign('err',"Wechatアカウント設定済み");
 			$smarty->display('wap/wap-binding.html');
 			die;
 		}
@@ -72,7 +72,7 @@ elseif($act == 'binding_save')
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$rule['company_wx_points']['type']=="1"?"+":"-";
 				$_SESSION['handsel_company_wx_points']=$_CFG['points_byname'].$operator.$rule['company_wx_points']['value'];
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 绑定微信，{$_CFG['points_byname']}({$operator}{$rule['company_wx_points']['value']})，(剩余:{$user_points})",1,1016,"绑定微信","{$operator}{$rule['company_wx_points']['value']}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 設定Wechat，{$_CFG['points_byname']}({$operator}{$rule['company_wx_points']['value']})，(残る:{$user_points})",1,1016,"Wechat設定","{$operator}{$rule['company_wx_points']['value']}","{$user_points}");
 				}
 			}
 			if (wap_user_login($username,$password))
@@ -92,12 +92,12 @@ elseif($act == 'binding_save')
 		}
 		if($success == false){
 				$smarty->assign("from",$_POST['from']);
-				$smarty->assign('err',"用户名或密码错误!");
+				$smarty->assign('err',"ユーザ名或パスワードエラー!");
 				$smarty->display('wap/wap-binding.html');
 		}
 	}else{
 			$smarty->assign("from",$_POST['from']);
-			$smarty->assign('err',"用户名或密码错误!");
+			$smarty->assign('err',"ユーザ名或パスワードエラー!");
 			$smarty->display('wap/wap-binding.html');
 	}
 		
@@ -111,21 +111,21 @@ elseif($act == 'change_binding_save')
 	$fromUsername = trim($_POST['from']);
 	if(empty($fromUsername)){
 		$smarty->assign("from",$_POST['from']);
-		$smarty->assign('err',"绑定失败！请返回微信重新绑定");
+		$smarty->assign('err',"設定失敗！Wechat重新設定に戻る");
 		$smarty->display('wap/wap-change-binding.html');
 		die;
 	}
 	$username = trim($_POST['username']);
 	if(empty($username)){
 		$smarty->assign("from",$_POST['from']);
-		$smarty->assign('err',"请输入用户名");
+		$smarty->assign('err',"ユーザ名を入力してください");
 		$smarty->display('wap/wap-change-binding.html');
 		die;
 	}
 	$password = trim($_POST['password']);
 	if(empty($password)){
 		$smarty->assign("from",$_POST['from']);
-		$smarty->assign('err',"请输入密码");
+		$smarty->assign('err',"パスワードを入力してください");
 		$smarty->display('wap/wap-change-binding.html');
 		die;
 	}
@@ -165,12 +165,12 @@ elseif($act == 'change_binding_save')
 		}
 		if($success == false){
 				$smarty->assign("from",$_POST['from']);
-				$smarty->assign('err',"用户名或密码错误!");
+				$smarty->assign('err',"ユーザ名或パスワードエラー!");
 				$smarty->display('wap/wap-change-binding.html');
 		}
 	}else{
 			$smarty->assign("from",$_POST['from']);
-			$smarty->assign('err',"用户名或密码错误!");
+			$smarty->assign('err',"ユーザ名或パスワードエラー!");
 			$smarty->display('wap/wap-change-binding.html');
 	}
 		

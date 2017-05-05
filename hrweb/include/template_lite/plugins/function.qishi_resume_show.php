@@ -8,10 +8,10 @@ foreach($arr as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "简历ID":
+	case "履歴書ID":
 		$aset['id'] = $a[1];
 		break;
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
 	}
@@ -49,9 +49,9 @@ if ($val)
 			elseif($val['display_name']=="3")
 			{
 				if($val['sex']==1){
-				$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+				$val['fullname']=cut_str($val['fullname'],1,0,"男");
 				}elseif($val['sex'] == 2){
-				$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+				$val['fullname']=cut_str($val['fullname'],1,0,"女");
 				}
 			}
 			else
@@ -64,7 +64,7 @@ if ($val)
 		$mes_apply = $db->getone("select jobs_name,apply_addtime from ".table('personal_jobs_apply')." where `resume_id`=".$val['id']." and  `company_uid`=".intval($_SESSION['uid'])." limit 1 ");
 		if($mes_apply)
 		{
-			$val['message'] = "应聘职位：".$mes_apply['jobs_name']." 投递时间：".date('Y-m-d',$mes_apply['apply_addtime']);
+			$val['message'] = "応募職位：".$mes_apply['jobs_name']." 送信時間：".date('Y-m-d',$mes_apply['apply_addtime']);
 		}
 		else
 		{
@@ -81,9 +81,9 @@ if ($val)
 		elseif($val['display_name']=="3")
 		{
 			if($val['sex']==1){
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 			}elseif($val['sex'] == 2){
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 			}
 		}
 		else

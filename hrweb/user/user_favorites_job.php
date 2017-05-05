@@ -54,7 +54,7 @@ if ($user['status']=="2")
 }
 if ($act=="add")
 {
-	$id=isset($_GET['id'])?trim($_GET['id']):exit("出错了"); 
+	$id=isset($_GET['id'])?trim($_GET['id']):exit("エラー発生"); 
 	if(add_favorites($id,$_SESSION['uid'])==0)
 	{
 	exit('<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">

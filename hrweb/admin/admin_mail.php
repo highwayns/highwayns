@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'email_set';
 check_permissions($_SESSION['admin_purview'],"site_mail");
-$smarty->assign('pageheader',"邮件设置");
+$smarty->assign('pageheader',"メール設定");
 if($act == 'email_set')
 {
 	get_token();
@@ -46,7 +46,7 @@ elseif($act == 'email_set_save')
 	!$db->query("UPDATE ".table('mailconfig')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('mailconfig');
-	write_log("设置邮件配置", $_SESSION['admin_name'],3);
+	write_log("メール配置設定", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 if($act == 'testing')
@@ -59,12 +59,12 @@ elseif($act == 'email_testing')
 {
 	check_token();
 	$mailconfig=get_cache('mailconfig');
-	$txt="您好！这是一封检测邮件服务器设置的测试邮件。收到此邮件，意味着您的邮件服务器设置正确！您可以进行其它邮件发送的操作了！";
+	$txt="こんにちは！メールサービス器設定のテストメールです。このメール受信したら，メールサービス設定が正いです！メール送信の操作ができました！";
 	$check_smtp=trim($_POST['check_smtp'])?trim($_POST['check_smtp']):adminmsg('宛先アドレスを入力してください', 1);
 	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$check_smtp))adminmsg('emailフォーマットエラー！',1);
-	if (smtp_mail($check_smtp,"海威人材测试邮件",$txt))
+	if (smtp_mail($check_smtp,"海威人材テストメール",$txt))
 	{
-	write_log("测试邮件发送成功！", $_SESSION['admin_name'],3);
+	write_log("テストメール送信成功！", $_SESSION['admin_name'],3);
 	adminmsg('テストメール送信成功！',2);
 	}
 	else
@@ -94,7 +94,7 @@ elseif($act == 'email_rule_save')
 	!$db->query("UPDATE ".table('mailconfig')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('mailconfig');
-	write_log("设置邮件发送规则", $_SESSION['admin_name'],3);
+	write_log("メール送信ルール設定", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 elseif($act == 'mail_templates_edit')
@@ -157,16 +157,16 @@ elseif($act == 'templates_save')
 	$title=trim($_POST['title']);
 	!$db->query("UPDATE ".table('mail_templates')." SET value='".$templates_value."' WHERE name='".$templates_name."'")?adminmsg('设置失敗', 1):"";
 	!$db->query("UPDATE ".table('mail_templates')." SET value='".$title."' WHERE name='".$templates_name."_title'")?adminmsg('设置失敗', 1):"";
-	$link[0]['text'] = "返回上一页";
+	$link[0]['text'] = "前頁に戻る";
 	$link[0]['href'] ="?act=email_set_templates";
 	refresh_cache('mail_templates');
-	write_log("修改邮件发送模版", $_SESSION['admin_name'],3);
+	write_log("変更メール送信テンプレート", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
  elseif($act == 'send')
 {
 	get_token();
-	$smarty->assign('pageheader',"邮件营销");
+	$smarty->assign('pageheader',"メールセールス");
 	
 	require_once(dirname(__FILE__).'/include/admin_mailqueue_fun.php');
 	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
@@ -214,9 +214,9 @@ elseif($act == 'email_send')
 		$setsqlarr['m_type']=1;//发送成功
 		$db->inserttable(table('mailqueue'),$setsqlarr);
 		unset($setsqlarr);
-		$link[0]['text'] = "返回上一页";
+		$link[0]['text'] = "前頁に戻る";
 		$link[0]['href'] = "{$url}";
-		adminmsg("发送成功！",2,$link);
+		adminmsg("送信成功！",2,$link);
 	}
 	else
 	{
@@ -224,9 +224,9 @@ elseif($act == 'email_send')
 		$setsqlarr['m_type']=2;//发送失败
 		$db->inserttable(table('mailqueue'),$setsqlarr);
 		unset($setsqlarr);
-		$link[0]['text'] = "返回上一页";
+		$link[0]['text'] = "前頁に戻る";
 		$link[0]['href'] = "{$url}";
-		adminmsg("发送失败，错误未知！",0,$link);
+		adminmsg("送信失敗，エラー未知！",0,$link);
 	}
 }
 elseif ($act=='again_send')
@@ -234,7 +234,7 @@ elseif ($act=='again_send')
 	$id=intval($_GET['id']);
 	if (empty($id))
 	{
-	adminmsg("请选择要发送的项目！",1);
+	adminmsg("送信の项目を選択してください！",1);
 	}
 	$result = $db->getone("SELECT * FROM ".table('mailqueue')." WHERE  m_id = {$id} limit 1");
 	$wheresql=" m_id={$id} ";
@@ -256,14 +256,14 @@ elseif ($act=='del')
 	$id=$_POST['id'];
 	if (empty($id))
 	{
-	adminmsg("请选择项目！",1);
+	adminmsg("項目を選択してください！",1);
 	}
 	if(!is_array($id)) $id=array($id);
 	$sqlin=implode(",",$id);
 	if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 	{
 	$db->query("Delete from ".table('mailqueue')." WHERE m_id IN ({$sqlin}) ");
-	adminmsg("删除成功",2);
+	adminmsg("削除成功",2);
 	}
 }
 // 邮件日志

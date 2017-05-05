@@ -112,7 +112,7 @@ function check_xml($xml)
 	$xmlname=ADMIN_ROOT_PATH."statement/{$xml}";
 	if (!is_writable(ADMIN_ROOT_PATH.'statement/'))
 	{
-	exit("请先将后台“statement”目录设置可读写！");
+	exit("“statement”フォルダーを読み書き可能に設定してください！");
 	}
 	if (file_exists($xmlname))
 	{

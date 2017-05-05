@@ -8,10 +8,10 @@ function tpl_function_highway_explain_show($params, &$smarty)
 	$a=explode(':',$str);
 		switch ($a[0])
 		{
-		case "说明页ID":
+		case "説明ページID":
 			$aset['id'] = $a[1];
 			break;
-		case "列表名":
+		case "一覧名":
 			$aset['listname'] = $a[1];
 			break;
 		}

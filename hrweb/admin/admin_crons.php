@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_crons_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"crons");
-$smarty->assign('pageheader',"计划任务");
+$smarty->assign('pageheader',"計画タスク");
 if($act == 'list')
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
@@ -44,14 +44,14 @@ $setsqlarr['admin_set']=0;
 $setsqlarr['available']=intval($_POST['available']);
 	if ($db->inserttable(table('crons'),$setsqlarr))
 	{
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] ="?act=";
-	write_log("添加计划任务：".$setsqlarr['name'], $_SESSION['admin_name'],3);
-	adminmsg("添加成功！",2,$link);
+	write_log("計画タスク追加：".$setsqlarr['name'], $_SESSION['admin_name'],3);
+	adminmsg("追加成功！",2,$link);
 	}
 	else
 	{
-	adminmsg("添加失败！",0);
+	adminmsg("追加失敗！",0);
 	}
 }
 elseif($act == 'edit')
@@ -63,7 +63,7 @@ elseif($act == 'edit')
 elseif($act == 'edit_save')
 {
 	check_token();
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] ="?act=";
 	$setsqlarr['name']=!empty($_POST['name'])?trim($_POST['name']):adminmsg('名称が必須',1);
 	$setsqlarr['filename']=!empty($_POST['filename'])?trim($_POST['filename']):adminmsg('タスクスクリプトを入力してください',1);
@@ -77,21 +77,21 @@ elseif($act == 'edit_save')
 	}
 	$setsqlarr['available']=intval($_POST['available']);
 	$wheresql=" cronid=".intval($_POST['cronid']);
-	!$db->updatetable(table('crons'),$setsqlarr,$wheresql)?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	!$db->updatetable(table('crons'),$setsqlarr,$wheresql)?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'del')
 {
 	get_token();
 	$id=$_REQUEST['id'];
-	if (empty($id)) adminmsg("请选择项目！",0);
+	if (empty($id)) adminmsg("項目を選択してください！",0);
 	if ($num=del_crons($id))
 	{
-	write_log("删除计划任务,共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("計画タスク削除,削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！".$num,1);
+	adminmsg("削除失敗！".$num,1);
 	}
 }
 elseif($act == 'execution')
@@ -103,10 +103,10 @@ elseif($act == 'execution')
 	{
 		if (!file_exists(HIGHWAY_ROOT_PATH."include/crons/".$crons['filename']))
 		{
-		adminmsg("任务文件 {$crons['filename']} 不存在！",0);
+		adminmsg("タスクファイル {$crons['filename']} が存在しません！",0);
 		}
 	require_once(HIGHWAY_ROOT_PATH."include/crons/".$crons['filename']);
-	adminmsg("执行成功！",2);
+	adminmsg("実行成功！",2);
 	}	
 }
 ?>

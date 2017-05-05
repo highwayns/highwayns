@@ -167,7 +167,7 @@ class mysql {
     		$info = "Errno：".$this->errno()." Error：".$this->error();
     	}
     	exit($info);
-        //exit("数据库错误,请联系网站管理员！");
+        //exit("DBエラー,ウェブ管理者に連絡してください！");
     }
 
 }

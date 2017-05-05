@@ -33,7 +33,7 @@ function del_link($id)
 		if (!$db->query("Delete from ".table('link')." WHERE link_id IN (".$sqlin.")")) return false;
 		$return=$return+$db->affected_rows();
 		//填写管理员日志
-		write_log("后台删除id为".$sqlin."的友情链接", $_SESSION['admin_name'],3);
+		write_log("削除idは".$sqlin."の相互リンク", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }
@@ -62,7 +62,7 @@ function del_category($id)
 		if (!$db->query("Delete from ".table('link_category')." WHERE id IN (".$sqlin.")  AND c_sys<>1")) return false;
 		$return=$return+$db->affected_rows();
 		//填写管理员日志
-		write_log("后台删除友情链接分类", $_SESSION['admin_name'],3);
+		write_log("相互リンク分類削除", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }

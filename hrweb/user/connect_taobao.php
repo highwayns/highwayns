@@ -42,7 +42,7 @@ elseif($act == 'login' && !empty($code))
 	}
 	if (empty($token))
 	{
-	$link[0]['text'] = "返回上一页";
+	$link[0]['text'] = "前頁に戻る";
 	$link[0]['href'] = "{$_CFG['site_dir']}user/connect_taobao.php";
 	showmsg('登録失敗！token取得失敗',0);
 	}
@@ -62,7 +62,7 @@ elseif($act == 'login' && !empty($code))
 					{
 					$time=time();
 					$db->query("UPDATE ".table('members')." SET taobao_access_token = '{$taobao_user_id}',taobao_nick='{$taobao_nickname}',bindingtime='{$time}' WHERE uid='{$_SESSION[uid]}' AND taobao_access_token='' LIMIT 1");
-					$link[0]['text'] = "进入会员中心";
+					$link[0]['text'] = "会員中心へ";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					showmsg('アカウント設定成功！',2,$link);
 					}
@@ -88,7 +88,7 @@ elseif ($act=='reg')
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php'); 
 		$smarty->assign('title','情報補完 - '.$_CFG['site_name']);
 		$smarty->assign('t_url',"?act=");
-		$smarty->assign('third_name',"淘宝");
+		$smarty->assign('third_name',"Taobao");
 		$smarty->assign('nickname',$_SESSION['taobao_nickname']);
 		$smarty->assign('openid',$_SESSION["taobao_access_token"]);
 		$smarty->assign('bindtype','taobao');
@@ -127,7 +127,7 @@ elseif ($act=='reg_save')
 		unset($_SESSION["taobao_access_token"]);
 		unset($_SESSION["taobao_nickname"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$link[0]['text'] = "返回首页";
+		$link[0]['text'] = "トップに戻る";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
 		showmsg('登録失敗！',0,$link);
 	}

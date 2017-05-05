@@ -3,7 +3,7 @@ define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'select_cache';
-$smarty->assign('pageheader',"更新缓存");
+$smarty->assign('pageheader',"Cache更新");
 if ($act=="select_cache")
 {
 	

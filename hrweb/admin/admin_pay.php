@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_pay_fun.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"site_payment");
-$smarty->assign('pageheader',"支付方式");
+$smarty->assign('pageheader',"支払方式");
 if($act == 'list')
 {	
 	get_token();
@@ -42,7 +42,7 @@ elseif($act == 'save_payment')
 	$setsqlarr['parameter3']=trim($_POST['parameter3']);
 	$setsqlarr['p_install']=2;
 	$wheresql=" id=".$setsqlarr['id']." ";
-	$link[0]['text'] = "返回支付方式列表";
+	$link[0]['text'] = "支払方式一覧に戻る";
 	$link[0]['href'] = '?';
 	!$db->updatetable(table('payment'), $setsqlarr,$wheresql)?adminmsg('保存失敗！', 1):adminmsg('保存成功！', 2,$link);
 }

@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'set_sms';
 check_permissions($_SESSION['admin_purview'],"set_sms");
-$smarty->assign('pageheader',"短信设置");
+$smarty->assign('pageheader',"ショートメッセージ設定");
 if($act == 'set_sms')
 {
 	get_token();
@@ -20,7 +20,7 @@ elseif($act == 'set_save')
 	!$db->query("UPDATE ".table('sms_config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	//填写管理员日志
-	write_log("后台更新站点设置", $_SESSION['admin_name'],3);
+	write_log("サイト設定更新", $_SESSION['admin_name'],3);
 	refresh_cache('sms_config');
 	adminmsg("保存成功！",2);
 }
@@ -33,47 +33,47 @@ if($act == 'testing')
 elseif($act == 'sms_testing')
 {
 	check_token();
-	$txt="您好！这是一条检测短信模块配置的短信。收到此短信，意味着您的短信模块设置正确！您可以进行其它操作了！";
+	$txt="こんにちは！ショートメッセージモジュールのショートメッセージです。このショートメッセージ受信したら，ショートメッセージモジュール設定正い！";
 	$mobile=$_POST['mobile'];
 	if (!preg_match("/^(13|15|14|17|18)\d{9}$/",$mobile))
 	{
-	adminmsg("手机号填写错误，请重新填写!",0);
+	adminmsg("携帯番号入力エラー，再入力してください!",0);
 	}
 	if($_POST['type']==1){
 		$r=captcha_send_sms($mobile,$txt);
 		if ($r=="success")
 		{
 			//填写管理员日志
-		write_log("后台短信发送成功！", $_SESSION['admin_name'],3);
+		write_log("ショートメッセージ送信成功！", $_SESSION['admin_name'],3);
 		adminmsg('ショートメッセージ送信成功！',2);
 		}
 		else
 		{
-		adminmsg("短信发送失败！$r",1);
+		adminmsg("ショートメッセージ送信失敗！$r",1);
 		}
 	}elseif($_POST['type']==2){
 		$r=send_sms($mobile,$txt);
 		if ($r=="success")
 		{
 			//填写管理员日志
-		write_log("后台短信发送成功！", $_SESSION['admin_name'],3);
+		write_log("ショートメッセージ送信成功！", $_SESSION['admin_name'],3);
 		adminmsg('ショートメッセージ送信成功！',2);
 		}
 		else
 		{
-		adminmsg("短信发送失败！$r",1);
+		adminmsg("ショートメッセージ送信失敗！$r",1);
 		}
 	}elseif($_POST['type']==3){
 		$r=free_send_sms($mobile,$txt);
 		if ($r=="success")
 		{
 			//填写管理员日志
-		write_log("后台短信发送成功！", $_SESSION['admin_name'],3);
+		write_log("ショートメッセージ送信成功！", $_SESSION['admin_name'],3);
 		adminmsg('ショートメッセージ送信成功！',2);
 		}
 		else
 		{
-		adminmsg("短信发送失败！$r",1);
+		adminmsg("ショートメッセージ送信失敗！$r",1);
 		}
 	}
 	
@@ -100,7 +100,7 @@ elseif($act == 'sms_rule_save')
 	!$db->query("UPDATE ".table('sms_config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	//填写管理员日志
-	write_log("后台设置短信配置！", $_SESSION['admin_name'],3);
+	write_log("ショートメッセージ配置設定！", $_SESSION['admin_name'],3);
 	refresh_cache('sms_config');
 	adminmsg("保存成功！",2);
 }
@@ -158,17 +158,17 @@ elseif($act == 'templates_save')
 	$templates_value=trim($_POST['templates_value']);
 	$templates_name=trim($_POST['templates_name']);
 	!$db->query("UPDATE ".table('sms_templates')." SET value='{$templates_value}' WHERE name='{$templates_name}'")?adminmsg('设置失敗', 1):"";
-	$link[0]['text'] = "返回上一页";
+	$link[0]['text'] = "前頁に戻る";
 	$link[0]['href'] ="?act=set_tpl";
 	refresh_cache('sms_templates');
 	//填写管理员日志
-	write_log("后台成功保存模板！", $_SESSION['admin_name'],3);
+	write_log("成功テンプレート保存成功！", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
 elseif($act == 'send')
 {
 	get_token();
-	$smarty->assign('pageheader',"短信营销");
+	$smarty->assign('pageheader',"ショートメッセージ");
 	
 	require_once(dirname(__FILE__).'/include/admin_smsqueue_fun.php');
 	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
@@ -214,9 +214,9 @@ elseif($act == 'sms_send')
 	}
 	if (!preg_match("/^(13|15|14|17|18)\d{9}$/",$mobile))
 	{
-		$link[0]['text'] = "返回上一页";
+		$link[0]['text'] = "前頁に戻る";
 		$link[0]['href'] = "{$url}";
-		adminmsg("发送失败！<strong>{$mobile}</strong> 不是标准的手机号格式",1,$link);
+		adminmsg("送信失敗！<strong>{$mobile}</strong> 携帯号フォーマット不正",1,$link);
 		
 	}
 	else
@@ -233,10 +233,10 @@ elseif($act == 'sms_send')
 				$db->inserttable(table('smsqueue'),$setsqlarr);
 				unset($setsqlarr);
 				//填写管理员日志
-				write_log("后台成功发送短信！", $_SESSION['admin_name'],3);
-				$link[0]['text'] = "返回上一页";
+				write_log("ショートメッセージ送信成功！", $_SESSION['admin_name'],3);
+				$link[0]['text'] = "前頁に戻る";
 				$link[0]['href'] = "{$url}";
-				adminmsg("发送成功！",2,$link);
+				adminmsg("送信成功！",2,$link);
 			}
 			else
 			{
@@ -244,9 +244,9 @@ elseif($act == 'sms_send')
 				$setsqlarr['s_type']=2;//发送失败
 				$db->inserttable(table('smsqueue'),$setsqlarr);
 				unset($setsqlarr);
-				$link[0]['text'] = "返回上一页";
+				$link[0]['text'] = "前頁に戻る";
 				$link[0]['href'] = "{$url}";
-				adminmsg("发送失败，错误未知！",0,$link);
+				adminmsg("送信失敗，エラー未知！",0,$link);
 			}
 	}
 }
@@ -255,7 +255,7 @@ elseif ($act=='again_send')
 	$id=intval($_GET['id']);
 	if (empty($id))
 	{
-	adminmsg("请选择要发送的项目！",1);
+	adminmsg("送信の项目を選択してください！",1);
 	}
 	$result = $db->getone("SELECT * FROM ".table('smsqueue')." WHERE  s_id = {$id} limit 1");
 	$wheresql=" s_id={$id} ";
@@ -266,7 +266,7 @@ elseif ($act=='again_send')
 		$setsqlarr['s_type']=1;//发送成功
 		!$db->updatetable(table('smsqueue'),$setsqlarr,$wheresql);
 		//填写管理员日志
-		write_log("后台成功发送项目！", $_SESSION['admin_name'],3);
+		write_log("項目送信成功！", $_SESSION['admin_name'],3);
 		adminmsg('送信成功',2);
 	}else{
 		$setsqlarr['s_sendtime']=time();
@@ -281,7 +281,7 @@ elseif ($act=='del')
 	$id=$_POST['id'];
 	if (empty($id))
 	{
-	adminmsg("请选择项目！",1);
+	adminmsg("項目を選択してください！",1);
 	}
 	if(!is_array($id)) $id=array($id);
 	$sqlin=implode(",",$id);
@@ -289,8 +289,8 @@ elseif ($act=='del')
 	{
 	$db->query("Delete from ".table('smsqueue')." WHERE s_id IN ({$sqlin}) ");
 	//填写管理员日志
-	write_log("后台成功删除项目！", $_SESSION['admin_name'],3);
-	adminmsg("删除成功",2);
+	write_log("项目削除成功！", $_SESSION['admin_name'],3);
+	adminmsg("削除成功",2);
 	}
 }
 ?>

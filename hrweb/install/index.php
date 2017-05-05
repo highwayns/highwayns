@@ -24,7 +24,7 @@ if($act =="2")
 	$system_info['web_server'] = $_SERVER['SERVER_SOFTWARE'];
 	$system_info['php_ver'] = PHP_VERSION;
 	$system_info['max_filesize'] = ini_get('upload_max_filesize');
-	if (PHP_VERSION<5.0) exit("安装失败，请使用PHP5.0及以上版本");
+	if (PHP_VERSION<5.0) exit("インストール失敗，PHP5.0及び以上のバージョン一を使ってください");
 	$dir_check = check_dirs($need_check_dirs);
 	$install_smarty->assign("dir_check", $dir_check);
 	$install_smarty->assign("system_info", $system_info);
@@ -63,7 +63,7 @@ if($act =="4")
 	{
 		install_showmsg('DB接続エアー，接続情報を確認してください');
 	}
-	if (mysql_get_server_info()<5.0) exit("安装失败，请使用mysql5以上版本");
+	if (mysql_get_server_info()<5.0) exit("インストール失敗，mysql5以上のバージョンを使ってください");
 	if (mysql_get_server_info() > '4.1')
 	{
 		mysql_query("CREATE DATABASE IF NOT EXISTS `{$dbname}` DEFAULT CHARACTER SET ".HIGHWAY_DBCHARSET, $db);

@@ -77,7 +77,7 @@ elseif($act=="ajax_download_resume_add")
 	$resume = resume_one($resume_id);
 	$company_info=get_company($_SESSION['uid']);
 	if($_SESSION["utype"]!=1){
-		exit("企业会员请登录后查看联系方式");
+		exit("企業会員登録後連絡先閲覧ができる");
 	}
 	else
 	{
@@ -188,15 +188,15 @@ elseif($act=="ajax_download_resume_add_save")
 					{
 					action_user_setmeal($_SESSION['uid'],"download_resume_senior");
 					$setmeal=get_user_setmeal($_SESSION['uid']);
-					write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"下载了 {$ruser['username']} 发布的高级简历,还可以下载 {$setmeal['download_resume_senior']} 份高级简历",2,1005,"下载高级简历","1","{$setmeal['download_resume_senior']}");
-					write_memberslog($_SESSION['uid'],1,4001,$_SESSION['username'],"下载了 {$ruser['username']} 发布的简历");
+					write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username']," {$ruser['username']} 配布の高级履歴書をダウンロードしました,ダウンロード可能 {$setmeal['download_resume_senior']} 件高級履歴書",2,1005,"高级履歴書ダウンロード","1","{$setmeal['download_resume_senior']}");
+					write_memberslog($_SESSION['uid'],1,4001,$_SESSION['username']," {$ruser['username']} 配布の履歴書をダウンロードしました");
 					//站内信
 					if($pms_notice=='1'){
 						$company=$db->getone("select id,companyname  from ".table('company_profile')." where uid ={$_SESSION['uid']} limit 1");
 						// $user=$db->getone("select username from ".table('members')." where uid ={$resume['uid']} limit 1");
 						$resume_url=url_rewrite('HW_resume',array('id'=>$id));
 						$company_url=url_rewrite('HW_companyshow',array('id'=>$company['id']));
-						$message=$_SESSION['username']."下载了您发布的简历：<a href=\"{$resume_url}\" target=\"_blank\">{$resume['title']}</a>，<a href=\"$company_url\" target=\"_blank\">点击查看公司详情</a>";
+						$message=$_SESSION['username']."貴方配布の履歴書をダウンロードしました：<a href=\"{$resume_url}\" target=\"_blank\">{$resume['title']}</a>，<a href=\"$company_url\" target=\"_blank\">会社詳細情報を閲覧</a>";
 						write_pmsnotice($resume['uid'],$ruser['username'],$message);
 					}
 					exit("ok");
@@ -208,15 +208,15 @@ elseif($act=="ajax_download_resume_add_save")
 					{
 					action_user_setmeal($_SESSION['uid'],"download_resume_ordinary");
 					$setmeal=get_user_setmeal($_SESSION['uid']);
-					write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"下载了 {$ruser['username']} 发布的普通简历,还可以下载 {$setmeal['download_resume_ordinary']} 份普通简历",2,1004,"下载普通简历","1","{$setmeal['download_resume_ordinary']}");
-					write_memberslog($_SESSION['uid'],1,4001,$_SESSION['username'],"下载了 {$ruser['username']} 发布的简历");
+					write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username']," {$ruser['username']} 配布の普通履歴書をダウンロードしました,また {$setmeal['download_resume_ordinary']} 件普通履歴書をダウンロードする可能",2,1004,"ダウンロード普通履歴書","1","{$setmeal['download_resume_ordinary']}");
+					write_memberslog($_SESSION['uid'],1,4001,$_SESSION['username']," {$ruser['username']} 配布の履歴書をダウンロードしました");
 					//站内信
 					if($pms_notice=='1'){
 						$company=$db->getone("select id,companyname  from ".table('company_profile')." where uid ={$_SESSION['uid']} limit 1");
 						// $user=$db->getone("select username from ".table('members')." where uid ={$resume['uid']} limit 1");
 						$resume_url=url_rewrite('HW_resume',array('id'=>$id));
 						$company_url=url_rewrite('HW_companyshow',array('id'=>$company['id']));
-						$message=$_SESSION['username']."下载了您发布的简历：<a href=\"{$resume_url}\" target=\"_blank\">{$resume['title']}</a>，<a href=\"$company_url\" target=\"_blank\">点击查看公司详情</a>";
+						$message=$_SESSION['username']."貴方配布の履歴書をダウンロードしました：<a href=\"{$resume_url}\" target=\"_blank\">{$resume['title']}</a>，<a href=\"$company_url\" target=\"_blank\">会社詳細情報を閲覧</a>";
 						write_pmsnotice($resume['uid'],$ruser['username'],$message);
 					}
 					exit("ok");
@@ -232,7 +232,7 @@ elseif($act=="ajax_download_resume_add_save")
 				$mypoints=get_user_points($_SESSION['uid']);
 				if  ($mypoints<$points)
 				{
-					exit("您的积分不足");
+					exit("ポイント足りない");
 				}
 				if (add_down_resume($resume_id,$_SESSION['uid'],$resume['uid'],$resume['title']))
 				{
@@ -242,18 +242,18 @@ elseif($act=="ajax_download_resume_add_save")
 					$user_points=get_user_points($_SESSION['uid']);
 					$operator=$ptype=="1"?"+":"-";
 					if($resume['talent_']=='2'){
-						write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"下载了 {$ruser['username']} 发布的简历({$operator}{$points}),(剩余:{$user_points})",1,1005,"下载高级简历","{$operator}{$points}","{$user_points}");
+						write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"{$ruser['username']} 配布された履歴書({$operator}{$points})をダウンロードしました,(残るポイント:{$user_points})",1,1005,"高级履歴書ダウンロード","{$operator}{$points}","{$user_points}");
 					}elseif($resume['talent_']=='1'){
-						write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"下载了 {$ruser['username']} 发布的简历({$operator}{$points}),(剩余:{$user_points})",1,1004,"下载普通简历","{$operator}{$points}","{$user_points}");
+						write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"{$ruser['username']} 配布された履歴書({$operator}{$points})をダウンロードしました,(残るポイント:{$user_points})",1,1004,"ダウンロード普通履歴書","{$operator}{$points}","{$user_points}");
 					}
-					write_memberslog($_SESSION['uid'],1,4001,$_SESSION['username'],"下载了 {$ruser['username']} 发布的简历");
+					write_memberslog($_SESSION['uid'],1,4001,$_SESSION['username']," {$ruser['username']} 配布の履歴書をダウンロードしました");
 					//站内信
 					if($pms_notice=='1'){
 						$company=$db->getone("select id,companyname  from ".table('company_profile')." where uid ={$_SESSION['uid']} limit 1");
 						// $user=$db->getone("select username from ".table('members')." where uid ={$resume['uid']} limit 1");
 						$resume_url=url_rewrite('HW_resume',array('id'=>$id));
 						$company_url=url_rewrite('HW_companyshow',array('id'=>$company['id']));
-						$message=$_SESSION['username']."下载了您发布的简历：<a href=\"{$resume_url}\" target=\"_blank\">{$resume['title']}</a>，<a href=\"$company_url\" target=\"_blank\">点击查看公司详情</a>";
+						$message=$_SESSION['username']."貴方配布の履歴書をダウンロードしました：<a href=\"{$resume_url}\" target=\"_blank\">{$resume['title']}</a>，<a href=\"$company_url\" target=\"_blank\">会社詳細情報を閲覧</a>";
 						write_pmsnotice($resume['uid'],$ruser['username'],$message);
 					}
 					}

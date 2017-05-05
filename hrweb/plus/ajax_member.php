@@ -11,7 +11,7 @@ if($act == 'edit_apply')
 	$db->updatetable(table('personal_jobs_apply'),$setsqlarr," did='".$id."' LIMIT 1");
 			$sql="select m.username from ".table('personal_jobs_apply')." AS a JOIN ".table('members')." AS m ON a.personal_uid=m.uid WHERE a.did='{$id}' LIMIT 1";
 			$user=$db->getone($sql);
-			write_memberslog($_SESSION['uid'],1,2006,$_SESSION['username'],"查看了 {$user['username']} 的职位申请");
+			write_memberslog($_SESSION['uid'],1,2006,$_SESSION['username'],"{$user['username']} の職位申し込みを閲覧しました");
 	exit("ok");
 	}
 }

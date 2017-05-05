@@ -60,8 +60,8 @@ elseif ($act=='login')
 elseif ($act == 'do_login')
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
-	if($_POST['username']=="用户名/手机号/邮箱" || $_POST['password']==""|| $_POST['username']=="" ){
-		$smarty->assign('err',"请输入用户密码");
+	if($_POST['username']=="ユーザ名/携帯番号/メール" || $_POST['password']==""|| $_POST['username']=="" ){
+		$smarty->assign('err',"ユーザパスワードを入力してください");
 		$smarty->display('wap/wap_login.html');
 	}else{
 		$username=isset($_POST['username'])?trim($_POST['username']):"";
@@ -82,7 +82,7 @@ elseif ($act == 'do_login')
 			else
 			{
 				$smarty->caching = false;
-				$smarty->assign('err',"用户登录失败，用户名或密码错误");
+				$smarty->assign('err',"ユーザ登録失敗，ユーザ名或パスワードエラー");
 				$smarty->display('wap/wap_login.html');
 			}		
 		}

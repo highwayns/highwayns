@@ -35,11 +35,11 @@ elseif ($act == 'index')
 		{
 			if($value['sex']==1)
 			{
-				$value['fullname']=cut_str($value['fullname'],1,0,"先生");
+				$value['fullname']=cut_str($value['fullname'],1,0,"男");
 			}
 			elseif($value['sex']==2)
 			{
-				$value['fullname']=cut_str($value['fullname'],1,0,"女士");
+				$value['fullname']=cut_str($value['fullname'],1,0,"女");
 			}
 		}
 		$row[$key]=$value;
@@ -67,11 +67,11 @@ elseif($act=="ajax_collect_resume")
 			{
 				if($list['sex']==1)
 				{
-					$list['fullname']=cut_str($list['fullname'],1,0,"先生");
+					$list['fullname']=cut_str($list['fullname'],1,0,"男");
 				}
 				elseif($list['sex']==2)
 				{
-					$list['fullname']=cut_str($list['fullname'],1,0,"女士");
+					$list['fullname']=cut_str($list['fullname'],1,0,"女");
 				}
 			}
 			$favoriteshtml.='<div class="get_resume_box" onclick="window.location.href="../wap-resume-show.php?id='.$list["resume_id"].'
@@ -91,11 +91,11 @@ elseif($act=="ajax_collect_resume_add")
 	$sql="select * from ".table("company_favorites")." where resume_id=$resume_id and company_uid=$uid ";
 	$collect_resume=$db->getone($sql);
 	if($_SESSION["utype"]!=1){
-		exit("企业会员登录后收藏简历");
+		exit("企業会員登録後、履歴書をお気に入り");
 	}
 	else if($collect_resume)
 	{
-		exit("您已经收藏过此简历");
+		exit("この履歴書すでにお気に入り");
 	}
 	else
 	{

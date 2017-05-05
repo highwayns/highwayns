@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_pms_fun.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"help");
-$smarty->assign('pageheader',"消息");	
+$smarty->assign('pageheader',"メッセージ");	
 $smarty->assign('act',$act);
 if($act == 'list')
 {
@@ -48,18 +48,18 @@ elseif($act == 'add_pms_sys_save')
 		$setsqlarr['spms_type']=intval($_POST['spms_type']);
 		$setsqlarr['dateline']=time();
 		$setsqlarr['message']=trim($_POST['message']);
-		$link[0]['text'] = "继续添加";
+		$link[0]['text'] = "続く追加";
 		$link[0]['href'] = '?act=add_pms_sys';
-		$link[1]['text'] = "返回列表";
+		$link[1]['text'] = "一覧に戻る";
 		$link[1]['href'] = '?act=list';
-		!$db->inserttable(table('pms_sys'),$setsqlarr)?adminmsg("添加失败！",0):adminmsg("添加成功！",2,$link);
+		!$db->inserttable(table('pms_sys'),$setsqlarr)?adminmsg("追加失敗！",0):adminmsg("追加成功！",2,$link);
 	}
 	else
 	{
 		$tosuername=explode("\n",$_POST['us']);
 		if (count($tosuername)==0 || empty($tosuername))
 		{
-		adminmsg("用户名填写错误！",1);
+		adminmsg("ユーザ名入力エラー！",1);
 		}
 		else
 		{
@@ -90,16 +90,16 @@ elseif($act == 'add_pms_sys_save')
  			}
 			if ($s>0)
 			{
-			$link[0]['text'] = "继续添加";
+			$link[0]['text'] = "続く追加";
 			$link[0]['href'] = '?act=add_pms_sys';
-			$link[1]['text'] = "返回列表";
+			$link[1]['text'] = "一覧に戻る";
 			$link[1]['href'] = '?act=list';
-			write_log("发送消息,共发给了 {$s} 个会员", $_SESSION['admin_name'],3);
-			adminmsg("发送成功！共发给了 {$s} 个会员",2,$link);
+			write_log("送信消息,共发给了 {$s} 个会員", $_SESSION['admin_name'],3);
+			adminmsg("送信成功！ {$s} 個会員に送信しました",2,$link);
 			}
 			else
 			{
-			adminmsg("发送失败！请检查会员名称是否正确",0);
+			adminmsg("送信失敗！会員名称をチェックしてください",0);
 			}			
 		}
 	}
@@ -108,16 +108,16 @@ elseif($act =='pms_sys_del')
 {
 	check_token();
 	$id=$_REQUEST['id'];
-	if (empty($id)) adminmsg("请选择项目！",1);
+	if (empty($id)) adminmsg("項目を選択してください！",1);
 	$n=del_pms_sys($id);
 	if ($n)
 	{
-	write_log("删除消息,共删除 {$n} 行！", $_SESSION['admin_name'],3);
-	adminmsg("删除成功 共删除 {$n} 行！",2);
+	write_log("メッセージ削除,削除行数 {$n} 行！", $_SESSION['admin_name'],3);
+	adminmsg("削除成功 削除行数 {$n} 行！",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'pms_edit')
@@ -137,11 +137,11 @@ elseif($act == 'pms_editsave')
 		$setsqlarr['spms_usertype']=intval($_POST['spms_usertype']);
 		$setsqlarr['spms_type']=intval($_POST['spms_type']);
 		$setsqlarr['message']=trim($_POST['message']);
-		$link[0]['text'] = "继续添加";
+		$link[0]['text'] = "続く追加";
 		$link[0]['href'] = '?act=add_pms_sys';
-		$link[1]['text'] = "查看修改结果";
+		$link[1]['text'] = "変更結果閲覧";
 		$link[1]['href'] = "?act=pms_edit&id=".$id;
-		write_log("修改id为".$id."的消息", $_SESSION['admin_name'],3);
-		!$db->updatetable(table('pms_sys'),$setsqlarr," spmid=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+		write_log("idを次に変更".$id."のメッセージ", $_SESSION['admin_name'],3);
+		!$db->updatetable(table('pms_sys'),$setsqlarr," spmid=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 ?>

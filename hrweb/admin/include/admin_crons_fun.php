@@ -17,25 +17,25 @@ function get_crons($offset, $perpage, $get_sql= '')
 		  $row['weekdaycn']="";
 		  break;
 		case 0:
-		  $row['weekdaycn']="每周日";
+		  $row['weekdaycn']="毎周日";
 		  break;
 		case 1:
-		   $row['weekdaycn']="每周一";
+		   $row['weekdaycn']="月曜日ごと";
 		  break;
 		case 2:
-		   $row['weekdaycn']="每周二";
+		   $row['weekdaycn']="火曜日ごと";
 		  break;
 		case 3:
-		   $row['weekdaycn']="每周三";
+		   $row['weekdaycn']="水曜日ごと";
 		  break;
 		case 4:
-		   $row['weekdaycn']="每周四";
+		   $row['weekdaycn']="木曜日ごと";
 		  break;
 		case 5:
-		   $row['weekdaycn']="每周五";
+		   $row['weekdaycn']="毎金曜日";
 		  break;
 		case 6:
-		   $row['weekdaycn']="每周六";
+		   $row['weekdaycn']="毎周六";
 		  break;
 		default:
 		 $row['weekdaycn']="";

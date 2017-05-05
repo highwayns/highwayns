@@ -3,12 +3,12 @@ function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false)
 {
 	if (!file_exists($dir))
 	{
-	// showmsg("上传图片失败：上传目录 ".$dir." 不存在!",0);
+	// showmsg("画像アップロード失敗：アップロードフォルダー ".$dir." が存在しません!",0);
 	exit("-1");
 	}
 	elseif (!is_writable($dir)) 
 	{
-	// showmsg("上传图片失败：上传目录 ".$dir." 无法写入!",0);
+	// showmsg("画像アップロード失敗：アップロードフォルダー ".$dir." 書けない!",0);
 	exit("-2"); 
 	}
 	$upfile=& $_FILES["$file_var"]; 
@@ -22,7 +22,7 @@ function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false)
 		} 
 		elseif ($max_size>0 && $upfile['size']/1024>$max_size) 
 		{ 
-		// exit("上传图片失败：文件大小不能超过  ".$max_size."KB");
+		// exit("アップロード写真失敗：ファイル最大サイズ  ".$max_size."KB");
 		exit("-4");
 		}
 		$ext_name = strtolower(str_replace(".","",strrchr($upfilename, ".")));
@@ -32,7 +32,7 @@ function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false)
 			$arr_type=array_map("strtolower",$arr_type);
 			if (!in_array($ext_name,$arr_type))
 			{
-			// showmsg("上传图片失败：只允许上传 ".$type." 的文件！",0);
+			// showmsg("画像アップロード失敗：アップロード許可 ".$type." のファイル！",0);
 			exit("-5"); 
 			}
 		/* 	$imgtype=array("jpg","gif","jpeg","bmp","png");		
@@ -41,7 +41,7 @@ function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false)
 				$imageinfo = getimagesize($upfile['tmp_name']);
 				if (empty($imageinfo[0]) || empty($imageinfo[1]))
 				{
-				showmsg("上传图片失败：只允许上传 ".$type." 的文件！",0);
+				showmsg("画像アップロード失敗：アップロード許可 ".$type." のファイル！",0);
 				exit();
 				}
 			} */

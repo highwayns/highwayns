@@ -3,7 +3,7 @@ define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'send';
-$smarty->assign('pageheader',"邮件营销");
+$smarty->assign('pageheader',"メールセールス");
 //需要注意
 check_permissions($_SESSION['admin_purview'],"send_email");
 if($act == 'send')
@@ -33,24 +33,24 @@ elseif($act == 'email_send')
 	}
 	if (!preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/",$email))
 	{
-		$link[0]['text'] = "返回上一页";
+		$link[0]['text'] = "前頁に戻る";
 		$link[0]['href'] = "{$url}";
-		crmmsg("发送失败！<strong>{$mobile}</strong> 格式不正确",1,$link);
+		crmmsg("送信失敗！<strong>{$mobile}</strong> フォーマット不正",1,$link);
 		
 	}
 	else
 	{
 			if (smtp_mail($email,$subject,$body))
 			{
-				$link[0]['text'] = "返回上一页";
+				$link[0]['text'] = "前頁に戻る";
 				$link[0]['href'] = "{$url}";
-				crmmsg("发送成功！",2,$link);
+				crmmsg("送信成功！",2,$link);
 			}
 			else
 			{
-				$link[0]['text'] = "返回上一页";
+				$link[0]['text'] = "前頁に戻る";
 				$link[0]['href'] = "{$url}";
-				crmmsg("发送失败，错误未知！",2,$link);
+				crmmsg("送信失敗，エラー未知！",2,$link);
 			}
 	}
 }

@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_simple_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
 $smarty->assign('act',$act);
-$smarty->assign('pageheader',"微招聘");
+$smarty->assign('pageheader',"微募集");
 if($act == 'list')
 {
 	check_permissions($_SESSION['admin_purview'],"simple_list");	
@@ -75,16 +75,16 @@ elseif($act == 'simple_del')
 	$id=$_REQUEST['id'];
 	if (empty($id))
 	{
-	adminmsg("您没有选择项目！",1);
+	adminmsg("项目を選択してください！",1);
 	}
 	if ($num=simple_del($id))
 	{
-	write_log("删除微商圈共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("サービス削除、削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'simple_refresh')
@@ -94,16 +94,16 @@ elseif($act == 'simple_refresh')
 	$id=$_REQUEST['id'];
 	if (empty($id))
 	{
-	adminmsg("您没有选择项目！",1);
+	adminmsg("项目を選択してください！",1);
 	}
 	if ($num=simple_refresh($id))
 	{
-	write_log("刷新微商圈共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("刷新成功！共刷新 {$num}行 ",2);
+	write_log("サービス更新、削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("更新成功！更新行数 {$num}行 ",2);
 	}
 	else
 	{
-	adminmsg("刷新失败！",0);
+	adminmsg("更新失敗！",0);
 	}
 }
 elseif($act == 'jobs_perform')
@@ -116,16 +116,16 @@ elseif($act == 'jobs_perform')
 		$audit=intval($_POST['audit']);
 		if (empty($id))
 		{
-		adminmsg("您没有选择项目！",1);
+		adminmsg("项目を選択してください！",1);
 		}
 		if ($num=simple_audit($id,$audit))
 		{
-		write_log("设置微招聘审核状态为".$audit."共影响 {$num}行", $_SESSION['admin_name'],3);
-		adminmsg("设置成功！共影响 {$num}行 ",2);
+		write_log("微募集審査状態下記に設定".$audit."影響行数 {$num}行", $_SESSION['admin_name'],3);
+		adminmsg("設定成功！影響行数 {$num}行 ",2);
 		}
 		else
 		{
-		adminmsg("设置失败！",0);
+		adminmsg("設定失敗！",0);
 		}
 	}
 }
@@ -172,17 +172,17 @@ elseif($act == 'simple_add_save')
 	if($db->inserttable(table('simple'),$setsqlarr))
 	{
 		//填写管理员日志
-		write_log("后台添加职位名称为 : ".$setsqlarr['jobname']."的微招聘 ", $_SESSION['admin_name'],3);
-		$link[0]['text'] = "返回列表";
+		write_log("后台追加職位名称は : ".$setsqlarr['jobname']."の微募集 ", $_SESSION['admin_name'],3);
+		$link[0]['text'] = "一覧に戻る";
 		$link[0]['href'] = '?act=list';
-		$link[1]['text'] = "继续添加";
+		$link[1]['text'] = "続く追加";
 		$link[1]['href'] = "?act=simple_add";
-		write_log("添加微招聘：".$setsqlarr['jobname'], $_SESSION['admin_name'],3);
-		adminmsg("添加成功！",2,$link);
+		write_log("微募集追加：".$setsqlarr['jobname'], $_SESSION['admin_name'],3);
+		adminmsg("追加成功！",2,$link);
 	}
 	else
 	{
-		adminmsg("添加失败！",0);
+		adminmsg("追加失敗！",0);
 	}	
 }
 elseif($act == 'simple_edit')
@@ -191,7 +191,7 @@ elseif($act == 'simple_edit')
 	$id=intval($_REQUEST['id']);
 	if (empty($id))
 	{
-	adminmsg("您没有选择项目！",1);
+	adminmsg("项目を選択してください！",1);
 	}
 	check_permissions($_SESSION['admin_purview'],"simple_edit");
 	$sql = "select * from ".table('simple')." where id = '{$id}' LIMIT 1";
@@ -205,7 +205,7 @@ elseif($act == 'simple_edit_save')
 	$id=intval($_POST['id']);
 	if (empty($id))
 	{
-	adminmsg("您没有选择项目！",1);
+	adminmsg("项目を選択してください！",1);
 	}
 	if ($_POST['pwd'])
 	{
@@ -217,8 +217,8 @@ elseif($act == 'simple_edit_save')
 	$setsqlarr['comname']=trim($_POST['comname'])?trim($_POST['comname']):adminmsg('会社の名称を入力してください！',1);
 	$setsqlarr['contact']=trim($_POST['contact'])?trim($_POST['contact']):adminmsg('連絡先を入力してください！',1);
 	$setsqlarr['tel']=trim($_POST['tel'])?trim($_POST['tel']):adminmsg('連絡電話入力してください！',1);
-	$setsqlarr['district']=intval($_POST['district'])?intval($_POST['district']):adminmsg("您没有选择地区");
-	$setsqlarr['sdistrict']=intval($_POST['sdistrict'])?intval($_POST['sdistrict']):adminmsg("您没有选择地区");
+	$setsqlarr['district']=intval($_POST['district'])?intval($_POST['district']):adminmsg("地区選択してください");
+	$setsqlarr['sdistrict']=intval($_POST['sdistrict'])?intval($_POST['sdistrict']):adminmsg("地区選択してください");
 	$district_cn = explode("/",trim($_POST['district_cn']));
 	$setsqlarr['district_cn']=$district_cn[0];
 	$setsqlarr['sdistrict_cn']=$district_cn[1];
@@ -238,15 +238,15 @@ elseif($act == 'simple_edit_save')
 	if($db->updatetable(table('simple'),$setsqlarr," id='{$id}' "))
 	{
 		//填写管理员日志
-		write_log("后台修改id为".$id."的微招聘 ", $_SESSION['admin_name'],3);
-		$link[0]['text'] = "返回列表";
+		write_log("変更idは".$id."の微募集 ", $_SESSION['admin_name'],3);
+		$link[0]['text'] = "一覧に戻る";
 		$link[0]['href'] = '?act=list';
-		write_log("修改id为：".$id."微招聘信息", $_SESSION['admin_name'],3);
-		adminmsg("修改成功！",2,$link);
+		write_log("変更idは：".$id."微募集情報", $_SESSION['admin_name'],3);
+		adminmsg("変更成功！",2,$link);
 	}
 	else
 	{
-	adminmsg("修改失败！",0);
+	adminmsg("変更失敗！",0);
 	}
 }
 ?>

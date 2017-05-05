@@ -7,7 +7,7 @@ $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'set';
 $locoyspider=get_cache('locoyspider');
 if ($locoyspider['open']<>"1")
 {
-exit("请在网站后台开启火车头采集");
+exit("火車頭を有効にしてください");
 }
 elseif($act=="news")
 {
@@ -15,7 +15,7 @@ elseif($act=="news")
 	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('文書タイトルを入力してください！',1);
 	if (ck_article_title($setsqlarr['title']))
 	{
-	exit("添加失败，新闻标题有重复");
+	exit("追加失敗，ニュースタイトル重複");
 	}
 	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):exit('文書所属分類が必須！');
 	$setsqlarr['parentid']=get_article_parentid($setsqlarr['type_id']);
@@ -52,11 +52,11 @@ elseif($act=="news")
 	$setsqlarr['robot']=1;
 		if ($db->inserttable(table('article'),$setsqlarr))
 		{
-		exit("添加成功");
+		exit("追加成功");
 		}
 		else
 		{
-		exit("添加失败");
+		exit("追加失敗");
 		}
 		exit();
 }
@@ -77,7 +77,7 @@ $companyinfo=get_companyinfo($companyname);
 		}
 		else
 		{
-		exit("添加失败");
+		exit("追加失敗");
 		}
 	} 
 }

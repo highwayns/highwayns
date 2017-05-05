@@ -62,14 +62,14 @@ elseif ($act=='userprofile_save')
 	if (get_userprofile($_SESSION['uid']))
 	{
 	$wheresql=" uid='".intval($_SESSION['uid'])."'";
-	write_memberslog($_SESSION['uid'],2,1005,$_SESSION['username'],"修改了个人资料");
-	!$db->updatetable(table('members_info'),$setsqlarr,$wheresql)?showmsg("修改失败！",0):showmsg("修改成功！",2);
+	write_memberslog($_SESSION['uid'],2,1005,$_SESSION['username'],"個人資料を変更しました");
+	!$db->updatetable(table('members_info'),$setsqlarr,$wheresql)?showmsg("変更失敗！",0):showmsg("変更成功！",2);
 	}
 	else
 	{
 	$setsqlarr['uid']=intval($_SESSION['uid']);
-	write_memberslog($_SESSION['uid'],2,1005,$_SESSION['username'],"修改了个人资料");
-	!$db->inserttable(table('members_info'),$setsqlarr)?showmsg("修改失败！",0):showmsg("修改成功！",2);
+	write_memberslog($_SESSION['uid'],2,1005,$_SESSION['username'],"個人資料を変更しました");
+	!$db->inserttable(table('members_info'),$setsqlarr)?showmsg("変更失敗！",0):showmsg("変更成功！",2);
 	}
 }
 //头像
@@ -103,7 +103,7 @@ elseif ($act=='avatars_ready')
 	// makethumb($up_dir_original.$setsqlarr['avatars'],$up_dir_100.date("Y/m/d/"),100,100);
 	// makethumb($up_dir_original.$setsqlarr['avatars'],$up_dir_48.date("Y/m/d/"),48,48);
 	$wheresql=" uid='".$_SESSION['uid']."'";
-	write_memberslog($_SESSION['uid'],2,1006 ,$_SESSION['username'],"修改了个人头像");
+	write_memberslog($_SESSION['uid'],2,1006 ,$_SESSION['username'],"個人画像を変更しました");
 	$db->updatetable(table('members'),$setsqlarr,$wheresql)?exit($setsqlarr['avatars']):showmsg('保存失敗！',1);
 	}
 	else
@@ -132,7 +132,7 @@ elseif ($act=='avatars_save')
 	$setsqlarr['avatars']=$savePicName.".jpg";
 	$wheresql=" uid='".$_SESSION['uid']."'";
 	$db->updatetable(table('members'),$setsqlarr,$wheresql)?print json_encode($rs):showmsg('保存失敗！',1);
-	write_memberslog($_SESSION['uid'],2,1006 ,$_SESSION['username'],"修改了个人头像");
+	write_memberslog($_SESSION['uid'],2,1006 ,$_SESSION['username'],"個人画像を変更しました");
 }
 //修改密码
 elseif ($act=='password_edit')
@@ -166,7 +166,7 @@ elseif ($act=='save_password')
 			{
 			dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_sms.php?uid=".$_SESSION['uid']."&key=".asyn_userkey($_SESSION['uid'])."&act=set_editpwd&newpassword=".$arr['password']);
 			}
-	 write_memberslog($_SESSION['uid'],2,1004 ,$_SESSION['username'],"修改密码");
+	 write_memberslog($_SESSION['uid'],2,1004 ,$_SESSION['username'],"パスワード変更");
 	 showmsg('パスワード更新失敗！',2);
 	 }
 }
@@ -242,8 +242,8 @@ elseif ($act=='feedback_save')
 	$setsqlarr['usertype']=$_SESSION['utype'];
 	$setsqlarr['username']=$_SESSION['username'];
 	$setsqlarr['addtime']=$timestamp;
-	write_memberslog($_SESSION['uid'],2,7001,$_SESSION['username'],"添加反馈信息");
-	!$db->inserttable(table('feedback'),$setsqlarr)?showmsg("添加失败！",0):showmsg("添加成功，请等待管理员回复！",2);
+	write_memberslog($_SESSION['uid'],2,7001,$_SESSION['username'],"フィードバック情報追加");
+	!$db->inserttable(table('feedback'),$setsqlarr)?showmsg("追加失敗！",0):showmsg("追加成功，管理者の回答をお待ちください！",2);
 }
 //删除用户反馈
 elseif ($act=='del_feedback')
@@ -292,7 +292,7 @@ elseif ($act=='pm_del')
 	{
 	$db->query("Delete from ".table('pms')." WHERE pmid='{$pms['pmid']}'");
 	}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = "?act=pm";
 	//统计消息
 	$pmscount=$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$_SESSION['uid']}' OR msgtouid='{$_SESSION['uid']}') AND `new`='1' AND `replyuid`<>'{$_SESSION['uid']}'");

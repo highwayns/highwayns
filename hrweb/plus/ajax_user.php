@@ -273,7 +273,7 @@ elseif ($act=="loginform")
 		if ($_CFG['qq_apiopen']==1 || $_CFG['sina_apiopen']==1 || $_CFG['taobao_apiopen']==1)
 		{
 			
-			$contents=str_replace('{#$third_tit#}',"其他账户登录：",$contents);
+			$contents=str_replace('{#$third_tit#}',"その他アカウント登録：",$contents);
 		}
 		else
 		{
@@ -398,20 +398,20 @@ elseif($act == "reg_send_sms")
 	$sms_type=$_POST['sms_type']?$_POST['sms_type']:"reg";
 	if (empty($mobile) || !preg_match("/^(13|15|14|17|18)\d{9}$/",$mobile))
 	{
-		exit("手机号错误");
+		exit("携帯番号エラー");
 	}
 	$rand=mt_rand(100000, 999999);	
 	switch ($sms_type) {
 		case 'reg':
-			$sms_str="您正在注册{$_CFG['site_name']}的会员,手机验证码为:{$rand},此验证码有效期为10分钟";
+			$sms_str="{$_CFG['site_name']}の会員に登録しています,携帯検証コードは:{$rand},有効期間10分です";
 			break;
 		case 'getpass':
-			$sms_str="您正在找回{$_CFG['site_name']}的会员密码,手机验证码为:{$rand},此验证码有效期为10分钟";
+			$sms_str="{$_CFG['site_name']}の会員パスワードを送信しています,携帯確認コードは:{$rand},このコード有效期間は10分です";
 			break;
 	}
 	if($_SESSION['verify_mobile']==$mobile && time()<$_SESSION['send_time']+180)
 	{
-		exit("180秒内仅能获取一次短信验证码,请稍后重试");
+		exit("180秒内ショートメッセージ検証コード一回だけ,後で試してみてください");
 	}
 	else
 	{
@@ -426,7 +426,7 @@ elseif($act == "reg_send_sms")
 	}
 	else
 	{
-	exit("SMS配置出错，请联系网站管理员");
+	exit("SMS配置エラー，ウェブ管理者に連絡");
 	}
 }
 // 验证注册短信
@@ -504,55 +504,55 @@ elseif($act == "get_pass_check_buding")
 elseif($act == "getpass_sendemail")
 {
 	global $HW_pwdhash;
-	$email=$_POST['email']?trim($_POST['email']):exit("邮箱出错");
-	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("没有用户名");
-	$uid=$_POST['uid']?intval($_POST['uid']):exit("没有用户名");
+	$email=$_POST['email']?trim($_POST['email']):exit("メールボックスエラー");
+	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("ユーザ名なし");
+	$uid=$_POST['uid']?intval($_POST['uid']):exit("ユーザ名なし");
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$email))
 	{
-		exit("邮箱出错");
+		exit("メールボックスエラー");
 	}
 	$time=time();
 	$key=substr(md5($username.$HW_pwdhash),8,16);
-	$email_str.=$username."您好：<br>";
-	$email_str.="请在24小时内点击以下链接重新设置您的密码：<br>";
+	$email_str.=$username."こんにちは：<br>";
+	$email_str.="24時間内下記リンクをクリックして、パスワード再設定してください：<br>";
 	$email_str.="<a href='".$_CFG['site_domain'].$_CFG['site_dir']."user/user_getpass.php?act=get_pass_step3_email&uid=$uid&key=$key&time=$time' target='_blank'>".$_CFG['site_domain'].$_CFG['site_dir']."user/user_getpass.php?act=get_pass_step3_email&uid=$uid&key=$key&time=$time</a><br>";
-	$email_str.="如果链接无法点击,请复制粘贴到浏览器访问！<br>";
-	$email_str.="本邮件由系统发出,请勿回复！<br>";
-	$email_str.="如有任何疑问请联系网站官方：".$_CFG['top_tel']."";
+	$email_str.="リンククリックできない場合,ブラウザにコピーしてください！<br>";
+	$email_str.="本メールはシステムから送信です,回答しないでください！<br>";
+	$email_str.="質問があたら、ウェブ管理者に連絡してください：".$_CFG['top_tel']."";
 
-	if (smtp_mail($email,"{$_CFG['site_name']}-找回密码",$email_str))
+	if (smtp_mail($email,"{$_CFG['site_name']}-パスワード再送信",$email_str))
 	{
 		exit("success");
 	}
 	else
 	{
-		exit("邮箱配置出错，请联系网站管理员");
+		exit("メールボックス配置エラー，系ウェブ管理者に連絡してください");
 	}
 }
 //注册发送邮件
 elseif($act == "reg_sendemail")
 {
-	$email=$_POST['email']?trim($_POST['email']):exit("邮箱出错1");
-	$utype=$_POST['utype']?intval($_POST['utype']):exit("邮箱出错2");
+	$email=$_POST['email']?trim($_POST['email']):exit("メールボックスエラー");
+	$utype=$_POST['utype']?intval($_POST['utype']):exit("メールボックスエラー2");
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$email))
 	{
-		exit("邮箱出错3");
+		exit("メールボックスエラー3");
 	}
 	$time=time();
 	$key=substr(md5($email.$time),8,16);
-	$email_str.="您好,请在24小时内点击以下链接完成注册：<br>";
+	$email_str.="こんにちは,24時間内以下リンクをクリックして、登録完了させてください：<br>";
 	$email_str.="<a href='".$_CFG['site_domain'].$_CFG['site_dir']."user/user_reg.php?act=reg_step2_email&email=$email&utype=$utype&key=$key&time=$time' target='_blank'>".$_CFG['site_domain'].$_CFG['site_dir']."user/user_reg.php?act=reg_step2_email&email=$email&utype=$utype&key=$key&time=$time</a><br>";
-	$email_str.="如果链接无法点击,请复制粘贴到浏览器访问！<br>";
-	$email_str.="本邮件由系统发出,请勿回复！<br>";
-	$email_str.="如有任何疑问请联系网站官方：".$_CFG['top_tel']."";
+	$email_str.="リンククリックできない場合,ブラウザにコピーしてください！<br>";
+	$email_str.="本メールはシステムから送信です,回答しないでください！<br>";
+	$email_str.="質問があたら、ウェブ管理者に連絡してください：".$_CFG['top_tel']."";
 
-	if (smtp_mail($email,"{$_CFG['site_name']} - 会员注册",$email_str))
+	if (smtp_mail($email,"{$_CFG['site_name']} - 会員登録",$email_str))
 	{
 		exit("success");
 	}
 	else
 	{
-		exit("邮箱配置出错，请联系网站管理员");
+		exit("メールボックス配置エラー，系ウェブ管理者に連絡してください");
 	}
 }
 ?>

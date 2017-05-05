@@ -8,16 +8,16 @@ foreach($arr as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
-	case "名称长度":
+	case "名称長さ":
 		$aset['titlelen'] = $a[1];
 		break;
-	case "填补字符":
+	case "記号を入力してください":
 		$aset['dot'] = $a[1];
 		break;
-	case "分类ID":
+	case "分類ID":
 		$aset['ID'] = $a[1];
 		break;
 	}

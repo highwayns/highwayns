@@ -8,7 +8,7 @@ check_permissions($_SESSION['admin_purview'],"hrtools");
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
 $hrtools_updir="../data/hrtools/";
 $hrtools_dir="data/hrtools/";
-$smarty->assign('pageheader',"HR工具箱");
+$smarty->assign('pageheader',"HRツール箱");
 if($act == 'list')
 {
 	get_token();
@@ -73,10 +73,10 @@ elseif($act == 'editsave')
 		{
 			$setsqlarr['h_fileurl']=trim($_POST['url']);
 		}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?';
-	write_log("修改id为".intval($_POST['id'])."的hr工具", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('hrtools'),$setsqlarr," h_id=".intval($_POST['id'])."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".intval($_POST['id'])."のhrツール", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('hrtools'),$setsqlarr," h_id=".intval($_POST['id'])."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'add')
 {
@@ -112,12 +112,12 @@ elseif($act == 'addsave')
 		{
 			$setsqlarr['h_fileurl']=trim($_POST['url']);
 		}
-	$link[0]['text'] = "继续添加";
+	$link[0]['text'] = "続く追加";
 	$link[0]['href'] = "?act=add&h_typeid={$setsqlarr['h_typeid']}&h_typeid_cn={$_POST['h_typeid_cn']}";
-	$link[1]['text'] = "返回列表";
+	$link[1]['text'] = "一覧に戻る";
 	$link[1]['href'] = '?';
-	write_log("添加hr工具:".$setsqlarr['h_filename'], $_SESSION['admin_name'],3);
-	!$db->inserttable(table('hrtools'),$setsqlarr)?adminmsg("添加失败！",0):adminmsg("添加成功！",2,$link);
+	write_log("hrツール追加:".$setsqlarr['h_filename'], $_SESSION['admin_name'],3);
+	!$db->inserttable(table('hrtools'),$setsqlarr)?adminmsg("追加失敗！",0):adminmsg("追加成功！",2,$link);
 }
 elseif($act == 'hrtools_del')
 {
@@ -125,12 +125,12 @@ elseif($act == 'hrtools_del')
 	$id=$_REQUEST['id'];
 	if ($num=del_hrtools($id))
 	{
-	write_log("删除hr工具,共删除".$num."行", $_SESSION['admin_name'],3);	
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("hrツール削除,削除件数".$num."行", $_SESSION['admin_name'],3);	
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'category')
@@ -158,7 +158,7 @@ elseif($act == 'add_category_save')
 				$setsqlarr['c_name']=trim($_POST['c_name'][$i]);
 				$setsqlarr['c_order']=intval($_POST['c_order'][$i]);	
 				$setsqlarr['c_adminset']=0;		
-				!$db->inserttable(table('hrtools_category'),$setsqlarr)?adminmsg("添加失败！",0):"";
+				!$db->inserttable(table('hrtools_category'),$setsqlarr)?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -167,16 +167,16 @@ elseif($act == 'add_category_save')
 	}
 	if ($num==0)
 	{
-	adminmsg("添加失败,数据不完整",1);
+	adminmsg("追加失敗,データ不完全",1);
 	}
 	else
 	{
-	$link[0]['text'] = "返回分类管理";
+	$link[0]['text'] = "分類管理に戻る";
 	$link[0]['href'] = '?act=category';
-	$link[1]['text'] = "继续添加";
+	$link[1]['text'] = "続く追加";
 	$link[1]['href'] = "?act=category_add";
-	write_log("添加hr工具分类,共添加".$num."个分类", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！共添加".$num."个分类",2,$link);
+	write_log("hrツール分類追加,追加件数".$num."件分類", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！追加件数".$num."件分類",2,$link);
 	}
 }
 elseif($act == 'edit_category')
@@ -193,12 +193,12 @@ elseif($act == 'edit_category_save')
 	$id=intval($_POST['id']);	
 	$setsqlarr['c_name']=!empty($_POST['c_name'])?trim($_POST['c_name']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['c_order']=intval($_POST['c_order']);
-	$link[0]['text'] = "查看修改结果";
+	$link[0]['text'] = "変更結果閲覧";
 	$link[0]['href'] = '?act=edit_category&id='.$id;
-	$link[1]['text'] = "返回分类管理";
+	$link[1]['text'] = "分類管理に戻る";
 	$link[1]['href'] = '?act=category';
-	write_log("修改id为".$id."的分类", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('hrtools_category'),$setsqlarr," c_id=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."の分類", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('hrtools_category'),$setsqlarr," c_id=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'del_category')
 {
@@ -206,12 +206,12 @@ elseif($act == 'del_category')
 	$id=$_REQUEST['id'];
 	if ($num=del_hrtools_category($id))
 	{
-	write_log("删除hr工具分类,共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("hrツール分類削除,削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 

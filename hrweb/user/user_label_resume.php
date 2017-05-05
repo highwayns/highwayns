@@ -51,9 +51,9 @@ if ($user['status']=="2")
 		    </tr>
 		</table>');
 }
-$resume_id=$_REQUEST['resume_id']?intval($_REQUEST['resume_id']):exit("简历ID丢失！");
-$setarr['resume_state']=$_REQUEST['resume_state']?intval($_REQUEST['resume_state']):exit("标记状态错误！");
-$setarr['resume_state_cn']=$_REQUEST['resume_state_cn']?iconv('utf-8', 'utf8',trim($_REQUEST['resume_state_cn'])):exit("标记状态错误！");
+$resume_id=$_REQUEST['resume_id']?intval($_REQUEST['resume_id']):exit("履歴書ID失った！");
+$setarr['resume_state']=$_REQUEST['resume_state']?intval($_REQUEST['resume_state']):exit("标记状態エラー！");
+$setarr['resume_state_cn']=$_REQUEST['resume_state_cn']?iconv('utf-8', 'utf8',trim($_REQUEST['resume_state_cn'])):exit("标记状態エラー！");
 $p_uid = $db->getone("SELECT uid FROM ".table('resume')." WHERE id={$resume_id} LIMIT 1 ");
 $uid=intval($_SESSION['uid']);
 $row=$db->getone("select resume_id from ".table("company_label_resume")." where uid=$uid and resume_id=$resume_id limit 1");

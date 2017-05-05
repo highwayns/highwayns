@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_smsqueue_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"smsqueue");
-$smarty->assign('pageheader',"短信营销");
+$smarty->assign('pageheader',"ショートメッセージ");
 if($act == 'list')
 {
 	get_token();
@@ -63,11 +63,11 @@ elseif($act == 'smsqueue_add_save')
 			$num++;
 		}
 	}
-	$link[0]['text'] = "继续添加";
+	$link[0]['text'] = "続く追加";
 	$link[0]['href'] = '?act=smsqueue_add';
-	$link[1]['text'] = "返回列表";
+	$link[1]['text'] = "一覧に戻る";
 	$link[1]['href'] = '?';
-	adminmsg("添加成功{$num}！",2,$links);
+	adminmsg("追加成功{$num}！",2,$links);
 }
 elseif($act == 'smsqueue_edit')
 {
@@ -82,14 +82,14 @@ elseif($act == 'smsqueue_edit_save')
 	$s_body=trim($_POST['s_body'])?trim($_POST['s_body']):adminmsg('ショートメッセージ内容を入力してください',1);
 	mb_strlen(trim($_POST['s_body']),'utf-8')>70?adminmsg('ショートメッセージ70文字まで，再入力してください！',1):'';
 	$wheresql=" s_id='".intval($_POST['id'])."' ";
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?';
 	if (preg_match("/^(13|15|14|17|18)\d{9}$/",$setsqlarr['s_sms']))
 	{
 		$smssqlarr['s_body']=$s_body;
 		$smssqlarr['s_addtime']=time();
 		$smssqlarr['s_mobile']=$setsqlarr['s_sms'];
-		!$db->updatetable(table('smsqueue'),$smssqlarr,$wheresql)?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+		!$db->updatetable(table('smsqueue'),$smssqlarr,$wheresql)?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 	}
 }
 elseif($act == 'smsqueue_batchadd')
@@ -144,11 +144,11 @@ elseif($act == 'smsqueue_batchadd_save')
 				$smssqlarr['s_body']=$s_body;
 				$smssqlarr['s_addtime']=time();
 				$smssqlarr['s_mobile']=$user['mobile'];
-				!$db->inserttable(table('smsqueue'),$smssqlarr)?adminmsg("添加失败！",0):'';
+				!$db->inserttable(table('smsqueue'),$smssqlarr)?adminmsg("追加失敗！",0):'';
 				$num++;
 			}
 	}
-	adminmsg("添加成功{$num}！",2);
+	adminmsg("追加成功{$num}！",2);
 }
 elseif($act == 'totalsend')
 {
@@ -165,7 +165,7 @@ elseif($act == 'totalsend')
 		$id=$_POST['id'];
 		if (empty($id))
 		{
-		adminmsg("请选择项目！",1);
+		adminmsg("項目を選択してください！",1);
 		}
 		if(!is_array($id)) $id=array($id);
 		$sqlin=implode(",",$id);
@@ -178,7 +178,7 @@ elseif($act == 'totalsend')
 			}
 			if (empty($idarr))
 			{
-				adminmsg("没有可发送的短信",1);
+				adminmsg("発送可能ショートメッセージがない",1);
 			}
 			@file_put_contents(HIGHWAY_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$$senderr}&intervaltime={$intervaltime}");
@@ -194,7 +194,7 @@ elseif($act == 'totalsend')
 			}
 			if (empty($idarr))
 			{
-				adminmsg("没有可发送的短信",1);
+				adminmsg("発送可能ショートメッセージがない",1);
 			}
 			@file_put_contents(HIGHWAY_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$$senderr}&intervaltime={$intervaltime}");
@@ -208,7 +208,7 @@ elseif($act == 'totalsend')
 			}
 			if (empty($idarr))
 			{
-				adminmsg("没有可发送的短信",1);
+				adminmsg("発送可能ショートメッセージがない",1);
 			}
 			@file_put_contents(HIGHWAY_ROOT_PATH."temp/sendsms.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$$senderr}&intervaltime={$intervaltime}");
@@ -224,9 +224,9 @@ elseif($act == 'send')
 	$totalid=count($idarr);
 	if (empty($idarr))
 	{
-		$link[0]['text'] = "返回短信列队";
+		$link[0]['text'] = "ショートメッセージキューに返す";
 		$link[0]['href'] = '?act=list';
-		adminmsg("任务执行完毕!",2,$link);
+		adminmsg("タスク実行完毕!",2,$link);
 	}
 	else
 	{
@@ -241,23 +241,23 @@ elseif($act == 'send')
 				$db->query("update  ".table('smsqueue')." SET s_type='2'  WHERE s_id = '".intval($s_id)."'  LIMIT 1");
 				if ($senderr=="2")
 				{
-				$link[0]['text'] = "返回短信列队";
+				$link[0]['text'] = "ショートメッセージキューに返す";
 				$link[0]['href'] = '?act=list';
 				adminmsg('ショートメッセージ発送エラー！'.$senderr,0,$link);
 				}
 				else
 				{
-				$link[0]['text'] = "发送下一条";
+				$link[0]['text'] = "次の送信";
 				$link[0]['href'] = "?act=send&senderr={$$senderr}&intervaltime={$intervaltime}";
-				adminmsg("发生错误，准备发送下一条，剩余任务总数：".($totalid-1),0,$link,true,$intervaltime);
+				adminmsg("エラー発生しました，次の送信準備しました，残るタスク数：".($totalid-1),0,$link,true,$intervaltime);
 				}			
 			}
 			else
 			{
 			$db->query("update  ".table('smsqueue')." SET s_type='1',s_sendtime='".time()."'  WHERE s_id = '".intval($s_id)."'  LIMIT 1");
-			$link[0]['text'] = "发送下一条";
+			$link[0]['text'] = "次の送信";
 			$link[0]['href'] = "?act=send&senderr={$$senderr}&intervaltime={$intervaltime}";
-			adminmsg("发送成功，准备发送下一条，剩余任务总数：".($totalid-1),2,$link,true,$intervaltime);
+			adminmsg("送信成功，次の送信を準備します，残るタスク数：".($totalid-1),2,$link,true,$intervaltime);
 			}
 	}	
 }
@@ -270,35 +270,35 @@ elseif($act == 'del')
 		$id=$_POST['id'];
 		if (empty($id))
 		{
-		adminmsg("请选择项目！",1);
+		adminmsg("項目を選択してください！",1);
 		}
 		if(!is_array($id)) $id=array($id);
 		$sqlin=implode(",",$id);
 		if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 		{
 		$db->query("Delete from ".table('smsqueue')." WHERE s_id IN ({$sqlin}) ");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 		}
 	}
 	elseif ($deltype===2)
 	{
 		$db->query("Delete from ".table('smsqueue')." WHERE s_type=0 ");
-		adminmsg("删除成功 $delnum",2);
+		adminmsg("削除成功 $delnum",2);
 	}
 	elseif ($deltype===3)
 	{
 		$db->query("Delete from ".table('smsqueue')." WHERE s_type=1 ");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 	}
 	elseif ($deltype===4)
 	{
 		$db->query("Delete from ".table('smsqueue')." WHERE s_type=2 ");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 	}
 	elseif ($deltype===5)
 	{
 		$db->query("Delete from ".table('smsqueue')."");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 	}
 }
 /*导出用户信息*/
@@ -345,7 +345,7 @@ elseif($act == 'export_info')
 			$contents.= '★ ユーザ名：'.$v['username'].'                 携帯：'.$v['mobile'].'                     メール：'.$v['email']."\r\n\r\n"; 
 	}
   	$time=date("Y-m-d H:i:s",time());
-	$header="===================================会员信息文件，符合条件的总计{$total_val}个，导出时间：{$time}========================================"."\r\n\r\n";
+	$header="===================================会員情報ファイル，条件満たすの合計{$total_val}人，導出時間：{$time}========================================"."\r\n\r\n";
 	$txt=$header.$contents;
 	header("Content-type:application/octet-stream"); 
 	header("Content-Disposition: attachment; filename=userinfo.txt"); 

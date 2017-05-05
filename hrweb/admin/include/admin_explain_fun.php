@@ -51,7 +51,7 @@ function del_explain($id)
 	{
 		if (!$db->query("Delete from ".table('explain')." WHERE id IN (".$sqlin.") ")) return false;
 		$return=$return+$db->affected_rows();
-		write_log("删除id为".$sqlin."的说明页,共删除".$return."行", $_SESSION['admin_name'],3);
+		write_log("削除idは".$sqlin."の説明ページ,削除件数".$return."行", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }

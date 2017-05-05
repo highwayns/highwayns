@@ -21,7 +21,7 @@ if ($act=='down')
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('title',"谁下载的我的简历 - 个人会员中心 - {$_CFG['site_name']}");
+	$smarty->assign('title',"履歴書ダウンロード記録 - 個人会員センター - {$_CFG['site_name']}");
 	$smarty->assign('mylist',get_com_downresume($offset,$perpage,$joinsql.$wheresql));
 	$smarty->assign('page',$page->show(3));
 	$smarty->assign('count',$total_val);
@@ -75,30 +75,30 @@ elseif ($act=='interview')
 }
 elseif ($act=='set_interview')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	$jobs_type=intval($_GET['jobs_type']);
 	$n=set_invitation($yid,$_SESSION['uid'],2);
 	if($n)
 	{
-		showmsg("设置成功！",2);
+		showmsg("設定成功！",2);
 	}
 	else
 	{
-		showmsg("设置失败！",0);
+		showmsg("設定失敗！",0);
 	}
 }
 elseif ($act=='interview_del')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	$jobs_type=intval($_GET['jobs_type']);
 	$n=del_interview($yid,$_SESSION['uid']);
 	if(intval($n) > 0)
 	{
-	showmsg("删除成功！共删除 {$n} 行",2);
+	showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-	showmsg("失败！",0);
+	showmsg("失敗！",0);
 	}
 }
 //职位收藏夹列表
@@ -130,14 +130,14 @@ elseif ($act=='favorites')
 }
 elseif ($act=='del_favorites')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	if($n=del_favorites($yid,$_SESSION['uid']))
 	{
-		showmsg("删除成功！共删除 {$n} 行",2);
+		showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-		showmsg("删除失败！",0);
+		showmsg("削除失敗！",0);
 	}
 }
 //申请的职位列表
@@ -217,16 +217,16 @@ elseif ($act=='apply_jobs')
 //删除-申请的职位列表
 elseif ($act=='del_jobs_apply')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	$jobs_type=intval($_GET['jobs_type']);
 	$n=del_jobs_apply($yid,$_SESSION['uid']);
 	if(intval($n) > 0)
 	{
-		showmsg("删除成功！",2);
+		showmsg("削除成功！",2);
 	}
 	else
 	{
-		showmsg("删除失败！",0);
+		showmsg("削除失敗！",0);
 	}
 }
 unset($smarty);

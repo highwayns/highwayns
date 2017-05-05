@@ -54,7 +54,7 @@ if ($user['status']=="2")
 }
 if ($act=="add")
 {
-	$id=isset($_GET['id'])?$_GET['id']:exit("出错了"); 
+	$id=isset($_GET['id'])?$_GET['id']:exit("エラー発生"); 
 	$add_return=add_favorites($id,$_SESSION['uid']);
 	if ($add_return==="full")
 	{

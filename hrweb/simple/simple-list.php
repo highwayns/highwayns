@@ -4,9 +4,9 @@ $alias="HW_simplelist";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
 if ($_PLUG['simple']['p_install']==1)
 {
-	$link[0]['text'] = "返回首页";
+	$link[0]['text'] = "トップに戻る";
 	$link[0]['href'] = $_CFG['site_dir'];
-	showmsg("管理员已关闭此模块!",1,$link);
+	showmsg("管理者このモジュールを閉じた!",1,$link);
 }
 if($mypage['caching']>0){
         $smarty->cache =true;

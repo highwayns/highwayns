@@ -33,8 +33,8 @@ elseif ($act == 'apply')
 }
 elseif ($act == 'apply_add')
 {
-	$jobsid=intval($_POST["jobs_id"])?intval($_POST["jobs_id"]):exit("出错了");
-	$resumeid=intval($_POST["resume_id"])?intval($_POST["resume_id"]):exit("出错了");
+	$jobsid=intval($_POST["jobs_id"])?intval($_POST["jobs_id"]):exit("エラー発生");
+	$resumeid=intval($_POST["resume_id"])?intval($_POST["resume_id"]):exit("エラー発生");
 	
 	$_POST=array_map("utf8_to_gbk", $_POST);
 	$sql="select * from ".table("personal_jobs_apply")." where personal_uid=".intval($_SESSION['uid'])." and resume_id=".intval($_POST["resume_id"])." and jobs_id=".intval($_POST["jobs_id"])."";
@@ -44,14 +44,14 @@ elseif ($act == 'apply_add')
 		$resume_basic = array_map("addslashes", $resume_basic);
 		if (empty($resume_basic))
 		{
-		exit("简历丢失");
+		exit("履歴書失った");
 		}
 	
 	if($_SESSION['utype']!=2){
-		exit("个人会员请登录后申请职位");
+		exit("個人会員登録後職位を申し込みする");
 	}
 	elseif($row){
-		exit("您已经申请过此职位！");
+		exit("この職位がすでに申し込みしました！");
 	}
 	else{
 	
@@ -67,11 +67,11 @@ elseif ($act == 'apply_add')
 			{
 				if($resume_basic['sex']==1)
 				{
-					$personal_fullname=cut_str($resume_basic['fullname'],1,0,"先生");
+					$personal_fullname=cut_str($resume_basic['fullname'],1,0,"男");
 				}
 				elseif($resume_basic['sex']==2)
 				{
-					$personal_fullname=cut_str($resume_basic['fullname'],1,0,"女士");
+					$personal_fullname=cut_str($resume_basic['fullname'],1,0,"女");
 				}
 			}
 			else
@@ -114,10 +114,10 @@ elseif ($act == 'apply_add')
 						$user = array_map("addslashes", $user);
 						$jobs_url=url_rewrite('HW_jobsshow',array('id'=>$jobs['id']));
 						$resume_url=url_rewrite('HW_resumeshow',array('id'=>$resumeid));
-						$message=$personal_fullname."申请了您发布的职位：<a href=\"{$jobs_url}\" target=\"_blank\">{$jobs['jobs_name']}</a>,<a href=\"{$resume_url}\" target=\"_blank\">点击查看</a>";
+						$message=$personal_fullname."配布職位申し込み済み：<a href=\"{$jobs_url}\" target=\"_blank\">{$jobs['jobs_name']}</a>,<a href=\"{$resume_url}\" target=\"_blank\">閲覧</a>";
 						write_pmsnotice($jobs['uid'],$user['username'],$message);
 					}
-					write_memberslog($_SESSION['uid'],2,1301,$_SESSION['username'],"投递了简历，职位:{$jobs['jobs_name']}");
+					write_memberslog($_SESSION['uid'],2,1301,$_SESSION['username'],"投递了履歴書，職位:{$jobs['jobs_name']}");
 					
 					
 					//微信
@@ -131,7 +131,7 @@ elseif ($act == 'apply_add')
 								'url' => $resume_url,
 								'topcolor' => "#7B68EE",
 								'data' => array(
-									'first' => array('value' => urlencode(gbk_to_utf8("你收到了一份新简历，请及时登录".$_CFG['site_name']."查阅")),
+									'first' => array('value' => urlencode(gbk_to_utf8("新履歴書を受信しました，登録してご覧ください".$_CFG['site_name']."閲覧")),
 													'color' => "#743A3A",
 										),
 									'job' => array('value' => urlencode(gbk_to_utf8($jobs['jobs_name'])),
