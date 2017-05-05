@@ -22,11 +22,11 @@ elseif ($act=="save")
 	$postcaptcha = trim($_POST['postcaptcha']);
 	if($captcha['verify_link']=='1' && empty($postcaptcha))
 	{
-		showmsg("请填写验证码",1);
+		showmsg("検証コードを入力してください",1);
  	}
 	if ($captcha['verify_link']=='1' &&  strcasecmp($_SESSION['imageCaptcha_content'],$postcaptcha)!=0)
 	{
-		showmsg("验证码错误",1);
+		showmsg("確認コードエラー",1);
 	}
 	if ($_CFG['app_link']<>"1")
 	{
@@ -41,9 +41,9 @@ elseif ($act=="save")
 	$setsqlarr['alias']=trim($_POST['alias']);
 	$setsqlarr['display']=2;
 	$setsqlarr['type_id']=2;
-	$link[0]['text'] = "返回网站首页";
+	$link[0]['text'] = "ウェブページへ戻る";
 	$link[0]['href'] =$_CFG['site_dir'];
-	!$db->inserttable(table('link'),$setsqlarr)?showmsg("添加失败！",0):showmsg("添加成功，请等待管理员审核！",2,$link);
+	!$db->inserttable(table('link'),$setsqlarr)?showmsg("追加失敗！",0):showmsg("追加成功，管理者審査を待ってください！",2,$link);
 	}
 }
 unset($smarty);

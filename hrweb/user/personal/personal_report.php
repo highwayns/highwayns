@@ -11,11 +11,11 @@ if ($act=='report')
 //保存举报信息
 elseif ($act=='report_save')
 {
-	$link[0]['text'] = "返回上一页！";
+	$link[0]['text'] = "前頁へ！";
 	$link[0]['href'] = $_POST['url'];
 	if (check_jobs_report($_SESSION['uid'],$_POST['jobs_id']))
 	{
-	showmsg("您已经举报过此职位！",1,$link);
+	showmsg("この職位すでに報告しました！",1,$link);
 	}
 	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):showmsg('説明を入力してください！',1);
 	$setsqlarr['jobs_id']=$_POST['jobs_id']?intval($_POST['jobs_id']):showmsg('職位IDなし',1);
@@ -23,8 +23,8 @@ elseif ($act=='report_save')
 	$setsqlarr['jobs_addtime']=intval($_POST['jobs_addtime']);
 	$setsqlarr['uid']=$_SESSION['uid'];
 	$setsqlarr['addtime']=time();
-	write_memberslog($_SESSION['uid'],2,7003,$_SESSION['username'],"举报职位({$_POST['jobs_id']})");
-	!$db->inserttable(table('report'),$setsqlarr)?showmsg("举报失败！",0,$link):showmsg("举报成功，管理员会认真处理！",2,$link);
+	write_memberslog($_SESSION['uid'],2,7003,$_SESSION['username'],"職位({$_POST['jobs_id']})報告");
+	!$db->inserttable(table('report'),$setsqlarr)?showmsg("報告失敗！",0,$link):showmsg("報告成功，管理者処理を待ってください！",2,$link);
 }
 unset($smarty);
 ?>

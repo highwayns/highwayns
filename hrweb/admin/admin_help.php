@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_help_fun.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"help");
-$smarty->assign('pageheader',"帮助");	
+$smarty->assign('pageheader',"ヘルプ");	
 $smarty->assign('act',$act);
 if($act == 'list')
 {
@@ -37,16 +37,16 @@ elseif($act =='help_del')
 {
 	check_token();
 	$id=$_REQUEST['id'];
-	if (empty($id)) adminmsg("请选择项目！",1);
+	if (empty($id)) adminmsg("項目を選択してください！",1);
 	$n=del_help($id);
 	if ($n)
 	{
-	write_log("删除帮助 共删除 {$n} 行！", $_SESSION['admin_name'],3);
-	adminmsg("删除成功 共删除 {$n} 行！",2);
+	write_log("ヘルプ削除 削除行数 {$n} 行！", $_SESSION['admin_name'],3);
+	adminmsg("削除成功 削除行数 {$n} 行！",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'add')
@@ -64,12 +64,12 @@ elseif($act == 'addsave')
 	$setsqlarr['order']=intval($_POST['order']);
 	$setsqlarr['addtime']=$timestamp;
 	$setsqlarr['parentid']=get_help_parentid($setsqlarr['type_id']);
-	$link[0]['text'] = "继续添加";
+	$link[0]['text'] = "続く追加";
 	$link[0]['href'] = '?act=add&type_id_cn='.trim($_POST['type_id_cn'])."&type_id=".$_POST['type_id'];
-	$link[1]['text'] = "返回列表";
+	$link[1]['text'] = "一覧に戻る";
 	$link[1]['href'] = '?act=list';
-	write_log("添加帮助：".$setsqlarr['title'], $_SESSION['admin_name'],3);
-	!$db->inserttable(table('help'),$setsqlarr)?adminmsg("添加失败！",0):adminmsg("添加成功！",2,$link);
+	write_log("ヘルプ追加：".$setsqlarr['title'], $_SESSION['admin_name'],3);
+	!$db->inserttable(table('help'),$setsqlarr)?adminmsg("追加失敗！",0):adminmsg("追加成功！",2,$link);
 }
 elseif($act == 'edit')
 {
@@ -93,12 +93,12 @@ elseif($act == 'editsave')
 	$setsqlarr['content']=!empty($_POST['content'])?$_POST['content']:adminmsg('内容を入力してください！',1);
 	$setsqlarr['order']=intval($_POST['order']);
 	$setsqlarr['parentid']=get_help_parentid($setsqlarr['type_id']);
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=list';
-	$link[1]['text'] = "查看修改结果";
+	$link[1]['text'] = "変更結果閲覧";
 	$link[1]['href'] = "?act=edit&id=".$id;
-	write_log("修改id为".$id."的帮助", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('help'),$setsqlarr," id=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."のヘルプ", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('help'),$setsqlarr," id=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'category')
 {
@@ -123,7 +123,7 @@ elseif($act == 'add_category_save')
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['parentid']=intval($_POST['parentid'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);	
-				!$db->inserttable(table('help_category'),$setsqlarr)?adminmsg("添加失败！",0):"";
+				!$db->inserttable(table('help_category'),$setsqlarr)?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -132,16 +132,16 @@ elseif($act == 'add_category_save')
 	}
 	if ($num==0)
 	{
-	adminmsg("添加失败,数据不完整",1);
+	adminmsg("追加失敗,データ不完全",1);
 	}
 	else
 	{
-	$link[0]['text'] = "返回分类管理";
+	$link[0]['text'] = "分類管理に戻る";
 	$link[0]['href'] = '?act=category';
-	$link[1]['text'] = "继续添加分类";
+	$link[1]['text'] = "続く分類追加";
 	$link[1]['href'] = "?act=category_add";
-	write_log("添加帮助分类，共添加".$num."个分类", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！共添加".$num."个分类",2,$link);
+	write_log("ヘルプ分類追加，追加件数".$num."件分類", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！追加件数".$num."件分類",2,$link);
 	}
 }
 elseif($act == 'del_category')
@@ -151,12 +151,12 @@ elseif($act == 'del_category')
 	$id=$_REQUEST['id'];
 	if ($num=del_category($id))
 	{
-	write_log("删除帮助分类,共删除 {$num} 个分类", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除 {$num} 个分类",2);
+	write_log("ヘルプ分類削除,削除件数 {$num} 件分類", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数 {$num} 件分類",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_category')
@@ -173,11 +173,11 @@ elseif($act == 'edit_category_save')
 	$setsqlarr['parentid']=trim($_POST['parentid'])?intval($_POST['parentid']):0;
 	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['category_order']=!empty($_POST['category_order'])?intval($_POST['category_order']):0;	
-	$link[0]['text'] = "查看修改结果";
+	$link[0]['text'] = "変更結果閲覧";
 	$link[0]['href'] = '?act=edit_category&id='.$id;
-	$link[1]['text'] = "返回分类管理";
+	$link[1]['text'] = "分類管理に戻る";
 	$link[1]['href'] = '?act=category';
-	write_log("修改id为".$id."的帮助分类", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('help_category'),$setsqlarr," id='{$id}'")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."のヘルプ分類", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('help_category'),$setsqlarr," id='{$id}'")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 ?>

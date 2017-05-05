@@ -75,7 +75,7 @@ elseif($act=="company_info_save")
 		$info=$db->getone("SELECT uid FROM ".table('company_profile')." WHERE companyname ='{$setsqlarr['companyname']}' AND uid<>'{$_SESSION['uid']}' LIMIT 1");
 		if(!empty($info))
 		{
-			exit("{$setsqlarr['companyname']}已经存在，同公司信息不能重复注册");
+			exit("{$setsqlarr['companyname']}既に存在しました，同じ会社再度登録できません");
 		}
 	}
 	if ($company_info)
@@ -102,12 +102,12 @@ elseif($act=="company_info_save")
 				$db->updatetable(table('jobs_search_hot'),$soarray," uid=".$setsqlarr['uid']."");
 				$db->updatetable(table('jobs_search_key'),$soarray," uid=".$setsqlarr['uid']."");
 				unset($setsqlarr);
-				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"修改企业资料");
+				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"企業資料変更");
 				exit("1");
 			}
 			else
 			{
-				exit("保存失败！");
+				exit("保存失敗！");
 			}
 	}
 	else
@@ -119,12 +119,12 @@ elseif($act=="company_info_save")
 			if ($insertid)
 			{
 				baidu_submiturl(url_rewrite('HW_companyshow',array('id'=>$insertid)),'addcompany');
-				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"完善企业资料");
+				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"企業資料補完");
 				exit("1");
 			}
 			else
 			{
-				exit("保存失败！");
+				exit("保存失敗！");
 			}
 	}
 }

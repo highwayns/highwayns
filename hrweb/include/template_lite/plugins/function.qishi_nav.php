@@ -11,10 +11,10 @@ function tpl_function_highway_nav($params, &$smarty)
 	$a=explode(':',$str);
 		switch ($a[0])
 		{
-		case "调用名称":
+		case "Call名称":
 			$aset['alias'] = $a[1];
 			break;
-		case "列表名":
+		case "一覧名":
 			$aset['listname'] = $a[1];
 			break;
 		case "分割":

@@ -27,7 +27,7 @@ function simple_del($id)
 		if (!$db->query("Delete from ".table('simple')." WHERE id IN (".$sqlin.")")) return false;
 		$return=$return+$db->affected_rows();
 		//填写管理员日志
-		write_log("后台删除id为".$sqlin."的微招聘 , 共删除".$return."行", $_SESSION['admin_name'],3);
+		write_log("削除idは".$sqlin."の募集 , 削除件数".$return."行", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }
@@ -42,7 +42,7 @@ function simple_refresh($id)
 		if (!$db->query("update  ".table('simple')." SET refreshtime='".time()."'  WHERE id IN (".$sqlin.")")) return false;
 		$return=$return+$db->affected_rows();
 		//填写管理员日志
-		write_log("后台刷新id为".$sqlin."的微招聘 , 共刷新".$return."行", $_SESSION['admin_name'],3);
+		write_log("更新idは".$sqlin."の微募集 , 更新件数".$return."行", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }
@@ -58,7 +58,7 @@ function simple_audit($id,$audit)
 		if (!$db->query("update  ".table('simple')." SET audit='".intval($audit)."'  WHERE id IN (".$sqlin.")")) return false;
 		$return=$return+$db->affected_rows();
 		//填写管理员日志
-		write_log("后台审核id为".$sqlin."的微招聘 , 共审核".$return."行", $_SESSION['admin_name'],3);
+		write_log("審査idは".$sqlin."の微募集 , 審査件数".$return."行", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }

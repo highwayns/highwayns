@@ -1,10 +1,10 @@
 ﻿<?php
 function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false) 
 {
-if (!file_exists($dir)) adminmsg("上传图片失败：上传目录 ".$dir." 不存在!",0);
+if (!file_exists($dir)) adminmsg("画像アップロード失敗：アップロードフォルダー ".$dir." が存在しません!",0);
 if (!is_writable($dir)) 
 {
-adminmsg("上传图片失败：上传目录 ".$dir." 无法写入!",0);
+adminmsg("画像アップロード失敗：アップロードフォルダー ".$dir." 書けない!",0);
 exit(); 
 }
 $upfile=& $_FILES["$file_var"]; 
@@ -18,13 +18,13 @@ exit();
 } 
 if ($max_size>0 && $upfile['size']/1024>$max_size) 
 { 
-adminmsg("上传图片失败：文件大小不能超过  ".$max_size."KB",0);
+adminmsg("アップロード写真失敗：ファイル最大サイズ  ".$max_size."KB",0);
 exit(); 
 } 
 $ext_name = strtolower(str_replace(".", "", strrchr($upfilename, "."))); 
 if (!($type==='') && strpos($type, $ext_name)===false) 
 { 
-adminmsg("上传图片失败：只允许上传 ".$type." 的文件！",0);
+adminmsg("画像アップロード失敗：アップロード許可 ".$type." のファイル！",0);
 exit(); 
 }
 ($name==true)?$uploadname=time().mt_rand(100,999).".".$ext_name :'';

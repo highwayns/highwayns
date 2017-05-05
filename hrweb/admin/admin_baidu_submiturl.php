@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'set';
 $smarty->assign('act',$act);
-$smarty->assign('pageheader',"百度链接提交");
+$smarty->assign('pageheader',"Baiduリンク提出");
 if($act == 'set')
 {
 $smarty->assign('data',get_cache('baidu_submiturl'));
@@ -25,7 +25,7 @@ elseif($act == 'setsave')
 	!$db->query("UPDATE ".table('baidu_submiturl')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('baidu_submiturl');
-	write_log("修改百度链接提交配置", $_SESSION['admin_name'],3);
+	write_log("Baiduリンク提出配置変更", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 ?>

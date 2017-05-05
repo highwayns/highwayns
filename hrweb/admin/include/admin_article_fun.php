@@ -13,7 +13,7 @@ function get_news($offset, $perpage, $sql= '')
 	$tit_color = $row['tit_color'] ? "color:".$row['tit_color'].";" : '';
 	$tit_b = $row['tit_b']>0 ? "font-weight:bold;" : '';
 	$tit_style= $tit_color || $tit_b ? "style=\"".$tit_color.$tit_b."\""  : '';
-	$Small_img = $row['Small_img'] ? "<span style=\"color:#009900\">(图)</span>" : '';
+	$Small_img = $row['Small_img'] ? "<span style=\"color:#009900\">(図)</span>" : '';
 	if (!empty($row['is_url']) && $row['is_url']!='http://')
 	{
 	$row['url'] = $row['is_url'];
@@ -38,7 +38,7 @@ function del_news($id)
 		@unlink($upfiles_dir."/".$y_img['Small_img']);
 		@unlink($thumb_dir.$y_img['Small_img']);
 		$db->query("Delete from  ".table('article')." where id=".intval($val)." LIMIT 1");
-		write_log("删除职位id为".intval($val)."文章", $_SESSION['admin_name'],3);
+		write_log("削除された職位idは".intval($val)."文書", $_SESSION['admin_name'],3);
 	}
 	return true;
 }
@@ -111,7 +111,7 @@ function del_property($id)
 	{
 		if (!$db->query("Delete from ".table('article_property')." WHERE id IN (".$sqlin.")  AND admin_set<>1")) return false;
 		$return=$return+$db->affected_rows();
-		write_log("删除id为".$sqlin."的新闻属性,共删除".$return."行", $_SESSION['admin_name'],3);
+		write_log("削除idは".$sqlin."のニュース属性,削除件数".$return."行", $_SESSION['admin_name'],3);
 	}
 	return $return;
 }

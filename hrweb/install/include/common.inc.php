@@ -27,12 +27,12 @@ PHP_VERSION > '5.1'?date_default_timezone_set("PRC"):'';
  $url = $php_self."?".$_SERVER['QUERY_STRING'];
 if (!file_exists(HIGHWAY_ROOT_PATH.'install/'))
 {
-echo "“install”目录不存在！";
+echo "“install”フォルダーが存在しません！";
 exit();
 }
 if (!is_readable(HIGHWAY_ROOT_PATH.'install/') || !is_writable(HIGHWAY_ROOT_PATH.'install/') || !is_readable(HIGHWAY_ROOT_PATH.'install/compile/') || !is_writable(HIGHWAY_ROOT_PATH.'install/compile/'))
 {
-exit("请先将“install”目录以及此目录下的子目录设置为可读写状态（777）<br />建议您先阅读“安装说明”后在做操作！");
+exit("“install”フォルダー及びサブフォルダー下読み書き状態を（777）に設定して<br />インストール説明をご覧ください！");
 } 
  require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
  require_once(HIGHWAY_ROOT_PATH.'include/template_lite/class.template.php');

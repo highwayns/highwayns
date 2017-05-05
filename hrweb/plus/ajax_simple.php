@@ -24,11 +24,11 @@ elseif ($act=="addsave")
 	$postcaptcha = trim($_POST['postcaptcha']);
 	if($captcha['verify_simple']=='1' && empty($postcaptcha))
 	{
-		showmsg("请填写验证码",1);
+		showmsg("検証コードを入力してください",1);
  	}
 	if ($captcha['verify_simple']=='1' &&  strcasecmp($_SESSION['imageCaptcha_content'],$postcaptcha)!=0)
 	{
-		showmsg("验证码错误",1);
+		showmsg("確認コードエラー",1);
 	}
 	$setsqlarr['audit']=intval($_CFG['simple_add_audit']);
 	$setsqlarr['jobname']=trim($_POST['jobname'])?trim($_POST['jobname']):showmsg('職位を選択してください！',1);
@@ -74,19 +74,19 @@ elseif ($act=="addsave")
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];
 	$setsqlarr['key']="{$setsqlarr['jobname']} {$setsqlarr['comname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
-	$link[0]['text'] = "返回微招聘列表";
+	$link[0]['text'] = "微募集一覧に戻る";
 	$link[0]['href'] =url_rewrite('HW_simplelist');
 	if($db->inserttable(table('simple'),$setsqlarr))
 	{
 		if ($setsqlarr['audit']<>1)
 		{
-		$str="，请等待管理员审核";
+		$str="，管理者の審査を待っています";
 		}
-		showmsg("添加成功{$str}！",2,$link);
+		showmsg("追加成功{$str}！",2,$link);
 	}
 	else
 	{
-	showmsg("添加失败！",0);
+	showmsg("追加失敗！",0);
 	}
 }
 elseif ($act=="delsimple")
@@ -106,13 +106,13 @@ elseif ($act=="exe_delsimple")
 		if ($thispwd==$info['pwd'])
 		{
 		$db->query("Delete from ".table('simple')." WHERE id = '{$id}'");
-		$link[0]['text'] = "返回微招聘列表";
+		$link[0]['text'] = "微募集一覧に戻る";
 		$link[0]['href'] =url_rewrite('HW_simplelist');
-		showmsg("删除成功！",2,$link);
+		showmsg("削除成功！",2,$link);
 		}
 		else
 		{
-			showmsg("管理密码错误",1);
+			showmsg("パスワードエラー管理",1);
 		}
 }
 elseif ($act=="refreshsimple")
@@ -132,13 +132,13 @@ elseif ($act=="exe_refreshsimple")
 		if ($thispwd==$info['pwd'])
 		{
 		$db->query("update ".table('simple')."  SET refreshtime='".time()."' WHERE id = '{$id}'");
-		$link[0]['text'] = "返回微招聘列表";
+		$link[0]['text'] = "微募集一覧に戻る";
 		$link[0]['href'] =url_rewrite('HW_simplelist');
-		showmsg("刷新成功！",2,$link);
+		showmsg("更新成功！",2,$link);
 		}
 		else
 		{
-			showmsg("管理密码错误",1);
+			showmsg("パスワードエラー管理",1);
 		}
 }
 elseif ($act=="editsimple")
@@ -159,11 +159,11 @@ elseif ($act=="editsave")
 	$postcaptcha = trim($_POST['postcaptcha']);
 	if($captcha['verify_simple']=='1' && empty($postcaptcha))
 	{
-		showmsg("请填写验证码",1);
+		showmsg("検証コードを入力してください",1);
  	}
 	if ($captcha['verify_simple']=='1' &&  strcasecmp($_SESSION['imageCaptcha_content'],$postcaptcha)!=0)
 	{
-		showmsg("验证码错误",1);
+		showmsg("確認コードエラー",1);
 	}
 	$id=intval($_POST['id']);
 	$pwd=trim($_POST['pwd']);
@@ -171,7 +171,7 @@ elseif ($act=="editsave")
 	$thispwd=md5(md5($pwd).$info['pwd_hash'].$HW_pwdhash);
 	if ($thispwd!=$info['pwd'])
 	{
-		showmsg("管理密码错误",1);
+		showmsg("パスワードエラー管理",1);
 	}
 	if ($_CFG['simple_edit_audit']!="-1")
 	{
@@ -214,19 +214,19 @@ elseif ($act=="editsave")
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];
 	$setsqlarr['key']="{$setsqlarr['jobname']} {$setsqlarr['comname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
-	$link[0]['text'] = "返回微招聘列表";
+	$link[0]['text'] = "微募集一覧に戻る";
 	$link[0]['href'] =url_rewrite('HW_simplelist');
 	if($db->updatetable(table('simple'),$setsqlarr," id='{$id}' "))
 	{
 		if ($_CFG['simple_edit_audit']>1)
 		{
-		$str="，请等待管理员审核";
+		$str="，管理者の審査を待っています";
 		}
-		showmsg("修改成功{$str}！",2,$link);
+		showmsg("変更成功{$str}！",2,$link);
 	}
 	else
 	{
-	showmsg("修改失败！",0);
+	showmsg("変更失敗！",0);
 	}
 }
 elseif($act =='check_tel')
@@ -279,7 +279,7 @@ elseif($act == "get_simple_tel"){
 	$id=intval($_GET['id']);
 	$sql = "select contact,tel from ".table('simple')." where id=".$id;
 	$tel = $db->getone($sql);
-	exit("联系方式：".$tel['tel']." ".$tel['contact']);
+	exit("連絡先：".$tel['tel']." ".$tel['contact']);
 }
 elseif($act == "get_simple_detailed"){
 	$id=intval($_GET['id']);

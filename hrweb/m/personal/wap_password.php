@@ -52,7 +52,7 @@ elseif ($act == 'save_password')
 		uc_user_edit($arr['username'],$arr['oldpassword'], $arr['password']);
 		}
 		//往会员日志表里记录
-		write_memberslog($_SESSION['uid'],2,1004 ,$_SESSION['username'],"修改密码");
+		write_memberslog($_SESSION['uid'],2,1004 ,$_SESSION['username'],"パスワード変更");
 		exit('パスワード更新失敗！');
 	 }
 }

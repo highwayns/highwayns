@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_explain_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
 $smarty->assign('act',$act);
-$smarty->assign('pageheader',"说明页");
+$smarty->assign('pageheader',"説明ページ");
 if($act == 'list')
 {
 	get_token();
@@ -66,12 +66,12 @@ elseif($act == 'editsave')
 	$setsqlarr['seo_keywords']=trim($_POST['seo_keywords']);
 	$setsqlarr['seo_description']=trim($_POST['seo_description']);
 	$setsqlarr['show_order']=intval($_POST['show_order']);
-	$link[0]['text'] = "返回说明页列表";
+	$link[0]['text'] = "説明ページ一覧に戻る";
 	$link[0]['href'] = '?';
-	$link[1]['text'] = "查看已修改说明页";
+	$link[1]['text'] = "変更済み説明ページを閲覧";
 	$link[1]['href'] = "?act=edit&id=".$id;
-	write_log("修改id为".$id."的说明页", $_SESSION['admin_name'],3);
- 	!$db->updatetable(table('explain'),$setsqlarr," id=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."の説明ページ", $_SESSION['admin_name'],3);
+ 	!$db->updatetable(table('explain'),$setsqlarr," id=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'add')
 {
@@ -97,17 +97,17 @@ elseif($act == 'addsave')
 	$setsqlarr['seo_description']=trim($_POST['seo_description']);
 	$setsqlarr['show_order']=intval($_POST['show_order']);
 	$setsqlarr['addtime']=$timestamp;
-	$link[0]['text'] = "继续添加说明页";
+	$link[0]['text'] = "続く説明ページを追加";
 	$link[0]['href'] = '?act=add&type_id='.$setsqlarr['type_id'];
-	$link[1]['text'] = "返回说明页列表";
+	$link[1]['text'] = "説明ページ一覧に戻る";
 	$link[1]['href'] = '?';
-	write_log("添加说明页：".$setsqlarr['title'], $_SESSION['admin_name'],3);
+	write_log("追加説明ページ：".$setsqlarr['title'], $_SESSION['admin_name'],3);
 	$insertid = $db->inserttable(table('explain'),$setsqlarr,1);
 	if(!$insertid){
-		adminmsg("添加失败！",0);
+		adminmsg("追加失敗！",0);
 	}else{
 		baidu_submiturl(url_rewrite('HW_explainshow',array('id'=>$insertid)),'addexplain');
-		adminmsg("添加成功！",2,$link);
+		adminmsg("追加成功！",2,$link);
 	}
 }
 elseif($act == 'explain_del')
@@ -117,11 +117,11 @@ elseif($act == 'explain_del')
 	$id=$_REQUEST['id'];
 	if ($num=del_explain($id))
 	{
-	adminmsg("删除成功！共删除".$num."行",2);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'category')
@@ -151,7 +151,7 @@ elseif($act == 'add_category_save')
 			{		
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);			
-				!$db->inserttable(table('explain_category'),$setsqlarr)?adminmsg("添加失败！",0):"";
+				!$db->inserttable(table('explain_category'),$setsqlarr)?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -160,16 +160,16 @@ elseif($act == 'add_category_save')
 	}
 	if ($num==0)
 	{
-	adminmsg("添加失败,数据不完整",1);
+	adminmsg("追加失敗,データ不完全",1);
 	}
 	else
 	{
-	$link[0]['text'] = "返回分类管理";
+	$link[0]['text'] = "分類管理に戻る";
 	$link[0]['href'] = '?act=category';
-	$link[1]['text'] = "继续添加";
+	$link[1]['text'] = "続く追加";
 	$link[1]['href'] = "?act=category_add";
-	write_log("添加成功！共添加".$num."个分类", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！共添加".$num."个分类",2,$link);
+	write_log("追加成功！追加件数".$num."件分類", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！追加件数".$num."件分類",2,$link);
 	}
 }
 elseif($act == 'edit_category')
@@ -188,12 +188,12 @@ elseif($act == 'edit_category_save')
 	$id=intval($_POST['id']);	
 	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
-	$link[0]['text'] = "查看修改结果";
+	$link[0]['text'] = "変更結果閲覧";
 	$link[0]['href'] = '?act=edit_category&id='.$id;
-	$link[1]['text'] = "返回分类管理";
+	$link[1]['text'] = "分類管理に戻る";
 	$link[1]['href'] = '?act=category';
-	write_log("修改id为".$id."的分类", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('explain_category'),$setsqlarr," id=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."の分類", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('explain_category'),$setsqlarr," id=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'del_category')
 {
@@ -202,12 +202,12 @@ elseif($act == 'del_category')
 	$id=$_REQUEST['id'];
 	if ($num=del_category($id))
 	{
-	write_log("删除分类！共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("分類削除！削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 

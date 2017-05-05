@@ -100,24 +100,24 @@ elseif($act == "save_tpl"){
 	exit("1");
 }
 elseif($act == "del_resume"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
 	exit($contents);
 }
 elseif($act == "refresh_resume"){
-	$resumeid = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择简历！");
+	$resumeid = intval($_GET['id'])?intval($_GET['id']):exit("履歴書されていません！");
 	$refrestime=get_last_refresh_date($_SESSION['uid'],"2001");
 	$duringtime=time()-$refrestime['max(addtime)'];
 	$space = $_CFG['per_refresh_resume_space']*60;
 	$refresh_time = get_today_refresh_times($_SESSION['uid'],"2001");
 	if($_CFG['per_refresh_resume_time']!=0&&($refresh_time['count(*)']>=$_CFG['per_refresh_resume_time']))
 	{
-	exit("每天最多只能刷新".$_CFG['per_refresh_resume_time']."次,您今天已超过最大刷新次数限制！");	
+	exit("毎日最大更新件数".$_CFG['per_refresh_resume_time']."回,今日最大更新回数を超えた！");	
 	}
 	elseif($duringtime<=$space){
-	exit($_CFG['per_refresh_resume_space']."分钟内不能重复刷新简历！");
+	exit($_CFG['per_refresh_resume_space']."分内履歴書重複更新できません！");
 	}
 	else 
 	{
@@ -125,8 +125,8 @@ elseif($act == "refresh_resume"){
 	}
 }
 elseif($act == "del_resume_edu"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择教育经历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("教育職歴選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_edu_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -135,8 +135,8 @@ elseif($act == "del_resume_edu"){
 	exit($contents);
 }
 elseif($act == "del_resume_work"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择工作经历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("仕事職歴選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_work_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -145,8 +145,8 @@ elseif($act == "del_resume_work"){
 	exit($contents);
 }
 elseif($act == "del_resume_training"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择培训经历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("訓練職歴を選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_training_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -155,8 +155,8 @@ elseif($act == "del_resume_training"){
 	exit($contents);
 }
 elseif($act == "del_resume_language"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择语言能力！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("言語能力を選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_language_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -165,8 +165,8 @@ elseif($act == "del_resume_language"){
 	exit($contents);
 }
 elseif($act == "del_resume_credent"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择证书！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("証明書を選択しません！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_credent_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);

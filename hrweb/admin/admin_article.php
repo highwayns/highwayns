@@ -38,19 +38,19 @@ if($act == 'newslist')
 	$article = get_news($offset, $perpage,$joinsql.$wheresql.$oederbysql);
 	$smarty->assign('article',$article);
 	$smarty->assign('page',$page->show(3));
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article.htm');
 }
 elseif($act =='migrate_article')
 {
 	$id=$_REQUEST['id'];
-	if (empty($id)) adminmsg("请选择项目！",1);
+	if (empty($id)) adminmsg("項目を選択してください！",1);
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"article_del");
 	if (del_news($id))
 	{
-	adminmsg("删除成功！",2);
+	adminmsg("削除成功！",2);
 	}
 }
 elseif($act == 'news_add')
@@ -58,7 +58,7 @@ elseif($act == 'news_add')
 	check_permissions($_SESSION['admin_purview'],"article_add");
 	$smarty->assign('article_category',get_article_category());
 	$smarty->assign('author',$_SESSION['admin_name']);
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_add.htm');
 }
@@ -91,17 +91,17 @@ elseif($act == 'addsave')
 	}
 	$setsqlarr['addtime']=$timestamp;
 	$setsqlarr['parentid']=get_article_parentid($setsqlarr['type_id']);
-	$link[0]['text'] = "继续添加文章";
+	$link[0]['text'] = "続く文書追加";
 	$link[0]['href'] = '?act=news_add&type_id_cn='.trim($_POST['type_id_cn'])."&type_id=".$_POST['type_id'];
-	$link[1]['text'] = "返回文章列表";
+	$link[1]['text'] = "文書一覧に戻る";
 	$link[1]['href'] = '?act=newslist';
-	write_log("添加文章：".$setsqlarr['title'], $_SESSION['admin_name'],3);
+	write_log("追加文書：".$setsqlarr['title'], $_SESSION['admin_name'],3);
 	$insertid = $db->inserttable(table('article'),$setsqlarr,1);
 	if(!$insertid){
-		adminmsg("添加失败！",0);
+		adminmsg("追加失敗！",0);
 	}else{
 		baidu_submiturl(url_rewrite('HW_newsshow',array('id'=>$insertid)),'addarticle');
-		adminmsg("添加成功！",2,$link);
+		adminmsg("追加成功！",2,$link);
 	}
 }
 elseif($act == 'article_edit')
@@ -114,7 +114,7 @@ elseif($act == 'article_edit')
 	$smarty->assign('upfiles_dir',$upfiles_dir); 
 	$smarty->assign('thumb_dir',$thumb_dir); 
 	$smarty->assign('article_category',get_article_category());
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_edit.htm');
 }
@@ -147,12 +147,12 @@ elseif($act == 'editsave')
 		$setsqlarr['Small_img']=date("Y/m/d/").$Small_img;
 	}
 	$setsqlarr['parentid']=get_article_parentid($setsqlarr['type_id']);
-	$link[0]['text'] = "返回文章列表";
+	$link[0]['text'] = "文書一覧に戻る";
 	$link[0]['href'] = '?act=newslist';
-	$link[1]['text'] = "查看已修改文章";
+	$link[1]['text'] = "変更済み文書閲覧";
 	$link[1]['href'] = "?act=article_edit&id=".$id;
-	write_log("修改id为".$id."的文章信息", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('article'),$setsqlarr," id=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."の文書情報", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('article'),$setsqlarr," id=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'del_img')
 {
@@ -164,19 +164,19 @@ elseif($act == 'del_img')
 	$db->query($sql);
 	@unlink($upfiles_dir.$img);
 	@unlink($thumb_dir.$img);
-	write_log("删除id为".$id."的文章缩略图", $_SESSION['admin_name'],3);
-	adminmsg("删除缩略图成功！",2);
+	write_log("削除idは".$id."の文書縮小図", $_SESSION['admin_name'],3);
+	adminmsg("缩略図削除成功！",2);
 }
 elseif($act == 'property'){
 	check_permissions($_SESSION['admin_purview'],"article_property");
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_property.htm');
 }
 elseif($act == 'property_add')
 {
 	check_permissions($_SESSION['admin_purview'],"article_property");
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_property_add.htm');
 }
@@ -192,7 +192,7 @@ elseif($act == 'add_property_save')
 			{		
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);				
-				!$db->inserttable(table('article_property'),$setsqlarr)?adminmsg("添加失败！",0):"";
+				!$db->inserttable(table('article_property'),$setsqlarr)?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -201,16 +201,16 @@ elseif($act == 'add_property_save')
 	}
 	if ($num==0)
 	{
-	adminmsg("添加失败,数据不完整",1);
+	adminmsg("追加失敗,データ不完全",1);
 	}
 	else
 	{
-	$link[0]['text'] = "返回属性管理页面";
+	$link[0]['text'] = "属性管理ページに戻る";
 	$link[0]['href'] = '?act=property';
-	$link[1]['text'] = "继续添加属性";
+	$link[1]['text'] = "続く属性追加";
 	$link[1]['href'] = "?act=property_add";
-	write_log("添加成功！共添加".$num."新闻属性", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！共添加".$num."个分类",2,$link);
+	write_log("追加成功！追加件数".$num."ニュース属性", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！追加件数".$num."件分類",2,$link);
 	}
 }
 elseif($act == 'del_property')
@@ -220,11 +220,11 @@ elseif($act == 'del_property')
 	$id=$_REQUEST['id'];
 	if ($num=del_property($id))
 	{
-	adminmsg("删除成功！共删除".$num."个分类",2);
+	adminmsg("削除成功！削除件数".$num."件分類",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_property')
@@ -232,7 +232,7 @@ elseif($act == 'edit_property')
 	check_permissions($_SESSION['admin_purview'],"article_property");
 	$id=intval($_GET['id']);
 	$smarty->assign('property',get_article_property_one($id));
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_property_edit.htm');
 }
@@ -243,17 +243,17 @@ elseif($act == 'edit_property_save')
 	$id=intval($_POST['id']);
 	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('分類名称を入力してください！',1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);	
-	$link[0]['text'] = "查看修改结果";
+	$link[0]['text'] = "変更結果閲覧";
 	$link[0]['href'] = '?act=edit_property&id='.$id;
-	$link[1]['text'] = "返回属性管理";
+	$link[1]['text'] = "属性管理に戻る";
 	$link[1]['href'] = '?act=property';
-	write_log("修改id为".$id."新闻属性", $_SESSION['admin_name'],3);
-	!$db->updatetable(table('article_property'),$setsqlarr," id=".$id."")?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	write_log("idを次に変更".$id."ニュース属性", $_SESSION['admin_name'],3);
+	!$db->updatetable(table('article_property'),$setsqlarr," id=".$id."")?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'category')
 {
 	check_permissions($_SESSION['admin_purview'],"article_category");
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_category.htm');
 }
@@ -261,7 +261,7 @@ elseif($act == 'category_add')
 {
 	check_permissions($_SESSION['admin_purview'],"article_category");
 	$parentid = !empty($_GET['parentid']) ? intval($_GET['parentid']) : '0';
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_category_add.htm');
 }
@@ -281,7 +281,7 @@ elseif($act == 'add_category_save')
 				$setsqlarr['title']=$_POST['title'][$i];
 				$setsqlarr['description']=$_POST['description'][$i];
 				$setsqlarr['keywords']=$_POST['keywords'][$i];
-				!$db->inserttable(table('article_category'),$setsqlarr)?adminmsg("添加失败！",0):"";
+				!$db->inserttable(table('article_category'),$setsqlarr)?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -290,16 +290,16 @@ elseif($act == 'add_category_save')
 	}
 	if ($num==0)
 	{
-	adminmsg("添加失败,数据不完整",1);
+	adminmsg("追加失敗,データ不完全",1);
 	}
 	else
 	{
-	write_log("添加成功！共添加".$num."个分类", $_SESSION['admin_name'],3);
-	$link[0]['text'] = "返回分类管理";
+	write_log("追加成功！追加件数".$num."件分類", $_SESSION['admin_name'],3);
+	$link[0]['text'] = "分類管理に戻る";
 	$link[0]['href'] = '?act=category';
-	$link[1]['text'] = "继续添加分类";
+	$link[1]['text'] = "続く分類追加";
 	$link[1]['href'] = "?act=category_add";
-	adminmsg("添加成功！共添加".$num."个分类",2,$link);
+	adminmsg("追加成功！追加件数".$num."件分類",2,$link);
 	}
 }
 elseif($act == 'del_category')
@@ -309,12 +309,12 @@ elseif($act == 'del_category')
 	$id=$_REQUEST['id'];
 	if ($num=del_category($id))
 	{
-	write_log("删除成功！共删除".$num."个分类", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."个分类",2);
+	write_log("削除成功！削除件数".$num."件分類", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."件分類",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_category')
@@ -322,7 +322,7 @@ elseif($act == 'edit_category')
 	check_permissions($_SESSION['admin_purview'],"article_category");
 	$id=intval($_GET['id']);
 	$smarty->assign('category',get_article_category_one($id));
-	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('pageheader',"ニュース资讯");
 	get_token();
 	$smarty->display('article/admin_article_category_edit.htm');
 }
@@ -337,17 +337,17 @@ elseif($act == 'edit_category_save')
 	$setsqlarr['title']=$_POST['title'];
     $setsqlarr['description']=$_POST['description'];
 	$setsqlarr['keywords']=$_POST['keywords'];
-	$link[0]['text'] = "查看修改结果";
+	$link[0]['text'] = "変更結果閲覧";
 	$link[0]['href'] = '?act=edit_category&id='.$id;
-	$link[1]['text'] = "返回分类管理";
+	$link[1]['text'] = "分類管理に戻る";
 	$link[1]['href'] = '?act=category';
 	if(!$db->updatetable(table('article_category'),$setsqlarr," id='".$id."'")){
-		adminmsg("修改失败！",0);
+		adminmsg("変更失敗！",0);
 	}else{
 		$set_type_sqlarr['parentid'] = $setsqlarr['parentid'];
 		$db->updatetable(table('article'),$set_type_sqlarr," type_id='".$id."'");
-		write_log("修改位id为".$id."的分类", $_SESSION['admin_name'],3);
-		adminmsg("修改成功！",2,$link);
+		write_log("変更位idは".$id."の分類", $_SESSION['admin_name'],3);
+		adminmsg("変更成功！",2,$link);
 	}
 }
 ?>

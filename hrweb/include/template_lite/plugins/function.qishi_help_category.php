@@ -8,25 +8,25 @@ foreach($arr as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
-	case "名称长度":
+	case "名称長さ":
 		$aset['titlelen'] = $a[1];
 		break;
-	case "填补字符":
+	case "記号を入力してください":
 		$aset['dot'] = $a[1];
 		break;
-	case "大类":
+	case "大分類":
 		$aset['classify'] = $a[1];
 		break;
 	case "小类":
 		$aset['typeid'] = $a[1];
 		break;
-	case "页面":
+	case "ページ":
 		$aset['showname'] = $a[1];
 		break;
-	case "显示数目":
+	case "表示数目":
 		$aset['num'] = $a[1];
 		break;
 	}

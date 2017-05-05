@@ -276,9 +276,9 @@ function get_locoyspider_jobs_sex($sex_cn=NULL,$sex=NULL)
 		{
 		return array("id"=>2,"cn"=>"女");
 		}
-		elseif ($sex_cn=="不限"  ||  $sex=="3")
+		elseif ($sex_cn=="制限なし"  ||  $sex=="3")
 		{
-		return array("id"=>3,"cn"=>"不限");
+		return array("id"=>3,"cn"=>"制限なし");
 		}
 		else
 		{
@@ -492,8 +492,8 @@ function locoyspider_addjobs($companyinfo)
 		$jobssetsqlarr['company_id']=$companyinfo['id'];		
 		$jobssetsqlarr['company_addtime']=$companyinfo['addtime'];
 		$jobssetsqlarr['jobs_name']=trim($_POST['jobs_name']);
-		if (empty($jobssetsqlarr['jobs_name']))  exit("职位名称丢失");
-		if (ck_jobs_name($jobssetsqlarr['jobs_name'],$jobssetsqlarr['uid'])) exit("职位名称有重复");
+		if (empty($jobssetsqlarr['jobs_name']))  exit("職位名称を失った");
+		if (ck_jobs_name($jobssetsqlarr['jobs_name'],$jobssetsqlarr['uid'])) exit("職位名称重複");
 		$jobssetsqlarr['contents']=html2text($_POST['jobs_contents']);
 			$nature=locoyspider_jobs_nature(trim($_POST['jobs_nature']));
 		$jobssetsqlarr['nature']=$nature['id'];
@@ -543,7 +543,7 @@ function locoyspider_addjobs($companyinfo)
 		$jobssetsqlarr['display']=$locoyspider['jobs_display'];
 		$jobssetsqlarr['robot']=1;
 		$pid=$db->inserttable(table('jobs'),$jobssetsqlarr,true);
-		if (!$pid) exit("添加招聘信息失败");
+		if (!$pid) exit("募集情報追加失敗");
 		//职位联系方式
 		$setsqlarr_contact['contact']=trim($_POST['contact']);
 		//QQ
@@ -560,7 +560,7 @@ function locoyspider_addjobs($companyinfo)
 
 		$setsqlarr_contact['notify']=$locoyspider['jobs_notify'];
 		$setsqlarr_contact['pid']=$pid;
-		if (!$db->inserttable(table('jobs_contact'),$setsqlarr_contact)) exit("添加招聘联系方式失败");
+		if (!$db->inserttable(table('jobs_contact'),$setsqlarr_contact)) exit("募集連絡先追加失敗");
 		//------
 		$searchtab['id']=$pid;
 		$searchtab['uid']=$jobssetsqlarr['uid'];
@@ -598,14 +598,14 @@ function locoyspider_addjobs($companyinfo)
 		$db->inserttable(table('jobs_search_key'),$searchtab);
 		require_once(ADMIN_ROOT_PATH.'include/admin_company_fun.php');
 		distribution_jobs($pid);
-		exit("添加成功");	
+		exit("追加成功");	
 }
 //添加企业
 function locoyspider_addcompany($companyname)
 {
 	global $locoyspider,$db;
 		$setsqlarr['uid']=locoyspider_user_register(check_email(trim($_POST['email'])));
-		if ($setsqlarr['uid']=="") exit("添加会员出错");
+		if ($setsqlarr['uid']=="") exit("会員追加エラー");
 		$setsqlarr['companyname']=$companyname;
 			$nature=locoyspider_company_nature(trim($_POST['nature']));
 		$setsqlarr['nature']=$nature['id'];
@@ -638,7 +638,7 @@ function locoyspider_addcompany($companyname)
 		$setsqlarr['telephone_show']=1;
 		$setsqlarr['email_show']=1;
 		$setsqlarr['address_show']=1;
-		if (!$db->inserttable(table('company_profile'),$setsqlarr)) exit("添加企业出错");
+		if (!$db->inserttable(table('company_profile'),$setsqlarr)) exit("企業追加エラー");
 		return true;
 }
 //获取随机字符串

@@ -69,7 +69,7 @@ elseif ($act=='company_profile_save')
 		$info=$db->getone("SELECT uid FROM ".table('company_profile')." WHERE companyname ='{$setsqlarr['companyname']}' AND uid<>'{$_SESSION['uid']}' LIMIT 1");
 		if(!empty($info))
 		{
-			showmsg("{$setsqlarr['companyname']}已经存在，同公司信息不能重复注册",1);
+			showmsg("{$setsqlarr['companyname']}既に存在しました，同じ会社再度登録できません",1);
 		}
 	}
 	if ($company_profile)
@@ -110,12 +110,12 @@ elseif ($act=='company_profile_save')
 					$db->query("update ".table('jobs_contact')." set telephone='$setsqlarr[telephone]',email='$setsqlarr[email]',contact='$setsqlarr[contact]' where pid in ($jobsid_str)");
 				}
 				unset($setsqlarr);
-				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"修改企业资料");
-				showmsg("修改成功",2);
+				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"企業資料変更");
+				showmsg("変更成功",2);
 			}
 			else
 			{
-				showmsg("保存失败！",1);
+				showmsg("保存失敗！",1);
 			}
 	}
 	else
@@ -138,26 +138,26 @@ elseif ($act=='company_profile_save')
 					report_deal($_SESSION['uid'],$rule['company_profile_points']['type'],$rule['company_profile_points']['value']);
 					$user_points=get_user_points($_SESSION['uid']);
 					$operator=$rule['company_profile_points']['type']=="1"?"+":"-";
-					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 完善企业资料，{$_CFG['points_byname']}({$operator}{$rule['company_profile_points']['value']})，(剩余:{$user_points})",1,1016,"完善企业资料","{$operator}{$rule['company_profile_points']['value']}","{$user_points}");
+					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 企業資料補完，{$_CFG['points_byname']}({$operator}{$rule['company_profile_points']['value']})，(残る:{$user_points})",1,1016,"企業資料補完","{$operator}{$rule['company_profile_points']['value']}","{$user_points}");
 					}
 				}
-				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"完善企业资料");
+				write_memberslog($_SESSION['uid'],$_SESSION['utype'],8001,$_SESSION['username'],"企業資料補完");
 				baidu_submiturl(url_rewrite('HW_companyshow',array('id'=>$insertid)),'addcompany');
-				showmsg("修改成功",2);
+				showmsg("変更成功",2);
 			}
 			else
 			{
-				showmsg("保存失败！",1);
+				showmsg("保存失敗！",1);
 			}
 	}
 }
 elseif ($act=='company_auth')
 {
-	$link[0]['text'] = "完善企业资料";
+	$link[0]['text'] = "企業資料補完";
 	$link[0]['href'] = '?act=company_profile';
-	$link[1]['text'] = "管理首页";
+	$link[1]['text'] = "管理トップ";
 	$link[1]['href'] = 'company_index.php';
-	if (!$cominfo_flge) showmsg("请完善您的企业资料再上传营业执照！",1,$link);
+	if (!$cominfo_flge) showmsg("企業資料補完後に謄本をアップロードしてください！",1,$link);
 	$reason = get_user_audit_reason(intval($_SESSION['uid']));
 	$smarty->assign('title','謄本 - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('points',get_cache('points_rule'));
@@ -189,7 +189,7 @@ elseif ($act=='company_auth_save')
 		$auth=$company_profile;
 		@unlink("../../data/".$_CFG['updir_certificate']."/".$auth['certificate_img']);
 		$wheresql="uid='".$_SESSION['uid']."'";
-		write_memberslog($_SESSION['uid'],1,8002,$_SESSION['username'],"上传了营业执照");
+		write_memberslog($_SESSION['uid'],1,8002,$_SESSION['username'],"謄本をアップロードする");
 		$db->updatetable(table('jobs'),array('company_audit'=>$setsqlarr['audit']),$wheresql);
 		$db->updatetable(table('jobs_tmp'),array('company_audit'=>$setsqlarr['audit']),$wheresql);
 		if(!$db->updatetable(table('company_profile'),$setsqlarr,$wheresql))
@@ -210,11 +210,11 @@ elseif ($act=='company_auth_save')
 }
 elseif ($act=='company_logo')
 {
-	$link[0]['text'] = "完善企业资料";
+	$link[0]['text'] = "企業資料補完";
 	$link[0]['href'] = '?act=company_profile';
-	$link[1]['text'] = "会员中心首页";
+	$link[1]['text'] = "会員中心首页";
 	$link[1]['href'] = 'company_index.php';
-	if (empty($company_profile['companyname'])) showmsg("请完善您的企业资料再上传企业LOGO！",1,$link);
+	if (empty($company_profile['companyname'])) showmsg("企業資料入力完了後、企業LOGOをアップロードしてください！",1,$link);
 	$smarty->assign('title','企業LOGO - 企業会員センター - '.$_CFG['site_name']);
 	$smarty->assign('company_profile',$company_profile);
 	$smarty->assign('rand',rand(1,100));
@@ -236,9 +236,9 @@ elseif ($act=='company_logo_save')
 	$wheresql="uid='".$_SESSION['uid']."'";
 			if ($db->updatetable(table('company_profile'),$setsqlarr,$wheresql))
 			{
-			$link[0]['text'] = "查看LOGO";
+			$link[0]['text'] = "LOGO閲覧";
 			$link[0]['href'] = '?act=company_logo';
-			write_memberslog($_SESSION['uid'],1,8003,$_SESSION['username'],"上传了企业LOGO");
+			write_memberslog($_SESSION['uid'],1,8003,$_SESSION['username'],"企業LOGOをアップロードしました");
 			// 上传logo 获得积分 
 			$rule=get_cache('points_rule');
 			if ($rule['company_logo_points']['value']>0)
@@ -251,7 +251,7 @@ elseif ($act=='company_logo_save')
 				report_deal($_SESSION['uid'],$rule['company_logo_points']['type'],$rule['company_logo_points']['value']);
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$rule['company_logo_points']['type']=="1"?"+":"-";
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 上传企业logo，{$_CFG['points_byname']}({$operator}{$rule['company_logo_points']['value']})，(剩余:{$user_points})",1,1016,"上传企业logo","{$operator}{$rule['company_logo_points']['value']}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 企業logoアップロード，{$_CFG['points_byname']}({$operator}{$rule['company_logo_points']['value']})，(残る:{$user_points})",1,1016,"企業logoアップロード","{$operator}{$rule['company_logo_points']['value']}","{$user_points}");
 				}
 			}
 			showmsg('アップロード成功！',2,$link);
@@ -275,7 +275,7 @@ elseif ($act=='company_logo_del')
 	$wheresql="uid='".$_SESSION['uid']."'";
 		if ($db->updatetable(table('company_profile'),$setsqlarr,$wheresql))
 		{
-		write_memberslog($_SESSION['uid'],1,8004,$_SESSION['username'],"删除了企业LOGO");
+		write_memberslog($_SESSION['uid'],1,8004,$_SESSION['username'],"企業LOGO削除済み");
 		showmsg('削除成功！',2);
 		}
 		else
@@ -285,9 +285,9 @@ elseif ($act=='company_logo_del')
 }
  elseif ($act=='company_map')
 {
-	$link[0]['text'] = "填写企业资料";
+	$link[0]['text'] = "企業資料を入力してください";
 	$link[0]['href'] = '?act=company_profile';
-	if (empty($company_profile['companyname'])) showmsg("请完善您的企业资料再设置电子地图！",1,$link);
+	if (empty($company_profile['companyname'])) showmsg("请完善您の企業資料再設定電子地図！",1,$link);
 	if ($company_profile['map_open']=="1")//假如已经开通
 	{
 	header("Location: ?act=company_map_set");
@@ -326,9 +326,9 @@ elseif ($act=='company_logo_del')
 }
 elseif ($act=='company_map_open')
 {
-	$link[0]['text'] = "填写企业资料";
+	$link[0]['text'] = "企業資料を入力してください";
 	$link[0]['href'] = '?act=company_profile';
-	if (empty($company_profile['companyname'])) showmsg("请完善您的企业资料再设置电子地图！",1);
+	if (empty($company_profile['companyname'])) showmsg("请完善您の企業資料再設定電子地図！",1);
 	if ($company_profile['map_open']=="1")//假如已经开通
 	{
 	header("Location: ?act=company_map_set");
@@ -354,14 +354,14 @@ elseif ($act=='company_map_open')
 			$user_points=get_user_points($_SESSION['uid']);
 			if ($points['company_map']['type']=="2" && $points['company_map']['value']>$user_points)
 			{
-			showmsg("你的".$_CFG['points_byname']."不足，请充值后再进行相关操作！",0);
+			showmsg("貴方の".$_CFG['points_byname']."ポイント足りない，振込後に実行してください！",0);
 			}
 		}elseif($operation_mode=='2'){
 			$setmeal=get_user_setmeal($_SESSION['uid']);
 			if ($setmeal['endtime']<time() &&  $setmeal['endtime']<>'0'){
-				showmsg("你的服务套餐已到期，请重新开通服务！",0);
+				showmsg("サービスコース期限切れた，再度サービス申し込みください！",0);
 			}elseif($setmeal['map_open']=='0'){
-				showmsg("你服务套餐：{$setmeal['setmeal_name']} 没有开通电子地图的权限，请升级服务套餐！",0);
+				showmsg("サービスコース：{$setmeal['setmeal_name']} 電子地図のご利用ができません，サービスコースをアップグレードしてください！",0);
 			}
 		}
 		
@@ -381,17 +381,17 @@ elseif ($act=='company_map_open')
 			{
 				dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_sms.php?uid=".$_SESSION['uid']."&key=".asyn_userkey($_SESSION['uid'])."&act=set_addmap");
 			}			
-			write_memberslog($_SESSION['uid'],1,8005,$_SESSION['username'],"开通了电子地图");
+			write_memberslog($_SESSION['uid'],1,8005,$_SESSION['username'],"電子地図を有効にしました");
 			if($operation_mode=='1' || $operation_mode=='3'){
 				if ($points['company_map']['value']>0)
 				{
 				report_deal($_SESSION['uid'],$points['company_map']['type'],$points['company_map']['value']);
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$points['company_map']['type']=="1"?"+":"-";
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"开通了电子地图({$operator}{$points['company_map']['value']})，(剩余:{$user_points})",1,1008,"开通电子地图","{$operator}{$points['company_map']['value']}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"電子地図({$operator}{$points['company_map']['value']})を有効にしました，(残る:{$user_points})",1,1008,"電子地図","{$operator}{$points['company_map']['value']}","{$user_points}");
 				}
 			}elseif($operation_mode=='2'){
-				write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"使用服务套餐开通了电子地图",2,1008,"开通电子地图","0","");
+				write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"サービスコース利用するため電子地図を有効にする",2,1008,"電子地図","0","");
 			}
 			header("Location: ?act=company_map_set");
 		}
@@ -415,7 +415,7 @@ elseif ($act=='company_map_set_save')
 	$setsqlarr['map_y']=trim($_POST['y'])?trim($_POST['y']):showmsg('地図でポジションを探して，マイポジションを保存ボタンをクリックする！',1);
 	$setsqlarr['map_zoom']=trim($_POST['zoom']);
 	$wheresql=" uid='{$_SESSION['uid']}'";
-	write_memberslog($_SESSION['uid'],1,8006,$_SESSION['username'],"设置了电子地图坐标");
+	write_memberslog($_SESSION['uid'],1,8006,$_SESSION['username'],"電子地図座標設定済み");
 	if ($db->updatetable(table('company_profile'),$setsqlarr,$wheresql))
 	{
 		$jobsql['map_x']=$setsqlarr['map_x'];

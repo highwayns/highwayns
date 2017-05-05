@@ -140,7 +140,7 @@ if (!empty($jobshow))
 	}
 	if (empty($li))
 	{
-	$li="<li class=\\\"noinfo\\\">没有找到您要的信息...</li>";
+	$li="<li class=\\\"noinfo\\\">情報が見つかりません...</li>";
 	$js.="$(\"#infolist\").html(\"{$li}\");";
 	$js.="$(\"#infotiploading\").hide();";
 	$js.="$(\"#infotipshow\").show().html(\"没有找到您要的信息...\");";

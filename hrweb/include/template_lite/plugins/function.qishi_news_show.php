@@ -8,10 +8,10 @@ foreach($arr as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "资讯ID":
+	case "ニュースID":
 		$aset['id'] = $a[1];
 		break;
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
 	}
@@ -55,7 +55,7 @@ if(!$prev){
 }
 $next = $db->getone("select id,title from ".table('article')." where id>".$val['id']." and type_id=".$val['type_id']." limit 1");
 if(!$next){
-	$val['next'] = "没有了";
+	$val['next'] = "なし";
 }else{
 	$val['next'] = 1;
 	$val['next_title'] = $next['title'];

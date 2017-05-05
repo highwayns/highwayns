@@ -54,7 +54,7 @@ if ($user['status']=="2")
 }
 if ($act=="report")
 {		
-		$id=isset($_GET['jobs_id'])?$_GET['jobs_id']:exit("id 丢失");
+		$id=isset($_GET['jobs_id'])?$_GET['jobs_id']:exit("id 失った");
 		$jobs=app_get_jobs($id);
 		if (empty($jobs))
 		{
@@ -88,7 +88,7 @@ $("#ajax_report").click(function() {
 	var content=$("#content").val();
 	if (content=="")
 	{
-	alert("请输入描述");
+	alert("説明を入力してください");
 	}
 	else
 	{
@@ -110,7 +110,7 @@ $("#ajax_report").click(function() {
 				$("#report").hide();
 				$("#waiting").hide();
 				$("#app_ok").hide();
-				$("#error_msg").html("举报失败！"+data);
+				$("#error_msg").html("報告失敗！"+data);
 				$("#error").show();
 			}
 	 	 });
@@ -144,7 +144,7 @@ $("#ajax_report").click(function() {
 		</div>
 	</div>
 	<div class="center-btn-box">
-		<input type="button" value="举报" class="btn-65-30blue btn-big-font " id="ajax_report"/><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" />
+		<input type="button" value="報告" class="btn-65-30blue btn-big-font " id="ajax_report"/><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" />
 	</div>
 	<p class="jubao-tip" style="padding-left: 10px;">温馨提示：找份工作不容易，请您如实举报哦！</p>
 </div>
@@ -177,8 +177,8 @@ $("#ajax_report").click(function() {
 }
 elseif ($act=="app_save")
 {
-	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):exit("出错了");
-	$setsqlarr['jobs_id']=$_POST['jobs_id']?intval($_POST['jobs_id']):exit("出错了");
+	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):exit("エラー発生");
+	$setsqlarr['jobs_id']=$_POST['jobs_id']?intval($_POST['jobs_id']):exit("エラー発生");
 	$setsqlarr['uid']=intval($_SESSION['uid']);
 	$setsqlarr['addtime']=time();
 	$setsqlarr['report_type']=intval($_POST['report_type']); // 投诉类型
@@ -189,7 +189,7 @@ elseif ($act=="app_save")
 	$jobsarr=app_get_jobs($setsqlarr['jobs_id']);
 	if (empty($jobsarr))
 	{
-	exit("职位丢失");
+	exit("職位失った");
 	}
 	else
 	{

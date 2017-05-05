@@ -109,20 +109,20 @@ function user_register($reg_type,$password,$member_type=0,$email="",$mobile="",$
 					{
 						report_deal($insert_id,$points['reg_points']['type'],$points['reg_points']['value']);
 						$operator=$points['reg_points']['type']=="1"?"+":"-";
-						write_memberslog($insert_id,1,9001,$username,"新注册会员,({$operator}{$points['reg_points']['value']}),(剩余:{$points['reg_points']['value']})",1,1010,"注册会员系统自动赠送积分","{$operator}{$points['reg_points']['value']}","{$points['reg_points']['value']}");
+						write_memberslog($insert_id,1,9001,$username,"新会員登録,({$operator}{$points['reg_points']['value']}),(残る:{$points['reg_points']['value']})",1,1010,"登録会員システム自動贈り物ポイント","{$operator}{$points['reg_points']['value']}","{$points['reg_points']['value']}");
 						//积分变更记录
-						write_setmeallog($insert_id,$username,"注册会员系统自动赠送：({$operator}{$points['reg_points']['value']}),(剩余:{$points['reg_points']['value']})",1,'0.00','1',1,1);
+						write_setmeallog($insert_id,$username,"登録会員後システム自動贈り物：({$operator}{$points['reg_points']['value']}),(残る:{$points['reg_points']['value']})",1,'0.00','1',1,1);
 					
 					}
 					if ($_CFG['reg_service']>0){
 						set_members_setmeal($insert_id,$_CFG['reg_service']);
 						$setmeal=get_setmeal_one($_CFG['reg_service']);
-						write_memberslog($insert_id,1,9002,$username,"注册会员系统自动赠送：{$setmeal['setmeal_name']}",2,1011,"开通服务(系统赠送)","-","-");
+						write_memberslog($insert_id,1,9002,$username,"登録会員システム自動贈り物：{$setmeal['setmeal_name']}",2,1011,"サービスActive(システム贈り物)","-","-");
 						//套餐变更记录
-						write_setmeallog($insert_id,$username,"注册会员系统自动赠送：{$setmeal['setmeal_name']}",1,'0.00','1',2,1);
+						write_setmeallog($insert_id,$username,"登録会員システム自動贈り物：{$setmeal['setmeal_name']}",1,'0.00','1',2,1);
 					}
 			}
-			write_memberslog($insert_id,$member_type,1000,$username,"注册成为会员");
+			write_memberslog($insert_id,$member_type,1000,$username,"会員登録");
 return $insert_id;
 }
 //会员登录
@@ -158,7 +158,7 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 				update_user_info($usinfo['uid'],true,true,$expire);
 				$login['hw_login']=get_member_url($usinfo['utype']);
 				$success=true;
-				write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usname,"成功登录");
+				write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usname,"登録成功");
 			} 
 		}
 		else
@@ -230,7 +230,7 @@ function check_cookie($uid,$name,$pwd){
 					$user_points=get_user_points($_SESSION['uid']);
 					$operator=$rule['userlogin']['type']=="1"?"+":"-";
 					$_SESSION['handsel_userlogin']=$operator.$rule['userlogin']['value'];
-					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],date("Y-m-d")." 第一次登录，({$operator}{$rule['userlogin']['value']})，(剩余:{$user_points})",1,1014,"会员每天第一次登录","{$operator}{$rule['userlogin']['value']}","{$user_points}");
+					write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],date("Y-m-d")." 第一回登録，({$operator}{$rule['userlogin']['value']})，(残る:{$user_points})",1,1014,"会員毎日第一回登録","{$operator}{$rule['userlogin']['value']}","{$user_points}");
 				}
 			}
 		}
@@ -369,7 +369,7 @@ function edit_password($arr,$check=true)
 	}
 	$md5password=md5(md5($arr['password']).$pwd_hash.$HW_pwdhash);	
 	if ($db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE username='".$arr['username']."'")) return $arr['username'];
-	write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],"修改了密码");
+	write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],"パスワード変更しました");
 	return false;
 }
 //修改用户名
@@ -384,7 +384,7 @@ function edit_username($arr,$check=true)
 	}
 	if ($db->query( "UPDATE ".table('members')." SET username = '{$arr['newusername']}'  WHERE uid='".$arr['uid']."'"))
 	{
-		write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],"修改了用户名");
+		write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],"ユーザ名を変更しました");
 		//修改session 值中的用户名
  		$_SESSION['username'] = $arr['newusername'];
 		return $arr['newusername'];

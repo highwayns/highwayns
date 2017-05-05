@@ -88,7 +88,7 @@ elseif($act=="jobs_add_save")
 					}
 					if ($total>$user_points)
 					{
-					exit("你的".$_CFG['points_byname']."不足，请充值后再发布！");
+					exit("貴方の".$_CFG['points_byname']."ポイント不足，振込してください！");
 					}
 					$setsqlarr['setmeal_deadline']=0;
 	}
@@ -97,11 +97,11 @@ elseif($act=="jobs_add_save")
 				$setmeal=get_user_setmeal($_SESSION['uid']);
 				if ($setmeal['endtime']<time() && $setmeal['endtime']<>"0")
 				{					
-					exit("您的服务已经到期，请重新开通");
+					exit("サービス期限切れた，再申し込みしてください");
 				}
 				if ($setmeal['jobs_ordinary']<=0)
 				{
-					exit("当前发布的职位已经超过了最大限制，请升级服务套餐！");
+					exit("配布された職位は最大制限を超えました，サービスコースアップグレードしてください！");
 				}
 				$setsqlarr['setmeal_deadline']=$setmeal['endtime'];
 				$setsqlarr['setmeal_id']=$setmeal['setmeal_id'];
@@ -128,7 +128,7 @@ elseif($act=="jobs_add_save")
 	$setsqlarr['wage_cn']=trim($_POST['wage_cn']);
 	// $setsqlarr['negotiable']=intval($_POST['negotiable']);
 	// $setsqlarr['tag']=trim($_POST['tag']);
-	$setsqlarr['sex']=intval($_POST['sex'])?intval($_POST['sex']):exit("请选择性别!");
+	$setsqlarr['sex']=intval($_POST['sex'])?intval($_POST['sex']):exit("性別を選択してください!");
 	$setsqlarr['sex_cn']=trim($_POST['sex_cn']);
 	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('学歴要求を入力してください！');		
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
@@ -178,7 +178,7 @@ elseif($act=="jobs_add_save")
 	}
 	//添加联系方式
 	$setsqlarr_contact['pid']=$pid;
-	if(!$db->inserttable(table('jobs_contact'),$setsqlarr_contact))exit("联系方式出错");
+	if(!$db->inserttable(table('jobs_contact'),$setsqlarr_contact))exit("連絡先エラー");
 	if ($add_mode=='1')
 	{
 		if ($points_rule['jobs_add']['value']>0)
@@ -186,7 +186,7 @@ elseif($act=="jobs_add_save")
 		report_deal($_SESSION['uid'],$points_rule['jobs_add']['type'],$points_rule['jobs_add']['value']);
 		$user_points=get_user_points($_SESSION['uid']);
 		$operator=$points_rule['jobs_add']['type']=="1"?"+":"-";
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"发布了职位：<strong>{$setsqlarr['jobs_name']}</strong>，({$operator}{$points_rule['jobs_add']['value']})，(剩余:{$user_points})",1,1001,"发布职位","{$operator}{$points_rule['jobs_add']['value']}","{$user_points}");
+		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"職位を配布しました：<strong>{$setsqlarr['jobs_name']}</strong>，({$operator}{$points_rule['jobs_add']['value']})，(残る:{$user_points})",1,1001,"職位配布","{$operator}{$points_rule['jobs_add']['value']}","{$user_points}");
 		}
 		if (intval($_POST['days'])>0 && $points_rule['jobs_daily']['value']>0)
 		{
@@ -194,14 +194,14 @@ elseif($act=="jobs_add_save")
 		report_deal($_SESSION['uid'],$points_rule['jobs_daily']['type'],$points_day);
 		$user_points=get_user_points($_SESSION['uid']);
 		$operator=$points_rule['jobs_daily']['type']=="1"?"+":"-";
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"发布职位:<strong>{$_POST['jobs_name']}</strong>，有效期为{$_POST['days']}天，({$operator}{$points_day})，(剩余:{$user_points})",1,1001,"发布职位","{$operator}{$points_day}","{$user_points}");
+		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"配布職位:<strong>{$_POST['jobs_name']}</strong>，有效期限は$_POST['days']}日，({$operator}{$points_day})，(残る:{$user_points})",1,1001,"職位配布","{$operator}{$points_day}","{$user_points}");
 		}
 	}	
 	elseif ($add_mode=='2')
 	{
 		action_user_setmeal($_SESSION['uid'],"jobs_ordinary");
 		$setmeal=get_user_setmeal($_SESSION['uid']);
-		write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"发布普通职位:<strong>{$_POST['jobs_name']}</strong>，还可以发布普通职位:<strong>{$setmeal['jobs_ordinary']}</strong>条",2,1001,"发布职位","1","{$setmeal['jobs_ordinary']}");
+		write_memberslog($_SESSION['uid'],1,9002,$_SESSION['username'],"普通職位配布:<strong>{$_POST['jobs_name']}</strong>，配布可能普通職位件数:<strong>{$setmeal['jobs_ordinary']}</strong>件",2,1001,"職位配布","1","{$setmeal['jobs_ordinary']}");
 	}
 	$searchtab['id']=$pid;
 	$searchtab['uid']=$setsqlarr['uid'];
@@ -249,7 +249,7 @@ elseif($act=="jobs_add_save")
 	$db->inserttable(table('jobs_search_key'),$searchtab);
 	unset($searchtab);
 	distribution_jobs($pid,$_SESSION['uid']);
-	write_memberslog($_SESSION['uid'],1,2001,$_SESSION['username'],"发布了职位：{$setsqlarr['jobs_name']}");
+	write_memberslog($_SESSION['uid'],1,2001,$_SESSION['username'],"職位配布：{$setsqlarr['jobs_name']}");
 	baidu_submiturl(url_rewrite('HW_jobsshow',array('id'=>$pid)),'addjob');
 	echo $pid;
 }
@@ -306,7 +306,7 @@ elseif($act=="jobs_edit_save")
 		}
 		if ($total>$user_points)
 		{
-		exit("你的".$_CFG['points_byname']."不足，请充值后再发布！");
+		exit("貴方の".$_CFG['points_byname']."ポイント不足，振込してください！");
 		}
 	}
 	elseif ($add_mode=='2')
@@ -314,7 +314,7 @@ elseif($act=="jobs_edit_save")
 		$setmeal=get_user_setmeal($_SESSION['uid']);
 		if ($setmeal['endtime']<time() && $setmeal['endtime']<>"0")
 		{					
-			exit("您的套餐已经到期，请重新开通");
+			exit("コース期限切れた，再申し込みしてください");
 		}
 	}
 	$setsqlarr['jobs_name']=!empty($_POST['jobs_name'])?trim($_POST['jobs_name']):exit('職位名を入力してください！');
@@ -332,7 +332,7 @@ elseif($act=="jobs_edit_save")
 	$setsqlarr['wage_cn']=trim($_POST['wage_cn']);
 	// $setsqlarr['negotiable']=intval($_POST['negotiable']);
 	// $setsqlarr['tag']=trim($_POST['tag']);
-	$setsqlarr['sex']=intval($_POST['sex'])?intval($_POST['sex']):exit("请选择性别!");
+	$setsqlarr['sex']=intval($_POST['sex'])?intval($_POST['sex']):exit("性別を選択してください!");
 	$setsqlarr['sex_cn']=trim($_POST['sex_cn']);
 	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):exit('学歴要求を入力してください！');		
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
@@ -387,7 +387,7 @@ elseif($act=="jobs_edit_save")
 		report_deal($_SESSION['uid'],$points_rule['jobs_edit']['type'],$points_rule['jobs_edit']['value']);
 		$user_points=get_user_points($_SESSION['uid']);
 		$operator=$points_rule['jobs_edit']['type']=="1"?"+":"-";
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"修改职位：<strong>{$setsqlarr['jobs_name']}</strong>，({$operator}{$points_rule['jobs_edit']['value']})，(剩余:{$user_points})",1,1002,"修改招聘信息","{$operator}{$points_rule['jobs_edit']['value']}","{$user_points}");
+		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"職位変更：<strong>{$setsqlarr['jobs_name']}</strong>，({$operator}{$points_rule['jobs_edit']['value']})，(残る:{$user_points})",1,1002,"募集情報変更","{$operator}{$points_rule['jobs_edit']['value']}","{$user_points}");
 		}
 		if ($days>0 && $points_rule['jobs_daily']['value']>0)
 		{
@@ -395,7 +395,7 @@ elseif($act=="jobs_edit_save")
 		report_deal($_SESSION['uid'],$points_rule['jobs_daily']['type'],$points_day);
 		$user_points=get_user_points($_SESSION['uid']);
 		$operator=$points_rule['jobs_daily']['type']=="1"?"+":"-";
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"延长职位({$_POST['jobs_name']})有效期为{$_POST['days']}天，({$operator}{$points_day})，(剩余:{$user_points})",1,1002,"修改招聘信息","{$operator}{$points_day}","{$user_points}");
+		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"延長職位({$_POST['jobs_name']})有效期間は{$_POST['days']}日，({$operator}{$points_day})，(残る:{$user_points})",1,1002,"募集情報変更","{$operator}{$points_day}","{$user_points}");
 		}
 	}
 	$searchtab['nature']=$setsqlarr['nature'];
@@ -419,7 +419,7 @@ elseif($act=="jobs_edit_save")
 	$db->updatetable(table('jobs_search_key'),$searchtab," id='{$id}' AND uid='{$_SESSION['uid']}' ");
 	unset($searchtab);
 	// distribution_jobs($id,$_SESSION['uid']);
-	write_memberslog($_SESSION['uid'],$_SESSION['utype'],2002,$_SESSION['username'],"修改了职位：{$setsqlarr['jobs_name']}，职位ID：{$id}");
+	write_memberslog($_SESSION['uid'],$_SESSION['utype'],2002,$_SESSION['username'],"職位修正：{$setsqlarr['jobs_name']}，職位ID：{$id}");
 	exit("ok");
 }
 // 职位刷新
@@ -436,10 +436,10 @@ elseif($act=="jobs_refresh")
 		$refresh_time = get_today_refresh_times($_SESSION['uid'],"1001");
 		if($_CFG['com_pointsmode_refresh_time']!=0&&($refresh_time['count(*)']>=$_CFG['com_pointsmode_refresh_time']))
 		{
-		exit("每天最多只能刷新".$_CFG['com_pointsmode_refresh_time']."次,您今天已超过最大刷新次数限制！");	
+		exit("毎日最大更新件数".$_CFG['com_pointsmode_refresh_time']."回,今日最大更新回数を超えた！");	
 		}
 		elseif($duringtime<=$space){
-		exit($_CFG['com_pointsmode_refresh_space']."分钟内不能重复刷新职位！");
+		exit($_CFG['com_pointsmode_refresh_space']."分以内、職位再度検索不可！");
 		}
 		else 
 		{	
@@ -450,16 +450,16 @@ elseif($act=="jobs_refresh")
 				$total_point=$jobs_num*$points_rule['jobs_refresh']['value'];
 				if ($total_point>$user_points && $points_rule['jobs_refresh']['type']=="2")
 				{
-						$link[0]['text'] = "返回上一页";
+						$link[0]['text'] = "前頁に戻る";
 						$link[0]['href'] = 'javascript:history.go(-1)';
-						$link[1]['text'] = "立即充值";
+						$link[1]['text'] = "即時振込";
 						$link[1]['href'] = 'company_service.php?act=order_add';
-				showmsg("您的".$_CFG['points_byname']."不足，请先充值！",0,$link);
+				showmsg("貴方様の".$_CFG['points_byname']."ポイント足りない，振込してください！",0,$link);
 				}
 				report_deal($_SESSION['uid'],$points_rule['jobs_refresh']['type'],$total_point);
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$points_rule['jobs_refresh']['type']=="1"?"+":"-";
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"刷新了{$jobs_num}条职位，({$operator}{$total_point})，(剩余:{$user_points})",1,1003,"刷新职位","{$operator}{$total_point}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"{$jobs_num}件職位更新済み，({$operator}{$total_point})，(残る:{$user_points})",1,1003,"職位更新","{$operator}{$total_point}","{$user_points}");
 				write_refresh_log($_SESSION['uid'],1001);	
 				refresh_jobs($id,intval($_SESSION['uid']))?exit("ok"):exit("err");
 			}
@@ -475,11 +475,11 @@ elseif($act=="jobs_refresh")
 		$setmeal=get_user_setmeal($_SESSION['uid']);
 		if (empty($setmeal))
 		{					
-			exit("您还没有开通服务，请开通");
+			exit("サービス有効にしていません，有効にしてくださ");
 		}
 		elseif ($setmeal['endtime']<time() && $setmeal['endtime']<>"0")
 		{					
-			exit("您的服务已经到期，请重新开通");
+			exit("サービス期限切れた，再申し込みしてください");
 		}
 		else
 		{
@@ -489,10 +489,10 @@ elseif($act=="jobs_refresh")
 			$refresh_time = get_today_refresh_times($_SESSION['uid'],"1001");
 			if($setmeal['refresh_jobs_time']!=0&&($refresh_time['count(*)']>=$setmeal['refresh_jobs_time']))
 			{
-			exit("每天最多只能刷新".$setmeal['refresh_jobs_time']."次,您今天已超过最大刷新次数限制！");
+			exit("毎日最大更新件数".$setmeal['refresh_jobs_time']."回,今日最大更新回数を超えた！");
 			}
 			elseif($duringtime<=$space){
-			exit($setmeal['refresh_jobs_space']."分钟内不能重复刷新职位！");	
+			exit($setmeal['refresh_jobs_space']."分以内、職位再度検索不可！");	
 			}
 			write_refresh_log($_SESSION['uid'],1001);
 			refresh_jobs($id,intval($_SESSION['uid']))?exit("ok"):exit("err");
@@ -510,10 +510,10 @@ elseif($act=="jobs_refresh")
 		$refresh_time = get_today_refresh_times($_SESSION['uid'],"1001");
 		if($setmeal['refresh_jobs_time']!=0&&($refresh_time['count(*)']>=$setmeal['refresh_jobs_time']))
 		{
-		exit("每天最多只能刷新".$setmeal['refresh_jobs_time']."次,您今天已超过最大刷新次数限制！");
+		exit("毎日最大更新件数".$setmeal['refresh_jobs_time']."回,今日最大更新回数を超えた！");
 		}
 		elseif($duringtime<=$space){
-		exit($setmeal['refresh_jobs_space']."分钟内不能重复刷新职位！");	
+		exit($setmeal['refresh_jobs_space']."分以内、職位再度検索不可！");	
 		}
 		else
 		{
@@ -524,12 +524,12 @@ elseif($act=="jobs_refresh")
 				$total_point=$jobs_num*$points_rule['jobs_refresh']['value'];
 				if ($total_point>$user_points && $points_rule['jobs_refresh']['type']=="2")
 				{
-				exit("您的".$_CFG['points_byname']."不足，请先充值！");
+				exit("貴方様の".$_CFG['points_byname']."ポイント足りない，振込してください！");
 				}
 				report_deal($_SESSION['uid'],$points_rule['jobs_refresh']['type'],$total_point);
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$points_rule['jobs_refresh']['type']=="1"?"+":"-";
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"刷新了{$jobs_num}条职位，({$operator}{$total_point})，(剩余:{$user_points})",1,1003,"刷新职位","{$operator}{$total_point}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"{$jobs_num}件職位更新済み，({$operator}{$total_point})，(残る:{$user_points})",1,1003,"職位更新","{$operator}{$total_point}","{$user_points}");
 				write_refresh_log($_SESSION['uid'],1001);
 				refresh_jobs($id,intval($_SESSION['uid']))?exit("ok"):exit("err");
 			}
@@ -557,7 +557,7 @@ elseif($act=="jobs_regain")
 	$setmeal= get_user_setmeal($_SESSION['uid']);
 	if ($com_jobs_num>=$setmeal['jobs_ordinary'])
 	{
-		exit("当前显示的职位已经超过了最大限制，请升级服务套餐，或将不招聘的职位设为关闭！");
+		exit("表示された職位は設定制限を超えました，サービスコースをアップグレードして，又は募集しない職位を閉じる！");
 	}else
 	{
 		activate_jobs($id,1,$_SESSION['uid']);

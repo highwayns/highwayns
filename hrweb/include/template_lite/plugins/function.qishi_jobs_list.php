@@ -11,118 +11,118 @@ foreach($arrset as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
-	case "显示数目":
+	case "表示数目":
 		$aset['row'] = $a[1];
 		break;
-	case "开始位置":
+	case "開始位置":
 		$aset['start'] = $a[1];
 		break;
-	case "职位名长度":
+	case "職位名長さ":
 		$aset['jobslen'] = $a[1];
 		break;
-	case "企业名长度":
+	case "企業名長さ":
 		$aset['companynamelen'] = $a[1];
 		break;
-	case "描述长度":
+	case "説明長さ":
 		$aset['brieflylen'] = $a[1];
 		break;
-	case "填补字符":
+	case "記号を入力してください":
 		$aset['dot'] = $a[1];
 		break;
-	case "应届生职位":
+	case "新卒職位":
 		$aset['graduate'] = $a[1];
 		break;
-	case "职位分类":
+	case "職位分類":
 		$aset['jobcategory'] = $a[1];
 		break;
-	case "职位大类":
+	case "職位大分類":
 		$aset['category'] = $a[1];
 		break;
-	case "职位小类":
+	case "職位小类":
 		$aset['subclass'] = $a[1];
 		break;
-	case "地区分类":
+	case "地区分類":
 		$aset['citycategory'] = $a[1];
 		break;
-	case "地区大类":
+	case "地区大分類":
 		$aset['district'] = $a[1];
 		break;
-	case "地区小类":
+	case "地区小分類":
 		$aset['sdistrict'] = $a[1];
 		break;
 	case "道路":
 		$aset['street'] = $a[1];
 		break;
-	case "写字楼":
+	case "ビル":
 		$aset['officebuilding'] = $a[1];
 		break;
-	case "标签":
+	case "タグ":
 		$aset['tag'] = $a[1];
 		break;
-	case "行业":
+	case "業界":
 		$aset['trade'] = $a[1];
 		break;
-	case "学历":
+	case "学歴":
 		$aset['education'] = $a[1];
 		break;
-	case "工作经验":
+	case "仕事経験":
 		$aset['experience'] = $a[1];
 		break;
-	case "工资":
+	case "給料":
 		$aset['wage'] = $a[1];
 		break;
-	case "职位性质":
+	case "職位性质":
 		$aset['nature'] = $a[1];
 		break;
-	case "公司规模":
+	case "会社規模":
 		$aset['scale'] = $a[1];
 		break;
-	case "紧急招聘":
+	case "紧急募集":
 		$aset['emergency'] = $a[1];
 		break;
-	case "推荐":
+	case "おすすめ":
 		$aset['recommend'] = $a[1];
 		break;
-	case "关键字":
+	case "キーワード":
 		$aset['key'] = $a[1];
 		break;
-	case "关键字类型":
+	case "キーワードタイプ":
 		$aset['keytype'] = $a[1];
 		break;
-	case "日期范围":
+	case "日期範囲":
 		$aset['settr'] = $a[1];
 		break;
-	case "排序":
+	case "ソート":
 		$aset['displayorder'] = $a[1];
 		break;
-	case "分页显示":
+	case "ページごと表示":
 		$aset['page'] = $a[1];
 		break;
-	case "会员UID":
+	case "会員UID":
 		$aset['uid'] = $a[1];
 		break;
-	case "公司页面":
+	case "会社ページ":
 		$aset['companyshow'] = $a[1];
 		break;
-	case "职位页面":
+	case "職位ページ":
 		$aset['jobsshow'] = $a[1];
 		break;
-	case "列表页":
+	case "一覧ページ":
 		$aset['listpage'] = $a[1];
 		break;
-	case "合并":
+	case "合併":
 		$aset['mode'] = $a[1];
 		break;
-	case "公司列表名":
+	case "会社一覧名":
 		$aset['comlistname'] = $a[1];
 		break;
-	case "公司职位页面":
+	case "会社職位ページ":
 		$aset['companyjobs'] = $a[1];
 		break;
-	case "单个公司显示职位数":
+	case "会社表示職位数":
 		$aset['companyjobs_row'] = $a[1];
 		break;
 	}

@@ -30,13 +30,13 @@ if ($act=='j_account')
 		}
 		if($cid == '1')
 		{
-			$smarty->assign('c_type',"消耗");
+			$smarty->assign('c_type',"消費");
 			$smarty->assign('cid',$_GET['cid']);
 			$wheresql.=" AND log_op_used < 0 ";
 		}
 		elseif($cid == '2')
 		{
-			$smarty->assign('c_type',"赠送");
+			$smarty->assign('c_type',"贈り物");
 			$smarty->assign('cid',$_GET['cid']);
 			$wheresql.=" AND log_op_used > 0 ";
 		}
@@ -141,36 +141,36 @@ elseif ($act=='order_add_save')
 {
 		if (!$cominfo_flge)
 		{
-		$link[0]['text'] = "填写企业资料";
+		$link[0]['text'] = "企業資料を入力してください";
 		$link[0]['href'] = 'company_info.php?act=company_profile';
-		showmsg("请先填写您的企业资料！",1,$link);
+		showmsg("企業資料を入力してください！",1,$link);
 		}
 	$myorder=get_user_order($_SESSION['uid'],1);
 	$order_num=count($myorder);
 	if ($order_num>=5)
 	{
-	$link[0]['text'] = "立即查看";
+	$link[0]['text'] = "即時閲覧";
 	$link[0]['href'] = '?act=order_list&is_paid=1';
-	showmsg("未处理的订单不能超过 5 条，请先处理后再次申请！",1,$link,true,8);
+	showmsg("未処理のオーダー 5件を超えました，処理すると再度申し込み！",1,$link,true,8);
 	}
 	$amount=(trim($_POST['amount'])).(intval($_POST['amount']))?trim($_POST['amount']):showmsg('金額を入力してください！',1);
-	($amount<$_CFG['payment_min'])?showmsg("单笔充值金额不能少于 ".$_CFG['payment_min']." 元！",1):'';
-	$payment_name=empty($_POST['payment_name'])?showmsg("请选择付款方式！",1):$_POST['payment_name'];
+	($amount<$_CFG['payment_min'])?showmsg("振込金額は＞＝ ".$_CFG['payment_min']." 円！",1):'';
+	$payment_name=empty($_POST['payment_name'])?showmsg("支払い方式を選択してください！",1):$_POST['payment_name'];
 	$paymenttpye=get_payment_info($payment_name);
-	if (empty($paymenttpye)) showmsg("支付方式错误！",0);
+	if (empty($paymenttpye)) showmsg("支払方式エラー！",0);
 	$fee=number_format(($amount/100)*$paymenttpye['fee'],1,'.','');//手续费
 	$order['oid']= strtoupper(substr($paymenttpye['typename'],0,1))."-".date('ymd',time())."-".date('His',time());//订单号
 	$order['v_url']=$_CFG['site_domain'].$_CFG['site_dir']."include/payment/respond_".$paymenttpye['typename'].".php";
 	$order['v_amount']=$amount+$fee; 
 	$points=$amount*$_CFG['payment_rate'];
-	$order_id=add_order($_SESSION['uid'],4,$order['oid'],$amount,$payment_name,"充值积分:".$points,$timestamp,$points,'',1);
+	$order_id=add_order($_SESSION['uid'],4,$order['oid'],$amount,$payment_name,"振込ポイント:".$points,$timestamp,$points,'',1);
 		if ($order_id)
 			{
 			header("location:?act=payment&order_id=".$order_id);
 			}
 			else
 			{
-			showmsg("添加订单失败！",0);
+			showmsg("オーダー追加失敗！",0);
 			}
 }
 elseif ($act=='payment')
@@ -179,7 +179,7 @@ elseif ($act=='payment')
 	if ($setmeal['endtime']>0){
 		$setmeal_endtime=sub_day($setmeal['endtime'],time());
 	}else{
-		$setmeal_endtime="无限期";
+		$setmeal_endtime="期限なし";
 	}
 	$smarty->assign('user_setmeal',$setmeal);
 	$smarty->assign('setmeal_endtime',$setmeal_endtime);
@@ -187,7 +187,7 @@ elseif ($act=='payment')
 	$order_id=intval($_GET['order_id']);
 	$myorder=get_order_one($_SESSION['uid'],$order_id);
 	$payment=get_payment_info($myorder['payment_name']);
-	if (empty($payment)) showmsg("支付方式错误！",0);
+	if (empty($payment)) showmsg("支払方式エラー！",0);
 	$fee=number_format(($myorder['amount']/100)*$payment['fee'],1,'.','');//手续费
 	$order['oid']=$myorder['oid'];//订单号
 	$order['v_url']=$_CFG['site_domain'].$_CFG['site_dir']."include/payment/respond_".$payment['typename'].".php";
@@ -196,7 +196,7 @@ elseif ($act=='payment')
 	{
 		require_once(HIGHWAY_ROOT_PATH."include/payment/".$payment['typename'].".php");
 		$payment_form=get_code($order,$payment);
-		if (empty($payment_form)) showmsg("在线支付参数错误！",0);
+		if (empty($payment_form)) showmsg("オンライン支払パラメータエラー！",0);
 	}
 	$smarty->assign('points',get_user_points($_SESSION['uid']));
 	$smarty->assign('title','支払 - 企業会員センター - '.$_CFG['site_name']);
@@ -209,7 +209,7 @@ elseif ($act=='payment')
 }
 elseif ($act=='order_del')
 {
-	$link[0]['text'] = "返回上一页";
+	$link[0]['text'] = "前頁に戻る";
 	$link[0]['href'] = '?act=order_list';
 	$id=intval($_GET['id']);
 	del_order($_SESSION['uid'],$id)?showmsg('取消成功！',2,$link):showmsg('取消失敗！',1);
@@ -220,7 +220,7 @@ elseif ($act=='setmeal_list')
 	if ($setmeal['endtime']>0){
 		$setmeal_endtime=sub_day($setmeal['endtime'],time());
 	}else{
-		$setmeal_endtime="无限期";
+		$setmeal_endtime="期限なし";
 	}
 	$smarty->assign('user_setmeal',$setmeal);
 	$smarty->assign('setmeal_endtime',$setmeal_endtime);
@@ -230,12 +230,12 @@ elseif ($act=='setmeal_list')
 }
 elseif ($act=='setmeal_order_add')
 {
-	$setmealid = intval($_GET['setmealid'])?intval($_GET['setmealid']):showmsg("请选择服务套餐！",1);
+	$setmealid = intval($_GET['setmealid'])?intval($_GET['setmealid']):showmsg("サービスコースを選択してください！",1);
 	$setmeal = get_user_setmeal($_SESSION['uid']);
 	if ($setmeal['endtime']>0){
 		$setmeal_endtime=sub_day($setmeal['endtime'],time());
 	}else{
-		$setmeal_endtime="无限期";
+		$setmeal_endtime="期限なし";
 	}
 	$smarty->assign('user_setmeal',$setmeal);
 	$smarty->assign('setmeal_endtime',$setmeal_endtime);
@@ -248,52 +248,52 @@ elseif ($act=='setmeal_order_add_save')
 {
 		if (!$cominfo_flge)
 		{
-		$link[0]['text'] = "填写企业资料";
+		$link[0]['text'] = "企業資料を入力してください";
 		$link[0]['href'] = 'company_info.php?act=company_profile';
-		showmsg("请先填写您的企业资料！",1,$link);
+		showmsg("企業資料を入力してください！",1,$link);
 		}
 	$myorder=get_user_order($_SESSION['uid'],1);
 	$order_num=count($myorder);
 	if ($order_num>=5)
 	{
-	$link[0]['text'] = "立即查看";
+	$link[0]['text'] = "即時閲覧";
 	$link[0]['href'] = '?act=order_list&is_paid=1';
-	showmsg("未处理的订单不能超过 5 条，请先处理后再次申请！",1,$link,true,8);
+	showmsg("未処理のオーダー 5件を超えました，処理すると再度申し込み！",1,$link,true,8);
 	}
 	$setmeal=get_setmeal_one($_POST['setmealid']);
 	if ($setmeal && $setmeal['apply']=="1")
 	{
-		$payment_name=empty($_POST['payment_name'])?showmsg("请选择付款方式！",1):$_POST['payment_name'];
+		$payment_name=empty($_POST['payment_name'])?showmsg("支払い方式を選択してください！",1):$_POST['payment_name'];
 		$paymenttpye=get_payment_info($payment_name);
-		if (empty($paymenttpye)) showmsg("支付方式错误！",0);
+		if (empty($paymenttpye)) showmsg("支払方式エラー！",0);
 		$fee=number_format(($setmeal['expense']/100)*$paymenttpye['fee'],1,'.','');//手续费
 		$order['oid']= strtoupper(substr($paymenttpye['typename'],0,1))."-".date('ymd',time())."-".date('His',time());//订单号
 		$order['v_url']=$_CFG['site_domain'].$_CFG['site_dir']."include/payment/respond_".$paymenttpye['typename'].".php";
 		$order['v_amount']=$setmeal['expense']+$fee;//金额
-		$order_id=add_order($_SESSION['uid'],1,$order['oid'],$setmeal['expense'],$payment_name,"开通服务:".$setmeal['setmeal_name'],$timestamp,"",$setmeal['id'],1);
+		$order_id=add_order($_SESSION['uid'],1,$order['oid'],$setmeal['expense'],$payment_name,"サービス有効にする:".$setmeal['setmeal_name'],$timestamp,"",$setmeal['id'],1);
 			if ($order_id)
 			{
 				if ($order['v_amount']==0)//0元套餐
 				{
 					if (order_paid($order['oid']))
 					{
-						$link[0]['text'] = "查看订单";
+						$link[0]['text'] = "オーダー閲覧";
 						$link[0]['href'] = 'company_service.php?act=order_list';
-						$link[1]['text'] = "会员中心首页";
+						$link[1]['text'] = "会員中心首页";
 						$link[1]['href'] = 'company_index.php?act=';
-						showmsg("操作成功，系统已为您开通了服务！",2,$link);	
+						showmsg("操作成功，システムはサービスを有効にしました！",2,$link);	
 					}
 				}
 				header("Location:?act=payment&order_id=".$order_id."");//付款页面
 			}
 			else
 			{
-			showmsg("添加订单失败！",0);
+			showmsg("オーダー追加失敗！",0);
 			}
 	}
 	else
 	{
-	showmsg("添加订单失败！",0);
+	showmsg("オーダー追加失敗！",0);
 	}
 }
 elseif ($act=='feedback')
@@ -311,13 +311,13 @@ elseif ($act=='feedback_save')
 	exit();
 	}
 	$setsqlarr['infotype']=intval($_POST['infotype']);
-	$setsqlarr['feedback']=trim($_POST['feedback'])?trim($_POST['feedback']):showmsg("请填写内容！",1);
+	$setsqlarr['feedback']=trim($_POST['feedback'])?trim($_POST['feedback']):showmsg("内容を入力してください！",1);
 	$setsqlarr['uid']=$_SESSION['uid'];
 	$setsqlarr['usertype']=$_SESSION['utype'];
 	$setsqlarr['username']=$_SESSION['username'];
 	$setsqlarr['addtime']=$timestamp;
-	write_memberslog($_SESSION['uid'],1,7001,$_SESSION['username'],"添加了反馈信息");
-	!$db->inserttable(table('feedback'),$setsqlarr)?showmsg("添加失败！",0):showmsg("添加成功，请等待管理员回复！",2);
+	write_memberslog($_SESSION['uid'],1,7001,$_SESSION['username'],"フィードバック情報追加済み");
+	!$db->inserttable(table('feedback'),$setsqlarr)?showmsg("追加失敗！",0):showmsg("追加成功，管理者の回答をお待ちください！",2);
 }
 elseif ($act=='del_feedback')
 {

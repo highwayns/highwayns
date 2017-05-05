@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_templates_fun.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'list';
-$smarty->assign('pageheader',"模板设置");
+$smarty->assign('pageheader',"テンプレート設定");
 $smarty->assign('act',$act);
 if($act == 'list')
 {
@@ -36,7 +36,7 @@ elseif ($act == 'backup')
 	$tpl = trim($_REQUEST['tpl_name']);
 	if (dirname($tpl)<>'.')
 	{
-	adminmsg("操作失败！",0);
+	adminmsg("操作失敗！",0);
 	}
 	$filename = '../temp/backup_templates/' . $tpl . '_' . date('Ymd') . '.zip';
 	$zip = new PHPZip;
@@ -47,7 +47,7 @@ elseif ($act == 'backup')
 		}
 		else
 		{
-		adminmsg("操作失败！",0);
+		adminmsg("操作失敗！",0);
 		}
 	}
 elseif ($act == 'set')
@@ -62,7 +62,7 @@ elseif ($act == 'set')
 		if (!file_exists($dir)) mkdir($dir);
 		$dir="../temp/caches/".$tpl_dir;
 		if (!file_exists($dir)) mkdir($dir);
-	$link[0]['text'] = "返回模板列表";
+	$link[0]['text'] = "テンプレート一覧に戻る";
 	$link[0]['href'] ="?act=list";
 	adminmsg('保存成功', 2,$link);
 }
@@ -137,15 +137,15 @@ elseif ($act == 'do_edit')
 		}		
 		$file_dir='../templates/'.$_POST['tpl_dir'].'/'.$tpl_name;
 		if(!$handle = @fopen($file_dir, 'wb')){
-		adminmsg("打开目标模版文件 $tpl_name 失败，请检查模版目录的权限",0);
+		adminmsg("テンプレート $tpl_name 開く失敗，フォルダー権限をチェックしてください",0);
 		}
 		if(fwrite($handle, $tpl_content) === false){
 			adminmsg('目標 $tpl_name に書き失敗しました。権限チェックしてください',0);
 		}
 		fclose($handle);
-		$link[0]['text'] = "继续编辑此文件";
+		$link[0]['text'] = "続くファイル編集";
 		$link[0]['href'] =$_SERVER['HTTP_REFERER'];
-		$link[1]['text'] = "返回模板文件列表";
+		$link[1]['text'] = "テンプレートファイル一覧へ戻る";
 		$link[1]['href'] ="?act=edit&tpl_dir=".$_POST['tpl_dir'];
 		adminmsg('テンプレート編集成功',2,$link);
 }
@@ -153,7 +153,7 @@ elseif ($act == 'com_tpl')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"tpl_company");
-	$smarty->assign('pageheader',"模板设置");	
+	$smarty->assign('pageheader',"テンプレート設定");	
 	$smarty->assign('navlabel',"com_tpl");	
 	$smarty->assign('list',get_user_tpl(1,"tpl_company"));
 	$smarty->display('tpl/admin_com_tpl_list.htm');
@@ -172,7 +172,7 @@ elseif ($act == 'com_tpl_save')
 				$setsqlarr['tpl_name']=trim($_POST['tpl_name'][$i]);
 				$setsqlarr['tpl_display']=intval($_POST['tpl_display'][$i]);
 				$setsqlarr['tpl_val']=intval($_POST['tpl_val'][$i]);
-				!$db->updatetable(table('tpl'),$setsqlarr," tpl_id=".intval($_POST['tpl_id'][$i]))?adminmsg("保存加失败！",0):"";
+				!$db->updatetable(table('tpl'),$setsqlarr," tpl_id=".intval($_POST['tpl_id'][$i]))?adminmsg("保存失敗！",0):"";
 		}
 
 	}
@@ -205,7 +205,7 @@ elseif ($act == 'resume_tpl')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"tpl_resume");
-	$smarty->assign('pageheader',"模板设置");	
+	$smarty->assign('pageheader',"テンプレート設定");	
 	$smarty->assign('navlabel',"resume_tpl");
 	$smarty->assign('list',get_user_tpl(2,"tpl_resume"));
 	$smarty->display('tpl/admin_resume_tpl_list.htm');
@@ -224,7 +224,7 @@ elseif ($act == 'resume_tpl_save')
 				$setsqlarr['tpl_name']=trim($_POST['tpl_name'][$i]);
 				$setsqlarr['tpl_display']=intval($_POST['tpl_display'][$i]);
 				$setsqlarr['tpl_val']=intval($_POST['tpl_val'][$i]);
-				!$db->updatetable(table('tpl'),$setsqlarr," tpl_id=".intval($_POST['tpl_id'][$i]))?adminmsg("保存加失败！",0):"";
+				!$db->updatetable(table('tpl'),$setsqlarr," tpl_id=".intval($_POST['tpl_id'][$i]))?adminmsg("保存失敗！",0):"";
 
 		}
 

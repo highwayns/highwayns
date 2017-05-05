@@ -29,7 +29,7 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 	}
 	elseif ($_SESSION['utype']!='1') 
 	{
-	$link[0]['text'] = "会员中心";
+	$link[0]['text'] = "会員中心";
 	$link[0]['href'] = url_rewrite('HW_login');
 	showmsg('このページは企業会員登録必要です！',1,$link);
 	}
@@ -42,7 +42,7 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 	}
 	if ($user['status']=="2" && $act!='index' && $act!='user_status'  && $act!='user_status_save') 
 	{
-		$link[0]['text'] = "返回会员中心首页";
+		$link[0]['text'] = "会員中心トップに戻る";
 		$link[0]['href'] = 'company_index.php?act=';
 	exit(showmsg('アカウントが停止されました，管理者に連絡してください！',1,$link));	
 	}
@@ -56,9 +56,9 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 
 	if ($_CFG['login_com_audit_email'] && $user['email_audit']=="0" && $act!='authenticate' && $act!='user_email' && $act!='user_mobile')
 	{
-		$link[0]['text'] = "认证邮箱";
+		$link[0]['text'] = "認定メールボックス";
 		$link[0]['href'] = 'company_user.php?act=authenticate';
-		$link[1]['text'] = "网站首页";
+		$link[1]['text'] = "ウェブ首页";
 		$link[1]['href'] = $_CFG['site_dir'];
 		showmsg('メールアドレスが認定しません，認定してください！',1,$link,true,6);
 		exit();
@@ -66,9 +66,9 @@ require_once(HIGHWAY_ROOT_PATH.'include/fun_company.php');
 	$sms=get_cache('sms_config');
 	if ($_CFG['login_com_audit_mobile'] && $user['mobile_audit']=="0" && $act!='authenticate' && $act!='user_mobile' && $act!='user_email' && $sms['open']=="1")
 	{
-		$link[0]['text'] = "认证手机";
+		$link[0]['text'] = "携帯番号認定";
 		$link[0]['href'] = 'company_user.php?act=authenticate';
-		$link[1]['text'] = "网站首页";
+		$link[1]['text'] = "ウェブ首页";
 		$link[1]['href'] = $_CFG['site_dir'];
 		showmsg('携帯番号認定しません！',1,$link,true,6);
 		exit();

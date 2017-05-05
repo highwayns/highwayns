@@ -11,11 +11,11 @@ if ($act=='report')
 //保存举报信息
 elseif ($act=='report_save')
 {
-	$link[0]['text'] = "返回上一页！";
+	$link[0]['text'] = "前頁へ！";
 	$link[0]['href'] = $_POST['url'];
 	if (check_resume_report($_SESSION['uid'],$_POST['resume_id']))
 	{
-	showmsg("您已经举报过此简历！",1,$link);
+	showmsg("この履歴書を報告済み！",1,$link);
 	}
 	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):showmsg('説明を入力してください！',1);
 	$setsqlarr['resume_id']=$_POST['resume_id']?intval($_POST['resume_id']):showmsg('履歴書IDなし',1);
@@ -23,8 +23,8 @@ elseif ($act=='report_save')
 	$setsqlarr['resume_addtime']=intval($_POST['resume_addtime']);
 	$setsqlarr['uid']=$_SESSION['uid'];
 	$setsqlarr['addtime']=time();
-	write_memberslog($_SESSION['uid'],2,7003,$_SESSION['username'],"举报简历({$_POST['resume_id']})");
-	!$db->inserttable(table('report_resume'),$setsqlarr)?showmsg("举报失败！",0,$link):showmsg("举报成功，管理员会认真处理！",2,$link);
+	write_memberslog($_SESSION['uid'],2,7003,$_SESSION['username'],"履歴書報告({$_POST['resume_id']})");
+	!$db->inserttable(table('report_resume'),$setsqlarr)?showmsg("報告失敗！",0,$link):showmsg("報告成功，管理者処理を待ってください！",2,$link);
 }
 unset($smarty);
 ?>

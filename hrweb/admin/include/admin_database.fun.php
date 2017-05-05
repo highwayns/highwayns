@@ -31,7 +31,7 @@ function get_sqlfile_info($file){
 	$file_info = array('74cms_ver'=>'', 'mysql_ver'=> '', 'add_time'=>'');
     if (!$fp = @fopen($file,'rb'))
 	{
-		adminmsg("打开文件{$file}失败",0);
+		adminmsg("ファイル{$file}開く失敗",0);
 	}
     $str = fread($fp, 200);
     @fclose($fp);

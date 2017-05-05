@@ -25,9 +25,9 @@ elseif($act=='left')
 elseif($act == 'main')
 {
 	get_userreg_30_days();
-	$install_warning=file_exists('../install')?"您还没有删除 install 文件夹，出于安全的考虑，我们建议您删除 install 文件夹。":null;
-	$update_warning=file_exists('../update')?"您还没有删除 update 文件夹，出于安全的考虑，我们建议您删除 update 文件夹。":null;
-	$admindir_warning=substr(ADMIN_ROOT_PATH,-7)=='/admin/'?"您的网站管理中心目录为 ./admin ，出于安全的考虑，我们建议您修改目录名。":null;
+	$install_warning=file_exists('../install')?"install フォルダーまた削除されていません，安全のため， install フォルダーを削除してください。":null;
+	$update_warning=file_exists('../update')?" update フォルダーまた削除されていません，安全のため， update フォルダーを削除してください。":null;
+	$admindir_warning=substr(ADMIN_ROOT_PATH,-7)=='/admin/'?"ウェブ管理センターフォルダーは ./admin ，安全のため，フォルダー名変更してください。":null;
 	$admin_register_globals=ini_get('register_globals')?'php.iniのregister_globalsはOnに設定している，安全ため、Offに設定してください！':null;
 	$system_info = array();
 	$system_info['version'] = HIGHWAY_VERSION;
@@ -44,7 +44,7 @@ elseif($act == 'main')
 	$smarty->assign('update_warning',$update_warning);
 	$smarty->assign('admindir_warning',$admindir_warning);
 	$smarty->assign('admin_register_globals',$admin_register_globals);
-	$smarty->assign('pageheader',"74CMS 管理中心 - 后台管理首页");
+	$smarty->assign('pageheader',"海威管理センター - 管理トップ");
 	$smarty->display('sys/admin_main.htm');
 }
 ?>

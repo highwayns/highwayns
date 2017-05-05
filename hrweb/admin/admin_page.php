@@ -7,7 +7,7 @@ $act = !empty($_GET['act']) ? trim($_GET['act']) : 'page_list';
 check_permissions($_SESSION['admin_purview'],"site_page");
 $norewrite=array('HW_login');
 $nocaching=array('HW_login','HW_jobslist','HW_street','HW_jobtag','HW_resumelist','HW_resumetag','HW_simplelist','HW_simpleresumelist','HW_helpsearch','HW_newssearch');
-$smarty->assign('pageheader',"页面管理");
+$smarty->assign('pageheader',"ページ管理");
 if($act == 'page_list')
 {
 	get_token();
@@ -35,12 +35,12 @@ elseif($act == 'add_page_save')
     substr($_POST['alias'],0,3)=='HW_'?adminmsg('Call名は HW_ 含まれている！',1):'';
 	if (ck_page_alias($_POST['alias']))
 	{
-	adminmsg("调用ID ".$_POST['alias']." 已经存在！请重新填写",1);
+	adminmsg("CallID ".$_POST['alias']." 既に存在します！再入力してください",1);
 	exit();
 	}
 	if (ck_page_file($_POST['file']))
 	{
-	adminmsg("文件路径 ".$_POST['file']." 已经存在！请重新填写",1);
+	adminmsg("ファイルパス ".$_POST['file']." 既に存在します！再入力してください",1);
 	exit();
 	}
 $setsqlarr['systemclass']=0;
@@ -58,21 +58,21 @@ $setsqlarr['keywords']=trim($_POST['keywords']);
 $setsqlarr['description']=trim($_POST['description']);
 	if ($db->inserttable(table('page'),$setsqlarr))
 	{
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] ="?act=";	
 		if ($_POST['mkdir']=="y" && $setsqlarr['html'])
 		{
 		ck_page_dir($setsqlarr['html']);
 		}
-	!copy_page($setsqlarr['file'],$setsqlarr['alias'])?adminmsg("新建：".$setsqlarr['file']."文件失败，请检查目录权限或者手动建立文件",0):"";
+	!copy_page($setsqlarr['file'],$setsqlarr['alias'])?adminmsg("作成：".$setsqlarr['file']."ファイル作成失敗，フォルダー権限をチェックしてくださいまたは手動ファイル作成",0):"";
 	refresh_page_cache();
 	refresh_nav_cache();
-	write_log("添加页面", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！",2,$link);
+	write_log("ページ追加", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！",2,$link);
 	}
 	else
 	{
-	adminmsg("添加失败！",0);
+	adminmsg("追加失敗！",0);
 	}
 }
 elseif($act == 'edit_page')
@@ -114,12 +114,12 @@ $setsqlarr['description']=trim($_POST['description']);
 	 }
 	if (ck_page_alias($_POST['alias'],$_POST['id']))
 	{
-	adminmsg("调用ID ".$_POST['alias']." 已经存在！请重新填写",1);
+	adminmsg("CallID ".$_POST['alias']." 既に存在します！再入力してください",1);
 	exit();
 	}
 	if (ck_page_file($_POST['file'],$_POST['id']))
 	{
-	adminmsg("文件路径 ".$_POST['file']." 已经存在！请重新填写",1);
+	adminmsg("ファイルパス ".$_POST['file']." 既に存在します！再入力してください",1);
 	exit();
 	}
 $wheresql=" id='".intval($_POST['id'])."'";
@@ -132,47 +132,47 @@ $wheresql=" id='".intval($_POST['id'])."'";
 	if ($db->updatetable(table('page'),$setsqlarr,$wheresql))
 	{
 	refresh_page_cache();
-	write_log("修改页面", $_SESSION['admin_name'],3);
-	adminmsg("修改成功！",2);
+	write_log("ページ変更", $_SESSION['admin_name'],3);
+	adminmsg("変更成功！",2);
 	}
 	else
 	{
-	adminmsg("修改失败！",0);
+	adminmsg("変更失敗！",0);
 	}
 }
 elseif($act == 'del_page')
 {
 	check_token();
 	$id=$_REQUEST['id'];
-	if (empty($id)) adminmsg("请选择项目！",0);
+	if (empty($id)) adminmsg("項目を選択してください！",0);
 	if ($num=del_page($id))
 	{
 	refresh_page_cache();
 	refresh_nav_cache();
-	write_log("删除页面，共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("ページ削除，削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！".$num,1);
+	adminmsg("削除失敗！".$num,1);
 	}
 }
 elseif($act == 'set_page')
 {
 	check_token();
-	$id =!empty($_POST['id'])?$_POST['id']:adminmsg("你没有选择页面！",1);
+	$id =!empty($_POST['id'])?$_POST['id']:adminmsg("ページを選択してください！",1);
 	if ($_POST['set_url'])//设置页面链接
 	{
 		if (set_page_url($id,$_POST['url'],$norewrite))
 		{
 		refresh_page_cache();
 		refresh_nav_cache();
-		write_log("设置页面链接", $_SESSION['admin_name'],3);
-		adminmsg("设置成功！",2);		
+		write_log("ページリンク設定", $_SESSION['admin_name'],3);
+		adminmsg("設定成功！",2);		
 		}
 		else
 		{
-		adminmsg("设置失败！",0);
+		adminmsg("設定失敗！",0);
 		}
 	}
 	if ($_POST['set_caching'])//设置页面缓存时间
@@ -180,12 +180,12 @@ elseif($act == 'set_page')
 		if (set_page_caching($id,$_POST['caching'],$nocaching))
 		{
 		refresh_page_cache();
-		write_log("这页页面缓存", $_SESSION['admin_name'],3);
-		adminmsg("设置成功！",2);
+		write_log("このページCacheしている", $_SESSION['admin_name'],3);
+		adminmsg("設定成功！",2);
 		}
 		else
 		{
-		adminmsg("设置失败！",0);;
+		adminmsg("設定失敗！",0);;
 		}
 	}
 }

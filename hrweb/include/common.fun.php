@@ -173,17 +173,17 @@ function sub_day($endday,$staday,$range='')
 	elseif($value >= 60 && $value < 3600)
 	{
 		$min = intval($value / 60);
-		return $min."分钟";
+		return $min."分";
 	}
 	elseif($value >=3600 && $value < 86400)
 	{
 		$h = intval($value / 3600);
-		return $h."小时";
+		return $h."時間";
 	}
 	elseif($value >= 86400 && $value < 86400*30)
 	{
 		$d = intval($value / 86400);
-		return intval($d)."天";
+		return intval($d)."日";
 	}
 	elseif($value >= 86400*30 && $value < 86400*30*12)
 	{
@@ -209,12 +209,12 @@ function daterange($endday,$staday,$format='Y-m-d',$color='',$range=3)
 	elseif($value >= 60 && $value < 3600)
 	{
 		$min = intval($value / 60);
-		$return=$min."分钟前";
+		$return=$min."分前";
 	}
 	elseif($value >=3600 && $value < 86400)
 	{
 		$h = intval($value / 3600);
-		$return=$h."小时前";
+		$return=$h."時間前";
 	}
 	elseif($value >= 86400)
 	{
@@ -225,7 +225,7 @@ function daterange($endday,$staday,$format='Y-m-d',$color='',$range=3)
 		}
 		else
 		{
-		$return=$d."天前";
+		$return=$d."日前";
 		}
 	}
 	if ($color)
@@ -276,7 +276,7 @@ function smtp_mail($sendto_email,$subject,$body,$From='',$FromName='')
 	{
 		if (empty($mailconfig['smtpservers']) || empty($mailconfig['smtpusername']) || empty($mailconfig['smtppassword']) || empty($mailconfig['smtpfrom']))
 		{
-		write_syslog(2,'MAIL',"邮件配置信息不完整");
+		write_syslog(2,'MAIL',"メール設定情報不完全");
 		return false;
 		}
 	$mail->IsSMTP();
@@ -960,7 +960,7 @@ function check_cache($cache,$dir,$days=1)
 	$cachename=HIGHWAY_ROOT_PATH.'data/'.$dir."/".$cache;
 	if (!is_writable(HIGHWAY_ROOT_PATH.'data/'.$dir.'/'))
 	{
-	exit("请先将“".$dir."”目录设置可读写！");
+	exit("さきに“".$dir."”フォルダー読み書きに設定！");
 	}
 	if (file_exists($cachename))
 	{

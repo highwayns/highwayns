@@ -10,10 +10,10 @@ $smarty->display("wap/wap_reg.html");
 }
 elseif ($act=='form')
 {
-	if ($_CFG['closereg']=='1')WapShowMsg("网站暂停会员注册，请稍后再次尝试！",1);
-	if (intval($_GET['type'])==0)WapShowMsg("请选择注册类型！",1);
+	if ($_CFG['closereg']=='1')WapShowMsg("ウェブ会員登録停止しています，後程試してください！",1);
+	if (intval($_GET['type'])==0)WapShowMsg("登録タイプ選択してください！",1);
 	if(intval($_GET['type'])>2){
-		WapShowMsg("会员类型不正确，请重新选择！",1);
+		WapShowMsg("会員タイプ不正，再選択してください！",1);
 	}
 	$smarty->assign('type',$_GET['type']);
 	$captcha=get_cache('captcha');
@@ -32,31 +32,31 @@ elseif ($act == 'do_reg')
 	$email = isset($_POST['email'])?trim($_POST['email']):"";
 	if (empty($username)||empty($password)||empty($member_type)||empty($email))
 	{
-	$err="信息不完整";
+	$err="情報不完全";
 	}
 	elseif (strlen($username)<6 || strlen($username)>18)
 	{
-	$err="用户名长度为6-18个字符";
+	$err="ユーザ名長さは6-18です";
 	}
 	elseif (strlen($password)<6 || strlen($password)>18)
 	{
-	$err="密码长度为6-18个字符";
+	$err="パスワード長さ为6-18个字符";
 	}
 	elseif ($password<>$_POST['password1'])
 	{
-	$err="两次输入的密码不同";
+	$err="入力のパスワードは一致しません";
 	}
 	elseif (empty($email) || !ereg("^[-a-zA-Z0-9_\.]+\@([0-9A-Za-z][0-9A-Za-z-]+\.)+[A-Za-z]{2,5}$",$email))
 	{
-	$err="电子邮箱格式错误";
+	$err="電子メールボックスフォーマットエラー";
 	}
 	if (get_user_inusername($username))
 	{
-	$err="用户名已经存在";
+	$err="ユーザ名既に存在します";
 	}
 	if (get_user_inemail($email))
 	{
-	$err="电子邮箱已经存在";
+	$err="メールボックスが既に存在します";
 	}	
 	if ($err)
 	{

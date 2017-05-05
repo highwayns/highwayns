@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_users_fun.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'list';
-$smarty->assign('pageheader',"网站管理员");
+$smarty->assign('pageheader',"ウェブ管理者");
 if($act == 'list')
 {
 	get_token();
@@ -28,14 +28,14 @@ if($act == 'list')
 elseif($act == 'add_users')
 {
 	get_token();
-	if ($_SESSION['admin_purview']<>"all")adminmsg("权限不足！",1);
+	if ($_SESSION['admin_purview']<>"all")adminmsg("権限不足！",1);
 	$smarty->assign('navlabel','add');	
 	$smarty->display('users/admin_users_add.htm');
 }
 elseif($act == 'add_users_save')
 {
 	check_token();
-	if ($_SESSION['admin_purview']<>"all")adminmsg("权限不足！",1);
+	if ($_SESSION['admin_purview']<>"all")adminmsg("権限不足！",1);
 	$setsqlarr['admin_name']=trim($_POST['admin_name'])?trim($_POST['admin_name']):adminmsg('ユーザ名を入力してください！',1);
 	if (get_admin_one($setsqlarr['admin_name']))adminmsg('該当ユーザすでに存在する！',1);
 	$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):adminmsg('Emailを入力してください！',1);
@@ -46,15 +46,15 @@ elseif($act == 'add_users_save')
 	$setsqlarr['rank']=trim($_POST['rank'])?trim($_POST['rank']):adminmsg('タイトルを入力してください',1);
 	$setsqlarr['add_time']=time();
 	$setsqlarr['last_login_time']=0;
-	$setsqlarr['last_login_ip']="从未";
+	$setsqlarr['last_login_ip']="Never";
 	$setsqlarr['pwd_hash']=randstr();
 	$setsqlarr['pwd']=md5($password.$setsqlarr['pwd_hash'].$HW_pwdhash);	
 	
 	if ($db->inserttable(table('admin'),$setsqlarr))
 	{
 		//填写管理员日志
-		write_log("后台添加用户名为".$setsqlarr['admin_name']."的管理员", $_SESSION['admin_name'],3);
-		$link[0]['text'] = "返回列表";
+		write_log("追加ユーザ名は".$setsqlarr['admin_name']."の管理者", $_SESSION['admin_name'],3);
+		$link[0]['text'] = "一覧に戻る";
 		$link[0]['href'] ="?act=";
 		adminmsg('追加成功！',2,$link);
 	}
@@ -69,11 +69,11 @@ elseif($act == 'del_users')
 	$id=$_REQUEST['id'];
 	if ($num=del_users($id,$_SESSION['admin_purview']))
 	{
-	adminmsg("删除成功！共删除".$num."行",2);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'edit_users')
@@ -89,7 +89,7 @@ elseif($act == 'edit_users')
 	}
 	else
 	{
-	adminmsg("参数错误！",1);
+	adminmsg("パラメータエラー！",1);
 	}
 }
 elseif($act == 'edit_users_pwd')
@@ -105,7 +105,7 @@ elseif($act == 'edit_users_pwd')
 	}
 	else
 	{
-	adminmsg("参数错误！",1);
+	adminmsg("パラメータエラー！",1);
 	}
 }
 elseif($act == 'edit_users_info_save' && $_SESSION['admin_purview']=="all")//超级管理员才可以修改资料
@@ -113,24 +113,24 @@ elseif($act == 'edit_users_info_save' && $_SESSION['admin_purview']=="all")//超
 	check_token();
 		$id=intval($_POST['id']);
 		$account=get_admin_account($id);
-		if ($account['purview']=="all")adminmsg("参数错误！",1);//超级管理员的资料不能修改
+		if ($account['purview']=="all")adminmsg("パラメータエラー！",1);//超级管理员的资料不能修改
 		$setsqlarr['admin_name']=trim($_POST['admin_name'])?trim($_POST['admin_name']):adminmsg('ユーザ名が必須！',1);
 		$setsqlarr['email']=trim($_POST['email'])?trim($_POST['email']):adminmsg('emailを入力してください！',1);
 		$setsqlarr['rank']=trim($_POST['rank'])?trim($_POST['rank']):adminmsg('タイトルを入力してください！',1);
 			$sql = "select * from ".table('admin')." where admin_name = '".$$setsqlarr['admin_name']."' AND admin_id<>".$id;
 			$ck_info=$db->getone($sql);
-			if (!empty($ck_info))adminmsg("用户名有重复！",1);
+			if (!empty($ck_info))adminmsg("ユーザ名重複！",1);
 		if ($db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id))
 		{
 			//填写管理员日志
-			write_log("超级管理员成功修改资料", $_SESSION['admin_name'],3);
-			adminmsg("修改成功！",2);
+			write_log("スーパー管理者資料変更成功", $_SESSION['admin_name'],3);
+			adminmsg("変更成功！",2);
 		 }
 		 else
 		{
 			//填写管理员日志
-			write_log("超级管理员修改资料失败", $_SESSION['admin_name'],3);
-			adminmsg("修改失败！",0);
+			write_log("ウーパー管理者資料変更失敗", $_SESSION['admin_name'],3);
+			adminmsg("変更失敗！",0);
 		 }
 }
 elseif($act == 'edit_users_pwd_save')
@@ -140,46 +140,46 @@ elseif($act == 'edit_users_pwd_save')
 	$account=get_admin_account($id);
 	if ($account['purview']=="all" && $_SESSION['admin_purview']=="all")
 	{
-				if (strlen($_POST['password'])<6)adminmsg("密码长度不能小于6位！",1);
-				if ($_POST['password']<>$_POST['password1'])adminmsg("两次输入的密码不同！",1);		
+				if (strlen($_POST['password'])<6)adminmsg("パスワード長さは6位以上！",1);
+				if ($_POST['password']<>$_POST['password1'])adminmsg("入力のパスワードは一致しません！",1);		
 				$md5_pwd=md5($_POST['old_password'].$account['pwd_hash'].$HW_pwdhash);
-				if ($md5_pwd<>$account['pwd'])adminmsg("旧密码输入错误！",1);
+				if ($md5_pwd<>$account['pwd'])adminmsg("旧パスワード入力エラー！",1);
 				$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$HW_pwdhash);
 				if ($db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id))
 				{
 					//填写管理员日志
-					write_log("超级管理员成功修改密码", $_SESSION['admin_name'],3);
-					adminmsg("修改成功！",2);
+					write_log("スーパー管理者パスワード変更成功", $_SESSION['admin_name'],3);
+					adminmsg("変更成功！",2);
 				 }
 				 else
 				 {
 				 	//填写管理员日志
-					write_log("超级管理员修改密码失败", $_SESSION['admin_name'],3);
-					adminmsg("修改失败！",0);
+					write_log("スーバー管理者パスワード変更失敗", $_SESSION['admin_name'],3);
+					adminmsg("変更失敗！",0);
 				 }
 	}
 	else
 	{
 				if ($_SESSION['admin_purview']=="all")
 				{
-					if (strlen($_POST['password'])<6)adminmsg("密码长度不能小于6位！",1);
+					if (strlen($_POST['password'])<6)adminmsg("パスワード長さは6位以上！",1);
 					$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$HW_pwdhash);
 					//填写管理员日志
-					write_log("管理员修改密码", $_SESSION['admin_name'],3);
-					if (!$db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id)) adminmsg("修改失败！",0);
+					write_log("管理者パスワード変更", $_SESSION['admin_name'],3);
+					if (!$db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id)) adminmsg("変更失敗！",0);
 				}
 				else
 				{
-					if (strlen($_POST['password'])<6)adminmsg("密码长度不能小于6位！",1);
-					if ($_POST['password']<>$_POST['password1'])adminmsg("两次输入的密码不同！",1);		
+					if (strlen($_POST['password'])<6)adminmsg("パスワード長さは6位以上！",1);
+					if ($_POST['password']<>$_POST['password1'])adminmsg("入力のパスワードは一致しません！",1);		
 					$md5_pwd=md5($_POST['old_password'].$account['pwd_hash'].$HW_pwdhash);
-					if ($md5_pwd<>$account['pwd'])adminmsg("旧密码输入错误！",1);
+					if ($md5_pwd<>$account['pwd'])adminmsg("旧パスワード入力エラー！",1);
 					$setsqlarr['pwd']=md5($_POST['password'].$account['pwd_hash'].$HW_pwdhash);
 					//填写管理员日志
-					write_log("管理员修改密码", $_SESSION['admin_name'],3);
-					if (!$db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id)) adminmsg("修改失败！",0);
+					write_log("管理者パスワード変更", $_SESSION['admin_name'],3);
+					if (!$db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id)) adminmsg("変更失敗！",0);
 				}
-				 adminmsg("修改成功！",2);
+				 adminmsg("変更成功！",2);
 	}
 }
 elseif($act == 'loglist')
@@ -205,7 +205,7 @@ elseif($act == 'loglist')
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
 	$list = get_admin_log($offset,$perpage,$wheresql);
-	$smarty->assign('pageheader',"登录日志");
+	$smarty->assign('pageheader',"登録ログ");
 	$smarty->assign('list',$list);//列表
 	$smarty->assign('perpage',$perpage);//每页显示数量POST
 		if ($total_val>$perpage)
@@ -228,20 +228,20 @@ elseif($act == 'users_set_save')
 {
 	check_token();
 	$id=intval($_POST['id']);
-	if ($_SESSION['admin_purview']<>"all")adminmsg("权限不足！",1);
+	if ($_SESSION['admin_purview']<>"all")adminmsg("権限不足！",1);
 	$setsqlarr['purview']=$_POST['purview'];
 	$setsqlarr['purview']=implode(',',$setsqlarr['purview']);
 		if ($db->updatetable(table('admin'),$setsqlarr,' admin_id='.$id))
 		{
 			//填写管理员日志
-			write_log("成功设置管理员权限", $_SESSION['admin_name'],3);
-			adminmsg("设置成功！",2);
+			write_log("管理者権限設定成功", $_SESSION['admin_name'],3);
+			adminmsg("設定成功！",2);
 		 }
 		 else
 		{
 			//填写管理员日志
-			write_log("设置管理员权限失败", $_SESSION['admin_name'],3);
-			adminmsg("设置失败！",0);
+			write_log("管理者权限設定失敗", $_SESSION['admin_name'],3);
+			adminmsg("設定失敗！",0);
 		 }
 }
 ?>

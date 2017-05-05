@@ -39,11 +39,11 @@ if ($val)
 	{
 		if($val['sex']==1)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 		}
 		elseif($val['sex']==2)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 		}
 		$val['fullname_']=$val['fullname'];	
 	}
@@ -114,8 +114,8 @@ elseif($_CFG['showresumecontact']=='2')//联系方式：会员下载后可见
 		else
 		{
 			$val['fullname']=$val['fullname'];
-			$val['telephone']="下载后可见";
-			$val['email']="下载后可见";
+			$val['telephone']="ダウンロード後ご覧ください";
+			$val['email']="ダウンロード後ご覧ください";
 		}
 	}elseif($_SESSION['utype']=='2' && $_SESSION['uid']==$uid){
 		$val['fullname']=$val['fullname'];
@@ -123,8 +123,8 @@ elseif($_CFG['showresumecontact']=='2')//联系方式：会员下载后可见
 		$val['email']=$val['email'];
 	}else{
 			$val['fullname']=$val['fullname'];
-			$val['telephone']="下载后可见";
-			$val['email']="下载后可见";
+			$val['telephone']="ダウンロード後ご覧ください";
+			$val['email']="ダウンロード後ご覧ください";
 	}
 }
 if ($val['photo']=="1")
@@ -320,7 +320,7 @@ $htm.="<div align=\"center\"><br />
 header("Cache-Control: no-cache, must-revalidate"); 
 header("Pragma: no-cache");   
 header("Content-Type: application/doc"); 
-header("Content-Disposition:attachment; filename={$val['fullname']}的个人简历.doc"); 
+header("Content-Disposition:attachment; filename={$val['fullname']}の個人履歴書.doc"); 
 echo $htm;
 }
 else

@@ -50,7 +50,7 @@ elseif ($act=='pm_del')
 	{
 	$db->query("Delete from ".table('pms')." WHERE pmid='{$pms['pmid']}'");
 	}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = "?act=pm&msgtype={$_GET['msgtype']}&new={$_GET['new']}";
 	//统计消息
 	$pmscount=$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$_SESSION['uid']}' OR msgtouid='{$_SESSION['uid']}') AND `new`='1' AND `replyuid`<>'{$_SESSION['uid']}'");

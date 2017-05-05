@@ -27,13 +27,13 @@ if ($act=='index')
 	{
 		$company_id = $db->getone("SELECT id FROM ".table('company_profile')." WHERE uid=".$value['company_uid']." LIMIT 1");
 		$company_url = url_rewrite('HW_companyshow',array('id'=>$company_id['id']));
-		$message[] ="您的简历被<a href=\"".$company_url."\" target=\"_black\" class=\"underline\">【".$value['company_name']."】</a>下载！主动联系招聘单位更容易获得工作机会！";
+		$message[] ="履歴書を<a href=\"".$company_url."\" target=\"_black\" class=\"underline\">【".$value['company_name']."】</a>ダウンロード！募集会社に連絡して仕事チャンス得る！";
 	}
 	$inter_resume = $db->getall("SELECT distinct company_id , company_name FROM ".table('company_interview')." WHERE resume_uid='".$_SESSION['uid']."' AND interview_addtime > ".$time." AND personal_look=1 ");
 	foreach ($inter_resume as $key => $value) 
 	{
 		$company_url = url_rewrite('HW_companyshow',array('id'=>$value['company_id']));
-		$message[] ="<a href=\"".$company_url."\" target=\"_black\" class=\"underline\">【".$value['company_name']."】</a>对您发起面试邀请，请尽快联系该招聘单位！";
+		$message[] ="<a href=\"".$company_url."\" target=\"_black\" class=\"underline\">【".$value['company_name']."】</a>面接誘いました，募集会社に連絡してください！";
 	}
 	$smarty->assign('message',$message);
 	$smarty->display('member_personal/personal_index.htm');

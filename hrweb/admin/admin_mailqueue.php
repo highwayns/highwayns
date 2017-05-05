@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_mailqueue_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
 check_permissions($_SESSION['admin_purview'],"mailqueue");
-$smarty->assign('pageheader',"邮件群发");
+$smarty->assign('pageheader',"メール一括送信");
 if($act == 'list')
 {
 	get_token();
@@ -56,12 +56,12 @@ elseif($act == 'mailqueue_add_save')
 	$setsqlarr['m_body']=trim($_POST['m_body'])?replace_label($_POST['m_body']):adminmsg('メール内容が必須！',1);
 	$setsqlarr['m_addtime']=time();
 	$setsqlarr['m_uid']=$uid['uid'];
-	$link[0]['text'] = "继续添加";
+	$link[0]['text'] = "続く追加";
 	$link[0]['href'] = '?act=mailqueue_add';
-	$link[1]['text'] = "返回列表";
+	$link[1]['text'] = "一覧に戻る";
 	$link[1]['href'] = '?';
-	write_log("添加邮件队列 ", $_SESSION['admin_name'],3);
-	!$db->inserttable(table('mailqueue'),$setsqlarr)?adminmsg("添加失败！",0):adminmsg("添加成功！",2,$link);
+	write_log("メールキューに追加 ", $_SESSION['admin_name'],3);
+	!$db->inserttable(table('mailqueue'),$setsqlarr)?adminmsg("追加失敗！",0):adminmsg("追加成功！",2,$link);
 }
 elseif($act == 'mailqueue_edit')
 {
@@ -85,10 +85,10 @@ elseif($act == 'mailqueue_edit_save')
     }
 	$setsqlarr['m_subject']=trim($_POST['m_subject'])?replace_label($_POST['m_subject']):adminmsg('タイトルを入力してください！',1);
 	$setsqlarr['m_body']=trim($_POST['m_body'])?replace_label($_POST['m_body']):adminmsg('メール内容が必須！',1);
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?';
 	$wheresql=" m_id='".intval($_POST['id'])."' ";
-	!$db->updatetable(table('mailqueue'),$setsqlarr,$wheresql)?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+	!$db->updatetable(table('mailqueue'),$setsqlarr,$wheresql)?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 }
 elseif($act == 'mailqueue_batchadd')
 {
@@ -131,13 +131,13 @@ elseif($act == 'mailqueue_batchadd_save')
 		$setsqlarr['m_subject']=replace_label($m_subject,$user);	
 		$setsqlarr['m_body']=replace_label($m_body,$user);
 		$setsqlarr['m_addtime']=time();
-		!$db->inserttable(table('mailqueue'),$setsqlarr)?adminmsg("添加失败！",0):'';
+		!$db->inserttable(table('mailqueue'),$setsqlarr)?adminmsg("追加失敗！",0):'';
 		$n++;
 	}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?';
-	write_log("批量添加邮件队列，共添加 {$n} 行 ", $_SESSION['admin_name'],3);
-	adminmsg("添加成功，共添加 {$n} 行 ",2,$link);
+	write_log("メールキューに一括追加，追加行数 {$n} 行 ", $_SESSION['admin_name'],3);
+	adminmsg("追加成功，追加行数 {$n} 行 ",2,$link);
 }
 elseif($act == 'totalsend')
 {
@@ -154,7 +154,7 @@ elseif($act == 'totalsend')
 		$id=$_POST['id'];
 		if (empty($id))
 		{
-		adminmsg("请选择项目！",1);
+		adminmsg("項目を選択してください！",1);
 		}
 		if(!is_array($id)) $id=array($id);
 		$sqlin=implode(",",$id);
@@ -167,7 +167,7 @@ elseif($act == 'totalsend')
 			}
 			if (empty($idarr))
 			{
-				adminmsg("没有可发送的邮件",1);
+				adminmsg("信可能なメールなし",1);
 			}
 			@file_put_contents(HIGHWAY_ROOT_PATH."temp/send.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$senderr}&intervaltime={$intervaltime}");
@@ -183,7 +183,7 @@ elseif($act == 'totalsend')
 			}
 			if (empty($idarr))
 			{
-				adminmsg("没有可发送的邮件",1);
+				adminmsg("信可能なメールなし",1);
 			}
 			@file_put_contents(HIGHWAY_ROOT_PATH."temp/send.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$senderr}&intervaltime={$intervaltime}");
@@ -197,7 +197,7 @@ elseif($act == 'totalsend')
 			}
 			if (empty($idarr))
 			{
-				adminmsg("没有可发送的邮件",1);
+				adminmsg("信可能なメールなし",1);
 			}
 			@file_put_contents(HIGHWAY_ROOT_PATH."temp/send.txt", serialize($idarr));
 			header("Location:?act=send&senderr={$senderr}&intervaltime={$intervaltime}");
@@ -213,9 +213,9 @@ elseif($act == 'send')
 	$totalid=count($idarr);
 	if (empty($idarr))
 	{
-		$link[0]['text'] = "返回邮件列队";
+		$link[0]['text'] = "メールキューに戻る";
 		$link[0]['href'] = '?act=list';
-		adminmsg("任务执行完毕!",2,$link);
+		adminmsg("タスク実行完毕!",2,$link);
 	}
 	else
 	{
@@ -228,23 +228,23 @@ elseif($act == 'send')
 				$db->query("update  ".table('mailqueue')." SET m_type='2'  WHERE m_id = '".intval($m_id)."'  LIMIT 1");
 				if ($senderr=="2")
 				{
-				$link[0]['text'] = "返回邮件列队";
+				$link[0]['text'] = "メールキューに戻る";
 				$link[0]['href'] = '?act=list';
 				adminmsg('メール送信エラー！'.$senderr,0,$link);
 				}
 				else
 				{
-				$link[0]['text'] = "发送下一封";
+				$link[0]['text'] = "次の送信";
 				$link[0]['href'] = "?act=send&senderr={$senderr}&intervaltime={$intervaltime}";
-				adminmsg("发生错误，准备发送下一封，剩余任务总数：".($totalid-1),0,$link,true,$intervaltime);
+				adminmsg("エラー発生しました，次の送信を準備中，残るタスク数：".($totalid-1),0,$link,true,$intervaltime);
 				}			
 			}
 			else
 			{
 			$db->query("update  ".table('mailqueue')." SET m_type='1',m_sendtime='".time()."'  WHERE m_id = '".intval($m_id)."'  LIMIT 1");
-			$link[0]['text'] = "发送下一封";
+			$link[0]['text'] = "次の送信";
 			$link[0]['href'] = "?act=send&senderr={$senderr}&intervaltime={$intervaltime}";
-			adminmsg("发送成功，准备发送下一封，剩余任务总数：".($totalid-1),2,$link,true,$intervaltime);
+			adminmsg("送信成功，次の送信を準備中，残るタスク数：".($totalid-1),2,$link,true,$intervaltime);
 			}
 	}	
 }
@@ -257,35 +257,35 @@ elseif($act == 'del')
 		$id=$_POST['id'];
 		if (empty($id))
 		{
-		adminmsg("请选择项目！",1);
+		adminmsg("項目を選択してください！",1);
 		}
 		if(!is_array($id)) $id=array($id);
 		$sqlin=implode(",",$id);
 		if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 		{
 		$db->query("Delete from ".table('mailqueue')." WHERE m_id IN ({$sqlin}) ");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 		}
 	}
 	elseif ($deltype===2)
 	{
 		$db->query("Delete from ".table('mailqueue')." WHERE m_type=0 ");
-		adminmsg("删除成功 $delnum",2);
+		adminmsg("削除成功 $delnum",2);
 	}
 	elseif ($deltype===3)
 	{
 		$db->query("Delete from ".table('mailqueue')." WHERE m_type=1 ");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 	}
 	elseif ($deltype===4)
 	{
 		$db->query("Delete from ".table('mailqueue')." WHERE m_type=2 ");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 	}
 	elseif ($deltype===5)
 	{
 		$db->query("Delete from ".table('mailqueue')."");
-		adminmsg("删除成功",2);
+		adminmsg("削除成功",2);
 	}
 }
 ?>

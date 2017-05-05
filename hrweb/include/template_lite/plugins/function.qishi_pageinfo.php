@@ -8,13 +8,13 @@ foreach($arr as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "调用":
+	case "CALL":
 		$aset['alias'] = $a[1];
 		break;
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
-	case "分类ID":
+	case "分類ID":
 		$aset['id'] = $a[1];
 		break;		
 	}

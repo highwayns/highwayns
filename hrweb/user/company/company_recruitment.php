@@ -42,19 +42,19 @@ if ($act=='apply_jobs')
 }
 elseif ($act=='set_apply_jobs')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择任何项目！",1);
-	set_apply($yid,$_SESSION['uid'],2)?showmsg("设置成功！",2):showmsg("设置失败！",0);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("項目を選択してください！",1);
+	set_apply($yid,$_SESSION['uid'],2)?showmsg("設定成功！",2):showmsg("設定失敗！",0);
 }
 elseif ($act=='apply_jobs_del')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	if ($n=del_apply_jobs($yid,$_SESSION['uid']))
 	{
-	showmsg("删除成功！共删除 {$n} 行",2);
+	showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-	showmsg("失败！",0);
+	showmsg("失敗！",0);
 	}
 }
 elseif ($act=='down_resume_list')
@@ -96,32 +96,32 @@ elseif ($act=='down_resume_list')
 }
 elseif ($act=='down_resume_del')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("履歴書を選択してください！",1);
 	if ($n=del_down_resume($yid,$_SESSION['uid']))
 	{
-	showmsg("删除成功！共删除 {$n} 行",2);
+	showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-	showmsg("失败！",0);
+	showmsg("失敗！",0);
 	}
 }
 elseif ($act=='perform')
 {
-	$id =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
+	$id =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("履歴書を選択してください！",1);
 	if(!empty($_REQUEST['shift'])){
 		$num=down_to_favorites($id,$_SESSION['uid']);
 		if ($num==='full')
 		{
-		showmsg("人才库已满!",1);
+		showmsg("人材庫いっぱい!",1);
 		}
 		elseif($num>0)
 		{
-		showmsg("添加成功，共添加 {$num} 条",2);
+		showmsg("追加成功，追加件数 {$num} 件",2);
 		}
 		else
 		{
-		showmsg("添加失败,已经存在！",1);
+		showmsg("追加失敗,既に存在します！",1);
 		}
 	}
 	
@@ -153,14 +153,14 @@ elseif ($act=='favorites_list')
 }
 elseif ($act=='favorites_del')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("履歴書を選択してください！",1);
 	if ($n=del_favorites($yid,$_SESSION['uid']))
 	{
-	showmsg("删除成功！共删除 {$n} 行",2);
+	showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-	showmsg("失败！",0);
+	showmsg("失敗！",0);
 	}
 }
 //已邀请面试列表
@@ -204,28 +204,28 @@ elseif ($act=='interview_list')
 //删除面试邀请信息
 elseif ($act=='interview_del')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("履歴書を選択してください！",1);
 	if (del_interview($yid,$_SESSION['uid']))
 	{
-		showmsg("删除成功！",2);
+		showmsg("削除成功！",2);
 	}
 	else
 	{
-		showmsg("删除失败！",0);
+		showmsg("削除失敗！",0);
 	}
 }
 //收藏 简历
 elseif($act == 'fav_att_resume')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("履歴書を選択してください！",1);
 	$n = add_favorites($yid,$_SESSION['uid']);
 	if(intval($n) > 0)
 	{
-	showmsg("收藏成功！共收藏 {$n} 行",2);
+	showmsg("お気に入り成功！行数 {$n} 行",2);
 	}
 	else
 	{
-	showmsg("收藏失败！",0);
+	showmsg("お気に入り失敗！",0);
 	}
 }
 unset($smarty);

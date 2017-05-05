@@ -11,46 +11,46 @@ foreach($arrset as $str)
 $a=explode(':',$str);
 	switch ($a[0])
 	{
-	case "列表名":
+	case "一覧名":
 		$aset['listname'] = $a[1];
 		break;
-	case "显示数目":
+	case "表示数目":
 		$aset['row'] = $a[1];
 		break;
-	case "开始位置":
+	case "開始位置":
 		$aset['start'] = $a[1];
 		break;
-	case "职位名长度":
+	case "職位名長さ":
 		$aset['jobslen'] = $a[1];
 		break;
-	case "企业名长度":
+	case "企業名長さ":
 		$aset['companynamelen'] = $a[1];
 		break;
-	case "描述长度":
+	case "説明長さ":
 		$aset['brieflylen'] = $a[1];
 		break;
-	case "填补字符":
+	case "記号を入力してください":
 		$aset['dot'] = $a[1];
 		break;	 
-	case "关键字":
+	case "キーワード":
 		$aset['key'] = $a[1];
 		break;
-	case "关键字类型":
+	case "キーワードタイプ":
 		$aset['keytype'] = $a[1];
 		break;
-	case "日期范围":
+	case "日期範囲":
 		$aset['settr'] = $a[1];
 		break;
-	case "排序":
+	case "ソート":
 		$aset['displayorder'] = $a[1];
 		break;
-	case "分页显示":
+	case "ページごと表示":
 		$aset['page'] = $a[1];
 		break;
-	case "页面":
+	case "ページ":
 		$aset['simpleshow'] = $a[1];
 		break;	
-	case "地区分类":
+	case "地区分類":
 		$aset['citycategory'] = $a[1];
 		break;	
 	}

@@ -39,7 +39,7 @@ elseif ($act=='get_pass')
 			$mailconfig=get_cache('mailconfig');
 			$arr['username']=$userinfo['username'];
 			$arr['password'] = rand(100000,999999).randstr();
-				if (smtp_mail($userinfo['email'],"找回密码","您的新密码为：".$arr['password']))
+				if (smtp_mail($userinfo['email'],"パスワード送信","新パスワードは：".$arr['password']))
 				{
 					$md5password=md5(md5($arr['password']).$userinfo['pwd_hash'].$HW_pwdhash);
 					if (!$db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE uid='{$userinfo['uid']}'"))

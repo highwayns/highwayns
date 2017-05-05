@@ -6,7 +6,7 @@ require_once(ADMIN_ROOT_PATH.'include/admin_weixin_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'set_weixin';
 $smarty->assign('act',$act);
 $smarty->assign('navlabel',$act);
-$smarty->assign('pageheader',"微信公众平台");	
+$smarty->assign('pageheader',"Wechatプレートフォーム");	
 if($act == 'set_weixin')
 {
 	check_permissions($_SESSION['admin_purview'],"set_weixinconnect");	
@@ -41,7 +41,7 @@ elseif($act == 'set_weixin_save')
 	!$db->query("UPDATE ".table('config')." SET value='{$v}' WHERE name='{$k}'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('config');
-	write_log("设置微信", $_SESSION['admin_name'],3);
+	write_log("Wechat設定", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 elseif($act == 'set_menu')
@@ -60,7 +60,7 @@ elseif($act == 'menu_all_save')
 		{
 		 
 				$setsqlarr['menu_order']=intval($_POST['menu_order'][$k]);
-				!$db->updatetable(table('weixin_menu'),$setsqlarr," id=".intval($_POST['save_id'][$k]))?adminmsg("保存失败！",0):"";
+				!$db->updatetable(table('weixin_menu'),$setsqlarr," id=".intval($_POST['save_id'][$k]))?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
  
 		}
@@ -73,13 +73,13 @@ elseif($act == 'menu_all_save')
 			{	
 				$setsqlarr['menu_order']=intval($_POST['add_menu_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['add_pid'][$i]);	
-				!$db->inserttable(table('weixin_menu'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('weixin_menu'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 	}
-	write_log("设置微信菜单", $_SESSION['admin_name'],3);
+	write_log("Wechatメニュー設定", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 elseif($act == 'del_menu')
@@ -88,12 +88,12 @@ elseif($act == 'del_menu')
 	$id=$_REQUEST['id'];
 	if ($num=del_menu($id))
 	{
-	write_log("删除微信菜单,共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("Wechatメニュー追加,削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_menu')
@@ -114,10 +114,10 @@ elseif($act == 'edit_menu_save')
 	$setsqlarr['url']=trim($_POST['url']);
 	$setsqlarr['status']=intval($_POST['status']);
 	$setsqlarr['menu_order']=intval($_POST['menu_order']);	
-	!$db->updatetable(table('weixin_menu'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("修改失败！",0):"";
-	$link[0]['text'] = "返回列表";
+	!$db->updatetable(table('weixin_menu'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("変更失敗！",0):"";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=set_menu';
-	write_log("修改微信菜单", $_SESSION['admin_name'],3);
+	write_log("Wechatメニュー変更", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
 elseif($act == 'add_menu')
@@ -137,11 +137,11 @@ elseif($act == 'add_menu_save')
 	$setsqlarr['url']=trim($_POST['url']);
 	$setsqlarr['status']=intval($_POST['status']);
 	$setsqlarr['menu_order']=intval($_POST['menu_order']);
-	!$db->inserttable(table('weixin_menu'),$setsqlarr)?adminmsg("保存失败！",0):"";
-	$link[0]['text'] = "返回列表";
+	!$db->inserttable(table('weixin_menu'),$setsqlarr)?adminmsg("保存失敗！",0):"";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=set_menu';
-	write_log("添加微信菜单", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！",2,$link);	
+	write_log("Wechatメニュー追加", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！",2,$link);	
 }
 elseif($act == 'binding_list')
 {
@@ -156,12 +156,12 @@ elseif($act == 'del_binding')
 	$uid=$_REQUEST['uid'];
 	if ($num=del_binding($uid))
 	{
-	write_log("解绑".$num."个会员", $_SESSION['admin_name'],3);
-	adminmsg("解绑成功！共解绑".$num."个会员",2);
+	write_log("解除".$num."個会員", $_SESSION['admin_name'],3);
+	adminmsg("解除成功！解除件数".$num."個会員",2);
 	}
 	else
 	{
-	adminmsg("解绑失败！",1);
+	adminmsg("解除失敗！",1);
 	}
 }
 ?>

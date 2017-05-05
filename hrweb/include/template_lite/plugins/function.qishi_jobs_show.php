@@ -8,16 +8,16 @@ function tpl_function_highway_jobs_show($params, &$smarty)
 	$a=explode(':',$str);
 		switch ($a[0])
 		{
-		case "职位ID":
+		case "職位ID":
 			$aset['id'] = $a[1];
 			break;
-		case "列表名":
+		case "一覧名":
 			$aset['listname'] = $a[1];
 			break;
-		case "描述长度":
+		case "説明長さ":
 			$aset['brieflylen'] = $a[1];
 			break;
-		case "填补字符":
+		case "記号を入力してください":
 			$aset['dot'] = $a[1];
 			break;
 		}

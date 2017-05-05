@@ -2,7 +2,7 @@
 define('IN_HIGHWAY', true);
 require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"recruitment");
-$id =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择简历！",1);
+$id =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("履歴書を選択してください！",1);
 if (is_array($id))
 {
 	// 已下载的简历 批量导出为word  先查询简历id  
@@ -53,11 +53,11 @@ foreach ($result as $val)
 	{
 		if($val['sex']==1)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 		}
 		elseif($val['sex']==2)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 		}
 		$val['fullname_']=$val['fullname'];	
 	}
@@ -116,8 +116,8 @@ $htm.='
 			else
 			{
 				$val['fullname']=$val['fullname'];
-				$val['telephone']="下载后可见";
-				$val['email']="下载后可见";
+				$val['telephone']="ダウンロード後ご覧ください";
+				$val['email']="ダウンロード後ご覧ください";
 			}
 		}elseif($_SESSION['utype']=='2' && $_SESSION['uid']==$val['uid'])
 		{
@@ -126,8 +126,8 @@ $htm.='
 			$val['email']=$val['email'];
 		}else{
 				$val['fullname']=$val['fullname'];
-				$val['telephone']="下载后可见";
-				$val['email']="下载后可见";
+				$val['telephone']="ダウンロード後ご覧ください";
+				$val['email']="ダウンロード後ご覧ください";
 		}
 	}
 	if ($val['photo']=="1")
@@ -325,7 +325,7 @@ $htm.="<div align=\"center\"><br />
 header("Cache-Control: no-cache, must-revalidate"); 
 header("Pragma: no-cache");   
 header("Content-Type: application/doc"); 
-header("Content-Disposition:attachment; filename=导出个人简历.doc"); 
+header("Content-Disposition:attachment; filename=導出個人履歴書.doc"); 
 echo $htm;
 function get_this_education($uid,$pid)
 {

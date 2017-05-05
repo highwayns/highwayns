@@ -28,7 +28,7 @@ function del_group($alias)
 			$return=$return+$db->affected_rows();
 	}
 	//填写管理员日志
-	write_log("后台成功删除分类 , 共删除".$return."行！", $_SESSION['admin_name'],3);
+	write_log("分類削除成功 , 削除件数".$return."行！", $_SESSION['admin_name'],3);
 	return $return;
 }
 function get_color()
@@ -75,7 +75,7 @@ function del_category($id)
 		$return=$return+$db->affected_rows();
 	}
 	//填写管理员日志
-	write_log("后台成功删除分类,共删除".$return."个", $_SESSION['admin_name'],3);
+	write_log("分類削除成功,削除件数".$return."件", $_SESSION['admin_name'],3);
 	return $return;
 }
 function get_category_district($pid='0')

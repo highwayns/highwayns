@@ -54,7 +54,7 @@ if ($user['status']=="2")
 }
 if ($act=="report")
 {		
-		$id=isset($_GET['resume_id'])?$_GET['resume_id']:exit("id 丢失");
+		$id=isset($_GET['resume_id'])?$_GET['resume_id']:exit("id 失った");
 		$resume=get_resume_basic($id);
 		if (empty($resume))
 		{
@@ -89,7 +89,7 @@ $("#ajax_report").click(function() {
 	var content=$("#content").val();
 	if (content=="")
 	{
-	alert("请输入描述");
+	alert("説明を入力してください");
 	}
 	else
 	{
@@ -111,7 +111,7 @@ $("#ajax_report").click(function() {
 				$(".report-dialog").show();
 				$("#waiting").hide();
 				$("#app_ok").hide();
-				$("#error_msg").html("举报失败！"+data);
+				$("#error_msg").html("報告失敗！"+data);
 				$("#error").show();
 			}
 	 	 });
@@ -145,7 +145,7 @@ $("#ajax_report").click(function() {
 		</div>
 	</div>
 	<div class="center-btn-box">
-		<input type="button" value="举报" class="btn-65-30blue btn-big-font " id="ajax_report"/><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" />
+		<input type="button" value="報告" class="btn-65-30blue btn-big-font " id="ajax_report"/><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" />
 	</div>
 	<p class="jubao-tip" style="padding-left: 10px;">温馨提示：找份工作不容易，请您如实举报哦！</p>
 </div>
@@ -175,8 +175,8 @@ $("#ajax_report").click(function() {
 }
 elseif ($act=="app_save")
 {
-	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):exit("请填写相关描述！");
-	$setsqlarr['resume_id']=$_POST['resume_id']?intval($_POST['resume_id']):exit("简历id丢失！");
+	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):exit("関連説明を入力してください！");
+	$setsqlarr['resume_id']=$_POST['resume_id']?intval($_POST['resume_id']):exit("履歴書idが見つかりません！");
 	$setsqlarr['resume_addtime']=intval($_POST['resume_addtime']);
 	$setsqlarr['uid']=intval($_SESSION['uid']);
 	$setsqlarr['addtime']=time();
@@ -185,7 +185,7 @@ elseif ($act=="app_save")
 	$resume=get_resume_basic($setsqlarr['resume_id']);
 	if (empty($resume))
 	{
-	exit("简历丢失");
+	exit("履歴書失った");
 	}
 	else
 	{
@@ -197,11 +197,11 @@ elseif ($act=="app_save")
 		{
 			if($resume['sex']==1)
 			{
-				$setsqlarr['title']=cut_str($resume['fullname'],1,0,"先生");
+				$setsqlarr['title']=cut_str($resume['fullname'],1,0,"男");
 			}
 			elseif($resume['sex'] == 2)
 			{
-				$setsqlarr['title']=cut_str($resume['fullname'],1,0,"女士");
+				$setsqlarr['title']=cut_str($resume['fullname'],1,0,"女");
 			}
 		}
 		else

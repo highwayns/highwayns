@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'set';
 $smarty->assign('act',$act);
-$smarty->assign('pageheader',"微商圈");
+$smarty->assign('pageheader',"サービス");
 check_permissions($_SESSION['admin_purview'],"set_simple");	
 if($act == 'set')
 {

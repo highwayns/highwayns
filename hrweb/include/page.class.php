@@ -271,7 +271,7 @@ class page{
     $this->last_page='尾頁';
 
 
-    return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<li class=\"page_all\">".$this->nowindex."/".$this->totalpage."页</li><div class=\"clear\"></div>";
+    return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<li class=\"page_all\">".$this->nowindex."/".$this->totalpage."ページ</li><div class=\"clear\"></div>";
 
     break;
 
@@ -281,7 +281,7 @@ class page{
 
     $this->pre_page='<';
 
-    return "<span>".$this->nowindex."/".$this->totalpage."页</span>".$this->pre_page().$this->next_page()."<div class=\"clear\"></div>";
+    return "<span>".$this->nowindex."/".$this->totalpage."ページ</span>".$this->pre_page().$this->next_page()."<div class=\"clear\"></div>";
 
     break;
 
@@ -293,7 +293,7 @@ class page{
 	
 	case '6':
 
-    return "第".$this->nowindex."/".$this->totalpage."页";
+    return "第".$this->nowindex."/".$this->totalpage."ページ";
 
     break;
   case '7':// 积分商城 小页
@@ -302,7 +302,7 @@ class page{
 
     $this->pre_page='<';
 
-    return $this->pre_page()."<li><b style='color:#ff9900'>".$this->nowindex."</b>/".$this->totalpage."页</li>".$this->next_page()."<div class=\"clear\"></div>";
+    return $this->pre_page()."<li><b style='color:#ff9900'>".$this->nowindex."</b>/".$this->totalpage."ページ</li>".$this->next_page()."<div class=\"clear\"></div>";
 
     break;
   // 带跳转分页
@@ -318,7 +318,7 @@ class page{
 
     $this->go_page='Jump';
 
-    return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<li class=\"page_all\">".$this->nowindex."/".$this->totalpage."页</li><li style='line-height:23px;'>".$this->go_page()."</li><div class=\"clear\"></div>";
+    return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<li class=\"page_all\">".$this->nowindex."/".$this->totalpage."ページ</li><li style='line-height:23px;'>".$this->go_page()."</li><div class=\"clear\"></div>";
 
     break;
   }

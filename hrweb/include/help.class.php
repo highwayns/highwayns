@@ -80,7 +80,7 @@ class help {
             if(preg_match("/".$notallow1."/i", $db_string))
             {
                 fputs(fopen($log_file,'a+'),"$userIP||$time\r\n$getUrl\r\n$db_string\r\nSelectBreak\r\n===========\r\n");
-                exit("您输入的内容不符合要求请正确输入！");
+                exit("入力された内容が間違い処があります！");
             }
         }
         //完整的SQL检查
@@ -147,7 +147,7 @@ class help {
         if (!empty($fail))
         {
             fputs(fopen($log_file,'a+'),"$userIP||$time\r\n$getUrl\r\n$db_string\r\n$error\r\n===========\r\n");
-            exit("您输入的内容不符合要求请正确输入！");
+            exit("入力された内容が間違い処があります！");
         }
         else
         {

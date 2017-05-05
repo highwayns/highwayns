@@ -109,11 +109,11 @@ function resume_one($id)
 	{
 		if($val['sex']==1)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 		}
 		elseif($val['sex']==2)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 		}
 		$val['fullname_']=$val['fullname'];	
 	}
@@ -129,7 +129,7 @@ function resume_one($id)
 		$val['talent_'] = "2";
 		$val['talent'] = "高级";
 	}
-	$val['fullname_3']=cut_str($val['fullname'],1,0,"先生/女士");
+	$val['fullname_3']=cut_str($val['fullname'],1,0,"男/女");
 	$val['age']=date("Y")-$val['birthdate'];
 	$val['education_list']=get_this_education_all($val['uid'],$val['id']);
 	$val['work_list']=get_this_work_all($val['uid'],$val['id']);
@@ -163,12 +163,12 @@ function WapShowMsg($msg_detail, $msg_type = 0, $links = array())
 }
 function wapmulti($num, $perpage, $curpage, $mpurl)
 {
-	$lang['home_page']="首页";
-	$lang['last_page']="上一页";
-	$lang['next_page']="下一页";
-	$lang['end_page']="尾页";
-	$lang['page']="页";
-	$lang['turn_page']="翻页";
+	$lang['home_page']="トップ";
+	$lang['last_page']="前頁";
+	$lang['next_page']="次頁";
+	$lang['end_page']="末頁";
+	$lang['page']="ページ";
+	$lang['turn_page']="次ページ";
 	$multipage = '';
 	$mpurl .= strpos($mpurl, '?') ? '&amp;' : '?';
 	if($num > $perpage) {

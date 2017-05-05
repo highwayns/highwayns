@@ -79,11 +79,11 @@ return false;
 //获取必须字符
 function pay_info()
 {
-$arr['p_introduction']="网银在线简短描述：";
-$arr['notes']="网银在线详细描述：";
-$arr['partnerid']="网银在线商户编号：";
-$arr['ytauthkey']="网银在线MD5 密钥：";
-$arr['fee']="网银在线交易手续费：";
+$arr['p_introduction']="銀聯簡単紹介：";
+$arr['notes']="銀聯オンライン説明：";
+$arr['partnerid']="銀聯オンライン店舗コード：";
+$arr['ytauthkey']="銀聯オンラインMD5 キー：";
+$arr['fee']="銀聯手続き費用：";
 return $arr;
 }
 ?>
