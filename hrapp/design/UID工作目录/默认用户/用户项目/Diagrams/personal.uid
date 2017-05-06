@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<View>
+  <DiagramVersion>2.5.5.1</DiagramVersion>
+  <DiagramViewType>iPhone</DiagramViewType>
+  <ProjectID>bb7f2476-7281-4358-b8a9-651e463da78f</ProjectID>
+  <DisplayName>personal</DisplayName>
+  <StartupID></StartupID>
+  <ShowGrid>false</ShowGrid>
+  <ShowRuler>true</ShowRuler>
+  <GridBrush>#C400FFFF</GridBrush>
+  <DiagramBackground>#FFFFFFFF</DiagramBackground>
+  <Diagram>
+    <ShowGuides>true</ShowGuides>
+    <Zoom>1</Zoom>
+    <GuidesBrush>#C400FFFF</GuidesBrush>
+    <Layers>
+      <Layer>
+        <ID>ccfe1d29-efca-4d79-bedf-18abcec09866</ID>
+        <DisplayName>Layer0</DisplayName>
+        <IsActivated>true</IsActivated>
+        <IsHidden>false</IsHidden>
+        <IsLocked>false</IsLocked>
+        <Shapes />
+      </Layer>
+    </Layers>
+    <GuidesCollection />
+  </Diagram>
+</View>
