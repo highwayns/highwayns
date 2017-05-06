@@ -11,7 +11,7 @@
   <DiagramBackground>#FFFFFFFF</DiagramBackground>
   <Diagram>
     <ShowGuides>true</ShowGuides>
-    <Zoom>0.5</Zoom>
+    <Zoom>0.25</Zoom>
     <GuidesBrush>#C400FFFF</GuidesBrush>
     <Layers>
       <Layer>
@@ -26,9 +26,9 @@
             <Type>UIDesigner.Shapes.iPhoneShape</Type>
             <ID>673aa56a-06e2-42c8-9bf9-b8160be19495</ID>
             <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
-            <DisplayName>Phone1</DisplayName>
+            <DisplayName>Phone_top</DisplayName>
             <Left>92</Left>
-            <Top>245.36201780415433</Top>
+            <Top>241.65535113748763</Top>
             <Width>760</Width>
             <Height>1487</Height>
             <Angle>0</Angle>
@@ -314,6 +314,9 @@
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>58ccaab3-6804-43f7-a97d-71533e4befbe</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>28</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -351,6 +354,9 @@
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>0530037c-c286-433c-8abf-0fc6516c5f78</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>28</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -388,6 +394,9 @@
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>b638e2b0-9dad-4bb6-a56d-c30a95453f9c</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>28</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -418,13 +427,16 @@
             <DisplayName>Button1-副本2</DisplayName>
             <Left>157</Left>
             <Top>1163.3620178041544</Top>
-            <Width>214</Width>
-            <Height>153</Height>
+            <Width>203</Width>
+            <Height>143.07333333333349</Height>
             <Angle>0</Angle>
             <Opacity>1</Opacity>
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>6a4a60b3-b1cc-488c-a04e-ca2c4ae4019e</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>28</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -439,6 +451,13 @@
             <ShapeBorderBrush>#FF000000</ShapeBorderBrush>
             <RadiusX>4</RadiusX>
             <RadiusY>4</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>13radio button_selected.png</Name>
+                <Catalog>User\iOS平台\图标</Catalog>
+              </ImageInfo>
+            </ShapeImage>
           </ButtonShape>
           <ButtonShape>
             <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
@@ -621,7 +640,7 @@
             <Type>UIDesigner.Shapes.iPhoneShape</Type>
             <ID>58ccaab3-6804-43f7-a97d-71533e4befbe</ID>
             <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
-            <DisplayName>Phone2</DisplayName>
+            <DisplayName>Phone_personal</DisplayName>
             <Left>882</Left>
             <Top>245.36201780415433</Top>
             <Width>760</Width>
@@ -713,6 +732,9 @@
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>673aa56a-06e2-42c8-9bf9-b8160be19495</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>20</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -768,7 +790,7 @@
             <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
             <DisplayName>UIDList1</DisplayName>
             <Left>947</Left>
-            <Top>598.36201780415433</Top>
+            <Top>594.36201780415479</Top>
             <Width>640</Width>
             <Height>785.99999999999989</Height>
             <Angle>0</Angle>
@@ -788,7 +810,7 @@
             <ParentID>464c3f17-b942-49ed-a719-60755d1b3bda</ParentID>
             <DisplayName>图片1-副本2</DisplayName>
             <Left>947</Left>
-            <Top>598.36201780415433</Top>
+            <Top>594.36201780415479</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -812,7 +834,7 @@
             <ParentID>464c3f17-b942-49ed-a719-60755d1b3bda</ParentID>
             <DisplayName>Text13</DisplayName>
             <Left>1087</Left>
-            <Top>632.36201780415433</Top>
+            <Top>628.36201780415479</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -838,9 +860,9 @@
             <ParentID>464c3f17-b942-49ed-a719-60755d1b3bda</ParentID>
             <DisplayName>图片2-副本1</DisplayName>
             <Left>987</Left>
-            <Top>617.36201780415433</Top>
-            <Width>78</Width>
-            <Height>78</Height>
+            <Top>613.36201780415479</Top>
+            <Width>84</Width>
+            <Height>98.57333333333338</Height>
             <Angle>0</Angle>
             <Opacity>1</Opacity>
             <IsLocked>false</IsLocked>
@@ -850,8 +872,8 @@
             <ShapeImage>
               <ImageInfo>
                 <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
-                <Name>message icon_40x40.png</Name>
-                <Catalog>System\iOS平台\其他</Catalog>
+                <Name>14Home icon.png</Name>
+                <Catalog>User\iOS平台\图标</Catalog>
               </ImageInfo>
             </ShapeImage>
           </ImageShape>
@@ -862,7 +884,7 @@
             <ParentID>464c3f17-b942-49ed-a719-60755d1b3bda</ParentID>
             <DisplayName>Button1-副本4</DisplayName>
             <Left>1549</Left>
-            <Top>640.36201780415433</Top>
+            <Top>636.36201780415479</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -899,9 +921,9 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem11</DisplayName>
             <Left>947</Left>
-            <Top>598.36201780415433</Top>
+            <Top>594.36201780415479</Top>
             <Width>640</Width>
-            <Height>114</Height>
+            <Height>117.57333333333338</Height>
             <Angle>0</Angle>
             <Opacity>1</Opacity>
             <IsLocked>false</IsLocked>
@@ -919,7 +941,7 @@
             <ParentID>d82cbc4c-08f9-4658-b6fa-926fe4cfcc8e</ParentID>
             <DisplayName>图片31</DisplayName>
             <Left>947</Left>
-            <Top>710.36201780415433</Top>
+            <Top>706.36201780415479</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -943,7 +965,7 @@
             <ParentID>d82cbc4c-08f9-4658-b6fa-926fe4cfcc8e</ParentID>
             <DisplayName>Text21</DisplayName>
             <Left>1087</Left>
-            <Top>744.36201780415433</Top>
+            <Top>740.36201780415479</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -969,7 +991,7 @@
             <ParentID>d82cbc4c-08f9-4658-b6fa-926fe4cfcc8e</ParentID>
             <DisplayName>图片41</DisplayName>
             <Left>987</Left>
-            <Top>729.36201780415433</Top>
+            <Top>725.36201780415479</Top>
             <Width>78</Width>
             <Height>78</Height>
             <Angle>0</Angle>
@@ -993,7 +1015,7 @@
             <ParentID>d82cbc4c-08f9-4658-b6fa-926fe4cfcc8e</ParentID>
             <DisplayName>Button21</DisplayName>
             <Left>1549</Left>
-            <Top>752.36201780415433</Top>
+            <Top>748.36201780415479</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -1030,7 +1052,7 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem21</DisplayName>
             <Left>947</Left>
-            <Top>710.36201780415433</Top>
+            <Top>706.36201780415479</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1050,7 +1072,7 @@
             <ParentID>3cb13b61-8f91-41c9-b769-ce2fef9ea273</ParentID>
             <DisplayName>图片51</DisplayName>
             <Left>947</Left>
-            <Top>822.36201780415433</Top>
+            <Top>818.36201780415479</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1074,7 +1096,7 @@
             <ParentID>3cb13b61-8f91-41c9-b769-ce2fef9ea273</ParentID>
             <DisplayName>Text31</DisplayName>
             <Left>1087</Left>
-            <Top>856.36201780415433</Top>
+            <Top>852.36201780415479</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -1100,7 +1122,7 @@
             <ParentID>3cb13b61-8f91-41c9-b769-ce2fef9ea273</ParentID>
             <DisplayName>图片61</DisplayName>
             <Left>987</Left>
-            <Top>841.36201780415433</Top>
+            <Top>837.36201780415479</Top>
             <Width>78</Width>
             <Height>78</Height>
             <Angle>0</Angle>
@@ -1124,7 +1146,7 @@
             <ParentID>3cb13b61-8f91-41c9-b769-ce2fef9ea273</ParentID>
             <DisplayName>Button31</DisplayName>
             <Left>1549</Left>
-            <Top>864.36201780415433</Top>
+            <Top>860.36201780415479</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -1161,7 +1183,7 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem31</DisplayName>
             <Left>947</Left>
-            <Top>822.36201780415433</Top>
+            <Top>818.36201780415479</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1181,7 +1203,7 @@
             <ParentID>7d5bf3ac-da17-4e4b-8d1f-e91a9d00715c</ParentID>
             <DisplayName>图片71</DisplayName>
             <Left>947</Left>
-            <Top>934.36201780415433</Top>
+            <Top>930.36201780415479</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1205,7 +1227,7 @@
             <ParentID>7d5bf3ac-da17-4e4b-8d1f-e91a9d00715c</ParentID>
             <DisplayName>Text41</DisplayName>
             <Left>1087</Left>
-            <Top>968.36201780415433</Top>
+            <Top>964.36201780415479</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -1231,7 +1253,7 @@
             <ParentID>7d5bf3ac-da17-4e4b-8d1f-e91a9d00715c</ParentID>
             <DisplayName>图片81</DisplayName>
             <Left>987</Left>
-            <Top>953.36201780415433</Top>
+            <Top>949.36201780415479</Top>
             <Width>78</Width>
             <Height>78</Height>
             <Angle>0</Angle>
@@ -1255,7 +1277,7 @@
             <ParentID>7d5bf3ac-da17-4e4b-8d1f-e91a9d00715c</ParentID>
             <DisplayName>Button41</DisplayName>
             <Left>1549</Left>
-            <Top>976.36201780415433</Top>
+            <Top>972.36201780415479</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -1292,7 +1314,7 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem41</DisplayName>
             <Left>947</Left>
-            <Top>934.36201780415433</Top>
+            <Top>930.36201780415479</Top>
             <Width>640</Width>
             <Height>113.99999999999989</Height>
             <Angle>0</Angle>
@@ -1312,7 +1334,7 @@
             <ParentID>967ac248-f8b2-4020-bf61-3a707ca1dad1</ParentID>
             <DisplayName>图片91</DisplayName>
             <Left>947</Left>
-            <Top>1044.3620178041542</Top>
+            <Top>1040.3620178041547</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1336,7 +1358,7 @@
             <ParentID>967ac248-f8b2-4020-bf61-3a707ca1dad1</ParentID>
             <DisplayName>Text51</DisplayName>
             <Left>1087</Left>
-            <Top>1080.3620178041542</Top>
+            <Top>1076.3620178041547</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -1362,7 +1384,7 @@
             <ParentID>967ac248-f8b2-4020-bf61-3a707ca1dad1</ParentID>
             <DisplayName>图片101</DisplayName>
             <Left>987</Left>
-            <Top>1065.3620178041542</Top>
+            <Top>1061.3620178041547</Top>
             <Width>78</Width>
             <Height>78</Height>
             <Angle>0</Angle>
@@ -1386,7 +1408,7 @@
             <ParentID>967ac248-f8b2-4020-bf61-3a707ca1dad1</ParentID>
             <DisplayName>Button51</DisplayName>
             <Left>1549</Left>
-            <Top>1088.3620178041542</Top>
+            <Top>1084.3620178041547</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -1423,7 +1445,7 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem51</DisplayName>
             <Left>947</Left>
-            <Top>1044.3620178041542</Top>
+            <Top>1040.3620178041547</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1443,7 +1465,7 @@
             <ParentID>ab9a784d-6c97-4f64-9e64-5445ad4543f9</ParentID>
             <DisplayName>图片111</DisplayName>
             <Left>947</Left>
-            <Top>1158.3620178041542</Top>
+            <Top>1154.3620178041547</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1467,7 +1489,7 @@
             <ParentID>ab9a784d-6c97-4f64-9e64-5445ad4543f9</ParentID>
             <DisplayName>Text61</DisplayName>
             <Left>1087</Left>
-            <Top>1192.3620178041542</Top>
+            <Top>1188.3620178041547</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -1493,7 +1515,7 @@
             <ParentID>ab9a784d-6c97-4f64-9e64-5445ad4543f9</ParentID>
             <DisplayName>图片121</DisplayName>
             <Left>987</Left>
-            <Top>1177.3620178041542</Top>
+            <Top>1173.3620178041547</Top>
             <Width>78</Width>
             <Height>78</Height>
             <Angle>0</Angle>
@@ -1517,7 +1539,7 @@
             <ParentID>ab9a784d-6c97-4f64-9e64-5445ad4543f9</ParentID>
             <DisplayName>Button61</DisplayName>
             <Left>1549</Left>
-            <Top>1200.3620178041542</Top>
+            <Top>1196.3620178041547</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -1554,7 +1576,7 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem61</DisplayName>
             <Left>947</Left>
-            <Top>1158.3620178041542</Top>
+            <Top>1154.3620178041547</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1574,7 +1596,7 @@
             <ParentID>a25e2d2c-7f88-45da-af90-5589faa50c87</ParentID>
             <DisplayName>图片131</DisplayName>
             <Left>947</Left>
-            <Top>1270.3620178041542</Top>
+            <Top>1266.3620178041547</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1598,7 +1620,7 @@
             <ParentID>a25e2d2c-7f88-45da-af90-5589faa50c87</ParentID>
             <DisplayName>Text71</DisplayName>
             <Left>1087</Left>
-            <Top>1304.3620178041542</Top>
+            <Top>1300.3620178041547</Top>
             <Width>146.88</Width>
             <Height>49.573333333333338</Height>
             <Angle>0</Angle>
@@ -1624,7 +1646,7 @@
             <ParentID>a25e2d2c-7f88-45da-af90-5589faa50c87</ParentID>
             <DisplayName>图片141</DisplayName>
             <Left>987</Left>
-            <Top>1289.3620178041542</Top>
+            <Top>1285.3620178041547</Top>
             <Width>78</Width>
             <Height>78</Height>
             <Angle>0</Angle>
@@ -1648,7 +1670,7 @@
             <ParentID>a25e2d2c-7f88-45da-af90-5589faa50c87</ParentID>
             <DisplayName>Button71</DisplayName>
             <Left>1549</Left>
-            <Top>1312.3620178041542</Top>
+            <Top>1308.3620178041547</Top>
             <Width>17</Width>
             <Height>26</Height>
             <Angle>0</Angle>
@@ -1685,7 +1707,7 @@
             <ParentID>704ba9dc-39db-4917-b606-fcb3ec87692a</ParentID>
             <DisplayName>UIDListItem71</DisplayName>
             <Left>947</Left>
-            <Top>1270.3620178041542</Top>
+            <Top>1266.3620178041547</Top>
             <Width>640</Width>
             <Height>114</Height>
             <Angle>0</Angle>
@@ -1703,7 +1725,7 @@
             <Type>UIDesigner.Shapes.iPhoneShape</Type>
             <ID>0530037c-c286-433c-8abf-0fc6516c5f78</ID>
             <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
-            <DisplayName>Phone2-副本1</DisplayName>
+            <DisplayName>Phone_Consultant</DisplayName>
             <Left>1669</Left>
             <Top>243.36201780415479</Top>
             <Width>760</Width>
@@ -1775,6 +1797,9 @@
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>673aa56a-06e2-42c8-9bf9-b8160be19495</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>20</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -2765,7 +2790,7 @@
             <Type>UIDesigner.Shapes.iPhoneShape</Type>
             <ID>b638e2b0-9dad-4bb6-a56d-c30a95453f9c</ID>
             <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
-            <DisplayName>Phone2-副本1-副本1</DisplayName>
+            <DisplayName>Phone_Enterprise</DisplayName>
             <Left>2454</Left>
             <Top>221.14868447082097</Top>
             <Width>760</Width>
@@ -2837,6 +2862,9 @@
             <IsLocked>false</IsLocked>
             <IsHidden>false</IsHidden>
             <StyleName></StyleName>
+            <RouteShapeID>673aa56a-06e2-42c8-9bf9-b8160be19495</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
             <InteractionStandard />
             <ShapeFontSize>20</ShapeFontSize>
             <ShapeFontFamily>华文细黑</ShapeFontFamily>
@@ -5236,6 +5264,1012 @@
             <IsItalic>false</IsItalic>
             <IsUnderline>false</IsUnderline>
             <ShapeText>個人</ShapeText>
+          </TextShape>
+          <iPhoneShape>
+            <Assembly>UIDesigner.Shapes.iPhoneShape</Assembly>
+            <Type>UIDesigner.Shapes.iPhoneShape</Type>
+            <ID>6a4a60b3-b1cc-488c-a04e-ca2c4ae4019e</ID>
+            <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
+            <DisplayName>Phone_Training</DisplayName>
+            <Left>90</Left>
+            <Top>1777.6553511374875</Top>
+            <Width>760</Width>
+            <Height>1487</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <iPhoneType>BLACK_4S</iPhoneType>
+            <IsHorizontal>false</IsHorizontal>
+          </iPhoneShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>0a87db57-22ef-474a-800a-e7338f14ab05</ID>
+            <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
+            <DisplayName>UIDTopBar1-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2042.6553511374875</Top>
+            <Width>640</Width>
+            <Height>88.000000000000227</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName>导航栏</StyleName>
+            <GroupType>UIDTopBar</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>898b98b5-86ab-45ba-9584-0fddb7295fc5</ID>
+            <ParentID>0a87db57-22ef-474a-800a-e7338f14ab05</ParentID>
+            <DisplayName>图片2-副本3</DisplayName>
+            <Left>155</Left>
+            <Top>2042.6553511374875</Top>
+            <Width>640</Width>
+            <Height>88</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>bar bottom.png</Name>
+                <Catalog>System\iOS平台\导航</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>41a0e91c-e823-46dc-a5e9-dbccb66f2871</ID>
+            <ParentID>0a87db57-22ef-474a-800a-e7338f14ab05</ParentID>
+            <DisplayName>Back11-副本2</DisplayName>
+            <Left>176</Left>
+            <Top>2058.6553511374877</Top>
+            <Width>101</Width>
+            <Height>60</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <RouteShapeID>673aa56a-06e2-42c8-9bf9-b8160be19495</RouteShapeID>
+            <ExecutionMode>Click</ExecutionMode>
+            <ActionAnimationMode>None</ActionAnimationMode>
+            <InteractionStandard />
+            <ShapeFontSize>20</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FFFAFAFA</ShapeTextBrush>
+            <IsBold>true</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>トップ</ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#FF000000</ShapeBorderBrush>
+            <RadiusX>0</RadiusX>
+            <RadiusY>0</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>BackButton.png</Name>
+                <Catalog>System\iOS平台\导航</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>55535d4d-c1d5-45fb-825d-962af578a81e</ID>
+            <ParentID>0a87db57-22ef-474a-800a-e7338f14ab05</ParentID>
+            <DisplayName>Text12-副本2</DisplayName>
+            <Left>434</Left>
+            <Top>2065.6553511374877</Top>
+            <Width>224.00000000000003</Width>
+            <Height>42.233333333333334</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>32</ShapeFontSize>
+            <ShapeFontFamily>微软雅黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FFFFF1F1</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>知識競技ホーム</ShapeText>
+          </TextShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>024a06fe-cfe5-4bea-906c-30f24574b91d</ID>
+            <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
+            <DisplayName>UIDList1-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2130.6553511374877</Top>
+            <Width>640</Width>
+            <Height>338</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName>表格视图（朴素型）</StyleName>
+            <GroupType>UIDList</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>true</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>6feaa8e6-3c9f-4fb5-b12c-d42edb44bcd7</ID>
+            <ParentID>a7262921-1867-4c08-84dc-edd24dba2521</ParentID>
+            <DisplayName>图片1-副本2-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2130.6553511374877</Top>
+            <Width>640</Width>
+            <Height>114</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>SimpleListBoxItemBackground.png</Name>
+                <Catalog>System\iOS平台\列表</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>260840ad-dc0c-44c2-8ecb-913d3e022b71</ID>
+            <ParentID>a7262921-1867-4c08-84dc-edd24dba2521</ParentID>
+            <DisplayName>Text13-副本2</DisplayName>
+            <Left>295</Left>
+            <Top>2164.6553511374877</Top>
+            <Width>73.44</Width>
+            <Height>49.573333333333338</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>36</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Left</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>true</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>学習</ShapeText>
+          </TextShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>da7d9bb9-09e5-41f1-b078-ef3cf86fe08d</ID>
+            <ParentID>a7262921-1867-4c08-84dc-edd24dba2521</ParentID>
+            <DisplayName>图片2-副本1-副本2</DisplayName>
+            <Left>195</Left>
+            <Top>2149.6553511374877</Top>
+            <Width>78</Width>
+            <Height>78</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>message icon_40x40.png</Name>
+                <Catalog>System\iOS平台\其他</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>0bfab0c2-7a71-4f60-b339-8d7a30f76e4a</ID>
+            <ParentID>a7262921-1867-4c08-84dc-edd24dba2521</ParentID>
+            <DisplayName>Button1-副本4-副本2</DisplayName>
+            <Left>757</Left>
+            <Top>2172.6553511374877</Top>
+            <Width>17</Width>
+            <Height>26</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#00000000</ShapeBorderBrush>
+            <RadiusX>0</RadiusX>
+            <RadiusY>0</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>table arrow.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>a7262921-1867-4c08-84dc-edd24dba2521</ID>
+            <ParentID>024a06fe-cfe5-4bea-906c-30f24574b91d</ParentID>
+            <DisplayName>UIDListItem11-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2130.6553511374877</Top>
+            <Width>640</Width>
+            <Height>114</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName>表格视图项（朴素型）</StyleName>
+            <GroupType>UIDListItem</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>5db93801-6b30-4567-97c5-ada5b26f6834</ID>
+            <ParentID>f78f0d04-666d-42f0-a7ad-81565af4117c</ParentID>
+            <DisplayName>图片31-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2242.6553511374877</Top>
+            <Width>640</Width>
+            <Height>114</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>SimpleListBoxItemBackground.png</Name>
+                <Catalog>System\iOS平台\列表</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>915c2d85-e520-4fd3-9aae-617872cfc5f8</ID>
+            <ParentID>f78f0d04-666d-42f0-a7ad-81565af4117c</ParentID>
+            <DisplayName>Text21-副本2</DisplayName>
+            <Left>295</Left>
+            <Top>2276.6553511374877</Top>
+            <Width>73.44</Width>
+            <Height>49.573333333333338</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>36</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Left</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>true</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>試験</ShapeText>
+          </TextShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>173ba5c5-18c7-4a94-9022-e1147a24ca26</ID>
+            <ParentID>f78f0d04-666d-42f0-a7ad-81565af4117c</ParentID>
+            <DisplayName>图片41-副本2</DisplayName>
+            <Left>195</Left>
+            <Top>2261.6553511374877</Top>
+            <Width>78</Width>
+            <Height>78</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>message icon_40x40.png</Name>
+                <Catalog>System\iOS平台\其他</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>d279467e-2941-49de-93f4-352556df97a9</ID>
+            <ParentID>f78f0d04-666d-42f0-a7ad-81565af4117c</ParentID>
+            <DisplayName>Button21-副本2</DisplayName>
+            <Left>757</Left>
+            <Top>2284.6553511374877</Top>
+            <Width>17</Width>
+            <Height>26</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#00000000</ShapeBorderBrush>
+            <RadiusX>0</RadiusX>
+            <RadiusY>0</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>table arrow.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>f78f0d04-666d-42f0-a7ad-81565af4117c</ID>
+            <ParentID>024a06fe-cfe5-4bea-906c-30f24574b91d</ParentID>
+            <DisplayName>UIDListItem21-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2242.6553511374877</Top>
+            <Width>640</Width>
+            <Height>114</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName>表格视图项（朴素型）</StyleName>
+            <GroupType>UIDListItem</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>bcbbc7f0-633f-487e-80b4-2fda1f40686e</ID>
+            <ParentID>e7e47f37-466b-4b72-aac8-af489e369813</ParentID>
+            <DisplayName>图片51-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2354.6553511374877</Top>
+            <Width>640</Width>
+            <Height>114</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>SimpleListBoxItemBackground.png</Name>
+                <Catalog>System\iOS平台\列表</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>c5c1032f-89b1-4dd1-87a9-baf3b94d4d1b</ID>
+            <ParentID>e7e47f37-466b-4b72-aac8-af489e369813</ParentID>
+            <DisplayName>Text31-副本2</DisplayName>
+            <Left>295</Left>
+            <Top>2388.6553511374877</Top>
+            <Width>183.60000000000002</Width>
+            <Height>49.573333333333338</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>36</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Left</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>true</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>ランキング</ShapeText>
+          </TextShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>dfb9db0d-8e49-4c66-be3a-eafa6d4842e2</ID>
+            <ParentID>e7e47f37-466b-4b72-aac8-af489e369813</ParentID>
+            <DisplayName>图片61-副本3</DisplayName>
+            <Left>195</Left>
+            <Top>2373.6553511374877</Top>
+            <Width>78</Width>
+            <Height>78</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>message icon_40x40.png</Name>
+                <Catalog>System\iOS平台\其他</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>0409c6e5-8249-46f7-93fc-81e880825a29</ID>
+            <ParentID>e7e47f37-466b-4b72-aac8-af489e369813</ParentID>
+            <DisplayName>Button31-副本2</DisplayName>
+            <Left>757</Left>
+            <Top>2396.6553511374877</Top>
+            <Width>17</Width>
+            <Height>26</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#00000000</ShapeBorderBrush>
+            <RadiusX>0</RadiusX>
+            <RadiusY>0</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>table arrow.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>e7e47f37-466b-4b72-aac8-af489e369813</ID>
+            <ParentID>024a06fe-cfe5-4bea-906c-30f24574b91d</ParentID>
+            <DisplayName>UIDListItem31-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2354.6553511374877</Top>
+            <Width>640</Width>
+            <Height>114</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName>表格视图项（朴素型）</StyleName>
+            <GroupType>UIDListItem</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>8f3e6e76-6e4d-433f-90d7-53599fd8a19b</ID>
+            <ParentID>00000000-0000-0000-0000-000000000000</ParentID>
+            <DisplayName>UIDTabBar1-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2904.6553511374877</Top>
+            <Width>640</Width>
+            <Height>98</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName>Tab栏</StyleName>
+            <GroupType>UIDTabBar</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>1c45169e-c4e7-4084-a2b7-856f995061ec</ID>
+            <ParentID>8f3e6e76-6e4d-433f-90d7-53599fd8a19b</ParentID>
+            <DisplayName>图片1-副本3-副本2</DisplayName>
+            <Left>155</Left>
+            <Top>2904.6553511374877</Top>
+            <Width>640</Width>
+            <Height>98</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>tab bar_no button.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>946d755e-ca74-4bd1-8ccd-b7817185d7f6</ID>
+            <ParentID>8f3e6e76-6e4d-433f-90d7-53599fd8a19b</ParentID>
+            <DisplayName>UIDTabButton11-副本2</DisplayName>
+            <Left>157</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>90.293333333333521</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <GroupType>群组</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>f2817bee-bb0e-4aed-9194-3f29ad22b480</ID>
+            <ParentID>946d755e-ca74-4bd1-8ccd-b7817185d7f6</ParentID>
+            <DisplayName>Button1-副本5-副本2</DisplayName>
+            <Left>157</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>88</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#FF000000</ShapeBorderBrush>
+            <RadiusX>4</RadiusX>
+            <RadiusY>4</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>SelectedHighlight.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>e4731555-adde-437e-89c3-a88399902ae6</ID>
+            <ParentID>946d755e-ca74-4bd1-8ccd-b7817185d7f6</ParentID>
+            <DisplayName>图片61-副本2-副本2</DisplayName>
+            <Left>201</Left>
+            <Top>2911.6553511374877</Top>
+            <Width>62</Width>
+            <Height>63</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>Icon1.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>ac955829-3bd8-45f3-b76f-7ff8feb792a6</ID>
+            <ParentID>946d755e-ca74-4bd1-8ccd-b7817185d7f6</ParentID>
+            <DisplayName>Text14-副本2</DisplayName>
+            <Left>188</Left>
+            <Top>2969.6553511374877</Top>
+            <Width>44</Width>
+            <Height>30.293333333333337</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>22</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FFFFFFFF</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>学習</ShapeText>
+          </TextShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>6b89dda5-1448-4540-b2ea-51f1cbfe80b4</ID>
+            <ParentID>8f3e6e76-6e4d-433f-90d7-53599fd8a19b</ParentID>
+            <DisplayName>UIDTabButton31-副本2</DisplayName>
+            <Left>480</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>162</Width>
+            <Height>89.293333333333521</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <GroupType>群组</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>0444a024-a47f-4710-b718-c759ce3c859d</ID>
+            <ParentID>6b89dda5-1448-4540-b2ea-51f1cbfe80b4</ParentID>
+            <DisplayName>Button32-副本2</DisplayName>
+            <Left>480</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>88</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#FF000000</ShapeBorderBrush>
+            <RadiusX>4</RadiusX>
+            <RadiusY>4</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID></ProjectID>
+                <Name></Name>
+                <Catalog>System\iOS平台\</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>44b5c8db-c386-4bc9-870e-07d7a694bcaf</ID>
+            <ParentID>6b89dda5-1448-4540-b2ea-51f1cbfe80b4</ParentID>
+            <DisplayName>图片631-副本2</DisplayName>
+            <Left>538</Left>
+            <Top>2911.6553511374877</Top>
+            <Width>32</Width>
+            <Height>58</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>Icon3.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>3211a274-bea8-44ec-a16c-47456a544097</ID>
+            <ParentID>6b89dda5-1448-4540-b2ea-51f1cbfe80b4</ParentID>
+            <DisplayName>Text32-副本1</DisplayName>
+            <Left>532</Left>
+            <Top>2968.6553511374877</Top>
+            <Width>110</Width>
+            <Height>30.293333333333337</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>22</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FFFFFFFF</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>ランキング</ShapeText>
+          </TextShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>811a4c8a-5880-4f46-bb56-c155a5e9f7c2</ID>
+            <ParentID>8f3e6e76-6e4d-433f-90d7-53599fd8a19b</ParentID>
+            <DisplayName>UIDTabButton41-副本2</DisplayName>
+            <Left>640</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>89.293333333333521</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <GroupType>群组</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>aff57b0c-98a2-46de-af72-3c4988f3d845</ID>
+            <ParentID>811a4c8a-5880-4f46-bb56-c155a5e9f7c2</ParentID>
+            <DisplayName>Button42-副本2</DisplayName>
+            <Left>640</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>88</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#FF000000</ShapeBorderBrush>
+            <RadiusX>4</RadiusX>
+            <RadiusY>4</RadiusY>
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID></ProjectID>
+                <Name></Name>
+                <Catalog>System\iOS平台\</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ButtonShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>48e89f68-0296-46e7-a5fa-39e7826b538a</ID>
+            <ParentID>811a4c8a-5880-4f46-bb56-c155a5e9f7c2</ParentID>
+            <DisplayName>图片641-副本2</DisplayName>
+            <Left>690</Left>
+            <Top>2914.6553511374877</Top>
+            <Width>51</Width>
+            <Height>52</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>Icon4.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>84fb0561-7220-450d-8851-300d4c4ab1ed</ID>
+            <ParentID>811a4c8a-5880-4f46-bb56-c155a5e9f7c2</ParentID>
+            <DisplayName>Text42-副本2</DisplayName>
+            <Left>693</Left>
+            <Top>2968.6553511374877</Top>
+            <Width>44</Width>
+            <Height>30.293333333333337</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>22</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FFFFFFFF</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>戻る</ShapeText>
+          </TextShape>
+          <GroupShape>
+            <Assembly>UIDesigner.Diagramming</Assembly>
+            <Type>UIDesigner.Diagramming.GroupShape</Type>
+            <ID>aaa5ecc5-4f1c-449b-8ba5-fece1c2f4ed6</ID>
+            <ParentID>8f3e6e76-6e4d-433f-90d7-53599fd8a19b</ParentID>
+            <DisplayName>UIDTabButton1-副本11-副本2</DisplayName>
+            <Left>322</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>90.293333333333521</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <GroupType>群组</GroupType>
+            <CanHScroll>false</CanHScroll>
+            <CanVScroll>false</CanVScroll>
+            <ScrollRange>0,0</ScrollRange>
+          </GroupShape>
+          <ButtonShape>
+            <Assembly>UIDesigner.Shapes.ButtonShape</Assembly>
+            <Type>UIDesigner.Shapes.ButtonShape</Type>
+            <ID>4f365227-ce0a-4c56-88d7-40aaf1859d53</ID>
+            <ParentID>aaa5ecc5-4f1c-449b-8ba5-fece1c2f4ed6</ParentID>
+            <DisplayName>Button1-副本1-副本4-副本2</DisplayName>
+            <Left>322</Left>
+            <Top>2909.6553511374877</Top>
+            <Width>153</Width>
+            <Height>88</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeFontSize>16</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FF000000</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText></ShapeText>
+            <ShapeBackgroundBrush>#00FFFFFF</ShapeBackgroundBrush>
+            <Thickness>0</Thickness>
+            <ShapeBorderBrush>#FF000000</ShapeBorderBrush>
+            <RadiusX>4</RadiusX>
+            <RadiusY>4</RadiusY>
+          </ButtonShape>
+          <ImageShape>
+            <Assembly>UIDesigner.Shapes.ImageShape</Assembly>
+            <Type>UIDesigner.Shapes.ImageShape</Type>
+            <ID>1857ee1a-e87c-48ea-afbc-899e775c303b</ID>
+            <ParentID>aaa5ecc5-4f1c-449b-8ba5-fece1c2f4ed6</ParentID>
+            <DisplayName>图片61-副本1-副本2-副本2</DisplayName>
+            <Left>372</Left>
+            <Top>2911.6553511374877</Top>
+            <Width>52.999999999999979</Width>
+            <Height>58.000000000000036</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <ShapeImage>
+              <ImageInfo>
+                <ProjectID>00000000-0000-0000-0000-000000000000</ProjectID>
+                <Name>Icon2.png</Name>
+                <Catalog>System\iOS平台\Tab</Catalog>
+              </ImageInfo>
+            </ShapeImage>
+          </ImageShape>
+          <TextShape>
+            <Assembly>UIDesigner.Shapes.TextShape</Assembly>
+            <Type>UIDesigner.Shapes.TextShape</Type>
+            <ID>a4a488d5-7b8e-4f4e-a061-1ced85c11337</ID>
+            <ParentID>aaa5ecc5-4f1c-449b-8ba5-fece1c2f4ed6</ParentID>
+            <DisplayName>Text1-副本11-副本2</DisplayName>
+            <Left>354.5</Left>
+            <Top>2969.6553511374877</Top>
+            <Width>44</Width>
+            <Height>30.293333333333337</Height>
+            <Angle>0</Angle>
+            <Opacity>1</Opacity>
+            <IsLocked>false</IsLocked>
+            <IsHidden>false</IsHidden>
+            <StyleName></StyleName>
+            <InteractionStandard />
+            <WidthChanged>false</WidthChanged>
+            <ShapeFontSize>22</ShapeFontSize>
+            <ShapeFontFamily>华文细黑</ShapeFontFamily>
+            <ShapeTextAlignment>Center</ShapeTextAlignment>
+            <ShapeTextBrush>#FFFFFFFF</ShapeTextBrush>
+            <IsBold>false</IsBold>
+            <IsItalic>false</IsItalic>
+            <IsUnderline>false</IsUnderline>
+            <ShapeText>試験</ShapeText>
           </TextShape>
         </Shapes>
       </Layer>
