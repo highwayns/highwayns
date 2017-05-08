@@ -80,5 +80,10 @@ namespace highwayns
         {
             (new FormDataClean()).ShowDialog();
         }
+
+        private void btnCompany_Click(object sender, EventArgs e)
+        {
+            (new FormCompany()).ShowDialog();
+        }
     }
 }

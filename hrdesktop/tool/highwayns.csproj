@@ -61,6 +61,12 @@
     <Compile Include="FormAddress.Designer.cs">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompany.Designer.cs">
+      <DependentUpon>FormCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDataBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <EmbeddedResource Include="FormAddress.resx">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCompany.resx">
+      <DependentUpon>FormCompany.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDataBase.resx">
       <DependentUpon>FormDataBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,9 +220,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="お客様テンプレート.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="テーブル定義書.xls">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="派遣会社一覧.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="jobs.txt">
