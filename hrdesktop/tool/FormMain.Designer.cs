@@ -41,6 +41,7 @@
             this.btnGoogle = new System.Windows.Forms.Button();
             this.btnMicrosoft = new System.Windows.Forms.Button();
             this.btnDataClean = new System.Windows.Forms.Button();
+            this.btnCompany = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -173,11 +174,22 @@
             this.btnDataClean.UseVisualStyleBackColor = true;
             this.btnDataClean.Click += new System.EventHandler(this.btnDataClean_Click);
             // 
+            // btnCompany
+            // 
+            this.btnCompany.Location = new System.Drawing.Point(156, 149);
+            this.btnCompany.Name = "btnCompany";
+            this.btnCompany.Size = new System.Drawing.Size(75, 23);
+            this.btnCompany.TabIndex = 13;
+            this.btnCompany.Text = "Company";
+            this.btnCompany.UseVisualStyleBackColor = true;
+            this.btnCompany.Click += new System.EventHandler(this.btnCompany_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.btnDataClean);
             this.Controls.Add(this.btnMicrosoft);
             this.Controls.Add(this.btnGoogle);
@@ -212,5 +224,6 @@
         private System.Windows.Forms.Button btnGoogle;
         private System.Windows.Forms.Button btnMicrosoft;
         private System.Windows.Forms.Button btnDataClean;
+        private System.Windows.Forms.Button btnCompany;
     }
 }
