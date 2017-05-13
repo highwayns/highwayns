@@ -42,26 +42,26 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">认证状态</div>	
+		<div class="left">認定ステータス</div>	
 		<div class="right">
-			<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#} class="select"{#/if#}>不限</a>
-			<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>认证通过</a>
-			<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待认证</a>
-			<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>认证未通过</a>
-			<a href="{#"audit:0"|highway_parse_url#}" {#if $smarty.get.audit=="0"#}class="select"{#/if#}>未认证</a>
+			<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#} class="select"{#/if#}>制限なし</a>
+			<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>認証</a>
+			<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>認証待ち</a>
+			<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>認証未通過</a>
+			<a href="{#"audit:0"|highway_parse_url#}" {#if $smarty.get.audit=="0"#}class="select"{#/if#}>認証されていない</a>
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
-		<div class="left">添加时间</div>	
+		<div class="left">タイムの追加</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -71,23 +71,23 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>公司名称</label>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>公司名称</label>
 	  </td>
 	 
 	  
       
-	  <td    class="admin_list_tit">所属会员</td> 
-	  <td  width="12%" class="admin_list_tit">营业执照</td>  
-      <td width="10%" align="center" class="admin_list_tit">认证状态</td>
+	  <td    class="admin_list_tit">所属会員</td> 
+	  <td  width="12%" class="admin_list_tit">ビジネスライセンス</td>  
+      <td width="10%" align="center" class="admin_list_tit">認定ステータス</td>
 	     
-      <td width="7%" align="center" class="admin_list_tit">创建时间</td>
-	   <td width="7%" align="center" class="admin_list_tit">刷新时间</td>
+      <td width="7%" align="center" class="admin_list_tit">創立時間</td>
+	   <td width="7%" align="center" class="admin_list_tit">タイム更新</td>
 		{#if $HIGHWAY.operation_mode=='1'#}  
-			  <td width="7%" align="center" class="admin_list_tit">目前积分</td>
+			  <td width="7%" align="center" class="admin_list_tit">現在のポイント</td>
 		{#elseif $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
-			  <td width="7%" align="center" class="admin_list_tit">套餐名称</td>
+			  <td width="7%" align="center" class="admin_list_tit">パッケージ名</td>
 		{#/if#}
-			  <td width="9%" align="center" class="admin_list_tit">收到简历</td>
+			  <td width="9%" align="center" class="admin_list_tit">履歴書を受け取ります</td>
       <td width="15%" align="center" class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$clist item=list#}
@@ -99,21 +99,21 @@ $(document).ready(function()
 		
 		<td  class="admin_list">
 		{#$list.username#}
-		<a href="admin_mail.php?act=send&email={#$list.memail#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>
-		 {#if $list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>{#/if#}
+		<a href="admin_mail.php?act=send&email={#$list.memail#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title=“メール送信” /></a>
+		 {#if $list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="ショットメッセージ送信" /></a>{#/if#}
 		</td>
         <td class="admin_list">
 		{#if $list.certificate_img#}
-		<a href="{#$certificate_dir#}{#$list.certificate_img#}" target="_blank" title="点击查看">已上传</a>&nbsp;
+		<a href="{#$certificate_dir#}{#$list.certificate_img#}" target="_blank" title="点击查看">アップロード済み</a>&nbsp;
 		{#else#}
-		<span  style="color: #999999">未上传</span>
+		<span  style="color: #999999">アップロードしない</span>
 		{#/if#}	
 		</td>
 		
         <td align="center" class="admin_list">
 		{#if $list.audit == "0"#}未认证{#/if#}
-		{#if $list.audit == "1"#}<span style="color: #009900">认证通过</span>{#/if#}
-		{#if $list.audit == "2"#}<span style="color:#FF3300">等待认证</span>{#/if#}
+		{#if $list.audit == "1"#}<span style="color: #009900">認証済み</span>{#/if#}
+		{#if $list.audit == "2"#}<span style="color:#FF3300">認定を待っている</span>{#/if#}
 		{#if $list.audit == "3"#}认证未通过{#/if#}
 		</td>
      
@@ -128,18 +128,18 @@ $(document).ready(function()
 		{#if $HIGHWAY.operation_mode=='1'#} 
 			<strong>{#$list.points#}</strong> 积分
 		{#elseif $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
-				{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#}
+				{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">パッケージなし</span>{#/if#}
 		{#/if#}
 		</td>
 		<td align="center" class="admin_list">
 		{#$list.get_resume#}
 		</td>
         <td width="15%" align="center" class="admin_list">
-		<a href="admin_memberslog.php?uid={#$list.uid#}">日志</a>
+		<a href="admin_memberslog.php?uid={#$list.uid#}">日誌</a>
 		&nbsp;
-		<a href="?act=edit_company_profile&id={#$list.id#}">修改</a>
+		<a href="?act=edit_company_profile&id={#$list.id#}">変更</a>
 		&nbsp;
-		<a href="?act=meal_log&key_uid={#$list.uid#}&key_type=2&key_type_cn=UID">充值记录</a>
+		<a href="?act=meal_log&key_uid={#$list.uid#}&key_type=2&key_type_cn=UID">チャージ記録</a>
 		&nbsp;
 		<a href="?act=management&id={#$list.uid#}"  target="_blank"  class="userinfo"  id="{#$list.uid#}">管理</a>
 		</td>
@@ -151,7 +151,7 @@ $(document).ready(function()
 <span id="Oprefresh"></span>
   </form>
 	{#if !$clist#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
   
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
@@ -172,12 +172,12 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="公司名">公司名</li>
-														<li id="2" title="会员id">公司id</li>
-														<li id="3" title="会员名">会员名</li>
-														<li id="4" title="会员id">会员id</li>														
-														<li id="5" title="地址">地址</li>
-														<li id="6" title="电话">电话</li>
+														<li id="1" title="公司名">会社名</li>
+														<li id="2" title="会员id">企業ID</li>
+														<li id="3" title="会员名">ユーザー名</li>
+														<li id="4" title="会员id">メンバーID</li>														
+														<li id="5" title="地址">住所</li>
+														<li id="6" title="电话">電話</li>
 														</ul>
 												</div>
 						</div>				
@@ -214,7 +214,7 @@ $(document).ready(function()
     </tr>
 	<tr>
 	  <td height="25">&nbsp;</td>
-	  <td><input type="submit" name="delete" value="确定" class="admin_submit"    /></td>
+	  <td><input type="submit" name="delete" value=“確定” class="admin_submit"    /></td>
 	  </tr>
   </table>
 </div>
@@ -232,7 +232,7 @@ $(document).ready(function()
     </tr>
 	 <tr>
       <td height="25">&nbsp;</td>
-      <td><input type="submit" name="set_refresh" value="确定" class="admin_submit"    /></td>
+      <td><input type="submit" name="set_refresh" value=“確定” class="admin_submit"    /></td>
     </tr>
   </table>
 </div>
@@ -281,7 +281,7 @@ $(document).ready(function()
     </tr>
     <tr>
       <td height="25">&nbsp;</td>
-      <td><input type="submit" name="set_audit" value="确定" class="admin_submit"    /></td>
+      <td><input type="submit" name="set_audit" value=“確定” class="admin_submit"    /></td>
     </tr>		  
   </table>
 </div>

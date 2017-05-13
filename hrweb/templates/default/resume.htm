@@ -33,17 +33,17 @@
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_resume"|highway_url#}">求职信息</a>
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_resume"|highway_url#}">求职信息</a>
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"HW_resumelist"|highway_url#}" class="s-tab-item f-left active">简历搜索</a>
+			<a href="{#"HW_resumelist"|highway_url#}" class="s-tab-item f-left active">履歴書検索</a>
 		</div>
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
 				<div class="type-input-box f-left">
-					<div class="key">请输入关键字</div>
+					<div class="key">キーワードを入力してください</div>
 					<input type="text" name="key" id="key" style="display:none;"/>
 					<input name="jobcategory" id="jobcategory" type="hidden" value="" />
 					<input name="trade" id="trade" type="hidden" value="" />
@@ -58,14 +58,14 @@
 					<input name="settr" id="settr" type="hidden" value=""/>
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="HW_resumelist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type=“button” detype=“hW_resumelist” id=“searcnbtn” value=“搜&nbsp;索” /></div>
 		</div>
 		<div class="fliter-wrap" style="border-bottom:none;">
 			<div class="filter-drop clearfix">
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="job_result_show">选择意向职位</span><i class="choose-icon"></i>
+							<span class="cc-default" id="job_result_show">意向ジョブを選択します</span><i class="choose-icon"></i>
 							<!-- 职位类别弹出框 -->
 							<div class="aui_outer" id="aui_outer_job">
 								<table class="aui_border">
@@ -81,7 +81,7 @@
 																		<div class="LocalDataMultiC">
 																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning">0</strong> 项</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars” class=“text-warning”>0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="job_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -104,7 +104,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="trade_result_show">选择意向行业</span><i class="choose-icon"></i>
+							<span class="cc-default" id="trade_result_show">意向業界を選択する</span><i class="choose-icon"></i>
 							<!-- 所属行业弹出框 -->
 							<div class="aui_outer" id="aui_outer">
 								<table class="aui_border">
@@ -120,7 +120,7 @@
 																		<div class="items jquery-localdata">
 																			<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="item-table">
 																				<table class="options-table options-table-7">
 																					<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
@@ -148,7 +148,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="city_result_show">选择意向地区</span><i class="choose-icon"></i>
+							<span class="cc-default" id="city_result_show">意図地域を選択</span><i class="choose-icon"></i>
 							<!-- 工作地区弹出框 -->
 							<div class="aui_outer" style="left:-396px;" id="aui_outer_city">
 								<table class="aui_border">
@@ -164,7 +164,7 @@
 																		<div class="LocalDataMultiC" style="width:623px;">
 																			<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="city_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -187,7 +187,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="major_result_show">选择专业类别</span><i class="choose-icon"></i>
+							<span class="cc-default" id="major_result_show">プロのカテゴリを選択します</span><i class="choose-icon"></i>
 							<!-- 专业类别弹出框 -->
 							<div class="aui_outer" style="left:-445px;" id="aui_outer_major">
 								<table class="aui_border">
@@ -203,7 +203,7 @@
 																		<div class="items jquery-localdata">
 																			<div class="selector-header"><span class="selector-title">专业类别</span><div></div><span id="mj-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arsmajor" class="text-warning">0</strong> 项</div><div id="result-list-major" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択の<strong id="arsmajor" class="text-warning">0</strong> 項目</div><div id="result-list-major" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<ul class="tabnav" id="major_tabnav"></ul>
 
 																			<div class="item-table majorbb">
@@ -230,7 +230,7 @@
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">工作经验：</div>
+				<div class="fl-type f-left">職歴：</div>
 				<div class="fl-content r-choice f-left">
 					{#highway_get_classify set="列表名:experience,类型:HW_experience,显示数目:100"#}
 					{#foreach from=$experience item=list#}
@@ -239,17 +239,17 @@
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">特长标签：</div>
+				<div class="fl-type f-left">専門タグ：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
 					{#highway_get_classify set="列表名:resumetag,类型:HW_resumetag,显示数目:100"#}
 					{#foreach from=$resumetag item=list#}
 					<div class="fl-content-li" type="resumetag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
-					<a href="javascript:;" class="show-more">展开</a>
+					<a href="javascript:;" class="show-more">拡大</a>
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">更多筛选：</div>
+				<div class="fl-type f-left">その他のフィルタ：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan">
 						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
@@ -264,7 +264,7 @@
 					<div class="saixuan">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="1" type="sex" href="javascript:;">男</a>
+							<a defvalue="1" type="sex" href="javascript:;">男性</a>
 							<a defvalue="2" type="sex" href="javascript:;">女</a>
 						</div>
 						性别要求
@@ -272,16 +272,16 @@
 					<div class="saixuan">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="1" type="photo" href="javascript:;">有</a>
-							<a defvalue="0" type="photo" href="javascript:;">无</a>
+							<a defvalue="1" type="photo" href="javascript:;">ある</a>
+							<a defvalue="0" type="photo" href="javascript:;">無</a>
 						</div>
 						简历照片
 					</div>
 					<div class="saixuan">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="1" type="talent" href="javascript:;">普通</a>
-							<a defvalue="2" type="talent" href="javascript:;">高级</a>
+							<a defvalue="1" type="talent" href="javascript:;">ノーマル</a>
+							<a defvalue="2" type="talent" href="javascript:;">高級</a>
 						</div>
 						简历等级
 					</div>
@@ -289,10 +289,10 @@
 						{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="3" type="settr" href="javascript:;">3天内</a>
-							<a defvalue="7" type="settr" href="javascript:;">7天内</a>
-							<a defvalue="15" type="settr" href="javascript:;">15天内</a>
-							<a defvalue="30" type="settr" href="javascript:;">30天内</a>
+							<a defvalue="3" type="settr" href="javascript:;">3日内</a>
+							<a defvalue="7" type="settr" href="javascript:;">7日以内</a>
+							<a defvalue="15" type="settr" href="javascript:;">15日以内に</a>
+							<a defvalue="30" type="settr" href="javascript:;">30日</a>
 						</div>
 						更新时间
 					</div>
@@ -302,8 +302,8 @@
 	</div>
 	<div class="data-box">
 		<div class="data-title">
-			<h3>照片简历</h3>
-			<a href="{#"HW_resumelist,photo:1"|highway_url#}" target="_blank" class="right-link">更多>></a>
+			<h3>履歴書写真</h3>
+			<a href="{#"HW_resumelist,photo:1"|highway_url#}" target="_blank" class="right-link">もっと>></a>
 		</div>
 		<div class="photo-resumes-list clearfix">
 			{#highway_resume_list set="列表名:resume,显示数目:14,照片:1,意向职位长度:18,填补字符:...,排序:rtime>desc"#}
@@ -324,15 +324,15 @@
 	</div>
 	<div class="data-box">
 		<div class="data-title">
-			<h3>最新简历</h3>
-			<a href="{#"HW_resumelist"|highway_url#}" class="right-link">更多>></a>
+			<h3>最新の履歴書</h3>
+			<a href="{#"HW_resumelist"|highway_url#}" class="right-link">もっと>></a>
 		</div>
 		<div class="newst-resume-list clearfix">
 			{#highway_resume_list set="列表名:resume,显示数目:12,意向职位长度:25,填补字符:...,排序:rtime>desc"#}
 			{#foreach from=$resume item=list#}
 			<div class="newst-resume-item f-left">
 				<div class="name-date"><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a><span>{#$list.refreshtime_cn#}</span></div>
-				<div class="resume-detail">{#$list.education_cn#} | {#$list.experience_cn#} | 意向：{#$list.intention_jobs#}</div>
+				<div class="resume-detail">{#$List.education_cn#} | {#$list.experience_cn#} |意向：{#$list.intention_jobs#} </div>
 			</div>
 			{#/foreach#}
 		</div>
@@ -342,7 +342,7 @@
 	<div class="f_link">
 		<div class="job_box">
 				<div class="box_tit">
-					<div class="tit">友情链接</div> <div class="more link_bk"><a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank">申请>></a></div>
+					<div class="tit">リンク</div> <div class="more link_bk"><a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank">申请>></a></div>
 					<div class="clear"></div>
 				</div>
 				<div class="box_content">

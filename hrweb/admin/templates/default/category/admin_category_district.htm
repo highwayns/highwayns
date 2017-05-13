@@ -152,8 +152,8 @@ $(document).ready(function()
 			  		html+="<input name=\"category_order[]\" type=\"text\"  value=\""+val[2]+"\" class=\"input_text_50\"/>";
 			  		html+="</td>";
 			  		html+="<td class=\"admin_list\" style=\"padding-left:85px;\">";			  
-			 		html+="<a href=\"?act=edit_district&id="+val[0]+"\">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
-					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_district&id="+val[0]+"&{#$urltoken#}\">删除</a>";
+			 		html+="<a href=\"?act=edit_district&id="+val[0]+"\">変更</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
+					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_district&id="+val[0]+"&{#$urltoken#}\">削除</a>";
 					html+="</td>";	
 					html+="</tr>";
 					i++;
@@ -162,7 +162,7 @@ $(document).ready(function()
 					// html+="<td  class=\"admin_list\"  style=\"padding-left:53px; color:#FF6600\">";
 					// html+="<img src=\"images/cat_left2.gif\" border=\"0\" align=\"absmiddle\" />";
 					// html+="<img src=\"images/act_add.gif\" border=\"0\" align=\"absmiddle\"  style=\" margin:5px;\" />";
-					// html+="<span class=\"AddCat\" id=\""+pid+"\" style=\" text-decoration:underline; cursor:pointer\">增加分类</span>";
+					// html+="<span class=\"AddCat\" id=\""+pid+"\" style=\" text-decoration:underline; cursor:pointer\">分類増加</span>";
 					// html+="</td>";
 					// html+="<td align=\"center\"  class=\"admin_list\">&nbsp;";					   
 					// html+="</td>";
@@ -205,9 +205,9 @@ $(document).ready(function()
 			  		html+="<input name=\"category_order[]\" type=\"text\"  value=\""+val[2]+"\" class=\"input_text_50\"/>";
 			  		html+="</td>";
 			  		html+="<td class=\"admin_list\">";			
-			  		<!-- html+="<a href=\"?act=add_district&parentid="+val[0]+"\">此类下加子类</a>&nbsp;&nbsp;&nbsp;&nbsp;";	   -->
-			 		html+="<a href=\"?act=edit_district&id="+val[0]+"\">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
-					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_district&id="+val[0]+"&{#$urltoken#}\">删除</a>";
+			  		<!-- html+="<a href=\"?act=add_district&parentid="+val[0]+"\">サブクラスの追加</a>&nbsp;&nbsp;&nbsp;&nbsp;";	   -->
+			 		html+="<a href=\"?act=edit_district&id="+val[0]+"\">変更</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
+					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_district&id="+val[0]+"&{#$urltoken#}\">削除</a>";
 					html+="</td>";	
 					html+="</tr>";
 					i++;
@@ -216,7 +216,7 @@ $(document).ready(function()
 					html+="<td  class=\"admin_list\"  style=\"padding-left:53px; color:#FF6600\">";
 					html+="<img src=\"images/cat_left2.gif\" border=\"0\" align=\"absmiddle\" />";
 					html+="<img src=\"images/act_add.gif\" border=\"0\" align=\"absmiddle\"  style=\" margin:5px;\" />";
-					html+="<span class=\"AddCat\" id=\""+pid+"\" style=\" text-decoration:underline; cursor:pointer\">增加分类</span>";
+					html+="<span class=\"AddCat\" id=\""+pid+"\" style=\" text-decoration:underline; cursor:pointer\">分類増加</span>";
 					html+="</td>";
 					html+="<td align=\"center\"  class=\"admin_list\">&nbsp;";					   
 					html+="</td>";
@@ -242,7 +242,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 正式使用后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。<br />
 删除顶级级分类将会自动删除此分类下的子分类。<br />
@@ -253,11 +253,11 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="categorychkAll"><input type="checkbox" name=" " title="全选/反选" id="chk" />
+      <label id="categorychkAll"><input type="checkbox" name=" " title=“全部選択/逆選択” id="chk" />
       地区分类</label>
 	 
 	  </td>
-	  <td width="160"   align="center"  class="admin_list_tit">排序</td>
+	  <td width="160"   align="center"  class="admin_list_tit">並び替え</td>
       <td width="260"   align="center" class="admin_list_tit">操作</td>
     </tr>
 	  {#foreach from=$district item=list#}
@@ -272,16 +272,16 @@ $(document).ready(function()
 	   <input name="category_order[]" type="text"  value="{#$list.category_order#}" class="input_text_50"/>
 	  </td>
       <td class="admin_list">
-	  <a href="?act=add_district&parentid={#$list.id#}">此类下加子类</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="?act=edit_district&id={#$list.id#}">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a href="?act=add_district&parentid={#$list.id#}">サブクラスの追加</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="?act=edit_district&id={#$list.id#}">変更</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-			  <a onclick="return confirm('你确定要删除吗？')" href="?act=del_district&id={#$list.id#}&{#$urltoken#}">删除</a>
+			  <a onclick="return confirm('你确定要删除吗？')" href="?act=del_district&id={#$list.id#}&{#$urltoken#}">削除</a>
 			 </td>
     </tr>
       {#/foreach#}
 		  <tr >
 			  <td  class="admin_list"  style="padding-left:10px; color:#FF6600">
 			  <img src="images/act_add.gif" border="0" align="absmiddle"  style=" margin:5px;" />
-			  <span class="AddCatPid"   style=" text-decoration:underline; cursor:pointer">增加顶级分类</span>
+			  <span class="AddCatPid"   style=" text-decoration:underline; cursor:pointer">トップ分類を増やします</span>
 			  </td>
 			   <td align="center"  class="admin_list">&nbsp;
 			   

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <script language="javascript" type="text/javascript" src="templates/js/jquery.js"></script>
-<title>安装向导 - 骑士PHP人才系统(www.jp.highwayns.com)</title>
+<title>セットアップウィザード - highwayns人材システム（www.highwayns.com）</title>
 <script>
 	$(function(){
 		$(".step li:eq(3)").css("margin-right", 0);
@@ -20,61 +20,61 @@
 		<div class="step">
 			<div class="step_show step_2"></div>
 			<ul>
-				<li class="complete">环境检查</li>
-				<li class="complete">参数配置</li>
-				<li>开始安装</li>
-				<li>成功安装</li>
+				<li class="complete">環境を確認します</li>
+				<li class="complete">パラメーター</li>
+				<li>インストールを開始します。</li>
+				<li>インストール成功</li>
 				<div class="clear"></div>
 			</ul>
 		</div>
 		<form action="index.php?act=4" method="post">
 		<div class="setting">
 			<div class="setting_check">
-				<h3>填写数据库信息</h3>
+				<h3>情報データベースの記入</h3>
 				<table>
 					<tbody>
 						<tr height="40">
-							<td width="95" align="right">数据库主机：</td>
+							<td width="95" align="right">データベースのホスト：</td>
 							<td width="269"><input name="dbhost" id="dbhost" value="localhost" type="text" class="install_input_text" /></td>
-							<td style="color:#999999;">数据库服务器地址，一般为localhost</td>
+							<td style="color:#999999;">データベースサーバーのアドレス、通常はlocalhost </td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">数据库用户名：</td>
+							<td width="95" align="right">データベースユーザー名：</td>
 							<td width="269"><input name="dbuser" id="dbuser" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">数据库密码：</td>
+							<td width="95" align="right">データベースパスワード：</td>
 							<td width="269"><input name="dbpass" id="dbpass" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">数据库名称：</td>
+							<td width="95" align="right">データベース名：</td>
 							<td width="269"><input name="dbname" id="dbname" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">数据表前缀：</td>
+							<td width="95" align="right">テーブル接頭辞：</td>
 							<td width="269"><input name="pre" id="pre" value="hw_" type="text" class="install_input_text" /></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="menu_check">
-				<h3>管理员账号</h3>
+				<h3>管理者アカウント</h3>
 				<table>
 					<tbody>
 						<tr height="40">
-							<td width="95" align="right">管理员姓名：</td>
+							<td width="95" align="right">カストディアン名：</td>
 							<td width="269"><input name="admin_name" id="admin_name" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">登录密码：</td>
+							<td width="95" align="right">パスワード：</td>
 							<td width="269"><input name="admin_pwd" id="admin_pwd" type="password" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">密码确认：</td>
+							<td width="95" align="right">パスワードの確認：</td>
 							<td width="269"><input name="admin_pwd1" id="admin_pwd1" type="password" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">电子邮箱：</td>
+							<td width="95" align="right">Eメール：</td>
 							<td width="269"><input name="admin_email" id="admin_email" type="text" class="install_input_text" /></td>
 						</tr>
 					</tbody>

@@ -180,12 +180,6 @@ function check_cookie($uid,$name,$pwd){
  	return false;
  	}
  }
- /**
-  *
-  * 更新用户信息
-  *
-  *
-  */
  function update_user_info($uid,$record=true,$setcookie=true,$cookie_expire=NULL)
  {
  	global $timestamp, $online_ip,$db,$HW_cookiepath,$HW_cookiedomain,$_CFG;//3.4升级修改 引入变量$_CFG

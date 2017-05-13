@@ -158,49 +158,49 @@ $(function() {
 	<!-- main -->
 	<div class="container">
 		<div class="third-reg-wrap">
-			<h1>只差一步，即可完成登录设置</h1>
-			<p class="t-reg-tips">欢迎使用{#$third_name#}帐号登录{#$HIGHWAY.site_name#}<br />完成账号创建后可直接登录哦！</p>
+			<h1>後一歩でログイン設定を完了する</h1>
+			<p class="t-reg-tips">ようこそ{#$third_name#}アカウント登録{#$HIGHWAY.site_name#}<br />完成账号创建后可直接登录哦！</p>
 			<div class="t-reg-main clearfix">
 				<div class="reg-left-form f-left">
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">	{#$third_name#}昵称</div>
+						<div class="reg-form-type f-left">	{#$third_name#}ニックネーム</div>
 						<div class="reg-form-content f-left">
 							<span class="third-form-text">{#$nickname#}</span>
 						</div>
 					</div>
 					<form action="?act=reg_save" id="Form1" method="post">
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">	注册类型</div>
+						<div class="reg-form-type f-left">	登録タイプ</dic>
 						<div class="reg-form-content f-left">
 							<div class="member-type-wrap clearfix">
-								<div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>个人</div>
-								<div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企业</div>
+								<div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>パーソナル</div>
+								<div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企業</div>
 							</div>
 						</div>
 					</div>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">	密码</div>
+						<div class="reg-form-type f-left">	パスワード</div>
 						<div class="reg-form-content f-left">
 							<input type="password" name="password" id="password" class="text text-lg span350" placeholder="密码" />
 						</div>
 						<div class="verification f-left" style="width: 110px;overflow: hidden;"></div>
 					</div>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">	确认密码</div>
+						<div class="reg-form-type f-left">	パスワードの確認</div>
 						<div class="reg-form-content f-left">
 							<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="重新输入密码" />
 						</div>
 						<div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
 					</div>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">	手机</div>
+						<div class="reg-form-type f-left">	電話番号</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
 						</div>
 						<div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
 					</div>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">邮箱</div>
+						<div class="reg-form-type f-left">メールボックス</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="email" id="email" class="text text-lg span350" placeholder="请输入您的邮箱" />
 						</div>
@@ -219,7 +219,7 @@ $(function() {
 				</div>
 				<div class="third-reg-right f-right">
 					<form method="post" id="pcLogin">
-					<h2>已有账号？直接绑定</h2>
+					<h2>アカウントをお持ちですか？直接結合</h2>
 					<div class="s-bind">
 						<div class="bind-item">
 							<div class="login-ver-box error login_err" style="display: none;"></div>
@@ -245,9 +245,9 @@ $(function() {
 						<div class="bind-submit-item">
 							<input type="submit" name="submitlogin" id="login" value="绑定账号" class="btn btn-small blue span3" />
 							<input type="text"  id="waiting" value="正在绑定..." class="btn btn-small blue span3"  style="display: none;" disabled/>
-							<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">忘记密码？</a>
+							<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">パスワードを忘れましたか？</a>
 						</div>
-						<p class="bind-tips">绑定后，您可以使用{#$third_name#}直接登录</p>
+						<p class="bind-tips">結合後、あなたは直接{#$third_name#}を使用してログインすることができます </P>
 					</div>
 					</form>
 				</div>

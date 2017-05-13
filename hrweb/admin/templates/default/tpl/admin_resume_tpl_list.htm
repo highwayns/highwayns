@@ -19,14 +19,14 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
-新增模板只需将模板文件上传至 ./templates/tpl_resume目录下，更多模版请到 <a href="http://www.jp.highwayns.com/bbs" target="_blank" style="color:#009900">[论坛]</a> 获取。<br />
-增加或删除模版后请点击下方<strong>刷新</strong>按钮。<br />
-      如果您熟悉html语法，则可以参考 <a href="http://www.jp.highwayns.com/handbook" target="_blank" style="color:#009900">[模版开发手册]</a> 自定义风格模版。
+新增模板只需将模板文件上传至 ./templates/tpl_resume目录下，更多模版请到 <a href="http://jp.highwayns.com/bbs" target="_blank" style="color:#009900">[フォーラム] </a> 获取。<br />
+增加或删除模版后请点击下方<strong>更新</strong>按钮。<br />
+      如果您熟悉html语法，则可以参考 <a href="http://jp.highwayns.com/handbook" target="_blank" style="color:#009900">[ステンシル開発マニュアル] </a> 自定义风格模版。
 </p>
 </div>
-<div class="toptit">简历模版</div>
+<div class="toptit">履歴書バージョン</div>
 <form id="form1" name="form1" method="post" action="?act=resume_tpl_save">
 {#$inputtoken#}
 	{#foreach from=$list item=li#}
@@ -36,7 +36,7 @@ $(document).ready(function()
     <td width="225"><img src="../templates/tpl_resume/{#$li.tpl_dir#}/thumbnail.jpg" alt="{#$li.info.name#}" width="225" height="136" border="1"  style="border: #CCCCCC;"/></td>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
-        <td width="50" align="right">名称：</td>
+        <td width="50" align="right">名前：</td>
         <td><input name="tpl_id[]" type="hidden" value="{#$li.tpl_id#}" />
           <input name="tpl_name[]" type="text" value="{#$li.tpl_name#}"  class="input_text_200" />
 		  
@@ -44,7 +44,7 @@ $(document).ready(function()
       </tr>
    
       <tr>
-        <td width="50" align="right">默认：</td>
+        <td width="50" align="right">デフォルト：</td>
         <td>
 		 
 		<label>
@@ -52,25 +52,25 @@ $(document).ready(function()
         </label></td>
       </tr>
 	  <tr>
-        <td align="right">可用：</td>
+        <td align="right">利用可能：</td>
         <td><label>
          <input name="tpl_display[]" type="checkbox" value="1" {#if $li.tpl_display=="1"#}checked="checked" {#/if#}/>
         </label></td>
       </tr>
     <!--  <tr>
-        <td align="right">售价：</td>
+        <td align="right">価格：</td>
         <td><input type="text" class="input_text_200" maxlength="3" value="{#$li.tpl_val#}" name="tpl_val[]"/>
 		点积分
 		
 		
-		<span class="admin_note">企业会员使用此模版需要支付的积分，0为免费</span></td>
+		<span class="admin_note">会員企業はポイントを支払うために、このテンプレートを使用し、0無料</span></td>
       </tr> -->
 	  <tr>
-        <td align="right">版本：</td>
+        <td align="right">バージョン：</td>
         <td>{#$li.info.version#}</td>
       </tr>
 	        <tr>
-        <td align="right">作者：</td>
+        <td align="right">著者：</td>
         <td><a href="{#$li.info.authorurl#}" target="_blank">{#$li.info.author#}</a></td>
       </tr>
     </table></td>

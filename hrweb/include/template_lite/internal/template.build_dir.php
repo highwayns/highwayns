@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite template_build_dir template internal module
- *
- * Type:	 template
- * Name:	 template_build_dir
- */
 
 function template_build_dir($dir, $id, &$object)
 {

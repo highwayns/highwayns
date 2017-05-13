@@ -1,11 +1,4 @@
 ﻿<?php
-/**
- * template_lite tpl_create_timestamp function
- *
- * Taken from the original Smarty
- * http://smarty.php.net
- *
- */
 function tpl_make_timestamp($string)
 {
 	if(empty($string))

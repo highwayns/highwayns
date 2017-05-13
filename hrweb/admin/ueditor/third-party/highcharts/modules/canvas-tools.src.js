@@ -1,11 +1,4 @@
-﻿/**
- * @license A class to parse color values
- * @author Stoyan Stefanov <sstoo@gmail.com>
- * @link   http://www.phpied.com/rgb-color-parser-in-javascript/
- * Use it if you like it
- *
- */
-function RGBColor(color_string)
+﻿function RGBColor(color_string)
 {
     this.ok = false;
 
@@ -287,15 +280,6 @@ function RGBColor(color_string)
 
 }
 
-/**
- * @license canvg.js - Javascript SVG parser and renderer on Canvas
- * MIT Licensed 
- * Gabe Lerner (gabelerner@gmail.com)
- * http://code.google.com/p/canvg/
- *
- * Requires: rgbcolor.js - http://www.phpied.com/rgb-color-parser-in-javascript/
- *
- */
 if(!window.console) {
 	window.console = {};
 	window.console.log = function(str) {};
@@ -2987,86 +2971,6 @@ if (CanvasRenderingContext2D) {
 			hiddenSvg.appendChild(this.box);
 		},
 
-		/**
-		 * Configures the renderer with the chart. Attach a listener to the event tooltipRefresh.
-		 **/
-		configure: function (chart) {
-			var renderer = this,
-				options = chart.options.tooltip,
-				borderWidth = options.borderWidth,
-				tooltipDiv = renderer.ttDiv,
-				tooltipDivStyle = options.style,
-				tooltipLine = renderer.ttLine,
-				padding = parseInt(tooltipDivStyle.padding, 10);
-
-			// Add border styling from options to the style
-			tooltipDivStyle = merge(tooltipDivStyle, {
-				padding: padding + PX,
-				'background-color': options.backgroundColor,
-				'border-style': 'solid',
-				'border-width': borderWidth + PX,
-				'border-radius': options.borderRadius + PX
-			});
-
-			// Optionally add shadow
-			if (options.shadow) {
-				tooltipDivStyle = merge(tooltipDivStyle, {
-					'box-shadow': '1px 1px 3px gray', // w3c
-					'-webkit-box-shadow': '1px 1px 3px gray' // webkit
-				});
-			}
-			css(tooltipDiv, tooltipDivStyle);
-
-			// Set simple style on the line
-			css(tooltipLine, {
-				'border-left': '1px solid darkgray'
-			});
-
-			// This event is triggered when a new tooltip should be shown
-			addEvent(chart, 'tooltipRefresh', function (args) {
-				var chartContainer = chart.container,
-					offsetLeft = chartContainer.offsetLeft,
-					offsetTop = chartContainer.offsetTop,
-					position;
-
-				// Set the content of the tooltip
-				tooltipDiv.innerHTML = args.text;
-
-				// Compute the best position for the tooltip based on the divs size and container size.
-				position = chart.tooltip.getPosition(tooltipDiv.offsetWidth, tooltipDiv.offsetHeight, {plotX: args.x, plotY: args.y});
-
-				css(tooltipDiv, {
-					visibility: VISIBLE,
-					left: position.x + PX,
-					top: position.y + PX,
-					'border-color': args.borderColor
-				});
-
-				// Position the tooltip line
-				css(tooltipLine, {
-					visibility: VISIBLE,
-					left: offsetLeft + args.x + PX,
-					top: offsetTop + chart.plotTop + PX,
-					height: chart.plotHeight  + PX
-				});
-
-				// This timeout hides the tooltip after 3 seconds
-				// First clear any existing timer
-				if (renderer.ttTimer !== UNDEFINED) {
-					clearTimeout(renderer.ttTimer);
-				}
-
-				// Start a new timer that hides tooltip and line
-				renderer.ttTimer = setTimeout(function () {
-					css(tooltipDiv, { visibility: HIDDEN });
-					css(tooltipLine, { visibility: HIDDEN });
-				}, 3000);
-			});
-		},
-
-		/**
-		 * Extend SVGRenderer.destroy to also destroy the elements added by CanVGRenderer.
-		 */
 		destroy: function () {
 			var renderer = this;
 
@@ -3087,13 +2991,6 @@ if (CanvasRenderingContext2D) {
 			return SVGRenderer.prototype.destroy.apply(renderer);
 		},
 
-		/**
-		 * Take a color and return it if it's a string, do not make it a gradient even if it is a
-		 * gradient. Currently canvg cannot render gradients (turns out black),
-		 * see: http://code.google.com/p/canvg/issues/detail?id=104
-		 *
-		 * @param {Object} color The color or config object
-		 */
 		color: function (color, elem, prop) {
 			if (color && color.linearGradient) {
 				// Pick the end color and forward to base implementation
@@ -3102,9 +2999,6 @@ if (CanvasRenderingContext2D) {
 			return SVGRenderer.prototype.color.call(this, color, elem, prop);
 		},
 
-		/**
-		 * Draws the SVG on the canvas or adds a draw invokation to the deferred list.
-		 */
 		draw: function () {
 			var renderer = this;
 			window.canvg(renderer.canvas, renderer.hiddenSvg.innerHTML);

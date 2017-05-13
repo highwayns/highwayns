@@ -16,21 +16,21 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 	点击“继续添加”按钮，可同时添加多个分类！<br />
 </p>
 </div>
-<div class="toptit">新增分类</div>
+<div class="toptit">カテゴリーを追加</div>
 <form id="form1" name="form1" method="post" action="?act=add_category_jobs_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #93AEDD  dashed">
  <tr>
-    <td width="120" align="right">所属分类:</td>
+    <td width="120" align="right">カテゴリー：</td>
     <td>
 	<select name="parentid[]">
-	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>顶级分类</option>
+	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>トップカテゴリ</option>
 	  {#highway_get_classify set="列表名:jobs,类型:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$smarty.get.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 	  {#highway_get_classify set="列表名:sub_jobs,类型:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
@@ -42,17 +42,17 @@ $(document).ready(function()
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">名称:</td>
+    <td width="120" align="right">名前：</td>
     <td><input name="categoryname[]" type="text" class="input_text_200"  value=""/></td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="category_order[]" type="text" class="input_text_200"  value="0"/></td>
   </tr>
   <tr>
-    <td width="120" align="right">范例:</td>
+    <td width="120" align="right">例：</td>
     <td><textarea name="content[]" cols="70" rows="7" style="font-size:12px;"/></textarea><br />
-<span style="color:#666666">注：只三级分类添加范例即可</span>
+<span style="color:#666666">注意：3つだけの例が追加分類することができます</span>
     </td>
   </tr>
 </table>

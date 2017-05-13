@@ -15,7 +15,7 @@
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 登录日志</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > ログイン日誌</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -30,22 +30,22 @@
  	    	<div class="topnav">
 			  
 			<div class="titleH1">
-				<div class="h1-title">账号管理</div>
+				<div class="h1-title">アカウント管理</div>
 			</div>
 					
 			<div class="navs link_bk">
-				<a href="?act=userprofile">基本资料</a>
-				  <a href="?act=authenticate">账号安全</a>
-				  <a href="?act=avatars">我的头像</a>
-				  <a href="?act=pm">我的消息{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
-				   <a href="?act=login_log" class="se">登录日志</a>
+				<a href="?act=userprofile">基本情報</a>
+				  <a href="?act=authenticate">アカウントのセキュリティ</a>
+				  <a href="?act=avatars">マイ写真</a>
+				  <a href="?act=pm">私のメッセージ{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
+				   <a href="?act=login_log" class="se">登録日誌</あ>
 				  <div class="clear"></div>
 			</div>
 	  	</div>
 	  		<div class="toptitle"  >
-			    <div class="t1">登录时间 </div>
-				<div class="t3">登录IP</div>
-				<div class="t2">登录地点</div>
+			    <div class="t1">ログイン時間</div>
+				<div class="t3">ログインIP </div>
+				<div class="t2">ログイン場所</div>
 				<div class="clear"></div>
 			  </div>
 	  		{#if $loginlog#}
@@ -65,7 +65,7 @@
       </table>
       {#/if#}
 			  {#else#}
-			   <div class="emptytip">对不起！没有找到您要的信息！</div>
+			   <div class="emptytip">すみません！あなたが欲しい情報を見つけられませんでした！</div>
 			   {#/if#}
 			  
 	  	</div>

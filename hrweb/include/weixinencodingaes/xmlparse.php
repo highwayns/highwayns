@@ -4,13 +4,16 @@ include_once "errorCode.php";
 /**
  * XMLParse class
  *
- * 鎻愪緵鎻愬彇娑堟伅鏍煎紡涓殑瀵嗘枃鍙婄敓鎴愬洖澶嶆秷鎭牸寮忕殑鎺ュ彛.
+ * 提供提取消息格式中的密文及生成回复消息格式的接口.
  */
 class XMLParse
 {
-
+	
 	/**
-	 * 鎻愬彇鍑簒ml鏁版嵁鍖呬腑鐨勫姞瀵嗘秷鎭?	 * @param string $xmltext 寰呮彁鍙栫殑xml瀛楃涓?	 * @return string 鎻愬彇鍑虹殑鍔犲瘑娑堟伅瀛楃涓?	 */
+	 * 提取出xml数据包中的加密消息
+	 * @param string $xmltext 待提取的xml字符串
+	 * @return string 提取出的加密消息字符串
+	 */
 	public function extract($xmltext)
 	{
 		try {
@@ -26,12 +29,14 @@ class XMLParse
 			return array(ErrorCode::$ParseXmlError, null, null);
 		}
 	}
-
+	
 	/**
-	 * 鐢熸垚xml娑堟伅
-	 * @param string $encrypt 鍔犲瘑鍚庣殑娑堟伅瀵嗘枃
-	 * @param string $signature 瀹夊叏绛惧悕
-	 * @param string $timestamp 鏃堕棿鎴?	 * @param string $nonce 闅忔満瀛楃涓?	 */
+	 * 生成xml消息
+	 * @param string $encrypt 加密后的消息密文
+	 * @param string $signature 安全签名
+	 * @param string $timestamp 时间戳
+	 * @param string $nonce 随机字符串
+	 */
 	public function generate($encrypt, $signature, $timestamp, $nonce)
 	{
 		$format = "<xml>
@@ -42,7 +47,7 @@ class XMLParse
 </xml>";
 		return sprintf($format, $encrypt, $signature, $timestamp, $nonce);
 	}
-
+	
 }
 
 

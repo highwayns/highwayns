@@ -1,22 +1,10 @@
 ﻿<?php
 
-/**
- * Validates shorthand CSS property list-style.
- * @warning Does not support url tokens that have internal spaces.
- */
 class HTMLPurifier_AttrDef_CSS_ListStyle extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * Local copy of validators.
-     * @type HTMLPurifier_AttrDef[]
-     * @note See HTMLPurifier_AttrDef_CSS_Font::$info for a similar impl.
-     */
     protected $info;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function __construct($config)
     {
         $def = $config->getCSSDefinition();
@@ -25,12 +13,6 @@ class HTMLPurifier_AttrDef_CSS_ListStyle extends HTMLPurifier_AttrDef
         $this->info['list-style-image'] = $def->info['list-style-image'];
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         // regular pre-processing

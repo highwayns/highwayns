@@ -162,9 +162,6 @@ elseif ($act=='addjobs')
 				$add_mode = 1;
 				$smarty->assign('add_mode',1);
 			}
-			/**
-			 * 3.6优化start
-			 */
 			if ($add_mode=='1')
 			{
 				$points_rule=get_cache('points_rule');
@@ -201,9 +198,6 @@ elseif ($act=='addjobs')
 					showmsg("現在表示されたの職位最大制限を超えました，サービスコースをアップグレードしてください！",1,$link);
 				}
 			}
-			/**
-			 * 3.6优化end
-			 */
 
 			$captcha=get_cache('captcha');
 			$smarty->assign('verify_addjob',$captcha['verify_addjob']);

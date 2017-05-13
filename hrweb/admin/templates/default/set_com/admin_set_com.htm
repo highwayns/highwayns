@@ -7,37 +7,37 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 不同的运营阶段您可以选择不同的设置。<br />
 
 </p>
 </div>
 
-<div class="toptit">基本设置</div>
+<div class="toptit">ベーシックセット</div>
   <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 <tr>
-      <td width="200" align="right">发布招聘默认有效期：</td>
+      <td width="200" align="right">求人デフォルトの有効期間：</td>
       <td><input name="company_add_days" type="text"  class="input_text_150" id="company_add_days" value="{#$config.company_add_days#}" maxlength="3"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
       天<span  style="color:#666666"></span></td>
     </tr>
 	<tr>
-      <td align="right">上传营业执照文件限制：</td>
+      <td align="right">ファイルビジネスライセンスの制限をアップロード：</td>
       <td><input name="certificate_max_size" type="text"  class="input_text_150" id="certificate_max_size" value="{#$config.certificate_max_size#}" maxlength="10"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>        
         kb</td>
     </tr>
 		<tr>
-      <td align="right">企业LOGO文件限制：</td>
+      <td align="right">会社のロゴファイルの制限：</td>
       <td><input name="logo_max_size" type="text"  class="input_text_150" id="logo_max_size" value="{#$config.logo_max_size#}" maxlength="10"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>        
         kb</td>
     </tr>
 	<tr>
-      <td align="right">职位列表数最大为：</td>
+      <td align="right">求人最大情報数：</td>
       <td><input name="jobs_list_max" type="text"  class="input_text_150"   value="{#$config.jobs_list_max#}" maxlength="10"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>        
         条
-		<span class="admin_note">0为不限制</span>
+		<span class="admin_note">0 は制限なし</span>
 		</td>
     </tr>
 	<tr>
@@ -48,13 +48,13 @@
 	  </tr>
   </table>
     </form>
-  <div class="toptit">查看联系方式设置</div>
+  <div class="toptit">連絡先設定を調べる</div>
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
  
 	<tr>
-      <td align="right" width="200">Web端允许查看联系方式：</td>
+      <td align="right" width="200">Webクライアントができます、お問い合わせください。</td>
       <td>
 	  
 	  <label><input name="showjobcontact" type="radio"   value="0"  {#if $config.showjobcontact=="0"#}checked=checked {#/if#}/>游客</label>
@@ -66,7 +66,7 @@
         </td>
     </tr>
     <tr>
-    	<td align="right" width="200">移动端允许查看联系方式：</td>
+    	<td align="right" width="200">移動端の接触を表示することができ：</td>
     	<td>
     		<label><input name="showjobcontact_wap" type="radio"   value="0"  {#if $config.showjobcontact_wap=="0"#}checked=checked {#/if#}/>游客</label>
     		&nbsp;&nbsp;&nbsp;&nbsp;
@@ -84,13 +84,13 @@
 	  </table>
 	  
 	    </form>
-		  <div class="toptit">联系方式图形化 <span class="admin_note">图形化需要将中文字体文件上传到data/contactimgfont/，字体文件命名为“cn.ttc”</span></div>
+		  <div class="toptit">連絡先のグラフィカル <span class="admin_note">图形化需要将中文字体文件上传到data/contactimgfont/，字体文件命名为“cn.ttc”</span></div>
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
  
 	<tr>
-      <td align="right" width="200">企业联系方式：</td>
+      <td align="right" width="200">連絡先（複数可）：</td>
       <td>
 	  
 	  <label><input name="contact_img_com" type="radio"   value="1"  {#if $config.contact_img_com=="1"#}checked=checked {#/if#}/>文字</label>
@@ -101,7 +101,7 @@
         </td>
     </tr>
 	<tr>
-      <td align="right" width="200">职位联系方式：</td>
+      <td align="right" width="200">職位連絡先：</td>
       <td>
 	  
 	  <label><input name="contact_img_job" type="radio"   value="1"  {#if $config.contact_img_job=="1"#}checked=checked {#/if#}/>文字</label>
@@ -120,59 +120,59 @@
 	  </table>
 	  
 	    </form>
-<div class="toptit">认证与审核状态设置</div>
+<div class="toptit">認証と承認ステータスの設定</div>
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 	<tr>
 	<tr>
-      <td align="right"  width="220">企业认证状态默认：</td>
+      <td align="right"  width="220">エンタープライズ認定ステータスデフォルト：</td>
       <td><label>
-        <input name="audit_add_com" type="radio" id="audit_add_com" value="0"  {#if $config.audit_add_com=="0"#}checked=checked {#/if#}/>未认证</label>
+        <input name="audit_add_com" type="radio" id="audit_add_com" value="0"  {#if $config.audit_add_com=="0"#}checked=checked {#/if#}/>認証されていない</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_add_com" value="1" id="audit_add_com"  {#if $config.audit_add_com=="1"#}checked=checked{#/if#}/>认证通过</label>
+<input type="radio" name="audit_add_com" value="1" id="audit_add_com"  {#if $config.audit_add_com=="1"#}checked=checked{#/if#}/>認証</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_add_com" value="2" id="audit_add_com"  {#if $config.audit_add_com=="2"#}checked=checked{#/if#}/>认证中</label>
+<input type="radio" name="audit_add_com" value="2" id="audit_add_com"  {#if $config.audit_add_com=="2"#}checked=checked{#/if#}/>認証中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_add_com" value="3" id="audit_add_com"  {#if $config.audit_add_com=="3"#}checked=checked{#/if#}/>认证失败</label>
+<input type="radio" name="audit_add_com" value="3" id="audit_add_com"  {#if $config.audit_add_com=="3"#}checked=checked{#/if#}/>認証に失敗しました</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">修改企业资料后认证状态：</td>
+      <td align="right">企業情報認定ステータスを変更した後:</td>
       <td>
 	  <label>
-        <input name="audit_edit_com" type="radio" id="audit_edit_com" value="-1"  {#if $config.audit_edit_com=="-1"#}checked=checked {#/if#}/>保持不变</label>
+        <input name="audit_edit_com" type="radio" id="audit_edit_com" value="-1"  {#if $config.audit_edit_com=="-1"#}checked=checked {#/if#}/>変更なし</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 	  <label>
-        <input name="audit_edit_com" type="radio" id="audit_edit_com" value="0"  {#if $config.audit_edit_com=="0"#}checked=checked {#/if#}/>未认证</label>
+        <input name="audit_edit_com" type="radio" id="audit_edit_com" value="0"  {#if $config.audit_edit_com=="0"#}checked=checked {#/if#}/>認証されていない</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_edit_com" value="1" id="audit_edit_com"  {#if $config.audit_edit_com=="1"#}checked=checked{#/if#}/>认证通过</label>
+<input type="radio" name="audit_edit_com" value="1" id="audit_edit_com"  {#if $config.audit_edit_com=="1"#}checked=checked{#/if#}/>認証</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_edit_com" value="2" id="audit_edit_com"  {#if $config.audit_edit_com=="2"#}checked=checked{#/if#}/>认证中</label>
+<input type="radio" name="audit_edit_com" value="2" id="audit_edit_com"  {#if $config.audit_edit_com=="2"#}checked=checked{#/if#}/>認証中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_add_com" value="3" id="audit_edit_com"  {#if $config.audit_edit_com=="3"#}checked=checked{#/if#}/>认证失败</label>
+<input type="radio" name="audit_add_com" value="3" id="audit_edit_com"  {#if $config.audit_edit_com=="3"#}checked=checked{#/if#}/>認証に失敗しました</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">已认证企业发布职位后审核状态为：</td>
+      <td align="right">レビューステータスの後にジョブを掲示認定企業：</td>
       <td><label>
-        <input name="audit_verifycom_addjob" type="radio"   value="1"  {#if $config.audit_verifycom_addjob=="1"#}checked=checked {#/if#}/>审核通过</label>
+        <input name="audit_verifycom_addjob" type="radio"   value="1"  {#if $config.audit_verifycom_addjob=="1"#}checked=checked {#/if#}/>承認</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_verifycom_addjob" value="2"   {#if $config.audit_verifycom_addjob=="2"#}checked=checked{#/if#}/>审核中</label>
+<input type="radio" name="audit_verifycom_addjob" value="2"   {#if $config.audit_verifycom_addjob=="2"#}checked=checked{#/if#}/>審査中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_verifycom_addjob" value="3"   {#if $config.audit_verifycom_addjob=="3"#}checked=checked{#/if#}/>审核未通过</label>
+<input type="radio" name="audit_verifycom_addjob" value="3"   {#if $config.audit_verifycom_addjob=="3"#}checked=checked{#/if#}/>承認されていません</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">已认证企业修改职位后审核状态为：</td>
+      <td align="right">認証済み企業の職位修正後の状態：</td>
       <td>
 	  <label>
         <input name="audit_verifycom_editjob" type="radio"   value="-1"  {#if $config.audit_verifycom_editjob=="-1"#}checked=checked {#/if#}/>保持不变
@@ -183,26 +183,26 @@
 		</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_verifycom_editjob" value="2"   {#if $config.audit_verifycom_editjob=="2"#}checked=checked{#/if#}/>审核中</label>
+<input type="radio" name="audit_verifycom_editjob" value="2"   {#if $config.audit_verifycom_editjob=="2"#}checked=checked{#/if#}/>審査中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_verifycom_editjob" value="3"   {#if $config.audit_verifycom_editjob=="3"#}checked=checked{#/if#}/>审核未通过</label>
+<input type="radio" name="audit_verifycom_editjob" value="3"   {#if $config.audit_verifycom_editjob=="3"#}checked=checked{#/if#}/>承認されていません</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">未认证企业发布职位后审核状态为：</td>
+      <td align="right">非認定企業はジョブを掲示するときのステタース：</td>
       <td><label>
-        <input name="audit_unexaminedcom_addjob" type="radio"   value="1"  {#if $config.audit_unexaminedcom_addjob=="1"#}checked=checked {#/if#}/>审核通过</label>
+        <input name="audit_unexaminedcom_addjob" type="radio"   value="1"  {#if $config.audit_unexaminedcom_addjob=="1"#}checked=checked {#/if#}/>承認</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_unexaminedcom_addjob" value="2"   {#if $config.audit_unexaminedcom_addjob=="2"#}checked=checked{#/if#}/>审核中</label>
+<input type="radio" name="audit_unexaminedcom_addjob" value="2"   {#if $config.audit_unexaminedcom_addjob=="2"#}checked=checked{#/if#}/>審査中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_unexaminedcom_addjob" value="3"   {#if $config.audit_unexaminedcom_addjob=="3"#}checked=checked{#/if#}/>审核未通过</label>
+<input type="radio" name="audit_unexaminedcom_addjob" value="3"   {#if $config.audit_unexaminedcom_addjob=="3"#}checked=checked{#/if#}/>承認されていません</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">未认证企业修改职位后审核状态为：</td>
+      <td align="right">非認定企業の修正後のステタース</td>
       <td>
 	  <label>
         <input name="audit_unexaminedcom_editjob" type="radio"   value="-1"  {#if $config.audit_unexaminedcom_editjob=="-1"#}checked=checked {#/if#}/>保持不变
@@ -213,30 +213,30 @@
 		</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_unexaminedcom_editjob" value="2"   {#if $config.audit_unexaminedcom_editjob=="2"#}checked=checked{#/if#}/>审核中</label>
+<input type="radio" name="audit_unexaminedcom_editjob" value="2"   {#if $config.audit_unexaminedcom_editjob=="2"#}checked=checked{#/if#}/>審査中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_unexaminedcom_editjob" value="3"   {#if $config.audit_unexaminedcom_editjob=="3"#}checked=checked{#/if#}/>审核未通过</label>
+<input type="radio" name="audit_unexaminedcom_editjob" value="3"   {#if $config.audit_unexaminedcom_editjob=="3"#}checked=checked{#/if#}/>承認されていません</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">强制会员认证手机：</td>
+      <td align="right">強制メンバー検証電話：</td>
       <td><label>
-        <input name="login_com_audit_mobile" type="radio" id="login_com_audit_mobile" value="1"  {#if $config.login_com_audit_mobile=="1"#}checked=checked {#/if#}/>是</label>
+        <input name="login_com_audit_mobile" type="radio" id="login_com_audit_mobile" value="1"  {#if $config.login_com_audit_mobile=="1"#}checked=checked {#/if#}/>です</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="login_com_audit_mobile" value="0" id="login_com_audit_mobile"  {#if $config.login_com_audit_mobile=="0"#}checked=checked{#/if#}/>否</label>
+<input type="radio" name="login_com_audit_mobile" value="0" id="login_com_audit_mobile"  {#if $config.login_com_audit_mobile=="0"#}checked=checked{#/if#}/>ノー</label>
 
-<span class="admin_note">如要设为强制认证手机需开启短信模块</span>
+<span class="admin_note">携帯電話認証を設定するには、SMSモジュールを開く必要があります</span>
 </td>
 	</tr>
 	<tr>
-      <td align="right">强制会员认证email：</td>
+      <td align="right">メンバーの必須認証メール：</td>
       <td><label>
-        <input name="login_com_audit_email" type="radio" id="login_com_audit_email" value="1"  {#if $config.login_com_audit_email=="1"#}checked=checked {#/if#}/>是</label>
+        <input name="login_com_audit_email" type="radio" id="login_com_audit_email" value="1"  {#if $config.login_com_audit_email=="1"#}checked=checked {#/if#}/>です</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="login_com_audit_email" value="0" id="login_com_audit_email"  {#if $config.login_com_audit_email=="0"#}checked=checked{#/if#}/>否</label></td>
+<input type="radio" name="login_com_audit_email" value="0" id="login_com_audit_email"  {#if $config.login_com_audit_email=="0"#}checked=checked{#/if#}/>ノー</label></td>
 	</tr>
 	
 	
@@ -250,20 +250,20 @@
 	  
 	    </form>
 	
-	 <div class="toptit">过期信息设置</div>
+	 <div class="toptit">有効期限の設定</div>
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 	<tr>
-      <td align="right" width="200">是否显示过期招聘信息：</td>
+      <td align="right" width="200">期限切れの仕事が掲示するかどうか：</td>
       <td><label>
-        <input name="outdated_jobs" type="radio" id="outdated_jobs" value="1"  {#if $config.outdated_jobs=="1"#}checked=checked {#/if#}/>否</label>
+        <input name="outdated_jobs" type="radio" id="outdated_jobs" value="1"  {#if $config.outdated_jobs=="1"#}checked=checked {#/if#}/>ノー</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="outdated_jobs" value="0" id="outdated_jobs"  {#if $config.outdated_jobs=="0"#}checked=checked{#/if#}/>是</label>
+<input type="radio" name="outdated_jobs" value="0" id="outdated_jobs"  {#if $config.outdated_jobs=="0"#}checked=checked{#/if#}/>です</label>
 
 
-  <span class="admin_note">职位过期是指职位有效期过期或服务有效期过期，修改此项仅对新发布的职位有效</span>
+  <span class="admin_note">仕事掲載の期間を過ぎることは有効性が失効またはサービス期間が満了し、これを修正すると新しい掲載仕事にだけ有効です</span>
 </td>
 	</tr>
 	
@@ -276,17 +276,17 @@
 		  </table>
 	  
 	    </form>
-	 <div class="toptit">其他设置</div>
+	 <div class="toptit">他の設定</div>
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 	<tr>
-      <td align="right" width="200">允许公司名称重复：</td>
+      <td align="right" width="200">会社名の重ねることができます：</td>
       <td><label>
-        <input name="company_repeat" type="radio" id="company_repeat" value="1"  {#if $config.company_repeat=="1"#}checked=checked {#/if#}/>是</label>
+        <input name="company_repeat" type="radio" id="company_repeat" value="1"  {#if $config.company_repeat=="1"#}checked=checked {#/if#}/>です</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="company_repeat" value="0" id="company_repeat"  {#if $config.company_repeat=="0"#}checked=checked{#/if#}/>否</label></td>
+<input type="radio" name="company_repeat" value="0" id="company_repeat"  {#if $config.company_repeat=="0"#}checked=checked{#/if#}/>ノー</label></td>
 	</tr>
 	<tr>
 	  <td align="right" valign="top">&nbsp;</td>

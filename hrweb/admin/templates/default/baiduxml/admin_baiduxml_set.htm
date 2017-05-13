@@ -6,47 +6,47 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 每个资源文件最多包含5000个URL，并且文件在压缩前不超过9.5MB。<br />
 此设置将关联计划任务中的百度开发平台数据生成任务。
 </p>
 </div>
-<div class="toptit">配置</div>
+<div class="toptit">設定</div>
   <form action="?act=setsave" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
 	<tr>
-      <td width="150" align="right">信息筛选方式：</td>
+      <td width="150" align="right">情報選別方法</td>
       <td> 
 	   <label>
-        <input name="order" type="radio" id="order" value="1"  {#if $xml.order=="1"#}checked=checked {#/if#}/>添加时间降序</label>
+        <input name="order" type="radio" id="order" value="1"  {#if $xml.order=="1"#}checked=checked {#/if#}/>時間降順の追加</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label>
-        <input name="order" type="radio" id="order" value="2"  {#if $xml.order=="2"#}checked=checked {#/if#}/>刷新时间降序</label>	  </td>
+        <input name="order" type="radio" id="order" value="2"  {#if $xml.order=="2"#}checked=checked {#/if#}/>リフレッシュタイム降順</label>	  </td>
     </tr>
     <tr>
-      <td width="150" align="right">生成信息最大数：</td>
-      <td><input name="xmlmax" type="text"  class="input_text_200" id="xmlmax" value="{#$xml.xmlmax#}" maxlength="30"/><span class="admin_note">0为不限制，如设为10000，则每次最多生成10000个职位</span></td>
+      <td width="150" align="right">情報の最大を生成します。</td>
+      <td><input name="xmlmax" type="text"  class="input_text_200" id="xmlmax" value="{#$xml.xmlmax#}" maxlength="30"/><span class="admin_note">0は制限なし，もし10000に設定したら，毎回最大仕事生成数は10000である</span></td>
     </tr>
     <tr>
-      <td align="right">单个文档包含信息总数：</td>
+      <td align="right">単一の文書は情報の総数を含む：</td>
       <td><input name="xmlpagesize" type="text"  class="input_text_200" id="xmlpagesize" value="{#$xml.xmlpagesize#}" maxlength="100"/>
-     <span class="admin_note">不能超过5000，建议设为3000</span></td>
+     <span class="admin_note">5000以上禁止、3000 までに推奨されます</span></td>
     </tr>
 	<tr>
-      <td align="right">分卷文档名称前缀：</td>
+      <td align="right">サブボリュームの文書名の接頭辞：</td>
       <td><input name="xmlpre" type="text"  class="input_text_200" id="xmlpre" value="{#$xml.xmlpre#}" maxlength="100"/>     </td>
     </tr>
 	
 	<tr>
-      <td align="right">索引文档名称：</td>
+      <td align="right">インデックスドキュメント名：</td>
       <td><input name="indexname" type="text"  class="input_text_200" id="indexname" value="{#$xml.indexname#}" maxlength="100"/></td>
     </tr>
 	 <tr>
-      <td align="right">文档保存目录：</td>
+      <td align="right">ドキュメントディレクトリを保存します：</td>
       <td><input name="xmldir" type="text"  class="input_text_200" id="indexdir" value="{#$xml.xmldir#}" maxlength="100"/>
-     <span class="admin_note">默认为系统前台目录下的'baiduxml'目录</span></td>
+     <span class="admin_note">デフォルトは、ディレクトリの受信システムの下で「baiduxml」ディレクトリである</span></td>
     </tr>
 	      
 	       <tr>

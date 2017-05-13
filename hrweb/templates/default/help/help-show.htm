@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#$show.title#}- 帮助 - {#$HIGHWAY.site_name#}</title>
+<title>{#$show.title#}- ヘルプ - {#$HIGHWAY.site_name#}</title>
 <meta name="description" content="{#$show.description#}">
 <meta name="keywords" content="{#$show.keywords#}">
 <meta name="author" content="海威人材" />
@@ -32,7 +32,7 @@ $(document).ready(function(){
 				alert("请输入关键字");
 				return false;
 			}
-	$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+	$("body").append('<div id="pageloadingbox">ロードページ…. </div><div id="pageloadingbg"></div>');
 	$("#pageloadingbg").css("opacity", 0.5);
 	$.get("{#$HIGHWAY.site_dir#}plus/ajax_search_location.php", {"act":"HW_helpsearch","key":$("#help_searcform #key").val(),"page":1},
 			function (data,textStatus)
@@ -54,12 +54,12 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-	当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_help"|highway_url#}">帮助</a>&nbsp;>&nbsp;{#$show.title#}
+	当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_help"|highway_url#}">帮助</a>&nbsp;>&nbsp;{#$show.title#}
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
 		<div class="about_left">
-			<h2 class="about_tit">帮助中心</h2>
+			<h2 class="about_tit">ヘルプセンター</h2>
 			<ul>
 				{#highway_help_category set="列表名:category,大类:0"#}
 				{#foreach from=$category item=list#}
@@ -75,9 +75,9 @@ $(document).ready(function(){
 			</ul>
 		</div>
 		<div class="help_sreach clearfix" id="help_searcform">
-			<div class="f-left"><input type="text" class="input_text_300" placeholder="请输入问题关键字" name="key" id="key" /></div>
-			<div class="f-left"><input type="submit" value="搜索" class="but70lan" id="search_go" /></div>
-			<div class="f-left hot-help">热门关键字：<a href="{#"HW_helpsearch"|highway_url#}?key={#"找回密码"|escape:"url"#}">找回密码</a><a href="{#"HW_helpsearch"|highway_url#}?key={#"置顶"|escape:"url"#}">置顶</a><a href="{#"HW_helpsearch"|highway_url#}?key={#"推荐"|escape:"url"#}">推荐</a><a href="{#"HW_helpsearch"|highway_url#}?key={#"模版"|escape:"url"#}">模版</a><a href="{#"HW_helpsearch"|highway_url#}?key={#"电子地图"|escape:"url"#}">电子地图</a></div>
+			<div class="f-left"><input type = “text” クラス= “input_text_300” placeholder= = “問題のキーワードを入力してください” name="key" id="key" /></div>
+			<div class="f-left"><input type="submit" value=“検索” class="but70lan" id="search_go" /></div>
+			<div class="f-left hot-help">人気のキーワード：<a href="{#"HW_helpsearch"|HIGHWAY_url#}?key={#”パスワード探す”|escape:"url"#}">找回密码</a><a href="{#"HW_helpsearch"|highway_url#}?key={#”トップ”|escape:"url"#}">置顶</a><a href=“{#”hW_helpsearch”|HIGHWAY_url#}?key={#”推薦”|escape:”url”#}”>推荐</a><a href="{#"HW_helpsearch"|highway_url#}?key={#”プラート”|escape:"url"#}">模版</a><a href="{#"HW_helpsearch"|highway_url#}?key={#"电子地図”|escape:"url"#}">电子地图</a></div>
 		</div>
 		<div class="about_right">
 			

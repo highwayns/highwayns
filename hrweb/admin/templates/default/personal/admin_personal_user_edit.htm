@@ -40,22 +40,22 @@
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">基本信息</div>
+<div class="toptit">基本情報</div>
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
     <tr>
-      <td width="120" height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">注册时间：</td>
+      <td width="120" height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">登録時間：</td>
       <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#$user.reg_time|date_format:"%Y-%m-%d   %H:%M"#}</td>
-      <td width="120" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >最后登录时间：</td>
+      <td width="120" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >最終ログイン時刻：</td>
       <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#$user.last_login_time|date_format:"%Y-%m-%d   %H:%M"#}</td>
     </tr>
     <tr>
-      <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">注册IP：</td>
+      <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">登録IP：</td>
       <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#if $user.reg_ip#}{#$user.reg_ip#}{#else#}- - - -{#/if#}</td>
-      <td align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >最后登录IP：</td>
+      <td align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >最終ログインIP：</td>
       <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" >{#if $user.last_login_ip#}{#$user.last_login_ip#}{#else#}- - - -{#/if#}</td>
     </tr>
     <tr>
-      <td height="30" align="right" valign="top" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">个人简历：</td>
+      <td height="30" align="right" valign="top" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">個人履歴書：</td>
       <td colspan="3" bgcolor="#FFFFFF"  class="link_lan" style=" border-bottom:1px #CCCCCC dashed;" >
 	  <table border="0" cellspacing="12" cellpadding="0">
 	   {#foreach from=$resume item=list#}
@@ -66,8 +66,8 @@
 		  {#else#}
 		   <a href="{#$list.resume_url#}" target="_blank"> {#$list.title#}</a>
 		  {#/if#}	</td>
-    <td  style="color:#009900">(完整指数：{#$list.complete_percent#}%)</td>
-    <td><a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm('您确定删除吗?')">[删除]</a></td>
+    <td  style="color:#009900">（フルインデックス：{#$ list.complete_percent#}％）</td>
+    <td><a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm（ ‘あなたはそれを削除してもよろしいですか？’）”>[删除]</a></td>
     </tr>
 	 {#/foreach#}
 	 {#if $resume==""#}
@@ -78,18 +78,18 @@
 </table>	  </td>
     </tr>
   </table>
-    <div class="toptit">基本信息</div>
+    <div class="toptit">基本情報</div>
   <form id="form4" name="form4" method="post" action="?act=set_account_save">
 	{#$inputtoken#}
 	<table width="700" border="0" cellpadding="4" cellspacing="0"   >
       <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">用户名：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ユーザー名：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="username" type="text" class="input_text_200"   maxlength="50" value="{#$user.username#}"  >
        	</td>
       </tr>
 	  <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邮箱：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">Eメール：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="email" type="text" class="input_text_200"   maxlength="50" value="{#$user.email#}"  >
 		  
@@ -100,7 +100,7 @@
 		</td>
       </tr>
 	  <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">手机：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">電話番号：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="mobile" type="text" class="input_text_200"   maxlength="50" value="{#$user.mobile#}"  >
 		  
@@ -111,7 +111,7 @@
 		</td>
       </tr>
 	   <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">QQ绑定：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">バインディングQQ：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
          {#if $user.qq_openid#}
 		 已绑定QQ账号 
@@ -136,12 +136,12 @@
     </table>
   </form>
   
-   <div class="toptit">用户状态</div>
+   <div class="toptit">ユーザステータス</div>
 	 <form id="form9" name="form9" method="post" action="?act=userstatus_edit">
 	 {#$inputtoken#}
 	<table width="100%" border="0" cellpadding="4" cellspacing="0"   > 
 		<tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">帐号状态：</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">アカウントの状態：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed;" >
 	    <label>
 	    <input name="status" type="radio" value="1"  {#if $user.status=="1"#}checked="checked"{#/if#}/>
@@ -163,13 +163,13 @@
   </table>
   </form>
   
-   <div class="toptit">密码修改</div>
+   <div class="toptit">パスワードの変更</div>
    <form id="form1" name="form1" method="post" action="?act=userpass_edit">
    {#$inputtoken#}
   <table width="700" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		 
 	<tr>
-      <td height="30" align="right" bgcolor="#FFFFFF"  >新密码：</td>
+      <td height="30" align="right" bgcolor="#FFFFFF"  >新しいパスワード：</td>
       <td bgcolor="#FFFFFF" >
         <input name="password" type="text" class="input_text_200" id="password" maxlength="50" value=""  />        </td>
     </tr>

@@ -113,42 +113,42 @@ $(document).ready(function()
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">修改职位- <span style="color:#0066CC">{#$jobs.jobs_name#}</span> </div>
+<div class="toptit">求人を編集- <span style=“color:#0066CC”>{#$jobs.jobs_name#}</span> </div>
 <form id="Form1" name="Form1" method="post" action="?act=editjobs_save" >
 {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">所属会员：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">メンバーは所属：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 {#$jobs.user.username#}
 		 </td>
       </tr>
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">所属企业：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">所属企業：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" class="link_lan">
             <a href="{#$jobs.company_url#}" target="_blank">{#$jobs.companyname#}</a>
 			 </td>
         </tr>
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">刷新时间：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">最新の情報の更新時間：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" class="link_lan">
           {#$jobs.refreshtime|date_format:"%Y-%m-%d"#}
 			 </td>
         </tr>
 		 <tr>
-          <td width="110" height="30" align="right" bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 职位名称：</td>
+          <td width="110" height="30" align="right" bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 役職：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed"><input name="jobs_name" type="text" class="input_text_200" id="jobs_name" value="{#$jobs.jobs_name#}" maxlength="50" />
                </td>
         </tr>
         <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>  招聘状态：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>  募集ステータス：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <label><input name="display"  type="radio" value="1" {#if $jobs.display eq "1"#}checked="checked"{#/if#} />招聘中</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 <label><input name="display"  type="radio" value="2" {#if $jobs.display eq "2"#}checked="checked"{#/if#} />暂停招聘</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 </td>
         </tr>
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 审核状态：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 承認ステータス：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		   <label><input name="audit"  type="radio" value="1" {#if $jobs.audit eq "1"#}checked="checked"{#/if#} />审核通过</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <label><input name="audit"  type="radio" value="2" {#if $jobs.audit eq "2"#}checked="checked"{#/if#} />审核中</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -159,19 +159,19 @@ $(document).ready(function()
        
 		 
 		<tr>
-          <td width="110" height="30" align="right" bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 性别要求：</td>
+          <td width="110" height="30" align="right" bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 性別要求：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 		  
-		   <label><input name="sex"  type="radio" value="1"  title="男" {#if $jobs.sex == "1"#}checked="checked"{#/if#} />男</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   <label><input name=“sex”  type=“radio” value=“1”  title=“男” {#if $jobs.sex == “1”#}checked=“checked”{#/if#} />男</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		  <label><input name="sex"  type="radio" value="2"  title="女"  {#if $jobs.sex == "2"#}checked="checked"{#/if#} />女</label>
 		  
 		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		   <label><input name="sex"  type="radio" value="3"  title="不限" {#if $jobs.sex == "3"#}checked="checked"{#/if#} />不限</label>
+		   <label><input name="sex"  type="radio" value="3"  title=“制限なし {#if $jobs.sex == "3"#}checked="checked"{#/if#} />不限</label>
 		   <input name="sex_cn" type="hidden" value="{#$jobs.sex_cn#}" id="sex_cn" />
 		  </td>
         </tr>
         <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 职位性质：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> ジョブタイプ：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  {#highway_get_classify set="列表名:nature,类型:HW_jobs_nature"#}
 {#foreach from=$nature item=list#}
@@ -182,16 +182,16 @@ $(document).ready(function()
 		  </td>
         </tr>
         <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold;">*</span> 招聘人数：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold;">*</span> 雇用人数：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><input name="amount" type="text" class="input_text_200" id="amount" value="{#$jobs.amount#}" maxlength="4" onKeyUp="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
             人</td>
         </tr>
         <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF"style=" border-bottom:1px #CCCCCC dashed">有效日期：</td>
-          <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">发布日期：{#$jobs.addtime|date_format:"%Y-%m-%d %H:%M"#}，截止日期：{#$jobs.deadline|date_format:"%Y-%m-%d %H:%M"#}<input name="olddeadline" type="hidden" value="{#$jobs.deadline#}" /></td>
+          <td height="30" align="right" bgcolor="#FFFFFF"style=" border-bottom:1px #CCCCCC dashed">発効日：</td>
+          <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">リリース日：{#$jobs.addtime|date_format:"%Y-%m-%d %H:%M”#}，締め切り：{#$jobs.deadline|date_format:"%Y-%m-%d %H:%M"#}<input name="olddeadline" type="hidden" value="{#$jobs.deadline#}" /></td>
         </tr>
         <tr>
-          <td height="30" align="right"   bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 职位类别：</td>
+          <td height="30" align="right"   bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>職種カテゴリー：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		   
 <div>
@@ -213,7 +213,7 @@ $(document).ready(function()
 		  </td>
         </tr>
         <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 工作地区：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 作業エリア：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
 				<input type="text" value="{#$jobs.district_cn|default:"请选择"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
@@ -233,7 +233,7 @@ $(document).ready(function()
 		  </td>
         </tr>
 		   <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"> 学历要求：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"> 学歴要件：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
 	{#highway_get_classify set="类型:HW_education,列表名:li"#}
@@ -250,7 +250,7 @@ $(document).ready(function()
 		   </td>
           </tr>
 				<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">工作经验：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">職歴：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		 
 		 <div>
@@ -294,7 +294,7 @@ $(document).ready(function()
           <td bgcolor="#FFFFFF"  >
 		  <textarea name="contents" class="company_mb_textarea" id="contents" style="width:580px; height:180px;" >{#$jobs.contents#}</textarea>
             <br />
-            <div style="line-height:30px; height:30px;">&nbsp;说明：请详细描述该职位，内容可包括：职位要求，岗位职责等。</div> 
+            <div style="line-height:30px; height:30px;">＆NBSPは;注意：詳細な位置を記述してください、内容が含まれる：ようにジョブ要件、仕事の責任とします。</div> 
 		</td>
         </tr>
 		<tr>
@@ -308,31 +308,31 @@ $(document).ready(function()
 		
 		</table>
 		
-<div class="toptit">联系方式</div>
+<div class="toptit">連絡先</div>
 		  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 联 系 人：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 連絡先：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <input name="contact" type="text" class="input_text_200" id="contact" value="{#$jobs.contact.contact#}" maxlength="15" />
            <label><input name="contact_show"  type="checkbox" value="1" {#if $jobs.contact.contact_show=="1"#}checked="checked"{#/if#} />联系人在职位详细页中显示
 		  </td>
          </tr>
        	<!--	<tr>
-         <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold"> </span>联系人QQ号码：</td>
+         <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold"> </span>連絡先のQQ番号：</td>
          <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
        		  <input name="qq" type="text" class="input_text_200" id="qq" maxlength="50" value="{#$jobs.contact.qq#}" />
        		  <label><input name="qq_show"  type="checkbox" value="1" {#if $jobs.contact.qq_show=="1"#}checked="checked"{#/if#}/>联系qq在职位详细页中显示</label>
           </td>
        </tr> -->
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 联系电话：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 電話：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <input name="telephone" type="text" class="input_text_200" id="telephone" maxlength="35" value="{#$jobs.contact.telephone#}" />
            <label><input name="telephone_show"  type="checkbox" value="1" {#if $jobs.contact.telephone_show=="1"#}checked="checked"{#/if#} />联系电话在职位详细页中显示
 		  </td>
         </tr>
 	<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 联系邮箱：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 連絡先Eメール：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><label>
           <input name="email" type="text" class="input_text_200" id="email" maxlength="80"  value="{#$jobs.contact.email#}"/>
           </label>
@@ -340,19 +340,19 @@ $(document).ready(function()
 		  </td>
         </tr>
         <tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 联系地址：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 住所：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <input name="address" type="text" class="input_text_200" id="address" maxlength="50"  value="{#$jobs.contact.address#}"/>
            <label><!-- <input name="address_show"  type="checkbox" value="1" {#if $jobs.contact.address_show=="1"#}checked="checked"{#/if#} />联系地址在职位详细页中显示 -->
 		  </td>
         </tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">用邮箱接收简历?</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">電子メールの履歴書を使用して受信？</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><label>
             <input name="notify" type="radio" value="1" {#if $jobs.contact.notify eq 1#}checked="checked"{#/if#} /> 接收
           </label> &nbsp;&nbsp;&nbsp;
             <label>
-            <input type="radio" name="notify" value="0" {#if $jobs.contact.notify eq "0"#}checked="checked"{#/if#}/>不接收            </label> 
-            <span style="color: #666666"> &nbsp;&nbsp;&nbsp;(默认为接收：当有人给此岗位投递简历时，系统会发一份通知邮件提醒查看)</span></td>
+            <input type="radio" name="notify" value="0" {#if $jobs.contact.notify eq "0"#}checked="checked"{#/if#}/>受信しません　　　　 </label> 
+            <span style="color: #666666"> ＆NBSP;＆NBSP;＆NBSP;（デフォルトは受け取ることです：誰かがこれにあなたの履歴書を掲示すると、システムは、通知メールのアラートビューを送信します）</span></td>
         </tr>
 		
 		
@@ -373,7 +373,7 @@ $(document).ready(function()
   	
 {#if $jobsaudit#}	
 <form id="Form2" name="Form2" method="post" action="?act=del_auditreason">
-<div class="toptit">职位审核日志</div>
+<div class="toptit">仕事審査日誌</div>
 		<table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		{#foreach from=$jobsaudit item=list#}
 		<tr>

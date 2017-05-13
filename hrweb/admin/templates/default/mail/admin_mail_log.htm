@@ -6,17 +6,17 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 		此列表为您系统发送的邮件列表
 	</p>
 </div>
 <div class="seltpye_x">
-		<div class="left">筛选类型</div>	
+		<div class="left">選別タイプ</div>	
 		<div class="right">
-		<a href="{#"state:"|highway_parse_url#}" {#if $smarty.get.state==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"state:1"|highway_parse_url#}" {#if $smarty.get.state=="1"#}class="select"{#/if#}>发送成功</a>
-		<a href="{#"state:2"|highway_parse_url#}" {#if $smarty.get.state=="2"#}class="select"{#/if#}>发送失败</a>
+		<a href="{#"state:"|highway_parse_url#}" {#if $smarty.get.state==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"state:1"|highway_parse_url#}" {#if $smarty.get.state=="1"#}class="select"{#/if#}>正常に送信</a>
+		<a href="{#"state:2"|highway_parse_url#}" {#if $smarty.get.state=="2"#}class="select"{#/if#}>発送失敗</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -26,19 +26,19 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  width="120" class="admin_list_tit admin_list_first">
-     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>状态</label>	 </td>
-      <td class="admin_list_tit" width="13%">发送帐号</td>
-	  <td class="admin_list_tit" width="13%">收件地址</td>
-	  <td  class="admin_list_tit">邮件主题</td>
-      <td  class="admin_list_tit">邮件内容</td>
-      <td width="110"  align="center"  class="admin_list_tit">发送时间</td>
+     <label id="chkAll"><input type="checkbox" name="" title=“全部選択/逆選択” id="chk"/>状态</label>	 </td>
+      <td class="admin_list_tit" width="13%">アカウントの送信</td>
+	  <td class="admin_list_tit" width="13%">受信先アドレス</td>
+	  <td  class="admin_list_tit">メッセージの件名</td>
+      <td  class="admin_list_tit">メールの内容</td>
+      <td width="110"  align="center"  class="admin_list_tit">伝送時間</td>
     </tr>
 	{#foreach from=$list item=list#}
 	 <tr>
       <td class="admin_list admin_list_first">
 	     <input type="checkbox" name="id[]"  value="{#$list.id#}"/>
-		 {#if $list.state=="1"#}<span style="color: #009900">发送成功</span>{#/if#}
-		 {#if $list.state=="2"#}<span style="color: #666666">发送失败</span>{#/if#}
+		 {#if $list.state=="1"#}<span style="color: #009900">正常に送信</span>{#/if#}
+		 {#if $list.state=="2"#}<span style="color: #666666">送信に失敗しました</span>{#/if#}
 	  </td>
 	  <td  class="admin_list">{#$list.send_from#}</td>
 	  <td  class="admin_list">{#$list.send_to#}</td>
@@ -50,7 +50,7 @@
   </table>
   
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
   </form>	
    <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
@@ -67,9 +67,9 @@
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="邮件主题">邮件主题</li>
-														<li id="2" title="收件地址">收件地址</li>
-														<li id="3" title="发送帐号">发送帐号</li>
+														<li id="1" title="邮件主题">メッセージの件名</li>
+														<li id="2" title="收件地址">書き込みアドレスます。</li>
+														<li id="3" title="发送帐号">アカウントを送信します。</li>
 														</ul>
 												</div>
 						</div>				

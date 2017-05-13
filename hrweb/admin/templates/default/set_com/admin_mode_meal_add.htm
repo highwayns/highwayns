@@ -40,119 +40,119 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 服务套餐模式是指会员可以购买不同等级服务，如普通会员，VIP会员等，每个等级都有不同的使用权限
 </p>
 </div>
-<div class="toptit">新增服务套餐</div>
+<div class="toptit">新しいサービスパッケージ</div>
  
 	  <form id="form1" name="form1" method="post" action="?act=set_meal_add_save">
 	 {#$inputtoken#}
     <table border="0" cellspacing="3" cellpadding="3">
       <tr>
-        <td width="200" align="right">套餐名称：</td>
+        <td width="200" align="right">パッケージ名：</td>
         <td width="391"><input name="setmeal_name" type="text" class="input_text_200" id="setmeal_name"/></td>
       </tr>
       <tr>
-        <td align="right">有效时间：</td>
+        <td align="right">有効時間：</td>
         <td><input name="days" type="text" class="input_text_200" id="days" value="15" maxlength="10"/>
-        天 <span class="admin_note">(0表示不限制)</span> </td>
+        天 <span class="admin_note">（0は無制限を意味する）</span> </td>
       </tr>
       <tr>
-        <td align="right">原价：</td>
+        <td align="right">価格：</td>
         <td><input name="original_price" type="text" class="input_text_200" id="original_price" value="0" maxlength="10"/>
-        元 <span class="admin_note">(0表示免费) </span></td>
+        元 <span class="admin_note">（無料0）</span></td>
       </tr>
       <tr>
-        <td align="right">折扣价：</td>
+        <td align="right">ディスカウント価格：</td>
         <td><input name="expense" type="text" class="input_text_200" id="expense" value="0" maxlength="10"/>
-        元 <span class="admin_note">(0表示免费) </span></td>
+        元 <span class="admin_note">（無料0）</span></td>
       </tr>
 <tr>
-        <td align="right">职位最大并发数：</td>
+        <td align="right">同時実行ジョブの最大数：</td>
         <td><input name="jobs_ordinary" type="text" class="input_text_200" id="jobs_ordinary" value="1"/>
-        条  <span class="admin_note">(0为不允许) </span></td>
+        条  <span class="admin_note">（0が許可されていない）</span></td>
       </tr>
 <tr>
-        <td align="right">刷新普通职位时间间隔：</td>
+        <td align="right">通常のリフレッシュ時間間隔の位置：</td>
         <td><input name="refresh_jobs_space" type="text" class="input_text_200" id="refresh_jobs_space" value="{#$show.refresh_jobs_space#}"  maxlength="10"/>
-        分钟   <span class="admin_note">(0表示不限制)</span></td>
+        分钟   <span class="admin_note">（0は無制限を意味する）</span></td>
       </tr>
       <tr>
-        <td align="right">每天刷新普通职位次数限制：</td>
+        <td align="right">通常のリフレッシュは、毎日のジョブの数を制限：</td>
         <td><input name="refresh_jobs_time" type="text" class="input_text_200" id="refresh_jobs_time" value="{#$show.refresh_jobs_time#}"  maxlength="10"/>
-        次   <span class="admin_note">(0表示不限制)</span></td>
+        次   <span class="admin_note">（0は無制限を意味する）</span></td>
       </tr>
 	  
 	  <tr>
-        <td align="right">下载普通人才简历：</td>
+        <td align="right">普通履歴書ダウンロード：</td>
         <td><input name="download_resume_ordinary" type="text" class="input_text_200" id="download_resume_ordinary" value="1" maxlength="10"/>
-        份  <span class="admin_note">(0为不允许) </span></td>
+        份  <span class="admin_note">（0が許可されていない）</span></td>
       </tr>
 	    <tr>
-        <td align="right">下载高级人才简历：</td>
+        <td align="right">高級人材履歴書がダウンロードする：</td>
         <td><input name="download_resume_senior" type="text" class="input_text_200" id="download_resume_senior" value="1" maxlength="10"/>
-        份 <span class="admin_note">(0为不允许) </span></td>
+        份 <span class="admin_note">（0が許可されていない）</span></td>
       </tr>
 	    <tr>
-        <td align="right">邀请普通人才面试数：</td>
+        <td align="right">普通人材に面接する招待状の数：</td>
         <td><input name="interview_ordinary" type="text" class="input_text_200" id="interview_ordinary" value="1" maxlength="10"/>
-        次  <span class="admin_note">(0为不允许) </span></td>
+        次  <span class="admin_note">（0が許可されていない）</span></td>
       </tr>
 	    <tr>
-        <td align="right">邀请高级人才面试数：</td>
+        <td align="right">高級人材の面接招待：</td>
         <td><input name="interview_senior" type="text" class="input_text_200" id="interview_senior" value="1" maxlength="10"/>
-        次  <span class="admin_note">(0为不允许) </span></td>
+        次  <span class="admin_note">（0が許可されていない）</span></td>
       </tr>
 	    <tr>
-        <td align="right">人才库容量：</td>
+        <td align="right">人材庫の容量：</td>
         <td><input name="talent_pool" type="text" class="input_text_200" id="talent_pool" value="1" maxlength="10"/>
-        条  <span class="admin_note">(0为不允许使用人才库) </span></td>
+        条  <span class="admin_note">（0が人材庫を使用することが許可されていない）</span></td>
       </tr>
 		
 	   <tr>
-        <td align="right">允许推荐职位：<span style="position:relative;"><div class="set_meal" id="recommend_he"></div></span></td>
+        <td align="right">求人推薦許可：<span style="position:relative;"><div class="set_meal" id="recommend_he"></div></span></td>
         <td><input name="recommend_num" type="text" class="input_text_200 monitor" id="recommend"  value="10" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用推荐职位)</span> </td>
+        条 <span class="admin_note">（0は推奨位置を使用することが許可されていない）</span> </td>
       </tr>
 	   <tr style="display:none" id="recommend_days" >
-        <td align="right">推荐天数设定：</td>
+        <td align="right">日の推奨セット数：</td>
         <td><input name="recommend_days" type="text" class="input_text_200"  value="10"  maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right">允许置顶职位：<span style="position:relative;"><div class="set_meal" id="stick_he"></div></span></td>
+        <td align="right">トップポジションを許可：<span style=“position:relative;”><div class="set_meal" id="stick_he"></div></span></td>
         <td><input name="stick_num" type="text" class="input_text_200 monitor" value="10" id="stick" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用置顶职位)</span> </td>
+        条 <span class="admin_note">（0がセットトップ位置を使用することが許可されていない）</span> </td>
       </tr >
 	   <tr style="display:none" id="stick_days" >
-        <td align="right" >置顶天数设定：</td>
+        <td align="right" >日のトップセット数：</td>
         <td><input name="stick_days" type="text" class="input_text_200" value="10" maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right">允许紧急职位：<span style="position:relative;"><div class="set_meal" id="emergency_he"></div></span></td>
+        <td align="right">緊急時の位置を許可：<span style=“position:relative;”><div class="set_meal" id="emergency_he"></div></span></td>
         <td><input name="emergency_num" type="text" class="input_text_200 monitor" id="emergency" value="10" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用紧急职位)</span> </td>
+        条 <span class="admin_note">（0は緊急位置を使用することを許可されていません）</span> </td>
       </tr>
 	   <tr style="display:none" id="emergency_days">
-        <td align="right"  >紧急天数设定：</td>
+        <td align="right"  >緊急日数設定：</td>
         <td><input name="emergency_days" type="text" class="input_text_200"  value="10" maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right">允许职位套色：<span style="position:relative;"><div class="set_meal" id="highlight_he"></div></span></td>
+        <td align="right">ジョブパッケージの許可：<spanのスタイル=「の位置：相対;」><div class="set_meal" id="highlight_he"></div></span></td>
         <td><input name="highlight_num" type="text" class="input_text_200 monitor" id="highlight" value="10" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用职位套色)</span> </td>
+        条 <span class="admin_note">（0は仕事パッケージの使用が禁止）</span> </td>
       </tr>
 	   <tr style="display:none" id="highlight_days">
-        <td align="right"  >套色天数设定：</td>
+        <td align="right"  >パッケージ日数の設定：</td>
         <td><input name="highlight_days" type="text" class="input_text_200"  value="10" maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	  <tr>
-        <td align="right">允许会员切换模板：</td>
+        <td align="right">メンバーは、テンプレートを切り替えることができるように：</td>
         <td><label>
           <input name="change_templates" type="radio" value="1"  checked="checked" />
         允许</label> &nbsp;&nbsp;&nbsp;<label>
@@ -161,7 +161,7 @@ $(document).ready(function()
       </tr>
 		
     <tr>
-        <td align="right">开通企业电子地图：</td>
+        <td align="right">企業電子地図を始める：</td>
         <td>
 		<label>
           <input name="map_open" type="radio" value="1" />
@@ -170,17 +170,17 @@ $(document).ready(function()
         否</label>		</td>
       </tr>
       <tr>
-        <td align="right">显示顺序：</td>
+        <td align="right">表示順序：</td>
         <td><input name="show_order" type="text" class="input_text_200" id="show_order" onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" value="0" maxlength="3"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
           数字越大越靠前</td>
       </tr>
 	   <tr>
-        <td align="right">免费短信条数：</td>
+        <td align="right">無料SMS量：</td>
         <td><input name="set_sms" type="text" class="input_text_200" id="set_sms" onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" value="0" maxlength="3"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
-          条<span class="admin_note">(0为不送短信)</span> </td>
+          条<span class="admin_note">（0はメッセージを送信しないこと）</span> </td>
       </tr>
 	  <tr>
-        <td align="right">显示状态：</td>
+        <td align="right">ディスプレイのステータス：</td>
         <td><label>
           <input name="display" type="radio" value="1" checked="checked" />
         正常</label> &nbsp;&nbsp;&nbsp;<label>
@@ -188,7 +188,7 @@ $(document).ready(function()
         屏蔽</label></td>
       </tr>
 	  <tr>
-        <td align="right">允许会员申请此服务：</td>
+        <td align="right">メンバーはこのサービスに適用することができます：</td>
         <td><label>
           <input name="apply" type="radio" value="1" checked="checked" />
         是</label> &nbsp;&nbsp;&nbsp;<label>
@@ -197,14 +197,14 @@ $(document).ready(function()
       </tr>
 	  
       <tr>
-        <td align="right" valign="top">其他说明：</td>
+        <td align="right" valign="top">他の説明：</td>
         <td><textarea name="added" id="added" style="width:300px; height:50px; font-size:12px; line-height:180%" onpropertychange="if(this.value.length&gt;100){this.value=this.value.slice(0,100)}"></textarea>
             <br />
           (可填写：赠送广告位或者其他特殊推荐等) </td>
       </tr>
       <tr>
         <td align="center">&nbsp;</td>
-        <td height="50" align="left"><input type="submit" name="Submit3" value="提交" class="admin_submit"   />
+        <td height="50" align="left"><input type="submit" name="Submit3" value=“提出” class="admin_submit"   />
 		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
 		</td>

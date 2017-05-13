@@ -19,9 +19,9 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">分类选择</div>	
+		<div class="left">カテゴリーの選択</div>	
 		<div class="right">
-		<a href="{#"h_typeid:"|highway_parse_url#}" {#if $smarty.get.h_typeid==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"h_typeid:"|highway_parse_url#}" {#if $smarty.get.h_typeid==""#}class="select"{#/if#}>制限なし</a>
 		{#foreach from=$category item=list#}
 	  <a href="{#"h_typeid:"|cat:$list.c_id|highway_parse_url#}"  {#if $smarty.get.h_typeid==$list.c_id#}class="select"{#/if#}>{#$list.c_name#}</a> 
 	  {#/foreach#}
@@ -34,12 +34,12 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />
       文档名称</label>
 	  </td>
-      <td  class="admin_list_tit"> 文档路径 </td>
-      <td align="center" class="admin_list_tit" width="130">所属分类</td>
-      <td  align="center"  class="admin_list_tit" width="100">排序</td>
+      <td  class="admin_list_tit"> ドキュメントのパス</td>
+      <td align="center" class="admin_list_tit" width="130">カテゴリー</td>
+      <td  align="center"  class="admin_list_tit" width="100">並び替え</td>
       <td  align="center"  class="admin_list_tit" width="100">操作</td>
     </tr>
 	{#foreach from=$hrtools item=list#}
@@ -62,14 +62,14 @@ $(document).ready(function()
 	  {#$list.h_order#}
 	  </td>
       <td  align="center"  class="admin_list">
-	 <a href="?act=edit&id={#$list.h_id#}" >修改</a>
+	 <a href="?act=edit&id={#$list.h_id#}" >変更</a>
 	  </td>
     </tr>
 	 {#/foreach#}
   </table>
    </form>
    {#if !$hrtools#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

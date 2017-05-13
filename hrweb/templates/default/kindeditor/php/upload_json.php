@@ -1,12 +1,5 @@
 ﻿<?php
-/**
- * KindEditor PHP
- *
- * 本PHP程序是演示程序，建议不要直接在实际项目中使用。
- * 如果您确定直接使用本程序，使用之前请仔细确认相关安全设置。
- *
- */
-define('IN_QISHI', true);
+define('IN_HIGHWAY', true);
 
 require_once('../../../data/config.php');
 require_once('../../include/admin_common.inc.php');

@@ -128,7 +128,7 @@ function showagebox(divname,inputname)
 		htm+="<ul>";
 		for (i=y;i<=ymax;i++)
 		{
-		htm+="<li title=\""+i+"\">"+i+"岁</li>";
+		htm+="<li title=\""+i+"\">“+i+”歳</li>";
 		}
 		htm+="<div class=\"clear\"></div>";
 		htm+="</ul>";
@@ -364,7 +364,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 添加职位</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> >ポストを追加 </div>
 <div class="usermain">
   <div class="leftmenu link_bk">
   {#include file="member_company/left.htm"#}
@@ -373,7 +373,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 	<div class="bbox1">	
 	  <div class="addjob">
 	    <div class="titleH1">
-	      <div class="h1-title">发布职位</div>
+	      <div class="h1-title">仕事掲載</div>
         </div>
 	    <div class="titleH2"><span>职位信息</span></div>
 		<form id="Form1" name="Form1" method="post" action="?act=addjobs_save" >
@@ -399,7 +399,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		  <tr class="jobmain">
 			<td align="right"><span class="nec">职位类别</span>：</td>
 			<td id="jobsSort" style="position:relative;">
-            	<div id="jobText" class="input_text_200_bg choose_cate ucc-default">请选择</div>	
+            	<div id="jobText" class="input_text_200_bg choose_cate ucc-default">選択してください</div>	
 				<!-- 职位类别弹出框 -->
 				<div class="aui_outer" id="aui_outer_job">
 					<table class="aui_border">
@@ -446,7 +446,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		   <tr class="jobmain">
 			<td align="right"><span class="nec">工作地区</span>：</td>
 			<td id="jobsCity" style="position:relative;">
-              <div id="cityText" class="input_text_200_bg choose_district ucc-default">请选择</div>	
+              <div id="cityText" class="input_text_200_bg choose_district ucc-default">選択してください</div>	
 				<!-- 工作地区弹出框 -->
 				<div class="aui_outer" id="aui_outer_city">
 					<table class="aui_border">
@@ -488,7 +488,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td align="right"><span class="nec">薪资待遇</span>：</td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="wage_menu" class="input_text_200_bg">请选择</div>	
+             	 	<div id="wage_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
 	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
@@ -500,15 +500,15 @@ imgcaptcha("#postcaptcha","#imgdiv");
 	            </div>				
              	 <input name="wage" type="hidden" id="wage" value="" />
              	 <input name="wage_cn" type="hidden" id="wage_cn" value="" /></td>
-			<td><label><input name="negotiable" type="checkbox" value="1" />可面议</label></td>
+			<td><label><input name="negotiable" type="checkbox" value="1" />面談あり</label></td>
 		  </tr>
 	    </table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
-			<td width="125" align="right">职位亮点：</td>
+			<td width="125" align="right">ポジションハイライト：</td>
 			<td style="position:relative;">
 			  <div class="showchecktag"></div>
-              <div class="input_checkbox_add ucc-default">添加</div>	
+              <div class="input_checkbox_add ucc-default">追加</div>	
               <!-- 职位亮点弹出框 -->
 				<div class="aui_outer" id="aui_outer_tag">
 					<table class="aui_border">
@@ -524,7 +524,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 															<div class="items jquery-localdata">
 																<div class="selector-header"><span class="selector-title">职位亮点选择</span><div></div><span id="tag-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">5</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">5</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="item-table">
 																	<table class="options-table options-table-7">
 																		<tbody class="item-list"><tr><td class="bno"><table><tbody id="tag_list">
@@ -559,9 +559,9 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<div id="sex_radio">
 			<input name="sex" id="sex" type="hidden" value="3" />
 			<input name="sex_cn" id="sex_cn" type="hidden" value="不限" />
-			  <div class="input_radio select" id="3">不限</div>			
-			  <div class="input_radio" id="1">男</div>
-			  <div class="input_radio" id="2">女</div>			  
+			  <div class="input_radio select" id="3">制限なし</div>			
+			  <div class="input_radio" id="1">男性</div>
+			  <div class="input_radio" id="2">女性</div>			  
 			  <div class="clear"></div>
 			  </div>		    </td>
 		  </tr>
@@ -569,7 +569,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td align="right"><span class="nec">学历要求</span>：</td>
 			<td width="230">
 			<div style="position:relateve;">
-             	 	<div id="education_menu" class="input_text_200_bg">请选择</div>	
+             	 	<div id="education_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
 	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
@@ -587,7 +587,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td align="right"><span class="nec">工作经验</span>：</td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="experience_menu" class="input_text_200_bg">请选择</div>	
+             	 	<div id="experience_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
 	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
@@ -599,29 +599,29 @@ imgcaptcha("#postcaptcha","#imgdiv");
 	            </div>				
              	 <input name="experience" type="hidden" id="experience" value="" />
              	 <input name="experience_cn" type="hidden" id="experience_cn" value="" /></td>
-			<td><label><input name="graduate" type="checkbox" value="1" />应届生亦可</label></td>
+			<td><label><input name="graduate" type="checkbox" value="1" />新卒可</label></td>
 		  </tr>
 		    <tr>
-			<td align="right">年龄要求：</td>
+			<td align="right">年齢要求：</td>
 			<td colspan="2">
 			  <table border="0" cellpadding="0" cellspacing="0" >
                   <tr>
                     <td width="80" style="padding:0px">
                     	<div>
-                    	<div class="input_text_50_bg date_input wid54" id="minage_div">请选择</div>
+                    	<div class="input_text_50_bg date_input wid54" id="minage_div">選択してください</div>
 		             	 <input name="minage" id="minage" type="hidden" value="" />
 		            	</div>
 		        	</td>
-                    <td width="20" style="padding:0px">至</td>
+                    <td width="20" style="padding:0px"></tdへ>
                     <td width="80"  style="padding:0px">
                     	<div>
-                    	<div class="input_text_50_bg date_input wid54" id="maxage_div">请选择</div>
+                    	<div class="input_text_50_bg date_input wid54" id="maxage_div">選択してください</div>
 		             	 <input name="maxage" id="maxage" type="hidden" value="" />
 		            	</div>
                     </td>
                   </tr>
                 </table>
-				<label id="ageerr" class="error" style="display:none">请选择正确的年龄范围</label>
+				<label id="ageerr" class="error" style="display:none">正しい年齢の範囲を選択してください</label>
 				</td>
 		  </tr>
 	    </table>
@@ -631,7 +631,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td width="125" align="right" valign="top"><span class="nec">职位描述</span>：</td>
 			<td width="500">
 			<div style="display:none;" id="template">
-				<span class="tdTemplateTitle">&nbsp;</span><font style="color:#FF6600">（点击职位模板后会自动填充职位描述）</font>
+				<span class="tdTemplateTitle">&nbsp;</span><font style="color:#FF6600">（自動的にテンプレートをクリックした後、自動的にジョブを記入する）</font>
 				<span id="JobRequInfoTemplate"><a href="javascript:void(0);"></a></span>
 			</div>
 			<textarea id="contents" name="contents" style="width:700px;height:300px;visibility:hidden;"></textarea>
@@ -655,21 +655,21 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		  <tr>
 			<td width="125" align="right"><span class="nec">联系人</span>：</td>
 			<td width="230"><input name="contact" type="text" class="input_text_200" id="contact" maxlength="20"   value="{#$company_profile.contact#}"/></td>
-			<td><label><input name="contact_show" type="checkbox" value="1" checked="checked" />对外公开联系人</label></td>
+			<td><label><input name="contact_show" type="checkbox" value="1" checked="checked" />公共の連絡先に開く</label></td>
 		  </tr>
 		  <tr>
 			<td align="right"><span class="nec">联系电话</span>：</td>
 			<td>
 			
             <input name="telephone" oninput="OnInput (event,'#telephone_two')" onpropertychange="OnPropChanged (event,'#telephone_two')" type="text" class="input_text_200" id="telephone" maxlength="35"   value="{#$company_profile.telephone#}"/></td>
-			<td><label><input name="telephone_show" type="checkbox" value="1" checked="checked" />对外公开联系电话</label></td>
+			<td><label><input name="telephone_show" type="checkbox" value="1" checked="checked" />連絡電話を公開する</label></td>
 		  </tr>
 		  <tr>
 			<td align="right"><span class="nec">联系邮箱</span>：</td>
 			<td>
 			
              <input name="email" oninput="OnInput (event,'#email_two')" onpropertychange="OnPropChanged (event,'#email_two')" type="text" class="input_text_200" id="email" maxlength="80" value="{#$company_profile.email#}"/>            	</td>
-			<td><label><input name="email_show" type="checkbox" value="1" checked="checked" />对外公开联系邮箱</label></td>
+			<td><label><input name="email_show" type="checkbox" value="1" checked="checked" />公開連絡先メール</label></td>
 		  </tr>
 	    </table>
 	    <script type="text/javascript">
@@ -698,12 +698,12 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<tr>
 				<td width="125" align="right"><span class="">简历接收邮箱</span>：</td>
 				<td width="230"><input name="email_two" id="email_two" type="text" class="input_text_200" maxlength="80" value="{#$company_profile.email#}" disabled="disabled"/></td>
-				<td><label><input name="notify" type="checkbox" value="1" checked="checked"/>接收</label></td>
+				<td><label><input name="notify" type="checkbox" value="1" checked="checked"/>受信</label></td>
 		  	</tr>
 			<tr>
 				<td width="125" align="right"><span class="">简历短信通知</span>：</td>
 				<td width="230"><input name="telephone_two" id="telephone_two" type="text" class="input_text_200" maxlength="80" value="{#$company_profile.telephone#}" disabled="disabled"/></td>
-				<td><label><input name="notify_mobile" type="checkbox" value="1" id="receiveit"/>接收</label></td>
+				<td><label><input name="notify_mobile" type="checkbox" value="1" id="receiveit"/>受信</label></td>
 		  	</tr>
 		</table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
@@ -720,7 +720,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		  {#/if#}
 		   <tr>
 			<td width="125" align="right"> </td>
-			<td ><input type="submit" name="submitsave" id="submitsave" value="发布"  class="but180lan" onclick="$(window).unbind('beforeunload');"/>
+			<td ><input type=“submit” name=“submitsave” id=“submitsave” value=“公表”  class=“but180lan” onclick=“$(window).unbind(‘beforeunload’);”/>
 		     </td>
 		  </tr>
 	    </table>
@@ -795,18 +795,18 @@ $(document).ready(function()
 <div id="tagBox" class="alert-window" style="display:none;width: 810px; height: 300px; left: 50%; top: 600px; margin-left: -405px; position: absolute; z-index: 100001;">
 	<div style="width: 810px;" class="resume-tc">
         <div class="resume-tc-head">
-            <h3><i class="icon-loc"></i> 请选职位两点（最多选择5个）</h3>
+            <h3><i class="icon-loc"></i>仕事を二つを選択してください（5まで選択）</h3>
             <a class="close wd_close cm_closeMsg" href="javascript:;"></a> 
         </div>
         <div class="sx-yx">
-        	<span class="clr-grn fnt-b">已选：</span>
+        	<span class="clr-grn fnt-b">選択：</span>
         	<span id="box_checkedTag"></span>
         </div>
         <div id="showTag" style="width:810px; height: 200px; overflow: auto; overflow-x: hidden; overflow-y: auto; position: relative;">
 	        
 		</div>
         <div class="sx-action">
-        	<button id="btn_tagsave" class="grn" type="button">确定</button> 
+        	<button id="btn_tagsave" class="grn" type="button">確定</button> 
         </div>
     </div>
 </div>

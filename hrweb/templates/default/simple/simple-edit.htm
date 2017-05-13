@@ -220,36 +220,36 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
         <table>
           <tbody>
             <tr>
-              <td>招聘职位：</td>
+              <td>求人仕事：</td>
               <td><input type="text" class="input_text_300" name="jobname" id="jobname" maxlength="20" value="{#$info.jobname#}"/></td>
             </tr>
             <tr>
-              <td>招聘人数：</td>
-              <td><input type="text" class="input_text_155" name="amount" id="amount" value="{#$info.amount#}" maxlength="3" /><span>填写数字，0代表若干</span></td>
+              <td>雇用人数：</td>
+              <td><input type="text" class="input_text_155" name="amount" id="amount" value="{#$info.amount#}" maxlength="3" /><span>数字を記入し、0 は多少である</span></td>
             </tr>
             <tr>
-              <td>公司名称：</td>
+              <td>会社名：</td>
               <td><input type="text" class="input_text_300" name="comname" id="comname" maxlength="20" value="{#$info.comname#}" /></td>
             </tr>
             <tr>
-              <td>联 系 人：</td>
+              <td>連絡先：</td>
               <td><input type="text" class="input_text_300" name="contact" id="contact" maxlength="15" value="{#$info.contact#}" /></td>
             </tr>
             <tr>
-              <td>联系电话：</td>
+              <td>電話：</td>
               <td>
                 {#if $HIGHWAY.simple_tel_edit=="0"#}
-                {#$info.tel#}<span>(不可修改，您可以删除本条信息再次发布)</span>  
+                {#$info.tel#}<span>（変更することはできません、あなたは再び広告放送を削除することができます）</span>  
                 {#else#}
                 <input type="text" class="input_text_155" name="tel" id="tel" maxlength="25"  value="{#$info.tel#}"/>
                 {#/if#}
               </td>
             </tr>
             <tr>
-              <td>联系地址：</td>
+              <td>住所：</td>
               <td>
                 <div style="position:relateve;float:left;">
-                <div id="district_menu" class="input_text_100_bg">{#$info.district_cn|default:"请选择"#}</div>  
+                <div id="district_menu" class="input_text_100_bg">{#$Info.district_cn |デフォルト： “選択してください” #} </div>  
                 <div class="menu" id="menu1">
                     <ul>
                       {#highway_get_classify  set="类型:HW_district,id:0,列表名:c_distrcit"#}
@@ -263,7 +263,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
                <input name="district_cn" type="hidden" id="district_cnz" value="{#$info.district_cn#}" />
 
                 <div style="position:relateve;float:left;margin-left:10px;">
-                <div id="sdistrict_menu" class="input_text_100_bg">{#$info.sdistrict_cn|default:"请选择"#}</div>  
+                <div id="sdistrict_menu" class="input_text_100_bg">{#$info.sdistrict_cn|default:"選択してください"#}</div>  
                   <div class="menu" id="menu2">
                     <ul>
                     </ul>
@@ -275,37 +275,37 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
               </td>
             </tr>
             <tr>
-              <td>有效期截至：</td>
+              <td>有効になるまで：</td>
               <td>
                 {#if $info.deadline=="0"#}
                 长期有效
                 {#else#}
                 {#$info.deadline|date_format:"%Y-%m-%d"#} 
-                <span>到期后系统将自动删除</span>
+                <span>システムの満了後は自動的に削除します</span>
                 {#/if#}
               </td>
             </tr>
              {#if $info.deadline!="0"#}
             <tr>
-              <td>延长有效期：</td>
+              <td>有効期限の延長：</td>
               <td>
                 <input name="days" type="text" class="input_text_155" id="days" maxlength="3" value="0">天
-                <span>0为不延长</span>
+                <span>0 延長されません</span>
               </td>
             </tr>
             {#/if#}
             <tr>
-              <td valign="top">具体要求：</td>
+              <td valign="top">具体的な要件：</td>
               <td><textarea name="detailed" id="detailed" class="simpleinput400" style="height:60px;">{#$info.detailed#}</textarea></td>
             </tr>
             <tr>
-              <td>管理密码：</td>
+              <td>管理者パスワード：</td>
               <td><input type="text" class="input_text_155" name="pwd" id="pwd" maxlength="25"/>
               </td>
             </tr>
             {#if $verify_simple=="1"#}
             <tr>
-              <td>验 证 码：</td>
+              <td>コード：</td>
               <td>
                 <div>
                 <div id="imgdiv"></div>
@@ -327,7 +327,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
         </table>
       </div>
       <div class="wei_jobs_tip">
-        <p>1.您当前的IP是：{#$ip#}，请不要发布虚假、违法信息！   </p>
-        <p>2.请妥善保存管理密码，管理密码可用于修改/删除信息！</p>
+        <p>1.あなたの現在のIPがある：{#$IP#}、虚偽、不正な情報を公開しないでください！</P>
+        <p>2.パスワード管理を維持し、パスワード管理は、削除/情報を変更するために使用することができます！</P>
       </div>
 </form>

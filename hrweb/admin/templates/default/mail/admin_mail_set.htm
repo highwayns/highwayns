@@ -48,14 +48,14 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
-	<p>您可以通过发送测试邮件来调试配置信息。<br />
+	<h2>ヒント：</h2>
+	<p>あなたは、テストメッセージを送信することにより、設定情報をデバッグすることができます。<br />
 通过连接 SMTP 服务器发送邮件需邮箱账户开通SMTP服务。
 <br />
 您可以添加多个SMTP账户，系统将随机使用SMTP账户。
 </p>
   </div>
-<div class="toptit">设置</div>
+<div class="toptit">設定</div>
 <form action="?act=email_set_save" method="post"   name="form1" id="form1">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="8" cellpadding="0" style="padding-left:15px;" id="methodsel">
@@ -91,28 +91,28 @@ $(document).ready(function()
 <div class="html_tpl">
 		<table width="700" border="0" cellspacing="8" cellpadding="1" style=" margin-bottom:3px; border-bottom:1px #CCCCCC solid" >
           <tr>
-            <td width="121" align="right">SMTP服务器地址：</td>
+            <td width="121" align="right">SMTPサーバーのアドレス：</td>
             <td><input name="smtpservers[]" type="text"  class="input_text_200" id="smtpservers" value="{#$li.smtpservers#}" maxlength="30"/>
               如：smtp.qq.com</td>
             <td><span style="color:#0066CC; cursor:pointer" class="delsmtp">X 删除此账户</span></td>
           </tr>
           <tr>
-            <td align="right">SMTP服务帐户名：</td>
+            <td align="right">SMTPサービスアカウント名：</td>
             <td><input name="smtpusername[]" type="text"  class="input_text_200" id="smtpusername" value="{#$li.smtpusername#}" maxlength="100"/></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td align="right">SMTP服务密码：</td>
+            <td align="right">SMTPサービスのパスワード：</td>
             <td><input name="smtppassword[]" type="password"  class="input_text_200" id="smtppassword" value="{#$li.smtppassword#}" maxlength="40"/></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td align="right">发信人邮件地址：</td>
+            <td align="right">送信者の電子メールアドレス：</td>
             <td><input name="smtpfrom[]" type="text"  class="input_text_200" id="site_title" value="{#$li.smtpfrom#}" maxlength="60"/>            </td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td align="right">SMTP 端口：</td>
+            <td align="right">SMTPポート：</td>
             <td><input name="smtpport[]" type="text"  class="input_text_200" id="smtpport" value="{#$li.smtpport#}" maxlength="60"/>
 默认：25</td>
             <td>&nbsp;</td>

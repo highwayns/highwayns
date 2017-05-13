@@ -1,8 +1,4 @@
 ﻿<?php
-/**
- * template_lite tpl_escape_chars function
- *
- */
 
 function tpl_escape_chars($string)
 {

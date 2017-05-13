@@ -1,25 +1,12 @@
 ﻿<?php
 
-/**
- * Converts HTMLPurifier_ConfigSchema_Interchange to an XML format,
- * which can be further processed to generate documentation.
- */
 class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
 {
 
-    /**
-     * @type HTMLPurifier_ConfigSchema_Interchange
-     */
     protected $interchange;
 
-    /**
-     * @type string
-     */
     private $namespace;
 
-    /**
-     * @param string $html
-     */
     protected function writeHTMLDiv($html)
     {
         $this->startElement('div');
@@ -32,10 +19,6 @@ class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
         $this->endElement(); // div
     }
 
-    /**
-     * @param mixed $var
-     * @return string
-     */
     protected function export($var)
     {
         if ($var === array()) {
@@ -44,9 +27,6 @@ class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
         return var_export($var, true);
     }
 
-    /**
-     * @param HTMLPurifier_ConfigSchema_Interchange $interchange
-     */
     public function build($interchange)
     {
         // global access, only use as last resort
@@ -69,9 +49,6 @@ class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
         $this->flush();
     }
 
-    /**
-     * @param HTMLPurifier_ConfigSchema_Interchange_Directive $directive
-     */
     public function buildDirective($directive)
     {
         // Kludge, although I suppose having a notion of a "root namespace"

@@ -6,11 +6,11 @@
   <div class="clear"></div>
 </div>
 	<div class="toptip">
-	<h2>提示：</h2>
-	  <p>过多的项目设置短信通知会消耗系统资源。<br />
+	<h2>ヒント：</h2>
+	  <p>SMS通知を設定あまりにも多くのプロジェクトは、システムリソースを消費します。<br />
 	  </p>
 		</div>
-	<div class="toptit">短信发送规则</div>
+	<div class="toptit">SMS規制</div>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
        <tr>
         <td height="30" style="font-size:12px;padding-left:20px;">
@@ -19,7 +19,7 @@
 		<table width="700" border="0" cellspacing="7" cellpadding="1" style=" margin-bottom:3px;" class="link_lan">
            
             <tr>
-              <td align="right" width="137">申请职位：</td>
+              <td align="right" width="137">職位申請：</td>
               <td>
 			   <label>
                 <input name="set_applyjobs" type="radio" value="1"  {#if $sms_config.set_applyjobs=="1"#} checked="checked" {#/if#}/>
@@ -28,10 +28,10 @@
                 <label>
                   <input type="radio" name="set_applyjobs" value="0"  {#if $sms_config.set_applyjobs=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(个人申请了职位是否通知企业)</td>
+              <td  style="color:#999999">（個人、会社に通知するかどうかを、ジョブに適用しました）</td>
             </tr>
             <tr>
-              <td align="right">邀请面试：</td>
+              <td align="right">面接を招待：</td>
               <td>
 			  <label>
                 <input name="set_invite" type="radio" value="1"  {#if $sms_config.set_invite=="1"#} checked="checked" {#/if#}/>
@@ -40,10 +40,10 @@
                 <label>
                 <input name="set_invite" type="radio"  value="0"  {#if $sms_config.set_invite=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(企业邀请个人面试是否通知个人)</td>
+              <td  style="color:#999999">(個人面接は招待企業が個人に通知する場合）</td>
             </tr>
             <tr>
-              <td align="right">新增订单：</td>
+              <td align="right">新規受注：</td>
               <td>
 			    <label>
                 <input name="set_order" type="radio" value="1"  {#if $sms_config.set_order=="1"#} checked="checked" {#/if#}/>
@@ -52,10 +52,10 @@
                 <label>
                 <input name="set_order" type="radio"  value="0"  {#if $sms_config.set_order=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(会员下充值订单是否通知)</td>
+              <td  style="color:#999999">（会員注文チャージの知らせ）</td>
             </tr>
             <tr>
-              <td align="right">充值成功：</td>
+              <td align="right">チャージ成功：</td>
               <td>
 			   <label>
                 <input name="set_payment" type="radio" value="1"  {#if $sms_config.set_payment=="1"#} checked="checked" {#/if#}/>
@@ -64,10 +64,10 @@
                 <label>
                 <input name="set_payment" type="radio"  value="0"  {#if $sms_config.set_payment=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(会员充值成功是否通知)</td>
+              <td  style="color:#999999">（会員チャージ成功の知らせ）</td>
             </tr>
             <tr>
-              <td align="right">修改密码：</td>
+              <td align="right">パスワードを変更します：</td>
               <td>
 			  <label>
                 <input name="set_editpwd" type="radio" value="1"  {#if $sms_config.set_editpwd=="1"#} checked="checked" {#/if#}/>
@@ -76,10 +76,10 @@
                 <label>
                 <input name="set_editpwd" type="radio"  value="0"  {#if $sms_config.set_editpwd=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(会员修改密码后是否通知)</td>
+              <td  style="color:#999999">（会員パスワードの修正後通知するかどうか）</td>
             </tr>
             <tr>
-              <td align="right">职位审核通过：</td>
+              <td align="right">ジョブの承認：</td>
               <td>
 			    <label>
                 <input name="set_jobsallow" type="radio" value="1"  {#if $sms_config.set_jobsallow=="1"#} checked="checked" {#/if#}/>
@@ -88,10 +88,10 @@
                 <label>
                 <input name="set_jobsallow" type="radio"  value="0"  {#if $sms_config.set_jobsallow=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(职位审核通过是否通知)</td>
+              <td  style="color:#999999">（職位審査未通過の知らせ）</td>
             </tr>
             <tr>
-              <td align="right">职位审核未通过：</td>
+              <td align="right">職位審査未通過：</td>
               <td>
 			    <label>
                 <input name="set_jobsnotallow" type="radio" value="1"  {#if $sms_config.set_jobsnotallow=="1"#} checked="checked" {#/if#}/>
@@ -100,10 +100,10 @@
                 <label>
                 <input name="set_jobsnotallow" type="radio"  value="0"  {#if $sms_config.set_jobsnotallow=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(职位审核未通过是否通知)</td>
+              <td  style="color:#999999">(職位審査未通過を知らせるかどうか)</td>
             </tr>
             <tr>
-              <td align="right">营业执照审核通过：</td>
+              <td align="right">ビジネスライセンスの承認：</td>
               <td>
 			  <label>
                 <input name="set_licenseallow" type="radio" value="1"  {#if $sms_config.set_licenseallow=="1"#} checked="checked" {#/if#}/>
@@ -112,10 +112,10 @@
                 <label>
                 <input name="set_licenseallow" type="radio"  value="0"  {#if $sms_config.set_licenseallow=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(营业执照审核通过是否通知)</td>
+              <td  style="color:#999999">（ビジネスライセンスの承認通知するかどうか）</td>
             </tr>
             <tr>
-              <td align="right">营业执照审核未通过：</td>
+              <td align="right">ビジネスライセンスのレビューに失敗しました：</td>
               <td>
 			    <label>
                 <input name="set_licensenotallow" type="radio" value="1"  {#if $sms_config.set_licensenotallow=="1"#} checked="checked" {#/if#}/>
@@ -124,10 +124,10 @@
                 <label>
                 <input name="set_licensenotallow" type="radio"  value="0"  {#if $sms_config.set_licensenotallow=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(营业执照审核未通过是否通知)</td>
+              <td  style="color:#999999">（ビジネスライセンスの審査未通過は通知するかどうか）</td>
             </tr>
             <tr>
-              <td align="right">开通电子地图：</td>
+              <td align="right">電子地図を開通する</td>
               <td> <label>
                 <input name="set_addmap" type="radio" value="1"  {#if $sms_config.set_addmap=="1"#} checked="checked" {#/if#}/>
                 通知</label>
@@ -135,10 +135,10 @@
                 <label>
                 <input name="set_addmap" type="radio"  value="0"  {#if $sms_config.set_addmap=="0"#} checked="checked" {#/if#} />
               不通知</label></td>
-              <td  style="color:#999999">(企业开通电子地图是否通知)</td>
+              <td  style="color:#999999">（エンタープライズオープンマップ通知する場合）</td>
             </tr>
             <tr>
-              <td align="right">简历审核通过：</td>
+              <td align="right">履歴審査通過</td>
               <td>
 			  <label>
                 <input name="set_resumeallow" type="radio" value="1"  {#if $sms_config.set_resumeallow=="1"#} checked="checked" {#/if#}/>
@@ -147,10 +147,10 @@
                 <label>
                 <input name="set_resumeallow" type="radio"  value="0"  {#if $sms_config.set_resumeallow=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(个人简历审核通过是否通知)</td>
+              <td  style="color:#999999">（承認通知するかどうかを知らせる）</td>
             </tr>
             <tr>
-              <td align="right">简历审核未通过：</td>
+              <td align="right">履歴書審査未通過：</td>
               <td>
 			    <label>
                 <input name="set_resumenotallow" type="radio" value="1"  {#if $sms_config.set_resumenotallow=="1"#} checked="checked" {#/if#}/>
@@ -159,7 +159,7 @@
                 <label>
                 <input name="set_resumenotallow" type="radio"  value="0"  {#if $sms_config.set_resumenotallow=="0"#} checked="checked" {#/if#} />
               不通知</label>			  </td>
-              <td  style="color:#999999">(个人简历审核未通过是否通知)</td>
+              <td  style="color:#999999">（個人履歴書審査の通過の知らせ）</td>
             </tr>
             <tr>
               <td align="right">&nbsp;</td>

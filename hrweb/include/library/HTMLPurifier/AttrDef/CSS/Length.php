@@ -1,37 +1,18 @@
 ﻿<?php
 
-/**
- * Represents a Length as defined by CSS.
- */
 class HTMLPurifier_AttrDef_CSS_Length extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * @type HTMLPurifier_Length|string
-     */
     protected $min;
 
-    /**
-     * @type HTMLPurifier_Length|string
-     */
     protected $max;
 
-    /**
-     * @param HTMLPurifier_Length|string $min Minimum length, or null for no bound. String is also acceptable.
-     * @param HTMLPurifier_Length|string $max Maximum length, or null for no bound. String is also acceptable.
-     */
     public function __construct($min = null, $max = null)
     {
         $this->min = $min !== null ? HTMLPurifier_Length::make($min) : null;
         $this->max = $max !== null ? HTMLPurifier_Length::make($max) : null;
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         $string = $this->parseCDATA($string);

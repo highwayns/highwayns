@@ -20,7 +20,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 正式运营后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。
 </p>
@@ -35,7 +35,7 @@ $(document).ready(function()
 	<span style="color: #999999; font-size:11px;">({#$group.g_alias#})</span> 
 	  </label>
 	  </td>
-	  <td width="30%"   align="center"  class="admin_list_tit">排序</td>
+	  <td width="30%"   align="center"  class="admin_list_tit">並び替え</td>
       <td width="30%"   class="admin_list_tit">操作</td>
     </tr>
 {#foreach from=$category item=li#}
@@ -50,15 +50,15 @@ $(document).ready(function()
 		 <input name="c_order[]" type="text"  value="{#$li.c_order#}" class="input_text_50"/>
 			 </td>
       <td class="admin_list">
-	 <a href="?act=edit_category&id={#$li.c_id#}">修改</a>
+	 <a href="?act=edit_category&id={#$li.c_id#}">変更</a>
 	 &nbsp;&nbsp;
-	 <a onclick="return confirm('删除后无法恢复，你确定要删除吗？')" href="?act=del_category&id={#$li.c_id#}&{#$urltoken#}">删除</a>
+	 <a onclick="return confirm('删除后无法恢复，你确定要删除吗？')" href="?act=del_category&id={#$li.c_id#}&{#$urltoken#}">削除</a>
 		</td>
     </tr>
 	{#/foreach#}
 	</table>
 	{#if !$category#}
-<div class="admin_list_no_info">此组分类下还没有分类，请添加。</div>
+<div class="admin_list_no_info">この分類グループが分類されていない下では、追加してください。</div>
 {#/if#}
 	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>

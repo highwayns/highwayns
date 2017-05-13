@@ -16,13 +16,13 @@
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-  当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>>&nbsp;{#$show.title#}
+  当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>>&nbsp;{#$show.title#}
 </div>
   <!-- 主体内容 -->
   <div class="container link_bk">
     <div class="about_left">
       {#highway_explain_list set="列表名:explain,分类ID:1"#}
-      <h2 class="about_tit">关于我们</h2>
+      <h2 class="about_tit">会社概要</h2>
       <ul>
         {#foreach from=$explain item=list#}
         <li {#if $smarty.get.id==$list.id#}class="active"{#/if#}><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>

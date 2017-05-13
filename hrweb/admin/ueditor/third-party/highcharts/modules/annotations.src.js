@@ -339,9 +339,6 @@ extend(Chart.prototype, {
 			}
 		},
 
-		/**
-		 * Redraw all annotations, method used in chart events
-		 */
 		redraw: function () {
 			each(this.allItems, function (annotation) {
 				annotation.redraw();

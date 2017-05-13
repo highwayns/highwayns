@@ -20,23 +20,23 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
  
-		  <div class="toptit">发送短信</div>
+		  <div class="toptit">SMSを送信</div>
     <span id="submitbox">
 		<form action="?act=sms_send" method="post"   name="form" id="form">
 		<input name="uid" type="hidden"  id="uid" value="{#$smarty.get.uid#}" /></td>
 		{#$inputtoken#}
 		<table width="90%" border="0" cellspacing="10" cellpadding="1" style=" margin-bottom:3px;">
           <tr>
-            <td width="100" align="right">接收手机:</td>
+            <td width="100" align="right">電話を受信する：</td>
             <td>
 			   <input name="mobile" type="text" class="input_text_400"   value="{#$smarty.get.mobile#}" />
 			       </td>
           </tr>
 		  <tr>
-            <td width="100" align="right">发送内容:</td>
+            <td width="100" align="right">コンテンツの送信：</td>
             <td>
 			  <textarea name="txt" class="input_text_400" style="height:80px;"></textarea>
-			  <span class="admin_note">内容超过70个字符将自动截取</span>		    </td>
+			  <span class="admin_note">70文字以上の概要は自動的にさせていただきます</span>		    </td>
           </tr>
           <tr>
             <td align="right">&nbsp;</td>
@@ -48,25 +48,25 @@ $(document).ready(function()
         </table>
 	    </form>
 		{#if $smslog#}	
-	 <div class="toptit">邮件发送记录</div>
+	 <div class="toptit">電子メールレコードを送信</div>
 	<form action="?act=del" method="post"   name="form1" id="form1">
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  width="120" class="admin_list_tit admin_list_first">
-     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>类型</label>	 </td>
-	  <td class="admin_list_tit" width="13%">手机号</td>
-	  <td  class="admin_list_tit">短信内容</td>
-      <td width="110"  align="center"  class="admin_list_tit">添加时间</td>	  
-      <td width="110"  align="center"  class="admin_list_tit">发送时间</td>
+     <label id="chkAll"><input type="checkbox" name="" title=“全部選択/逆選択” id="chk"/>类型</label>	 </td>
+	  <td class="admin_list_tit" width="13%">電話番号</td>
+	  <td  class="admin_list_tit">SMSの内容</td>
+      <td width="110"  align="center"  class="admin_list_tit">時間を追加します</td>	  
+      <td width="110"  align="center"  class="admin_list_tit">伝送時間</td>
       <td width="10%" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$smslog item=list#}
 	 <tr>
       <td   class="admin_list admin_list_first">
      <input type="checkbox" name="id[]"  value="{#$list.s_id#}"/>
-	 {#if $list.s_type=="0"#}<span style="color:#FF6600">等待发送</span>{#/if#}
-	 {#if $list.s_type=="1"#}<span style="color: #009900">发送成功</span>{#/if#}
-	 {#if $list.s_type=="2"#}<span style="color: #666666">发送失败</span>{#/if#}
+	 {#if $list.s_type=="0"#}<span style="color:#FF6600">送信待ち</span>{#/if#}
+	 {#if $list.s_type=="1"#}<span style="color: #009900">正常に送信</span>{#/if#}
+	 {#if $list.s_type=="2"#}<span style="color: #666666">送信に失敗しました</span>{#/if#}
 	  </td>
 	  <td  class="admin_list">
 	  {#$list.s_mobile#}
@@ -86,7 +86,7 @@ $(document).ready(function()
 		{#/if#}
 	  </td>
       <td align="center"  class="admin_list">
-	  <a href="javascript:void()" class="again_send" id="{#$list.s_id#}">重新发送</a>
+	  <a href="javascript:void()" class="again_send" id="{#$list.s_id#}">再送信</a>
 	</td>
 	</tr>
 	{#/foreach#}

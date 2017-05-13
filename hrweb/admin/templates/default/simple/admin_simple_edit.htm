@@ -94,33 +94,33 @@ $("#FormData").validate({
   <div class="clear"></div>
 </div>
 <form action="?act=simple_edit_save" method="post"   name="FormData" id="FormData" >
-<div class="toptit">修改微招聘</div>
+<div class="toptit">wechat募集の修正</div>
 
   {#$inputtoken#}
 <table width="100%" border="0" cellspacing="8" cellpadding="0">
   <tr>
-    <td width="100" align="right"><strong  style="color:#FF0000">*</strong>招聘职位：</td>
+    <td width="100" align="right"><strong  style="color:#FF0000">*</strong>求人仕事：</td>
     <td><input name="jobname" type="text" class="input_text_200" id="jobname" maxlength="20"  value="{#$show.jobname#}"></td>
   </tr>
   <tr>
-    <td align="right">招聘人数：</td>
+    <td align="right">雇用人数：</td>
     <td><input name="amount" type="text" id="amount" class="input_text_200" style="width:60px;" value="{#$show.amount#}" maxlength="3">
-	<span class="admin_note">填写数字，"0"为若干</span>	</td>
+	<span class="admin_note">数字記入，”0”为若干</span>	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>公司名称：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>会社名：</td>
     <td><input name="comname" type="text" class="input_text_200" id="comname" maxlength="20"  value="{#$show.comname#}"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系人：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>連絡先：</td>
     <td><input name="contact" type="text" class="input_text_200" id="contact" maxlength="15" value="{#$show.contact#}"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系电话：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>電話：</td>
     <td><input name="tel" type="text" class="input_text_200" id="tel" maxlength="25" value="{#$show.tel#}"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系地址：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>住所：</td>
     <td>
 		<div>
 		<input type="text" value="{#$show.district_cn#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
@@ -139,7 +139,7 @@ $("#FormData").validate({
 	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>具体要求：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>具体的な要件：</td>
     <td><textarea name="detailed" id="detailed" class="input_text_400" style="height:60px;">{#$show.detailed#}</textarea></td>
   </tr>
     <tr>
@@ -149,31 +149,31 @@ $("#FormData").validate({
 	</td>
   </tr>
    <tr>
-    <td align="right">有效期截至：</td>
+    <td align="right">有効になるまで：</td>
     <td>
 	{#if $show.deadline=="0"#}
 	长期有效
 	{#else#}
 	{#$show.deadline|date_format:"%Y-%m-%d"#}	
-	<span class="admin_note">到期后系统将自动删除</span>
+	<span class="admin_note">システムの満了後は自動的に削除します</span>
 	{#/if#}
 	</td>
   </tr>
   {#if $show.deadline!="0"#}
   <tr>
-    <td align="right">延长有效期：</td>
+    <td align="right">有効期限の延長：</td>
     <td>
 	<input name="days" type="text" class="input_text_200" id="days" style="width:100px;" maxlength="3" value="0">
 	天
-	<span class="admin_note">0为不延长</span>
+	<span class="admin_note">0 延長されません</span>
 	<input name="olddeadline" type="hidden" value="{#$show.deadline#}" />
 	</td>
   </tr>
   {#/if#}
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>管理密码：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>管理者パスワード：</td>
     <td><input name="pwd" type="text" class="input_text_200" id="pwd" style="width:100px;" maxlength="25">
-	<span class="admin_note">留空为不修改管理密码</span>	</td>
+	<span class="admin_note">管理者のパスワードを変更しないように空白のままに</span>	</td>
   </tr>
   <tr>
     <td align="right">&nbsp;</td>

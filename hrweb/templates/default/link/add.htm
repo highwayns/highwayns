@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>友情链接申请 - {#$HIGHWAY.site_name#}</title>
+<title>リンク申請 -  {#$HIGHWAY.site_name#} </title>
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="jp.highwayns.com" />
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
@@ -64,21 +64,21 @@ imgcaptcha("#postcaptcha","#imgdiv");
 {#include file="header.htm"#}
   <!-- 当前位置 -->
   <div class="page_location link_bk">
-    当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>>&nbsp;友情链接申请
+    当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>>&nbsp;友情链接申请
   </div>
   <!-- 主体内容 -->
   <div class="container link_bk">
     <!-- 左边内容 -->
     <div class="left_area subscribe">
       <div class="left_tit_box">
-        <h5>友情链接申请</h5>
+        <h5>リンクアプリケーション</h5>
       </div>
       <div class="company_list">
          <form action="?act=save" method="post">
         <div class="subscribe_box">
           <ul>
             <li>
-              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>申请页面：</div>
+              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>アプリケーションのページ：</div>
               	<input name="alias" id="alias" type="hidden" value="HW_index" />
 	              <div class="input_box">
 	              	{#foreach from=$cat item=li#}
@@ -89,23 +89,23 @@ imgcaptcha("#postcaptcha","#imgdiv");
               <div class="clear"></div>
             </li>
             <li>
-              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>链接名称：</div>
+              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>リンク名：</div>
               <div class="input_box"><input name="link_name" type="text" class="input_text_300" id="link_name" maxlength="20" value=""/></div>
               <div class="clear"></div>
             </li>
             <li>
-              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>链接地址：</div>
+              <div class="w83" align="right"><font color="red" style="margin-right:3px;">*</font>リンクアドレス：</div>
               <div class="input_box"><input name="link_url" type="text" class="input_text_300" id="link_url" maxlength="30" value=""/></div>
               <div class="clear"></div>
             </li>
             <li>
-              <div class="w83" align="right">LOGO地址：</div>
+              <div class="w83" align="right">LOGO住所：</div>
               <div class="input_box"><input name="link_logo" type="text" class="input_text_300" id="link_logo" maxlength="30" value=""/></div>
               <div class="clear"></div>
             </li>
             {#if $verify_link=="1"#}
             <li>
-              <div class="w83" align="right"><font color="red">*</font>验证码：</div>
+              <div class="w83" align="right"><font color="red">*</font>コード：</div>
               <div class="input_box">
                 <div>
                 <div id="imgdiv"></div>
@@ -116,7 +116,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
             </li>
              {#/if#}
             <li>
-              <div class="w83" align="right">申请说明：</div>
+              <div class="w83" align="right">申請要領：</div>
               <div class="input_box">
               	<textarea name="app_notes" class="input_textarea_400"></textarea>
               </div>
@@ -124,7 +124,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
             </li>
             <li>
               <div class="w83">&nbsp;</div>
-              <div class="input_box"><input type="submit" name="Submit" id="Submit" value="提交" class="but130lan" /></div>
+              <div class="input_box"><input type="submit" name="Submit" id="Submit" value=“提出” class="but130lan" /></div>
               <div class="clear"></div>
             </li>
             <div class="clear"></div>
@@ -137,7 +137,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
     <div class="right_area">
       <div class="right_box">
         <div class="title_box">
-          <h5>申请说明</h5>
+          <h5>アプリケーションの説明</h5>
         </div>
         <div class="list sub_right">
           <p>{#$link_application_txt#}</p>

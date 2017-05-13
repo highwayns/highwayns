@@ -24,45 +24,45 @@
   <div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">举报时间</div>	
+		<div class="left">レポートの時間</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">举报类型</div>	
+		<div class="left">レポートタイプ</div>	
 		<div class="right">
-		<a href="?act=report_list&type=1">职位</a>
-		<a href="?act=report_list&type=2" class="select">简历</a>
+		<a href="?act=report_list&type=1">ジョブズ</a>
+		<a href="?act=report_list&type=2" class="select">履歴書</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">投诉类型</div>	
+		<div class="left">苦情の種類</div>	
 		<div class="right">
-		<a href="{#"reporttype:"|highway_parse_url#}" {#if $smarty.get.reporttype==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"reporttype:1"|highway_parse_url#}" {#if $smarty.get.reporttype=="1"#}class="select"{#/if#}>虚假信息</a>
-		<a href="{#"reporttype:2"|highway_parse_url#}" {#if $smarty.get.reporttype=="2"#}class="select"{#/if#}>电话不通</a>
-		<a href="{#"reporttype:3"|highway_parse_url#}" {#if $smarty.get.reporttype=="3"#}class="select"{#/if#}>其它原因</a>
+		<a href="{#"reporttype:"|highway_parse_url#}" {#if $smarty.get.reporttype==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"reporttype:1"|highway_parse_url#}" {#if $smarty.get.reporttype=="1"#}class="select"{#/if#}>虚偽の情報</a>
+		<a href="{#"reporttype:2"|highway_parse_url#}" {#if $smarty.get.reporttype=="2"#}class="select"{#/if#}>電話不通</a>
+		<a href="{#"reporttype:3"|highway_parse_url#}" {#if $smarty.get.reporttype=="3"#}class="select"{#/if#}>その他の理由</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">核实情况</div>	
+		<div class="left">状況を確認するには</div>	
 		<div class="right">
-		<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>未审核</a>
-		<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>属实</a>
-		<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>不属实</a>
+		<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>承認されていない</a>
+		<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>事実</a>
+		<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>事実ではない</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -73,12 +73,12 @@
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td width="15%"  class="admin_list_tit admin_list_first" >
-	  <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />投诉简历</label></td>
-	       <td width="180" align="center"  class="admin_list_tit">投诉类型</td>
-            <td class="admin_list_tit">投诉内容</td>
-		    <td width="180" align="center"  class="admin_list_tit">核实情况</td>
-		    <td width="180" align="center"  class="admin_list_tit">投诉者</td>
-        <td width="160" align="center"   class="admin_list_tit">投诉时间</td>
+	  <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />投诉简历</label></td>
+	       <td width="180" align="center"  class="admin_list_tit">苦情の種類</td>
+            <td class="admin_list_tit">苦情</td>
+		    <td width="180" align="center"  class="admin_list_tit">状況を確認する</td>
+		    <td width="180" align="center"  class="admin_list_tit">クレーマー</td>
+        <td width="160" align="center"   class="admin_list_tit">苦情時間</td>
 	
       </tr>
 	 {#foreach from=$list item=li#}
@@ -88,9 +88,9 @@
       <input name="resume_id[]" type="hidden" id="resume_id" value="{#$li.resume_id#}" />
 	 
 	 <a href="{#$li.resume_url#}" target="_blank">{#$li.title#}</a>	 </td>
-	        <td align="center"  class="admin_list">{#if $li.report_type == 1#}虚假信息{#elseif $li.report_type == 2#}电话不通{#else#}其它原因{#/if#}</td>
+	        <td align="center"  class="admin_list">{#if $li.report_type == 1#}偽情報{#elseif $li.report_type == 2#}音信不通{#else#}ほかの原因{#/if#}</td>
             <td  class="admin_list vtip" title="{#$li.content|nl2br#}" >{#$li.content#}</td>
-	        <td align="center"  class="admin_list">{#if $li.audit == 2#}属实{#elseif $li.audit == 3#}不属实{#else#}未审核{#/if#}</td>
+	        <td align="center"  class="admin_list">{#if$ li.audit == 2#}真{#elseif $ li.audit == 3#}虚偽{#他#}未承認{#/ IF#} </td>
 			<td align="center"  class="admin_list">
 			{#$li.username#}			</td>
         <td align="center"  class="admin_list">{#$li.addtime|date_format:"%Y-%m-%d | %H:%M"#}</td>
@@ -99,7 +99,7 @@
 	 {#/foreach#}
   </table>
 	  {#if !$list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

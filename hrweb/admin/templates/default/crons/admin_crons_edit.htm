@@ -7,13 +7,13 @@
   <div class="clear"></div>
 </div>
  <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 计划任务是一项使系统在规定时间自动执行某些特定任务的功能，在需要的情况下，您也可以方便的将其用于功能的扩展。<br />
 计划任务是与系统核心紧密关联的功能特性，不当的设置可能造成功能的隐患，严重时可能导致网站无法正常运行。
 </p>
 </div>
-<div class="toptit">修改计划任务</div>
+<div class="toptit">タスク計画を変更します</div>
 
   <div class="admintable">
   
@@ -23,44 +23,44 @@
     <table width="100%" border="0" cellpadding="3" cellspacing="0">
 
 	 <tr>
-        <td  class="tit">名称：</td>
+        <td  class="tit">名前：</td>
       </tr>
       <tr>
         
         <td>
 		<input name="name" type="text"  class="input_text_200" maxlength="20"  value="{#$show.name#}"/>
-		<span class="admin_note">设置本任务的任务名称</span>		</td>
+		<span class="admin_note">このタスクのタスク名を設定します</span>		</td>
       </tr>
 	   <tr>
-        <td  class="tit">任务脚本：</td>
+        <td  class="tit">タスクのスクリプト：</td>
       </tr>
       <tr>
         
         <td>
 		<input name="filename" type="text"  class="input_text_200" maxlength="30"  value="{#$show.filename#}"/>
 		
-		<span class="admin_note">设置本任务的执行程序文件名，请勿包含路径，程序脚本统一存放于 ./include/crons/ 目录中</span>		</td>
+		<span class="admin_note">このタスクの実行ファイル名の設定は、パスが含まれないよう、./include/crons/目録中</span>		</td>
       </tr>
 	  
 	   <tr>
       <tr>
-        <td  class="tit">每周：</td>
+        <td  class="tit">毎週：</td>
       </tr>
         <td>
 		<select name="weekday"  class="input_text_200_select">
         <option value="-1"  {#if $show.weekday=="-1"#}selected="selected"{#/if#}>*</option>
         <option value="0" {#if $show.weekday=="0"#}selected="selected"{#/if#}>日</option>
         <option value="1" {#if $show.weekday=="1"#}selected="selected"{#/if#}>一</option>
-        <option value="2" {#if $show.weekday=="2"#}selected="selected"{#/if#}>二</option>
+        <option value="2" {#if $show.weekday=="2"#}selected="selected"{#/if#}>2つ</option>
         <option value="3" {#if $show.weekday=="3"#}selected="selected"{#/if#}>三</option>
         <option value="4" {#if $show.weekday=="4"#}selected="selected"{#/if#}>四</option>
         <option value="5" {#if $show.weekday=="5"#}selected="selected"{#/if#}>五</option>
         <option value="6" {#if $show.weekday=="6"#}selected="selected"{#/if#}>六</option>
       </select>
-	  <span class="admin_note">设置星期几执行本任务，“*”为不限制，本设置会覆盖下面的“日”设定</span>	  </td>
+	  <span class="admin_note">週の設定日は、この設定は、以下の「日」を設定を上書きし、制限されていない「*」、このタスクを実行するには</span>	  </td>
       </tr>
 	   <tr>
-        <td  class="tit">每月：</td>
+        <td  class="tit">毎月：</td>
       </tr>
      <tr>
  
@@ -68,88 +68,88 @@
 		 <select name="day" class="input_text_200_select">
           <option value="-1" {#if $show.day=="-1"#}selected="selected"{#/if#}>*</option>
           <option value="1"  {#if $show.day=="1"#}selected="selected"{#/if#}>1 日</option>
-          <option value="2" {#if $show.day=="2"#}selected="selected"{#/if#}>2   日</option>
+          <option value="2" {#if $show.day=="2"#}selected="selected"{#/if#}>2  日</option>
           <option value="3" {#if $show.day=="3"#}selected="selected"{#/if#}>3 日</option>
           <option value="4" {#if $show.day=="4"#}selected="selected"{#/if#}>4 日</option>
           <option value="5" {#if $show.day=="5"#}selected="selected"{#/if#}>5 日</option>
           <option value="6" {#if $show.day=="6"#}selected="selected"{#/if#}>6 日</option>
-          <option value="7" {#if $show.day=="7"#}selected="selected"{#/if#}>7   日</option>
-          <option value="8" {#if $show.day=="8"#}selected="selected"{#/if#}>8 日</option>
+          <option value="7" {#if $show.day=="7"#}selected="selected"{#/if#}>7 日</option>
+          <option value="8" {#if $show.day=="8"#}selected="selected"{#/if#}>8日</option>
           <option value="9" {#if $show.day=="9"#}selected="selected"{#/if#}>9 日</option>
-          <option value="10" {#if $show.day=="10"#}selected="selected"{#/if#}>10 日</option>
+          <option value="10" {#if $show.day=="10"#}selected="selected"{#/if#}>10日</option>
           <option value="11" {#if $show.day=="11"#}selected="selected"{#/if#}>11 日</option>
-          <option value="12" {#if $show.day=="12"#}selected="selected"{#/if#}>12   日</option>
+          <option value="12" {#if $show.day=="12"#}selected="selected"{#/if#}>12 日</option>
           <option value="13" {#if $show.day=="13"#}selected="selected"{#/if#}>13 日</option>
           <option value="14" {#if $show.day=="15"#}selected="selected"{#/if#}>14 日</option>
           <option value="15" {#if $show.day=="15"#}selected="selected"{#/if#}>15 日</option>
-          <option value="16" {#if $show.day=="16"#}selected="selected"{#/if#}>16 日</option>
-          <option value="17" {#if $show.day=="17"#}selected="selected"{#/if#}>17   日</option>
+          <option value="16" {#if $show.day=="16"#}selected="selected"{#/if#}>16 時</option>
+          <option value="17" {#if $show.day=="17"#}selected="selected"{#/if#}>17 </option>
           <option value="18" {#if $show.day=="18"#}selected="selected"{#/if#}>18 日</option>
           <option value="19" {#if $show.day=="19"#}selected="selected"{#/if#}>19 日</option>
           <option value="20" {#if $show.day=="30"#}selected="selected"{#/if#}>20 日</option>
-          <option value="21" {#if $show.day=="21"#}selected="selected"{#/if#}>21 日</option>
-          <option value="22" {#if $show.day=="22"#}selected="selected"{#/if#}>22   日</option>
+          <option value="21" {#if $show.day=="21"#}selected="selected"{#/if#}>21 </option>
+          <option value="22" {#if $show.day=="22"#}selected="selected"{#/if#}>22 日</option>
           <option value="23" {#if $show.day=="23"#}selected="selected"{#/if#}>23 日</option>
           <option value="24" {#if $show.day=="24"#}selected="selected"{#/if#}>24 日</option>
           <option value="25" {#if $show.day=="25"#}selected="selected"{#/if#}>25 日</option>
           <option value="26" {#if $show.day=="26"#}selected="selected"{#/if#}>26 日</option>
-          <option value="27" {#if $show.day=="27"#}selected="selected"{#/if#}>27   日</option>
+          <option value="27" {#if $show.day=="27"#}selected="selected"{#/if#}>27 日</option>
           <option value="28" {#if $show.day=="28"#}selected="selected"{#/if#}>28 日</option>
         </select>
-		 <span class="admin_note">设置哪一日执行本任务，“*”为不限制</span>		</td>
+		 <span class="admin_note">任務実行日の設定、「*」が制限なし</span>		</td>
       </tr>
  <tr>
-        <td  class="tit">小时：</td>
+        <td  class="tit">時間：</td>
       </tr>
    <tr>
         <td >
 	<select name="hour" class="input_text_200_select">
           <option value="-1" {#if $show.hour=="-1"#}selected="selected"{#/if#}>*</option>
-          <option value="0" {#if $show.hour=="0"#}selected="selected"{#/if#}>0 时</option>
-          <option value="1" {#if $show.hour=="1"#}selected="selected"{#/if#}>1 时</option>
-          <option value="2" {#if $show.hour=="2"#}selected="selected"{#/if#}>2   时</option>
-          <option value="3" {#if $show.hour=="3"#}selected="selected"{#/if#}>3 时</option>
-          <option value="4" {#if $show.hour=="4"#}selected="selected"{#/if#}>4 时</option>
-          <option value="5" {#if $show.hour=="5"#}selected="selected"{#/if#}>5 时</option>
-          <option value="6" {#if $show.hour=="6"#}selected="selected"{#/if#}>6 时</option>
-          <option value="7" {#if $show.hour=="7"#}selected="selected"{#/if#}>7   时</option>
-          <option value="8" {#if $show.hour=="8"#}selected="selected"{#/if#}>8 时</option>
-          <option value="9" {#if $show.hour=="9"#}selected="selected"{#/if#}>9 时</option>
-          <option value="10" {#if $show.hour=="10"#}selected="selected"{#/if#}>10 时</option>
-          <option value="11" {#if $show.hour=="11"#}selected="selected"{#/if#}>11 时</option>
-          <option value="12" {#if $show.hour=="12"#}selected="selected"{#/if#}>12   时</option>
-          <option value="13" {#if $show.hour=="13"#}selected="selected"{#/if#}>13 时</option>
-          <option value="14" {#if $show.hour=="14"#}selected="selected"{#/if#}>14 时</option>
-          <option value="15" {#if $show.hour=="15"#}selected="selected"{#/if#}>15 时</option>
-          <option value="16" {#if $show.hour=="16"#}selected="selected"{#/if#}>16 时</option>
-          <option value="17" {#if $show.hour=="17"#}selected="selected"{#/if#}>17   时</option>
-          <option value="18" {#if $show.hour=="18"#}selected="selected"{#/if#}>18 时</option>
-          <option value="19" {#if $show.hour=="19"#}selected="selected"{#/if#}>19 时</option>
-          <option value="20" {#if $show.hour=="20"#}selected="selected"{#/if#}>20 时</option>
-          <option value="21" {#if $show.hour=="21"#}selected="selected"{#/if#}>21 时</option>
-          <option value="22" {#if $show.hour=="22"#}selected="selected"{#/if#}>22   时</option>
-          <option value="23" {#if $show.hour=="23"#}selected="selected"{#/if#}>23 时</option>
+          <option value="0" {#if $show.hour=="0"#}selected="selected"{#/if#}>0 </option>
+          <option value="1" {#if $show.hour=="1"#}selected="selected"{#/if#}>1 時</option>
+          <option value="2" {#if $show.hour=="2"#}selected="selected"{#/if#}>2 時</option>
+          <option value="3" {#if $show.hour=="3"#}selected="selected"{#/if#}>3 時</option>
+          <option value="4" {#if $show.hour=="4"#}selected="selected"{#/if#}>4 時</option>
+          <option value="5" {#if $show.hour=="5"#}selected="selected"{#/if#}>5 時</option>
+          <option value="6" {#if $show.hour=="6"#}selected="selected"{#/if#}>6 時</option>
+          <option value="7" {#if $show.hour=="7"#}selected="selected"{#/if#}>7 時</option>
+          <option value="8" {#if $show.hour=="8"#}selected="selected"{#/if#}>8 時</option>
+          <option value="9" {#if $show.hour=="9"#}selected="selected"{#/if#}>9時 </option>
+          <option value="10" {#if $show.hour=="10"#}selected="selected"{#/if#}>10 時</option>
+          <option value="11" {#if $show.hour=="11"#}selected="selected"{#/if#}>11 時</option>
+          <option value="12" {#if $show.hour=="12"#}selected="selected"{#/if#}>12 時</option>
+          <option value="13" {#if $show.hour=="13"#}selected="selected"{#/if#}>13 時</option>
+          <option value="14" {#if $show.hour=="14"#}selected="selected"{#/if#}>14 時</option>
+          <option value="15" {#if $show.hour=="15"#}selected="selected"{#/if#}>15 時</option>
+          <option value="16" {#if $show.hour=="16"#}selected="selected"{#/if#}>16 時</option>
+          <option value="17" {#if $show.hour=="17"#}selected="selected"{#/if#}>17 時</option>
+          <option value="18" {#if $show.hour=="18"#}selected="selected"{#/if#}>18 時</option>
+          <option value="19" {#if $show.hour=="19"#}selected="selected"{#/if#}>19　時 </option>
+          <option value="20" {#if $show.hour=="20"#}selected="selected"{#/if#}>20 時</option>
+          <option value="21" {#if $show.hour=="21"#}selected="selected"{#/if#}>21時 </option>
+          <option value="22" {#if $show.hour=="22"#}selected="selected"{#/if#}>22 時</option>
+          <option value="23" {#if $show.hour=="23"#}selected="selected"{#/if#}>23 時</option>
         </select>
-		 <span class="admin_note">设置哪一小时执行本任务，“*”为不限制</span>		</td>
+		 <span class="admin_note">このタスクを実行する時間が設けられています、「*」は制限なし</span>		</td>
       </tr>
    <tr>
-     <td  class="tit">分钟：</td>
+     <td  class="tit">分：</td>
    </tr>
    <tr>
      <td ><input name="minute" type="text"  class="input_text_200" value="{#$show.minute#}" />
 	 
-	  <span class="admin_note">设置哪一分钟执行本任务，留空为不限制</span>		
+	  <span class="admin_note">このタスクを実行する用意分、空白を制限しません</span>		
 	 </td>
    </tr>
    	 <tr>
-        <td  class="tit">可用：</td>
+        <td  class="tit">利用可能：</td>
       </tr>
       <tr>
         
         <td>
 		<label><input name="available" type="radio" value="1"  {#if $show.available=="1"#}checked="checked"{#/if#}/>可用</label>
 <label><input type="radio" name="available" value="0"  {#if $show.available=="0"#}checked="checked"{#/if#}/> 不可用</label>
-		<span class="admin_note">设置不可用则任务不会执行</span>		</td>
+		<span class="admin_note">設置は使えないとタスクが行わない</span>		</td>
       </tr>
    <tr>
      <td >

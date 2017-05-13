@@ -9,61 +9,61 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 不同的运营阶段您可以选择不同的设置。<br />
 
 </p>
 </div>
 
-<div class="toptit">基本设置</div>
+<div class="toptit">ベーシックセット</div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 	<tr>
-      <td width="200" align="right">个人会员允许发布简历：</td>
+      <td width="200" align="right">個々のメンバーが出版再開を許可：</td>
       <td><input name="resume_max" type="text"  class="input_text_150" id="resume_max" value="{#$config.resume_max#}" maxlength="8"    onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 
 	  份	   </td>
     </tr>
 	<tr>
-      <td align="right">每天允许申请职位：</td>
+      <td align="right">毎日応募上限：</td>
       <td><input name="apply_jobs_max" type="text"  class="input_text_150" id="apply_jobs_max" value="{#$config.apply_jobs_max#}" maxlength="8"    onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/ > 
 	  个	  </td>
     </tr>
 	<tr>
-      <td align="right">上传简历照片大小不能超过：</td>
+      <td align="right">あなたの履歴書の写真のサイズを超えるとアップロードできません：</td>
       <td><input name="resume_photo_max" type="text"  class="input_text_150" id="resume_photo_max" value="{#$config.resume_photo_max#}" maxlength="8"   onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> KB</td>
     </tr>
 		<tr>
-		  <td align="right">简历列表数最大为：</td>
+		  <td align="right">リストの最大数は:</td>
 		  <td><input name="resume_list_max" type="text"  class="input_text_150"   value="{#$config.resume_list_max#}" maxlength="10"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>        
 			条
-			<span class="admin_note">0为不限制</span>
+			<span class="admin_note">0 は制限なし</span>
 		  </td>
 		</tr>
 		<tr>
-		  <td align="right">刷新简历时间间隔：</td>
+		  <td align="right">履歴書更新の間隔：</td>
 		  <td><input name="per_refresh_resume_space" type="text"  class="input_text_150"   value="{#$config.per_refresh_resume_space#}" maxlength="10"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 分钟
-			<span class="admin_note">0为不限制</span>
+			<span class="admin_note">0 は制限なし</span>
 		  </td>
 		</tr>
 		<tr>
-		  <td align="right">每天刷新简历次数限制：</td>
+		  <td align="right">毎日履歴書を更新する回数制限：</td>
 		  <td><input name="per_refresh_resume_time" type="text"  class="input_text_150"   value="{#$config.per_refresh_resume_time#}" maxlength="10"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 次
-			<span class="admin_note">0为不限制</span>
+			<span class="admin_note">0 は制限なし</span>
 		  </td>
 		</tr>
 		<tr>
-      <td align="right">简历姓名默认显示方式：</td>
+      <td align="right">履歴書名前デフォルトの表示モード</td>
       <td><label>
-        <input name="resume_privacy" type="radio"   value="1"  {#if $config.resume_privacy=="1"#}checked=checked {#/if#}/>真实姓名</label>
+        <input name="resume_privacy" type="radio"   value="1"  {#if $config.resume_privacy=="1"#}checked=checked {#/if#}/>本名</label#}>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="resume_privacy" value="2" {#if $config.resume_privacy=="2"#}checked=checked{#/if#}/>简历编号</label>
+<input type="radio" name="resume_privacy" value="2" {#if $config.resume_privacy=="2"#}checked=checked{#/if#}/>履歴書ID</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="resume_privacy" value="3" {#if $config.resume_privacy=="3"#}checked=checked{#/if#}/>姓氏</label>
+<input type="radio" name="resume_privacy" value="3" {#if $config.resume_privacy=="3"#}checked=checked{#/if#}/>名字</label>
 </td>
 	</tr>
 		<tr>
@@ -74,88 +74,88 @@
 	  </tr>
 	  </table>
   </form>
-	<div class="toptit">审核与认证设置</div>
+	<div class="toptit">監査と認証セット</div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">	 
 	<tr>
-      <td width="200" align="right">新发布简历默认审核状态：</td>
+      <td width="200" align="right">新しくリリースされた監査履歴書のデフォルトの状態：</td>
       <td>
 	  <label>
-        <input name="audit_resume" type="radio" id="audit_resume" value="1"  {#if $config.audit_resume=="1"#}checked=checked {#/if#}/>审核通过</label>
+        <input name="audit_resume" type="radio" id="audit_resume" value="1"  {#if $config.audit_resume=="1"#}checked=checked {#/if#}/>承認</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label>
-        <input name="audit_resume" type="radio" id="audit_resume" value="2"  {#if $config.audit_resume=="2"#}checked=checked {#/if#}/>审核中</label>
+        <input name="audit_resume" type="radio" id="audit_resume" value="2"  {#if $config.audit_resume=="2"#}checked=checked {#/if#}/>審査中</label>
 		&nbsp;&nbsp;&nbsp;&nbsp;
 <label>
-        <input name="audit_resume" type="radio" id="audit_resume" value="3"  {#if $config.audit_resume=="3"#}checked=checked {#/if#}/>审核未通过</label>
+        <input name="audit_resume" type="radio" id="audit_resume" value="3"  {#if $config.audit_resume=="3"#}checked=checked {#/if#}/>承認されていません</label>
 </td>
     </tr>
 		<tr>
-      <td align="right">修改简历后审核状态变为：</td>
+      <td align="right">履歴書の修正後の審査状態：</td>
       <td>
 	  <label>
-        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="-1"  {#if $config.audit_edit_resume=="-1"#}checked=checked {#/if#}/>保持不变</label>
+        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="-1"  {#if $config.audit_edit_resume=="-1"#}checked=checked {#/if#}/>変更なし</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 	  <label>
-        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="1"  {#if $config.audit_edit_resume=="1"#}checked=checked {#/if#}/>审核通过</label>
+        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="1"  {#if $config.audit_edit_resume=="1"#}checked=checked {#/if#}/>承認</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label>
-        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="2"  {#if $config.audit_edit_resume=="2"#}checked=checked {#/if#}/>审核中</label>
+        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="2"  {#if $config.audit_edit_resume=="2"#}checked=checked {#/if#}/>審査中</label>
 		&nbsp;&nbsp;&nbsp;&nbsp;
 <label>
-        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="3"  {#if $config.audit_edit_resume=="3"#}checked=checked {#/if#}/>审核未通过</label>
+        <input name="audit_edit_resume" type="radio" id="audit_edit_resume" value="3"  {#if $config.audit_edit_resume=="3"#}checked=checked {#/if#}/>承認されていません</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">新增简历照片后照片默认审核状态：</td>
+      <td align="right">写真をアップしたらデフォルトの承認ステータスが再開：</td>
       <td><label>
-        <input name="audit_resume_photo" type="radio" id="audit_resume_photo" value="1"  {#if $config.audit_resume_photo=="1"#}checked=checked {#/if#}/>审核通过</label>
+        <input name="audit_resume_photo" type="radio" id="audit_resume_photo" value="1"  {#if $config.audit_resume_photo=="1"#}checked=checked {#/if#}/>承認</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_resume_photo" value="2" id="audit_resume_photo"  {#if $config.audit_resume_photo=="2"#}checked=checked{#/if#}/>审核中</label>
+<input type="radio" name="audit_resume_photo" value="2" id="audit_resume_photo"  {#if $config.audit_resume_photo=="2"#}checked=checked{#/if#}/>審査中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_resume_photo" value="3" id="audit_resume_photo"  {#if $config.audit_resume_photo=="3"#}checked=checked{#/if#}/>审核未通过</label>
+<input type="radio" name="audit_resume_photo" value="3" id="audit_resume_photo"  {#if $config.audit_resume_photo=="3"#}checked=checked{#/if#}/>承認されていません</label>
 </td>
     </tr>
 	<tr>
-      <td align="right">修改简历的照片后照片审核状态：</td>
+      <td align="right">写真変更後の審査状態：</td>
       <td>
 	  <label>
-        <input name="audit_edit_photo" type="radio" id="audit_edit_photo" value="-1"  {#if $config.audit_edit_photo=="-1"#}checked=checked {#/if#}/>保持不变</label>
+        <input name="audit_edit_photo" type="radio" id="audit_edit_photo" value="-1"  {#if $config.audit_edit_photo=="-1"#}checked=checked {#/if#}/>変更なし</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 	  <label>
-        <input name="audit_edit_photo" type="radio" id="audit_edit_photo" value="1"  {#if $config.audit_edit_photo=="1"#}checked=checked {#/if#}/>审核通过</label>
+        <input name="audit_edit_photo" type="radio" id="audit_edit_photo" value="1"  {#if $config.audit_edit_photo=="1"#}checked=checked {#/if#}/>承認</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_edit_photo" value="2" id="audit_edit_photo"  {#if $config.audit_edit_photo=="2"#}checked=checked{#/if#}/>审核中</label>
+<input type="radio" name="audit_edit_photo" value="2" id="audit_edit_photo"  {#if $config.audit_edit_photo=="2"#}checked=checked{#/if#}/>審査中</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="audit_edit_photo" value="3" id="audit_edit_photo"  {#if $config.audit_edit_photo=="3"#}checked=checked{#/if#}/>审核未通过</label>
+<input type="radio" name="audit_edit_photo" value="3" id="audit_edit_photo"  {#if $config.audit_edit_photo=="3"#}checked=checked{#/if#}/>承認されていません</label>
 	  </td>
     </tr>
 	
  		
 	<tr>
-      <td align="right">强制会员认证手机：</td>
+      <td align="right">強制メンバー検証電話：</td>
       <td><label>
-        <input name="login_per_audit_mobile" type="radio" id="login_per_audit_mobile" value="1"  {#if $config.login_per_audit_mobile=="1"#}checked=checked {#/if#}/>是</label>
+        <input name="login_per_audit_mobile" type="radio" id="login_per_audit_mobile" value="1"  {#if $config.login_per_audit_mobile=="1"#}checked=checked {#/if#}/>です</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="login_per_audit_mobile" value="0" id="login_per_audit_mobile"  {#if $config.login_per_audit_mobile=="0"#}checked=checked{#/if#}/>否</label>
-<span class="admin_note">如要设为强制认证手机需开启短信模块</span>
+<input type="radio" name="login_per_audit_mobile" value="0" id="login_per_audit_mobile"  {#if $config.login_per_audit_mobile=="0"#}checked=checked{#/if#}/>ノー</label>
+<span class="admin_note">携帯電話認証を設定するには、SMSモジュールを開く必要があります</span>
 
 </td>
 	</tr>
 	<tr>
-      <td align="right">强制会员认证email：</td>
+      <td align="right">メンバーの必須認証メール：</td>
       <td><label>
-        <input name="login_per_audit_email" type="radio" id="login_per_audit_email" value="1"  {#if $config.login_per_audit_email=="1"#}checked=checked {#/if#}/>是</label>
+        <input name="login_per_audit_email" type="radio" id="login_per_audit_email" value="1"  {#if $config.login_per_audit_email=="1"#}checked=checked {#/if#}/>です</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="login_per_audit_email" value="0" id="login_per_audit_email"  {#if $config.login_per_audit_email=="0"#}checked=checked{#/if#}/>否</label></td>
+<input type="radio" name="login_per_audit_email" value="0" id="login_per_audit_email"  {#if $config.login_per_audit_email=="0"#}checked=checked{#/if#}/>ノー</label></td>
 	</tr>
 		<tr>
 	  <td align="right" valign="top">&nbsp;</td>
@@ -165,15 +165,15 @@
 	  </tr>
 	  </table>
   </form>
-	<div class="toptit">联系方式设置</div>
+	<div class="toptit">連絡先設定</div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">	 
 	<tr>
-      <td width="200" align="right">Web端允许查看简历联系方式：</td>
+      <td width="200" align="right">ウェブ端はあなたの履歴書の連絡先を表示することができます</td>
       <td><label>
-        <input name="showresumecontact" type="radio" value="0"  {#if $config.showresumecontact=="0"#}checked=checked {#/if#}/>游客可见</label>
+        <input name="showresumecontact" type="radio" value="0"  {#if $config.showresumecontact=="0"#}checked=checked {#/if#}/>訪問者可視</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
 <input type="radio" name="showresumecontact" value="1"  {#if $config.showresumecontact=="1"#}checked=checked{#/if#}/>已登录会员可见
@@ -182,12 +182,12 @@
 <label >
 <input type="radio" name="showresumecontact" value="2"  {#if $config.showresumecontact=="2"#}checked=checked{#/if#}/>下载后可见
  </label>
- <span class="admin_note">(如此项为“游客可见”或“已登录会员可见”，网站将会失去重要赢利点)</span></td>
+ <span class="admin_note">「観光客が見える」または「会員が見える」になると重要な利益のポイントを失うことになる</span></td>
     </tr>
     <tr>
-    	<td width="200" align="right">触屏版允许查看简历联系方式：</td>
+    	<td width="200" align="right">タッチスクリーンのバージョンでは、あなたの履歴書の連絡先を表示することができます：</td>
     	<td><label>
-    		<input name="showresumecontact_wap" type="radio" value="0"  {#if $config.showresumecontact_wap=="0"#}checked=checked {#/if#}/>游客可见</label>
+    		<input name="showresumecontact_wap" type="radio" value="0"  {#if $config.showresumecontact_wap=="0"#}checked=checked {#/if#}/>訪問者可視</label>
     		&nbsp;&nbsp;&nbsp;&nbsp;
     		<label >
     			<input type="radio" name="showresumecontact_wap" value="1"  {#if $config.showresumecontact_wap=="1"#}checked=checked{#/if#}/>已登录会员可见
@@ -196,12 +196,12 @@
     		<label >
     			<input type="radio" name="showresumecontact_wap" value="2"  {#if $config.showresumecontact_wap=="2"#}checked=checked{#/if#}/>下载后可见
     		</label>
-    		<span class="admin_note">(如此项为“游客可见”或“已登录会员可见”，网站将会失去重要赢利点)</span></td>
+    		<span class="admin_note">「観光客が見える」または「会員が見える」になると重要な利益のポイントを失うことになる</span></td>
     	</tr>
 	<tr>
-      <td width="200" align="right">企业查看收到的简历无需下载：</td>
+      <td width="200" align="right">企業は受け取った履歴書を見られダウンロードする必要がない:</td>
       <td><label>
-        <input name="showapplycontact" type="radio" value="0"  {#if $config.showapplycontact=="0"#}checked=checked {#/if#}/>关闭</label>
+        <input name="showapplycontact" type="radio" value="0"  {#if $config.showapplycontact=="0"#}checked=checked {#/if#}/>閉じる</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
 <input type="radio" name="showapplycontact" value="1"  {#if $config.showapplycontact=="1"#}checked=checked{#/if#}/>开启
@@ -216,14 +216,14 @@
 	  </table>
   </form>
   
-  	<div class="toptit">联系方式图形化 <span class="admin_note">图形化需要将中文字体文件上传到data/contactimgfont/，字体文件命名为“cn.ttc”</span></div>
+  	<div class="toptit">連絡先のグラフィカル <span class="admin_note">图形化需要将中文字体文件上传到data/contactimgfont/，字体文件命名为“cn.ttc”</span></div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">	 
 	<tr>
-      <td width="200" align="right">简历联系方式：</td>
-      <td><label><input name="contact_img_resume" type="radio"   value="1"  {#if $config.contact_img_resume=="1"#}checked=checked {#/if#}/>文字</label>
+      <td width="200" align="right">履歴書の連絡先</td>
+      <td><label><input name="contact_img_resume" type="radio"   value="1"  {#if $config.contact_img_resume=="1"#}checked=checked {#/if#}/>テキスト</label>
 	  &nbsp;&nbsp;&nbsp;&nbsp;
  <label><input name="contact_img_resume" type="radio"   value="2"  {#if $config.contact_img_resume=="2"#}checked=checked {#/if#}/>图形化</label>
 </td>
@@ -238,15 +238,15 @@
   </form>
   
   
-  	<div class="toptit">简历下载设置</div>
+  	<div class="toptit">履歴書ダウンロード設定</div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">	 
 	<tr>
-      <td width="200" align="right">简历下载要求：</td>
+      <td width="200" align="right">履歴書ダウンロードの要求：</td>
       <td><label>
-        <input name="down_resume_limit" type="radio" value="1"  {#if $config.down_resume_limit=="1"#}checked=checked {#/if#}/>已登录且有发布职位的企业可下载</label>
+        <input name="down_resume_limit" type="radio" value="1"  {#if $config.down_resume_limit=="1"#}checked=checked {#/if#}/>すでにログインして投稿ジョブはダウンロードすることができる企業であります</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
 <input type="radio" name="down_resume_limit" value="2"  {#if $config.down_resume_limit=="2"#}checked=checked{#/if#}/>已登录的企业可下载
@@ -261,15 +261,15 @@
 	  </tr>
 	  </table>
   </form>
-  	<div class="toptit">高级简历下载设置</div>
+  	<div class="toptit">高度なレジュームダウンロード設定</div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">	 
 	<tr>
-      <td width="200" align="right">高级简历下载要求：</td>
+      <td width="200" align="right">高級履歴書ダウンロードの要件：</td>
       <td><label>
-        <input name="down_talent_resume_limit" type="radio" value="1"  {#if $config.down_talent_resume_limit=="1"#}checked=checked {#/if#}/>已登录且有发布职位的猎头可下载</label>
+        <input name="down_talent_resume_limit" type="radio" value="1"  {#if $config.down_talent_resume_limit=="1"#}checked=checked {#/if#}/>そこにはすでにログインしてダウンロードすることができます仕事のリクルーターを掲載している</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
 <input type="radio" name="down_talent_resume_limit" value="2"  {#if $config.down_talent_resume_limit=="2"#}checked=checked{#/if#}/>已登录的猎头可下载
@@ -284,14 +284,14 @@
 	  </tr>
 	  </table>
   </form>
-	<div class="toptit">高级人才设置</div>
+	<div class="toptit">高级人材設置</div>
  
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="95%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">	 
 	<tr>
 	<tr>
-      <td align="right">申请高级人才简历完整指数要求：</td>
+      <td align="right">高級人材履歴書完了インデックス要求：</td>
       <td><label>
         <input name="elite_resume_complete_percent" type="radio"   value="60"  {#if $config.elite_resume_complete_percent=="60"#}checked=checked {#/if#}/>>=60%</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -310,7 +310,7 @@
 </label>
 </td>
 	</tr>
-      <td width="200" align="right" valign="top">申请高级人才说明：</td>
+      <td width="200" align="right" valign="top">上級職員の説明のために適用されます：</td>
       <td>
 		<script id="editor" name="personal_talent_requirement" type="text/plain" style="width:700px;height:160px;">{#$text.personal_talent_requirement#}</script>
 		<script type="text/javascript">

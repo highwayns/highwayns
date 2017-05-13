@@ -16,18 +16,18 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 	点击“继续添加”按钮，可同时添加多个分类！<br />
 </p>
 </div>
-<div class="toptit">新增分类</div>
+<div class="toptit">カテゴリーを追加</div>
 <form id="form1" name="form1" method="post" action="?act=add_category_major_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #93AEDD  dashed">
  <tr>
-    <td width="120" align="right">所属分类:</td>
+    <td width="120" align="right">カテゴリー：</td>
     <td>
 	<select name="parentid[]">
 	  {#highway_get_classify set="列表名:major,类型:HW_major,id:0"#}
@@ -38,11 +38,11 @@ $(document).ready(function()
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">名称:</td>
+    <td width="120" align="right">名前：</td>
     <td><input name="categoryname[]" type="text" class="input_text_200"  value=""/></td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="category_order[]" type="text" class="input_text_200"  value="0"/></td>
   </tr>
 </table>

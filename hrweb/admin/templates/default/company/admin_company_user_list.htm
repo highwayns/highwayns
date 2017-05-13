@@ -24,36 +24,36 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
   <div class="seltpye_x">
-		<div class="left">验证类型</div>	
+		<div class="left">認証タイプ</div>	
 		<div class="right">
-		<a href="{#"verification:"|highway_parse_url#}" {#if $smarty.get.verification==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"verification:1"|highway_parse_url#}" {#if $smarty.get.verification=="1"#}class="select"{#/if#}>邮箱已验证</a>
-		<a href="{#"verification:2"|highway_parse_url#}" {#if $smarty.get.verification=="2"#}class="select"{#/if#}>邮箱未验证</a>
-		<a href="{#"verification:3"|highway_parse_url#}" {#if $smarty.get.verification=="3"#}class="select"{#/if#}>手机已验证</a>
-		<a href="{#"verification:4"|highway_parse_url#}" {#if $smarty.get.verification=="4"#}class="select"{#/if#}>手机未验证</a>
+		<a href="{#"verification:"|highway_parse_url#}" {#if $smarty.get.verification==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"verification:1"|highway_parse_url#}" {#if $smarty.get.verification=="1"#}class="select"{#/if#}>メールボックス検証済み</a>
+		<a href="{#"verification:2"|highway_parse_url#}" {#if $smarty.get.verification=="2"#}class="select"{#/if#}>メールボックスの未確認</a>
+		<a href="{#"verification:3"|highway_parse_url#}" {#if $smarty.get.verification=="3"#}class="select"{#/if#}>電話番号は検証しました</a>
+		<a href="{#"verification:4"|highway_parse_url#}" {#if $smarty.get.verification=="4"#}class="select"{#/if#}>モバイル未確認</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
-		<div class="left">注册时间</div>	
+		<div class="left">登録時間</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
-		<div class="left">有无顾问</div>
+		<div class="left">コンサルタント有無</div>
 		<div class="right">
-		<a href="{#"consultant:"|highway_parse_url#}" {#if $smarty.get.consultant==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"consultant:0"|highway_parse_url#}" {#if $smarty.get.consultant=="0"#}class="select"{#/if#}>未分配顾问</a>
-		<a href="{#"consultant:1"|highway_parse_url#}" {#if $smarty.get.consultant != "" && $smarty.get.consultant != "0"#}class="select"{#/if#}>已分配顾问</a>
+		<a href="{#"consultant:"|highway_parse_url#}" {#if $smarty.get.consultant==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"consultant:0"|highway_parse_url#}" {#if $smarty.get.consultant=="0"#}class="select"{#/if#}>コンサルタント割り当てられていない</a>
+		<a href="{#"consultant:1"|highway_parse_url#}" {#if $smarty.get.consultant != "" && $smarty.get.consultant != "0"#}class="select"{#/if#}>配分済みコンサルタント</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -63,14 +63,14 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>用户名</label></td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>用户名</label></td>
       <td  class="admin_list_tit">email</td>
-	  <td  class="admin_list_tit">手机</td>
-      <td  class="admin_list_tit">企业信息</td>
-      <td width="10%"   align="center"   class="admin_list_tit">注册时间</td>
-      <td width="10%"   align="center"   class="admin_list_tit">注册IP</td>
-	  <td width="10%"   align="center"   class="admin_list_tit">最后登录时间</td>
-	<td width="10%"   align="center"   class="admin_list_tit">顾问姓名</td>
+	  <td  class="admin_list_tit">電話番号</td>
+      <td  class="admin_list_tit">企業情報</td>
+      <td width="10%"   align="center"   class="admin_list_tit">登録</td>
+      <td width="10%"   align="center"   class="admin_list_tit">登録IP </td>
+	  <td width="10%"   align="center"   class="admin_list_tit">最終ログイン時間</td>
+	<td width="10%"   align="center"   class="admin_list_tit">コンサルタント名</td>
       <td width="13%"  align="center"  class="admin_list_tit" >操作</td>
     </tr>
 	{#foreach from=$member item=list#}
@@ -81,18 +81,18 @@ $(document).ready(function()
  		<td class="admin_list">
 		{#$list.email#}
 		
-		{#if $list.email_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
-		<a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>		
+		{#if $list.email_audit=="1"#}<span style="color:#009900">[テスト] </span>{#/if#}
+		<a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title=“メール送信” /></a>		
 		</td>
 		 <td  class="admin_list">
-		 {#if $list.mobile#}{#$list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>
+		 {#if $list.mobile#}{#$list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="ショットメッセージ送信" /></a>
 {#else#}未填写{#/if#}
-		{#if $list.mobile_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
+		{#if $list.mobile_audit=="1"#}<span style="color:#009900">[テスト] </span>{#/if#}
 		</td>
         <td class="admin_list">
 		{#if $list.companyname#}
 		<a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
-		{#else#}<span style="color: #999999">未完善企业资料</span>
+		{#else#}<span style="color: #999999">企業資料未完成</span>
 		{#/if#}
 		</td>
 		<td align="center" class="admin_list">
@@ -114,11 +114,11 @@ $(document).ready(function()
 		{#/if#}
 		</td>
         <td align="center" class="admin_list">
-		<a href="admin_memberslog.php?uid={#$list.uid#}">日志</a>
+		<a href="admin_memberslog.php?uid={#$list.uid#}">日誌</a>
 		&nbsp;
-		<a href="?act=user_edit&tuid={#$list.uid#}">修改</a>
+		<a href="?act=user_edit&tuid={#$list.uid#}">変更</a>
 		&nbsp;
-		<a href="?act=meal_log&key_uid={#$list.uid#}&key_type=2&key_type_cn=UID">充值记录</a>
+		<a href="?act=meal_log&key_uid={#$list.uid#}&key_type=2&key_type_cn=UID">チャージ記録</a>
 		&nbsp;
 		<a href="?act=management&id={#$list.uid#}"  target="_blank"  class="userinfo"  id="{#$list.uid#}">管理</a>
 		</td>
@@ -128,7 +128,7 @@ $(document).ready(function()
 	<span id="DelSel"></span>
   </form>
 	{#if !$member#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
@@ -147,11 +147,11 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="用户名">用户名</li>
+														<li id="1" title="用户名">ユーザー名<li>
 														<li id="2" title="UID">UID</li>
 														<li id="3" title="email">email</li>
-														<li id="4" title="手机号">手机号</li>
-														<li id="5" title="公司名">公司名</li>
+														<li id="4" title="手机号">電話番号</li>
+														<li id="5" title="公司名">会社名</li>
 														</ul>
 												</div>
 						</div>				
@@ -178,7 +178,7 @@ $(document).ready(function()
 		  <td width="27" height="25">&nbsp;</td>
 		  <td><label>
 			<input name="delete_user" type="checkbox" id="delete_user" value="yes" checked="checked" />
-			删除此会员 <span style="color:#666666">(删除后此会员将无法登录，无法管理已发布的信息等)<span></label></td>
+			删除此会员 <span style="color:#666666">（このメンバーを削除するなど、あなたが公開された情報を管理することはできません、ログオンすることはできません）<span></label></td>
 		</tr>
 		<tr>
 		  <td width="27" height="25">&nbsp;</td>
@@ -194,7 +194,7 @@ $(document).ready(function()
 		</tr>
 		<tr>
 		  <td height="25">&nbsp;</td>
-		  <td><input type="submit" name="delete" value="确定删除" class="admin_submit"/></td>
+		  <td><input type="submit" name="delete" value=“削除確定” class="admin_submit"/></td>
 		  </tr>
 	  </table>
 		</div>

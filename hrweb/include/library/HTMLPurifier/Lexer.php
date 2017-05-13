@@ -1,71 +1,12 @@
 ﻿<?php
 
-/**
- * Forgivingly lexes HTML (SGML-style) markup into tokens.
- *
- * A lexer parses a string of SGML-style markup and converts them into
- * corresponding tokens.  It doesn't check for well-formedness, although its
- * internal mechanism may make this automatic (such as the case of
- * HTMLPurifier_Lexer_DOMLex).  There are several implementations to choose
- * from.
- *
- * A lexer is HTML-oriented: it might work with XML, but it's not
- * recommended, as we adhere to a subset of the specification for optimization
- * reasons. This might change in the future. Also, most tokenizers are not
- * expected to handle DTDs or PIs.
- *
- * This class should not be directly instantiated, but you may use create() to
- * retrieve a default copy of the lexer.  Being a supertype, this class
- * does not actually define any implementation, but offers commonly used
- * convenience functions for subclasses.
- *
- * @note The unit tests will instantiate this class for testing purposes, as
- *       many of the utility functions require a class to be instantiated.
- *       This means that, even though this class is not runnable, it will
- *       not be declared abstract.
- *
- * @par
- *
- * @note
- * We use tokens rather than create a DOM representation because DOM would:
- *
- * @par
- *  -# Require more processing and memory to create,
- *  -# Is not streamable, and
- *  -# Has the entire document structure (html and body not needed).
- *
- * @par
- * However, DOM is helpful in that it makes it easy to move around nodes
- * without a lot of lookaheads to see when a tag is closed. This is a
- * limitation of the token system and some workarounds would be nice.
- */
 class HTMLPurifier_Lexer
 {
 
-    /**
-     * Whether or not this lexer implements line-number/column-number tracking.
-     * If it does, set to true.
-     */
     public $tracksLineNumbers = false;
 
     // -- STATIC ----------------------------------------------------------
 
-    /**
-     * Retrieves or sets the default Lexer as a Prototype Factory.
-     *
-     * By default HTMLPurifier_Lexer_DOMLex will be returned. There are
-     * a few exceptions involving special features that only DirectLex
-     * implements.
-     *
-     * @note The behavior of this class has changed, rather than accepting
-     *       a prototype object, it now accepts a configuration object.
-     *       To specify your own prototype, set %Core.LexerImpl to it.
-     *       This change in behavior de-singletonizes the lexer object.
-     *
-     * @param HTMLPurifier_Config $config
-     * @return HTMLPurifier_Lexer
-     * @throws HTMLPurifier_Exception
-     */
     public static function create($config)
     {
         if (!($config instanceof HTMLPurifier_Config)) {
@@ -154,10 +95,6 @@ class HTMLPurifier_Lexer
         $this->_entity_parser = new HTMLPurifier_EntityParser();
     }
 
-    /**
-     * Most common entity to raw value conversion table for special entities.
-     * @type array
-     */
     protected $_special_entity2str =
         array(
             '&quot;' => '"',
@@ -169,20 +106,6 @@ class HTMLPurifier_Lexer
             '&#x27;' => "'"
         );
 
-    /**
-     * Parses special entities into the proper characters.
-     *
-     * This string will translate escaped versions of the special characters
-     * into the correct ones.
-     *
-     * @warning
-     * You should be able to treat the output of this function as
-     * completely parsed, but that's only because all other entities should
-     * have been handled previously in substituteNonSpecialEntities()
-     *
-     * @param string $string String character data to be parsed.
-     * @return string Parsed character data.
-     */
     public function parseData($string)
     {
         // following functions require at least one character
@@ -213,23 +136,11 @@ class HTMLPurifier_Lexer
         return $string;
     }
 
-    /**
-     * Lexes an HTML string into tokens.
-     * @param $string String HTML.
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return HTMLPurifier_Token[] array representation of HTML.
-     */
     public function tokenizeHTML($string, $config, $context)
     {
         trigger_error('Call to abstract class', E_USER_ERROR);
     }
 
-    /**
-     * Translates CDATA sections into regular sections (through escaping).
-     * @param string $string HTML string to process.
-     * @return string HTML with CDATA sections escaped.
-     */
     protected static function escapeCDATA($string)
     {
         return preg_replace_callback(
@@ -239,11 +150,6 @@ class HTMLPurifier_Lexer
         );
     }
 
-    /**
-     * Special CDATA case that is especially convoluted for <script>
-     * @param string $string HTML string to process.
-     * @return string HTML with CDATA sections escaped.
-     */
     protected static function escapeCommentedCDATA($string)
     {
         return preg_replace_callback(
@@ -253,11 +159,6 @@ class HTMLPurifier_Lexer
         );
     }
 
-    /**
-     * Special Internet Explorer conditional comments should be removed.
-     * @param string $string HTML string to process.
-     * @return string HTML with conditional comments removed.
-     */
     protected static function removeIEConditional($string)
     {
         return preg_replace(
@@ -267,30 +168,12 @@ class HTMLPurifier_Lexer
         );
     }
 
-    /**
-     * Callback function for escapeCDATA() that does the work.
-     *
-     * @warning Though this is public in order to let the callback happen,
-     *          calling it directly is not recommended.
-     * @param array $matches PCRE matches array, with index 0 the entire match
-     *                  and 1 the inside of the CDATA section.
-     * @return string Escaped internals of the CDATA section.
-     */
     protected static function CDATACallback($matches)
     {
         // not exactly sure why the character set is needed, but whatever
         return htmlspecialchars($matches[1], ENT_COMPAT, 'UTF-8');
     }
 
-    /**
-     * Takes a piece of HTML and normalizes it by converting entities, fixing
-     * encoding, extracting bits, and other good stuff.
-     * @param string $html HTML.
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return string
-     * @todo Consider making protected
-     */
     public function normalize($html, $config, $context)
     {
         // normalize newlines to \n
@@ -338,10 +221,6 @@ class HTMLPurifier_Lexer
         return $html;
     }
 
-    /**
-     * Takes a string of HTML (fragment or document) and returns the content
-     * @todo Consider making protected
-     */
     public function extractBody($html)
     {
         $matches = array();

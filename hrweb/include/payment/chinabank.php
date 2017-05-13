@@ -1,14 +1,4 @@
 ﻿<?php
-/**
- * 74cms 网银在线插件
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.jp.highwayns.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
 
  if(!defined('IN_HIGHWAY'))
  {
@@ -40,9 +30,6 @@ function get_code($order, $payment)
 		$def_url .= "<input type=\"button\" name=\"imageField\" class=\"but130lan intrgration_but\" value=\"确认支付\"  onclick=\"document.E_FORM.submit()\"/>";
         return $def_url;
     }
-/**
- * 响应操作
-*/
 function respond()
 {
 $payment        = get_payment_info('chinabank');
@@ -55,9 +42,6 @@ $v_moneytype    = trim($_POST['v_moneytype']);
 $remark1        = trim($_POST['remark1']);
 $remark2        = trim($_POST['remark2']);
 $v_md5str       = trim($_POST['v_md5str']);
-/**
-* 重新计算md5的值
-*/
 $key = $payment['ytauthkey'];
 
 $md5string=strtoupper(md5($v_oid.$v_pstatus.$v_amount.$v_moneytype.$key));

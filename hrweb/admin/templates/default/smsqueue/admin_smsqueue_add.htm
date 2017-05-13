@@ -18,35 +18,35 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 短信内容不能超过70个字！
 </p>
 </div> 
- <div class="toptit">新增短信任务</div>
+ <div class="toptit">新しいSMSタスク</div>
     <form id="form1" name="form1" method="post"   action="?act=smsqueue_add_save" >
 	{#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  >收件人：</td>
+      <td width="120" height="30" align="right"  >受信者：</td>
       <td  >
 	  <textarea name="s_sms" class="input_text_400" style="height:80px;">{#$import_numbers#}</textarea>   
-	   <span class="admin_note">(请用“|”隔开多个手机号码)</span>  
+	   <span class="admin_note">（「|」を使用してください複数の電話番号を分離するために）</span>  
 	  </td>
     </tr>
     <tr>
       <td width="120" height="30" align="right"  ></td>
-      <td  ><input type="button" name="importnum" class="admin_submit" id="importnum" value="导入号码"/> 
-     <span class="admin_note">(支持TXT文本，多个号码请换行)</span>  
+      <td  ><input type="button" name="importnum" class="admin_submit" id="importnum" value=“番号入力”/> 
+     <span class="admin_note">（TXTテキスト可、複数の番号をラップしてください）</span>  
     </td>
     </tr>
 	
 	
 		  <tr>
-            <td width="100" align="right">发送内容:</td>
+            <td width="100" align="right">コンテンツの送信：</td>
             <td>
 			  <textarea name="s_body" class="input_text_400" style="height:80px;" onpropertychange="if(this.value.length&gt;70){this.value=this.value.slice(0,70)}"></textarea>
-			  <span class="admin_note">内容超过70个字符将自动截取</span>		    </td>
+			  <span class="admin_note">70文字以上の概要は自動的にさせていただきます</span>		    </td>
           </tr>
 	  
 	  

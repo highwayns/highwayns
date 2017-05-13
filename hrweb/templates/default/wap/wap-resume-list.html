@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>简历列表 - {#$QISHI.site_name#}</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>履歴一覧 - {#$HIGHWAY.site_name#}</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/resume.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function()
@@ -151,7 +151,7 @@ $(document).ready(function()
 		var experience =$("#experience").val();
 		var offset=$(".resume_list div[class='list']").last().attr('id');
 		offset=parseInt(offset.substr(3));
-		$.get("{#$QISHI.wap_domain#}/plus/wap_ajax.php?act=ajaxresumelist&offset="+(offset+5)+"&rows=5&key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent, function(result){
+		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajaxresumelist&offset="+(offset+5)+"&rows=5&key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent, function(result){
 		    if(result=="-1"){
 		    	$(".more").show();
 		    	$(".more").html("没有更多简历了");
@@ -190,7 +190,7 @@ $(document).ready(function()
 <body>
 <div class="sub_bodybg"></div>
 <div class="sub_head_top">
-	<div class="title">搜索简历</div>
+	<div class="title">履歴書検索</div>
 	<div class="back" id="pageback"><img src="images/18.jpg" alt="#"   border="0"/></div>  
 	<div class="menu" id="topmenu_sub"><a href="javascript:void(0);"><img src="images/2.jpg"  border="0"/></a></div>
 </div>
@@ -224,7 +224,7 @@ $(document).ready(function()
     </div>
     <script type="text/javascript">
       var citystr = '';
-      $.each(QS_city_parent, function(pindex, pval) {
+      $.each(HW_city_parent, function(pindex, pval) {
         if(pval) {
           var citys = pval.split(",");
             citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
@@ -236,9 +236,9 @@ $(document).ready(function()
         var cid = $(this).attr("pid");
         var ctitle = $(this).attr("title");
         var scitystr = "";
-        if(QS_city[cid]) {
-          var ccitysArray = QS_city[cid].split("|");
-          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+        if(HW_city[cid]) {
+          var ccitysArray = HW_city[cid].split("|");
+          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
           $.each(ccitysArray, function(cindex, cval) {
             if(cval) {
               var ccitys = cval.split(",");
@@ -313,7 +313,7 @@ $(document).ready(function()
     </div>
   </div>
   <div class="menu choose_menu" id="menuJobs" style="display:none;position:absolute;z-index:1;">
-  <div class="menu_title">职能</div>
+  <div class="menu_title">職能</div>
   <div class="choose_close"></div>
   <div class="area_choose">
     <ul class="area_left" id="jobs_left_list"></ul>
@@ -322,10 +322,10 @@ $(document).ready(function()
   </div>
   <script type="text/javascript">
     var jobstr = '';
-    $.each(QS_jobs_parent, function(pindex, pval) {
+    $.each(HW_jobs_parent, function(pindex, pval) {
       if(pval) {
         var jobs = pval.split(",");
-        var sjobsArray = QS_jobs[jobs[0]].split("|");
+        var sjobsArray = HW_jobs[jobs[0]].split("|");
         $.each(sjobsArray, function(sindex, sval) {
           if(sval) {
             var sjobs = sval.split(",");
@@ -340,9 +340,9 @@ $(document).ready(function()
       var rpid = $(this).attr("pid");
       var rtitle = $(this).attr("title");
       var sjobstr = "";
-      if(QS_jobs[rid]) {
-        var cjobsArray = QS_jobs[rid].split("|");
-        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">不限</li>';
+      if(HW_jobs[rid]) {
+        var cjobsArray = HW_jobs[rid].split("|");
+        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">限定なし</li>';
         $.each(cjobsArray, function(cindex, cval) {
           if(cval) {
             var cjobs = cval.split(",");
@@ -419,10 +419,10 @@ $(document).ready(function()
     </div>
   </div>
   <div class="menu choose_menu" id="menuExperience" style="display:none;position:absolute;z-index:1;">
-  <div class="menu_title">工作经验</div>
+  <div class="menu_title">仕事経験</div>
       <div class="choose_close"></div>
       <ul>
-          {#qishi_get_classify  set="类型:QS_experience,列表名:c_experience"#}
+          {#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
           {#foreach from=$c_experience item=list#}
           <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
           {#/foreach#}
@@ -436,10 +436,10 @@ $(document).ready(function()
     </div>
   </div>
     <div class="menu choose_menu" id="menuEducation" style="display:none;position:absolute;z-index:1;">
-	    <div class="menu_title">学历</div>
+	    <div class="menu_title">学歴</div>
       <div class="choose_close"></div>
 	    <ul>
-	        {#qishi_get_classify  set="类型:QS_education,列表名:c_education"#}
+	        {#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
 	        {#foreach from=$c_education item=list#}
 	        <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	        {#/foreach#}
@@ -452,7 +452,7 @@ $(document).ready(function()
 <!-- 选择完之后的完成框 -->
 <div class="so_complete">
   <div class="so_complete_box">
-  <span>搜索条件：</span><i id="showListCity"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListExperience"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListJobs"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListEducation"></i>
+  <span>検索条件：</span><i id="showListCity"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListExperience"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListJobs"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListEducation"></i>
   </div>
   <div class="clear"></div>
   <img id="clearShowList" src="./images/so_close.gif" alt=""width="16"height="17" />
@@ -462,7 +462,7 @@ $(document).ready(function()
   var citygetDistrictId = "{#$smarty.get.district#}";
   var citygetSdistrictId = "{#$smarty.get.sdistrict#}";
   var showCityHtm = "";
-  $.each(QS_city_parent, function(cindex, cval) {
+  $.each(HW_city_parent, function(cindex, cval) {
      if(cval) {
         var citys = cval.split(",");
         if(citys[0] == citygetDistrictId) {
@@ -473,8 +473,8 @@ $(document).ready(function()
   if(citygetSdistrictId == "0") {
     showCityHtm += "不限";
   } else {
-    if(QS_city[citygetDistrictId]) {
-      var ccitysArray = QS_city[citygetDistrictId].split("|");
+    if(HW_city[citygetDistrictId]) {
+      var ccitysArray = HW_city[citygetDistrictId].split("|");
       $.each(ccitysArray, function(scindex, scval) {
          if(scval) {
             var scitys = scval.split(",");
@@ -489,7 +489,7 @@ $(document).ready(function()
   // 工作经验恢复
   var citygetExperienceId = "{#$smarty.get.experience#}";
   var showExperienceHtm = "";
-  $.each(QS_experience, function(windex, eval) {
+  $.each(HW_experience, function(windex, eval) {
     if(eval) {
       var experiences = eval.split(",");
       if(experiences[0] == citygetExperienceId) {
@@ -503,8 +503,8 @@ $(document).ready(function()
   var citygetCategoryId = "{#$smarty.get.category#}";
   var citygetSubclassId = "{#$smarty.get.subclass#}";
   var showJobsHtm = "";
-  if(QS_jobs[citygetTopclassId]) {
-    var sjobsArray = QS_jobs[citygetTopclassId].split("|");
+  if(HW_jobs[citygetTopclassId]) {
+    var sjobsArray = HW_jobs[citygetTopclassId].split("|");
     $.each(sjobsArray, function(sindex, sval) {
       if(sval) {
         var sjobs = sval.split(",");
@@ -517,8 +517,8 @@ $(document).ready(function()
   if(citygetSubclassId == "0") {
     showJobsHtm += "不限";
   } else {
-    if(QS_jobs[citygetCategoryId]) {
-      var tsjobsArray = QS_jobs[citygetCategoryId].split("|");
+    if(HW_jobs[citygetCategoryId]) {
+      var tsjobsArray = HW_jobs[citygetCategoryId].split("|");
       $.each(tsjobsArray, function(sindex, sval) {
         if(sval) {
           var tsjobs = sval.split(",");
@@ -533,7 +533,7 @@ $(document).ready(function()
   // 学历恢复
   var citygetEducationId = "{#$smarty.get.education#}";
   var showEducationHtm = "";
-  $.each(QS_education, function(windex, edval) {
+  $.each(HW_education, function(windex, edval) {
     if(edval) {
       var educations = edval.split(",");
       if(educations[0] == citygetEducationId) {
@@ -566,7 +566,7 @@ $(document).ready(function()
 {#if $resume#}
     <div class="more link_bk"><a href="javascript:void(0);">更多简历...</a></div>	
 {#else#}
-    <div class="more link_bk">没有更多简历了</div>	
+    <div class="more link_bk">もっと履歴書なし</div>	
 {#/if#}
 </div>
 {#include file="wap/footer.htm"#}

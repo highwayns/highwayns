@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>{#$company.companyname#} - 职位列表 - {#$HIGHWAY.site_name#}</title>
+<title>{#$Company.companyname#}  - ジョブリスト -  {#$HIGHWAY.site_name#} </title>
 <meta name="description" content="{#$company.description#}},职位列表">
 <meta name="keywords" content="{#$company.companyname#},职位列表">
 <meta name="author" content="海威人材" />
@@ -36,7 +36,7 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
+		当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
 	</div>
 	<!-- 主体内容 -->
 	<div class="container">
@@ -45,7 +45,7 @@ $(document).ready(function(){
 			<div class="com-left">
 				<div class="compnay-main">
 					<div class="c-top-wrap clearfix">
-						<div class="c-logo f-left"><img src="{#$company.logo#}" alt="公司logo" width="198" height="68" /></div>
+						<div class="c-logo f-left"><img src="{#$company.logo#}" alt="会社logo" width="198" height="68" /></div>
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
@@ -63,13 +63,13 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<div class="company-control clearfix">
-						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">企业主页</a>
-						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">公司介绍</a>
-						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">招聘职位</a>
+						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">企業ホームページ</a>
+						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">会社紹介</a>
+						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">職位募集</a>
 					</div>
 					<!-- 职位列表 -->
 					<div class="jobs-list-block">
-						<div class="list-title">共有 <span>{#$company.jobs_num#}</span> 个职位正在招聘中</div>
+						<div class="list-title">共用<span>{#$company.jobs_num#}</span>仕事は募集中</div>
 						{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:5,列表页:HW_companyjobs,描述长度:200,会员UID:"|cat:$company.uid#}
 						{#if $jobs#}
 						{#foreach from=$jobs item=list#}
@@ -77,7 +77,7 @@ $(document).ready(function(){
 							<div class="jitem-main clearfix">
 								<div class="jitem-left f-left">
 									<div class="job-name">
-										<a href="{#$list.jobs_url#}" title="{#$list.jobs_name_#}">{#$list.jobs_name#}</a><span class="reflash-time">更新时间：{#$list.refreshtime|date:"Y-m-d"#}</span>
+										<a href="{#$list.jobs_url#}" title="{#$list.jobs_name_#}">{#$list.jobs_name#}</a><span class="reflash-time">更新時間：{#$list.refreshtime|date:"Y-m-d"#}</span>
 									</div>
 									<div class="jitem-info"><span>{#$list.education_cn#}</span> | <span>{#$list.experience_cn#}</span> | <span>{#$list.district_cn#}</span> | <span><em>{#$list.wage_cn#}</em></span></div>
 								</div>
@@ -111,31 +111,31 @@ $(document).ready(function(){
 				<div class="ring-group clearfix">
 					<div class="ring-item f-left">
 						<h4 class="resumes">{#$company.resume_processing#}%</h4>
-						<p>简历处理率</p>
+						<p>履歴書処理率</p>
 					</div>
 					<div class="ring-item f-left">
 						<h4 class="jobs">{#$company.jobs_num#}</h4>
-						<p>在招职位</p>
+						<p>求人仕事</P>
 					</div>
 					<div class="ring-item f-left">
 						<h4 class="interest">{#$company.resume_num#}</h4>
-						<p>感兴趣简历</p>
+						<p>気にいる履歴書</p>
 					</div>
 				</div>
 				<div class="c-right-block">
-					<h3 class="c-right-title">公司名片</h3>
+					<h3 class="c-right-title">名刺</h3>
 					<ul class="company-info-list">
-						<li>性质：{#$company.nature_cn#}</li>
-						<li>行业：{#$company.trade_cn#}</li>
-						<li>规模：{#$company.scale_cn#}</li>
+						<li>プロパティ：{#$company.nature_cn#} </li>
+						<li>業界：{#$company.trade_cn#} </li>
+						<li>規模：{#$company.scale_cn#}</li>
 						<li>地区：{#$company.district_cn#}</li>
 						{#if $company.website#}
-						<li>网址：<a target="_blank" href="{#$company.website#}" rel="nofollow">{#$company.website#}</a></li>
+						<li>URL：<a target=“_blank” href=“{#$company.website#}” rel=“nofollow”>{#$company.website#}</a></li>
 						{#/if#}
 					</ul>
 				</div>
 				<div class="c-right-block">
-					<h3 class="c-right-title">手机浏览</h3>
+					<h3 class="c-right-title">モバイルブラウザ</h3>
 					<div class="com-code">
 						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="扫描二维码" width="100" height="100" />
 					</div>

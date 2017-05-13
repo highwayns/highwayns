@@ -5,15 +5,15 @@
 	{#include file="help/admin_help_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
     <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 	{#$inputtoken#}
       <table width="100%" border="0" cellpadding="3" cellspacing="5"  >
         <tr>
-          <td width="120" align="right">所属分类：</td>
+          <td width="120" align="right">カテゴリー：</td>
           <td>
 		  <select name="parentid" id="parentid"  style="width:108px; font-size:12px;">
-              <option value="0">顶级分类</option>
+              <option value="0">トップカテゴリ</option>
 			  {#highway_help_category set="列表名:categorylist,大类:0"#}
 			  {#foreach from=$categorylist item=list#}
             <option value="{#$list.id#}" {#if $category.parentid==$list.id#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
@@ -21,11 +21,11 @@
           </select>		  </td>
         </tr>
         <tr>
-          <td align="right">名称：</td>
+          <td align="right">名前：</td>
           <td><input name="categoryname" type="text" class="input_text_200"  value="{#$category.categoryname#}" maxlength=""/></td>
         </tr>
         <tr>
-          <td align="right">排序：</td>
+          <td align="right">並べ替え：</td>
           <td><input name="category_order" type="text" style="width:30px; font-size:12px;"   value="{#$category.category_order#}" maxlength="3" class="input_text_200" /></td>
         </tr>
 		 </table>

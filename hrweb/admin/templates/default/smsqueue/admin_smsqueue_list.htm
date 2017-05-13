@@ -37,19 +37,19 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip link_g">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 		<p>
-		短信模块属收费模块，需申请开通后才能使用，请点击 <a href="http://www.jp.highwayns.com/sms.php" target="_blank">这里</a> 申请开通。
+		短信模块属收费模块，需申请开通后才能使用，请点击 <a href="http://jp.highwayns.com/sms.php" target="_blank">ここで</a> 申请开通。
 		<br />
-		资费标准请联系骑士销售获取，更多介绍请进入 <a href="http://www.jp.highwayns.com" target="_blank">骑士人才系统官方网站</a></p>
+		资费标准请联系骑士销售获取，更多介绍请进入 <a href="http://jp.highwayns.com" target="_blank">公式サイトのHighwaynsの人材システム</a></p>
 </div>
 <div class="seltpye_x">
-		<div class="left">筛选类型</div>	
+		<div class="left">選別タイプ</div>	
 		<div class="right">
-		<a href="{#"s_type:"|highway_parse_url#}" {#if $smarty.get.s_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"s_type:0"|highway_parse_url#}" {#if $smarty.get.s_type=="0"#}class="select"{#/if#}>等待发送</a>
-		<a href="{#"s_type:1"|highway_parse_url#}" {#if $smarty.get.s_type=="1"#}class="select"{#/if#}>发送成功</a>
-		<a href="{#"s_type:2"|highway_parse_url#}" {#if $smarty.get.s_type=="2"#}class="select"{#/if#}>发送失败</a>
+		<a href="{#"s_type:"|highway_parse_url#}" {#if $smarty.get.s_type==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"s_type:0"|highway_parse_url#}" {#if $smarty.get.s_type=="0"#}class="select"{#/if#}>送信するために待機しています</a>
+		<a href="{#"s_type:1"|highway_parse_url#}" {#if $smarty.get.s_type=="1"#}class="select"{#/if#}>正常に送信</a>
+		<a href="{#"s_type:2"|highway_parse_url#}" {#if $smarty.get.s_type=="2"#}class="select"{#/if#}>発送失敗</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -59,20 +59,20 @@ $(document).ready(function()
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  width="120" class="admin_list_tit admin_list_first">
-     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>类型</label>	 </td>
-	  <td class="admin_list_tit" width="13%">手机号</td>
-	  <td  class="admin_list_tit">短信内容</td>
-      <td width="110"  align="center"  class="admin_list_tit">添加时间</td>	  
-      <td width="110"  align="center"  class="admin_list_tit">发送时间</td>
+     <label id="chkAll"><input type="checkbox" name="" title=“全部選択/逆選択” id="chk"/>类型</label>	 </td>
+	  <td class="admin_list_tit" width="13%">電話番号</td>
+	  <td  class="admin_list_tit">SMSの内容</td>
+      <td width="110"  align="center"  class="admin_list_tit">時間を追加します</td>	  
+      <td width="110"  align="center"  class="admin_list_tit">伝送時間</td>
       <td width="10%" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$list item=list#}
 	 <tr>
       <td   class="admin_list admin_list_first">
      <input type="checkbox" name="id[]"  value="{#$list.s_id#}"/>
-	 {#if $list.s_type=="0"#}<span style="color:#FF6600">等待发送</span>{#/if#}
-	 {#if $list.s_type=="1"#}<span style="color: #009900">发送成功</span>{#/if#}
-	 {#if $list.s_type=="2"#}<span style="color: #666666">发送失败</span>{#/if#}
+	 {#if $list.s_type=="0"#}<span style="color:#FF6600">送信待ち</span>{#/if#}
+	 {#if $list.s_type=="1"#}<span style="color: #009900">正常に送信</span>{#/if#}
+	 {#if $list.s_type=="2"#}<span style="color: #666666">送信に失敗しました</span>{#/if#}
 	  </td>
 	  <td  class="admin_list">
 	  {#$list.s_mobile#}
@@ -92,7 +92,7 @@ $(document).ready(function()
 		{#/if#}
 	  </td>
       <td align="center"  class="admin_list">
-	  <a href="?act=smsqueue_edit&id={#$list.s_id#}">修改</a>
+	  <a href="?act=smsqueue_edit&id={#$list.s_id#}">変更</a>
 	 
 	</td>
 	</tr>
@@ -100,7 +100,7 @@ $(document).ready(function()
   </table>
   
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
 	
 	<span id="OpDel">
@@ -131,8 +131,8 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="短信内容">短信内容</li>
-														<li id="2" title="手机号码">手机号码</li>
+														<li id="1" title="短信内容">SMSコンテンツ</li>
+														<li id="2" title="手机号码">電話番号</li>
 														</ul>
 												</div>
 						</div>				
@@ -152,7 +152,7 @@ $(document).ready(function()
 <div style="display:none" id="SendDiv">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
  <tr>
-      <td  width="100"  align="right">发送选择：</td>
+      <td  width="100"  align="right">[送信]を選択します：</td>
       <td>
       
 	  <label><input name="sendtype" type="radio" value="1" checked="checked"  />      
@@ -172,21 +172,21 @@ $(document).ready(function()
 	    </td>
     </tr>
 	<tr>
-      <td align="right">发送间隔时间：</td>
+      <td align="right">送信間隔：</td>
       <td>
 	  <input name="intervaltime" type="text" class="input_text_150"  value="3" maxlength="3" /> 
 	  秒
 	  </td>
     </tr>
     <tr>
-      <td align="right">最大发送数量：</td>
+      <td align="right">送信の最大数</td>
       <td>
 	  <input name="sendmax" type="text" class="input_text_150"  value="100" maxlength="3" /> 
 	  0为不限制  
 	  </td>
     </tr>
 	 <tr>
-      <td align="right">发送失败时：</td>
+      <td align="right">発送失敗：</td>
       <td>
                       <label><input type="radio" name="senderr" value="1"  checked="checked" />
                        跳过继续</label>

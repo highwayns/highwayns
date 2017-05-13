@@ -67,7 +67,7 @@ $(document).ready(function() {
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 企业Logo</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> >企業ロゴ</div>
 
 <div class="usermain">
   <div class="leftmenu com link_bk">
@@ -78,22 +78,22 @@ $(document).ready(function() {
 	  <div class="addjob link_bk">
 	    <div class="topnav">
 			<div class="titleH1" style="margin-top:0;">
-				<div class="h1-title">企业资料</div>
+				<div class="h1-title">会社情報</div>
 			</div>
 			<div class="navs">
-				<a href="?act=company_profile">基本资料</a>
-				<a href="?act=company_logo" class="se">企业Logo</a>
-				<a href="?act=company_map_open">地图标注</a>
+				<a href="?act=company_profile">基本情報</a>
+				<a href="?act=company_logo" class="se">企業ロゴ</a>
+				<a href="?act=company_map_open">地図のlabel</a>
 				<div class="clear"></div>
 			</div>
 		</div>
 		
 		  <div class="pic">
-		  	<p class="pic_txt">温馨提示：企业logo是企业的象征，上传尺寸请不要超过300×110像素，图片大小不超过 500KB，允许格式：jpg/gif/png</p>
+		  	<p class="pic_txt">ヒント：企業ロゴは企業のシンボルであり、サイズが300×110ピクセルを超えないアップロード、画像サイズがフォーマットが500KB未満である：JPG / GIF / PNG </P>
 		  	{#if $company_profile.logo<>""#}
 		  	<div class="logo_img">
 		  		<div class="img"><img width="245" height="80" src="{#$HIGHWAY.site_dir#}data/logo/{#$company_profile.logo#}?rand={#$rand#}" border="0" id="c_img"/></div>
-		  		<a href="javascript:void(0);" class="reupload">[更改]</a>
+		  		<a href="javascript:void(0);" class="reupload">[変更] </a>
 		  	</div>
 		  	{#/if#}
 		  	<div class="upload" {#if $company_profile.logo<>""#}style="display:none;"{#/if#}>
@@ -101,13 +101,13 @@ $(document).ready(function() {
 		  		<table id="upform" width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			  	<tbody>
 			  		<tr>
-						<td width="90" align="left">上传图片：</td>
-						<td width="150"><input type="file" name="logo" id="logo" class="input_text_200"  onkeydown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/></td>
+						<td width="90" align="left">写真をアップロードします：</td>
+						<td width="150"><input type="file" name="logo" id="logo" class="input_text_200"  onkeydown="alert（「の右側をクリックして」「あなたのPC上の画像を選択して見る」）;return false"/></td>
 						<td></td>
 			  		</tr>
 			  		<tr>
 						<td width="90" align="right"></td>
-						<td width="150"><input type="submit" name="Submit" value="上传" id="up" class="but_upload" /></td>
+						<td width="150"><input type=“submit” name=“Submit” value=“アップロード” id=“up” class=“but_upload” /></td>
 						<td></td>
 			  		</tr>
 			  	</tbody>
@@ -118,7 +118,7 @@ $(document).ready(function() {
 						<td height="40" align="center"><img src="{#$HIGHWAY.site_template#}images/30.gif"  border="0"/></td>
 			  		</tr>
 			  		<tr>
-						<td height="20" align="center">正在上传，请稍后...</td>
+						<td height="20" align="center">アップロード中、 お待ちください…</td >
 			  		</tr>
 			  	</tbody>
 			  </table>

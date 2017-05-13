@@ -1,14 +1,4 @@
 ﻿<?php
-/**
- * 74cms 支付宝支付
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.jp.highwayns.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
 
  if(!defined('IN_HIGHWAY'))
  {
@@ -88,9 +78,6 @@ $sHtmlText = $alipay->build_form();
 $sHtmlText.="<input type=\"button\" class=\"but130lan intrgration_but\" value=\"确认支付\"  onclick=\"document.forms['alipaysubmit'].submit()\"/>";
 return $sHtmlText;
 }
-/**
- * 响应操作
-*/
 function respond()
 {
 	$payment= get_payment_info('alipay');	

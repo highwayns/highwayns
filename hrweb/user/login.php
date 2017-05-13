@@ -49,9 +49,6 @@ elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['QS']['username
 }
 elseif ($act=='login')
 {
-	/**
-	 * 微信扫描登录start
-	 */
     if(intval($_CFG['weixin_apiopen'])==1){
 		$access_token = get_access_token();
 	    $scene_id = rand(1,10000000);
@@ -67,9 +64,6 @@ elseif ($act=='login')
 	    $html = '<img width="120" height="120" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='.$ticket.'">';
 		$smarty->assign('qrcode_img',$html);
 	}
-    /**
-     * 微信扫描登录end
-     */
 	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$smarty->assign('error',$_GET['error']);
 	$smarty->assign('url',$_GET['url']);

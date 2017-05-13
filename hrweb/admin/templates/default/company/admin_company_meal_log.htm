@@ -17,7 +17,7 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>描述说明：</h2>
+	<h2>説明：</h2>
 	<p>
 		管理员修改包括：管理员修改会员的积分，修改会员的套餐内各种服务的条数！<br>
 		管理员开通包括：管理员后台确认订单收款，重新开通服务，添加会员赠送积分，赠送套餐！<br>
@@ -25,35 +25,35 @@
 	</p>
 </div>
   <div class="seltpye_x">
-		<div class="left">操作类型</div>	
+		<div class="left">操作タイプ</div>	
 		<div class="right">
 		<div class="clear"></div>
-		<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"log_type:1"|highway_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>系统赠送</a>
-		<a href="{#"log_type:2"|highway_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>会员购买</a>
-		<a href="{#"log_type:3"|highway_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>管理员修改</a>
-		<a href="{#"log_type:4"|highway_parse_url#}" {#if $smarty.get.log_type=="4"#}class="select"{#/if#}>管理员开通</a>
+		<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"log_type:1"|highway_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>システム送る</a>
+		<a href="{#"log_type:2"|highway_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>メンバーは買います</a>
+		<a href="{#"log_type:3"|highway_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>管理者修正</a>
+		<a href="{#"log_type:4"|highway_parse_url#}" {#if $smarty.get.log_type=="4"#}class="select"{#/if#}>管理者は開きます</a>
 		</div>
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
-		<div class="left">添加时间</div>	
+		<div class="left">タイムの追加</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:90"|highway_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>三月内</a>
+		<a href="{#"settr:90"|highway_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>3ヶ月以内</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
-		<div class="left">收取费用</div>	
+		<div class="left">チャージ</div>	
 		<div class="right">
-		<a href="{#"is_money:"|highway_parse_url#}" {#if $smarty.get.is_money==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"is_money:2"|highway_parse_url#}" {#if $smarty.get.is_money=="2"#}class="select"{#/if#}>已收取费用</a>
-		<a href="{#"is_money:1"|highway_parse_url#}" {#if $smarty.get.is_money=="1"#}class="select"{#/if#}>未收取费用</a>
+		<a href="{#"is_money:"|highway_parse_url#}" {#if $smarty.get.is_money==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"is_money:2"|highway_parse_url#}" {#if $smarty.get.is_money=="2"#}class="select"{#/if#}>払い済みの費用</a>
+		<a href="{#"is_money:1"|highway_parse_url#}" {#if $smarty.get.is_money=="1"#}class="select"{#/if#}>手数料はかかりません</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -64,19 +64,19 @@
   <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>公司名称</label></td>
-	   <td  class="admin_list_tit">用户名</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>公司名称</label></td>
+	   <td  class="admin_list_tit">ユーザー名</td>
 		{#if $HIGHWAY.operation_mode=='1'#}  
-			  <td width="10%" class="admin_list_tit">目前积分</td>
+			  <td width="10%" class="admin_list_tit">現在のポイント</td>
 		{#elseif $HIGHWAY.operation_mode=='2'#}  
-			  <td width="10%"  class="admin_list_tit">目前套餐</td>
+			  <td width="10%"  class="admin_list_tit">現在パッケージ</td>
 		{#elseif $HIGHWAY.operation_mode=='3'#}  
-			<td width="10%"  class="admin_list_tit">目前积分(套餐)</td>
+			<td width="10%"  class="admin_list_tit">現在のポイント（パッケージ）</td>
 		{#/if#}
-      <td  class="admin_list_tit">操作类型</td>     
-      <td  class="admin_list_tit">付款金额</td>     
-      <td   class="admin_list_tit">操作时间</td>
-	  <td   class="admin_list_tit">描述</td>
+      <td  class="admin_list_tit">操作タイプ</td>     
+      <td  class="admin_list_tit">お支払い金額</td>     
+      <td   class="admin_list_tit">操作時間</td>
+	  <td   class="admin_list_tit">説明</td>
       <td align="center" width="80" class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$meallog item=list#}
@@ -86,7 +86,7 @@
 		{#if $list.companyname#}
  	        {#$list.companyname#}
 		{#else#}
-		<span style="color:#FF0000">未完善企业资料</span>
+		<span style="color:#FF0000">企業資料未完成</span>
 		{#/if#}
 		</td>
 
@@ -98,9 +98,9 @@
 		{#if $HIGHWAY.operation_mode=='1'#} 
 			<strong>{#$list.points#}</strong> 积分
 		{#elseif $HIGHWAY.operation_mode=='2'#}  
-			{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#}
+			{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">パッケージなし</span>{#/if#}
 		{#elseif $HIGHWAY.operation_mode=='3'#}  
-			积分:<strong>{#$list.points#}</strong>({#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">无套餐</span>{#/if#})
+			积分:<strong>{#$list.points#}</strong>({#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">パッケージなし</span>{#/if#})
 		{#/if#}
 		</td>
  		<td class="admin_list">
@@ -124,7 +124,7 @@
 		{#$list.log_value#}
 		</td>
         <td align="center" class="admin_list">
-		<a href="?act=user_edit&tuid={#$list.log_uid#}">修改</a>
+		<a href="?act=user_edit&tuid={#$list.log_uid#}">変更</a>
 		&nbsp;
 		<a href="?act=management&id={#$list.log_uid#}"  target="_blank"  class="userinfo"  id="{#$list.log_uid#}">管理</a>
 		</td>
@@ -133,7 +133,7 @@
     </table>
   </form>
 	{#if !$meallog#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
@@ -152,8 +152,8 @@
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="用户名">用户名</li>
-														<li id="3" title="公司名">公司名</li>
+														<li id="1" title="用户名">ユーザー名<li>
+														<li id="3" title="公司名">会社名</li>
 														<li id="2" title="UID">UID</li>
 														</ul>
 												</div>

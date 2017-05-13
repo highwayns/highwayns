@@ -6,22 +6,22 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 图片友情连接请上传LOGO或填写LOGO路径
 </p>
 </div>
-<div class="toptit">修改友情链接</div>
+<div class="toptit">リンクを変更します</div>
 <form action="?act=editsave" method="post" enctype="multipart/form-data" name="FormData" id="FormData"  >
 {#$inputtoken#}
 <input name="id" type="hidden" value="{#$link.link_id#}" />
 <input name="url" type="hidden" value="{#$url#}" />
 {#if $link.type_id=="2"#}
-            <div style="color:#FF6600; padding:15px;">此链接为自主申请友情链接，默认显示状态为：不显示，您可以通过修改显示状态让其显示在页面</div>
+            <div style="color:#FF6600; padding:15px;">このリンクは自動的に友情リンクの申請であり、デフォルトの表示状態は：表示しません、あなたは表示状態を変更することによってページに表示できる</div>
 {#/if#}
         <table width="100%" border="0" cellspacing="3" cellpadding="3" class="link_lan">
 		<tr>
-            <td align="right">显示状态：</td>
+            <td align="right">ディスプレイのステータス：</td>
             <td>
 			<label>
               <input name="display" type="radio" value="1" {#if $link.display=="1"#}checked="checked" {#/if#}/>
@@ -32,15 +32,15 @@
               不显示</label>			  </td>
           </tr>
           <tr>
-            <td width="120" align="right">链接名称：</td>
+            <td width="120" align="right">リンク名：</td>
             <td><input name="link_name" type="text" class="input_text_200" id="link_name"  value="{#$link.link_name#}"/></td>
           </tr>
           <tr>
-            <td align="right">链接地址：</td>
+            <td align="right">リンクアドレス：</td>
             <td><input name="link_url" type="text" class="input_text_200" id="link_url"  value="{#$link.link_url#}" maxlength="80"/></td>
           </tr>
           <tr>
-            <td align="right">添 加 到：</td>
+            <td align="right">追加</td>
 <td><select name="alias"   id="category_id"alias>
 {#foreach from=$cat item=li#}	
   <option value="{#$li.c_alias#}"  {#if $link.alias==$li.c_alias#}selected="selected"{#/if#}>{#$li.categoryname#}</option>          
@@ -48,31 +48,31 @@
 </select></td>
 </tr>
           <tr>
-            <td align="right">显示顺序：</td>
+            <td align="right">表示順序：</td>
             <td><input name="show_order" type="text" class="input_text_200" id="show_order"   maxlength="3"  value="{#$link.show_order#}"/>
             数字越大越靠前</td>
           </tr>
           <tr>
-            <td align="right">链接LOGO：</td>
-            <td><input type="file" name="logo"  style="height:24px; width:272px; font-size:12px; line-height:20px;"  onkeydown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/></td>
+            <td align="right">リンクロゴ：</td>
+            <td><input type="file" name="logo"  style="height:24px; width:272px; font-size:12px; line-height:20px;"  onkeydown="alert(“右側をクリックして”コンピュータ上の写真を見る「！’);return false"/></td>
           </tr>
           <tr>
-            <td align="right">或LOGO地址：</td>
+            <td align="right">またはロゴ住所：</td>
             <td><input name="link_logo" type="text" class="input_text_200" id="link_logo" maxlength="80" value="{#$link.link_logo#}"/>
 			{#if $link.link_logo#}
-              <a href="{#$link.link_logo#}" target="_blank">[查看logo]</a>
+              <a href="{#$link.link_logo#}" target="_blank">[ロゴを参照してください]</a >
 			  {#/if#}
 			  </td>
           </tr>
 		  <tr>
-            <td align="right" valign="top">备注：</td>
+            <td align="right" valign="top">注：</td>
             <td><textarea name="Notes" style="width:300px; height:50px; font-size:12px; line-height:180%" onpropertychange="if(this.value.length>100){this.value=this.value.slice(0,100)}">{#$link.Notes#}</textarea>
               <br />
               (备注不在前台显示，只作为管理员的备忘标记) </td>
 		  </tr>
 		  {#if $link.type_id=="2"#}
 		  <tr>
-            <td align="right"  >自助申请说明：</td>
+            <td align="right"  >自己申請要領：</td>
             <td> 
 			{#$link.app_notes#}
 			</td>

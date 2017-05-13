@@ -3,7 +3,7 @@
 <head>
 {#highway_hrtools_category set="列表名:category,分类ID:GET[id]"#}
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#highway_hrtools_category set="列表名:category,分类ID:GET[id]"#}{#$category.0.c_name#} - HR工具箱</title>
+<title>{#HIGHWAY_hrtools_category set=“リスト名前:category,分類ID:GET[id]”#}{#$category.0.c_name#} - hRツール箱</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
 <meta name="author" content="海威人材" />
@@ -17,7 +17,7 @@
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-  当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_hrtoolsindex"|highway_url#}">HR工具箱</a>&nbsp;>&nbsp;{#$category.0.c_name#}
+  当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_hrtoolsindex"|highway_url#}">HR工具箱</a>&nbsp;>&nbsp;{#$category.0.c_name#}
 </div>
   <!-- 主体内容 -->
   <div class="container link_bk">

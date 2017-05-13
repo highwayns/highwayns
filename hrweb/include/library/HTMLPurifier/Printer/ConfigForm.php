@@ -1,42 +1,16 @@
 ﻿<?php
 
-/**
- * @todo Rewrite to use Interchange objects
- */
 class HTMLPurifier_Printer_ConfigForm extends HTMLPurifier_Printer
 {
 
-    /**
-     * Printers for specific fields.
-     * @type HTMLPurifier_Printer[]
-     */
     protected $fields = array();
 
-    /**
-     * Documentation URL, can have fragment tagged on end.
-     * @type string
-     */
     protected $docURL;
 
-    /**
-     * Name of form element to stuff config in.
-     * @type string
-     */
     protected $name;
 
-    /**
-     * Whether or not to compress directive names, clipping them off
-     * after a certain amount of letters. False to disable or integer letters
-     * before clipping.
-     * @type bool
-     */
     protected $compress = false;
 
-    /**
-     * @param string $name Form element name for directives to be stuffed into
-     * @param string $doc_url String documentation URL, will have fragment tagged on
-     * @param bool $compress Integer max length before compressing a directive name, set to false to turn off
-     */
     public function __construct(
         $name,
         $doc_url = null,
@@ -51,11 +25,6 @@ class HTMLPurifier_Printer_ConfigForm extends HTMLPurifier_Printer
         $this->fields[HTMLPurifier_VarParser::BOOL] = new HTMLPurifier_Printer_ConfigForm_bool();
     }
 
-    /**
-     * Sets default column and row size for textareas in sub-printers
-     * @param $cols Integer columns of textarea, null to use default
-     * @param $rows Integer rows of textarea, null to use default
-     */
     public function setTextareaDimensions($cols = null, $rows = null)
     {
         if ($cols) {
@@ -66,30 +35,16 @@ class HTMLPurifier_Printer_ConfigForm extends HTMLPurifier_Printer
         }
     }
 
-    /**
-     * Retrieves styling, in case it is not accessible by webserver
-     */
     public static function getCSS()
     {
         return file_get_contents(HTMLPURIFIER_PREFIX . '/HTMLPurifier/Printer/ConfigForm.css');
     }
 
-    /**
-     * Retrieves JavaScript, in case it is not accessible by webserver
-     */
     public static function getJavaScript()
     {
         return file_get_contents(HTMLPURIFIER_PREFIX . '/HTMLPurifier/Printer/ConfigForm.js');
     }
 
-    /**
-     * Returns HTML output for a configuration form
-     * @param HTMLPurifier_Config|array $config Configuration object of current form state, or an array
-     *        where [0] has an HTML namespace and [1] is being rendered.
-     * @param array|bool $allowed Optional namespace(s) and directives to restrict form to.
-     * @param bool $render_controls
-     * @return string
-     */
     public function render($config, $allowed = true, $render_controls = true)
     {
         if (is_array($config) && isset($config[0])) {
@@ -135,12 +90,6 @@ class HTMLPurifier_Printer_ConfigForm extends HTMLPurifier_Printer
         return $ret;
     }
 
-    /**
-     * Renders a single namespace
-     * @param $ns String namespace name
-     * @param array $directives array of directives to values
-     * @return string
-     */
     protected function renderNamespace($ns, $directives)
     {
         $ret = '';
@@ -204,34 +153,16 @@ class HTMLPurifier_Printer_ConfigForm extends HTMLPurifier_Printer
 
 }
 
-/**
- * Printer decorator for directives that accept null
- */
 class HTMLPurifier_Printer_ConfigForm_NullDecorator extends HTMLPurifier_Printer
 {
-    /**
-     * Printer being decorated
-     * @type HTMLPurifier_Printer
-     */
     protected $obj;
 
-    /**
-     * @param HTMLPurifier_Printer $obj Printer to decorate
-     */
     public function __construct($obj)
     {
         parent::__construct();
         $this->obj = $obj;
     }
 
-    /**
-     * @param string $ns
-     * @param string $directive
-     * @param string $value
-     * @param string $name
-     * @param HTMLPurifier_Config|array $config
-     * @return string
-     */
     public function render($ns, $directive, $value, $name, $config)
     {
         if (is_array($config) && isset($config[0])) {
@@ -272,29 +203,12 @@ class HTMLPurifier_Printer_ConfigForm_NullDecorator extends HTMLPurifier_Printer
     }
 }
 
-/**
- * Swiss-army knife configuration form field printer
- */
 class HTMLPurifier_Printer_ConfigForm_default extends HTMLPurifier_Printer
 {
-    /**
-     * @type int
-     */
     public $cols = 18;
 
-    /**
-     * @type int
-     */
     public $rows = 5;
 
-    /**
-     * @param string $ns
-     * @param string $directive
-     * @param string $value
-     * @param string $name
-     * @param HTMLPurifier_Config|array $config
-     * @return string
-     */
     public function render($ns, $directive, $value, $name, $config)
     {
         if (is_array($config) && isset($config[0])) {
@@ -375,19 +289,8 @@ class HTMLPurifier_Printer_ConfigForm_default extends HTMLPurifier_Printer
     }
 }
 
-/**
- * Bool form field printer
- */
 class HTMLPurifier_Printer_ConfigForm_bool extends HTMLPurifier_Printer
 {
-    /**
-     * @param string $ns
-     * @param string $directive
-     * @param string $value
-     * @param string $name
-     * @param HTMLPurifier_Config|array $config
-     * @return string
-     */
     public function render($ns, $directive, $value, $name, $config)
     {
         if (is_array($config) && isset($config[0])) {

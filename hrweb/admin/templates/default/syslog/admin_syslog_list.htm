@@ -5,15 +5,15 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 您可以通过错误日志查看系统运行错误信息。 
 </p>
 </div>
 <div class="seltpye_x">
-		<div class="left">日志类型</div>	
+		<div class="left">日誌タイプ</div>	
 		<div class="right">
-		<a href="{#"type_id:,l_type:"|highway_parse_url#}" {#if $smarty.get.l_type==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:,l_type:"|highway_parse_url#}" {#if $smarty.get.l_type==""#}class="select"{#/if#}>制限なし</a>
 		<a href="{#"type_id:,l_type:1"|highway_parse_url#}" {#if $smarty.get.l_type=="1"#}class="select"{#/if#}>MYSQL</a>
 		<a href="{#"type_id:,l_type:2"|highway_parse_url#}" {#if $smarty.get.l_type=="2"#}class="select"{#/if#}>MAIL</a> 
 		<div class="clear"></div>
@@ -21,14 +21,14 @@
 		<div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">创建时间</div>	
+		<div class="left">作成時間</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -38,12 +38,12 @@
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td height="26" width="90"  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>类型</label></td>
-      <td width="120"  align="center"   class="admin_list_tit">创建时间</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>类型</label></td>
+      <td width="120"  align="center"   class="admin_list_tit">創立時間</td>
       <td width="100" align="center"  class="admin_list_tit"> IP </td>
-      <td width="100" align="center"  class="admin_list_tit"> IP归属地</td>
-      <td width="300"     class="admin_list_tit">文件</td>
-      <td   class="admin_list_tit" >错误描述</td>
+      <td width="100" align="center"  class="admin_list_tit"> ホームIP </td>
+      <td width="300"     class="admin_list_tit">ファイル</td>
+      <td   class="admin_list_tit" >エラー説明</td>
     </tr>
 	  {#foreach from=$list item=li#}
       <tr>
@@ -68,7 +68,7 @@
       {#/foreach#}
     </table>
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}	
 <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>

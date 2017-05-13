@@ -2,20 +2,10 @@
 
 class HTMLPurifier_URIFilter_DisableExternal extends HTMLPurifier_URIFilter
 {
-    /**
-     * @type string
-     */
     public $name = 'DisableExternal';
 
-    /**
-     * @type array
-     */
     protected $ourHostParts = false;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @return void
-     */
     public function prepare($config)
     {
         $our_host = $config->getDefinition('URI')->host;
@@ -24,12 +14,6 @@ class HTMLPurifier_URIFilter_DisableExternal extends HTMLPurifier_URIFilter
         }
     }
 
-    /**
-     * @param HTMLPurifier_URI $uri Reference
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function filter(&$uri, $config, $context)
     {
         if (is_null($uri->host)) {

@@ -16,7 +16,7 @@
 <body onbeforeunload="RunOnBeforeUnload()">
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 地图标注</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 地図のlabel</div>
 
 <div class="usermain">
   <div class="leftmenu com link_bk">
@@ -27,18 +27,18 @@
 	  <div class="addjob link_bk">
 	    <div class="topnav">
 			<div class="titleH1" style="margin-top:0;">
-				<div class="h1-title">企业资料</div>
+				<div class="h1-title">会社情報</div>
 			</div>
 			<div class="navs">
-				<a href="?act=company_profile">基本资料</a>
-				<a href="?act=company_logo">企业Logo</a>
-				<a href="?act=company_map_open" class="se">地图标注</a>
+				<a href="?act=company_profile">基本情報</a>
+				<a href="?act=company_logo">企業ロゴ</a>
+				<a href="?act=company_map_open" class="se">地図のlabel</a>
 				<div class="clear"></div>
 			</div>
 		</div>
 		  <!-- 地图标注 -->
 		 <div class="map">
-		  	<p>请在地图上找到您的具体位置，然后点击地图右上角“标记我的位置”，标记位置完成后点击“保存我的位置”。</p>
+		  	<p>地図上の正確な位置を見つけ、その後、上のマーカーの位置をクリックし完了後、マップ「私の位置をマーク」の右上隅をクリックしてください”私の場所に保存します”。</P>
 		  	<form action="?act=company_map_set_save" method="post"  style="padding:0px; margin:0px;" id="form1" name="form1">
   			<input name="x" type="hidden" id="x"><input name="y" type="hidden" id="y"><input name="zoom" type="hidden" id="zoom">
   			</form>

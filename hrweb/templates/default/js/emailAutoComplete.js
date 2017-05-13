@@ -1,9 +1,4 @@
 ﻿
-/**
- * 邮箱自动提示插件
- * @constructor EmailAutoComplete
- * @ options {object} 可配置项
- */
  function EmailAutoComplete(options) {
 	
 	this.config = {
@@ -152,9 +147,6 @@ EmailAutoComplete.prototype = {
 		}
 		
 	},
-	/**
-	 * 精确匹配某项内容
-	 */
 	_accurateMate: function(cfg) {
 		var self = this,
 			_config = self.config,
@@ -233,9 +225,6 @@ EmailAutoComplete.prototype = {
 			$(item).hasClass(_config.hoverBg) && $(item).removeClass(_config.hoverBg);
 		});	
 	},
-	/**
-     * 键盘上下键操作
-     */
 	 _keyUpAndDown: function(targetVal,e,parentNode) {
 		var self = this,
 			_cache = self.cache,
@@ -320,9 +309,6 @@ EmailAutoComplete.prototype = {
          }
          return -1;
      },
-	/**
-	  * 当数据相同的时 点击对应的项时 返回数据
-	  */
 	 _executeClick: function(parentNode) {
 		
 		 var _self = this,

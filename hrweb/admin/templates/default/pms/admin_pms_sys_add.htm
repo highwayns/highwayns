@@ -85,12 +85,12 @@ $(document).ready(function() {
 	{#include file="pms/admin_pms_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">新增系统消息</div>
+<div class="toptit">新しいシステムメッセージ</div>
   <form action="?act=add_pms_sys_save" method="post"   name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="5" cellspacing="0"  class="admin_table">
       <tr>
-        <td width="100" align="right" >接受会员：</td>
+        <td width="100" align="right" >メンバーの受け入れ：</td>
         <td >
 		<label><input name="spms_usertype" type="radio" value="0" checked="checked" />全部会员</label>
 		&nbsp;&nbsp;&nbsp;&nbsp;
@@ -105,19 +105,19 @@ $(document).ready(function() {
 		</td>
       </tr>
       <tr>
-        <td align="right" >类型：</td>
+        <td align="right" >タイプ：</td>
         <td >
 		<label><input name="spms_type" type="radio" value="1" checked="checked" />普通消息</label>
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<label><input type="radio" name="spms_type" value="2" />注册提醒 </label>		</td>
       </tr>
       <tr>
-        <td align="right" valign="top" >消息内容：</td>
+        <td align="right" valign="top" >メッセージ内容：</td>
         <td > <textarea name="message" id="message" style="width:400px; height:150px; font-size:12px; line-height:180%"></textarea></td>
       </tr>
       <tr>
         <td align="right" >&nbsp;</td>
-        <td height="60" valign="top" ><input type="submit" name="Submit" value="添加" class="admin_submit"   /></td>
+        <td height="60" valign="top" ><input type="submit" name="Submit" value=“追加” class="admin_submit"   /></td>
       </tr>
     </table>
    
@@ -126,24 +126,24 @@ $(document).ready(function() {
   
   
   
-  <div class="toptit">发送指定会员系统消息<span class="admin_note">此信息不会在消息列表中显示</span></div>
+  <div class="toptit">メッセージ送信システムのメンバーが指定された<span class=“admin_note”>此信息不会在消息列表中显示</span></div>
   <form action="?act=add_pms_sys_save" method="post"   name="FormData1" id="FormData1" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="5" cellspacing="0"  class="admin_table">
 	  <tr>
-    <td width="100" align="right" valign="top">接受人：</td>
+    <td width="100" align="right" valign="top">受信者：</td>
     <td>
       <textarea name="us" id="us" style="width:400px; height:120px; font-size:12px; line-height:180%"></textarea>
 	  <br /><span class="admin_note">
 	  多个会员名请换行输入</span></td>
     </tr>
       <tr>
-        <td align="right" valign="top" >消息内容：</td>
+        <td align="right" valign="top" >メッセージ内容：</td>
         <td > <textarea name="msg" id="msg" style="width:400px; height:120px; font-size:12px; line-height:180%"></textarea></td>
       </tr>
       <tr>
         <td align="right" >&nbsp;</td>
-        <td height="100" valign="top" ><input type="submit" name="Submit" value="添加" class="admin_submit"   /></td>
+        <td height="100" valign="top" ><input type="submit" name="Submit" value=“追加” class="admin_submit"   /></td>
       </tr>
     </table>
    

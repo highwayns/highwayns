@@ -1,75 +1,30 @@
 ﻿<?php
 
-/**
- * Represents a language and defines localizable string formatting and
- * other functions, as well as the localized messages for HTML Purifier.
- */
 class HTMLPurifier_Language
 {
 
-    /**
-     * ISO 639 language code of language. Prefers shortest possible version.
-     * @type string
-     */
     public $code = 'en';
 
-    /**
-     * Fallback language code.
-     * @type bool|string
-     */
     public $fallback = false;
 
-    /**
-     * Array of localizable messages.
-     * @type array
-     */
     public $messages = array();
 
-    /**
-     * Array of localizable error codes.
-     * @type array
-     */
     public $errorNames = array();
 
-    /**
-     * True if no message file was found for this language, so English
-     * is being used instead. Check this if you'd like to notify the
-     * user that they've used a non-supported language.
-     * @type bool
-     */
     public $error = false;
 
-    /**
-     * Has the language object been loaded yet?
-     * @type bool
-     * @todo Make it private, fix usage in HTMLPurifier_LanguageTest
-     */
     public $_loaded = false;
 
-    /**
-     * @type HTMLPurifier_Config
-     */
     protected $config;
 
-    /**
-     * @type HTMLPurifier_Context
-     */
     protected $context;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     */
     public function __construct($config, $context)
     {
         $this->config  = $config;
         $this->context = $context;
     }
 
-    /**
-     * Loads language object with necessary info from factory cache
-     * @note This is a lazy loader
-     */
     public function load()
     {
         if ($this->_loaded) {
@@ -83,11 +38,6 @@ class HTMLPurifier_Language
         $this->_loaded = true;
     }
 
-    /**
-     * Retrieves a localised message.
-     * @param string $key string identifier of message
-     * @return string localised message
-     */
     public function getMessage($key)
     {
         if (!$this->_loaded) {
@@ -99,11 +49,6 @@ class HTMLPurifier_Language
         return $this->messages[$key];
     }
 
-    /**
-     * Retrieves a localised error name.
-     * @param int $int error number, corresponding to PHP's error reporting
-     * @return string localised message
-     */
     public function getErrorName($int)
     {
         if (!$this->_loaded) {
@@ -115,11 +60,6 @@ class HTMLPurifier_Language
         return $this->errorNames[$int];
     }
 
-    /**
-     * Converts an array list into a string readable representation
-     * @param array $array
-     * @return string
-     */
     public function listify($array)
     {
         $sep      = $this->getMessage('Item separator');
@@ -137,14 +77,6 @@ class HTMLPurifier_Language
         return $ret;
     }
 
-    /**
-     * Formats a localised message with passed parameters
-     * @param string $key string identifier of message
-     * @param array $args Parameters to substitute in
-     * @return string localised message
-     * @todo Implement conditionals? Right now, some messages make
-     *     reference to line numbers, but those aren't always available
-     */
     public function formatMessage($key, $args = array())
     {
         if (!$this->_loaded) {

@@ -82,41 +82,41 @@ jQuery(document).ready(function($) {
 	<div class="complex-main clearfix">
 		<div class="complex-left f-left">
 			<div class="job-sort-wrap">
-				<div class="job-sort-control">全部职位分类<i class="sotr-icon"></i></div>
+				<div class="job-sort-control">全て職種の分類<i class="sotr-icon"></i></div>
 				<div class="job-sort-list"></div>
 				<div class="leftmenu_box"></div>
 			</div>
 			<div class="bolck-nav clearfix">
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}jobs" target="_blank">
 					<i class="b-nav-icon icon1"></i>
-					<p>找工作</p>
+					<p>仕事を探す</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}resume" target="_blank">
 					<i class="b-nav-icon icon2"></i>
-					<p>找人才</p>
+					<p>人材を探す</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}user/company/company_jobs.php?act=addjobs" target="_blank">
 					<i class="b-nav-icon icon9"></i>
-					<p>发职位</p>
+					<p>ポストを掲示する</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}user/personal/personal_resume.php?act=make1" target="_blank">
 					<i class="b-nav-icon icon4"></i>
-					<p>创简历</p>
+					<p>履歴書を作成します</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#"HW_simplelist"|highway_url#}" target="_blank">
 					<i class="b-nav-icon icon5"></i>
-					<p>微商圈</p>
+					<p>マイクロ地区</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#"HW_hrtoolsindex"|highway_url#}" target="_blank">
 					<i class="b-nav-icon icon6"></i>
-					<p>HR工具</p>
+					<p>hRツール</P>
 				</a>
 			</div>
 			<div class="news-tab">
 				<div class="n-tab-control clearfix">
-					<a href="javascript:;" class="f-left tab-ctrl select">公告</a>
-					<a href="javascript:;" class="f-left tab-ctrl">资讯</a>
-					<a href="javascript:;" class="f-left tab-ctrl">帮助</a>
+					<a href="javascript:;" class="f-left tab-ctrl select">お知らせ</a>
+					<a href="javascript:;" class="f-left tab-ctrl">ニュース</a>
+					<a href="javascript:;" class="f-left tab-ctrl">ヘルプ</a>
 				</div>
 				<div class="news-tab-box">
 					<!-- 公告 -->
@@ -156,9 +156,9 @@ jQuery(document).ready(function($) {
 					</div>
 				</div>
 				<div class="search-box f-left">
-					<div class="search-area-box"><input type="text" name="cityForIndexSearch" id="cityForIndexSearch" placeholder="请输入工作地区" /></div>
+					<div class="search-area-box"><input type="text" name="cityForIndexSearch" id="cityForIndexSearch"placeholder= “作業領域を入力してください。” /></div>
 				</div>
-				<div class="search-submit f-left"><input type="button" name="btnForIndexSearch" id="btnForIndexSearch" code="HW_jobslist" value="搜索" class="search-submit" /></div>
+				<div class="search-submit f-left"><input type=“button” name=“btnForIndexSearch” id=“btnForIndexSearch” code=“hW_jobslist” value=“搜索” class=“search-submit” /></div>
 				<input type="hidden" name="citycategory" id="citycategory" value="">
 				<!-- 工作地区弹出框 -->
 				<div class="aui_outer" id="aui_outer_city">
@@ -175,7 +175,7 @@ jQuery(document).ready(function($) {
 															<div class="LocalDataMultiC" style="width:623px;">
 																<div class="selector-header"><span class="selector-title">选择地区</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="data-row-list data-row-main" id="city_list">
 																	<!-- 列表内容 -->
 																</div>
@@ -238,7 +238,7 @@ jQuery(document).ready(function($) {
 		</div>
 		<div class="complex-right f-left">
 			<div class="login-block" id="ajax_login">
-				<h4>会员登录</h4>
+				<h4>メンバーログイン</h4>
 				<div class="login-wrap">
 					<div class="login-item">
 						<div class="login-text-box clearfix"><i class="login-icon user f-left"></i><div class="login-input f-left"><input type="text" name="" id="" placeholder="邮箱/手机号/用户名" /></div></div>
@@ -248,22 +248,22 @@ jQuery(document).ready(function($) {
 					</div>
 					<div class="login-item clearfix">
 						<label class="auto-login f-left"><input type="checkbox" name="" id="" />自动登录</label>
-						<a href="" class="forget underline f-right">忘记密码？</a>
+						<a href="" class="forget underline f-right">パスワードを忘れましたか？</a>
 					</div>
 					<div class="login-item clearfix">
-						<div class="login-btn-box f-left"><input type="button" value="立即登录" class="index-login-btn" /></div>
-						<div class="f-left"><input type="button" value="免费注册" class="index-reg-btn" /></div>
+						<div class="login-btn-box f-left"><input type=“button” value=“すぐ登録” class=“index-login-btn” /></div>
+						<div class="f-left"><input type="button" value=“無料登録” class="index-reg-btn" /></div>
 					</div>
 					<div class="third-login clearfix">
-						<span class="f-left">其他账户登录：</span>
+						<span class="f-left">他のアカウントのログイン：</span>
 						<a href="" class="third-icon qq f-left"></a><a href="" class="third-icon sina f-left"></a><a href="" class="third-icon taobao f-left"></a>
 					</div>
 				</div>
 			</div>
 			<div class="urgent-block" id="emergencybox">
 				<div class="urgent-title clearfix">
-					<h4 class="f-left">紧急招聘</h4>
-					<a href="{#"HW_jobs"|highway_url#}" class="underline f-right" target="_blank">更多>></a>
+					<h4 class="f-left">緊急募集</h4>
+					<a href="{#"HW_jobs"|highway_url#}" class="underline f-right" target="_blank">もっと>></a>
 				</div>
 				<ul class="urgent-list">
 					{#highway_jobs_list set="列表名:jobs,显示数目:10,职位名长度:12,企业名长度:12,紧急招聘:1,排序:refreshtime>desc"#}
@@ -305,7 +305,7 @@ jQuery(document).ready(function($) {
 						<div class="companyname"><a href="{#$list.company_url#}" class="underline" target="_blank">{#$list.companyname#}</a></div>
 						<p>{#$list.briefly#}</p>
 					</div>
-					<a href="{#$list.company_url#}" class="ad-more" target="_blank">查看更多内容>></a>
+					<a href="{#$list.company_url#}" class="ad-more" target="_blank">もっと見ます>></a>
 				</div>
 				{#/if#}
 			</div>
@@ -332,7 +332,7 @@ jQuery(document).ready(function($) {
 						<div class="companyname"><a href="{#$list.company_url#}" class="underline" target="_blank">{#$list.companyname#}</a></div>
 						<p>{#$list.briefly#}</p>
 					</div>
-					<a href="{#$list.company_url#}" class="ad-more" target="_blank">查看更多内容>></a>
+					<a href="{#$list.company_url#}" class="ad-more" target="_blank">もっと見ます>></a>
 				</div>
 				{#/if#}
 			</div>
@@ -345,8 +345,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap index-data-wrap-i7">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">推荐职位<span>Recommended Job</span></h4>
-			<a href="{#"HW_helplist,id:10"|highway_url#}" class="f-right underline" target="_blank">我是招聘单位，我想出现在这里</a>
+			<h4 class="f-left">注目のジョブズ<span>Recommended Job</span></h4>
+			<a href="{#"HW_helplist,id:10"|highway_url#}" class="f-right underline" target="_blank">私は求人会社であり、私がここに来ています</a>
 		</div>
 		<div class="famous-list clearfix">
 			{#highway_companyjobs_list set="列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1"#}
@@ -357,7 +357,7 @@ jQuery(document).ready(function($) {
 					<a href="{#$list.company_url#}" class="underline" target="_balnk">{#$list.companyname#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a>
 					<div class="famous-more-info" style="display:none;">
 						<i class="fmi-icon"></i>
-						<div class="fmi-title">招聘岗位</div>
+						<div class="fmi-title">職位募集</div>
 						<ul class="fmi-list">
 							{#highway_jobs_list set="列表名:com_jobs_all,显示数目:3,会员UID:$list.uid"#}
 							{#foreach from=$com_jobs_all item=job_li#}
@@ -366,7 +366,7 @@ jQuery(document).ready(function($) {
 							</li>
 							{#/foreach#}
 						</ul>
-						<p>该企业共有{#$list.jobs_num#}个职位，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline">查看全部</a></p>
+						<p>企業は{#$list.jobs_num#}仕事を持ち，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline">查看全部</a></p>
 					</div>
 				</div>
 				<div class="famous-job">
@@ -395,8 +395,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">最新职位<span>Latest Job</span></h4>
-			<a href="{#"HW_jobslist"|highway_url#}" class="f-right underline" target="_blank">更多>></a>
+			<h4 class="f-left">最新仕事<span>Latest Job</span></h4>
+			<a href="{#"HW_jobslist"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="newest-list clearfix">
 			{#highway_companyjobs_list set="列表名:jobs,显示数目:40,职位名长度:12,显示职位:1,企业名长度:12,排序:rtime>desc"#}
@@ -427,8 +427,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">照片简历<span>Photo Resume</span></h4>
-			<a href="{#"HW_resumelist,photo:1"|highway_url#}" class="f-right underline" target="_blank">更多>></a>
+			<h4 class="f-left">写真履歴書<span>Photo Resume</span></h4>
+			<a href="{#"HW_resumelist,photo:1"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="photo-list clearfix">
 			{#highway_resume_list set="列表名:resume,显示数目:7,照片:1,意向职位长度:14,填补字符:...,排序:rtime>desc"#}
@@ -451,7 +451,7 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">职位导航<span>Jobs Navigation</span></h4>
+			<h4 class="f-left">位置ナビゲーションの<span>Jobs Navigation</span></h4>
 		</div>
 		<div class="job-build">
 			<!-- 楼层1  -->
@@ -636,8 +636,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">职场资讯<span>Workplace Information</span></h4>
-			<a href="{#"HW_news"|highway_url#}" class="f-right underline" target="_blank">更多>></a>
+			<h4 class="f-left">キャリア・リソースの<span>Workplace Information</span></h4>
+			<a href="{#"HW_news"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="job-news-block clearfix">
 			<div class="jn-left f-left">
@@ -667,8 +667,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">友情链接<span>Friendly Link</span></h4>
-			<a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">申请>></a>
+			<h4 class="f-left">リンク<span>Friendly Link</span></h4>
+			<a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">アプリケーション>></a>
 		</div>
 		<div class="friendly-link">
 			{#highway_link set="列表名:link,显示数目:100,调用名称:HW_index,类型:1"#}

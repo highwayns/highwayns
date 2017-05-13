@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#if $smarty.get.streetid#}{#"HW_street,"|cat:$smarty.get.streetid|highway_categoryname#}{#else#}按道路搜索{#/if#}  - 职位列表  - {#$HIGHWAY.site_name#}</title>
+<title>{#if $smarty.get.streetid#}{#”hW_street,”|cat:$smarty.get.streetid|HIGHWAY_categoryname#}{#else#}道路搜索{#/if#}  - ジョブリスト  - {#$HIGHWAY.site_name#}</title>
 <meta name="description" content="{#$HIGHWAY.site_name#} - 按道路搜索 - 招聘岗位">
 <meta name="keywords" content="{#$HIGHWAY.site_name#},职位信息">
 <meta name="author" content="海威人材" />
@@ -136,13 +136,13 @@ $(document).ready(function()
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$HIGHWAY.index_url#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_jobs"|highway_url#}">招聘信息</a>&nbsp;>&nbsp;按道路搜索
+当前位置：<a href="{#$HIGHWAY.index_url#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_jobs"|highway_url#}">招聘信息</a>&nbsp;>&nbsp;按道路搜索
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"HW_jobslist"|highway_url#}" class="s-tab-item f-left">高级搜索</a>
-			<a href="{#"HW_street"|highway_url#}" class="s-tab-item f-left active">道路搜索</a>
+			<a href="{#"HW_jobslist"|highway_url#}" class="s-tab-item f-left">高級検索</a>
+			<a href="{#"HW_street"|highway_url#}" class="s-tab-item f-left active">検索道路</a>
 		</div>
 		<div class="fliter-wrap fwnob">
 			<input type="hidden" detype="HW_street" id="searcnbtn" value="搜&nbsp;索" />
@@ -150,11 +150,11 @@ $(document).ready(function()
 			<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 			<input type="hidden" name="streetid" id="streetid" value="{#$smarty.get.streetid#}">
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">字母检索：</div>
+				<div class="fl-type f-left">文字検索：</div>
 				<div class="fl-content r-choice f-left" id="street_letter"></div>
 			</div>
 			<div class="filter-list-wrap clearfix abline">
-				<div class="fl-type f-left streetkeytext">关键字检索：</div>
+				<div class="fl-type f-left streetkeytext">キーワード検索：</div>
 				<div class="fl-content r-choice f-left streetkey">
 					<div class="keyboxtag"><input name="key" id="key" type="text" /></div>
 					<div class="keysub"><a class="se" href="javascript:;" id="sosub">搜索</a></div>
@@ -162,7 +162,7 @@ $(document).ready(function()
 				<div class="line"></div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">热门道路：</div>
+				<div class="fl-type f-left">人気の道：</div>
 				<div class="fl-content r-choice f-left" id="show_street">
 					{#highway_get_classify set="列表名:c_jobs,类型:HW_street,显示数目:30"#}
 					{#foreach from=$c_jobs item=li#}
@@ -178,15 +178,15 @@ $(document).ready(function()
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="sort">
-			<span class="job_list_type">排序</span>
-			<a href="{#"HW_street,sort:-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>综合排序</a>
-			<a href="{#"HW_street,sort:rtime-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新时间</a>
+			<span class="job_list_type">並び替え</span>
+			<a href="{#"HW_street,sort:-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort==""#}class="slect"{#/if#}>総合ソート</a>
+			<a href="{#"HW_street,sort:rtime-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort=="rtime"#}class="slect"{#/if#}>更新しました</a>
 			{#if $smarty.get.key==""#}
-			<a href="{#"HW_street,sort:wage-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>薪资待遇</a>
+			<a href="{#"HW_street,sort:wage-page:1-streetid:"|cat:$smarty.get.streetid|highway_url#}" {#if $smarty.get.sort=="wage"#}class="slect"{#/if#}>給与</a>
 			{#/if#}
 		</div>
 		<div class="sort">
-			<span class="job_list_type">筛选</span>
+			<span class="job_list_type">選別</span>
 			<label class="merger_company"><input type="checkbox" name="" id="merge_com_btn" /> 合并公司</label>
 		</div>
 		<div class="pagerow">
@@ -197,12 +197,12 @@ $(document).ready(function()
 	<div class="infolists" id="infolists">
 		<div class="infolists-head clearfix">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type="button" value="申请职位" class="all-down-btn deliver" /></div>
+			<div class="all-ctrl f-left"><input type=“button” value=“職務申請” class=“all-down-btn deliver” /></div>
 			<div class="all-ctrl f-left"><a href="javascript:;" class="collect-link collecter">收藏职位</a></div>
 			{#if $smarty.cookie.com_list!='1'#}
 			<div class="list-tab f-right">
-				<a href="javascript:;" id="list" class="tab-item tab-list">列表</a>
-				<a href="javascript:;" id="detail" class="tab-item tab-detail">详细</a>
+				<a href="javascript:;" id="list" class="tab-item tab-list">一覧リスト</a>
+				<a href="javascript:;" id="detail" class="tab-item tab-detail">詳細</a>
 			</div>
 			{#/if#}
 		</div>
@@ -241,17 +241,17 @@ $(document).ready(function()
 										</div>
 										<div class="pop_top_right">
 											<input type="button" value="申请职位" jobs_id="{#$job_list.id#}" id="{#$job_list.id#}" class="merger_btn app_jobs" />
-											<a href="javascript:void(0);" jobs_id="{#$job_list.id#}" class="pop_collect add_favorites">收藏</a>
+											<a href="javascript:void(0);" jobs_id="{#$job_list.id#}" class="pop_collect add_favorites">コレクション</a>
 										</div>
 										<div class="clear"></div>
 									</div>
 									<div class="pop_job_description">
-										<div class="description_item">职位类别：{#$job_list.category_cn#}</div>
-										<div class="description_item">招聘人数：{#$job_list.amount#} 人</div>
-										<div class="description_item">薪资待遇：{#$job_list.wage_cn#}</div>
-										<div class="description_item">学历要求：{#$job_list.education_cn#}</div>
-										<div class="description_item">工作经验：{#$job_list.experience_cn#}</div>
-										<div class="description_item">工作地点：{#$job_list.district_cn#}</div>
+										<div class="description_item">職種の種類：{#$job_list.category_cn#} </div>
+										<div class="description_item">雇用人数：{#$job_list.amount#}人</div>
+										<div class="description_item">給与：{#$job_list.wage_cn#} </div>
+										<div class="description_item">学歴条件：{#$job_list.education_cn#} </div>
+										<div class="description_item">仕事経験：{#$job_list.experience_cn#} </div>
+										<div class="description_item">場所：{#$job_list.district_cn#} </div>
 										<div class="clear"></div>
 									</div>
 									<div class="pop_fuli">
@@ -260,7 +260,7 @@ $(document).ready(function()
 						                {#/foreach#}
 									</div>
 									<div class="pop_job_detail">
-										<p>岗位职责：</p>
+										<p>仕事責任：</P>
 										<p>
 											{#$job_list.contents#}
 										</p>
@@ -268,15 +268,15 @@ $(document).ready(function()
 								</div>
 							</div>
 						</div>
-						<div class="merger_job_type mjob_area">地区：{#$job_list.district_cn#}</div>
-						<div class="merger_job_type mjob_money">月薪： {#$job_list.wage_cn#}</div>
-						<div class="merger_job_type mjob_xueli">经验：{#$job_list.experience_cn#}</div>
-						<div class="merger_job_type mjob_exp">学历：{#$job_list.education_cn#}</div>
+						<div class="merger_job_type mjob_area">リージョン：{#$job_list.district_cn#} </div>
+						<div class="merger_job_type mjob_money">給与：{#$job_list.wage_cn#} </div>
+						<div class="merger_job_type mjob_xueli">経験：{#$job_list.experience_cn#} </div>
+						<div class="merger_job_type mjob_exp">学歴：{#$job_list.education_cn#} </div>
 						<div class="merger_job_type mjob_time">{#$job_list.refreshtime_cn#}</div>
 						<div class="clear"></div>
 					</div>
 					{#/foreach#}
-					<div class="another_job link_lan">该企业共发布了 <span>{#$list.0.count#}</span> 个职位。<a target="_blank" href="{#$list.0.count_url#}">立即查看&gt;&gt;</a></div>
+					<div class="another_job link_lan">会社は発行した合計<span>{#$list.0.count#}</span>ジョブズ。<a target="_blank" href="{#$list.0.count_url#}">立即查看&gt;&gt;</a></div>
 				</div>
 			</div>
 			<!-- 合并公司结束 -->
@@ -299,8 +299,8 @@ $(document).ready(function()
 				</div>
 				<div class="info-list-detail clearfix">
 					<div class="info-text f-left">
-						<p>学历要求：{#$list.education_cn|default:"不限"#}&nbsp;&nbsp;|&nbsp;&nbsp;工作经验：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;职位性质：{#$list.nature_cn|default:"全职"#}&nbsp;&nbsp;|&nbsp;&nbsp;招聘人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:"不限"#}</p>
-						<div>岗位职责：{#$list.briefly#}</div>
+						<p>学歴要求：{#$list.education_cn|default:”制限なし”#}&nbsp;&nbsp;|&nbsp;&nbsp;勤務経験：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;仕事属性：{#$list.nature_cn|default:”全職”#}&nbsp;&nbsp;|&nbsp;&nbsp;募集人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:”制限なし”#}</p>
+						<div>仕事責任：{#$list.briefly#} </div>
 					</div>
 					<div class="info-control f-left">
 						<input type="button" value="申请职位" jobs_id="{#$list.id#}" class="apply-job-btn app_jobs" />
@@ -315,7 +315,7 @@ $(document).ready(function()
 		</div>
 		<div class="infolists-head clearfix" style="border-top:1px solid #cccccc;border-bottom:none;">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type="button" value="申请职位" class="all-down-btn deliver" /></div>
+			<div class="all-ctrl f-left"><input type=“button” value=“職務申請” class=“all-down-btn deliver” /></div>
 			<div class="all-ctrl f-left"><a href="javascript:;" class="collect-link collecter">收藏职位</a></div>
 		</div>
 			{#if $page#}
@@ -326,7 +326,7 @@ $(document).ready(function()
 	      		</table>
 			{#/if#}
 		{#else#}
-		<div class="emptytip">抱歉，没有符合此条件的信息！</div>
+		<div class="emptytip">すいません、この条件に合う情報無し！</div>
 		{#/if#}
 	</div>
 </div>

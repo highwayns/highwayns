@@ -70,7 +70,7 @@ $(document).ready(function()
 </div>
 
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 可见简历是指：审核通过,全公开的简历。反之为非可见简历<br />
 </p>
@@ -80,8 +80,8 @@ $(document).ready(function()
 <div class="seltpye_y">
 
 	<div class="tit link_lan">
-	<strong>简历列表</strong><span>(共找到{#$total_val#}条)</span>
-	<a href="?act=list">[恢复默认]</a>
+	<strong>レジュームリスト</strong><span>（探した{#$total_val#}記事）</span>
+	<a href="?act=list">[既定値に戻します]</a >
 	<div class="pli link_bk"><u>每页显示：</u>
 	<a href="{#"perpage:10"|highway_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
 	<a href="{#"perpage:20"|highway_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
@@ -91,20 +91,20 @@ $(document).ready(function()
 	</div>
 	</div>	
     <div class="list">
-	  <div class="t">可见状态</div>	  
+	  <div class="t">可視状態</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"tabletype:1"|highway_parse_url#}" {#if $smarty.get.tabletype=="1"#}class="select"{#/if#}>可见简历<span>({#$total.0#})</span></a>
-		<a href="{#"tabletype:2"|highway_parse_url#}" {#if $smarty.get.tabletype=="2"#}class="select"{#/if#}>非可见简历<span>({#$total.1#})</span></a>
+	 	<a href="{#"tabletype:1"|highway_parse_url#}" {#if $smarty.get.tabletype=="1"#}class="select"{#/if#}>可視履歴書 <span>({#$total.0#})</span></a>
+		<a href="{#"tabletype:2"|highway_parse_url#}" {#if $smarty.get.tabletype=="2"#}class="select"{#/if#}>履歴書非公開<span>({#$total.1#})</span></a>
 	  </div>
     </div>
 	{#if $smarty.get.tabletype=="2"#}
 	<div class="list">
-	  <div class="t">审核状态</div>	  
+	  <div class="t">監査ステータス</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>审核通过<span>({#$total.2#})</span></a>
-		<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待审核<span>({#$total.3#})</span></a>
-		<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>审核未通过<span>({#$total.4#})</span></a>
+	 	<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>承認の<span>({#$total.2#})</span></a>
+		<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>審査待ち<span>({#$total.3#})</span></a>
+		<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>承認されていません<span>({#$total.4#})</span></a>
 	  </div>
     </div>
 	  {#/if#}
@@ -112,56 +112,56 @@ $(document).ready(function()
 	
 
 	<div class="list" >
-	  <div class="t">简历等级</div>	  
+	  <div class="t">履歴書のレベル</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"talent:"|highway_parse_url#}" {#if $smarty.get.talent==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"talent:1"|highway_parse_url#}" {#if $smarty.get.talent=="1"#}class="select"{#/if#}>普通人才</a>
-		<a href="{#"talent:2"|highway_parse_url#}" {#if $smarty.get.talent=="2"#}class="select"{#/if#}>高级人才</a>
-		<a href="{#"talent:3"|highway_parse_url#}" {#if $smarty.get.talent=="3"#}class="select"{#/if#}>待开通高级人才</a>
+	 	<a href="{#"talent:"|highway_parse_url#}" {#if $smarty.get.talent==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"talent:1"|highway_parse_url#}" {#if $smarty.get.talent=="1"#}class="select"{#/if#}>普通人材</a>
+		<a href="{#"talent:2"|highway_parse_url#}" {#if $smarty.get.talent=="2"#}class="select"{#/if#}>高級人材</a>
+		<a href="{#"talent:3"|highway_parse_url#}" {#if $smarty.get.talent=="3"#}class="select"{#/if#}>オープンするシニア人材</a>
 	  </div>
     </div>
 	
 	
 	<div class="list" >
-	  <div class="t">照片可见</div>	  
+	  <div class="t">写真閲覧可</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"photo_display:"|highway_parse_url#}" {#if $smarty.get.photo_display==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"photo_display:1"|highway_parse_url#}" {#if $smarty.get.photo_display=="1"#}class="select"{#/if#}>可见</a>
-		<a href="{#"photo_display:2"|highway_parse_url#}" {#if $smarty.get.photo_display=="2"#}class="select"{#/if#}>不可见</a>
+	 	<a href="{#"photo_display:"|highway_parse_url#}" {#if $smarty.get.photo_display==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"photo_display:1"|highway_parse_url#}" {#if $smarty.get.photo_display=="1"#}class="select"{#/if#}>可視</a>
+		<a href="{#"photo_display:2"|highway_parse_url#}" {#if $smarty.get.photo_display=="2"#}class="select"{#/if#}>非公開</a>
 	  </div>
     </div>
 	
 	
 	
 	<div class="list" >
-	  <div class="t">照片审核</div>	  
+	  <div class="t">写真審査</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"photo_audit:"|highway_parse_url#}" {#if $smarty.get.photo_audit==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"photo_audit:1"|highway_parse_url#}" {#if $smarty.get.photo_audit=="1"#}class="select"{#/if#}>照片审核通过</a>
-		<a href="{#"photo_audit:2"|highway_parse_url#}" {#if $smarty.get.photo_audit=="2"#}class="select"{#/if#}>照片待审核</a>
-		<a href="{#"photo_audit:3"|highway_parse_url#}" {#if $smarty.get.photo_audit=="3"#}class="select"{#/if#}>照片审核未通过</a>
+	 	<a href="{#"photo_audit:"|highway_parse_url#}" {#if $smarty.get.photo_audit==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"photo_audit:1"|highway_parse_url#}" {#if $smarty.get.photo_audit=="1"#}class="select"{#/if#}>写真の承認</a>
+		<a href="{#"photo_audit:2"|highway_parse_url#}" {#if $smarty.get.photo_audit=="2"#}class="select"{#/if#}>写真審査待ち</a>
+		<a href="{#"photo_audit:3"|highway_parse_url#}" {#if $smarty.get.photo_audit=="3"#}class="select"{#/if#}>承認されていない写真</a>
 	  </div>
     </div>
 	
 	 
 	
 	<div class="list" >
-	  <div class="t">添加时间</div>	  
+	  <div class="t">タイムの追加</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"addtimesettr:"|highway_parse_url#}" {#if $smarty.get.addtimesettr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"addtimesettr:3"|highway_parse_url#}" {#if $smarty.get.addtimesettr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"addtimesettr:7"|highway_parse_url#}" {#if $smarty.get.addtimesettr=="7"#}class="select"{#/if#}>一周内</a>
+	 	<a href="{#"addtimesettr:"|highway_parse_url#}" {#if $smarty.get.addtimesettr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"addtimesettr:3"|highway_parse_url#}" {#if $smarty.get.addtimesettr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"addtimesettr:7"|highway_parse_url#}" {#if $smarty.get.addtimesettr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"addtimesettr:30"|highway_parse_url#}" {#if $smarty.get.addtimesettr=="30"#}class="select"{#/if#}>一月内</a>
 
 	  </div>
     </div>
 	
 	<div class="list" >
-	  <div class="t">刷新时间</div>	  
+	  <div class="t">タイム更新</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
 
 		
@@ -176,15 +176,15 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
     <tr>
       <td    class="admin_list_tit admin_list_first" >
-     <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>姓名</label>	 </td>
+     <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>姓名</label>	 </td>
      
-	   <td   align="center"  width="80" class="admin_list_tit">完整指数 </td>
-	  <td  align="center"  width="6%" class="admin_list_tit">等级</td>
-	   <td align="center"  width="10%"  class="admin_list_tit">审核状态</td> 
-      <td   align="center" width="8%" class="admin_list_tit">公开</td>
-	  <td align="center" width="8%" class="admin_list_tit">照片</td>
-      <td align="center" width="12%"  class="admin_list_tit">添加时间</td>
-	  <td align="center"  width="12%"  class="admin_list_tit">刷新时间</td>
+	   <td   align="center"  width="80" class="admin_list_tit">完全なインデックス</td>
+	  <td  align="center"  width="6%" class="admin_list_tit">レベル</td>
+	   <td align="center"  width="10%"  class="admin_list_tit">監査ステータス</td> 
+      <td   align="center" width="8%" class="admin_list_tit">公開</td>
+	  <td align="center" width="8%" class="admin_list_tit">写真</td>
+      <td align="center" width="12%"  class="admin_list_tit">時間を追加します</td>
+	  <td align="center"  width="12%"  class="admin_list_tit">タイム更新</td>
       <td align="center"  width="15%" class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$resumelist item=list#}
@@ -193,13 +193,13 @@ $(document).ready(function()
 	  <input name="id[]" type="checkbox" id="id" value="{#$list.id#}"  />
 		<a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a>
 		{#if $list.talent=="3"#}
-		<span style="color: #FF0000">[待开通高级人才]</span>
+		<span style="color: #FF0000">[高級人材開通待ち]</span>
 		{#/if#}
 		{#if $list.photo_img<>""#}
 		<span style="color: #009900"  class="vtip" title="<img src={#$HIGHWAY.resume_photo_dir_thumb#}{#$list.photo_img#}  border=0  align=absmiddle>">[照片]</span>
 		{#/if#}	
-		<a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>	
-		 {#if $list.telephone#}<a href="admin_sms.php?act=send&mobile={#$list.telephone#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>{#/if#}	
+		<a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title=“メール送信” /></a>	
+		 {#if $list.telephone#}<a href="admin_sms.php?act=send&mobile={#$list.telephone#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="ショットメッセージ送信" /></a>{#/if#}	
 		  </td>
 	 <td align="center"  class="admin_list">
 	 <div style="width:100%; border:1px #CCCCCC solid; padding:1px; text-align:left; position:relative; font-size:0px">
@@ -209,12 +209,12 @@ $(document).ready(function()
 	
       <td align="center"  class="admin_list">
 	  {#if $list.talent=="1"#}普通{#/if#}
-	  {#if $list.talent=="2"#}<span style="color: #009900">高级</span>{#/if#}
-	  {#if $list.talent=="3"#}<span style="color: #FF0000">待开通</span>{#/if#}	  </td>
+	  {#if $list.talent=="2"#}<span style="color: #009900">高級</span>{#/if#}
+	  {#if $list.talent=="3"#}<span style="color: #FF0000">プロビジョニングします</span>{#/if#}	  </td>
 	   <td align="center"  class="admin_list">
 	   {#if $list.audit=="1"#}审核通过{#/if#}
-	   {#if $list.audit=="2"#}<span style="color: #FF6600">等待审核</span>{#/if#}
-	   {#if $list.audit=="3"#}<span style="color: #666666">审核未通过</span>{#/if#}	   </td>   
+	   {#if $list.audit=="2"#}<span style="color: #FF6600">審査待ち</span>{#/if#}
+	   {#if $list.audit=="3"#}<span style="color: #666666">承認されていません</span>{#/if#}	   </td>   
       <td align="center"  class="admin_list">
 	  {#if $list.display=="1"#}
 	  		公开
@@ -228,7 +228,7 @@ $(document).ready(function()
 	  	 {#if $list.photo_audit=="1"#}
 		 审核通过{#if $list.photo_display<>"1"#}[不可见]{#/if#}
 		 {#/if#}
-		 {#if $list.photo_audit=="2"#}<span style="color:#FF0000">等待审核</span>{#/if#}
+		 {#if $list.photo_audit=="2"#}<span style="color:#FF0000">審査待ち</span>{#/if#}
 		 {#if $list.photo_audit=="3"#}
 		 审核未通过 
 		 {#/if#}
@@ -236,9 +236,9 @@ $(document).ready(function()
       <td align="center"  class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>
 	  <td align="center"  class="admin_list">{#$list.refreshtime|date_format:"%Y-%m-%d"#}</td>
       <td align="center"  class="admin_list">
-		<a href="admin_memberslog.php?uid={#$list.uid#}">日志</a>
+		<a href="admin_memberslog.php?uid={#$list.uid#}">日誌</a>
 		&nbsp;
-		<a href="?act=resume_show&id={#$list.id#}&uid={#$list.uid#}" >查看</a>
+		<a href="?act=resume_show&id={#$list.id#}&uid={#$list.uid#}" >確認</a>
 		&nbsp;
 		<a href="?act=management&id={#$list.uid#}"  target="_blank" class="userinfo"  id="{#$list.uid#}">管理</a>	 
 	&nbsp;
@@ -251,7 +251,7 @@ $(document).ready(function()
   <span id="OpPhotoresume"></span>
  </form>
 {#if !$resumelist#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
@@ -272,11 +272,11 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="姓名">姓名</li>
+														<li id="1" title="姓名">名前</li>
 														<li id="2" title="ID">ID</li>
 														<li id="3" title="UID">UID</li>
-														<li id="4" title="电话">电话</li>
-														<li id="6" title="地址">地址</li>
+														<li id="4" title="电话">電話</li>
+														<li id="6" title="地址">住所</li>
 														</ul>
 												</div>
 						</div>				
@@ -350,7 +350,7 @@ $(document).ready(function()
     </tr>
     <tr>
       <td width="27" height="25">&nbsp;</td>
-      <td width="425"><label ><input type="radio" name="talent" value="2"  />高级人才</label>	  </td>
+      <td width="425"><label ><input type="radio" name="talent" value="2"  />高級人材</label>	  </td>
     </tr>
     <tr>
       <td height="25">&nbsp;</td>

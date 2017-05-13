@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite template_fetch_compile_include template internal module
- *
- * Type:	 template
- * Name:	 template_fetch_compile_include
- */
 
 function template_fetch_compile_include($_templatelite_include_file, $_templatelite_include_vars, &$object)
 {

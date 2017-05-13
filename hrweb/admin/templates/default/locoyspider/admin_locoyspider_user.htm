@@ -6,22 +6,22 @@
   <div class="clear"></div>
 </div>
     <div class="toptip">
-	<h2>提示：</h2>
-	<p>火车头采集规则请到论坛下载！</p>
+	<h2>ヒント：</h2>
+	<p>機関車コレクションのルールはフォーラムにダウンロードに行きます！</p>
 	</div>
-	 <div class="toptit">生成会员设置</div>
+	 <div class="toptit">会員設定の生成</div>
 	    <form action="?act=set_save" method="post"  name="form1" id="form1">
 		{#$inputtoken#}
 	<table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px; margin-top:10px;">
     <tr>
-      <td width="180" align="right">生成用户名：</td>
+      <td width="180" align="right">ユーザー名を生成：</td>
       <td > 
       <input name="reg_usname" type="text"  class="input_text_200" id="reg_usname"   value="{#$show.reg_usname#}" maxlength="10"/>
       加随机字符
        </td>
     </tr>
 	<tr>
-      <td width="180" align="right">生成密码：</td>
+      <td width="180" align="right">パスワードを生成します。</td>
       <td  id="reg_password_tpye">
 	  <label><input name="reg_password_tpye"  type="radio" value="1" {#if $show.reg_password_tpye =="1"#}checked="checked"{#/if#} />与用户名相同</label>&nbsp;&nbsp;&nbsp;
 		 <label><input name="reg_password_tpye"  type="radio" value="2" {#if $show.reg_password_tpye =="2"#}checked="checked"{#/if#} />随机密码</label>&nbsp;&nbsp;&nbsp;
@@ -29,13 +29,13 @@
       </td>
     </tr>
 	<tr  id="show_reg_password" style="display:none">
-      <td width="180" align="right">输入指定密码：</td>
+      <td width="180" align="right">入力は、パスワードを指定します。</td>
       <td >
 	  <input name="reg_password" type="text"  class="input_text_200" id="reg_password"   value="{#$show.reg_password#}" maxlength="16"/> 
       </td>
     </tr>
 	<tr>
-      <td width="180" align="right">无法匹配Email则为随机字符加：</td>
+      <td width="180" align="right">メールプラスランダムな文字列にマッチすることができませんでした</td>
       <td ><input name="reg_email" type="text"  class="input_text_200" id="reg_email"   value="{#$show.reg_email#}" maxlength="10"/>
       
        </td>

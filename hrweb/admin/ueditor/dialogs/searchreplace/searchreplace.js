@@ -1,21 +1,8 @@
-﻿/**
- * Created with JetBrains PhpStorm.
- * User: xuheng
- * Date: 12-9-26
- * Time: 下午12:29
- * To change this template use File | Settings | File Templates.
- */
-
+﻿
 //清空上次查选的痕迹
 editor.firstForSR = 0;
 editor.currentRangeForSR = null;
 //给tab注册切换事件
-/**
- * tab点击处理事件
- * @param tabHeads
- * @param tabBodys
- * @param obj
- */
 function clickHandler( tabHeads,tabBodys,obj ) {
     //head样式更改
     for ( var k = 0, len = tabHeads.length; k < len; k++ ) {
@@ -36,10 +23,6 @@ function clickHandler( tabHeads,tabBodys,obj ) {
 
 }
 
-/**
- * TAB切换
- * @param tabParentId  tab的父节点ID或者对象本身
- */
 function switchTab( tabParentId ) {
     var tabElements = $G( tabParentId ).children,
         tabHeads = tabElements[0].children,

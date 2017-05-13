@@ -3,9 +3,6 @@ if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');
 }
-/**
-* 图片缩放和裁剪类
-*/
 class ImageResize
 {
 	//源图象

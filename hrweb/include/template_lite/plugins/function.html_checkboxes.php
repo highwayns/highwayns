@@ -1,16 +1,4 @@
 ﻿<?php
-/**
- * Template_Lite {html_checkbox} function plugin
- *
- * Type:     function
- * Name:     textbox
- * Purpose:  Creates a checkbox
- * Input:
- *           - name = the name of the checkbox
- *           - value = optional value for the checkbox
- *           - checked = boolean - whether the box is checked or not
- * Author:   Paul Lockaby <paul@paullockaby.com>
- */
 function tpl_function_html_checkboxes($params, &$tpl)
 {
 	require_once("shared.escape_chars.php");

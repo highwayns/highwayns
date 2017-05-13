@@ -1,18 +1,9 @@
 ﻿<?php
 
-/**
- * Implements data: URI for base64 encoded images supported by GD.
- */
 class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
 {
-    /**
-     * @type bool
-     */
     public $browsable = true;
 
-    /**
-     * @type array
-     */
     public $allowed_types = array(
         // you better write validation code for other types if you
         // decide to allow them
@@ -22,17 +13,8 @@ class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
     );
     // this is actually irrelevant since we only write out the path
     // component
-    /**
-     * @type bool
-     */
     public $may_omit_host = true;
 
-    /**
-     * @param HTMLPurifier_URI $uri
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function doValidate(&$uri, $config, $context)
     {
         $result = explode(',', $uri->path, 2);
@@ -117,10 +99,6 @@ class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
         return true;
     }
 
-    /**
-     * @param int $errno
-     * @param string $errstr
-     */
     public function muteErrorHandler($errno, $errstr)
     {
     }

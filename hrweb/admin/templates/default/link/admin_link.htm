@@ -19,9 +19,9 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">链接状态</div>	
+		<div class="left">リンクステータス</div>	
 		<div class="right">
-		<a href="{#"alias:"|highway_parse_url#}" {#if $smarty.get.alias==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"alias:"|highway_parse_url#}" {#if $smarty.get.alias==""#}class="select"{#/if#}>制限なし</a>
 		 {#foreach from=$get_link_category item=li#}
 		<a href="{#"alias:"|cat:$li.c_alias|highway_parse_url#}" {#if $smarty.get.alias==$li.c_alias#}class="select"{#/if#}>{#$li.categoryname#}</a>
 		 {#/foreach#}
@@ -30,11 +30,11 @@ $(document).ready(function()
 		<div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">添加类型</div>	
+		<div class="left">タイプを追加</div>	
 		<div class="right">
-		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"type_id:1"|highway_parse_url#}" {#if $smarty.get.type_id=="1"#}class="select"{#/if#}>非自助申请</a>
-		<a href="{#"type_id:2"|highway_parse_url#}" {#if $smarty.get.type_id=="2"#}class="select"{#/if#}>自助申请</a>
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"type_id:1"|highway_parse_url#}" {#if $smarty.get.type_id=="1"#}class="select"{#/if#}>非自己申請</a>
+		<a href="{#"type_id:2"|highway_parse_url#}" {#if $smarty.get.type_id=="2"#}class="select"{#/if#}>自動アプリケーション</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -44,11 +44,11 @@ $(document).ready(function()
    <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td width="30%" class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />链接标题</label>	  </td>
-      <td class="admin_list_tit"> 地址 </td>
-      <td   align="center" class="admin_list_tit">顺序</td>
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />链接标题</label>	  </td>
+      <td class="admin_list_tit"> 住所</td>
+      <td   align="center" class="admin_list_tit">順番</td>
       <td   align="center"  class="admin_list_tit">位置</td>
-      <td   align="center"   class="admin_list_tit">状态</td>
+      <td   align="center"   class="admin_list_tit">ステータス</td>
       <td width="130" align="center"  class="admin_list_tit" >操作</td>
     </tr>
 	 {#foreach from=$link item=list#}
@@ -63,7 +63,7 @@ $(document).ready(function()
 	  <span style="color:#FF6600" title="<img src={#$list.link_logo#} border=0/>" class="vtip">[logo]</span>
 	  {#/if#}
 	  {#if $list.display<>"1"#}
-	  <span style="color: #999999">[不显示]</span>
+	  <span style="color: #999999">[表示しない] </span>
 	  {#/if#}
       </td>
       <td  class="admin_list">
@@ -77,13 +77,13 @@ $(document).ready(function()
 	  {#if $list.type_id=="2"#}自助申请{#/if#}
 	  </td>
       <td align="center"   class="admin_list">
-	  <a href="?act=edit&id={#$list.link_id#}">修改</a> <a href="?act=del_link&id={#$list.link_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a>	  </td>
+	  <a href="?act=edit&id={#$list.link_id#}">変更</a> <a href="?act=del_link&id={#$list.link_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a>	  </td>
     </tr>
 	 {#/foreach#}
   </table>
   </form>
   {#if !$link#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
@@ -101,7 +101,7 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="标题">标题</li>
+														<li id="1" title="标题">titleます。</li>
 														<li id="2" title="URL">URL</li>
 														</ul>
 												</div>

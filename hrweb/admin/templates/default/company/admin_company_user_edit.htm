@@ -92,33 +92,33 @@ $(document).ready(function()
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">编辑会员 <span style="color:#0066CC">({#$company_user.username#})</span> </div>
+<div class="toptit">会員編集 <span style=“color:#0066CC”>({#$company_user.username#})</span> </div>
   <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">注册时间：</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">登録時間：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" >{#$company_user.reg_time|date_format:"%Y-%m-%d   %H:%M"#}&nbsp;</td>
-      <td width="120" align="right"  style=" border-bottom:1px #CCCCCC dashed" >最后登录时间：</td>
+      <td width="120" align="right"  style=" border-bottom:1px #CCCCCC dashed" >最終ログイン時刻：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" >{#$company_user.last_login_time|date_format:"%Y-%m-%d %H:%M"#}</td>
     </tr>
     <tr>
-      <td height="30" align="right"   >注册IP：</td>
+      <td height="30" align="right"   >登録IP：</td>
       <td   >{#if $company_user.reg_ip#}{#$company_user.reg_ip#}{#else#}- - - -{#/if#}</td>
-      <td align="right"  >最后登录IP：</td>
+      <td align="right"  >最終ログインIP：</td>
       <td   >{#if $company_user.last_login_ip#}{#$company_user.last_login_ip#}{#else#}- - - -{#/if#}</td>
     </tr>
   </table>
-  <div class="toptit">基本信息</div>
+  <div class="toptit">基本情報</div>
   <form id="form4" name="form4" method="post" action="?act=set_account_save">
 	{#$inputtoken#}
 	<table width="700" border="0" cellpadding="4" cellspacing="0"   >
       <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">用户名：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ユーザー名：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="username" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.username#}"  >
           	</td>
       </tr>
 	  <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邮箱：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">Eメール：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="email" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.email#}"  >
 		  
@@ -129,7 +129,7 @@ $(document).ready(function()
 		</td>
       </tr>
 	  <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">手机：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">電話番号：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="mobile" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.mobile#}"  >
 		  
@@ -140,7 +140,7 @@ $(document).ready(function()
 		</td>
       </tr>
 	   <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">QQ绑定：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">バインディングQQ：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
          {#if $company_user.qq_openid#}
 		 已绑定QQ账号 
@@ -154,7 +154,7 @@ $(document).ready(function()
 		 	
 		</td>
 		<tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">展示模版：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">テンプレート表示：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="tpl" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.tpl#}"  >
 		</td>
@@ -170,12 +170,12 @@ $(document).ready(function()
       </tr>
     </table>
   </form>
-  <div class="toptit">修改密码</div>
+  <div class="toptit">パスワードの変更</div>
 	<form id="form6" name="form6" method="post" action="?act=userpass_edit">
 	{#$inputtoken#}
 	<table width="100%" border="0" cellpadding="4" cellspacing="0"   >		 
 	<tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">新密码：</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">新しいパスワード：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed;" >
         <input name="password" type="password" class="input_text_200" id="password" maxlength="50" value=""  />        </td>
     </tr>
@@ -190,12 +190,12 @@ $(document).ready(function()
     </tr>
 	</table>
 	</form>
-   <div class="toptit">用户状态</div>
+   <div class="toptit">ユーザステータス</div>
 	 <form id="form9" name="form9" method="post" action="?act=userstatus_edit">
 	 {#$inputtoken#}
 	<table width="100%" border="0" cellpadding="4" cellspacing="0"   > 
 		<tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">帐号状态：</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">アカウントの状態：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed;" >
 	    <label>
 	    <input name="status" type="radio" value="1"  {#if $company_user.status=="1"#}checked="checked"{#/if#}/>
@@ -217,17 +217,17 @@ $(document).ready(function()
   </table>
   </form>
 {#if $HIGHWAY.operation_mode=='1'||$HIGHWAY.operation_mode=='3'#}  
- <div class="toptit">会员积分设置</div>
+ <div class="toptit">会員ポイント設置</div>
  <form id="form1" name="form1" method="post" action="?act=userpoints_edit">
  {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
 		 
 		 <tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">会员积分：</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">メンバーポイント：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed; color: #FF6600; font-size:16px;" >{#$userpoints#}&nbsp;</td>
     </tr>
 	<tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">操作积分：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ポイントオペレーティング：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed;" >
 	  <label><input name="points_type" type="radio" value="1" checked="checked" />增加</label>
 	  &nbsp;&nbsp;&nbsp;
@@ -235,13 +235,13 @@ $(document).ready(function()
 	  </td>
     </tr>
 			<tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">增减积分：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">増減ポイント：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed;" >
 	   <input name="points" type="text"  id="points" maxlength="5" value="0"  class="input_text_50"  />
 	  点        </td>
     </tr>
 	<tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">操作说明：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">操作手順：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed;" >
         <input name="points_notes" type="text" class="input_text_200" id="points_notes" maxlength="60" value="" style="width:450px;"/>        </td>
     </tr>
@@ -258,7 +258,7 @@ $(document).ready(function()
 	   <tr class="log_amount3">
         <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
-         <span class="admin_note">(请填写收费金额)</span> </td>
+         <span class="admin_note">（金額を記入してください）</span> </td>
       </tr>
     <tr>
       <td height="30" align="right"  >&nbsp;</td>
@@ -276,7 +276,7 @@ $(document).ready(function()
   
   
 	{#if $setmeal#}
-	<div class="toptit">会员服务套餐- 修改</div>
+	<div class="toptit">会員サービスパッケージ - 変更 </div>
 	<form id="form2" name="form2" method="post" action="?act=edit_setmeal_save">
 	{#$inputtoken#}
 	<table width="100%" border="0" cellpadding="4" cellspacing="0" >
@@ -287,7 +287,7 @@ $(document).ready(function()
 {#$setmeal.setmeal_name#}		</td>
       </tr>
       <tr>
-        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">服务时间：</td>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">サービス時間：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
 		开始时间：{#$setmeal.starttime|date_format:"%Y-%m-%d"#}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		结束时间：{#if $setmeal.endtime=="0"#}
@@ -298,39 +298,39 @@ $(document).ready(function()
 		 <input type="hidden" name="oldendtime"  value="{#$setmeal.endtime#}" />		</td>
       </tr>
 	  <tr>
-        <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">到期时间：</td>
+        <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">有効期限：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" ><input name="setendtime" type="text" class="input_text_200 date_input" id="setendtime" maxlength="10" value="{#if $setmeal.endtime=="0"#}{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#}"  >
-		<span class="admin_note">设置到期时间，格式 yyyy-mm-dd，留空为不限制</span>
+		<span class="admin_note"><空白が限定されるものではなく、形式yyyy-mm-ddの有効期限を設定します</span>
           </td>
       </tr>
 	      <tr>
-        <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">服务天数：</td>
+        <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">サービス日数：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="days" type="text" class="input_text_200" id="days" maxlength="50" value="" style="width:60px;">
-          天 <span class="admin_note">(默认为空表示不做修改，填0为不限制,如填写：3，则延长3天，-3 则减少3天)</span></td>
+          天 <span class="admin_note">（デフォルトは、充填として、0としない制限を満たすために全く変形を示さない空である：3を、3日間の延長を、3日間減少-3）</span></td>
       </tr>
 	  <!-- -->
 	  <tr>
-        <td  height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">发布普通招聘剩余：</td>
+        <td  height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">普通仕事公表の残り：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="jobs_ordinary" type="text" class="input_text_200" id="jobs_ordinary" maxlength="50" value="{#$setmeal.jobs_ordinary#}"  >
           条</td>
       </tr>
 	 
 	  <tr>
-        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">下载普通简历剩余：</td>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">普通履歴書のダウンロード残留：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="download_resume_ordinary" type="text" class="input_text_200" id="download_resume_ordinary" maxlength="50" value="{#$setmeal.download_resume_ordinary#}"  >
           条</td>
       </tr>
 	  <tr>
-        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">下载高级简历剩余：</td>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">残りの高度な再開をダウンロードしてください：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="download_resume_senior" type="text" class="input_text_200" id="download_resume_senior" maxlength="50" value="{#$setmeal.download_resume_senior#}"  >
           条</td>
       </tr>
 	  <tr>
-        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邀请普通面试剩余：</td>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">残りの普通の面接を招待して下さい:</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="interview_ordinary" type="text" class="input_text_200" id="interview_ordinary" maxlength="50" value="{#$setmeal.interview_ordinary#}"  >
           条</td>
@@ -339,14 +339,14 @@ $(document).ready(function()
 	  <!-- -->
 	    	   	  <!-- -->
 	  <tr>
-        <td  height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邀请高级面试剩余：</td>
+        <td  height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">上級面接招待の余り：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="interview_senior" type="text" class="input_text_200" id="interview_senior" maxlength="50" value="{#$setmeal.interview_senior#}"  >
           条</td>
       </tr>
 
 	  <tr>
-        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">人才库容量：</td>
+        <td   height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">人材庫の容量：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <input name="talent_pool" type="text" class="input_text_200" id="talent_pool" maxlength="50" value="{#$setmeal.talent_pool#}"  >
           条</td>
@@ -355,52 +355,52 @@ $(document).ready(function()
 	    	   	  <!-- -->
 		
 	   <tr>
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许推荐职位：<span style="position:relative;"><div class="set_meal" id="recommend_he"></div></span></td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">求人推薦許可：<span style="position:relative;"><div class="set_meal" id="recommend_he"></div></span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="recommend_num" type="text" class="input_text_200 monitor" id="recommend" value="{#$setmeal.recommend_num#}" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用推荐职位)</span> </td>
+        条 <span class="admin_note">（0は推奨位置を使用することが許可されていない）</span> </td>
       </tr>
 	   <tr style="display:none;" id="recommend_days" >
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">推荐天数设定：</td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">日の推奨セット数：</td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="recommend_days" type="text" class="input_text_200"  value="{#$setmeal.recommend_days#}"  maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许置顶职位：<span style="position:relative;"><div class="set_meal" id="stick_he"></div></span></td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">トップポジションを許可：<span style=“position:relative;”><div class="set_meal" id="stick_he"></div></span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="stick_num" type="text" class="input_text_200 monitor" id="stick" value="{#$setmeal.stick_num#}" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用置顶职位)</span> </td>
+        条 <span class="admin_note">（0がセットトップ位置を使用することが許可されていない）</span> </td>
       </tr >
 	   <tr style="display:none" id="stick_days" >
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">置顶天数设定：</td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">日のトップセット数：</td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="stick_days" type="text" class="input_text_200" value="{#$setmeal.stick_days#}" maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许紧急职位：<span style="position:relative;"><div class="set_meal" id="emergency_he"></div></span></td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">緊急時の位置を許可：<span style=“position:relative;”><div class="set_meal" id="emergency_he"></div></span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="emergency_num" type="text" class="input_text_200 monitor" id="emergency" value="{#$setmeal.emergency_num#}" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用紧急职位)</span> </td>
+        条 <span class="admin_note">（0は緊急位置を使用することを許可されていません）</span> </td>
       </tr>
 	   <tr style="display:none" id="emergency_days">
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed" >紧急天数设定：</td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed" >緊急日数設定：</td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="emergency_days" type="text" class="input_text_200"  value="{#$setmeal.emergency_days#}" maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许职位套色：<span style="position:relative;"><div class="set_meal" id="highlight_he"></div></span></td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">ジョブパッケージの許可：<spanのスタイル=「の位置：相対;」><div class="set_meal" id="highlight_he"></div></span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="highlight_num" type="text" class="input_text_200 monitor" id="highlight" value="{#$setmeal.highlight_num#}" maxlength="5"/>
-        条 <span class="admin_note">(0为不允许使用职位套色)</span> </td>
+        条 <span class="admin_note">（0は仕事パッケージの使用が禁止）</span> </td>
       </tr>
 	   <tr style="display:none" id="highlight_days">
-        <td align="right"  style=" border-bottom:1px #CCCCCC dashed">套色天数设定：</td>
+        <td align="right"  style=" border-bottom:1px #CCCCCC dashed">パッケージ日数の設定：</td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="highlight_days" type="text" class="input_text_200"  value="{#$setmeal.highlight_days#}" maxlength="5"/>
-        天 <span class="admin_note">(请设定天数)</span> </td>
+        天 <span class="admin_note">（設定日数）</span> </td>
       </tr>
 	   <tr>
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed" >参加招聘会设定：</td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed" >就職説明会に参加する設定。</td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="jobsfair_num" type="text" class="input_text_200"  value="{#$setmeal.jobsfair_num#}" maxlength="5"/>
-        场次 <span class="admin_note">(用户可参加招聘会场次)</span> </td>
+        场次 <span class="admin_note">（ユーザーが求人フェアに参加できる回数）</span> </td>
       </tr>
 	  <tr>
-        <td align="right" style=" border-bottom:1px #CCCCCC dashed">允许会员切换模板：</td>
+        <td align="right" style=" border-bottom:1px #CCCCCC dashed">メンバーは、テンプレートを切り替えることができるように：</td>
         <td style=" border-bottom:1px #CCCCCC dashed"><label>
           <input name="change_templates" type="radio" value="1"  {#if $setmeal.change_templates=="1"#}checked="checked"{#/if#}/>
         允许</label> &nbsp;&nbsp;&nbsp;<label>
@@ -408,7 +408,7 @@ $(document).ready(function()
         不允许</label></td>
       </tr>
 		<tr>
-			<td align="right" style=" border-bottom:1px #CCCCCC dashed">开通企业电子地图：</td>
+			<td align="right" style=" border-bottom:1px #CCCCCC dashed">企業電子地図を始める：</td>
 			<td style=" border-bottom:1px #CCCCCC dashed">
 			<label>
 			  <input name="map_open" type="radio" value="1" {#if $setmeal.map_open=="1"#}checked="checked"{#/if#}/>
@@ -418,7 +418,7 @@ $(document).ready(function()
 			</td>
       </tr>
 	  <tr>
-        <td   height="30" align="right" valign="top"  style=" border-bottom:1px #CCCCCC dashed">其他说明：</td>
+        <td   height="30" align="right" valign="top"  style=" border-bottom:1px #CCCCCC dashed">他の説明：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           <textarea name="added"   id="added" style="width:300px; height:60px;">{#$setmeal.added#}</textarea>        </td>
       </tr>
@@ -436,7 +436,7 @@ $(document).ready(function()
 	   <tr class="log_amount">
         <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
-         <span class="admin_note">(请填写收费金额)</span> </td>
+         <span class="admin_note">（金額を記入してください）</span> </td>
       </tr>
 	  <tr>
       <td width="120" height="30" align="right"   >&nbsp;</td>
@@ -449,12 +449,12 @@ $(document).ready(function()
     </table>
 	</form>
 	{#/if#}
-	<div class="toptit">重新开通服务套餐</div>
+	<div class="toptit">リニューアルオープンパッケージ</div>
 	<form id="form4" name="form4" method="post" action="?act=set_setmeal_save">
 	{#$inputtoken#}
 	<table width="700" border="0" cellpadding="4" cellspacing="0"   id="edit_setmeal2" >
       <tr>
-        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">选择套餐：</td>
+        <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">パッケージを選択します：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
           {#foreach from=$givesetmeal item=list#}		   
 		    <label>
@@ -480,7 +480,7 @@ $(document).ready(function()
 	   <tr class="log_amount1">
         <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
-         <span class="admin_note">(请填写收费金额)</span> </td>
+         <span class="admin_note">（金額を記入してください）</span> </td>
       </tr>
       <tr>
         <td height="30" align="right"  >&nbsp;</td>

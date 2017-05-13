@@ -19,19 +19,19 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
   <div class="seltpye_x">
-		<div class="left">完成状态</div>	
+		<div class="left">完了ステータス</div>	
 		<div class="right">
-			<a href="{#"is_paid:"|highway_parse_url#}" {#if $smarty.get.is_paid==""#}class="select"{#/if#}>不限</a>
-			<a href="{#"is_paid:2"|highway_parse_url#}" {#if $smarty.get.is_paid=="2"#}class="select"{#/if#}>已完成</a>
-			<a href="{#"is_paid:1"|highway_parse_url#}" {#if $smarty.get.is_paid=="1"#}class="select"{#/if#}>待付款</a>
+			<a href="{#"is_paid:"|highway_parse_url#}" {#if $smarty.get.is_paid==""#}class="select"{#/if#}>制限なし</a>
+			<a href="{#"is_paid:2"|highway_parse_url#}" {#if $smarty.get.is_paid=="2"#}class="select"{#/if#}>完成した</a>
+			<a href="{#"is_paid:1"|highway_parse_url#}" {#if $smarty.get.is_paid=="1"#}class="select"{#/if#}>お支払いの保留</a>
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
   </div>
     <div class="seltpye_x">
-		<div class="left">付款方式</div>	
+		<div class="left">お支払い方法</div>	
 		<div class="right">
-			<a href="{#"typename:"|highway_parse_url#}" {#if $smarty.get.typename==""#}class="select"{#/if#}>不限</a>
+			<a href="{#"typename:"|highway_parse_url#}" {#if $smarty.get.typename==""#}class="select"{#/if#}>制限なし</a>
 			{#foreach from=$payment_list item=list#}
 			<a href="{#"typename:"|cat:$list.typename|highway_parse_url#}" {#if $smarty.get.typename==$list.typename#}class="select"{#/if#}>{#$list.byname#}</a>
 			{#/foreach#}
@@ -40,14 +40,14 @@ $(document).ready(function()
 		<div class="clear"></div>
   </div>
   <div class="seltpye_x">
-		<div class="left">添加时间</div>	
+		<div class="left">タイムの追加</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -57,14 +57,14 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  width="10%" class="admin_list_tit admin_list_first">
-	   <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>全选</label></td>
-      <td class="admin_list_tit" width="10%">金额</td>           
-	  <td class="admin_list_tit">公司名称</td>
-	  <td class="admin_list_tit">说明</td> 
-	  <td align="center" class="admin_list_tit" width="190">单号</td>
-	  <td width="10%" align="center" class="admin_list_tit">申请会员</td>
-	  <td width="8%" align="center" class="admin_list_tit">申请时间</td>
-      <td width="8%" align="center" class="admin_list_tit">支付方式</td>      
+	   <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>全选</label></td>
+      <td class="admin_list_tit" width="10%">金額</td>           
+	  <td class="admin_list_tit">会社名</td>
+	  <td class="admin_list_tit">説明</td> 
+	  <td align="center" class="admin_list_tit" width="190">シングルナンバー</td>
+	  <td width="10%" align="center" class="admin_list_tit">会員申請</td>
+	  <td width="8%" align="center" class="admin_list_tit">アプリケーションの時間</td>
+      <td width="8%" align="center" class="admin_list_tit">お支払い方法</td>      
       <td width="15%" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$orderlist item=list#}
@@ -72,11 +72,11 @@ $(document).ready(function()
       <td class="admin_list admin_list_first">	 
 	  {#if $list.is_paid=="1"#}
 	   <input name="id[]" type="checkbox" id="y_id" value="{#$list.id#}"  />
-	  <span style="color: #FF6600">待付款...</span>
+	  <span style="color: #FF6600">未払い分の料金… </span>
 	  {#/if#}
 	  {#if $list.is_paid=="2"#}
 	  <input name="id[]" type="checkbox" id="y_id" value="{#$list.id#}" disabled="disabled"/>
-		<span style="color: #009900;">已完成</span>
+		<span style="color: #009900;">完成した</span>
 	  {#/if#}
 	   </td>
         <td class="admin_list">￥<strong>{#$list.amount#}</strong>元</td>        
@@ -99,9 +99,9 @@ $(document).ready(function()
 		<td align="center" class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>    
         <td align="center" class="admin_list">{#$list.payment_name#}</td>        
         <td align="center" class="admin_list">
-		{#if $list.is_paid==2#}<a href="?act=show_order&id={#$list.id#}">查看</a>{#/if#}
+		{#if $list.is_paid==2#}<a href="?act=show_order&id={#$list.id#}">確認</a>{#/if#}
 		{#if $list.is_paid==1#}
-		<a href="?act=order_set&id={#$list.id#}">设置</a> <a href="?act=order_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要取消吗？')">取消</a>{#/if#}
+		<a href="?act=order_set&id={#$list.id#}">設定</a> <a href="?act=order_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要取消吗？')">キャンセル</a>{#/if#}
 		&nbsp;
 		<a href="?act=management&id={#$list.uid#}"  target="_blank" class="userinfo"  id="{#$list.uid#}">管理</a>
 		</td>
@@ -109,7 +109,7 @@ $(document).ready(function()
       {#/foreach#}
   </table>
 	{#if !$orderlist#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
   </form>
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
@@ -127,9 +127,9 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="公司名">公司名</li>
-														<li id="2" title="会员名">会员名</li>
-														<li id="3" title="单号">单号</li>
+														<li id="1" title="公司名">会社名</li>
+														<li id="2" title="会员名">ユーザー名</li>
+														<li id="3" title="单号">シングルナンバー</li>
 														</ul>
 												</div>
 						</div>				

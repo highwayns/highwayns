@@ -153,15 +153,6 @@ class page{
 
  }
 
- /**
-
-  * 获取显示跳转按钮的代码
-
-  *
-
-  * @return string
-
-  */
 
  function select()
 
@@ -196,15 +187,6 @@ class page{
 
 
 
- /**
-
-  * 获取mysql 语句中limit需要的值
-
-  *
-
-  * @return string
-
-  */
 
  function offset()
 
@@ -216,17 +198,6 @@ class page{
 
 
 
- /**
-
-  * 控制分页显示风格（你可以增加相应的风格）
-
-  *
-
-  * @param int $mode
-
-  * @return string
-
-  */
 
  function show($mode=1)
 

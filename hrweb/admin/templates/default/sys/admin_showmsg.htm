@@ -1,16 +1,16 @@
 ﻿{#include file="sys/admin_header.htm"#}
 <div class="admin_main_nr_dbox">
 <div class="pagetit">
-	<div class="ptit">骑士人才系统管理中心</div>
+	<div class="ptit">Highwayns�l�ރV�X�e���Ǘ��Z���^�[</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">系统提示</div>
+<div class="toptit">�V�X�e���\��</div>
 <div class="showmsg">
 	  <div class="left {#if $msg_type=="0"#}m0{#elseif $msg_type=="1"#}m1{#else#}m2{#/if#}">
 	  </div>
 	   <div class="right">
 	   <h2>{#$msg_detail#}</h2>
-	   <div id="redirectionMsg">{#if $auto_redirect#}如果您不做出选择，将在 <span id="spanSeconds">{#$seconds#}</span> 秒后跳转到第一个链接地址。{#/if#}</div>
+	   <div id="redirectionMsg">{#if $auto_redirect#}"���Ȃ����I�����Ă��Ȃ��ꍇ�́A���܂� <span id="spanSeconds">{#$seconds#}</span>�ŏ��̃����N��2�Ԗڂ̃W�����v�̌�B{#/if#} </div>
 	   <ul style="margin:0;list-style:none" >
 		{#foreach from=$links item=link#}
 		<li><a href="{#$link.href#}" {#if $link.target#} target="{#$link.target#}"{#/if#}>{#$link.text#}</a></li>

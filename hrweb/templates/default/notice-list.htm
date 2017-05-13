@@ -7,7 +7,7 @@
 {#if $pageinfo.title#}
 <title>{#$pageinfo.title#}</title>
 {#else#}
-<title>网站公告- {#$HIGHWAY.site_name#}</title>
+<title>サイトのお知らせ -  {#$HIGHWAY.site_name#} </title>
 {#/if#}
 <meta name="description" content="{#$pageinfo.description#}">
 <meta name="keywords" content="{#$pageinfo.keywords#}">
@@ -22,7 +22,7 @@
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;网站公告
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;网站公告
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
@@ -30,7 +30,7 @@
 		<!-- 左边内容 -->
 		<div class="left_area">
 			<div class="left_tit_box">
-				<h5>网站公告</h5>
+				<h5>サイトのお知らせ</h5>
 			</div>
 			<div class="company_list">
 				<div class="com_container">
@@ -41,7 +41,7 @@
 							{#foreach from=$notice item=list#}  
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
-								<p>发布时间：{#$list.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>浏览次数：{#$list.click#}</span></p>
+								<p>発行時間：{#$list.addtime | DaTE_FORMaT： “％Y-％M-％D” #}＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP; <span>浏览次数：{#$list.click#}</span></p>
 								<p>{#$list.briefly#}<a href="{#$list.url#}">[查看全文]</a></p>
 							</li>
 							{#/foreach#}
@@ -61,7 +61,7 @@
 		<div class="right_area">
 			<div class="right_box">
 				<div class="title_box">
-					<h5>最新职位</h5>
+					<h5>最新のジョブズ</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">

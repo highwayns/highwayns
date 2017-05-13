@@ -6,62 +6,62 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 页面标题设置以及关键字设置等请在页面管理中设置。<br />
 
 网站域名和网站安装目录填写错误可导致网站部分功能不能使用。
 </p>
 </div>
-<div class="toptit">网站配置</div>
+<div class="toptit">ウェブ配置</div>
   <form action="admin_set.php?act=site_setsave" method="post" enctype="multipart/form-data" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="120" align="right">网站名称：</td>
+      <td width="120" align="right">サイト名：</td>
       <td><input name="site_name" type="text"  class="input_text_200" id="site_name" value="{#$config.site_name#}" maxlength="30"/></td>
     </tr>
     <tr>
-      <td align="right">网站域名：</td>
+      <td align="right">ドメイン：</td>
       <td><input name="site_domain" type="text"  class="input_text_200" id="site_domain" value="{#$config.site_domain#}" maxlength="100"/>
       结尾不要加 &quot; / &quot;</td>
     </tr>
     <tr>
-      <td align="right">触屏版域名：</td>
+      <td align="right">ドメイン名のタッチスクリーンのバージョン：</td>
       <td><input name="wap_domain" type="text"  class="input_text_200" id="wap_domain" value="{#$config.wap_domain#}" maxlength="100"/>
       设置后请将域名绑定到m目录；如不设置请留空</td>
     </tr>
     <tr>
-      <td align="right">安装目录：</td>
+      <td align="right">インストールディレクトリ：</td>
       <td><input name="site_dir" type="text"  class="input_text_200" id="site_dir" value="{#$config.site_dir#}" maxlength="40"/>
       ( 以 &quot; / &quot; 开头和结尾, 如果安装在根目录，则为&quot; / &quot;)      </td>
     </tr>
     <tr>
-      <td align="right">联系电话(顶部)：</td>
+      <td align="right">電話（トップ）：</td>
       <td><input name="top_tel" type="text"  class="input_text_400" id="top_tel" value="{#$config.top_tel#}" maxlength="80"/></td>
     </tr>
     <tr>
-      <td align="right">联系电话(底部)：</td>
+      <td align="right">電話番号（下）：</td>
       <td><input name="bootom_tel" type="text"  class="input_text_400" id="bootom_tel" value="{#$config.bootom_tel#}" maxlength="80"/></td>
     </tr>
 	<tr>
-      <td align="right">网站底部联系地址：</td>
+      <td align="right">ウェブサイトの下のアドレス</td>
       <td><input name="address" type="text"  class="input_text_400" id="address" value="{#$config.address#}" maxlength="120"/></td>
     </tr>
 	<tr>
-      <td align="right">网站底部其他说明：</td>
+      <td align="right">ウェブサイトの説明：</td>
       <td><input name="bottom_other" type="text"  class="input_text_400" id="bottom_other" value="{#$config.bottom_other#}" maxlength="200"/></td>
     </tr>
     <tr>
-      <td align="right">网站备案号(ICP)：</td>
+      <td align="right">レコード番号サイト（ICP）：</td>
       <td><input name="icp" type="text"  class="input_text_400" id="icp" value="{#$config.icp#}" maxlength="30"  /></td>
     </tr>
     <tr>
-      <td align="right">网站Logo： </td>
-      <td><input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/>&nbsp;&nbsp;&nbsp;{#if $config.web_logo#} <input type="button" name="Submit" value="查看Logo" class="vtip" title="<img src={#$upfiles_dir#}{#$config.web_logo#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
+      <td align="right">ウェブサイトのロゴ：</td>
+      <td><input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;" onKeyDown="alert(‘右側のビューをクリックし、pcの画像を選んでください！’);return false"/>&nbsp;&nbsp;&nbsp;{#if $config.web_logo#} <input type="button" name="Submit" value="查看Logo" class="vtip" title="<img src={#$upfiles_dir#}{#$config.web_logo#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
     </tr>
     <tr>
-      <td align="right">暂时关闭网站：</td>
+      <td align="right">一時的にサイトを閉鎖する</td>
       <td>
 	  <label><input name="isclose" type="radio" id="isclose" value="0"  {#if $config.isclose=="0"#}checked="checked"{#/if#}/>否</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -70,40 +70,40 @@
     </tr>
 	
     <tr>
-      <td align="right" valign="top">暂时关闭原因：</td>
+      <td align="right" valign="top">一時停止原因：</td>
       <td><textarea name="close_reason" class="input_text_400" id="close_reason" style="height:60px;">{#$config.close_reason#}</textarea></td>
     </tr>
     <tr>
-      <td align="right" valign="top">第三方流量统计代码：</td>
+      <td align="right" valign="top">第三方の流量統計コード：</td>
       <td><textarea name="statistics" class="input_text_400" id="statistics" style="height:60px;">{#$config.statistics#}</textarea></td>
     </tr>
     <tr>
-      <td align="right">关闭会员注册：</td>
+      <td align="right">会員登録を閉じる：</td>
       <td>
 	  <label>
-        <input name="closereg" type="radio" id="closereg" value="0"  {#if $config.closereg==0#}checked=checked {#/if#}/>否</label>
+        <input name="closereg" type="radio" id="closereg" value="0"  {#if $config.closereg==0#}checked=checked {#/if#}/>ノー</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="closereg" value="1"  {#if $config.closereg=="1"#}checked=checked{#/if#}/>是</label></td>
+<input type="radio" name="closereg" value="1"  {#if $config.closereg=="1"#}checked=checked{#/if#}/>です</label></td>
     </tr>
 	<tr>
-      <td align="right">关闭更新时间：</td>
+      <td align="right">閉じる時間更新：</td>
       <td>
 	  <label>
-        <input name="closetime" type="radio" id="closetime" value="0"  {#if $config.closetime==0#}checked=checked {#/if#}/>否</label>
+        <input name="closetime" type="radio" id="closetime" value="0"  {#if $config.closetime==0#}checked=checked {#/if#}/>ノー</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="closetime" value="1"  {#if $config.closetime=="1"#}checked=checked{#/if#}/>是</label></td>
+<input type="radio" name="closetime" value="1"  {#if $config.closetime=="1"#}checked=checked{#/if#}/>です</label></td>
     </tr>
 
     <tr>
-      <td align="right">邮件注册会员激活：</td>
+      <td align="right">会員メール登録の生成：</td>
       <td>
       <label>
-      <input name="check_reg_email" type="radio" id="check_reg_email" value="0"  {#if $config.check_reg_email==0#}checked=checked {#/if#}/>否</label>
+      <input name="check_reg_email" type="radio" id="check_reg_email" value="0"  {#if $config.check_reg_email==0#}checked=checked {#/if#}/>ノー</label>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <label >
-      <input type="radio" name="check_reg_email" value="1"  {#if $config.check_reg_email=="1"#}checked=checked{#/if#}/>是</label></td>
+      <input type="radio" name="check_reg_email" value="1"  {#if $config.check_reg_email=="1"#}checked=checked{#/if#}/>です</label></td>
     </tr>
     <tr>
       <td align="right">&nbsp;</td>

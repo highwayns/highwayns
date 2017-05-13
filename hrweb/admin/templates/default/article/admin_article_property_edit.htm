@@ -5,17 +5,17 @@
 	{#include file="article/admin_article_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改属性分类</div>
+<div class="toptit">属性分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_property_save">
 <div id="html_tpl">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">属性名称:</td>
+    <td width="120" align="right">属性名前:</td>
     <td><input name="categoryname" type="text" class="input_text_200"  value="{#$property.categoryname#}" maxlength=""/></td>
   </tr>
     <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="category_order" type="text" class="input_text_200"  value="{#$property.category_order#}" maxlength=""/></td>
   </tr>
 </table>

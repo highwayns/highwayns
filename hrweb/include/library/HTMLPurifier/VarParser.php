@@ -1,9 +1,5 @@
 ﻿<?php
 
-/**
- * Parses string representations into their corresponding native PHP
- * variable type. The base implementation does a simple type-check.
- */
 class HTMLPurifier_VarParser
 {
 
@@ -19,10 +15,6 @@ class HTMLPurifier_VarParser
     const HASH = 10;
     const MIXED = 11;
 
-    /**
-     * Lookup table of allowed types. Mainly for backwards compatibility, but
-     * also convenient for transforming string type names to the integer constants.
-     */
     public static $types = array(
         'string' => self::STRING,
         'istring' => self::ISTRING,
@@ -37,10 +29,6 @@ class HTMLPurifier_VarParser
         'mixed' => self::MIXED
     );
 
-    /**
-     * Lookup table of types that are string, and can have aliases or
-     * allowed value lists.
-     */
     public static $stringTypes = array(
         self::STRING => true,
         self::ISTRING => true,
@@ -48,16 +36,6 @@ class HTMLPurifier_VarParser
         self::ITEXT => true,
     );
 
-    /**
-     * Validate a variable according to type.
-     * It may return NULL as a valid type if $allow_null is true.
-     *
-     * @param mixed $var Variable to validate
-     * @param int $type Type of variable, see HTMLPurifier_VarParser->types
-     * @param bool $allow_null Whether or not to permit null as a value
-     * @return string Validated and type-coerced variable
-     * @throws HTMLPurifier_VarParserException
-     */
     final public function parse($var, $type, $allow_null = false)
     {
         if (is_string($type)) {
@@ -127,37 +105,16 @@ class HTMLPurifier_VarParser
         $this->errorGeneric($var, $type);
     }
 
-    /**
-     * Actually implements the parsing. Base implementation does not
-     * do anything to $var. Subclasses should overload this!
-     * @param mixed $var
-     * @param int $type
-     * @param bool $allow_null
-     * @return string
-     */
     protected function parseImplementation($var, $type, $allow_null)
     {
         return $var;
     }
 
-    /**
-     * Throws an exception.
-     * @throws HTMLPurifier_VarParserException
-     */
     protected function error($msg)
     {
         throw new HTMLPurifier_VarParserException($msg);
     }
 
-    /**
-     * Throws an inconsistency exception.
-     * @note This should not ever be called. It would be called if we
-     *       extend the allowed values of HTMLPurifier_VarParser without
-     *       updating subclasses.
-     * @param string $class
-     * @param int $type
-     * @throws HTMLPurifier_Exception
-     */
     protected function errorInconsistent($class, $type)
     {
         throw new HTMLPurifier_Exception(
@@ -166,21 +123,12 @@ class HTMLPurifier_VarParser
         );
     }
 
-    /**
-     * Generic error for if a type didn't work.
-     * @param mixed $var
-     * @param int $type
-     */
     protected function errorGeneric($var, $type)
     {
         $vtype = gettype($var);
         $this->error("Expected type " . HTMLPurifier_VarParser::getTypeName($type) . ", got $vtype");
     }
 
-    /**
-     * @param int $type
-     * @return string
-     */
     public static function getTypeName($type)
     {
         static $lookup;

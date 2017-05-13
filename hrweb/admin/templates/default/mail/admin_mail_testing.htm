@@ -15,19 +15,19 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
  
-		  <div class="toptit">发送测试邮件</div>
+		  <div class="toptit">テストメッセージを送ります</div>
     <span id="submitbox">
 		<form action="?act=email_testing" method="post"   name="form1" id="form1">
 		{#$inputtoken#}
 		<table width="700" border="0" cellspacing="10" cellpadding="1" style=" margin-bottom:3px;">
           <tr>
-            <td width="100" align="right">收件人地址:</td>
+            <td width="100" align="right">受信者のアドレス：</td>
             <td width="560">
 			<input name="check_smtp" type="text"  class="input_text_200" id="check_smtp" value="" maxlength="60"/></td>
           </tr>
           <tr>
             <td align="right">&nbsp;</td>
-            <td><input name="check" type="submit" class="admin_submit" id="check"    value="立即测试" /></td>
+            <td><input name="check" type="submit" class="admin_submit" id="check"    value=“即時テスト” /></td>
           </tr>
         </table>
 	    </form>

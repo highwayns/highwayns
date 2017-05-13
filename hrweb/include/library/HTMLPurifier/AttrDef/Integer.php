@@ -1,38 +1,14 @@
 ﻿<?php
 
-/**
- * Validates an integer.
- * @note While this class was modeled off the CSS definition, no currently
- *       allowed CSS uses this type.  The properties that do are: widows,
- *       orphans, z-index, counter-increment, counter-reset.  Some of the
- *       HTML attributes, however, find use for a non-negative version of this.
- */
 class HTMLPurifier_AttrDef_Integer extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * Whether or not negative values are allowed.
-     * @type bool
-     */
     protected $negative = true;
 
-    /**
-     * Whether or not zero is allowed.
-     * @type bool
-     */
     protected $zero = true;
 
-    /**
-     * Whether or not positive values are allowed.
-     * @type bool
-     */
     protected $positive = true;
 
-    /**
-     * @param $negative Bool indicating whether or not negative values are allowed
-     * @param $zero Bool indicating whether or not zero is allowed
-     * @param $positive Bool indicating whether or not positive values are allowed
-     */
     public function __construct($negative = true, $zero = true, $positive = true)
     {
         $this->negative = $negative;
@@ -40,12 +16,6 @@ class HTMLPurifier_AttrDef_Integer extends HTMLPurifier_AttrDef
         $this->positive = $positive;
     }
 
-    /**
-     * @param string $integer
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($integer, $config, $context)
     {
         $integer = $this->parseCDATA($integer);

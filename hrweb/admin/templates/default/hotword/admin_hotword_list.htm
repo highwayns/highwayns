@@ -20,7 +20,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 您可以修改关键字搜索次数来改变关键词排序；
 </p>
@@ -31,9 +31,9 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td width="45%" class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />关键词</label>
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />关键词</label>
 	  </td>
-      <td   align="center" class="admin_list_tit"> 搜索次数 </td>
+      <td   align="center" class="admin_list_tit"> 検索回数</td>
 
       <td width="180" align="center"  class="admin_list_tit" >操作</td>
     </tr>
@@ -48,13 +48,13 @@ $(document).ready(function()
 	  </td>
 	
       <td align="center"   class="admin_list">
-	  <a href="?act=edit&id={#$list.w_id#}">修改</a> <a href="?act=hottype_del&id={#$list.w_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a>	  </td>
+	  <a href="?act=edit&id={#$list.w_id#}">変更</a> <a href="?act=hottype_del&id={#$list.w_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a>	  </td>
     </tr>
 	 {#/foreach#}
   </table>
   </form>
   {#if !$hotword#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

@@ -37,18 +37,18 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
-发送邮件请确认您的邮件配置正确，具体请在 “系统 > 邮件设置”中设置。<br />
+发送邮件请确认您的邮件配置正确，具体请在 “系统 >メール设置”中设置。<br />
 </p>
 </div>
 <div class="seltpye_x">
-		<div class="left">筛选类型</div>	
+		<div class="left">選別タイプ</div>	
 		<div class="right">
-		<a href="{#"m_type:"|highway_parse_url#}" {#if $smarty.get.m_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"m_type:0"|highway_parse_url#}" {#if $smarty.get.m_type=="0"#}class="select"{#/if#}>等待发送</a>
-		<a href="{#"m_type:1"|highway_parse_url#}" {#if $smarty.get.m_type=="1"#}class="select"{#/if#}>发送成功</a>
-		<a href="{#"m_type:2"|highway_parse_url#}" {#if $smarty.get.m_type=="2"#}class="select"{#/if#}>发送失败</a>
+		<a href="{#"m_type:"|highway_parse_url#}" {#if $smarty.get.m_type==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"m_type:0"|highway_parse_url#}" {#if $smarty.get.m_type=="0"#}class="select"{#/if#}>送信するために待機しています</a>
+		<a href="{#"m_type:1"|highway_parse_url#}" {#if $smarty.get.m_type=="1"#}class="select"{#/if#}>正常に送信</a>
+		<a href="{#"m_type:2"|highway_parse_url#}" {#if $smarty.get.m_type=="2"#}class="select"{#/if#}>発送失敗</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -58,21 +58,21 @@ $(document).ready(function()
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  width="120" class="admin_list_tit admin_list_first">
-     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>类型</label>	 </td>
-	  <td class="admin_list_tit" width="13%">收件地址</td>
-	  <td  class="admin_list_tit">邮件主题</td>
-      <td  class="admin_list_tit">邮件内容</td>
-      <td width="110"  align="center"  class="admin_list_tit">添加时间</td>	  
-      <td width="110"  align="center"  class="admin_list_tit">发送时间</td>
+     <label id="chkAll"><input type="checkbox" name="" title=“全部選択/逆選択” id="chk"/>类型</label>	 </td>
+	  <td class="admin_list_tit" width="13%">受信先アドレス</td>
+	  <td  class="admin_list_tit">メッセージの件名</td>
+      <td  class="admin_list_tit">メールの内容</td>
+      <td width="110"  align="center"  class="admin_list_tit">時間を追加します</td>	  
+      <td width="110"  align="center"  class="admin_list_tit">伝送時間</td>
       <td width="10%" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$list item=list#}
 	 <tr>
       <td   class="admin_list admin_list_first">
      <input type="checkbox" name="id[]"  value="{#$list.m_id#}"/>
-	 {#if $list.m_type=="0"#}<span style="color:#FF6600">等待发送</span>{#/if#}
-	 {#if $list.m_type=="1"#}<span style="color: #009900">发送成功</span>{#/if#}
-	 {#if $list.m_type=="2"#}<span style="color: #666666">发送失败</span>{#/if#}
+	 {#if $list.m_type=="0"#}<span style="color:#FF6600">送信待ち</span>{#/if#}
+	 {#if $list.m_type=="1"#}<span style="color: #009900">正常に送信</span>{#/if#}
+	 {#if $list.m_type=="2"#}<span style="color: #666666">送信に失敗しました</span>{#/if#}
 	  </td>
 	  <td  class="admin_list">
 	  {#$list.m_mail#}
@@ -97,7 +97,7 @@ $(document).ready(function()
 		{#/if#}
 	  </td>
       <td align="center"  class="admin_list">
-	  <a href="?act=mailqueue_edit&id={#$list.m_id#}">修改</a>
+	  <a href="?act=mailqueue_edit&id={#$list.m_id#}">変更</a>
 	 
 	</td>
 	</tr>
@@ -105,7 +105,7 @@ $(document).ready(function()
   </table>
   
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
 	
 	<span id="OpDel">
@@ -139,8 +139,8 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="邮件主题">邮件主题</li>
-														<li id="2" title="收件地址">收件地址</li>
+														<li id="1" title="邮件主题">メッセージの件名</li>
+														<li id="2" title="收件地址">書き込みアドレスます。</li>
 														</ul>
 												</div>
 						</div>				
@@ -175,7 +175,7 @@ $(document).ready(function()
 <div style="display:none" id="SendDiv">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
  <tr>
-      <td  width="100"  align="right">发送选择：</td>
+      <td  width="100"  align="right">[送信]を選択します：</td>
       <td>
       
 	  <label><input name="sendtype" type="radio" value="1" checked="checked"  />      
@@ -195,14 +195,14 @@ $(document).ready(function()
 	    </td>
     </tr>
 	<tr>
-      <td align="right">发送间隔时间：</td>
+      <td align="right">送信間隔：</td>
       <td>
 	  <input name="intervaltime" type="text" class="input_text_150"  value="3" maxlength="3" /> 
 	  秒
 	  </td>
     </tr>
     <tr>
-      <td align="right">最大发送数量：</td>
+      <td align="right">送信の最大数</td>
       <td>
 	  <input name="sendmax" type="text" class="input_text_150"  value="500" maxlength="3" /> 
 	  
@@ -210,7 +210,7 @@ $(document).ready(function()
 	  </td>
     </tr>
 	 <tr>
-      <td align="right">发送失败时：</td>
+      <td align="right">発送失敗：</td>
       <td>
                       <label><input type="radio" name="senderr" value="1"  checked="checked" />
                        跳过继续</label>

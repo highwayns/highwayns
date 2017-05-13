@@ -6,7 +6,7 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 系统内置分类不可以编辑或者删除<br />自定义分类调用名不可以以 “HW_”开头
 </p>
@@ -14,10 +14,10 @@
 
 		  <table width="100%" border="0" cellpadding="2" cellspacing="0" id="list" class="link_lan">
           <tr>
-            <td width="15%" class="admin_list_tit admin_list_first">调用名称</td>
-            <td class="admin_list_tit">分类名称</td>
-            <td width="15%" align="center" class="admin_list_tit">类型</td>
-            <td width="15%" align="center" class="admin_list_tit">编辑</td>
+            <td width="15%" class="admin_list_tit admin_list_first">コール名</td>
+            <td class="admin_list_tit">カテゴリ名</td>
+            <td width="15%" align="center" class="admin_list_tit">タイプ</td>
+            <td width="15%" align="center" class="admin_list_tit">編集</td>
             </tr>
 			{#foreach from=$list item=li#}
           <tr>
@@ -26,18 +26,18 @@
 			{#$li.categoryname#}			</td>
             <td align="center" class="admin_list">			
 			{#if $li.admin_set=="1"#}
-			<span style="color:#FF6600">系统内置</span>
+			<span style="color:#FF6600">システム設置</span>
 			{#else#}
 			自定义
 			{#/if#}			</td>
             <td align="center" class="admin_list">
 			{#if $li.admin_set!="1"#}
-			<a href="?act=site_navigation_category_edit&alias={#$li.alias#}"  >修改</a>
+			<a href="?act=site_navigation_category_edit&alias={#$li.alias#}"  >変更</a>
 			&nbsp;&nbsp;&nbsp;
-			<a href="?act=site_navigation_category_del&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a>
+			<a href="?act=site_navigation_category_del&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a>
 			{#else#}
-			<span style="color:#999999">修改</span>&nbsp;&nbsp;&nbsp;
-			<span style="color:#999999">删除</span>
+			<span style="color:#999999">変更</span>&nbsp;&nbsp;&nbsp;
+			<span style="color:#999999">削除</span>
 			
 			{#/if#}
 &nbsp;			</td>

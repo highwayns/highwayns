@@ -6,13 +6,13 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 积分模式是指会员每次发布信息都扣除相应的积分，通过会员充值积分来实现网站盈利，此模式简易灵活，无时间限制。<br />
 除以下设置外，企业推广和企业模版模块也涉及到了积分设置。<br />
 </p>
 </div>
-<div class="toptit">基本设置</div>
+<div class="toptit">ベーシックセット</div>
  
 	<form action="?act=set_points_config_save" method="post"  name="form1" id="form1">
  {#$inputtoken#}
@@ -20,39 +20,39 @@
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 
       <tr>
-        <td width="200" align="right">积分代替名：</td>
+        <td width="200" align="right">ポイントの代わり名前：</td>
         <td><input name="points_byname" type="text"  class="input_text_150" id="points_byname" value="{#$config.points_byname#}" maxlength="10"/>
-          &nbsp;&nbsp;&nbsp;<span  style="color:#666666">(如：铜板、元宝等，默认为“积分”)</span></td>
+          &nbsp;&nbsp;&nbsp;<span  style="color:#666666">（例えば：銅板、金、を得点に認める）</span></td>
       </tr>
       <tr>
-        <td align="right">积分量词：</td>
+        <td align="right">ポイント数量詞：</td>
         <td><input name="points_quantifier" type="text"  class="input_text_150" id="points_quantifier" value="{#$config.points_quantifier#}" maxlength="10"/>
-          &nbsp;&nbsp;&nbsp;<span  style="color:#666666">(如：个、只、把等，默认为“点”)</span></td>
+          &nbsp;&nbsp;&nbsp;<span  style="color:#666666">（例えば個、匹、本など、デフォルトでは「点」です）</span：></td>
       </tr>
       <tr>
-        <td align="right">充值比例：<strong>1</strong>元等于：</td>
+        <td align="right">チャージ比率：<strongです>1</strong>元イコール：</td>
         <td><input name="payment_rate" type="text"  class="input_text_150" id="payment_rate" value="{#$config.payment_rate#}" maxlength="8"    onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
-          点积分 <span style="color:#666666">(充值人民币与积分兑换比例)</span></td>
+          点积分 <span style="color:#666666">（リチャージRMBと引き換えポイントの比率）</span></td>
       </tr>
       <tr>
-        <td align="right">充值最低额度：</td>
+        <td align="right">最低チャージ限度：</td>
         <td><input name="payment_min" type="text"  class="input_text_150" id="payment_min" value="{#$config.payment_min#}" maxlength="8"    onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
-          元 <span style="color:#666666">(充值积分单笔金额不能低于)</span></td>
+          元 <span style="color:#666666">（ポイントチャージの最低限）</span></td>
       </tr>
 <tr>
-        <td align="right">积分充值提醒：</td>
+        <td align="right">ポイントチャージ注意：</td>
         <td><input name="points_min_remind" type="text"  class="input_text_150" id="points_min_remind" value="{#$config.points_min_remind#}" maxlength="8"    onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
-           <span style="color:#666666">(0为不提醒，如设置为10则积分少于10时会员中心提醒充值)</span></td>
+           <span style="color:#666666">（0ないリマインダーのために、このような積分器として10未満10再充電リマインダメンバーに設定されている）</span></td>
       </tr>
       <tr>
-        <td align="right">刷新普通职位时间间隔：</td>
+        <td align="right">通常のリフレッシュ時間間隔の位置：</td>
         <td><input name="com_pointsmode_refresh_space" type="text"  class="input_text_150" id="com_pointsmode_refresh_space" value="{#$config.com_pointsmode_refresh_space#}" maxlength="8"    onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 分钟
-           <span style="color:#666666">(0为不限制)</span></td>
+           <span style="color:#666666">（0は制限なし）</span></td>
       </tr>
       <tr>
-        <td align="right">每天刷新普通职位次数限制：</td>
+        <td align="right">通常のリフレッシュは、毎日のジョブの数を制限：</td>
         <td><input name="com_pointsmode_refresh_time" type="text"  class="input_text_150" id="com_pointsmode_refresh_time" value="{#$config.com_pointsmode_refresh_time#}" maxlength="8"    onkeyup="if(event.keyCode !=37 &amp;&amp; event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 次
-           <span style="color:#666666">(0为不限制)</span></td>
+           <span style="color:#666666">（0は制限なし）</span></td>
       </tr>
       <tr>
         <td align="right" valign="top">&nbsp;</td>
@@ -64,7 +64,7 @@
 	</form>
     <form action="?act=set_points_save" method="post"  name="form1" id="form1">
 	 {#$inputtoken#}
-	<div class="toptit">基本设置</div>
+	<div class="toptit">ベーシックセット</div>
  
     <table width="100%" border="0" cellspacing="5" cellpadding="1">
 	  {#foreach from=$points item=points#}
@@ -73,8 +73,8 @@
         <td width="5" >
 
 		  <select name="operation[]" style="font-size:12px;">
-		    <option value="1"  {#if $points.operation=="1"#}selected="selected"{#/if#}>加</option>
-		    <option value="2"  {#if $points.operation=="2"#}selected="selected"{#/if#}>减</option>
+		    <option value="1"  {#if $points.operation=="1"#}selected="selected"{#/if#}>プラス</option>
+		    <option value="2"  {#if $points.operation=="2"#}selected="selected"{#/if#}>減り</option>
         </select>		</td>
         <td >
 		<input name="id[]" type="hidden" value="{#$points.id#}" />
@@ -84,7 +84,7 @@
 	  	  {#/foreach#}
       <tr>
         <td align="right"  >&nbsp;</td>
-        <td height="50" colspan="2"  ><input name="submit" type="submit" class="admin_submit"    value="保存"/></td>
+        <td height="50" colspan="2"  ><input name=“submit” type=“submit” class=“admin_submit”    value=“保存”/></td>
       </tr>
     </table>    
   </form>

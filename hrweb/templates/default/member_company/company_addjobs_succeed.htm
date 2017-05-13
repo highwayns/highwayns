@@ -12,7 +12,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 发布职位</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 仕事掲載</div>
 
 <div class="usermain">
 <div class="leftmenu  com link_bk">
@@ -24,11 +24,11 @@
 			<div class="tip">
 			  	<div class="left"></div>
 			  	<div class="right">
-				  	<div class="h1-title">恭喜您，职位发布成功！</div>
+				  	<div class="h1-title">おめでとうございます、仕事の投稿成功！</div>
 				              <div class="txt">
-						<p>为了吸引更多求职者应聘，提高企业招聘效率，<br />我们强烈建议您：<br /></p>
-						<p class="link"><a href="company_user.php?act=authenticate">完善企业认证 >></a> 认证通过后会明显提高企业信誉度</p>
-						<p class="link"><a href="company_info.php?act=company_map_set">开通电子地图 >></a> 方便求职者合理计划面试乘车路线</p>
+						<p>より多くの求職者の候補者を引き付ける募集の効率を向上させるために、<br />我们强烈建议您：<br /></p>
+						<p class="link"><a href="company_user.php?act=authenticate">完善企业认证 >></a>大幅に認証した後信憑性を強化します</P>
+						<p class="link"><a href="company_info.php?act=company_map_set">开通电子地图 >></a> 募集者の面接に交通路線の計画に役たつ</P>
 					</div>
 				</div>
 				<div class="clear"></div>
@@ -39,7 +39,7 @@
 				<input type="button" name="submitsave" id="submitsave" value="继续发布"  class="but180hui" onclick="javascript:location.href='?act=addjobs'"/>
 				<!-- 分享按钮 -->
 				<div class="share" style="border-top-width: 0px; margin-top: 19px; margin-left: 310px;">
-					<div class="share_txt">告诉朋友，让大家一起帮你找人！</div>
+					<div class="share_txt">誰もがあなたを助けるために誰かを見つけることができるように、友達に教えます！</div>
 				           <div class="bdsharebuttonbox bdshare">
 						<a class="bds_more" href="#" data-cmd="more"></a>
 						<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
@@ -70,7 +70,7 @@
 				{#/foreach#}
 				<div class="more link_lan"><a href="{#"HW_resumelist"|highway_url#}"  target="_blank">更多人才>></a></div>
 				{#else#}
-				<div class="emptytip">对不起！没有找到您要的信息！</div>
+				<div class="emptytip">すみません！あなたが欲しい情報を見つけられませんでした！</div>
 				{#/if#}	
 			</div>
 		</div>

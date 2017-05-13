@@ -6,18 +6,18 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 套餐模式是指会员可以购买不同等级服务，如普通会员，VIP会员等，每个等级都有不同的使用权限
 </p>
 </div>
-<div class="toptit">会员默认套餐设置</div>
+<div class="toptit">メンバーデフォルトのパッケージ設定</div>
  
 	<form action="?act=reg_service_save" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table border="0" cellspacing="0" cellpadding="1"  style="margin-top:20px; margin-bottom:20px;">
       <tr>
-        <td width="240" height="30" align="right" >新注册会员赠送服务：</td>
+        <td width="240" height="30" align="right" >新登録したメンバーは、サービスを提供する：</td>
         <td  >
 		
           <label>
@@ -32,7 +32,7 @@
 		</td>
       </tr>
     <tr>
-        <td height="30" align="right" >会员过期套餐过期后套餐自动变更为：</td>
+        <td height="30" align="right" >パッケージ後の会員期限切れのパッケージが自動的に変更さ満了します:</td>
         <td>
         {#foreach from=$givesetmeal item=list#}
         <label>
@@ -43,7 +43,7 @@
         </td>
     </tr>
 	  <tr>
-      <td height="30" align="right" >服务超期或超出规定条数启用积分消费：</td>
+      <td height="30" align="right" >サービス過剰またはポイント消費が規定を超える/ td>
       <td  >
 	
         <label>
@@ -61,10 +61,10 @@
 	 
 
  <tr>
-        <td height="30" align="right" >服务到期时间提前几天提醒：</td>
+        <td height="30" align="right" >有効期限前の知らせ：</td>
         <td  >
 		<input name="meal_min_remind" type="text" class="input_text_50" id="meal_min_remind" value="{#$HIGHWAY.meal_min_remind#}"/>
-		   <span class="admin_note">0为不提醒</span> 
+		   <span class="admin_note">0　は通知なし </span> 
 		</td>
       </tr>
       <tr>
@@ -74,28 +74,28 @@
       </tr>
     </table>
 	</form>
-	<div class="toptit">服务套餐列表</div>
+	<div class="toptit">サービスパッケージ一覧</div>
  	
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
         <tr>
-          <td width="6%" height="26" class="admin_list_tit admin_list_first">显示</td>
-          <td  class="admin_list_tit ">名称</td>
-          <td width="10%"  class="admin_list_tit">会员申请</td>
-          <td width="10%"  class="admin_list_tit">服务价</td>
+          <td width="6%" height="26" class="admin_list_tit admin_list_first">表示</td>
+          <td  class="admin_list_tit ">名前</td>
+          <td width="10%"  class="admin_list_tit">会員アプリケーション</td>
+          <td width="10%"  class="admin_list_tit">サービス価格</td>
           <td width="10%" align="center "class="admin_list_tit">期限</td>
-          <td width="8%" align="center"  class="admin_list_tit">排序</td>
+          <td width="8%" align="center"  class="admin_list_tit">並び替え</td>
           <td width="15%" align="center"  class="admin_list_tit">操作</td>
         </tr>
 		{#foreach from=$setmeal item=list#}
         <tr>
           <td class="admin_list admin_list_first" >
-		  {#if $list.display=="1"#}显示{#else#}<span style="color: #999999">屏蔽</span>{#/if#}		  </td>
+		  {#if $list.display=="1"#}显示{#else#}<span style="color: #999999">シールド</span>{#/if#}		  </td>
           <td  class="admin_list" >
 	
 		  {#$list.setmeal_name#}
 		 <span style="color:#999999">(id:{#$list.id#})</span>
 	      </td>
-          <td class="admin_list"  > {#if $list.apply=="1"#}允许{#else#}<span style="color: #999999">不允许</span>{#/if#}</td>
+          <td class="admin_list"  > {#if $list.apply==“1”#}許可{#else#}<span style=“color: #999999”>不允许</span>{#/if#}</td>
           <td  class="admin_list" >
 		  {#if $list.expense==0#}
 		  免费
@@ -109,7 +109,7 @@
 		   {#$list.days#}天
 		  {#/if#}		  </td>
           <td align="center" class="admin_list" >{#$list.show_order#}</td>
-          <td align="center"  class="admin_list" ><a href="?act=set_meal_edit&id={#$list.id#}">设置</a>&nbsp;&nbsp;&nbsp;<a href="?act=set_meal_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+          <td align="center"  class="admin_list" ><a href="?act=set_meal_edit&id={#$list.id#}">设置</a>&nbsp;&nbsp;&nbsp;<a href="?act=set_meal_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm(‘削除が確定ですか？’)>删除</a></td>
         </tr>
 		{#/foreach#}
   </table>

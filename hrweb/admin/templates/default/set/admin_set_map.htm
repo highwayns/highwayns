@@ -7,15 +7,15 @@
   <div class="clear"></div>
 </div>
 <div class="toptip link_lan">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 电子地图API的服务是由<a href="http://openapi.baidu.com/map/index.html" target="_blank"><strong>百度</strong></a>提供，任何非盈利性网站均可使用。请参阅<a href="http://openapi.baidu.com/map/terms.html" target="_blank"><strong>使用条款</strong></a>获得详细信息。<br />
         如用于商业用途，需要同百度地图另行达成协议或获得百度地图的书面许可
-        使用电子地图，百度地图相应的ak。 现在就去<a href="http://lbsyun.baidu.com/apiconsole/key?application=key" target="_blank">申请</a>
+        使用电子地图，百度地图相应的ak。 现在就去<a href="http://lbsyun.baidu.com/apiconsole/key?application=key" target="_blank">アプリケーション</a>
 
 </p>
 </div>
-<div class="toptit">电子地图设置</div>
+<div class="toptit">マップ設定</div>
   <form action="admin_set.php?act=site_setsave" method="post"  name="form1" id="form1">
   {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="0">
@@ -24,27 +24,27 @@
         
 		<!-- -->
         <tr>
-          <td width="120" align="right">百度地图AK:</td>
+          <td width="120" align="right">BaiduのマップAK：</td>
           <td width="200" height="25"><input name="map_ak" type="text" value="{#$config.map_ak#}"  id="map_ak"  class="input_text_200"  style="color:#009900; font-weight:bold"/></td>
         </tr>
         <tr>
-          <td width="120" align="right">默认中心点X坐标：</td>
+          <td width="120" align="right">Xデフォルト中心点の座標：</td>
           <td width="200" height="25"><input name="map_center_x" type="text" value="{#$config.map_center_x#}"  id="map_center_x"  class="input_text_200"  style="color:#009900; font-weight:bold"/></td>
-          <td>推动电子地图，系统将自动获取坐标</td>
+          <td>電子地図を推進し、自動的に座標を取得するシステム</td>
         </tr>
         <tr>
-          <td align="right">默认中心点Y坐标：</td>
+          <td align="right">デフォルトの中点Y座標</td>
           <td height="25"><input name="map_center_y" type="text" value="{#$config.map_center_y#}"  id="map_center_y"  class="input_text_200" style="color:#009900; font-weight:bold"/></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td align="right">默认缩放级别：</td>
+          <td align="right">デフォルトのズームレベル：</td>
           <td height="25"><input name="map_zoom" type="text" value="{#$config.map_zoom#}" id="map_zoom"   class="input_text_200" style="color: #009900; font-weight:bold"/></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td align="right">&nbsp;</td>
-          <td height="25"><input name="submit" type="submit" class="admin_submit"    value="保存修改"/></td>
+          <td height="25"><input name="submit" type="submit" class="admin_submit"    value=“変更保存”/></td>
           <td>&nbsp;</td>
         </tr>
         

@@ -1,10 +1,5 @@
 ﻿<?php
 
-/**
- * @file
- * Convenience file that registers autoload handler for HTML Purifier.
- * It also does some sanity checks.
- */
 
 if (function_exists('spl_autoload_register') && function_exists('spl_autoload_unregister')) {
     // We need unregister for our pre-registering functionality

@@ -1,19 +1,9 @@
 ﻿<?php
 
-/**
- * Module defines proprietary tags and attributes in HTML.
- * @warning If this module is enabled, standards-compliance is off!
- */
 class HTMLPurifier_HTMLModule_Proprietary extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'Proprietary';
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $this->addElement(

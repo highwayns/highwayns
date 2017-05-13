@@ -6,7 +6,7 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统默认分类不能删除！<br />
 </p>
@@ -16,9 +16,9 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>属性名称</label></td>
-	  <td width="160"   align="center"  class="admin_list_tit">类型</td>
-      <td width="160"   align="center"  class="admin_list_tit">排序</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>属性名称</label></td>
+	  <td width="160"   align="center"  class="admin_list_tit">タイプ</td>
+      <td width="160"   align="center"  class="admin_list_tit">並び替え</td>
       <td width="100"   class="admin_list_tit">操作</td>
     </tr>
 	{#highway_news_property set="列表名:property"#}
@@ -40,9 +40,9 @@
 	  {#$list.category_order#}
 	  </td>
       <td class="admin_list">
-	 <a href="?act=edit_property&id={#$list.id#}">修改</a>&nbsp;&nbsp;
+	 <a href="?act=edit_property&id={#$list.id#}">変更</a>&nbsp;&nbsp;
 			  {#if $list.admin_set<>"1"#}
-			  |&nbsp;&nbsp;<a onclick="return confirm('你确定要删除吗？')" href="?act=del_property&id={#$list.id#}&{#$urltoken#}">删除</a>
+			  |&nbsp;&nbsp;<a onclick="return confirm('你确定要删除吗？')" href="?act=del_property&id={#$list.id#}&{#$urltoken#}">削除</a>
 			  {#/if#}	  </td>
     </tr>
 	 {#/foreach#}

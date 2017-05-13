@@ -6,22 +6,22 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 自定义广告位调用名不可以以 “HW_”开头
 </p>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 {#$inputtoken#}
           <table width="100%" border="0" cellpadding="5" cellspacing="2" style="margin-top:10px;">
 
             <tr>
-              <td width="80" align="right">名称：</td>
+              <td width="80" align="right">名前：</td>
               <td><input name="categoryname" type="text" class="input_text_200"   value="{#$category.categoryname#}"  /></td>
             </tr>
             <tr>
-              <td align="right">调用名：</td>
+              <td align="right">コール名：</td>
               <td><input name="c_alias" type="text" class="input_text_200" value="{#$category.c_alias#}"/></td>
             </tr>
             <tr>

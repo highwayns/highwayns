@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite template_destroy_dir template internal module
- *
- * Type:	 template
- * Name:	 template_destroy_dir
- */
 
 function template_destroy_dir($file, $id, $dir, &$object)
 {

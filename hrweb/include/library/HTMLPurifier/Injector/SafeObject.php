@@ -1,43 +1,20 @@
 ﻿<?php
 
-/**
- * Adds important param elements to inside of object in order to make
- * things safe.
- */
 class HTMLPurifier_Injector_SafeObject extends HTMLPurifier_Injector
 {
-    /**
-     * @type string
-     */
     public $name = 'SafeObject';
 
-    /**
-     * @type array
-     */
     public $needed = array('object', 'param');
 
-    /**
-     * @type array
-     */
     protected $objectStack = array();
 
-    /**
-     * @type array
-     */
     protected $paramStack = array();
 
-    /**
-     * Keep this synchronized with AttrTransform/SafeParam.php.
-     * @type array
-     */
     protected $addParam = array(
         'allowScriptAccess' => 'never',
         'allowNetworking' => 'internal',
     );
 
-    /**
-     * @type array
-     */
     protected $allowedParam = array(
         'wmode' => true,
         'movie' => true,
@@ -46,19 +23,11 @@ class HTMLPurifier_Injector_SafeObject extends HTMLPurifier_Injector
         'allowFullScreen' => true, // if omitted, assume to be 'false'
     );
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return void
-     */
     public function prepare($config, $context)
     {
         parent::prepare($config, $context);
     }
 
-    /**
-     * @param HTMLPurifier_Token $token
-     */
     public function handleElement(&$token)
     {
         if ($token->name == 'object') {

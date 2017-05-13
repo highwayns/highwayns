@@ -6,20 +6,20 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 正式使用后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。<br />
 </p>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_district_save">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="6" cellpadding="0" >
  <tr>
-    <td width="120" align="right">所属分类:</td>
+    <td width="120" align="right">カテゴリー：</td>
     <td>
 	<select name="parentid">
-	  <option value="0" {#if "0"==$district.parentid#}selected="selected"{#/if#}>顶级分类</option>
+	  <option value="0" {#if "0"==$district.parentid#}selected="selected"{#/if#}>トップカテゴリ</option>
 	  {#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}{#foreach from=$c_province item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$district.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 	 {#/foreach#}
@@ -27,11 +27,11 @@
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">名称:</td>
+    <td width="120" align="right">名前：</td>
     <td><input name="categoryname" type="text" class="input_text_200"  value="{#$district.categoryname#}"/></td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="category_order" type="text" class="input_text_200"  value="{#$district.category_order#}"/></td>
   </tr>
 </table>

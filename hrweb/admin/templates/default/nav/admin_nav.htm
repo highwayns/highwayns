@@ -6,7 +6,7 @@
 		<div class="clear"></div>
 	</div>
 	<div class="toptip">
-		<h2>提示：</h2>
+		<h2>ヒント：</h2>
 		<p>
 			页面关联标记与导航关联标记相同时(导航关联标记请在页面管理中查看)，与之关联的页面将高亮显示；        例如：在页面管理中，首页的导航关联标记为homepage,在自定义导航中增加网站首页栏目，页面关联标为homepage，那么打开网站首页页面，则此栏目高亮显示。
 		</p>
@@ -15,13 +15,13 @@
 		{#$inputtoken#}
 		<table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
 			<tr>
-				<td  class="admin_list_tit  admin_list_first">名称</td>
-				<td width="8%"  class="admin_list_tit" >显示</td>
-				<td width="15%" align="center" class="admin_list_tit">页面关联标记</td>
+				<td  class="admin_list_tit  admin_list_first">名前</td>
+				<td width="8%"  class="admin_list_tit" >表示</td>
+				<td width="15%" align="center" class="admin_list_tit">関連するページタグ</td>
 				<td width="8%" align="center" class="admin_list_tit">位置</td>
-				<td width="15%" align="center" class="admin_list_tit">打开方式</td>
-				<td width="8%" align="center" class="admin_list_tit">排序</td>
-				<td width="12%" align="center" class="admin_list_tit">编辑</td>
+				<td width="15%" align="center" class="admin_list_tit">開き方</td>
+				<td width="8%" align="center" class="admin_list_tit">並び替え</td>
+				<td width="12%" align="center" class="admin_list_tit">編集</td>
 			</tr>
 			{#foreach from=$list item=li#}
 			<tr>
@@ -30,9 +30,9 @@
 				</td>
 				<td  class="admin_list">
 					{#if $li.display=="1"#}
-					<span style="color: #FF3300">显示</span>
+					<span style="color: #FF3300">ディスプレイ</span>
 					{#else#}
-					<span style="color:#999999">不显示</span>
+					<span style="color:#999999">表示しません</span>
 					{#/if#}
 				</td>
 				<td align="center"    class="admin_list">{#$li.tag#}&nbsp;</td>
@@ -42,15 +42,15 @@
 					新窗口
 					{#/if#}
 					{#if $li.target=="_self"#}
-					<span style="color:#666666">原窗口</span>
+					<span style="color:#666666">元のウィンドウ</span>
 					{#/if#}		
 				</td>
 				<td align="center"  class="admin_list" >
 					<input name="navigationorder[]" type="text"  class="input_text_50" id="title" value="{#$li.navigationorder#}"   />
 				</td>
 				<td align="center"  class="admin_list" >
-					<a href="?act=site_navigation_edit&id={#$li.id#}">修改</a>		{#if $li.systemclass!="1"#}
-					<a href="?act=del_navigation&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">删除</a>
+					<a href="?act=site_navigation_edit&id={#$li.id#}">変更</a>		{#if $li.systemclass!="1"#}
+					<a href="?act=del_navigation&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">削除</a>
 					{#/if#}
 					<input name="id[]" type="hidden" value="{#$li.id#}" />	
 				</td>

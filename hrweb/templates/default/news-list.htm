@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<head>{#highway_news_category set="列表名:category,名称长度:10,资讯小类:GET[id]"#}<!--获取资讯分类名称 -->
+<head>{#HIGHWAY_news_category　set= “リスト名：カテゴリ、名前の長さ：10、情報のサブクラス：GET [ID]” #} <！ - 情報のカテゴリ名を取得します - >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {#highway_pageinfo set="列表名:pageinfo,调用:HW_newslist,分类ID:GET[id]"#}
 {#if $pageinfo.title#}
 <title>{#$pageinfo.title#}</title>
 {#else#}
-<title>资讯中心 -  {#$category.categoryname#} - {#$HIGHWAY.site_name#}</title>
+<title>情報センター -  {#$category.categoryname#} - {#$HIGHWAY.site_name#}</title>
 {#/if#}
 <meta name="description" content="{#$pageinfo.description#}">
 <meta name="keywords" content="{#$pageinfo.keywords#}">
@@ -22,7 +22,7 @@
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;{#$category.title_#}
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;{#$category.title_#}
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
@@ -41,7 +41,7 @@
 							{#foreach from=$news item=list#}
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
-								<p>发布时间：{#$list.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>浏览次数：{#$list.click#}</span></p>
+								<p>発行時間：{#$list.addtime | DaTE_FORMaT： “％Y-％M-％D” #}＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP; <span>浏览次数：{#$list.click#}</span></p>
 								<p>{#$list.briefly#}<a href="{#$list.url#}">[查看全文]</a></p>
 							</li>
 							{#/foreach#}
@@ -62,7 +62,7 @@
 			
 			<div class="right_box">
 				<div class="title_box">
-					<h5>资讯分类</h5>
+					<h5>情報分類</h5>
 				</div>
 				<div class="list">
 					<ul class="sort">
@@ -77,7 +77,7 @@
 			</div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>热点推荐</h5>
+					<h5>注目推奨</h5>
 				</div>
 				<div class="list">
 					<ol class="hot">
@@ -90,7 +90,7 @@
 			</div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>最新资讯</h5>
+					<h5>最新ニュース</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">

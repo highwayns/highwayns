@@ -54,7 +54,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 有效职位是指：审核通过,有效期未到期,服务未到期,正常招聘的职位。反之为无效职位<br />
 </p>
@@ -64,8 +64,8 @@ $(document).ready(function()
 <div class="seltpye_y">
 
 	<div class="tit link_lan">
-	<strong>职位列表</strong><span>(共找到{#$totaljob#}条)</span>
-	<a href="?">[恢复默认]</a>
+	<strong>求人の掲載</strong><span>（{#$totaljob#}記事を見つけました）</span>
+	<a href="?">[既定値に戻します]</a >
 	<div class="pli link_bk"><u>每页显示：</u>
 	<a href="{#"perpage:10"|highway_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
 	<a href="{#"perpage:20"|highway_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
@@ -75,54 +75,54 @@ $(document).ready(function()
 	</div>
 	</div>	
     <div class="list">
-	  <div class="t">有效状态</div>	  
+	  <div class="t">アクティブ</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"jobtype:1"|highway_parse_url#}" {#if $smarty.get.jobtype=="1"#}class="select"{#/if#}>有效职位<span>({#$total.0#})</span></a>
-		<a href="{#"jobtype:2"|highway_parse_url#}" {#if $smarty.get.jobtype=="2"#}class="select"{#/if#}>无效职位<span>({#$total.1#})</span></a>
+	 	<a href="{#"jobtype:1"|highway_parse_url#}" {#if $smarty.get.jobtype=="1"#}class="select"{#/if#}>効果的なポストの<span>({#$total.0#})</span></a>
+		<a href="{#"jobtype:2"|highway_parse_url#}" {#if $smarty.get.jobtype=="2"#}class="select"{#/if#}>無効なポストの<span>({#$total.1#})</span></a>
 	  </div>
     </div>
 	  {#if $smarty.get.jobtype=="2"#}
 	<div class="list">
-	  <div class="t">审核状态</div>	  
+	  <div class="t">監査ステータス</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>审核通过<span>({#$total.2#})</span></a>
-		<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>等待审核<span>({#$total.3#})</span></a>
-		<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>审核未通过<span>({#$total.4#})</span></a>
+	 	<a href="{#"audit:"|highway_parse_url#}" {#if $smarty.get.audit==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"audit:1"|highway_parse_url#}" {#if $smarty.get.audit=="1"#}class="select"{#/if#}>承認の<span>({#$total.2#})</span></a>
+		<a href="{#"audit:2"|highway_parse_url#}" {#if $smarty.get.audit=="2"#}class="select"{#/if#}>審査待ち<span>({#$total.3#})</span></a>
+		<a href="{#"audit:3"|highway_parse_url#}" {#if $smarty.get.audit=="3"#}class="select"{#/if#}>承認されていません<span>({#$total.4#})</span></a>
 	  </div>
     	</div>
     	<div class="list listod">
-	  <div class="t">无效原因</div>	  
+	  <div class="t">無効な理由</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"invalid:"|highway_parse_url#}" {#if $smarty.get.invalid==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"invalid:1"|highway_parse_url#}" {#if $smarty.get.invalid=="1"#}class="select"{#/if#}>职位到期</a>
-		<a href="{#"invalid:2"|highway_parse_url#}" {#if $smarty.get.invalid=="2"#}class="select"{#/if#}>套餐到期</a>
-		<a href="{#"invalid:3"|highway_parse_url#}" {#if $smarty.get.invalid=="3"#}class="select"{#/if#}>职位暂停</a>
-		<a href="{#"invalid:4"|highway_parse_url#}" {#if $smarty.get.invalid=="4"#}class="select"{#/if#}>非审核通过</a>
+	 	<a href="{#"invalid:"|highway_parse_url#}" {#if $smarty.get.invalid==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"invalid:1"|highway_parse_url#}" {#if $smarty.get.invalid=="1"#}class="select"{#/if#}>位置</a>
+		<a href="{#"invalid:2"|highway_parse_url#}" {#if $smarty.get.invalid=="2"#}class="select"{#/if#}>パッケージ</a>
+		<a href="{#"invalid:3"|highway_parse_url#}" {#if $smarty.get.invalid=="3"#}class="select"{#/if#}>仕事停止</a>
+		<a href="{#"invalid:4"|highway_parse_url#}" {#if $smarty.get.invalid=="4"#}class="select"{#/if#}>非承認</a>
 	  </div>
     	</div>
-	  {#/if#}
-	
-	
-	<div class="list listod" >
-	  <div class="t">到期时间</div>	  
+	  {#/if#} 
+ 	 
+ 	 
+ 	<div class="list listod" > 
+	  <div class="t">有効期限</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"deadline:"|highway_parse_url#}" {#if $smarty.get.deadline ==""#}class="select"{#/if#}>不限</a>
+	 	<a href="{#"deadline:"|highway_parse_url#}" {#if $smarty.get.deadline ==""#}class="select"{#/if#}>制限なし</a>
 		{#if $smarty.get.jobtype=="2"#}		
-		<a href="{#"deadline:1"|highway_parse_url#}" {#if $smarty.get.deadline =="1"#}class="select"{#/if#}>已到期</a>
-		<a href="{#"deadline:2"|highway_parse_url#}" {#if $smarty.get.deadline =="2"#}class="select"{#/if#}>未到期</a>
+		<a href="{#"deadline:1"|highway_parse_url#}" {#if $smarty.get.deadline =="1"#}class="select"{#/if#}>期限切れ</a>
+		<a href="{#"deadline:2"|highway_parse_url#}" {#if $smarty.get.deadline =="2"#}class="select"{#/if#}>期限が切れていない</a>
 		{#/if#}
-		<a href="{#"deadline:3"|highway_parse_url#}" {#if $smarty.get.deadline =="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"deadline:7"|highway_parse_url#}" {#if $smarty.get.deadline =="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"deadline:3"|highway_parse_url#}" {#if $smarty.get.deadline =="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"deadline:7"|highway_parse_url#}" {#if $smarty.get.deadline =="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"deadline:30"|highway_parse_url#}" {#if $smarty.get.deadline =="30"#}class="select"{#/if#}>一月内</a>
 	  </div>
     </div>
 	
 	<div class="list listod" >
-	  <div class="t">推广类型</div>	  
+	  <div class="t">プロモーションタイプ</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"promote:"|highway_parse_url#}" {#if $smarty.get.promote==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"promote:-1"|highway_parse_url#}" {#if $smarty.get.promote=="-1"#}class="select"{#/if#}>未推广</a>
+	 	<a href="{#"promote:"|highway_parse_url#}" {#if $smarty.get.promote==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"promote:-1"|highway_parse_url#}" {#if $smarty.get.promote=="-1"#}class="select"{#/if#}>プロモーション情報はありません</a>
 		{#foreach from=$cat item=li#}
 		<a href="{#"promote:"|cat:$li.cat_id|highway_parse_url#}" {#if $smarty.get.promote==$li.cat_id#}class="select"{#/if#}>{#$li.cat_name#}</a>
 		{#/foreach#}
@@ -132,21 +132,21 @@ $(document).ready(function()
 	 
 	
 	<div class="list" >
-	  <div class="t">添加时间</div>	  
+	  <div class="t">タイムの追加</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"addsettr:"|highway_parse_url#}" {#if $smarty.get.addsettr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"addsettr:3"|highway_parse_url#}" {#if $smarty.get.addsettr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"addsettr:7"|highway_parse_url#}" {#if $smarty.get.addsettr=="7"#}class="select"{#/if#}>一周内</a>
+	 	<a href="{#"addsettr:"|highway_parse_url#}" {#if $smarty.get.addsettr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"addsettr:3"|highway_parse_url#}" {#if $smarty.get.addsettr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"addsettr:7"|highway_parse_url#}" {#if $smarty.get.addsettr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"addsettr:30"|highway_parse_url#}" {#if $smarty.get.addsettr=="30"#}class="select"{#/if#}>一月内</a>
 	  </div>
     </div>
 	
 	<div class="list" >
-	  <div class="t">刷新时间</div>	  
+	  <div class="t">タイム更新</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
 	  </div>
     </div>
@@ -164,15 +164,15 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td   class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>职位名称</label></td>
-      <td  class="admin_list_tit"> 发布公司 </td>
-	  <td align="center"  width="10%" class="admin_list_tit">审核状态</td>
-	  <td align="center" width="5%" class="admin_list_tit">来源</td>
-	  <td align="center"  width="8%" class="admin_list_tit">添加时间</td>
-      <td align="center" width="8%"  class="admin_list_tit">到期时间</td>
-      <td align="center" width="8%"  class="admin_list_tit">刷新时间</td>
-	    <td align="center" width="4%" class="admin_list_tit">点击</td>
-	    <td align="center" width="9%" class="admin_list_tit">收到简历</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>职位名称</label></td>
+      <td  class="admin_list_tit">会社掲載</td>
+	  <td align="center"  width="10%" class="admin_list_tit">監査ステータス</td>
+	  <td align="center" width="5%" class="admin_list_tit">ソース</td>
+	  <td align="center"  width="8%" class="admin_list_tit">時間を追加します</td>
+      <td align="center" width="8%"  class="admin_list_tit">有効期限</td>
+      <td align="center" width="8%"  class="admin_list_tit">タイム更新</td>
+	    <td align="center" width="4%" class="admin_list_tit">クリック</td>
+	    <td align="center" width="9%" class="admin_list_tit">履歴書を受け取ります</td>
       
       <td    width="100" align="center"  class="admin_list_tit">操作</td>
 	
@@ -182,20 +182,20 @@ $(document).ready(function()
       <td  class="admin_list admin_list_first">
         <input name="y_id[]" type="checkbox" id="y_id" value="{#$list.id#}"  />		
 		 <a href="{#$list.jobs_url#}" target="_blank"{#if $list.deadline<$smarty.now || $list.display == "2"#}style="color:#999999"{#/if#}  >{#$list.jobs_name#}</a>		 
-		 {#if $list.emergency == "1"#}&nbsp;<span style="color: #FF6600">[急聘]</span>{#/if#}
-		{#if $list.recommend == "1"#}&nbsp;<span style="color: #339900">[推荐]</span>{#/if#}
-		{#if $list.stick == "1"#}&nbsp;<span style="color: #FF3399">[置顶]</span>{#/if#}
-		{#if $list.highlight != ""#}&nbsp;<span style="color: #6633CC">[变色]</span>{#/if#}
-		{#if $list.display == "2"#}&nbsp;<span style="color: #999999">[已暂停]</span>{#/if#}		
+		 {#if $list.emergency == "1"#}&nbsp;<span style="color: #FF6600">[緊急募集] </span>{#/if#}
+		{#if $list.recommend == "1"#}&nbsp;<span style="color: #339900">[推奨] </span>{#/if#}
+		{#if $list.stick == "1"#}&nbsp;<span style="color: #FF3399">[トップ設置] </span>{#/if#}
+		{#if $list.highlight != ""#}&nbsp;<span style="color: #6633CC">[変色]</span>{#/if#}
+		{#if $list.display == "2"#}&nbsp;<span style="color: #999999">[停止済み]< </span>{#/if#}		
 	    </td>
         <td class="admin_list">
 		<a href="{#$list.company_url#}" target="_blank" style="color: #000000" title="{#$list.companyname#}">{#$list.companyname#}</a>
 		</td>
 		 <td class="admin_list" align="center">
 		{#if $list.audit == "1"#}
-		<span style="color: #009900">审核通过	</span>	
+		<span style="color: #009900">承認</span>	
 		{#elseif $list.audit == "2"#}
-		<span style="color:#FF0000">等待审核</span>
+		<span style="color:#FF0000">審査待ち</span>
 		{#elseif $list.audit == "3"#}
 		审核未通过
 		{#/if#}
@@ -211,7 +211,7 @@ $(document).ready(function()
 		{#if $list.deadline>$smarty.now#}
 		{#$list.deadline|date_format:"%Y-%m-%d"#}
 		{#else#}
-			<span style="color:#FF6600">已经过期</span>
+			<span style="color:#FF6600">期限が切れている</span>
 		{#/if#}
 		</td>
        <td class="admin_list" align="center" >
@@ -224,9 +224,9 @@ $(document).ready(function()
 		{#$list.get_resume#}
 		</td>
         <td class="admin_list" align="center" >	
-		<a href="admin_memberslog.php?uid={#$list.uid#}">日志</a>
+		<a href="admin_memberslog.php?uid={#$list.uid#}">日誌</a>
 		&nbsp;	
-		<a href="?act=edit_jobs&id={#$list.id#}">修改</a> 
+		<a href="?act=edit_jobs&id={#$list.id#}">変更</a> 
 		&nbsp;
 		<a href="?act=management&id={#$list.uid#}"  target="_blank"  class="userinfo"  id="{#$list.uid#}">管理</a> 
 		</td>
@@ -237,7 +237,7 @@ $(document).ready(function()
   <span id="Opdelay"></span>
   </form>
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
@@ -256,11 +256,11 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="职位名">职位名</li>
-														<li id="2" title="公司名">公司名</li>
-														<li id="3" title="职位ID">职位ID</li>
-														<li id="4" title="公司ID">公司ID</li>
-														<li id="5" title="会员ID">会员ID</li>
+														<li id="1" title="职位名">ポジション名</li>
+														<li id="2" title="公司名">会社名</li>
+														<li id="3" title="职位ID">ジョブID</li>
+														<li id="4" title="公司ID">企業ID</li>
+														<li id="5" title="会员ID">会員ID</li>
 														</ul>
 												</div>
 						</div>				

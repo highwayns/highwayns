@@ -27,7 +27,7 @@ $(document).ready(function()
 </div>
 
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统将会自动清除一个月前的会员日志。
 </p>
@@ -38,8 +38,8 @@ $(document).ready(function()
 <div class="seltpye_y">
 
 	<div class="tit link_lan">
-	<strong>{#$pageheader#}</strong><span>(共找到{#$total#}条)</span>
-	<a href="?">[恢复默认]</a>
+	<strong>{#$pageheader#}</strong><span>（見つかった{#$total#}記事）</span>
+	<a href="?">[既定値に戻します]</a >
 	<div class="pli link_bk"><u>每页显示：</u>
 	<a href="{#"perpage:10"|highway_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
 	<a href="{#"perpage:20"|highway_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
@@ -49,92 +49,92 @@ $(document).ready(function()
 	</div>
 	</div>	
     <div class="list">
-	  <div class="t">日志类型</div>	  
+	  <div class="t">日誌タイプ</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"log_utype:"|highway_parse_url#}" {#if $smarty.get.log_utype==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"log_utype:1"|highway_parse_url#}" {#if $smarty.get.log_utype=="1"#}class="select"{#/if#}>企业会员</a>
-		<a href="{#"log_utype:2"|highway_parse_url#}" {#if $smarty.get.log_utype=="2"#}class="select"{#/if#}>个人会员</a> 
+	 	<a href="{#"log_utype:"|highway_parse_url#}" {#if $smarty.get.log_utype==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"log_utype:1"|highway_parse_url#}" {#if $smarty.get.log_utype=="1"#}class="select"{#/if#}>法人会員</a>
+		<a href="{#"log_utype:2"|highway_parse_url#}" {#if $smarty.get.log_utype=="2"#}class="select"{#/if#}>個人メンバー</a> 
 	  </div>
     </div>
 	<div class="list">
-	  <div class="t">创建时间</div>	  
+	  <div class="t">作成時間</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 	  </div>
     </div>
 	
 	<div class="list">
-	  <div class="t">日志类型</div>	  
+	  <div class="t">日誌タイプ</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"log_type:1000"|highway_parse_url#}" {#if $smarty.get.log_type=="1000"#}class="select"{#/if#}>注册</a>
-		<a href="{#"log_type:1001"|highway_parse_url#}" {#if $smarty.get.log_type=="1001"#}class="select"{#/if#}>登录</a>
-		<a href="{#"log_type:1003"|highway_parse_url#}" {#if $smarty.get.log_type=="1003"#}class="select"{#/if#}>修改帐号状态</a>
-		<a href="{#"log_type:1004"|highway_parse_url#}" {#if $smarty.get.log_type=="1004"#}class="select"{#/if#}>修改密码</a>
-		<a href="{#"log_type:1005"|highway_parse_url#}" {#if $smarty.get.log_type=="1005"#}class="select"{#/if#}>修改个人资料</a>
-		<a href="{#"log_type:1006"|highway_parse_url#}" {#if $smarty.get.log_type=="1006"#}class="select"{#/if#}>修改个人头像</a>
+	 	<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"log_type:1000"|highway_parse_url#}" {#if $smarty.get.log_type=="1000"#}class="select"{#/if#}>登録</a>
+		<a href="{#"log_type:1001"|highway_parse_url#}" {#if $smarty.get.log_type=="1001"#}class="select"{#/if#}>ログイン</a>
+		<a href="{#"log_type:1003"|highway_parse_url#}" {#if $smarty.get.log_type=="1003"#}class="select"{#/if#}>アカウントステータスを変更します</a>
+		<a href="{#"log_type:1004"|highway_parse_url#}" {#if $smarty.get.log_type=="1004"#}class="select"{#/if#}>パスワードの変更</a>
+		<a href="{#"log_type:1005"|highway_parse_url#}" {#if $smarty.get.log_type=="1005"#}class="select"{#/if#}>プロファイルの編集 </a>
+		<a href="{#"log_type:1006"|highway_parse_url#}" {#if $smarty.get.log_type=="1006"#}class="select"{#/if#}>個人写真の変更</a>
 
 
 		
-		<a href="{#"log_type:2001"|highway_parse_url#}" {#if $smarty.get.log_type=="2001"#}class="select"{#/if#}>添加职位</a>
-		<a href="{#"log_type:2002"|highway_parse_url#}" {#if $smarty.get.log_type=="2002"#}class="select"{#/if#}>修改职位</a>
-		<a href="{#"log_type:2003"|highway_parse_url#}" {#if $smarty.get.log_type=="2003"#}class="select"{#/if#}>删除职位</a>
-		<a href="{#"log_type:2004"|highway_parse_url#}" {#if $smarty.get.log_type=="2004"#}class="select"{#/if#}>刷新职位</a>
-		<a href="{#"log_type:2005"|highway_parse_url#}" {#if $smarty.get.log_type=="2005"#}class="select"{#/if#}>修改职位状态</a>
-		<a href="{#"log_type:2006"|highway_parse_url#}" {#if $smarty.get.log_type=="2006"#}class="select"{#/if#}>查看职位申请</a>
-		<a href="{#"log_type:2007"|highway_parse_url#}" {#if $smarty.get.log_type=="2007"#}class="select"{#/if#}>延期职位</a>
+		<a href="{#"log_type:2001"|highway_parse_url#}" {#if $smarty.get.log_type=="2001"#}class="select"{#/if#}>ジョブの追加</a>
+		<a href="{#"log_type:2002"|highway_parse_url#}" {#if $smarty.get.log_type=="2002"#}class="select"{#/if#}>ジョブを変更</a>
+		<a href="{#"log_type:2003"|highway_parse_url#}" {#if $smarty.get.log_type=="2003"#}class="select"{#/if#}>職位を削除</a>
+		<a href="{#"log_type:2004"|highway_parse_url#}" {#if $smarty.get.log_type=="2004"#}class="select"{#/if#}>仕事更新</a>
+		<a href="{#"log_type:2005"|highway_parse_url#}" {#if $smarty.get.log_type=="2005"#}class="select"{#/if#}>ジョブのステータスを変更します</a>
+		<a href="{#"log_type:2006"|highway_parse_url#}" {#if $smarty.get.log_type=="2006"#}class="select"{#/if#}>仕事のアプリケーションを見る</a>
+		<a href="{#"log_type:2007"|highway_parse_url#}" {#if $smarty.get.log_type=="2007"#}class="select"{#/if#}>職務延期</a>
 
 
-		<a href="{#"log_type:3001"|highway_parse_url#}" {#if $smarty.get.log_type=="3001"#}class="select"{#/if#}>增加订单</a>
-		<a href="{#"log_type:3002"|highway_parse_url#}" {#if $smarty.get.log_type=="3002"#}class="select"{#/if#}>取消订单</a>
-		<a href="{#"log_type:3003"|highway_parse_url#}" {#if $smarty.get.log_type=="3003"#}class="select"{#/if#}>付款完成</a>
-		<a href="{#"log_type:3005"|highway_parse_url#}" {#if $smarty.get.log_type=="3005"#}class="select"{#/if#}>延长推广时间</a>
-		<a href="{#"log_type:3006"|highway_parse_url#}" {#if $smarty.get.log_type=="3006"#}class="select"{#/if#}>取消推广</a>
+		<a href="{#"log_type:3001"|highway_parse_url#}" {#if $smarty.get.log_type=="3001"#}class="select"{#/if#}>受注の増加</a>
+		<a href="{#"log_type:3002"|highway_parse_url#}" {#if $smarty.get.log_type=="3002"#}class="select"{#/if#}>注文のキャンセル</a>
+		<a href="{#"log_type:3003"|highway_parse_url#}" {#if $smarty.get.log_type=="3003"#}class="select"{#/if#}>お支払い完了</a>
+		<a href="{#"log_type:3005"|highway_parse_url#}" {#if $smarty.get.log_type=="3005"#}class="select"{#/if#}>促進するための長期の時間</a>
+		<a href="{#"log_type:3006"|highway_parse_url#}" {#if $smarty.get.log_type=="3006"#}class="select"{#/if#}>推進キャンセル</a>
 		
-		<a href="{#"log_type:4001"|highway_parse_url#}" {#if $smarty.get.log_type=="4001"#}class="select"{#/if#}>下载简历</a>
-		<a href="{#"log_type:4002"|highway_parse_url#}" {#if $smarty.get.log_type=="4002"#}class="select"{#/if#}>删除下载简历</a>
+		<a href="{#"log_type:4001"|highway_parse_url#}" {#if $smarty.get.log_type=="4001"#}class="select"{#/if#}>履歴書ダウンロード</a>
+		<a href="{#"log_type:4002"|highway_parse_url#}" {#if $smarty.get.log_type=="4002"#}class="select"{#/if#}>ダウンロードバイオを削除します</a>
 		
-		<a href="{#"log_type:5001"|highway_parse_url#}" {#if $smarty.get.log_type=="5001"#}class="select"{#/if#}>添加到人才库</a>
-		<a href="{#"log_type:5002"|highway_parse_url#}" {#if $smarty.get.log_type=="5002"#}class="select"{#/if#}>删除人才库</a>
+		<a href="{#"log_type:5001"|highway_parse_url#}" {#if $smarty.get.log_type=="5001"#}class="select"{#/if#}>人材庫に追加</a>
+		<a href="{#"log_type:5002"|highway_parse_url#}" {#if $smarty.get.log_type=="5002"#}class="select"{#/if#}>人材庫を削除します</a>
 		
-		<a href="{#"log_type:6001"|highway_parse_url#}" {#if $smarty.get.log_type=="6001"#}class="select"{#/if#}>发起面试邀请</a>
-		<a href="{#"log_type:6002"|highway_parse_url#}" {#if $smarty.get.log_type=="6002"#}class="select"{#/if#}>删除面试邀请</a>
+		<a href="{#"log_type:6001"|highway_parse_url#}" {#if $smarty.get.log_type=="6001"#}class="select"{#/if#}>面接招待を送る</a>
+		<a href="{#"log_type:6002"|highway_parse_url#}" {#if $smarty.get.log_type=="6002"#}class="select"{#/if#}>面接の招待を削除します</a>
 		
-		<a href="{#"log_type:7001"|highway_parse_url#}" {#if $smarty.get.log_type=="7001"#}class="select"{#/if#}>添加反馈</a>
-		<a href="{#"log_type:7002"|highway_parse_url#}" {#if $smarty.get.log_type=="7002"#}class="select"{#/if#}>删除反馈</a>
-		<a href="{#"log_type:7003"|highway_parse_url#}" {#if $smarty.get.log_type=="7003"#}class="select"{#/if#}>举报信息</a>
+		<a href="{#"log_type:7001"|highway_parse_url#}" {#if $smarty.get.log_type=="7001"#}class="select"{#/if#}>フィードバックを追加</a>
+		<a href="{#"log_type:7002"|highway_parse_url#}" {#if $smarty.get.log_type=="7002"#}class="select"{#/if#}>フィードバックの削除</a>
+		<a href="{#"log_type:7003"|highway_parse_url#}" {#if $smarty.get.log_type=="7003"#}class="select"{#/if#}>情報レポート</a>
 		
-		<a href="{#"log_type:8001"|highway_parse_url#}" {#if $smarty.get.log_type=="8001"#}class="select"{#/if#}>修改企业信息</a>
-		<a href="{#"log_type:8002"|highway_parse_url#}" {#if $smarty.get.log_type=="8002"#}class="select"{#/if#}>上传营业执照</a>
-		<a href="{#"log_type:8003"|highway_parse_url#}" {#if $smarty.get.log_type=="8003"#}class="select"{#/if#}>上传logo</a>
-		<a href="{#"log_type:8004"|highway_parse_url#}" {#if $smarty.get.log_type=="8004"#}class="select"{#/if#}>删除logo</a>
-		<a href="{#"log_type:8005"|highway_parse_url#}" {#if $smarty.get.log_type=="8005"#}class="select"{#/if#}>开通电子地图</a>
-		<a href="{#"log_type:8006"|highway_parse_url#}" {#if $smarty.get.log_type=="8006"#}class="select"{#/if#}>设置电子地图坐标</a>
-		<a href="{#"log_type:8007"|highway_parse_url#}" {#if $smarty.get.log_type=="8007"#}class="select"{#/if#}>修改企业模版</a>
+		<a href="{#"log_type:8001"|highway_parse_url#}" {#if $smarty.get.log_type=="8001"#}class="select"{#/if#}>企業情報の修正</a>
+		<a href="{#"log_type:8002"|highway_parse_url#}" {#if $smarty.get.log_type=="8002"#}class="select"{#/if#}>ビジネスライセンスをアップロードする</a>
+		<a href="{#"log_type:8003"|highway_parse_url#}" {#if $smarty.get.log_type=="8003"#}class="select"{#/if#}>ロゴをアップロード</a>
+		<a href="{#"log_type:8004"|highway_parse_url#}" {#if $smarty.get.log_type=="8004"#}class="select"{#/if#}>ロゴを削除します</a>
+		<a href="{#"log_type:8005"|highway_parse_url#}" {#if $smarty.get.log_type=="8005"#}class="select"{#/if#}>電子地図の開始</a>
+		<a href="{#"log_type:8006"|highway_parse_url#}" {#if $smarty.get.log_type=="8006"#}class="select"{#/if#}>デジタルマップ座標を設定する</a>
+		<a href="{#"log_type:8007"|highway_parse_url#}" {#if $smarty.get.log_type=="8007"#}class="select"{#/if#}>企業のテンプレートを変更するには</a>
 		
-		<a href="{#"log_type:9001"|highway_parse_url#}" {#if $smarty.get.log_type=="9001"#}class="select"{#/if#}>积分操作</a>
-		<a href="{#"log_type:9002"|highway_parse_url#}" {#if $smarty.get.log_type=="9002"#}class="select"{#/if#}>服务套餐操作</a>
+		<a href="{#"log_type:9001"|highway_parse_url#}" {#if $smarty.get.log_type=="9001"#}class="select"{#/if#}>ポイント操作</a>
+		<a href="{#"log_type:9002"|highway_parse_url#}" {#if $smarty.get.log_type=="9002"#}class="select"{#/if#}>パッケージの操作</a>
 		
-		<a href="{#"log_type:1101"|highway_parse_url#}" {#if $smarty.get.log_type=="1101"#}class="select"{#/if#}>创建简历</a>
-		<a href="{#"log_type:1102"|highway_parse_url#}" {#if $smarty.get.log_type=="1102"#}class="select"{#/if#}>刷新简历</a>
-		<a href="{#"log_type:1103"|highway_parse_url#}" {#if $smarty.get.log_type=="1103"#}class="select"{#/if#}>删除简历</a>
-		<a href="{#"log_type:1104"|highway_parse_url#}" {#if $smarty.get.log_type=="1104"#}class="select"{#/if#}>设置简历隐私</a>
-		<a href="{#"log_type:1105"|highway_parse_url#}" {#if $smarty.get.log_type=="1105"#}class="select"{#/if#}>修改简历</a>
-		<a href="{#"log_type:1106"|highway_parse_url#}" {#if $smarty.get.log_type=="1106"#}class="select"{#/if#}>设置简历模版</a>
-		<a href="{#"log_type:1107"|highway_parse_url#}" {#if $smarty.get.log_type=="1107"#}class="select"{#/if#}>申请高级人才</a>
-		<a href="{#"log_type:1108"|highway_parse_url#}" {#if $smarty.get.log_type=="1108"#}class="select"{#/if#}>查看邀请面试</a>
+		<a href="{#"log_type:1101"|highway_parse_url#}" {#if $smarty.get.log_type=="1101"#}class="select"{#/if#}>プロファイルを作成します</a>
+		<a href="{#"log_type:1102"|highway_parse_url#}" {#if $smarty.get.log_type=="1102"#}class="select"{#/if#}>履歴書の更新</a>
+		<a href="{#"log_type:1103"|highway_parse_url#}" {#if $smarty.get.log_type=="1103"#}class="select"{#/if#}>履歴書を削除します</a>
+		<a href="{#"log_type:1104"|highway_parse_url#}" {#if $smarty.get.log_type=="1104"#}class="select"{#/if#}>履歴書プライバシー再開の設定</a>
+		<a href="{#"log_type:1105"|highway_parse_url#}" {#if $smarty.get.log_type=="1105"#}class="select"{#/if#}>履歴書修正</a>
+		<a href="{#"log_type:1106"|highway_parse_url#}" {#if $smarty.get.log_type=="1106"#}class="select"{#/if#}>履歴書テンプレートセット </a>
+		<a href="{#"log_type:1107"|highway_parse_url#}" {#if $smarty.get.log_type=="1107"#}class="select"{#/if#}>高級人材の申し込み</a>
+		<a href="{#"log_type:1108"|highway_parse_url#}" {#if $smarty.get.log_type=="1108"#}class="select"{#/if#}>面接招待確認</a>
 		
-		<a href="{#"log_type:1401"|highway_parse_url#}" {#if $smarty.get.log_type=="1401"#}class="select"{#/if#}>个人会员申请课程</a>
+		<a href="{#"log_type:1401"|highway_parse_url#}" {#if $smarty.get.log_type=="1401"#}class="select"{#/if#}>個々のメンバーシップのアプリケーションプログラム</a>
 		
-		<a href="{#"log_type:1201"|highway_parse_url#}" {#if $smarty.get.log_type=="1201"#}class="select"{#/if#}>添加职位收藏</a>
-		<a href="{#"log_type:1202"|highway_parse_url#}" {#if $smarty.get.log_type=="1202"#}class="select"{#/if#}>删除职位收藏</a>
- 		<a href="{#"log_type:1301"|highway_parse_url#}" {#if $smarty.get.log_type=="1301"#}class="select"{#/if#}>申请职位</a>
-		<a href="{#"log_type:1302"|highway_parse_url#}" {#if $smarty.get.log_type=="1302"#}class="select"{#/if#}>删除职位申请</a>
+		<a href="{#"log_type:1201"|highway_parse_url#}" {#if $smarty.get.log_type=="1201"#}class="select"{#/if#}>気に入り仕事追加</a>
+		<a href="{#"log_type:1202"|highway_parse_url#}" {#if $smarty.get.log_type=="1202"#}class="select"{#/if#}>気に入りジョブズの削除</a>
+ 		<a href="{#"log_type:1301"|highway_parse_url#}" {#if $smarty.get.log_type=="1301"#}class="select"{#/if#}>職位申請</a>
+		<a href="{#"log_type:1302"|highway_parse_url#}" {#if $smarty.get.log_type=="1302"#}class="select"{#/if#}>業務アプリケーションを削除します</a>
 		
  
 	  </div>
@@ -150,13 +150,13 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td height="26"  class="admin_list_tit admin_list_first"  width="200">
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>会员名</label></td>
-	   <td width="100"  align="center"   class="admin_list_tit">类型</td>
-      <td width="13%"     align="center"  class="admin_list_tit">创建时间</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>会员名</label></td>
+	   <td width="100"  align="center"   class="admin_list_tit">タイプ</td>
+      <td width="13%"     align="center"  class="admin_list_tit">創立時間</td>
       <td width="10%"   align="center" class="admin_list_tit"> IP </td>
-      <td width="10%"   align="center" class="admin_list_tit"> 登录地址 </td>
+      <td width="10%"   align="center" class="admin_list_tit"> ログインアドレス</td>
      
-      <td   class="admin_list_tit" >描述</td>
+      <td   class="admin_list_tit" >説明</td>
     </tr>
 	  {#foreach from=$list item=li#}
       <tr>
@@ -180,7 +180,7 @@ $(document).ready(function()
       {#/foreach#}
     </table>
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}	
 <span id="OpPi"></span>
   </form>
@@ -204,7 +204,7 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="会员名">会员名</li>
+														<li id="1" title="会员名">ユーザー名</li>
 														<li id="2" title="UID">UID</li>
 														</ul>
 												</div>

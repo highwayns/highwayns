@@ -1,26 +1,4 @@
-﻿/**
- * Storage and control for undo information within a CodeMirror
- * editor. 'Why on earth is such a complicated mess required for
- * that?', I hear you ask. The goal, in implementing this, was to make
- * the complexity of storing and reverting undo information depend
- * only on the size of the edited or restored content, not on the size
- * of the whole document. This makes it necessary to use a kind of
- * 'diff' system, which, when applied to a DOM tree, causes some
- * complexity and hackery.
- *
- * In short, the editor 'touches' BR elements as it parses them, and
- * the UndoHistory stores these. When nothing is touched in commitDelay
- * milliseconds, the changes are committed: It goes over all touched
- * nodes, throws out the ones that did not change since last commit or
- * are no longer in the document, and assembles the rest into zero or
- * more 'chains' -- arrays of adjacent lines. Links back to these
- * chains are added to the BR nodes, while the chain that previously
- * spanned these nodes is added to the undo history. Undoing a change
- * means taking such a chain off the undo history, restoring its
- * content (text is saved per line) and linking it back into the
- * document.
- */
-
+﻿
 // A history object needs to know about the DOM container holding the
 // document, the maximum amount of undo levels it should store, the
 // delay (of no input) after which it commits a set of changes, and,

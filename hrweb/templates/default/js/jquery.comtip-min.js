@@ -1,7 +1,4 @@
-﻿/**
-Requires jQuery
-*/
-jQuery.joblisttip= function(obj,ajaxurl,loading,css) {  
+﻿jQuery.joblisttip= function(obj,ajaxurl,loading,css) {  
     $(obj).unbind().hover(    
         function(event)
 		{

@@ -7,51 +7,51 @@
   <div class="clear"></div>
 </div>
 <div class="toptip link_lan"  >
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 网站接入微信公众平台后，用户只需要使用微信扫描二维码就可登录，简化用户登录注册流程，更有效率的提高转化用户流量；
 <br />
 设置微信公众平台前，网站需首先进行申请，获得对应的AppToken、AppId、AppSecret，以保证后续流程中可正确对网站与用户进行验证与授权。 
-现在就去<a href="https://mp.weixin.qq.com/" target="_blank">申请</a><br />
+现在就去<a href="https://mp.weixin.qq.com/" target="_blank">アプリケーション</a><br />
 创建自定义菜单后，由于微信客户端缓存，需要24小时微信客户端才会展现出来。建议测试时可以尝试取消关注公众账号后再次关注，则可以看到创建后的效果。
 </p>
 </div>
 
-<div class="toptit">微信公众平台设置</div>
+<div class="toptit">マイクロチャネルの公共プラットフォームの設定</div>
  
     <form action="?act=set_weixin_save" method="post" enctype="multipart/form-data" name="form1" id="form1">
  {#$inputtoken#}
     <table width="700" border="0" cellspacing="6" cellpadding="1" style=" margin-bottom:3px;">
 	<tr>
-      <td width="200" align="right">开启微信公众平台：</td>
+      <td width="200" align="right">オープンマイクロチャネル公共プラットフォーム：</td>
       <td  >
 	  <label>
-        <input name="weixin_apiopen" type="radio"  value="1"  {#if $config.weixin_apiopen=="1"#}checked=checked {#/if#}/>开启</label>
+        <input name="weixin_apiopen" type="radio"  value="1"  {#if $config.weixin_apiopen=="1"#}checked=checked {#/if#}/>開く</label>
 &nbsp;&nbsp;
 <label>
-        <input name="weixin_apiopen" type="radio"  value="0"  {#if $config.weixin_apiopen=="0"#}checked=checked {#/if#}/>关闭</label>
+        <input name="weixin_apiopen" type="radio"  value="0"  {#if $config.weixin_apiopen=="0"#}checked=checked {#/if#}/>閉じる</label>
 		&nbsp;&nbsp;
 </td>
     </tr>
   <tr>
-      <td width="200" align="right">开启微信扫描登录：</td>
+      <td width="200" align="right">マイクロチャネルオープンログをスキャンします</td>
       <td  >
     <label>
-        <input name="weixin_scan_login" type="radio"  value="1"  {#if $config.weixin_scan_login=="1"#}checked=checked {#/if#}/>开启</label>
+        <input name="weixin_scan_login" type="radio"  value="1"  {#if $config.weixin_scan_login=="1"#}checked=checked {#/if#}/>開く</label>
 &nbsp;&nbsp;
 <label>
-        <input name="weixin_scan_login" type="radio"  value="0"  {#if $config.weixin_scan_login=="0"#}checked=checked {#/if#}/>关闭</label>
+        <input name="weixin_scan_login" type="radio"  value="0"  {#if $config.weixin_scan_login=="0"#}checked=checked {#/if#}/>閉じる</label>
     &nbsp;&nbsp;
 </td>
     </tr>
   <tr>
-      <td width="200" align="right">开启微信扫描绑定账户：</td>
+      <td width="200" align="right">スキャンマイクロチャネルは、結合口座を開く：</td>
       <td  >
     <label>
-        <input name="weixin_scan_bind" type="radio"  value="1"  {#if $config.weixin_scan_bind=="1"#}checked=checked {#/if#}/>开启</label>
+        <input name="weixin_scan_bind" type="radio"  value="1"  {#if $config.weixin_scan_bind=="1"#}checked=checked {#/if#}/>開く</label>
 &nbsp;&nbsp;
 <label>
-        <input name="weixin_scan_bind" type="radio"  value="0"  {#if $config.weixin_scan_bind=="0"#}checked=checked {#/if#}/>关闭</label>
+        <input name="weixin_scan_bind" type="radio"  value="0"  {#if $config.weixin_scan_bind=="0"#}checked=checked {#/if#}/>閉じる</label>
     &nbsp;&nbsp;
 </td>
     </tr>
@@ -74,34 +74,34 @@
     </td>
     </tr>
     <tr>
-      <td width="230" align="right">EncodingAESKey(消息加解密密钥)：</td>
+      <td width="230" align="right">EncodingaESKey（メッセージの暗号化キー）：</td>
       <td  >
     <input name="weixin_encoding_aes_key" type="text"  class="input_text_400"  value="{#$config.weixin_encoding_aes_key#}"  />
     </td>
     </tr>
    <tr>
-      <td width="200" align="right">名称：</td>
+      <td width="200" align="right">名前：</td>
       <td  >
     <input name="weixin_mpname" type="text"  class="input_text_400"  value="{#$config.weixin_mpname#}"  />
     </td>
     </tr>
    <tr>
-      <td width="200" align="right">微信号：</td>
+      <td width="200" align="right">wechatアカウント：</td>
       <td  >
     <input name="weixin_mpnumber" type="text"  class="input_text_400"  value="{#$config.weixin_mpnumber#}"  />
     </td>
     </tr>
     <tr>
-      <td align="right">微信二维码图片： </td>
-      <td><input name="weixin_img" type="file" id="weixin_img" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/>&nbsp;&nbsp;&nbsp;{#if $config.weixin_img#} <input type="button" name="Submit" value="查看二维码" class="vtip" title="<img src={#$upfiles_dir#}{#$config.weixin_img#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
+      <td align="right">マイクロチャネルの二次元コードの画像</td>
+      <td><input name="weixin_img" type="file" id="weixin_img" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert(‘右側のビューをクリックし、pcの画像を選択してください！’);return false"/>&nbsp;&nbsp;&nbsp;{#if $config.weixin_img#} <input type="button" name="Submit" value="查看二维码" class="vtip" title="<img src={#$upfiles_dir#}{#$config.weixin_img#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
     </tr>
 	<tr>
-      <td align="right">微信头条信息大图： </td>
-      <td><input name="weixin_first_pic" type="file" id="weixin_first_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/>&nbsp;&nbsp;&nbsp;{#if $config.weixin_img#} <input type="button" name="Submit" value="查看" class="vtip" title="<img src={#$upfiles_dir#}{#$config.weixin_first_pic#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
+      <td align="right">より大きなマイクロチャネルの見出し情報：</td>
+      <td><input name="weixin_first_pic" type="file" id="weixin_first_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert(‘右側のビューをクリックしpcのピクチャーを選びます！');return false"/>&nbsp;&nbsp;&nbsp;{#if $config.weixin_img#} <input type="button" name="Submit" value="查看" class="vtip" title="<img src={#$upfiles_dir#}{#$config.weixin_first_pic#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
     </tr>
 	<tr>
-      <td align="right">微信列表小图： </td>
-      <td><input name="weixin_default_pic" type="file" id="weixin_default_pic" style="width:150px; font-size:12px; padding:3px;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"/>&nbsp;&nbsp;&nbsp;{#if $config.weixin_img#} <input type="button" name="Submit" value="查看" class="vtip" title="<img src={#$upfiles_dir#}{#$config.weixin_default_pic#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
+      <td align="right">wechatリストピクチャー：</td>
+      <td><input name=“weixin_default_pic” type=“file” id=“weixin_default_pic” style=“width:150px; font-size:12px; padding:3px;” onKeyDown=“alert(‘右側をクリックして“見る”コンピューターのピクチャーを選択する！’);return false”/>&nbsp;&nbsp;&nbsp;{#if $config.weixin_img#} <input type="button" name="Submit" value="查看" class="vtip" title="<img src={#$upfiles_dir#}{#$config.weixin_default_pic#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
     </tr>
 	<tr>
 	  <td align="right" valign="top">&nbsp;</td>

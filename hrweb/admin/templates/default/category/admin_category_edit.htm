@@ -5,16 +5,16 @@
 	{#include file="category/admin_category_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">名称:</td>
+    <td width="120" align="right">名前：</td>
     <td><input name="c_name" type="text" class="input_text_200"  value="{#$category.c_name#}" /></td>
   </tr>
     <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td>	
 	<input name="c_order" type="text" class="input_text_200"  value="{#$category.c_order#}" />
 	<input name="c_alias" type="hidden" value="{#$category.c_alias#}" />
@@ -22,18 +22,18 @@
 	</td>
   </tr>
    <tr>
-    <td width="120" align="right">首字母索引:</td>
+    <td width="120" align="right">インデックスの最初の文字：</td>
     <td>	
 	<input name="c_index" type="text" class="input_text_200" maxlength="60"  value="{#$category.c_index#}"  /> 
-	<span class="admin_note">如：分类名称为：鼎元时代中心则为：<strong>d</strong></span>
+	<span class="admin_note">カテゴリ名として：Dingyuanタイムズセンターだった：そのような<strong>d</strong></span>
 	</td>
   </tr>
    {#if $category.c_alias=="HW_officebuilding"#}
    <tr>
-    <td width="120" align="right">说明:</td>
+    <td width="120" align="right">説明：</td>
     <td>	
 	<input name="c_note" type="text" class="input_text_200" maxlength="60"  value="{#$category.c_note#}"  /> 
-	<span class="admin_note">如：建设与东环路交叉口鼎元时代中心</span>
+	<span class="admin_note">以下のような：建設や東環状道路の交差点Dingyuanタイムズセンター</span>
 	</td>
   </tr>
   {#/if#}

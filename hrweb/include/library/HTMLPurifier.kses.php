@@ -1,9 +1,5 @@
 ﻿<?php
 
-/**
- * @file
- * Emulation layer for code that used kses(), substituting in HTML Purifier.
- */
 
 require_once dirname(__FILE__) . '/HTMLPurifier.auto.php';
 

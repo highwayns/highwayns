@@ -1,11 +1,4 @@
-﻿/**
- * @license Highcharts JS v3.0.6 (2013-10-04)
- *
- * Standalone Highcharts Framework
- *
- * License: MIT License
- */
-
+﻿
 
 /*global Highcharts */
 var HighchartsAdapter = (function () {
@@ -23,9 +16,6 @@ Math.easeInOutSine = function (t, b, c, d) {
 
 
 
-/**
- * Extend given object with custom events
- */
 function augment(obj) {
 	function removeOneEvent(el, type, fn) {
 		el.removeEventListener(type, fn, false);
@@ -175,15 +165,8 @@ function augment(obj) {
 
 
 return {
-	/**
-	 * Initialize the adapter. This is run once as Highcharts is first run.
-	 */
 	init: function (pathAnim) {
 
-		/**
-		 * Compatibility section to add support for legacy IE. This can be removed if old IE 
-		 * support is not needed.
-		 */
 		if (!doc.defaultView) {
 			this._getStyle = function (el, prop) {
 				var val;
@@ -267,9 +250,6 @@ return {
 		//--- End compatibility section ---
 
 
-		/**
-		 * Start of animation specific code
-		 */
 		Fx = function (elem, options, prop) {
 			this.options = options;
 			this.elem = elem;
@@ -380,9 +360,6 @@ return {
 			}
 		};
 
-		/**
-		 * The adapter animate method
-		 */
 		this.animate = function (el, prop, opt) {
 			var start,
 				unit = '',
@@ -437,18 +414,10 @@ return {
 		};
 	},
 
-	/**
-	 * Internal method to return CSS value for given element and property
-	 */
 	_getStyle: function (el, prop) {
 		return window.getComputedStyle(el).getPropertyValue(prop);
 	},
 
-	/**
-	 * Downloads a script and executes a callback when done.
-	 * @param {String} scriptLocation
-	 * @param {Function} callback
-	 */
 	getScript: function (scriptLocation, callback) {
 		// We cannot assume that Assets class from mootools-more is available so instead insert a script tag to download script.
 		var head = doc.getElementsByTagName('head')[0],
@@ -461,31 +430,19 @@ return {
 		head.appendChild(script);
 	},
 
-	/**
-	 * Return the index of an item in an array, or -1 if not found
-	 */
 	inArray: function (item, arr) {
 		return arr.indexOf ? arr.indexOf(item) : emptyArray.indexOf.call(arr, item);
 	},
 
 
-	/**
-	 * A direct link to adapter methods
-	 */
 	adapterRun: function (elem, method) {
 		return parseInt(HighchartsAdapter._getStyle(elem, method), 10);
 	},
 
-	/**
-	 * Filter an array
-	 */
 	grep: function (elements, callback) {
 		return emptyArray.filter.call(elements, callback);
 	},
 
-	/**
-	 * Map an array
-	 */
 	map: function (arr, fn) {
 		var results = [], i = 0, len = arr.length;
 
@@ -512,23 +469,14 @@ return {
 		};
 	},
 
-	/**
-	 * Add an event listener
-	 */
 	addEvent: function (el, type, fn) {
 		augment(el).bind(type, fn);
 	},
 
-	/**
-	 * Remove event added with addEvent
-	 */
 	removeEvent: function (el, type, fn) {
 		augment(el).unbind(type, fn);
 	},
 
-	/**
-	 * Fire an event on a custom object
-	 */
 	fireEvent: function (el, type, eventArguments, defaultFunction) {
 		var e;
 
@@ -564,18 +512,10 @@ return {
 	},
 
 
-	/**
-	 * Stop running animation
-	 */
 	stop: function (el) {
 		el.stopAnimation = true;
 	},
 
-	/**
-	 * Utility for iterating over an array. Parameters are reversed compared to jQuery.
-	 * @param {Array} arr
-	 * @param {Function} fn
-	 */
 	each: function (arr, fn) { // modern browsers
 		return Array.prototype.forEach.call(arr, fn);
 	}

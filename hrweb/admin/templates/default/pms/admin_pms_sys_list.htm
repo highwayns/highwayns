@@ -19,24 +19,24 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">接收会员</div>	
+		<div class="left">会員受け取る</div>	
 		<div class="right">
-		<a href="{#"spms_usertype:"|highway_parse_url#}" {#if $smarty.get.spms_usertype==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"spms_usertype:0"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="0"#}class="select"{#/if#}>所有会员</a>
-		<a href="{#"spms_usertype:1"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="1"#}class="select"{#/if#}>企业会员</a>
-		<a href="{#"spms_usertype:2"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="2"#}class="select"{#/if#}>个人会员</a>
-		<a href="{#"spms_usertype:3"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="3"#}class="select"{#/if#}>猎头顾问</a>
-		<a href="{#"spms_usertype:4"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="4"#}class="select"{#/if#}>培训机构</a>
+		<a href="{#"spms_usertype:"|highway_parse_url#}" {#if $smarty.get.spms_usertype==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"spms_usertype:0"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="0"#}class="select"{#/if#}>すべてのメンバー</a>
+		<a href="{#"spms_usertype:1"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="1"#}class="select"{#/if#}>法人会員</a>
+		<a href="{#"spms_usertype:2"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="2"#}class="select"{#/if#}>個人メンバー</a>
+		<a href="{#"spms_usertype:3"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="3"#}class="select"{#/if#}>エグゼクティブサーチコンサルタント</a>
+		<a href="{#"spms_usertype:4"|highway_parse_url#}" {#if $smarty.get.spms_usertype=="4"#}class="select"{#/if#}>研修機構</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">消息类型</div>	
+		<div class="left">メッセージの種類</div>	
 		<div class="right">
-		<a href="{#"spms_type:"|highway_parse_url#}" {#if $smarty.get.spms_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"spms_type:1"|highway_parse_url#}" {#if $smarty.get.spms_type=="1"#}class="select"{#/if#}>普通消息</a>
-		<a href="{#"spms_type:2"|highway_parse_url#}" {#if $smarty.get.spms_type=="2"#}class="select"{#/if#}>注册提醒</a>
+		<a href="{#"spms_type:"|highway_parse_url#}" {#if $smarty.get.spms_type==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"spms_type:1"|highway_parse_url#}" {#if $smarty.get.spms_type=="1"#}class="select"{#/if#}>普通メッセージ</a>
+		<a href="{#"spms_type:2"|highway_parse_url#}" {#if $smarty.get.spms_type=="2"#}class="select"{#/if#}>登録リマインダー</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -49,10 +49,10 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>消息</label></td>
-      <td width="100"   align="center" class="admin_list_tit">接收会员</td>
-      <td width="100"   align="center" class="admin_list_tit">类型</td>
-      <td width="120"   align="center" class="admin_list_tit" >添加日期</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>消息</label></td>
+      <td width="100"   align="center" class="admin_list_tit">受けたメンバー</td>
+      <td width="100"   align="center" class="admin_list_tit">タイプ</td>
+      <td width="120"   align="center" class="admin_list_tit" >日にちの追加</td>
 	   <td width="130"   align="center" class="admin_list_tit" >操作</td>
     </tr>
 	  {#foreach from=$pmslist item=list#}
@@ -73,14 +73,14 @@ $(document).ready(function()
 		{#if $list.spms_type=='2'#}注册提醒{#/if#}		</td>
         <td align="center"  class="admin_list">{#$list.dateline|date_format:"%Y-%m-%d"#}</td>
 	    <td align="center"  class="admin_list">
-		<a href="?act=pms_edit&id={#$list.spmid#}">修改</a> &nbsp;&nbsp;
-		<a href="?act=pms_sys_del&id={#$list.spmid#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+		<a href="?act=pms_edit&id={#$list.spmid#}">変更</a> &nbsp;&nbsp;
+		<a href="?act=pms_sys_del&id={#$list.spmid#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a></td>
       </tr>
       {#/foreach#}
     </table>
   </form>
 	{#if !$pmslist#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}	
 <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
@@ -98,7 +98,7 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="消息">消息</li>
+														<li id="1" title="消息">メッセージ</li>
 														</ul>
 												</div>
 						</div>				

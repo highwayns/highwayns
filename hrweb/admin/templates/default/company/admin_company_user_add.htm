@@ -113,31 +113,31 @@ $(document).ready(function()
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">添加企业会员</div>
+<div class="toptit">法人会員を追加</div>
   <form id="form1" name="form1" method="post" action="?act=members_add_save">
   {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">用户名：</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ユーザー名：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed"> <input name="username" type="text" class="input_text_200" id="username" maxlength="25" value=""/> <label></label></td>
     </tr>
     <tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">邮箱地址：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">E-mailアドレス：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="email" type="text" class="input_text_200" id="email" maxlength="25" value=""/><label></label></td>
     </tr>
     <tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">登录密码：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">パスワード：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="password" type="password" class="input_text_200" id="password" maxlength="25" value=""/><label></label></td>
     </tr>
 	
     <tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">再次输入密码：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">もう一度パスワードを入力します。</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="password1" type="password" class="input_text_200" id="password1" maxlength="25" value=""/><label></label></td>
     </tr>
 		
 	{#if $HIGHWAY.operation_mode=="1"||$HIGHWAY.operation_mode=="3"#}
 	    <tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">是否赠送积分：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ポイントが送るかどうか：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed"  ><label>
         <input name="regpoints" type="radio" value="y" checked="checked" />
         赠送</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
@@ -146,14 +146,14 @@ $(document).ready(function()
 	    </tr>
 		
 		<tr id="regpointsshow">
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">赠送数量：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">贈り物の数量：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="regpoints_num" type="text" class="input_text_200" id="regpoints_num" maxlength="25" value="{#$points.reg_points.value#}" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/></td>
     </tr>
 		{#/if#}
 
 	{#if $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=="3"#}  
 	<tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">赠送服务套餐：</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ギフトサービスパッケージ：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" >
           <label>
           <input type="radio" name="reg_service" value="0" {#if $HIGHWAY.reg_service=='0'#}checked="checked"{#/if#}/>
@@ -180,7 +180,7 @@ $(document).ready(function()
 	   <tr class="log_amount3">
         <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
         <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
-         <span class="admin_note">(请填写收费金额)</span> </td>
+         <span class="admin_note">（金額を記入してください）</span> </td>
       </tr>
     <tr>
       <td height="30" align="right"  >&nbsp;</td>

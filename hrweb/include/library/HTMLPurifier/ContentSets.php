@@ -1,40 +1,15 @@
 ﻿<?php
 
-/**
- * @todo Unit test
- */
 class HTMLPurifier_ContentSets
 {
 
-    /**
-     * List of content set strings (pipe separators) indexed by name.
-     * @type array
-     */
     public $info = array();
 
-    /**
-     * List of content set lookups (element => true) indexed by name.
-     * @type array
-     * @note This is in HTMLPurifier_HTMLDefinition->info_content_sets
-     */
     public $lookup = array();
 
-    /**
-     * Synchronized list of defined content sets (keys of info).
-     * @type array
-     */
     protected $keys = array();
-    /**
-     * Synchronized list of defined content values (values of info).
-     * @type array
-     */
     protected $values = array();
 
-    /**
-     * Merges in module's content sets, expands identifiers in the content
-     * sets and populates the keys, values and lookup member variables.
-     * @param HTMLPurifier_HTMLModule[] $modules List of HTMLPurifier_HTMLModule
-     */
     public function __construct($modules)
     {
         if (!is_array($modules)) {
@@ -75,11 +50,6 @@ class HTMLPurifier_ContentSets
         $this->values = array_values($this->info);
     }
 
-    /**
-     * Accepts a definition; generates and assigns a ChildDef for it
-     * @param HTMLPurifier_ElementDef $def HTMLPurifier_ElementDef reference
-     * @param HTMLPurifier_HTMLModule $module Module that defined the ElementDef
-     */
     public function generateChildDef(&$def, $module)
     {
         if (!empty($def->child)) { // already done!
@@ -104,15 +74,6 @@ class HTMLPurifier_ContentSets
         return $this->info[$matches[0]];
     }
 
-    /**
-     * Instantiates a ChildDef based on content_model and content_model_type
-     * member variables in HTMLPurifier_ElementDef
-     * @note This will also defer to modules for custom HTMLPurifier_ChildDef
-     *       subclasses that need content set expansion
-     * @param HTMLPurifier_ElementDef $def HTMLPurifier_ElementDef to have ChildDef extracted
-     * @param HTMLPurifier_HTMLModule $module Module that defined the ElementDef
-     * @return HTMLPurifier_ChildDef corresponding to ElementDef
-     */
     public function getChildDef($def, $module)
     {
         $value = $def->content_model;
@@ -150,12 +111,6 @@ class HTMLPurifier_ContentSets
         return false;
     }
 
-    /**
-     * Converts a string list of elements separated by pipes into
-     * a lookup array.
-     * @param string $string List of elements
-     * @return array Lookup array of elements
-     */
     protected function convertToLookup($string)
     {
         $array = explode('|', str_replace(' ', '', $string));

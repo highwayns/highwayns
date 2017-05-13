@@ -3,15 +3,8 @@
 class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
 {
 
-    /**
-     * @type HTMLPurifier_HTMLDefinition, for easy access
-     */
     protected $def;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @return string
-     */
     public function render($config)
     {
         $ret = '';
@@ -31,10 +24,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $ret;
     }
 
-    /**
-     * Renders the Doctype table
-     * @return string
-     */
     protected function renderDoctype()
     {
         $doctype = $this->def->doctype;
@@ -50,10 +39,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
     }
 
 
-    /**
-     * Renders environment table, which is miscellaneous info
-     * @return string
-     */
     protected function renderEnvironment()
     {
         $def = $this->def;
@@ -96,10 +81,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $ret;
     }
 
-    /**
-     * Renders the Content Sets table
-     * @return string
-     */
     protected function renderContentSets()
     {
         $ret = '';
@@ -115,10 +96,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $ret;
     }
 
-    /**
-     * Renders the Elements ($info) table
-     * @return string
-     */
     protected function renderInfo()
     {
         $ret = '';
@@ -176,11 +153,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $ret;
     }
 
-    /**
-     * Renders a row describing the allowed children of an element
-     * @param HTMLPurifier_ChildDef $def HTMLPurifier_ChildDef of pertinent element
-     * @return string
-     */
     protected function renderChildren($def)
     {
         $context = new HTMLPurifier_Context();
@@ -253,11 +225,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $ret;
     }
 
-    /**
-     * Listifies a tag lookup table.
-     * @param array $array Tag lookup array in form of array('tagname' => true)
-     * @return string
-     */
     protected function listifyTagLookup($array)
     {
         ksort($array);
@@ -271,12 +238,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $this->listify($list);
     }
 
-    /**
-     * Listifies a list of objects by retrieving class names and internal state
-     * @param array $array List of objects
-     * @return string
-     * @todo Also add information about internal state
-     */
     protected function listifyObjectList($array)
     {
         ksort($array);
@@ -287,11 +248,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $this->listify($list);
     }
 
-    /**
-     * Listifies a hash of attributes to AttrDef classes
-     * @param array $array Array hash in form of array('attrname' => HTMLPurifier_AttrDef)
-     * @return string
-     */
     protected function listifyAttr($array)
     {
         ksort($array);
@@ -305,12 +261,6 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         return $this->listify($list);
     }
 
-    /**
-     * Creates a heavy header row
-     * @param string $text
-     * @param int $num
-     * @return string
-     */
     protected function heavyHeader($text, $num = 1)
     {
         $ret = '';

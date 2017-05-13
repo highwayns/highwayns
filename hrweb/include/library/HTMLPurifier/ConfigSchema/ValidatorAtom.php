@@ -1,31 +1,13 @@
 ﻿<?php
 
-/**
- * Fluent interface for validating the contents of member variables.
- * This should be immutable. See HTMLPurifier_ConfigSchema_Validator for
- * use-cases. We name this an 'atom' because it's ONLY for validations that
- * are independent and usually scalar.
- */
 class HTMLPurifier_ConfigSchema_ValidatorAtom
 {
-    /**
-     * @type string
-     */
     protected $context;
 
-    /**
-     * @type object
-     */
     protected $obj;
 
-    /**
-     * @type string
-     */
     protected $member;
 
-    /**
-     * @type mixed
-     */
     protected $contents;
 
     public function __construct($context, $obj, $member)
@@ -36,9 +18,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         $this->contents =& $obj->$member;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertIsString()
     {
         if (!is_string($this->contents)) {
@@ -47,9 +26,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertIsBool()
     {
         if (!is_bool($this->contents)) {
@@ -58,9 +34,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertIsArray()
     {
         if (!is_array($this->contents)) {
@@ -69,9 +42,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertNotNull()
     {
         if ($this->contents === null) {
@@ -80,9 +50,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertAlnum()
     {
         $this->assertIsString();
@@ -92,9 +59,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertNotEmpty()
     {
         if (empty($this->contents)) {
@@ -103,9 +67,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     public function assertIsLookup()
     {
         $this->assertIsArray();
@@ -117,10 +78,6 @@ class HTMLPurifier_ConfigSchema_ValidatorAtom
         return $this;
     }
 
-    /**
-     * @param string $msg
-     * @throws HTMLPurifier_ConfigSchema_Exception
-     */
     protected function error($msg)
     {
         throw new HTMLPurifier_ConfigSchema_Exception(ucfirst($this->member) . ' in ' . $this->context . ' ' . $msg);

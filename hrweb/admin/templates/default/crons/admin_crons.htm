@@ -27,7 +27,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
  <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 计划任务是一项使系统在规定时间自动执行某些特定任务的功能，在需要的情况下，您也可以方便的将其用于功能的扩展。<br />
 计划任务是与系统核心紧密关联的功能特性，不当的设置可能造成功能的隐患，严重时可能导致网站无法正常运行。
@@ -38,12 +38,12 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />名称</label>
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />名称</label>
 	  </td>
-      <td   align="center" class="admin_list_tit"  width="10%"> 可用 </td>
-      <td   align="center" class="admin_list_tit"  width="10%">类型</td>
-      <td   align="center"   class="admin_list_tit"  width="160">上次执行时间</td>
-	  <td   align="center"   class="admin_list_tit"  width="160">下次执行时间</td>
+      <td   align="center" class="admin_list_tit"  width="10%">利用可能 </td>
+      <td   align="center" class="admin_list_tit"  width="10%">タイプ</td>
+      <td   align="center"   class="admin_list_tit"  width="160">最終実行時間</td>
+	  <td   align="center"   class="admin_list_tit"  width="160">次回の実行時刻</td>
       <td width="130" align="center"  class="admin_list_tit" >操作</td>
     </tr>
 	 {#foreach from=$list item=list#}
@@ -53,7 +53,7 @@ $(document).ready(function()
 	  {#$list.name#}
 	 </td>
       <td align="center"  class="admin_list">
-	 {#if $list.available=="1"#}可用{#else#}<span style="color:#999999">不可用</span>{#/if#}
+	 {#if $list.available=="1"#}可用{#else#}<span style="color:#999999">利用不可</span>{#/if#}
 	 </td>
 	   <td align="center"  class="admin_list"> 
 	   {#if $list.admin_set=="1"#}内置{#else#}自定义{#/if#}
@@ -61,15 +61,15 @@ $(document).ready(function()
       <td align="center"  class="admin_list">{#$list.lastrun|date_format:"%Y-%m-%d %H:%M"#}</td>
       <td align="center"   class="admin_list">{#$list.nextrun|date_format:"%Y-%m-%d %H:%M"#}</td>
       <td align="center"   class="admin_list">
-	  <a href="?act=edit&id={#$list.cronid#}">编辑</a>
-	  <a href="?act=execution&id={#$list.cronid#}&{#$urltoken#}"  class="exe">执行</a>
+	  <a href="?act=edit&id={#$list.cronid#}">編集</a>
+	  <a href="?act=execution&id={#$list.cronid#}&{#$urltoken#}"  class="exe">実行</a>
 	  </td>
     </tr>
 	 {#/foreach#}
   </table>
   </form>
   {#if !$list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

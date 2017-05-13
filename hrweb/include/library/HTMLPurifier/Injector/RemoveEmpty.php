@@ -2,42 +2,18 @@
 
 class HTMLPurifier_Injector_RemoveEmpty extends HTMLPurifier_Injector
 {
-    /**
-     * @type HTMLPurifier_Context
-     */
     private $context;
 
-    /**
-     * @type HTMLPurifier_Config
-     */
     private $config;
 
-    /**
-     * @type HTMLPurifier_AttrValidator
-     */
     private $attrValidator;
 
-    /**
-     * @type bool
-     */
     private $removeNbsp;
 
-    /**
-     * @type bool
-     */
     private $removeNbspExceptions;
 
-    /**
-     * @type array
-     * TODO: make me configurable
-     */
     private $_exclude = array('colgroup' => 1, 'th' => 1, 'td' => 1, 'iframe' => 1);
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return void
-     */
     public function prepare($config, $context)
     {
         parent::prepare($config, $context);
@@ -48,9 +24,6 @@ class HTMLPurifier_Injector_RemoveEmpty extends HTMLPurifier_Injector
         $this->attrValidator = new HTMLPurifier_AttrValidator();
     }
 
-    /**
-     * @param HTMLPurifier_Token $token
-     */
     public function handleElement(&$token)
     {
         if (!$token instanceof HTMLPurifier_Token_Start) {

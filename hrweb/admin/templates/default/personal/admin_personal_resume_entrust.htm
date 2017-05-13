@@ -18,7 +18,7 @@ $(document).ready(function()
 </div>
 
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 委托投递是指：在委托时间内将简历投递到合适的职位。<br />
 </p>
@@ -31,14 +31,14 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
     <tr>
       <td   class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>职位名称</label></td>
-      <td  class="admin_list_tit"> 发布公司 </td>
-	<td align="center"  width="10%" class="admin_list_tit">审核状态</td>
-	<td align="center" width="10%" class="admin_list_tit">公司规模</td>
-	<td align="center" width="5%" class="admin_list_tit">行业</td>
-	<td align="center"  width="8%" class="admin_list_tit">性别要求</td>
-     	<td align="center" width="8%"  class="admin_list_tit">学历要求</td>
-     	<td align="center" width="8%"  class="admin_list_tit">工资</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>职位名称</label></td>
+      <td  class="admin_list_tit">会社掲載</td>
+	<td align="center"  width="10%" class="admin_list_tit">監査ステータス</td>
+	<td align="center" width="10%" class="admin_list_tit">会社規模</td>
+	<td align="center" width="5%" class="admin_list_tit">産業</td>
+	<td align="center"  width="8%" class="admin_list_tit">性別</td>
+     	<td align="center" width="8%"  class="admin_list_tit">学歴要件</td>
+     	<td align="center" width="8%"  class="admin_list_tit">賃金</td>
       <td    width="100" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$jobs item=list#}
@@ -46,20 +46,20 @@ $(document).ready(function()
       	<td  class="admin_list admin_list_first">
      	   <input name="y_id[]" type="checkbox" id="y_id" value="{#$list.id#}"  />		
 		 <a href="{#$list.jobs_url#}" target="_blank"{#if $list.deadline<$smarty.now || $list.display == "2"#}style="color:#999999"{#/if#}  >{#$list.jobs_name#}</a>		 
-		 {#if $list.emergency == "1"#}&nbsp;<span style="color: #FF6600">[急聘]</span>{#/if#}
-		{#if $list.recommend == "1"#}&nbsp;<span style="color: #339900">[推荐]</span>{#/if#}
-		{#if $list.stick == "1"#}&nbsp;<span style="color: #FF3399">[置顶]</span>{#/if#}
-		{#if $list.highlight != ""#}&nbsp;<span style="color: #6633CC">[变色]</span>{#/if#}
-		{#if $list.display == "2"#}&nbsp;<span style="color: #999999">[已暂停]</span>{#/if#}		
+		 {#if $list.emergency == "1"#}&nbsp;<span style="color: #FF6600">[緊急募集] </span>{#/if#}
+		{#if $list.recommend == "1"#}&nbsp;<span style="color: #339900">[推奨] </span>{#/if#}
+		{#if $list.stick == "1"#}&nbsp;<span style="color: #FF3399">[トップ設置] </span>{#/if#}
+		{#if $list.highlight != ""#}&nbsp;<span style="color: #6633CC">[変色]</span>{#/if#}
+		{#if $list.display == "2"#}&nbsp;<span style="color: #999999">[停止済み]< </span>{#/if#}		
 	</td>
       	<td class="admin_list">
 		<a href="{#$list.company_url#}" target="_blank" style="color: #000000" title="{#$list.companyname#}">{#$list.companyname#}</a>
 	</td>
 	 <td class="admin_list" align="center">
 		{#if $list.audit == "1"#}
-		<span style="color: #009900">审核通过</span>	
+		<span style="color: #009900">承認</span>	
 		{#elseif $list.audit == "2"#}
-		<span style="color:#FF0000">等待审核</span>
+		<span style="color:#FF0000">審査待ち</span>
 		{#elseif $list.audit == "3"#}
 		审核未通过
 		{#/if#}
@@ -80,7 +80,7 @@ $(document).ready(function()
 		{#$list.wage_cn#}
 	</td>
         	<td class="admin_list" align="center" >	
-		<a href="?act=mailing&id={#$list.id#}&uid={#$resume.uid#}&rid={#$resume.id#}"  id="{#$list.uid#}">投递</a> 
+		<a href="?act=mailing&id={#$list.id#}&uid={#$resume.uid#}&rid={#$resume.id#}"  id="{#$list.uid#}">配達</a> 
 	</td>
       </tr>
       {#/foreach#}   
@@ -90,7 +90,7 @@ $(document).ready(function()
   <span id="OpPhotoresume"></span>
  </form>
 {#if !$list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
