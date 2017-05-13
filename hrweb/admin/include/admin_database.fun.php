@@ -28,7 +28,7 @@ function escape_str($str){
 	return $str;
 }
 function get_sqlfile_info($file){
-	$file_info = array('74cms_ver'=>'', 'mysql_ver'=> '', 'add_time'=>'');
+	$file_info = array('highwayns_ver'=>'', 'mysql_ver'=> '', 'add_time'=>'');
     if (!$fp = @fopen($file,'rb'))
 	{
 		adminmsg("ファイル{$file}開く失敗",0);
@@ -41,8 +41,8 @@ function get_sqlfile_info($file){
         if ($pos > 0){
             $type = trim(substr($val, 0, $pos), "-\n\r\t ");
             $value = trim(substr($val, $pos+1), "/\n\r\t ");
-            if ($type == '74CMS VERSION'){
-                $file_info['74cms_ver'] = $value;
+            if ($type == 'HIGHWAY VERSION'){
+                $file_info['highwayns_ver'] = $value;
             }
             elseif ($type == 'Mysql VERSION'){
                 $file_info['mysql_ver'] = substr($value,0,3);

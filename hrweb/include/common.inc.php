@@ -9,7 +9,7 @@ require_once(HIGHWAY_ROOT_PATH.'data/config.php');
 header("Content-Type:text/html;charset=".HIGHWAY_CHARSET);
 require_once(HIGHWAY_ROOT_PATH.'include/help.class.php');
 require_once(HIGHWAY_ROOT_PATH.'include/common.fun.php');
-require_once(HIGHWAY_ROOT_PATH.'include/74cms_version.php');
+require_once(HIGHWAY_ROOT_PATH.'include/highwayns_version.php');
 $QSstarttime=exectime();
 if (!empty($_GET))
 {

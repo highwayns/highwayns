@@ -47,7 +47,7 @@ elseif($act =='do_backup')
 	$sql = '';
 	$version = HIGHWAY_VERSION;
 	$add_time = date("Y-m-d H:i:s");
-	$sql .= "-- 74CMS VERSION:{$version}\r\n".
+	$sql .= "-- HIGHWAY VERSION:{$version}\r\n".
 	"-- Mysql VERSION:{$db_version}\r\n".
 	"-- Create time:{$add_time}\r\n";
 	$count = count($tables);
@@ -61,12 +61,12 @@ elseif($act =='do_backup')
 		$table_sql1 = substr($table_sql, 0, strrpos($table_sql, ')', 25)+1);
 			if ($mysql_type == 'mysql40' && $db_version > 4.0)
 			{
-			$s = "TYPE=MyISAM;\r\n";
+			$s = "TYPE=InnoDB;\r\n";
 			$table_sql = $table_sql1 . $s;
 			}
 			elseif($mysql_type == 'mysql41' && $db_version < 4.1)
 			{
-			$s = "ENGINE=MyISAM DEFAULT CHARSET=".HIGHWAY_CHARSET.";\r\n";
+			$s = "ENGINE=InnoDB DEFAULT CHARSET=".HIGHWAY_CHARSET.";\r\n";
 			$table_sql = $table_sql1 . $s;
 			}
 			else
@@ -173,7 +173,7 @@ elseif($act =='restore')
 					}
 			}
 		$file_info[$key]['file_name'] = substr($file,0);
-		$file_info[$key]['74cms_ver'] = $sqlfile_info_arr['74cms_ver'];
+		$file_info[$key]['highwayns_ver'] = $sqlfile_info_arr['highwayns_ver'];
 		$file_info[$key]['mysql_ver'] = $sqlfile_info_arr['mysql_ver'];
 		$file_info[$key]['add_time'] = $sqlfile_info_arr['add_time'];
 	}
@@ -241,7 +241,7 @@ elseif($act =='import')
 		closedir("../data/".$backup_dir);
 		$file ="../data/{$backup_dir}/{$backup_file[0]}";
 		$file_info = get_sqlfile_info($file);
-		if($file_info['74cms_ver'] != HIGHWAY_VERSION)
+		if($file_info['highwayns_ver'] != HIGHWAY_VERSION)
 		{
 		adminmsg('海威人材プログラムとバックアップ一致しません');
 		}
