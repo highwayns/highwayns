@@ -8,12 +8,12 @@
 	{#include file="explain/admin_explain_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">添加说明页</div>
+<div class="toptit">説明ページを追加します</div>
   <form action="?act=addsave" method="post" enctype="multipart/form-data" name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="3" cellspacing="0" class="admin_table">
       <tr>
-        <td width="67" align="right" style="border:0px" >页面名称：</td>
+        <td width="67" align="right" style="border:0px" >ページ名：</td>
         <td width="400" style="border:0px">
 		<input name="title" type="text"  class="input_text_400" maxlength="45"/>		</td>
         <td style="border:0px">
@@ -25,9 +25,9 @@
 		</td>
       </tr>
       <tr>
-        <td align="right" >所属分类：</td>
+        <td align="right" >カテゴリー：</td>
         <td colspan="2" ><select name="type_id" id="type_id"  >
-          <option value="">请选择所属分类：</option>
+          <option value="">カテゴリを選択してください：</option>
 		  {#foreach from=$get_explain_category item=list#}
           <option value="{#$list.id#}"  {#if $list.id==$smarty.get.type_id#} selected="selected" {#/if#}>{#$list.categoryname#}</option>
 {#/foreach#}        
@@ -44,14 +44,14 @@
         </td>
       </tr>
       <tr>
-        <td height="50" align="center" ><input type="submit" name="Submit" value="确定提交" class="admin_submit"   />
+        <td height="50" align="center" ><input type="submit" name="Submit" value=“提出確定” class="admin_submit"   />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="reset" name="Submit2" value="重置表单" class="admin_submit"   /></td>
       </tr>
     </table>
     <table width="100%" border="0" cellpadding="3" cellspacing="0"  class="admin_table">
       <tr>
-        <td width="120" height="30" align="right" >是否显示：</td>
+        <td width="120" height="30" align="right" >表示されます:</td>
         <td width="180" >
 		
 		<label><input name="is_display" type="radio" value="1" checked="checked" />
@@ -59,14 +59,14 @@
 显示</label>
 <label><input type="radio" name="is_display" value="0" /> 
 不显示</label></td>
-        <td width="120" align="right" >显示排序：</td>
+        <td width="120" align="right" >並べ替え：</td>
         <td ><input name="show_order" type="text"  class="input_text_150" id="show_order" style="width:50px;" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;数字越大越靠前</span></td>
+        <span>＆NBSP;＆NBSP;＆NBSP;＆NBSP;より多く、よりフォワード</span></td>
       </tr>
       <tr>
-        <td height="30" align="right" >外部链接：</td>
+        <td height="30" align="right" >外部リンク：</td>
         <td ><input name="is_url" type="text" class="input_text_150" id="is_url" value="" maxlength="100"/></td>
-        <td align="right" >标题加粗：</td>
+        <td align="right" >titleを大きくする：</td>
         <td ><input name="tit_b" type="checkbox" id="tit_b" value="1" />
         加粗</td>
       </tr>

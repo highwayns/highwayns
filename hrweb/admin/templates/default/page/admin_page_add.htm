@@ -20,37 +20,37 @@ document.getElementById(i).style.display="";
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 在设置以下内容时，路径均是以网站安装目录为基础的路径。<br />
           若设置了伪静态，同时请在服务器伪静态规则文件中增加对应规则。<br />
 </div>
-<div class="toptit">基础设置</div>
+<div class="toptit">基本設定</div>
   <form action="?act=add_page_save" method="post"   name="form1" id="form1">
   {#$inputtoken#}
     <table width="100%" border="0" cellspacing="0" cellpadding="4" class="link_lan">
       <tr>
         <td style=" line-height:220%; color:#666666;"><table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
             <tr>
-              <td width="150" align="right">页面类型：</td>
-              <td> 自定义页面</td>
+              <td width="150" align="right">ページタイプ：</td>
+              <td> カスタムページ</td>
             </tr>
             <tr>
-              <td width="150" align="right">调用ID：</td>
+              <td width="150" align="right">コールID：</td>
               <td><input name="alias" type="text"  class="input_text_200" id="alias" value="" maxlength="30">
 			  自定义页面调用名称不可以用 "HW_" 开头
 			  </td>
             </tr>
             <tr>
-              <td width="150" align="right">页面名称：</td>
+              <td width="150" align="right">ページ名：</td>
               <td><input name="pname" type="text"  class="input_text_200" id="title" value="" maxlength="60"></td>
             </tr>
             <tr>
-              <td width="150" align="right">导航关联标记：</td>
+              <td width="150" align="right">ナビゲーション関連するタグ：</td>
               <td><input name="tag" type="text"  class="input_text_200" id="tag" value="" maxlength="60"></td>
             </tr>
             <tr>
-              <td align="right">链接优化：</td>
+              <td align="right">リンクの最適化：</td>
               <td><table border="0" cellspacing="0" cellpadding="0">
                   <tr>
                     <td width="120"><label >
@@ -64,7 +64,7 @@ document.getElementById(i).style.display="";
               </table></td>
             </tr>
             <tr>
-              <td align="right">页面类型：</td>
+              <td align="right">ページタイプ：</td>
               <td><table border="0" cellspacing="0" cellpadding="0">
                   <tr>
                     <td width="120"><label >
@@ -83,35 +83,35 @@ document.getElementById(i).style.display="";
         </table></td>
       </tr>
 	  </table>
-	  <div class="toptit">页面设置</div>
+	  <div class="toptit">ページ設定</div>
 	  <table width="100%" border="0" cellspacing="0" cellpadding="4" class="link_lan">
       <tr>
         <td  ><table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
             <tr>
-              <td width="150" align="right">文件路径：</td>
+              <td width="150" align="right">パスをファイル：</td>
               <td width="210"><input name="file" type="text"  class="input_text_200" id="file" value="" /></td>
               <td><span style="color:#666666">(系统会自动生成此文件)</span>&nbsp;</td>
             </tr>
             <tr>
-              <td width="150" align="right">模板路径：</td>
+              <td width="150" align="right">テンプレートのパス：</td>
               <td><input name="tpl" type="text"  class="input_text_200" id="tpl" value="" /></td>
               <td><span style="color:#666666">(添加后请增加此模板，否则页面无法访问)</span>&nbsp;</td>
             </tr>
             <tr>
-              <td width="150" align="right">伪静态规则：</td>
+              <td width="150" align="right">擬似静的なルール：</td>
               <td><input name="rewrite" type="text"  class="input_text_200" id="rewrite" value=""/></td>
               <td><span style="color:#666666">(增加后请在服务器伪静态配置文件增加对应规则)</span>&nbsp;</td>
             </tr>
 
             <tr>
-              <td align="right"><a  href="javascript:isdisplay('caching_help')" >(?)</a>&nbsp;&nbsp;缓存时间：</td>
+              <td align="right"><a  href="javascript:isdisplay('caching_help')" >(?)</a>＆NBSP;＆NBSP;キャッシュ時間：</td>
               <td><input name="caching" type="text"  class="input_text_200" id="caching" value="0" maxlength="30"/></td>
-              <td>分钟 <span style="color:#666666">(0为不缓存) </span></td>
+              <td>分<span style=“color:#666666”>(0为不缓存) </span></td>
             </tr>
           </table>
             <table width="100%" border="0" cellpadding="0" style="line-height:180%; padding-left:15px; display:none" id="caching_help">
               <tr>
-                <td><span style="color:#666666"> <strong style="color:#003399">缓存说明</strong><br />
+                <td><span style="color:#666666"> <strong style="color:#003399">キャッシュの説明</strong><br />
                   缓存是当查询数据时，会把结果序列化后保存到文件中，以后同样的查询就不用查询数据库，而是从缓存中获得。这一改进使得程序速度得以太幅度提升。<br />
                   缓存时间是缓存重新加载周期，周期越长，数据库的负荷越小，缓存周期假设为50秒，则每50秒刷新缓存一次。</span><br /></td>
               </tr>
@@ -120,16 +120,16 @@ document.getElementById(i).style.display="";
       </tr>
     </table>
 	<div id="seo">
-	<div class="toptit">搜索引擎优化(SEO)</div>
+	<div class="toptit">検索エンジン最適化（SEO）</div>
 	  <table width="100%" border="0" cellspacing="0" cellpadding="4" class="link_lan">
   
       <tr>
         <td style=" line-height:220%; color:#666666;"><table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
 		<tr>
-              <td width="150" align="right">可用标签：</td>
+              <td width="150" align="right">利用可能なタグ：</td>
               <td>
-			    <div id="{sitename}" class="sellabel">网站名称</div>
-				<div id="{domain}" class="sellabel">网站域名</div>
+			    <div id="{sitename}" class="sellabel">サイト名</div>
+				<div id="{domain}" class="sellabel">ドメイン</div>
 				<div class="clear"></div>
 				</td>
             </tr>

@@ -19,9 +19,9 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">文章分类</div>	
+		<div class="left">記事のカテゴリ</div>	
 		<div class="right">
-		<a href="{#"type_id:,parentid:"|highway_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:,parentid:"|highway_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>制限なし</a>
 		{#highway_news_category set="列表名:category,资讯大类:0"#}
 		{#foreach from=$category item=list#}
 			<a href="{#"type_id:,parentid:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.parentid==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
@@ -32,9 +32,9 @@ $(document).ready(function()
 </div>
 {#if $smarty.get.parentid<>""#}
 <div class="seltpye_x">
-		<div class="left"><span style="color:#999999">└ </span>子分类</div>	
+		<div class="left"><span style="color:#999999">└ </span>サブカテゴリ</div>	
 		<div class="right">
-		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>制限なし</a>
 	 	{#highway_news_category set="列表名:category,资讯大类:"|cat:$smarty.get.parentid#}
 		{#foreach from=$category item=list#}
 		<a href="{#"type_id:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
@@ -46,9 +46,9 @@ $(document).ready(function()
 {#/if#}
 
 <div class="seltpye_x">
-		<div class="left">文章属性</div>	
+		<div class="left">アーティクルのプロパティ</div>	
 		<div class="right">
-		<a href="{#"focos:"|highway_parse_url#}" {#if $smarty.get.focos==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"focos:"|highway_parse_url#}" {#if $smarty.get.focos==""#}class="select"{#/if#}>制限なし</a>
 		{#highway_news_property set="列表名:property"#}
 		{#foreach from=$property item=list#}
 			<a href="{#"focos:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.focos==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
@@ -60,14 +60,14 @@ $(document).ready(function()
 
 
  <div class="seltpye_x">
-		<div class="left">添加时间</div>	
+		<div class="left">タイムの追加</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -77,12 +77,12 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>文章标题</label></td>
-      <td width="100"   align="center"  class="admin_list_tit">添加方式</td>
-      <td width="100"   align="center" class="admin_list_tit"> 属性 </td>
-	  <td width="50"   align="center" class="admin_list_tit">排序</td>
-      <td width="50"   align="center" class="admin_list_tit">点击</td>
-      <td width="120"   align="center" class="admin_list_tit" >添加日期</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>文章标题</label></td>
+      <td width="100"   align="center"  class="admin_list_tit"></tdの実施例を追加します。>
+      <td width="100"   align="center" class="admin_list_tit"> プロパティ</td>
+	  <td width="50"   align="center" class="admin_list_tit">並び替え</td>
+      <td width="50"   align="center" class="admin_list_tit">クリック</td>
+      <td width="120"   align="center" class="admin_list_tit" >日にちの追加</td>
       <td width="100"   align="center" class="admin_list_tit" >操作</td>
     </tr>
 	  {#foreach from=$article item=list#}
@@ -92,7 +92,7 @@ $(document).ready(function()
 		<a href="?type_id={#$list.type_id#}&parentid={#$list.parentid#}" style="color: #006699">[{#$list.c_categoryname#}]</a> 
 		{#$list.url_title#}
 		 {#if $list.is_display<>"1"#} 
-		 <span style="color:#999999">[已屏蔽]</span>
+		 <span style="color:#999999">[ブロックされた]</span>
 		 {#/if#}
 	    </td>
 		 <td align="center" class="admin_list" >
@@ -103,14 +103,14 @@ $(document).ready(function()
         <td align="center"  class="admin_list">{#$list.click#}</td>
         <td align="center"  class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>
         <td align="center"  class="admin_list">
-		<a href="?act=article_edit&id={#$list.id#}">修改</a> &nbsp;&nbsp;
-		<a href="?act=migrate_article&id={#$list.id#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+		<a href="?act=article_edit&id={#$list.id#}">変更</a> &nbsp;&nbsp;
+		<a href="?act=migrate_article&id={#$list.id#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a></td>
       </tr>
       {#/foreach#}
     </table>
   </form>
 	{#if !$article#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}	
 <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
@@ -128,8 +128,8 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="标题">标题</li>
-														<li id="2" title="资讯ID">资讯ID</li>
+														<li id="1" title="标题">titleます。</li>
+														<li id="2" title="资讯ID">情報ID</li>
 														</ul>
 												</div>
 						</div>				

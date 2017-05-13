@@ -1,21 +1,9 @@
 ﻿<?php
 
-/**
- * A "safe" object module. In theory, objects permitted by this module will
- * be safe, and untrusted users can be allowed to embed arbitrary flash objects
- * (maybe other types too, but only Flash is supported as of right now).
- * Highly experimental.
- */
 class HTMLPurifier_HTMLModule_SafeObject extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'SafeObject';
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         // These definitions are not intrinsically safe: the attribute transforms

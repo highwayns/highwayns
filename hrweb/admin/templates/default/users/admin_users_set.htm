@@ -37,7 +37,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 通过管理员设置，您可以进行编辑管理员资料、权限、密码以及删除管理员等操作；
 </p>
@@ -46,15 +46,15 @@ $(document).ready(function()
 <span style="color: #FF3300">({#$account.admin_name#})</span>
 	  {#if $admin_purview=="all"#}
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全选]</span>
+	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全部選択]</span>
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[全不选]</span>
+	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[選択解除]</span>
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="opposite" style="color:#0066CC; cursor:pointer">[反选]</span>
+	  <span id="opposite" style="color:#0066CC; cursor:pointer">[逆選択]</span>
 	  {#/if#}
 </div>
   {#if $account.purview=="all"#}
-  <div  style="color:#009900; padding:24px;">系统超级管理员权限不允许修改！</div>
+  <div  style="color:#009900; padding:24px;">このシステムは、スーパー管理者の権限を変更することはできません！</div>
     <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
     <tr>
       <td bgcolor="#FFFFFF"  style="padding-left:24px;" > 

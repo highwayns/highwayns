@@ -7,13 +7,13 @@
   <div class="clear"></div>
 </div>
  <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 计划任务是一项使系统在规定时间自动执行某些特定任务的功能，在需要的情况下，您也可以方便的将其用于功能的扩展。<br />
 计划任务是与系统核心紧密关联的功能特性，不当的设置可能造成功能的隐患，严重时可能导致网站无法正常运行。
 </p>
 </div>
-<div class="toptit">添加计划任务</div>
+<div class="toptit">タスク計画を追加します</div>
 
   <div class="admintable">
   
@@ -22,44 +22,44 @@
     <table width="100%" border="0" cellpadding="3" cellspacing="0">
 
 	 <tr>
-        <td  class="tit">名称：</td>
+        <td  class="tit">名前：</td>
       </tr>
       <tr>
         
         <td>
 		<input name="name" type="text"  class="input_text_200" maxlength="20" />
-		<span class="admin_note">设置本任务的任务名称</span>		</td>
+		<span class="admin_note">このタスクのタスク名を設定します</span>		</td>
       </tr>
 	   <tr>
-        <td  class="tit">任务脚本：</td>
+        <td  class="tit">タスクのスクリプト：</td>
       </tr>
       <tr>
         
         <td>
 		<input name="filename" type="text"  class="input_text_200" maxlength="30" />
 		
-		<span class="admin_note">设置本任务的执行程序文件名，请勿包含路径，程序脚本统一存放于 ./include/crons/ 目录中</span>		</td>
+		<span class="admin_note">このタスクの実行ファイル名の設定は、パスが含まれないよう、./include/crons/目録中</span>		</td>
       </tr>
 	  
 	   <tr>
       <tr>
-        <td  class="tit">每周：</td>
+        <td  class="tit">毎週：</td>
       </tr>
         <td>
 		<select name="weekday"  class="input_text_200_select">
         <option value="-1" selected="selected">*</option>
         <option value="0">日</option>
         <option value="1">一</option>
-        <option value="2">二</option>
+        <option value="2">2つ</option>
         <option value="3">三</option>
         <option value="4">四</option>
         <option value="5">五</option>
         <option value="6">六</option>
       </select>
-	  <span class="admin_note">设置星期几执行本任务，“*”为不限制，本设置会覆盖下面的“日”设定</span>	  </td>
+	  <span class="admin_note">週の設定日は、この設定は、以下の「日」を設定を上書きし、制限されていない「*」、このタスクを実行するには</span>	  </td>
       </tr>
 	   <tr>
-        <td  class="tit">每月：</td>
+        <td  class="tit">毎月：</td>
       </tr>
      <tr>
  
@@ -67,91 +67,91 @@
 		 <select name="day" class="input_text_200_select">
           <option value="-1" selected="selected">*</option>
           <option value="1">1 日</option>
-          <option value="2">2   日</option>
+          <option value="2">2  日</option>
           <option value="3">3 日</option>
           <option value="4">4 日</option>
           <option value="5">5 日</option>
           <option value="6">6 日</option>
-          <option value="7">7   日</option>
-          <option value="8">8 日</option>
+          <option value="7">7 日</option>
+          <option value="8">8日</option>
           <option value="9">9 日</option>
-          <option value="10">10 日</option>
+          <option value="10">10日</option>
           <option value="11">11 日</option>
-          <option value="12">12   日</option>
+          <option value="12">12 日</option>
           <option value="13">13 日</option>
           <option value="14">14 日</option>
           <option value="15">15 日</option>
-          <option value="16">16 日</option>
-          <option value="17">17   日</option>
+          <option value="16">16 時</option>
+          <option value="17">17 </option>
           <option value="18">18 日</option>
           <option value="19">19 日</option>
           <option value="20">20 日</option>
-          <option value="21">21 日</option>
-          <option value="22">22   日</option>
+          <option value="21">21 </option>
+          <option value="22">22 日</option>
           <option value="23">23 日</option>
           <option value="24">24 日</option>
           <option value="25">25 日</option>
           <option value="26">26 日</option>
-          <option value="27">27   日</option>
+          <option value="27">27 日</option>
           <option value="28">28 日</option>
           <option value="29">29 日</option>
           <option value="30">30 日</option>
           <option value="31">31 日</option>
         </select>
-		 <span class="admin_note">设置哪一日执行本任务，“*”为不限制</span>		</td>
+		 <span class="admin_note">任務実行日の設定、「*」が制限なし</span>		</td>
       </tr>
  <tr>
-        <td  class="tit">小时：</td>
+        <td  class="tit">時間：</td>
       </tr>
    <tr>
         <td >
 	<select name="hour" class="input_text_200_select">
           <option value="-1">*</option>
-          <option value="0" selected="selected">0 时</option>
-          <option value="1">1 时</option>
-          <option value="2">2   时</option>
-          <option value="3">3 时</option>
-          <option value="4">4 时</option>
-          <option value="5">5 时</option>
-          <option value="6">6 时</option>
-          <option value="7">7   时</option>
-          <option value="8">8 时</option>
-          <option value="9">9 时</option>
-          <option value="10">10 时</option>
-          <option value="11">11 时</option>
-          <option value="12">12   时</option>
-          <option value="13">13 时</option>
-          <option value="14">14 时</option>
-          <option value="15">15 时</option>
-          <option value="16">16 时</option>
-          <option value="17">17   时</option>
-          <option value="18">18 时</option>
-          <option value="19">19 时</option>
-          <option value="20">20 时</option>
-          <option value="21">21 时</option>
-          <option value="22">22   时</option>
-          <option value="23">23 时</option>
+          <option value="0" selected="selected">0 </option>
+          <option value="1">1 時</option>
+          <option value="2">2 時</option>
+          <option value="3">3 時</option>
+          <option value="4">4 時</option>
+          <option value="5">5 時</option>
+          <option value="6">6 時</option>
+          <option value="7">7 時</option>
+          <option value="8">8 時</option>
+          <option value="9">9時 </option>
+          <option value="10">10 時</option>
+          <option value="11">11 時</option>
+          <option value="12">12 時</option>
+          <option value="13">13 時</option>
+          <option value="14">14 時</option>
+          <option value="15">15 時</option>
+          <option value="16">16 時</option>
+          <option value="17">17 時</option>
+          <option value="18">18 時</option>
+          <option value="19">19　時 </option>
+          <option value="20">20 時</option>
+          <option value="21">21時 </option>
+          <option value="22">22 時</option>
+          <option value="23">23 時</option>
         </select>
-		 <span class="admin_note">设置哪一小时执行本任务，“*”为不限制</span>		</td>
+		 <span class="admin_note">このタスクを実行する時間が設けられています、「*」は制限なし</span>		</td>
       </tr>
    <tr>
-     <td  class="tit">分钟：</td>
+     <td  class="tit">分：</td>
    </tr>
    <tr>
      <td ><input name="minute" type="text"  class="input_text_200" />
 	 
-	  <span class="admin_note">设置哪一分钟执行本任务，留空为不限制</span>		
+	  <span class="admin_note">このタスクを実行する用意分、空白を制限しません</span>		
 	 </td>
    </tr>
    	 <tr>
-        <td  class="tit">可用：</td>
+        <td  class="tit">利用可能：</td>
       </tr>
       <tr>
         
         <td>
 		<label><input name="available" type="radio" value="1" checked="checked" />可用</label>
 <label><input type="radio" name="available" value="0" /> 不可用</label>
-		<span class="admin_note">设置不可用则任务不会执行</span>		</td>
+		<span class="admin_note">設置は使えないとタスクが行わない</span>		</td>
       </tr>
    <tr>
      <td >

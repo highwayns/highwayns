@@ -45,16 +45,16 @@ $(document).ready(function()
 </div>
 
 <div class="toptip">
-	<h2>提示：		请输入筛选条件,删除后将不可恢复,谨慎操作！</h2>
+	<h2>ヒント：、フィルタ条件を入力し、削除を復元しませんが、十分に注意してください！</h2>
 
 </div>
 <div class="toptit">日志类型
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全选]</span>
+	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全部選択]</span>
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[全不选]</span>
+	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[選択解除]</span>
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="opposite" style="color:#0066CC; cursor:pointer">[反选]</span>
+	  <span id="opposite" style="color:#0066CC; cursor:pointer">[逆選択]</span>
 </div>
 
   <form id="form1" name="form1" method="post" action="?act=pidel_memberslog_del">
@@ -63,12 +63,12 @@ $(document).ready(function()
         <tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1000" checked="checked"/>注册</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1001" checked="checked"/>登录</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1003" checked="checked"/>修改帐号状态</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1004" checked="checked"/>修改密码</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1005" checked="checked"/>修改个人资料</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1006" checked="checked"/>修改个人头像</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1000" checked="checked"/>登録</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1001" checked="checked"/>ログイン</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1003" checked="checked"/>アカウントの状態を変更します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1004" checked="checked"/>パスワードの変更</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1005" checked="checked"/>プロファイルの編集</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1006" checked="checked"/>個人写真の変更</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -77,13 +77,13 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2001" checked="checked"/>添加职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2002" checked="checked"/>修改职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2003" checked="checked"/>删除职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2004" checked="checked"/>刷新职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2005" checked="checked"/>修改职位状态</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2006" checked="checked"/>查看职位申请</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2007" checked="checked"/>延期职位</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2001" checked="checked"/>ポストを追加します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2002" checked="checked"/>仕事編集</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2003" checked="checked"/>投稿を削除</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2004" checked="checked"/>ポストを更新</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2005" checked="checked"/>編集ジョブの状態</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2006" checked="checked"/>仕事のアプリケーション</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="2007" checked="checked"/>仕事延期</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -92,12 +92,12 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3001" checked="checked"/>增加订单</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3002" checked="checked"/>取消订单</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3003" checked="checked"/>付款完成</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3004" checked="checked"/>职位推广</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3005" checked="checked"/>延长推广时间</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3006" checked="checked"/>取消推广</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3001" checked="checked"/>受注の増加</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3002" checked="checked"/>注文のキャンセル</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3003" checked="checked"/>お支払い完了</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3004" checked="checked"/>求人推進</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3005" checked="checked"/>促進時間の延長</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3006" checked="checked"/>プロモーションをキャンセル</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -106,14 +106,14 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="4001" checked="checked"/>下载简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="4002" checked="checked"/>删除下载简历</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="4001" checked="checked"/>履歴書のダウンロード</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="4002" checked="checked"/>ダウンロードバイオを削除します</label></li>
 		
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="5001" checked="checked"/>添加到人才库</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="5002" checked="checked"/>删除人才库</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="5001" checked="checked"/>人材庫に追加</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="5002" checked="checked"/>人材データの削除</label。></li>
 		
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="6001" checked="checked"/>发起面试邀请</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="6002" checked="checked"/>删除面试邀请</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="6001" checked="checked"/>面接ぼ招待を送信する</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="6002" checked="checked"/>面接招待を削除する</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -122,9 +122,9 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="7001" checked="checked"/>添加反馈</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="7002" checked="checked"/>删除反馈</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="7003" checked="checked"/>举报信息</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="7001" checked="checked"/>フィードバックの追加</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="7002" checked="checked"/>フィードバックの削除</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="7003" checked="checked"/>レポート情報</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -133,13 +133,13 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8001" checked="checked"/>修改企业信息</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8002" checked="checked"/>上传营业执照</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8003" checked="checked"/>上传logo</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8004" checked="checked"/>删除logo</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8005" checked="checked"/>开通电子地图</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8006" checked="checked"/>设置电子地图坐标</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8007" checked="checked"/>修改企业模版</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8001" checked="checked"/>ビジネス情報を変更します。</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8002" checked="checked"/>ビジネスライセンスをアップロードする</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8003" checked="checked"/>ロゴのアップロード</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8004" checked="checked"/>ロゴを削除します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8005" checked="checked"/>電子地図の開通</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8006" checked="checked"/>電子地図座標を設定します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8007" checked="checked"/>企業のテンプレートを変更する</span></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -148,9 +148,9 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9001" checked="checked"/>积分操作</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9002" checked="checked"/>服务套餐操作</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1401" checked="checked"/>预定招聘会展位</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9001" checked="checked"/>積分動作</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9002" checked="checked"/>パッケージの操作</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1401" checked="checked"/>ジョブフェアブースの予定</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -160,14 +160,14 @@ $(document).ready(function()
         <tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1101" checked="checked"/>创建简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1102" checked="checked"/>刷新简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1103" checked="checked"/>删除简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1104" checked="checked"/>设置简历隐私</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1105" checked="checked"/>修改简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1106" checked="checked"/>设置简历模版</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1107" checked="checked"/>申请高级人才</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1108" checked="checked"/>查看邀请面试</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1101" checked="checked"/>プロフィールを作成</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1102" checked="checked"/>履歴書の更新</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1103" checked="checked"/>履歴書を削除します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1104" checked="checked"/>履歴書プライバシーの設定</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1105" checked="checked"/>履歴書修正</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1106" checked="checked"/>テンプレートセットCV </label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1107" checked="checked"/>上級職員の申請</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1108" checked="checked"/>面接招待を調べる</label></li>
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -176,11 +176,11 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1201" checked="checked"/>添加职位收藏</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1202" checked="checked"/>删除职位收藏</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1201" checked="checked"/>気に入り仕事を追加する</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1202" checked="checked"/>ポストの収集を削除します</label></li>
 		
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1301" checked="checked"/>申请职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1302" checked="checked"/>删除职位申请</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1301" checked="checked"/>職位申請</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1302" checked="checked"/>職位申請の削除</label></li>
 			
 			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
@@ -190,12 +190,12 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1401" checked="checked"/>个人会员申请课程</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1501" checked="checked"/>创建经理人简历</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1502" checked="checked"/>修改经理人简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1503" checked="checked"/>刷新经理人简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1504" checked="checked"/>删除经理人简历</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1505" checked="checked"/>设置经理人简历</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1401" checked="checked"/>個々のメンバーシップのアプリケーションプログラム</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1501" checked="checked"/>経理人履歴書の作成</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1502" checked="checked"/>マネージャーの履歴書を変更します。</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1503" checked="checked"/>マネージャの履歴書の更新/label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1504" checked="checked"/>マネージャー履歴書を削除します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="1505" checked="checked"/>マネージャ履歴書の設置</label></li>
  			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -205,23 +205,23 @@ $(document).ready(function()
   	  <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8100" checked="checked"/>完善机构信息</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8101" checked="checked"/>修改机构信息</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8102" checked="checked"/>上传机构营业执照</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8103" checked="checked"/>上传机构logo</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8104" checked="checked"/>删除机构logo</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8105" checked="checked"/>开通机构电子地图</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8106" checked="checked"/>标注机构电子地图</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8107" checked="checked"/>添加讲师</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8108" checked="checked"/>修改讲师</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8109" checked="checked"/>删除讲师</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8201" checked="checked"/>添加课程</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8202" checked="checked"/>修改课程</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8204" checked="checked"/>删除课程</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8203" checked="checked"/>刷新课程</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8205" checked="checked"/>更改课程状态</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8206" checked="checked"/>查看课程申请</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8207" checked="checked"/>删除课程申请</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8100" checked="checked"/>情報の組織化を向上させる</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8101" checked="checked"/>機構情報の修正</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8102" checked="checked"/>代理店営業許可のアップロード</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8103" checked="checked"/>代理店のロゴアップロード</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8104" checked="checked"/>代理店のロゴを削除します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8105" checked="checked"/>電子地図のためのメカニズムを開く</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8106" checked="checked"/>マーク代理店の地図</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8107" checked="checked"/>講師の追加</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8108" checked="checked"/>講師の変更</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8109" checked="checked"/>講師を削除します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8201" checked="checked"/>コースの追加</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8202" checked="checked"/>コースを変更する</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8204" checked="checked"/>コースを削除します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8203" checked="checked"/>リフレッシュコース</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8205" checked="checked"/>コースの状態を変更する</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8206" checked="checked"/>コース申請を調べる</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8207" checked="checked"/>コースアプリケーションを削除します</label></li>
  			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -232,10 +232,10 @@ $(document).ready(function()
 	    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9101" checked="checked"/>培训会员积分操作</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9102" checked="checked"/>培训会员套餐操作</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3101" checked="checked"/>培训会员增加订单</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3102" checked="checked"/>培训会员取消订单</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9101" checked="checked"/>会員研修ポイント操作</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9102" checked="checked"/>メンバーのトレーニングパッケージの操作</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3101" checked="checked"/>研修員の注文増加</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3102" checked="checked"/>研修メンバー注文をキャンセルする</label></li>
   			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -244,10 +244,10 @@ $(document).ready(function()
 	    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9201" checked="checked"/>猎头顾问积分操作</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9202" checked="checked"/>猎头顾问套餐操作</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3201" checked="checked"/>猎头顾问增加订单</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3202" checked="checked"/>猎头顾问取消订单</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9201" checked="checked"/>エグゼクティブサーチコンサルタント積分動作</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="9202" checked="checked"/>エグゼクティブサーチコンサルタントパッケージの操作</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3201" checked="checked"/>エグゼクティブサーチのコンサルタントの受注が増加した</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="3202" checked="checked"/>エグゼクティブサーチのコンサルタントが、ご注文をキャンセル</label></li>
   			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -256,13 +256,13 @@ $(document).ready(function()
 	    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  ><tr>
           <td  bgcolor="#FFFFFF" style="  padding-left:30px;">
 			<ul style="margin:0px; padding:3px; list-style:none">
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8500" checked="checked"/>完善顾问资料</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8501" checked="checked"/>修改顾问资料</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8502" checked="checked"/>顾问发布职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8504" checked="checked"/>顾问刷新职位</label></li>
- 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8503" checked="checked"/>顾问修改职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8505" checked="checked"/>顾问删除职位</label></li>
-			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8506" checked="checked"/>顾问设置职位状态</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8500" checked="checked"/>コンサルタント資料の完成</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8501" checked="checked"/>コンサルタントのデータを変更します</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8502" checked="checked"/>コンサルタント求人ポスティング</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8504" checked="checked"/>コンサルタントは求人を更新します</label></li>
+ 			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8503" checked="checked"/>コンサルタントはジョブズを変更します</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8505" checked="checked"/>コンサルタントは、投稿を削除する</label></li>
+			<li  class="user_box_li"><label><input name="log_type[]" type="checkbox"  value="8506" checked="checked"/>コンサルタントは、仕事状態の設定</label></li>
   			<li class="clear" style="list-style:none; display:none"></li>
 			</ul>	
 		  </td>
@@ -271,13 +271,13 @@ $(document).ready(function()
  
   <table width="100%" border="0" cellpadding="4" cellspacing="0"  class="link_lan">
 		<tr width="300">
-          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 开始时间：</td>
+          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 開始時間：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 			<input name="starttime" type="text"  class="input_text_150 date_input"  value=""/>
 		  </td>
         </tr>
 		<tr width="300">
-          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 结束时间：</td>
+          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 終了時刻：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 			<input name="endtime" type="text"  class="input_text_150 date_input"  value=""/>
 		  </td>

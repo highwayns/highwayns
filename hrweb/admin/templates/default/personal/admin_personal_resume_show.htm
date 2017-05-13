@@ -4,14 +4,14 @@
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">基本设置</div>
+<div class="toptit">ベーシックセット</div>
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		<tr>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">简历名称：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">履歴書名前：</td>
           <td bgcolor="#FFFFFF"  width="100" style=" border-bottom:1px #CCCCCC dashed">
 				{#$resume.title#}
 		 </td>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">公开设置：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">設置公開：</td>
           <td bgcolor="#FFFFFF"  width="100" style=" border-bottom:1px #CCCCCC dashed">
 			  {#if $resume.display=="1"#}
 			  公开
@@ -19,17 +19,17 @@
 			  半公开
 			  {#/if#}
 		 </td>
-          <td align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">姓名：</td>
+          <td align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">名前：</td>
           <td bgcolor="#FFFFFF"   style=" border-bottom:1px #CCCCCC dashed">
 			  {#$resume.lastname#}
 		 </td>
       </tr>
 		<tr>
-          <td align="right" width="100"  height="30" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">简历完整度：</td>
+          <td align="right" width="100"  height="30" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">履歴書完成度：</td>
           <td bgcolor="#FFFFFF"  width="100" style=" border-bottom:1px #CCCCCC dashed">
 			{#$resume.complete_percent#}%
 		 </td>
-          <td align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">简历审核：</td>
+          <td align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">履歴書の審査</td>
           <td bgcolor="#FFFFFF" width="100" style=" border-bottom:1px #CCCCCC dashed">
 			  {#if $resume.audit=="1"#}已通过审核{#/if#}
 				{#if $resume.audit=="2"#}正在审核中{#/if#}
@@ -37,17 +37,17 @@
 					审核未通过请修改
 				{#/if#}
 		 </td>
-          <td align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">简历等级：</td>
+          <td align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">履歴書レベル：</td>
           <td bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed">
 			  {#if $resume.talent=="2"#}
-			  <span style="color:#FF6600">高级</span>
+			  <span style="color:#FF6600">高級</span>
 			  {#else#}
 				  普通
 			 {#/if#}
 		 </td>
       </tr>
 		<tr>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">照片审核状态：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">写真の承認ステータス：</td>
           <td bgcolor="#FFFFFF"  width="100" style=" border-bottom:1px #CCCCCC dashed">
 			   {#if $resume.photo_img<>""#}
 				  {#if $resume.photo_audit=="1"#}已通过审核{#/if#}
@@ -57,7 +57,7 @@
 					未上传照片
 				  {#/if#}			 
 		 </td>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">照片公开设置：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">写真公共の設定：</td>
           <td bgcolor="#FFFFFF"   colspan="3" style=" border-bottom:1px #CCCCCC dashed">
 			  {#if $resume.photo_img<>""#}
 				  	 {#if $resume.photo_display=="1"#}
@@ -71,36 +71,36 @@
 		 </td>
       </tr>
 		<tr>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" >创建时间：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" >作成：</td>
           <td bgcolor="#FFFFFF"  width="100" >
 			{#$resume.addtime|date_format:"%Y.%m.%d %H:%M"#}		
 		 </td>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" >刷新时间：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" >最新の情報の更新時間：</td>
           <td bgcolor="#FFFFFF"  width="100" >
 			{#$resume.refreshtime|date_format:"%Y.%m.%d %H:%M"#}		
 		 </td>
-          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" >点击次数：</td>
+          <td  height="30" align="right" width="100" bgcolor="#FFFFFF" >クリック数：</td>
           <td bgcolor="#FFFFFF"  >
 			{#$resume.click#}		
 		 </td>
       </tr>
 		</table>
-<div class="toptit">基本信息 </div>
+<div class="toptit">基本情報</div>
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		<tr>
-          <td  height="30" align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">姓名：</td>
+          <td  height="30" align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">名前：</td>
           <td bgcolor="#FFFFFF"  width="100" style=" border-bottom:1px #CCCCCC dashed">
 				{#$resume.fullname#}
 		 </td>
-          <td  height="30" align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">性别：</td>
+          <td  height="30" align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">性別：</td>
           <td bgcolor="#FFFFFF"  width="100" style=" border-bottom:1px #CCCCCC dashed">
 				{#$resume.sex_cn#}
 		 </td>
-          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">年龄：</td>
+          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">年齢：</td>
           <td bgcolor="#FFFFFF"   width="100" style=" border-bottom:1px #CCCCCC dashed">
 				{#$resume.age#}
 		 </td>
-          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">身高：</td>
+          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">身長：</td>
           <td bgcolor="#FFFFFF"  width="350" style=" border-bottom:1px #CCCCCC dashed">
 				{#if $resume.height=='0'#}未填写{#else#}{#/if#}
 		 </td>
@@ -108,60 +108,60 @@
 {#if $resume.photo_img<>""#} <img src="{#$HIGHWAY.resume_photo_dir_thumb#}{#$resume.photo_img#}?wd={#$random#}"  />{#else#}<img src="{#$HIGHWAY.resume_photo_dir_thumb#}no_photo.gif" />{#/if#}		 </td>
       </tr>
 		<tr>
-          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">学历：</td>
+          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">学歴：</td>
           <td bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed">
 				{#$resume.education_cn#}
 		 </td>
-          <td height="30" width="80" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">婚姻状况：</td>
+          <td height="30" width="80" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">婚姻状況：</td>
           <td bgcolor="#FFFFFF" width="100" style=" border-bottom:1px #CCCCCC dashed;">
 				{#$resume.marriage_cn#}
 		 </td>
-          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">工作经验：</td>
+          <td align="right" width="80" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">職歴：</td>
           <td bgcolor="#FFFFFF"  colspan="3" style=" border-bottom:1px #CCCCCC dashed">
 				{#$resume.experience_cn#}
 		 </td>
       </tr>
 		<tr>
-          <td height="30"  align="right" width="80"  bgcolor="#FFFFFF" >特长标签：</td>
+          <td height="30"  align="right" width="80"  bgcolor="#FFFFFF" >特殊label：</td>
           <td bgcolor="#FFFFFF"  colspan="7" >
 				{#$resume.tag_cn#}
 		 </td>
       </tr>
 		</table>
-	<div class="toptit">求职意向</div>
+	<div class="toptit">ジョブターゲット</div>
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		<tr>
-          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">期望岗位性质：</td>
+          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">職種希望：</td>
           <td bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed;">
 				{#$resume.nature_cn#}
 		 </td>
      	 </tr>
 		<tr>
-          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">期望工作地：</td>
+          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">動作することを期待：</td>
           <td bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed;">
 				{#$resume.district_cn#}
 		 </td>
      	 </tr>
 		<tr>
-          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">期望月薪：</td>
+          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">希望給与：</td>
           <td bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed;">
 				{#$resume.wage_cn#}
 		 </td>
      	 </tr>
 		<tr>
-          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">期望从事的岗位：</td>
+          <td height="30" width="130" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed;">希望職種：</td>
           <td bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed;">
 				{#$resume.intention_jobs#}
 		 </td>
      	 </tr>
 		<tr>
-          <td height="30" width="130" align="right" bgcolor="#FFFFFF" >期望从事的行业：</td>
+          <td height="30" width="130" align="right" bgcolor="#FFFFFF" >取引を期待する：</td>
           <td bgcolor="#FFFFFF" >
 				{#$resume.trade_cn#}
 		 </td>
      	 </tr>
 		</table>
-	<div class="toptit">个人简介</div>
+	<div class="toptit">個人プロフィール</div>
 	{#if $resume.specialty#} 
 	<table width="98%" border="0" align="center" cellpadding="0" cellspacing="10">
 	<tr>
@@ -169,20 +169,20 @@
 	  </tr>
 	</table>
 	{#else#}
-	<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写特长描述。</div>
+	<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;あなだの特徴を入力することはまだです。</div>
 	{#/if#}
-	<div class="toptit">教育经历</div>
+	<div class="toptit">教育経験</div>
 		  {#if $resume_education#}
             <table width="100%" border="0" cellspacing="1" cellpadding="5"  class="link_lan">
               <tr>
-                <td width="180" height="23" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399; ">起止年月</td>
-                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">学校名称</td>
-                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">专业名称</td>
-                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">学历</td>
+                <td width="180" height="23" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399; ">終了日</td>
+                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">学校名</td>
+                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">プロフェッショナル名</td>
+                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">学歴</td>
               </tr>
 			   {#foreach from=$resume_education item=list#}
   <tr>
-    <td height="23" align="center">{#$list.startyear#}年{#$list.startmonth#}月至{#$list.endyear#}年{#$list.endmonth#}</td>
+    <td height="23" align="center">{#$list.startyear#} {#$list.endmonth#}の{#$list.endyear#}に{#$list.startmonth#}ヶ月</td>
     <td align="center">{#$list.school#}</td>
     <td align="center">{#$list.speciality#}</td>
     <td align="center">{#$list.education_cn#}</td>
@@ -190,63 +190,63 @@
               {#/foreach#}
             </table>
 			{#else#}
-			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写教育经历。</div>
+			<div style="height:40px; line-height:40px;">＆NBSP;＆NBSP;＆NBSP ;;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆あなたが教育経験を記入しないでくださいNBSP。</div>
             {#/if#} 
-	<div class="toptit">工作经历</div>
+	<div class="toptit">実務経験</div>
 		  {#if $resume_work#}
             <table width="100%" border="0" cellspacing="1" cellpadding="5"  class="link_lan">
               <tr>
-                <td width="180" height="23" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399; ">起止年月</td>
-                <td  width="540"  align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">公司名称</td>
-                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">职位名称</td>
+                <td width="180" height="23" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399; ">終了日</td>
+                <td  width="540"  align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">会社名</td>
+                <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">役職</td>
               </tr>
 			  {#foreach from=$resume_work item=list#}
 			  <tr>
-   				 <td height="23" align="center">{#$list.startyear#}年{#$list.startmonth#}月至{#$list.endyear#}年{#$list.endmonth#}</td>
+   				 <td height="23" align="center">{#$list.startyear#} {#$list.endmonth#}の{#$list.endyear#}に{#$list.startmonth#}ヶ月</td>
 				<td align="center">{#$list.companyname#}</td>
 				<td align="center">{#$list.jobs#}</td>
 			  </tr>
              {#/foreach#}
             </table>
 			{#else#}
-			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写工作经历。</div>
+			<div style="height:40px; line-height:40px;">＆NBSP;＆NBSP;＆NBSP ;;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆お仕事の経験に記入する必要はありませんNBSP。</div>
             {#/if#} 
-	<div class="toptit">培训经历</div>
+	<div class="toptit">トレーニング経験</div>
 			{#if $resume_training#}
               <table width="100%" border="0" cellspacing="1" cellpadding="5"  class="link_lan">
                 <tr>
-                  <td width="180" height="23" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399; ">起止年月</td>
-                  <td width="540" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">机构名称</td>
-                  <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">培训课程</td>
+                  <td width="180" height="23" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399; ">終了日</td>
+                  <td width="540" align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">組織の名前</td>
+                  <td align="center" style=" border-bottom:1px #CCCCCC dashed; color:#003399;">トレーニング</td>
                 </tr>
 				{#foreach from=$resume_training item=list#}
 				  <tr>
-   				 <td height="23" align="center">{#$list.startyear#}年{#$list.startmonth#}月至{#$list.endyear#}年{#$list.endmonth#}</td>
+   				 <td height="23" align="center">{#$list.startyear#} {#$list.endmonth#}の{#$list.endyear#}に{#$list.startmonth#}ヶ月</td>
 					<td align="center">{#$list.agency#}</td>
 					<td align="center">{#$list.course#}</td>
 				  </tr>
                 {#/foreach#}
               </table>
 			  {#else#}
-			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写培训经历。</div>
+			<div style="height:40px; line-height:40px;">＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;あなたのトレーニングの経験は未完成。</div>
             {#/if#}
 
-<div class="toptit">联系方式</div>
+<div class="toptit">連絡先</div>
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 <tr>
-          <td height="30" width="80" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">联系电话：</td>
+          <td height="30" width="80" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">電話：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 			{#$resume.telephone#}
 		 </td>
       </tr>
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">联系邮箱：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">連絡先Eメール：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" class="link_lan">
 			{#$resume.email#}
 			 </td>
         </tr>
 		<tr>
-          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">户籍所在地：</td>
+          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">出身地：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed" class="link_lan">
 			{#$resume.householdaddress#}
 			 </td>
@@ -254,7 +254,7 @@
   </table>
 {#if $resumeaudit#}	
 <form id="Form2" name="Form2" method="post" action="?act=del_auditreason">
-<div class="toptit">简历审核日志</div>
+<div class="toptit">履歴書審査日誌</div>
 		<table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		{#foreach from=$resumeaudit item=list#}
 		<tr>

@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite
- *
- * Type:	 compile
- * Name:	 section_start
- */
 
 function compile_include($arguments, &$object)
 {

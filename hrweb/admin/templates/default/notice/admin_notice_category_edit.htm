@@ -5,13 +5,13 @@
 	{#include file="notice/admin_notice_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 {#$inputtoken#}
 
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">分类名称:</td>
+    <td width="120" align="right">カテゴリ名：</td>
     <td><input name="categoryname" type="text" class="input_text_200"  value="{#$category.categoryname#}"/></td>
   </tr>
 </table>

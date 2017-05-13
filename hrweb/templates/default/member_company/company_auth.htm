@@ -52,7 +52,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 	{#include file="user/header.htm"#}
-	<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 认证管理</div>
+	<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 公認管理</div>
 	<div class="usermain">
 		<div class="leftmenu com link_bk">
 			{#include file="member_company/left.htm"#}	
@@ -62,9 +62,9 @@
 				<div class="topnav get_resume">
 					<div class="titleH1"><div class="h1-title">安全认证</div></div>
 					<div class="navs link_bk">
-						<a href="company_user.php?act=authenticate">账号安全</a>
-						<a href="company_info.php?act=company_auth" class="se">营业执照</a>
-						<a href="company_user.php?act=login_log">登录日志</a>
+						<a href="company_user.php?act=authenticate">アカウントのセキュリティ</a>
+						<a href="company_info.php?act=company_auth" class="se">ビジネスライセンス</a>
+						<a href="company_user.php?act=login_log">登録日誌</あ>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -72,35 +72,35 @@
 					{#if $company_profile.certificate_img == ""#}
 		  			<form action="?act=company_auth_save" method="post"  enctype="multipart/form-data" id="Form1">
 					<div class="upload-block clearfix">
-						<div class="upload-type f-left">上传营业执照：</div>
+						<div class="upload-type f-left">ビジネスライセンスをアップロードします：</div>
 						<div class="upload-content f-left">
-							<div class="but100_30lan">选择图片</div>
+							<div class="but100_30lan">ピクチャーの選択</div>
 							<input class="filestyle" type="file" name="certificate_img" id="certificate_img" value="选择图片" />
 						</div>
 					</div>
 					</form>
 					{#elseif  $company_profile.certificate_img <> "" && $company_profile.audit =="2"#}
-					<div class="auth-tips ing">您提交的营业执照<span>正在审核中</span>，请耐心等待……</div>
+					<div class="auth-tips ing">あなだは提出したビジネスライセンス<span>正在审核中</span>、しばらくお待ちください……</div>
 					{#elseif $company_profile.certificate_img <> "" && $company_profile.audit =="1"#}
-					<div class="auth-tips success">恭喜您，您的营业执照已<span>通过审核</span>！</div>
+					<div class="auth-tips success">おめでとうございます、あなたのビジネスライセンスはなっています<span>通过审核</span>！</div>
 					{#elseif $company_profile.certificate_img <> "" && $company_profile.audit =="3"#}
 					<form action="?act=company_auth_save" method="post"  enctype="multipart/form-data" id="Form1">
 					<div class="upload-block clearfix">
-						<div class="upload-type f-left">上传营业执照：</div>
+						<div class="upload-type f-left">ビジネスライセンスをアップロードします：</div>
 						<div class="upload-content f-left">
-							<div class="but100_30lan">选择图片</div>
+							<div class="but100_30lan">ピクチャーの選択</div>
 							<input class="filestyle" type="file" name="certificate_img" id="certificate_img" value="选择图片" />
 						</div>
 					</div>
 					</form>
-					<div class="auth-tips error">您上传的营业执照<span>未通过审核</span>，请重新上传！</div>
+					<div class="auth-tips error">あなたのビジネスライセンスをアップロードする<span>未通过审核</span>、もう一度アップロードしてください！</div>
 					{#/if#}
 					<div class="bottomtip">
-						<div class="tp h2-title">小贴士</div>
+						<div class="tp h2-title">ヒント</div>
 							营业执照只作为网站核实贵公司真实性的材料，不在任何页面显示，我们不会以任何形式公布您的执照信息！<br>
 							通过网站核实后营业执照我们将立即删除。<br>
 							① 通过认证后您将获得更多权限；<br>
-							② 通过认证后可增加信息的可信度，成为<strong>已认证企业</strong>；<br>
+							② 通过认证后可增加信息的可信度，成为<strong>認定企業</strong>；<br>
 							注：上传营业执照仅供我们审核，绝不会用任何形式对外公开。
 					</div>
 				</div>

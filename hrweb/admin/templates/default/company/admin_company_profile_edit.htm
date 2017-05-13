@@ -88,41 +88,41 @@ $(document).ready(function()
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">修改企业资料 - <span style="color:#0066CC">{#$company_profile.companyname#}</span></div>
+<div class="toptit">企業資料の修正 - <span style=“color:#0066CC”>{#$company_profile.companyname#}</span></div>
 <form id="Form1" name="Form1" method="post" action="?act=company_profile_save" >
 {#$inputtoken#}
 <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
 <tr>
-          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">所属会员：</td>
+          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">メンバーは所属：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 {#$company_profile.user.username#}
 		 </td>
       </tr>
 	  <tr>
-          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">添加时间：</td>
+          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">追加時間：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 		  {#$company_profile.addtime|date_format:"%Y-%m-%d"#}
 		 </td>
         </tr>
 		<tr>
-          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">添加方式：</td>
+          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">モードを追加します。</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 		  {#if $company_profile.robot == "0"#}人工{#/if#}
 		{#if $company_profile.robot == "1"#}采集{#/if#}
 		 </td>
         </tr>
 		<tr>
-          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">营业执照：</td>
+          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ビジネスライセンス：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed" class="link_lan">
 		  {#if $company_profile.certificate_img#}
-		  <a href="{#$certificate_dir#}{#$company_profile.certificate_img#}" target="_blank" title="点击查看"> 已上传</a>		 
+		  <a href="{#$certificate_dir#}{#$company_profile.certificate_img#}" target="_blank" title="点击查看"> アップロード</a>		 
 		  {#else#}
 		  未上传
 		  {#/if#}
 		 </td>
         </tr>
         <tr>
-          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"> 认证状态：</td>
+          <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"> 認定ステータス：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 		  <label><input name="audit"  type="radio" value="1" {#if $company_profile.audit eq "1"#}checked="checked"{#/if#} />认证通过</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 <label><input name="audit"  type="radio" value="2" {#if $company_profile.audit eq "2"#}checked="checked"{#/if#} />等待认证</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -132,11 +132,11 @@ $(document).ready(function()
         </tr>
 		
   <tr>
-    <td width="110" height="30" align="right"   style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>公司名称：</td>
+    <td width="110" height="30" align="right"   style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>会社名：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed"><input name="companyname" type="text" class="input_text_200" id="companyname" maxlength="30"  style="width:350px;" value="{#$company_profile.companyname#}" /></td>
   </tr>
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>企业性质：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>企業性質：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="类型:HW_company_type,列表名:li"#}
@@ -154,7 +154,7 @@ $(document).ready(function()
 		 </td>
   </tr>
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold;">*</span>所属行业：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold;">*</span>業種：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="类型:HW_trade,列表名:li"#}
@@ -172,7 +172,7 @@ $(document).ready(function()
 	 </td>
   </tr>
   <tr>
-    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>所在地区：</td>
+    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>場所：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 		<input type="text" value="{#$company_profile.district_cn|default:"请选择"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
@@ -192,7 +192,7 @@ $(document).ready(function()
 	</td>
   </tr>
   <tr>
-    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>公司规模：</td>
+    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>会社サイズ：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="类型:HW_scale,列表名:li"#}
@@ -209,7 +209,7 @@ $(document).ready(function()
 	 </td>
   </tr>
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">注册资金：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">登録資本金：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed"><input name="registered" type="text" class="input_text_200" id="registered" maxlength="5" value="{#$company_profile.registered#}"  style="width:80px;" onKeyUp="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
       万
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -223,32 +223,32 @@ $(document).ready(function()
   </tr>
 		
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>联 系 人：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>連絡先：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="contact" type="text" class="input_text_200" id="contact" maxlength="25" value="{#$company_profile.contact#}"/>
     <label><input name="contact_show"  type="checkbox" value="1" {#if $company_profile.contact_show=="1"#}checked="checked"{#/if#} />联系人在职位详细页中显示
 	</td>
   </tr>
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>联系电话：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>電話：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="telephone" type="text" class="input_text_200" id="telephone" maxlength="25" value="{#$company_profile.telephone#}"/>
     <label><input name="telephone_show"  type="checkbox" value="1" {#if $company_profile.telephone_show=="1"#}checked="checked"{#/if#} />联系电话在职位详细页中显示
 	</td>
   </tr>
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>联系邮箱：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>連絡先Eメール：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="email" type="text" class="input_text_200" id="email" maxlength="25" value="{#$company_profile.email#}"/>
     <label><input name="email_show"  type="checkbox" value="1" {#if $company_profile.email_show=="1"#}checked="checked"{#/if#} />联系邮箱在职位详细页中显示
 	</td>
   </tr>
   <tr>
-    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">公司网址：</td>
+    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">会社のWebサイト：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed"><input name="website" type="text" class="input_text_200" id="website" maxlength="80" value="{#$company_profile.website#}"/></td>
   </tr>
   <tr>
-    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>通讯地址：</td>
+    <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>住所：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="address" type="text" class="input_text_200" id="address" maxlength="80"  style="width:447px;" value="{#$company_profile.address#}"/>
     <label><input name="address_show"  type="checkbox" value="1" {#if $company_profile.address_show=="1"#}checked="checked"{#/if#} />联系地址在职位详细页中显示
@@ -256,7 +256,7 @@ $(document).ready(function()
   </tr>
 
   <tr>
-    <td align="right" valign="top"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 公司介绍：</td>
+    <td align="right" valign="top"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 会社紹介：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed"><textarea name="contents" class="company_mb_textarea" id="introduction" style="width:450px; height:150px;"onpropertychange="if(this.value.length&gt;2000){this.value=this.value.slice(0,2000)}">{#$company_profile.contents#}</textarea>
         <br />
         <div style="line-height:30px; height:30px;"> <span style="color:#333333">请将字数控制在2000字以内进行填写</span></div></td>
@@ -276,7 +276,7 @@ $(document).ready(function()
   	
 {#if $comaudit#}	
 <form id="Form2" name="Form2" method="post" action="?act=del_auditreason">
-<div class="toptit">企业审核日志</div>
+<div class="toptit">企業の監査日誌</div>
 		<table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
 		{#foreach from=$comaudit item=list#}
 		<tr>

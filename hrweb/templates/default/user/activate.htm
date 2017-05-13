@@ -73,29 +73,29 @@ $(function() {
   <!-- main -->
   <div class="container">
     <div class="third-reg-wrap">
-      <h1>只差一步，即可激活您的账号</h1>
-      <p class="t-reg-tips">快速完成账号激活<br />完成账号激活后，即可直接登录哦！</p>
+      <h1>後一歩、アカウントをアクティブにすることができます</h1>
+      <p class="t-reg-tips">すぐアカウント開設<BR />完成账号激活后，即可直接登录哦！</p>
       <div class="t-reg-main clearfix">
         <div class="reg-left-form f-left">
           <form action="?act=activate_save" id="Form1" method="post">
           <div class="reg-form-item clearfix">
-            <div class="reg-form-type f-left">  注册类型</div>
+            <div class="reg-form-type f-left">  登録タイプ</div>
             <div class="reg-form-content f-left">
               <div class="member-type-wrap clearfix">
-                <div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>个人</div>
-                <div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企业</div>
+                <div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>パーソナル</div>
+                <div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企業</div>
               </div>
             </div>
           </div>
           <div class="reg-form-item clearfix">
-            <div class="reg-form-type f-left">用户名</div>
+            <div class="reg-form-type f-left">ユーザー名</div>
             <div class="reg-form-content f-left">
               {#$activate_username#}
             </div>
             <div class="verification f-left"  style="width: 180px;overflow: hidden;"></div>
           </div>
           <div class="reg-form-item clearfix">
-            <div class="reg-form-type f-left">邮箱</div>
+            <div class="reg-form-type f-left">メールボックス</div>
             <div class="reg-form-content f-left">
               {#$activate_email#}
               <input type="hidden" name="act_email" id="email" class="text text-lg span350" value="{#$activate_email#}" placeholder="请输入您的邮箱" />
@@ -103,14 +103,14 @@ $(function() {
             <div class="verification f-left"  style="width: 180px;overflow: hidden;"></div>
           </div>
           <div class="reg-form-item clearfix">
-            <div class="reg-form-type f-left">  密码</div>
+            <div class="reg-form-type f-left"> パスワード</div>
             <div class="reg-form-content f-left">
               <input type="password" name="pwd" id="password" class="text text-lg span350" placeholder="密码" />
             </div>
             <div class="verification f-left" style="width: 110px;overflow: hidden;"></div>
           </div>
           <div class="reg-form-item clearfix">
-            <div class="reg-form-type f-left">  手机</div>
+            <div class="reg-form-type f-left">  電話番号</div>
             <div class="reg-form-content f-left">
               <input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
             </div>

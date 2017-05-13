@@ -6,23 +6,23 @@
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">日志类型</div>	
+		<div class="left">日誌タイプ</div>	
 		<div class="right">
-		<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"log_type:1"|highway_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>登录成功</a>
-		<a href="{#"log_type:2"|highway_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>登录失败</a>
-		<a href="{#"log_type:3"|highway_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>操作记录</a>
+		<a href="{#"log_type:"|highway_parse_url#}" {#if $smarty.get.log_type==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"log_type:1"|highway_parse_url#}" {#if $smarty.get.log_type=="1"#}class="select"{#/if#}>ログイン成功</a>
+		<a href="{#"log_type:2"|highway_parse_url#}" {#if $smarty.get.log_type=="2"#}class="select"{#/if#}>ログイン失敗</a>
+		<a href="{#"log_type:3"|highway_parse_url#}" {#if $smarty.get.log_type=="3"#}class="select"{#/if#}>操作記録</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
   <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td   class="admin_list_tit admin_list_first">用户名</td>
-      <td   class="admin_list_tit">日志类型</td>
-	  <td  class="admin_list_tit">说明</td>
-      <td width="15%"  class="admin_list_tit"> 操作时间 </td>
-      <td width="15%" class="admin_list_tit">操作IP</td>
+      <td   class="admin_list_tit admin_list_first">ユーザー名</td>
+      <td   class="admin_list_tit">日誌タイプ</td>
+	  <td  class="admin_list_tit">説明</td>
+      <td width="15%"  class="admin_list_tit"> 操作時間</td>
+      <td width="15%" class="admin_list_tit">操作IP </td>
       
     </tr>
 	{#foreach from=$list item=li#}
@@ -32,9 +32,9 @@
 	  {#if $li.log_type=="1"#}
 	  登录成功
 	  {#elseif $li.log_type=="2"#}
-	  <span style="color:#FF0000">登录失败</span>
+	  <span style="color:#FF0000">ログインに失敗しました</span>
 	  {#else#}
-	  <span style="color:#FF0000">操作记录</span>
+	  <span style="color:#FF0000">操作記録</span>
 	  {#/if#}
 	  </td>
 	  <td class="admin_list">{#$li.log_value#}</td>
@@ -46,7 +46,7 @@
   </table>
     
 	{#if !$list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

@@ -28,7 +28,7 @@ $(document).ready(function()
 		});
 		function news_search_location(key)
 		{
-			$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+			$("body").append('<div id="pageloadingbox">ロードページ…. </div><div id="pageloadingbg"></div>');
 			$("#pageloadingbg").css("opacity", 0.5);
 			$.get("{#$HIGHWAY.site_dir#}plus/ajax_search_location.php", {"act":"HW_newssearch","key":key},
 					function (data,textStatus)
@@ -55,7 +55,7 @@ $(document).ready(function()
 <!-- 当前位置 -->
 <div class="page_location link_bk">
 {#highway_news_category set="列表名:category,名称长度:10,资讯小类:"|cat:$show.type_id#}
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;
 <a href="{#$category.url#}">{#$category.title_#}</a>&nbsp;>&nbsp;正文
 </div>
 	<!-- 主体内容 -->
@@ -68,7 +68,7 @@ $(document).ready(function()
 					<div class="title">{#$show.title#}</div>
 					<div class="news_dateil">
 						<div class="time">{#$show.addtime|date_format:"%Y-%m-%d %H:%M"#}</div>
-						<div class="time">查看：<span id="click"></span> 次</div>
+						<div class="time">確認：<span id="click"></span> タイムズ</div>
 						<div><a href="javascript:window.print();">[打印]</a> <a href="javascript:void(0);" onclick="window.external.addFavorite(parent.location.href,document.title);">[收藏]</a></div>
 						<div class="clear"></div>
 					</div>
@@ -81,7 +81,7 @@ $(document).ready(function()
 						        <a class="bds_tsina"></a>
 						        <a class="bds_tqq"></a>
 						        <a class="bds_renren"></a>
-						        <span class="bds_more">更多</span>
+						        <span class="bds_more">もっと</span>
 						    </div>
 						<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=659075" ></script>
 						<script type="text/javascript" id="bdshell_js"></script>
@@ -95,16 +95,16 @@ $(document).ready(function()
 						<div class="next_page">
 							<div class="prev">
 								{#if $show.prev=="1"#}
-								<a href="{#$show.prev_url#}">上一篇：{#$show.prev_title#}</a>
+								<a href="{#$show.prev_url#}">前：{#$show.prev_title#} </a>
 								{#else#}
-								<a href="javascript:void(0);">上一篇：没有了</a>
+								<a href="javascript:void(0);">前：なし</a>
 								{#/if#}
 							</div>
 							<div class="next">
 								{#if $show.next=="1"#}
-								<a href="{#$show.next_url#}">下一篇：{#$show.next_title#}</a>
+								<a href="{#$show.next_url#}">次：{#$show.next_title#} </a>
 								{#else#}
-								<a href="javascript:void(0);">下一篇：没有了</a>
+								<a href="javascript:void(0);">次へ：ありません</a>
 								{#/if#}
 							</div>
 							<div class="clear"></div>
@@ -120,7 +120,7 @@ $(document).ready(function()
 			
 			<div class="right_box">
 				<div class="title_box">
-					<h5>资讯分类</h5>
+					<h5>情報分類</h5>
 				</div>
 				<div class="list">
 					<ul class="sort">
@@ -135,12 +135,12 @@ $(document).ready(function()
 			</div>
 			<div class="right_search">
 				<div class="news_search"><input type="text" name="key" id="key" /></div>
-				<button class="news_sreach_but search_news">搜索</button>
+				<button class="news_sreach_but search_news">検索</button>
 			</div>
 			<div class="clear"></div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>相关阅读</h5>
+					<h5>関連閲覧</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">
@@ -153,7 +153,7 @@ $(document).ready(function()
 			</div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>最新资讯</h5>
+					<h5>最新ニュース</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">

@@ -1,18 +1,4 @@
-﻿/**
- * FusionCharts: Flash Player detection and Chart embedding.
- * Version 1.2.3F ( 22 November 2008) - Specialized for FusionChartsFREE 
- * 					Checking Flash Version >=6 and added updateChartXML() for FREE Charts.
- * Version: 1.2.3 (1st September, 2008) - Added Fix for % and & characters, scaled dimensions, fixes in to properly handling of double quotes and single quotes in setDataXML() function.
- * Version: 1.2.2 (10th July, 2008) - Added Fix for % scaled dimensions, fixes in setDataXML() and setDataURL() functions
- * Version: 1.2.1 (21st December, 2007) - Added setting up Transparent/opaque mode: setTransparent() function 
- * Version: 1.2 (1st November, 2007) - Added FORM fixes for IE 
- * Version: 1.1 (29th June, 2007) - Added Player detection, New conditional fixes for IE
- *
- * Morphed from SWFObject (http://blog.deconcept.com/swfobject/) under MIT License:
- * http://www.opensource.org/licenses/mit-license.php
- *
- */
-if(typeof infosoftglobal == "undefined") var infosoftglobal = new Object();
+﻿if(typeof infosoftglobal == "undefined") var infosoftglobal = new Object();
 if(typeof infosoftglobal.FusionChartsUtil == "undefined") infosoftglobal.FusionChartsUtil = new Object();
 infosoftglobal.FusionCharts = function(swf, id, w, h, debugMode, registerWithJS, c, scaleMode, lang, detectFlashVersion, autoInstallRedirect){
 	if (!document.getElementById) { return; }

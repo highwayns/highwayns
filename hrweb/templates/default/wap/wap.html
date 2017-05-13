@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>{#$QISHI.site_name#}</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>{#$HIGHWAY.site_name#}</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="jp.highwayns.com" />
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/index.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function()
@@ -50,7 +50,7 @@ $(document).ready(function()
 			url = "wap-jobs-list.php";
 		}
 		else if($(this).attr("id")=="search_resume"){
-			url = "{#$QISHI.wap_domain#}/wap-resume-list.php";
+			url = "{#$HIGHWAY.wap_domain#}/wap-resume-list.php";
 		}
 		window.location.href=url+"?key="+key+"&district="+district+"&sdistrict="+sdistrict; 
 	});
@@ -77,16 +77,16 @@ $(document).ready(function()
 <!--快捷按钮 -->
 <div class="d1 link_bk">
   <div class="list">
-    <div class="box"><a href="{#$QISHI.wap_domain#}/wap-jobs-list.php"><img src="images/10.jpg"  border="0"/><br />最新职位</a></div>
+    <div class="box"><a href="{#$HIGHWAY.wap_domain#}/wap-jobs-list.php"><img src="images/10.jpg"  border="0"/><br />最新职位</a></div>
   </div>
   <div class="list">
-    <div class="box"><a href="{#$QISHI.wap_domain#}/wap-jobs-list.php?emergency=1"><img src="images/5.jpg"  border="0"/><br />紧急招聘</a></div>
+    <div class="box"><a href="{#$HIGHWAY.wap_domain#}/wap-jobs-list.php?emergency=1"><img src="images/5.jpg"  border="0"/><br />紧急招聘</a></div>
   </div>
   <div class="list">
-    <div class="box"><a href="{#$QISHI.wap_domain#}/wap-jobs-list.php?recommend=1"><img src="images/6.jpg"  border="0"/><br />推荐职位</a></div>
+    <div class="box"><a href="{#$HIGHWAY.wap_domain#}/wap-jobs-list.php?recommend=1"><img src="images/6.jpg"  border="0"/><br />推荐职位</a></div>
   </div>
   <div class="list">
-    <div class="box"><a href="{#$QISHI.wap_domain#}/wap-resume-list.php?talent=2"><img src="images/7.jpg"  border="0"/><br />高级人才</a></div>
+    <div class="box"><a href="{#$HIGHWAY.wap_domain#}/wap-resume-list.php?talent=2"><img src="images/7.jpg"  border="0"/><br />高级人才</a></div>
   </div>
   <div class="clear"></div>
 </div>
@@ -96,7 +96,7 @@ $(document).ready(function()
 	 <div class="more" id="clearkey"><img src="images/17.jpg"  border="0"/></div>
 </div>
 <div class="d3" id="district_input">
-  <div class="input"  id="district_cn">请选择地区</div>
+  <div class="input"  id="district_cn">地区選択してください</div>
   <input name="district" id="district" type="hidden" value="" />
 <input name="sdistrict" id="sdistrict" type="hidden" value="" />
   <div class="more"><img src="images/8.jpg"  border="0"/></div>
@@ -126,7 +126,7 @@ $(document).ready(function()
 	  <div class="clear"></div>
 	</div>
 {#/foreach#}	
-    <a style="display:block;text-decoration:none" class="more link_bk" href="wap-jobs-list.php">更多职位...</a>	
+    <a style="display:block;text-decoration:none" class="more link_bk" href="wap-jobs-list.php">もっと職位...</a>	
 </div>
 {#include file="wap/footer.htm"#}
 

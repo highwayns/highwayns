@@ -4,25 +4,12 @@
 
 class HTMLPurifier_URIFilter_MakeAbsolute extends HTMLPurifier_URIFilter
 {
-    /**
-     * @type string
-     */
     public $name = 'MakeAbsolute';
 
-    /**
-     * @type
-     */
     protected $base;
 
-    /**
-     * @type array
-     */
     protected $basePathStack = array();
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @return bool
-     */
     public function prepare($config)
     {
         $def = $config->getDefinition('URI');
@@ -43,12 +30,6 @@ class HTMLPurifier_URIFilter_MakeAbsolute extends HTMLPurifier_URIFilter
         return true;
     }
 
-    /**
-     * @param HTMLPurifier_URI $uri
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function filter(&$uri, $config, $context)
     {
         if (is_null($this->base)) {
@@ -109,11 +90,6 @@ class HTMLPurifier_URIFilter_MakeAbsolute extends HTMLPurifier_URIFilter
         return true;
     }
 
-    /**
-     * Resolve dots and double-dots in a path stack
-     * @param array $stack
-     * @return array
-     */
     private function _collapseStack($stack)
     {
         $result = array();

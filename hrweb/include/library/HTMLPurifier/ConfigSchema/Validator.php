@@ -1,36 +1,14 @@
 ﻿<?php
 
-/**
- * Performs validations on HTMLPurifier_ConfigSchema_Interchange
- *
- * @note If you see '// handled by InterchangeBuilder', that means a
- *       design decision in that class would prevent this validation from
- *       ever being necessary. We have them anyway, however, for
- *       redundancy.
- */
 class HTMLPurifier_ConfigSchema_Validator
 {
 
-    /**
-     * @type HTMLPurifier_ConfigSchema_Interchange
-     */
     protected $interchange;
 
-    /**
-     * @type array
-     */
     protected $aliases;
 
-    /**
-     * Context-stack to provide easy to read error messages.
-     * @type array
-     */
     protected $context = array();
 
-    /**
-     * to test default's type.
-     * @type HTMLPurifier_VarParser
-     */
     protected $parser;
 
     public function __construct()
@@ -38,11 +16,6 @@ class HTMLPurifier_ConfigSchema_Validator
         $this->parser = new HTMLPurifier_VarParser();
     }
 
-    /**
-     * Validates a fully-formed interchange object.
-     * @param HTMLPurifier_ConfigSchema_Interchange $interchange
-     * @return bool
-     */
     public function validate($interchange)
     {
         $this->interchange = $interchange;
@@ -59,10 +32,6 @@ class HTMLPurifier_ConfigSchema_Validator
         return true;
     }
 
-    /**
-     * Validates a HTMLPurifier_ConfigSchema_Interchange_Id object.
-     * @param HTMLPurifier_ConfigSchema_Interchange_Id $id
-     */
     public function validateId($id)
     {
         $id_string = $id->toString();
@@ -79,10 +48,6 @@ class HTMLPurifier_ConfigSchema_Validator
         array_pop($this->context);
     }
 
-    /**
-     * Validates a HTMLPurifier_ConfigSchema_Interchange_Directive object.
-     * @param HTMLPurifier_ConfigSchema_Interchange_Directive $d
-     */
     public function validateDirective($d)
     {
         $id = $d->id->toString();
@@ -121,11 +86,6 @@ class HTMLPurifier_ConfigSchema_Validator
         array_pop($this->context);
     }
 
-    /**
-     * Extra validation if $allowed member variable of
-     * HTMLPurifier_ConfigSchema_Interchange_Directive is defined.
-     * @param HTMLPurifier_ConfigSchema_Interchange_Directive $d
-     */
     public function validateDirectiveAllowed($d)
     {
         if (is_null($d->allowed)) {
@@ -146,11 +106,6 @@ class HTMLPurifier_ConfigSchema_Validator
         array_pop($this->context);
     }
 
-    /**
-     * Extra validation if $valueAliases member variable of
-     * HTMLPurifier_ConfigSchema_Interchange_Directive is defined.
-     * @param HTMLPurifier_ConfigSchema_Interchange_Directive $d
-     */
     public function validateDirectiveValueAliases($d)
     {
         if (is_null($d->valueAliases)) {
@@ -182,11 +137,6 @@ class HTMLPurifier_ConfigSchema_Validator
         array_pop($this->context);
     }
 
-    /**
-     * Extra validation if $aliases member variable of
-     * HTMLPurifier_ConfigSchema_Interchange_Directive is defined.
-     * @param HTMLPurifier_ConfigSchema_Interchange_Directive $d
-     */
     public function validateDirectiveAliases($d)
     {
         $this->with($d, 'aliases')
@@ -209,22 +159,11 @@ class HTMLPurifier_ConfigSchema_Validator
 
     // protected helper functions
 
-    /**
-     * Convenience function for generating HTMLPurifier_ConfigSchema_ValidatorAtom
-     * for validating simple member variables of objects.
-     * @param $obj
-     * @param $member
-     * @return HTMLPurifier_ConfigSchema_ValidatorAtom
-     */
     protected function with($obj, $member)
     {
         return new HTMLPurifier_ConfigSchema_ValidatorAtom($this->getFormattedContext(), $obj, $member);
     }
 
-    /**
-     * Emits an error, providing helpful context.
-     * @throws HTMLPurifier_ConfigSchema_Exception
-     */
     protected function error($target, $msg)
     {
         if ($target !== false) {
@@ -235,10 +174,6 @@ class HTMLPurifier_ConfigSchema_Validator
         throw new HTMLPurifier_ConfigSchema_Exception(trim($prefix . ' ' . $msg));
     }
 
-    /**
-     * Returns a formatted context string.
-     * @return string
-     */
     protected function getFormattedContext()
     {
         return implode(' in ', array_reverse($this->context));

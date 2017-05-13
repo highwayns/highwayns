@@ -20,21 +20,9 @@ if (!defined('PHP_EOL')) {
     }
 }
 
-/**
- * Bootstrap class that contains meta-functionality for HTML Purifier such as
- * the autoload function.
- *
- * @note
- *      This class may be used without any other files from HTML Purifier.
- */
 class HTMLPurifier_Bootstrap
 {
 
-    /**
-     * Autoload function for HTML Purifier
-     * @param string $class Class to load
-     * @return bool
-     */
     public static function autoload($class)
     {
         $file = HTMLPurifier_Bootstrap::getPath($class);
@@ -50,11 +38,6 @@ class HTMLPurifier_Bootstrap
         return true;
     }
 
-    /**
-     * Returns the path for a specific class.
-     * @param string $class Class path to get
-     * @return string
-     */
     public static function getPath($class)
     {
         if (strncmp('HTMLPurifier', $class, 12) !== 0) {
@@ -73,9 +56,6 @@ class HTMLPurifier_Bootstrap
         return $file;
     }
 
-    /**
-     * "Pre-registers" our autoloader on the SPL stack.
-     */
     public static function registerAutoload()
     {
         $autoload = array('HTMLPurifier_Bootstrap', 'autoload');

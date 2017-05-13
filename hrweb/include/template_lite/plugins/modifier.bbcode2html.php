@@ -1,13 +1,4 @@
 ﻿<?php
-/**
- * Template_Lite bbcode modifier plugin
- *
- * Type:     modifier
- * Name:     bbcode2html
- * Purpose:  converts special bbcode syntax into standard html
- * Input:<br>
- *         - string: data to convert
- */
 function tpl_modifier_bbcode2html($data)
 {
 	$data = nl2br(stripslashes(addslashes($data)));

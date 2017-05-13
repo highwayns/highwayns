@@ -66,7 +66,7 @@ $(document).ready(function() {
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > チャージ注文</div>
 
 <div class="usermain">
   <div class="leftmenu  com link_bk">
@@ -77,32 +77,32 @@ $(document).ready(function() {
  	<div class="bbox1 link_bk my_account intrgration" style="padding-top:0;">
 		<div class="topnav">
 			<div class="titleH1">
-				<div class="h1-title">充值/订单</div>
+				<div class="h1-title">チャージ/注文</div>
 			</div>
 
 			<div class="navs">
         {#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
-        <a href="?act=order_add" class="se">积分充值</a>
+        <a href="?act=order_add" class="se">ポイントチャージ</a>
         {#/if#}
         {#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
-        <a href="?act=setmeal_list">申请VIP套餐</a>
+        <a href="?act=setmeal_list">アプリケーションパッケージVIP </a>
         {#/if#}
-        <a href="?act=order_list">我的订单</a>
+        <a href="?act=order_list">マイオーダー</a>
 				<div class="clear"></div>
 			</div>
 		</div>
 		<div class="balance margin-common">
-  			<div class="bal_text" style="margin-bottom:0;">您的账户剩余<span> {#$points#} </span>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account&detail=1">[积分明细]</a>&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account">[积分消费规则]</a></div>
+  			<div class="bal_text" style="margin-bottom:0;">アカウント残高<span> {#$points#} </span>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account&detail=1">[积分明细]</a>&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account">[积分消费规则]</a></div>
   		</div>
   		<div class="bar">
   			<div class="bar_step1">
-  				<p>填写订单</p>
+  				<p>注文の入力</P>
   			</div>
   			<div class="bar_step2 hui">
-  				<p>确认订单</p>
+  				<p>ご注文の確認</P>
   			</div>
   			<div class="bar_step3 hui">
-  				<p>提交订单</p>
+  				<p>オーダーの提出</P>
   			</div>
   		</div>
   		<form id="Form1" name="Form1" method="post" action="?act=order_add_save"  >
@@ -110,9 +110,9 @@ $(document).ready(function() {
   			<table>
   				<tbody>
   					<tr>
-  						<td height="30" width="100">充值金额：</td>
+  						<td height="30" width="100">チャージ金額：</td>
   						<td width="240"><input type="text" name="amount" id="amount" maxlength="8" class="input_text_200"/>&nbsp;元</td>
-              <td> （单笔金额不能低于{#$HIGHWAY.payment_min#}元）&nbsp; 1元 = {#$HIGHWAY.payment_rate#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}</td>
+              <td>（一回金額の最低は{#$HIGHWAY.payment_min#}元）&nbsp; 1元 = {#$HIGHWAY.payment_rate#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}</td>
   					</tr>
   					<tr id="count" style="display:none;">
   						<td></td>
@@ -124,7 +124,7 @@ $(document).ready(function() {
   				<tbody>
   					{#section name=payment loop=$payment#}
   					<tr>
-  						<td height="30" width="100">{#if $smarty.section.payment.index==0#}支付方式：{#/if#}</td>
+  						<td height="30" width="100">{#if $smarty.section.payment.index==0#}支払い方法：{#/if#}</td>
   						<td width="150"><input type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$HIGHWAY.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
   						<td> <p>({#$payment[payment].p_introduction#})</p></td>
   					</tr>

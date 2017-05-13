@@ -1,25 +1,11 @@
 ﻿<?php
 
-/**
- * Defines common attribute collections that modules reference
- */
 
 class HTMLPurifier_AttrCollections
 {
 
-    /**
-     * Associative array of attribute collections, indexed by name.
-     * @type array
-     */
     public $info = array();
 
-    /**
-     * Performs all expansions on internal data for use by other inclusions
-     * It also collects all attribute collection extensions from
-     * modules
-     * @param HTMLPurifier_AttrTypes $attr_types HTMLPurifier_AttrTypes instance
-     * @param HTMLPurifier_HTMLModule[] $modules Hash array of HTMLPurifier_HTMLModule members
-     */
     public function __construct($attr_types, $modules)
     {
         // load extensions from the modules
@@ -50,11 +36,6 @@ class HTMLPurifier_AttrCollections
         }
     }
 
-    /**
-     * Takes a reference to an attribute associative array and performs
-     * all inclusions specified by the zero index.
-     * @param array &$attr Reference to attribute array
-     */
     public function performInclusions(&$attr)
     {
         if (!isset($attr[0])) {
@@ -86,12 +67,6 @@ class HTMLPurifier_AttrCollections
         unset($attr[0]);
     }
 
-    /**
-     * Expands all string identifiers in an attribute array by replacing
-     * them with the appropriate values inside HTMLPurifier_AttrTypes
-     * @param array &$attr Reference to attribute array
-     * @param HTMLPurifier_AttrTypes $attr_types HTMLPurifier_AttrTypes instance
-     */
     public function expandIdentifiers(&$attr, $attr_types)
     {
         // because foreach will process new elements we add, make sure we

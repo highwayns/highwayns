@@ -6,7 +6,7 @@
   <div class="clear"></div>
 </div>
  <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统分类不能删除！<br />
 </p>
@@ -16,9 +16,9 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>分类名称</label></td>
-	  <td   align="center"  class="admin_list_tit">类型</td>
-	  <td   align="center"  class="admin_list_tit">排序</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>分类名称</label></td>
+	  <td   align="center"  class="admin_list_tit">タイプ</td>
+	  <td   align="center"  class="admin_list_tit">並び替え</td>
       <td width="150"   class="admin_list_tit">操作</td>
     </tr>
 	 {#foreach from=$category item=list#}
@@ -29,7 +29,7 @@
 	  <span style="color:#CCCCCC">(id:{#$list.c_id#})</span>	  </td>
 	   <td align="center"  class="admin_list">
 	    {#if $list.c_adminset=="1"#}
-			   <span style="color:#FF6600">系统分类</span>
+			   <span style="color:#FF6600">システム分類</span>
 			   {#else#}
 			     自定义
 			   {#/if#}
@@ -37,7 +37,7 @@
 			    <td align="center"  class="admin_list">
 	    {#$list.c_order#}  </td>
       <td class="admin_list">
-	 <a href="?act=edit_category&id={#$list.c_id#}">修改</a>&nbsp;&nbsp;
+	 <a href="?act=edit_category&id={#$list.c_id#}">変更</a>&nbsp;&nbsp;
 			 </td>
     </tr>
 	 {#/foreach#}

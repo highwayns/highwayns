@@ -174,9 +174,6 @@ function collectData () {
 
 }
 
-/**
- * 获取用户配置信息
- */
 function getUserConfig () {
 
     var form = document.forms[ 'data-form' ],

@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * 获取已上传的文件列表
- * User: Jinqn
- * Date: 14-04-09
- * Time: 上午10:17
- */
 include "Uploader.class.php";
 
 /* 判断类型 */
@@ -62,12 +56,6 @@ $result = json_encode(array(
 return $result;
 
 
-/**
- * 遍历获取目录下的指定类型的文件
- * @param $path
- * @param array $files
- * @return array
- */
 function getfiles($path, $allowFiles, &$files = array())
 {
     if (!is_dir($path)) return null;

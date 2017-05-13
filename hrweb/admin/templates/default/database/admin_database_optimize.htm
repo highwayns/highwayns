@@ -29,7 +29,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 数据表优化可以去除数据文件中的碎片，使记录排列紧密，提高读写速度。
 </p>
@@ -43,10 +43,10 @@ $(document).ready(function()
 	   <input name=" " type="checkbox" id="chk" title="全选/反选" checked="checked"/>
 	   数据表</label>
 	   </td>
-      <td class="admin_list_tit"  width="18%" align="center">类型</td>           
-	  <td class="admin_list_tit" width="18%" align="center">记录数</td>
-	  <td class="admin_list_tit" width="18%"  align="center">数据大小</td> 
-	  <td width="18%" align="center" class="admin_list_tit"> 碎片byte</td>
+      <td class="admin_list_tit"  width="18%" align="center">タイプ</td>           
+	  <td class="admin_list_tit" width="18%" align="center">記録数</td>
+	  <td class="admin_list_tit" width="18%"  align="center">データサイズ</td> 
+	  <td width="18%" align="center" class="admin_list_tit">デブリバイト</td>
     </tr>
 	{#foreach from=$list item=list#}
       <tr>
@@ -67,7 +67,7 @@ $(document).ready(function()
       {#/foreach#}
   </table>
 	{#if !$list#}
-	<div class="admin_list_no_info">数据表没有碎片，不需要再优化。</div>
+	<div class="admin_list_no_info">データテーブルが断片化していない、再最適化を必要としません。</div>
 	{#/if#}
  
   <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">

@@ -15,21 +15,21 @@ $(document).ready(function()
 	{#include file="help/admin_help_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改帮助</div>
+<div class="toptit">ヘルプを変更します</div>
   <form action="?act=editsave" method="post"   name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="3" cellspacing="0"  class="admin_table">
       <tr>
-        <td width="50" align="right" >标题：</td>
+        <td width="50" align="right" >title：</td>
         <td ><input name="title" type="text"  class="input_text_400"  value="{#$help.title#}" /></td>
       </tr>
 	  <tr>
-        <td align="right"  >排序：</td>
+        <td align="right"  >並べ替え：</td>
         <td><input name="order" type="text"  class="input_text_200"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" value="{#$help.order#}" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 
-        <span class="admin_note">数字越大越靠前</span>       </td>
+        <span class="admin_note">数字が大きければトップに行けます</span>       </td>
       </tr>
       <tr>
-        <td align="right" >分类：</td>
+        <td align="right" >カテゴリー：</td>
         <td >		
 		<div>		
 		<input type="text" value="{#$smarty.get.type_id_cn|default:"请选择"#}"  readonly="readonly" name="type_id_cn" id="type_id_cn" class="input_text_200 input_text_selsect"/>
@@ -54,7 +54,7 @@ $(document).ready(function()
       </tr>
       <tr>
         <td align="right" ><input name="id" type="hidden" value="{#$help.id#}" /></td>
-        <td height="100" ><input type="submit" name="Submit" value="修改" class="admin_submit"   /></td>
+        <td height="100" ><input type=“submit” name=“Submit” value=“修正” class=“admin_submit”   /></td>
       </tr>
     </table>
    

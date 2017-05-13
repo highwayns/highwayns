@@ -1,13 +1,4 @@
-﻿/**
- * Test Harness for CodeMirror
- * JS-unit compatible tests here.  The two available assertions are
- * assertEquals (strict equality) and assertEquivalent (looser equivalency).
- *
- * 'editor' is a global object for the CodeMirror editor shared between all
- * tests.  After manipulating it in each test, try to restore it to
- * approximately its original state.
- */
-
+﻿
 function testSetGet() {
   var code = 'It was the best of times.\nIt was the worst of times.';
   editor.setCode(code);

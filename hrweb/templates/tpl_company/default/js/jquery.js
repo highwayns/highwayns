@@ -3954,10 +3954,6 @@ function createPositionalPseudo( fn ) {
 	});
 }
 
-/**
- * Utility function for retrieving the text value of an array of DOM nodes
- * @param {Array|Element} elem
- */
 getText = Sizzle.getText = function( elem ) {
 	var node,
 		ret = "",

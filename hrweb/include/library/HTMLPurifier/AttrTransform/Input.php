@@ -1,14 +1,7 @@
 ﻿<?php
 
-/**
- * Performs miscellaneous cross attribute validation and filtering for
- * input elements. This is meant to be a post-transform.
- */
 class HTMLPurifier_AttrTransform_Input extends HTMLPurifier_AttrTransform
 {
-    /**
-     * @type HTMLPurifier_AttrDef_HTML_Pixels
-     */
     protected $pixels;
 
     public function __construct()
@@ -16,12 +9,6 @@ class HTMLPurifier_AttrTransform_Input extends HTMLPurifier_AttrTransform
         $this->pixels = new HTMLPurifier_AttrDef_HTML_Pixels();
     }
 
-    /**
-     * @param array $attr
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array
-     */
     public function transform($attr, $config, $context)
     {
         if (!isset($attr['type'])) {

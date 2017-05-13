@@ -1,27 +1,14 @@
 ﻿<?php
 
-/**
- * XHTML 1.1 Bi-directional Text Module, defines elements that
- * declare directionality of content. Text Extension Module.
- */
 class HTMLPurifier_HTMLModule_Bdo extends HTMLPurifier_HTMLModule
 {
 
-    /**
-     * @type string
-     */
     public $name = 'Bdo';
 
-    /**
-     * @type array
-     */
     public $attr_collections = array(
         'I18N' => array('dir' => false)
     );
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $bdo = $this->addElement(

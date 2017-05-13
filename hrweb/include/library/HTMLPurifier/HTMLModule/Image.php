@@ -1,21 +1,10 @@
 ﻿<?php
 
-/**
- * XHTML 1.1 Image Module provides basic image embedding.
- * @note There is specialized code for removing empty images in
- *       HTMLPurifier_Strategy_RemoveForeignElements
- */
 class HTMLPurifier_HTMLModule_Image extends HTMLPurifier_HTMLModule
 {
 
-    /**
-     * @type string
-     */
     public $name = 'Image';
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $max = $config->get('HTML.MaxImgLength');

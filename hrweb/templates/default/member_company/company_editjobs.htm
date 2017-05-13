@@ -142,7 +142,7 @@ function showagebox(divname,inputname)
 		htm+="<ul>";
 		for (i=y;i<=ymax;i++)
 		{
-		htm+="<li title=\""+i+"\">"+i+"岁</li>";
+		htm+="<li title=\""+i+"\">“+i+”歳</li>";
 		}
 		htm+="<div class=\"clear\"></div>";
 		htm+="</ul>";
@@ -315,7 +315,7 @@ $("#Form1").validate({
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 修改职位</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 求人編集</div>
 <div class="usermain">
   <div class="leftmenu link_bk">
   {#include file="member_company/left.htm"#}
@@ -324,7 +324,7 @@ $("#Form1").validate({
 	<div class="bbox1">	
 	  <div class="addjob">
 	    <div class="titleH1">
-	      <div class="h1-title">修改职位</div>
+	      <div class="h1-title">求人の編集</div>
         </div>
 	    <div class="titleH2"><span>职位信息</span></div>
 		<form id="Form1" name="Form1" method="post" action="?act=editjobs_save" >
@@ -350,7 +350,7 @@ $("#Form1").validate({
 		  <tr class="jobmain">
 			<td align="right"><span class="nec">职位类别</span>：</td>
 			<td id="jobsSort" style="position:relative;">
-             <div id="jobText" class="input_text_200_bg choose_cate ucc-default">{#$jobs.category_cn|default:"请选择"#}</div>	
+             <div id="jobText" class="input_text_200_bg choose_cate ucc-default">{#$Jobs.category_cn |デフォルト：# “を選択してください”} </div>	
 				<!-- 职位类别弹出框 -->
 				<div class="aui_outer" id="aui_outer_job">
 					<table class="aui_border">
@@ -396,7 +396,7 @@ $("#Form1").validate({
 		   <tr class="jobmain">
 			<td align="right"><span class="nec">工作地区</span>：</td>
 			<td id="jobsCity" style="position:relative;">
-			<div id="cityText" class="input_text_200_bg choose_district ucc-default">{#$jobs.district_cn|default:"请选择"#}</div>	
+			<div id="cityText" class="input_text_200_bg choose_district ucc-default">{#$jobs.district_cn|default:”選択してください”#}</div>	
 				<!-- 工作地区弹出框 -->
 				<div class="aui_outer" id="aui_outer_city">
 					<table class="aui_border">
@@ -450,15 +450,15 @@ $("#Form1").validate({
 	            </div>				
              	 <input name="wage" type="hidden" id="wage" value="{#$jobs.wage#}" />
              	 <input name="wage_cn" type="hidden" id="wage_cn" value="{#$jobs.wage_cn#}" /></td>
-			<td><label><input name="negotiable" type="checkbox" value="1" {#if $jobs.negotiable=="1"#}checked="checked"{#/if#} /> 可面议</label></td>
+			<td><label><input name="negotiable" type="checkbox" value="1" {#if $jobs.negotiable=="1"#}checked="checked"{#/if#} />面談可</label></td>
 		  </tr>
 	    </table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			<tr>
-			<td width="125" align="right">职位亮点：</td>
+			<td width="125" align="right">ポジションハイライト：</td>
 			<td style="position:relative;">
 			  <div class="showchecktag"></div>
-              <div class="input_checkbox_add ucc-default">添加</div>	
+              <div class="input_checkbox_add ucc-default">追加</div>	
               <!-- 职位亮点弹出框 -->
 				<div class="aui_outer" id="aui_outer_tag">
 					<table class="aui_border">
@@ -474,7 +474,7 @@ $("#Form1").validate({
 															<div class="items jquery-localdata">
 																<div class="selector-header"><span class="selector-title">职位亮点选择</span><div></div><span id="tag-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">5</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">5</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="item-table">
 																	<table class="options-table options-table-7">
 																		<tbody class="item-list"><tr><td class="bno"><table><tbody id="tag_list">
@@ -509,9 +509,9 @@ $("#Form1").validate({
 			<div id="sex_radio">
 			<input name="sex" id="sex" type="hidden" value="{#$jobs.sex#}" />
 			<input name="sex_cn" id="sex_cn" type="hidden" value="{#$jobs.sex_cn#}" />
-			  <div class="input_radio {#if $jobs.sex=='3'#}select{#/if#}" id="3">不限</div>
-			  <div class="input_radio {#if $jobs.sex=='1'#}select{#/if#}" id="1">男</div>
-			  <div class="input_radio {#if $jobs.sex=='2'#}select{#/if#}" id="2">女</div>			  
+			  <div class="input_radio {#if $jobs.sex=='3'#}select{#/if#}" id="3">制限なし</div>
+			  <div class="input_radio {#if $jobs.sex=='1'#}select{#/if#}" id="1">男性</div>
+			  <div class="input_radio {#if $jobs.sex=='2'#}select{#/if#}" id="2">女性</div>			  
 			  <div class="clear"></div>
 			  </div>		    </td>
 		  </tr>
@@ -549,29 +549,29 @@ $("#Form1").validate({
 	            </div>				
              	 <input name="experience" type="hidden" id="experience" value="{#$jobs.experience#}" />
              	 <input name="experience_cn" type="hidden" id="experience_cn" value="{#$jobs.experience_cn#}" /></td>
-			<td><label><input name="graduate" type="checkbox" {#if $jobs.graduate=="1"#}checked="checked"{#/if#} value="1" /> 应届生亦可</label></td>
+			<td><label><input name="graduate" type="checkbox" {#if $jobs.graduate=="1"#}checked="checked"{#/if#} value="1" /> 新卒可</label></td>
 		  </tr>
 		    <tr>
-			<td align="right">年龄要求：</td>
+			<td align="right">年齢要求：</td>
 			<td colspan="2">
 			  <table border="0" cellpadding="0" cellspacing="0" >
                           <tr>
                             <td width="80" style="padding:0px">
                             	<div>
-                            	<div class="input_text_50_bg date_input wid54" id="minage_div">{#if $jobs.minage#}{#$jobs.minage#}{#else#}请选择{#/if#}</div>
+                            	<div class="input_text_50_bg date_input wid54" id="minage_div">{#if $jobs.minage#}{#$jobs.minage#}{#else#}選択{#/if#}</div>
 				             	 <input name="minage" id="minage" type="hidden" value="{#$jobs.minage#}" />
 				            	</div>
 				        	</td>
-                            <td width="20" style="padding:0px">至</td>
+                            <td width="20" style="padding:0px"></tdへ>
                             <td width="80"  style="padding:0px">
                             	<div>
-                            	<div class="input_text_50_bg date_input wid54" id="maxage_div">{#if $jobs.maxage#}{#$jobs.maxage#}{#else#}请选择{#/if#}</div>
+                            	<div class="input_text_50_bg date_input wid54" id="maxage_div">{#if $jobs.maxage#}{#$jobs.maxage#}{#else#}選択してください{#/if#}</div>
 				             	 <input name="maxage" id="maxage" type="hidden" value="{#$jobs.maxage#}" />
 				            	</div>
                             </td>
                           </tr>
                         </table>
-						<label id="ageerr" class="error" style="display:none">请选择正确的年龄范围</label>
+						<label id="ageerr" class="error" style="display:none">正しい年齢の範囲を選択してください</label>
 				</td>
 		  </tr>
 	    </table>
@@ -583,7 +583,7 @@ $("#Form1").validate({
 			<td width="500">
 			{#if $jobs.category_cn !=''#}
 			<div style="" id="template">
-				<span class="tdTemplateTitle">&nbsp;</span><font style="color:#FF6600">（点击职位模板后会自动填充职位描述）</font>
+				<span class="tdTemplateTitle">&nbsp;</span><font style="color:#FF6600">（自動的にテンプレートをクリックした後、自動的にジョブを記入する）</font>
 				<span id="JobRequInfoTemplate"><a data="{#$jobs.subclass#}" href="javascript:void(0);">{#$jobs.category_cn#}</a></span>
 			</div>
 			{#/if#}
@@ -609,21 +609,21 @@ $("#Form1").validate({
 		  <tr>
 			<td width="125" align="right"><span class="nec">联系人</span>：</td>
 			<td width="230"><input name="contact" type="text" class="input_text_200" id="contact" maxlength="20"   value="{#$jobs.contact.contact#}"/></td>
-			<td><label><input name="contact_show" type="checkbox" value="1" {#if $jobs.contact.contact_show=="1"#}checked="checked"{#/if#} /> 对外公开联系人</label></td>
+			<td><label><input name="contact_show" type="checkbox" value="1" {#if $jobs.contact.contact_show=="1"#}checked="checked"{#/if#} /> 公共の連絡先に開く</label></td>
 		  </tr>
 		  <tr>
 			<td align="right"><span class="nec">联系电话</span>：</td>
 			<td>
 			
             <input name="telephone" oninput="OnInput (event,'#telephone_two')" onpropertychange="OnPropChanged (event,'#telephone_two')" type="text" class="input_text_200" id="telephone" maxlength="35"   value="{#$jobs.contact.telephone#}"/></td>
-			<td><label><input name="telephone_show" type="checkbox" value="1" {#if $jobs.contact.telephone_show=="1"#}checked="checked"{#/if#} /> 对外公开联系电话</label></td>
+			<td><label><input name="telephone_show" type="checkbox" value="1" {#if $jobs.contact.telephone_show=="1"#}checked="checked"{#/if#} />電話公開</label></td>
 		  </tr>
 		  <tr>
 			<td align="right"><span class="nec">联系邮箱</span>：</td>
 			<td>
 			
              <input name="email" oninput="OnInput (event,'#email_two')" onpropertychange="OnPropChanged (event,'#email_two')" type="text" class="input_text_200" id="email" maxlength="80" value="{#$jobs.contact.email#}"/>            	</td>
-			<td><label><input name="email_show" type="checkbox" value="1" {#if $jobs.contact.email_show=="1"#}checked="checked"{#/if#} /> 对外公开联系邮箱</label></td>
+			<td><label><input name="email_show" type="checkbox" value="1" {#if $jobs.contact.email_show=="1"#}checked="checked"{#/if#} /> 連絡先メールの公開</label></td>
 		  </tr>
 	    </table>
 	    <script type="text/javascript">
@@ -651,16 +651,16 @@ $("#Form1").validate({
 			<tr>
 				<td width="125" align="right"><span class="">简历接收邮箱</span>：</td>
 				<td width="230"><input name="email_two" id="email_two" type="text" class="input_text_200" maxlength="80" value="{#$jobs.contact.email#}" disabled="disabled"/></td>
-				<td><label><input name="notify" type="checkbox" value="1" {#if $jobs.contact.notify=='1'#}checked="checked"{#/if#}/>接收</label></td>
+				<td><label><input name="notify" type="checkbox" value="1" {#if $jobs.contact.notify=='1'#}checked="checked"{#/if#}/>受信</label></td>
 		  	</tr>
 			<tr>
 				<td width="125" align="right"><span class="">简历短信通知</span>：</td>
 				<td width="230"><input name="telephone_two" id="telephone_two" type="text" class="input_text_200" maxlength="80" value="{#$jobs.contact.telephone#}" disabled="disabled"/></td>
-				<td><label><input name="notify_mobile" type="checkbox" value="1" id="receiveit" {#if $jobs.contact.notify_mobile=='1'#}checked="checked"{#/if#} />接收</label></td>
+				<td><label><input name="notify_mobile" type="checkbox" value="1" id="receiveit" {#if $jobs.contact.notify_mobile=='1'#}checked="checked"{#/if#} />受信</label></td>
 		  	</tr>
 		  	<tr>
 				<td width="125" align="right"> </td>
-				<td ><input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/>
+				<td ><input type=“submit” name=“submitsave” id=“submitsave” value=“保存”  class=“but220lan” onclick=“$(window).unbind(‘beforeunload’);”/>
 				</td>
 			</tr>
 		</table>
@@ -678,7 +678,7 @@ $(document).ready(function()
 			var points = {#$points_total#};
 			var jobs_edit = {#$points.jobs_edit.value#};
 			var totals=jobs_edit;			
-			$("#total").html("修改本条信息总计扣除&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，<a href=\"company_service.php?act=order_add\">[充值积分]</a><br />");
+			$("#total").html("修改本条信息总计扣除&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，<a href=\"company_service.php?act=order_add\">[チャージポイント]</a><br />");
 			$("#totals").val({#$points_total#}-totals);	
 	}				
 	$("#editsubmit").click(function()

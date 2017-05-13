@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite compile custom block - template internal module
- *
- * Type:	 template
- * Name:	 compile_custom_block
- */
 
 function compile_compile_custom_block($function, $modifiers, $arguments, &$_result, &$object)
 {

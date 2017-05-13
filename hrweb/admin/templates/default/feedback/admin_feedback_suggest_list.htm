@@ -5,26 +5,26 @@
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">分类显示</div>	
+		<div class="left">カテゴリ表示</div>	
 		<div class="right">
-		<a href="{#"infotype:"|highway_parse_url#}" {#if $smarty.get.infotype==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"infotype:1"|highway_parse_url#}" {#if $smarty.get.infotype=="1"#}class="select"{#/if#}>意见</a>
-		<a href="{#"infotype:2"|highway_parse_url#}" {#if $smarty.get.infotype=="2"#}class="select"{#/if#}>建议</a>
-		<a href="{#"infotype:3"|highway_parse_url#}" {#if $smarty.get.infotype=="3"#}class="select"{#/if#}>求助</a>
-		<a href="{#"infotype:4"|highway_parse_url#}" {#if $smarty.get.infotype=="4"#}class="select"{#/if#}>投诉</a>
+		<a href="{#"infotype:"|highway_parse_url#}" {#if $smarty.get.infotype==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"infotype:1"|highway_parse_url#}" {#if $smarty.get.infotype=="1"#}class="select"{#/if#}>ご意見</a>
+		<a href="{#"infotype:2"|highway_parse_url#}" {#if $smarty.get.infotype=="2"#}class="select"{#/if#}>勧告</a>
+		<a href="{#"infotype:3"|highway_parse_url#}" {#if $smarty.get.infotype=="3"#}class="select"{#/if#}>ヘルプ</a>
+		<a href="{#"infotype:4"|highway_parse_url#}" {#if $smarty.get.infotype=="4"#}class="select"{#/if#}>苦情</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">添加时间</div>	
+		<div class="left">タイムの追加</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -35,10 +35,10 @@
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td width="80"   class="admin_list_tit admin_list_first" >
-     <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>类型</label></td>
-      <td width="40%"  class="admin_list_tit"  >内容</td>
-      <td align="center" class="admin_list_tit">联系方式</td>
-      <td width="120" align="center" class="admin_list_tit">添加时间</td>
+     <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>类型</label></td>
+      <td width="40%"  class="admin_list_tit"  >コンテンツ</td>
+      <td align="center" class="admin_list_tit">連絡先</td>
+      <td width="120" align="center" class="admin_list_tit">時間を追加します</td>
     </tr>
 	{#foreach from=$list item=li#}
 	<tr>
@@ -56,7 +56,7 @@
 	 {#/foreach#}
   </table>
   {#if !$list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

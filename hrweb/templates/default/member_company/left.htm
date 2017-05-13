@@ -86,7 +86,7 @@ $(document).ready(function() {
 <div class="meun1">
   		<div class="meun2">
   		<div class="meunbox">
-			<div class="menu_top"><a href="company_index.php">中心首页</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;{#if $company_url#}<a target="_black" href="{#$company_url#}">预览企业</a>{#else#}<a href="company_info.php?act=company_profile" onClick="return confirm('无法预览,您没有完善企业资料,现在去完善企业资料？')">预览企业</a>{#/if#}
+			<div class="menu_top"><a href="company_index.php">中心首页</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;{#if $company_url#}<a target="_black" href="{#$company_url#}">预览企业</a>{#else#}<a href=“company_info.php?act=company_profile” onClick=“return confirm(‘見ることができません、企業資料未完成、企業資料を完成してください？’)”>预览企业</a>{#/if#}
 			</div>
 		</div>
 		<div class="meunbox">
@@ -149,17 +149,17 @@ $(document).ready(function() {
 	<!-- 右侧漂浮组件 -->
 {#if $consultant#}
 <div class="guwen_bbox">
-		<div class="guwen">企业顾问</div>
+		<div class="guwen">ビジネスコンサルタント</div>
 		<div class="guwen_open" style="display:none;">
 			<div class="open_box">
 				<span class="guwen_close"></span>
-				<div class="guwen_blc">企业顾问</div>
+				<div class="guwen_blc">ビジネスコンサルタント</div>
 				<div class="guwen_top">
 					<div class="guwen_avater"><img src="{#$HIGHWAY.site_dir#}data/images/{#$consultant.pic#}" alt="" width="55" height="70"></div>
-					<p>客服：{#$consultant.name#}</p>
+					<p>お問い合わせ：{#$consultant.name#} </P>
 				</div>
 				<div class="guwen_btn_box">
-					<a href="http://wpa.qq.com/msgrd?v=3&uin={#$consultant.qq#}&site=qq&menu=yes" class="guwen_btn">立即咨询</a>
+					<a href="http://wpa.qq.com/msgrd?v=3&uin={#$consultant.qq#}&site=qq&menu=yes" class="guwen_btn">すぐに相談</a>
 				</div>
 			</div>
 		</div>

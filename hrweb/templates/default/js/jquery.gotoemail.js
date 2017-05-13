@@ -1,8 +1,4 @@
-﻿/**
-Vertigo Tip by www.vertigo-project.com
-Requires jQuery
-*/
-var hash={
+﻿var hash={
 'qq.com': 'http://mail.qq.com',
 'gmail.com': 'http://mail.google.com',
 'sina.com': 'http://mail.sina.com.cn',

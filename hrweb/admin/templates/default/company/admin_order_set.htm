@@ -6,39 +6,39 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
-	<p>确认收款后系统将会自动为会员充值积分或开通服务，此操作无法撤销。</p>
+	<h2>ヒント：</h2>
+	<p>決済システムを確認した後、自動的にポイントやそのメンバーへのサービスの開口部を充電します、これは元に戻すことはできません。</P>
   </div>
-<div class="toptit">设置订单</div>
+<div class="toptit">オーダー設定</div>
 <form id="Form1" name="Form1" method="post" action="?act=order_set_save&id={#$payment.id#}">
 {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"  >
     <tr>
-      <td width="160" height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">申请充值会员：</td>
+      <td width="160" height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">会員チャージのアプリケーション：</td>
       <td style=" border-bottom:1px #CCCCCC dashed"> {#$payment.payment_username.username#} </td>
     </tr>
     <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">应付款金额：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">支払うべき金額：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >￥<span style="color:#0033CC; font-size:20px;">{#$payment.amount#}</span> 元</td>
     </tr>
 	    <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">订单描述：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">オーダ説明：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" > {#$payment.description#} </td>
     </tr>
 		    <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">支付方式：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">お支払い方法：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.payment_name#}</td>
     </tr>
 	<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">订单单号：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">注文番号：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.oid#}<input type="hidden" name="oid"  value="{#$payment.oid#}" /></td>
     </tr>
 		<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">申请时间：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">申請時間：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.addtime|date_format:"%Y-%m-%d   %H:%M"#}</td>
     </tr>
 		<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">添加备注：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">メモを追加：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >
 	  <textarea name="notes" style="width:300px; height:50px; font-size:12px; line-height:180%" onpropertychange="if(this.value.length>120){this.value=this.value.slice(0,120)}">{#$payment.notes#}</textarea>
 	   </td>

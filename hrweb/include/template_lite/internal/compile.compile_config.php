@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite compile config variables - template internal module
- *
- * Type:	 template
- * Name:	 compile_config
- */
 
 function compile_compile_config($variable, &$object)
 {

@@ -19,9 +19,9 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">分类选择</div>	
+		<div class="left">カテゴリーの選択</div>	
 		<div class="right">
-		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>制限なし</a>
 		{#foreach from=$get_explain_category item=list#}
 	  <a href="{#"type_id:"|cat:$list.id|highway_parse_url#}"  {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
 	  {#/foreach#}
@@ -30,14 +30,14 @@ $(document).ready(function()
 		<div class="clear"></div>
 </div>
  <div class="seltpye_x">
-		<div class="left">添加时间</div>	
+		<div class="left">タイムの追加</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内に</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内</a>
-		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>半年内</a>
-		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年内</a>
+		<a href="{#"settr:180"|highway_parse_url#}" {#if $smarty.get.settr=="180"#}class="select"{#/if#}>6ヶ月以内</a>
+		<a href="{#"settr:360"|highway_parse_url#}" {#if $smarty.get.settr=="360"#}class="select"{#/if#}>一年以内に</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -47,11 +47,11 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />标题</label>
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />标题</label>
 	  </td>
-      <td  align="center"  class="admin_list_tit"> 所属分类 </td>
-      <td align="center" class="admin_list_tit">排序</td>
-      <td  align="center"  class="admin_list_tit">添加日期</td>
+      <td  align="center"  class="admin_list_tit">カテゴリー種類</td>
+      <td align="center" class="admin_list_tit">並び替え</td>
+      <td  align="center"  class="admin_list_tit">日にちの追加</td>
       <td  align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$explain_list item=list#}
@@ -60,20 +60,20 @@ $(document).ready(function()
       
 	  <input name="id[]" type="checkbox" id="id" value="{#$list.id#}"  />
 {#$list.url_title#}
-		{#if $list.is_display!="1"#} <span style="color:#999999">&nbsp;&nbsp;&nbsp;&nbsp;[已屏蔽]</span>
+		{#if $list.is_display!="1"#} <span style="color:#999999">＆NBSPは;＆NBSP;＆NBSP;＆NBSP; [ブロックされた]</span>
 		{#/if#}		
 	  
 	  </td>
       <td  align="center"  class="admin_list"> [{#$list.categoryname#}] </td>
       <td align="center" class="admin_list">{#$list.show_order#}</td>
       <td  align="center"  class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>
-      <td  align="center"  class="admin_list"><a href="?act=edit&id={#$list.id#}">修改</a> <a href="?act=explain_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+      <td  align="center"  class="admin_list"><a href="?act=edit&id={#$list.id#}">修改</a> <hREF = “？行動= explain_del＆ID = {#$ list.id#}＆{#$ urltoken#}” onclickの= “return confirm（ ‘削除を確定しますか？’）”>删除</a></td>
     </tr>
 	 {#/foreach#}
   </table>
    </form>
    {#if !$explain_list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

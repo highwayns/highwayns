@@ -6,23 +6,23 @@
   <div class="clear"></div>
 </div>
     <div class="toptip">
-	<h2>提示：</h2>
-	<p>火车头采集规则请到论坛下载！</p>
+	<h2>ヒント：</h2>
+	<p>機関車コレクションのルールはフォーラムにダウンロードに行きます！</p>
 	</div>
 	
 	   <form action="?act=set_save" method="post"  name="form1" id="form1">
 	   {#$inputtoken#}
-	  <div class="toptit">招聘信息采集设置</div>
+	  <div class="toptit">ジョブ取得の設定</div>
 	   <table border="0" cellspacing="10" cellpadding="1" >
 	       <tr>
-        <td width="180" align="right"> 默认职位招聘状态：</td>
+        <td width="180" align="right"> 採用情報デフォルトの状態：</td>
         <td >
 		   <label><input name="jobs_display"  type="radio" value="1" {#if $show.jobs_display eq "1"#}checked="checked"{#/if#} />招聘中</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 <label><input name="jobs_display"  type="radio" value="2" {#if $show.jobs_display eq "2"#}checked="checked"{#/if#} />暂停招聘</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
       </tr>
 	       <tr>
-        <td width="180" align="right"> 默认职位审核状态：</td>
+        <td width="180" align="right"> デフォルトの位置の承認ステータス：</td>
         <td >
 		  <label><input name="jobs_audit"  type="radio" value="1" {#if $show.jobs_audit eq "1"#}checked="checked"{#/if#} />审核通过</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    <label><input name="jobs_audit"  type="radio" value="2" {#if $show.jobs_audit eq "2"#}checked="checked"{#/if#} />审核中</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -32,7 +32,7 @@
       </tr>
 	    
 	  <tr>
-        <td width="180" align="right"> 默认职位应聘邮件通知：</td>
+        <td width="180" align="right"> デフォルトの位置候補は、通知メール：</td>
         <td >
 	
 		  <label><input name="jobs_notify"  type="radio" value="1" {#if $show.jobs_notify =="1"#}checked="checked"{#/if#} />通知</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,7 +40,7 @@
 		</td>
       </tr>
 	     <tr>
-        <td width="180" align="right"> 职位性质无法匹配则为：</td>
+        <td width="180" align="right"> ジョブタイプが一致していませんでした。</td>
         <td >
 {#highway_get_classify set="列表名:nature,类型:HW_jobs_nature"#}
 {#foreach from=$nature item=list#}
@@ -49,28 +49,28 @@
 </td>
       </tr>
 	  <tr>
-        <td width="180" align="right"> 性别无法匹配则为：</td>
+        <td width="180" align="right">性別は一致していませんでした。</td>
         <td >
 		   <label><input name="jobs_sex"  type="radio" value="1" {#if $show.jobs_sex =="1"#}checked="checked"{#/if#}/>男</label>&nbsp;&nbsp;&nbsp;
 		   <label><input name="jobs_sex"  type="radio" value="2" {#if $show.jobs_sex =="2"#}checked="checked"{#/if#}/>女</label>&nbsp;&nbsp;&nbsp;
-		   <label><input name="jobs_sex"  type="radio" value="0" {#if $show.jobs_sex =="0"#}checked="checked"{#/if#}/>随机<span style="color:#666666">(随机范围：男,女)</span></label>
+		   <label><input name="jobs_sex"  type="radio" value="0" {#if $show.jobs_sex =="0"#}checked="checked"{#/if#}/>随机<span style="color:#666666">（ランダム範囲：男性、女性）</span></label>
 	    </td>
       </tr>
 	  <tr>
-        <td width="180" align="right"> 招聘人数无法匹配则为：</td>
+        <td width="180" align="right"> 雇用が一致することができませんでした：</td>
         <td >
  <input name="jobs_amount_min" type="text"  class="input_text_200" id="jobs_amount_min"   value="{#$show.jobs_amount_min#}" maxlength="3"  style="width:50px;"/>&nbsp;-&nbsp;<input name="jobs_amount_max" type="text"  class="input_text_200" id="jobs_amount_max"   value="{#$show.jobs_amount_max#}" maxlength="3"  style="width:50px;"/>
  随机人数</td>
       </tr>
 	  <tr>
-        <td width="180" align="right"> 默认有效天数：</td>
+        <td width="180" align="right"> デフォルトの日数：</td>
         <td >
  <input name="jobs_days_min" type="text"  class="input_text_200" id="jobs_days_min"   value="{#$show.jobs_days_min#}" maxlength="3"  style="width:50px;"/>&nbsp;-&nbsp;<input name="jobs_days_max" type="text"  class="input_text_200" id="jobs_days_max"   value="{#$show.jobs_days_max#}" maxlength="3"  style="width:50px;"/>
  随机天数
 		</td>
       </tr>
 	  <tr>
-        <td width="180" align="right"> 默认职位分类无法匹配则为：</td>
+        <td width="180" align="right"> デフォルトの位置の分類一致を比較することはできません。</td>
         <td>
  
 <div>
@@ -94,7 +94,7 @@
 		</td>
       </tr>
 	    <tr>
-        <td align="right">工作地区无法匹配则为：</td>
+        <td align="right">作業領域は一致することはできません：</td>
         <td>
 	<div>
 		{#highway_get_classify set="列表名:li,类型:HW_district"#}
@@ -114,7 +114,7 @@
 	</td>
       </tr>
 	  <tr>
-        <td align="right">学历要求无法匹配则为：</td>
+        <td align="right">学術要件は一致することができませんでした：</td>
         <td>
 	<div>
 	{#highway_get_classify set="类型:HW_education,列表名:li"#}
@@ -131,7 +131,7 @@
 	</td>
       </tr>
 	  <tr>
-        <td align="right">工作经验无法匹配则为：</td>
+        <td align="right">仕事の経験だったと一致することはできません。</td>
         <td>
  
 	<div>
@@ -149,7 +149,7 @@
 	</td>
       </tr>
 	  <tr>
-        <td align="right">薪资待遇无法匹配则为：</td>
+        <td align="right">給与は一致していませんでした。</td>
         <td>
 	<div>
 	{#highway_get_classify set="类型:HW_wage,列表名:li"#}

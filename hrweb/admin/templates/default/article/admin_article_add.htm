@@ -48,12 +48,12 @@ $(document).ready(function()
 	{#include file="article/admin_article_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">新增新闻</div>
+<div class="toptit">ニュースを追加します</div>
   <form action="?act=addsave" method="post" enctype="multipart/form-data" name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="3" cellspacing="0"  class="admin_table">
       <tr>
-        <td width="70" align="right"  style=" border-top:0px"><span style="color:#FF3300; font-weight:bold">*</span>新闻标题：</td>
+        <td width="70" align="right"  style=" border-top:0px"><span style="color:#FF3300; font-weight:bold">*</span>ニュースのテーマ：</td>
         <td width="400" style=" border-top:0px"><input name="title" type="text" id="title" class="input_text_400" /></td>
         <td style=" border-top:0px">
 		<div class="color_layer">	
@@ -63,7 +63,7 @@ $(document).ready(function()
 		</td>
       </tr>
       <tr>
-        <td align="right" ><span style="color:#FF3300; font-weight:bold">*</span>新闻分类：</td>
+        <td align="right" ><span style="color:#FF3300; font-weight:bold">*</span>ニュースカテゴリ：</td>
         <td colspan="2" >		
 		<div style="z-index: 99999;">		
 		<input type="text" value="{#$smarty.get.type_id_cn|default:"请选择"#}"  readonly="readonly" name="type_id_cn" id="type_id_cn" class="input_text_200 input_text_selsect"/>
@@ -79,8 +79,8 @@ $(document).ready(function()
 		  </td>
       </tr>
 	  <tr>
-        <td align="right" >缩&nbsp;&nbsp;略&nbsp;&nbsp;图：</td>
-        <td colspan="2" ><input type="file" name="Small_img"    onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false"   style="height:21px; width:210px; border:1px #999999 solid" /></td>
+        <td align="right" >縮&nbsp;&nbsp;略&nbsp;&nbsp;図：</td>
+        <td colspan="2" ><input type="file" name="Small_img"    onKeyDown="alert(‘右側のビューをクリックしpcの画像を選んでください！');return false"   style="height:21px; width:210px; border:1px #999999 solid" /></td>
       </tr>
     </table>
     <table width="700" border="0" cellpadding="0" cellspacing="0">
@@ -93,41 +93,41 @@ $(document).ready(function()
         </td>
       </tr>
       <tr>
-        <td height="50" align="center" ><input type="submit" name="Submit" value="确定提交" class="admin_submit"   />
+        <td height="50" align="center" ><input type="submit" name="Submit" value=“提出確定” class="admin_submit"   />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="reset" name="Submit2" value="重置表单" class="admin_submit"   /></td>
       </tr>
     </table>
     <table width="100%" border="0" cellpadding="5" cellspacing="0" class="admin_table">
       <tr>
-        <td width="120" align="right" >是否显示：</td>
+        <td width="120" align="right" >表示されます:</td>
         <td width="200" >
 <label><input name="is_display" type="radio" value="1" checked="checked" />显示</label>
 <label><input type="radio" name="is_display" value="0" /> 不显示</label>
 
 </td>
-        <td width="120" align="right" >文章排序：</td>
+        <td width="120" align="right" >文書ソートする：</td>
         <td ><input name="article_order" type="text"  class="input_text_150" id="article_order" style="width:50px;" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;数字越大越靠前</span></td>
+        <span>＆NBSP;＆NBSP;＆NBSP;＆NBSP;より多く、よりフォワード</span></td>
         <td width="250" >&nbsp;</td>
       </tr>
       <tr>
-        <td align="right" >作者：</td>
+        <td align="right" >著者：</td>
         <td ><input name="author" type="text" class="input_text_150" id="author" value="{#$author#}" maxlength="20"/></td>
-        <td align="right" >标题加粗：</td>
+        <td align="right" >titleを大きくする：</td>
         <td ><input name="tit_b" type="checkbox" id="tit_b" value="1" />
         加粗</td>
         <td >&nbsp;</td>
       </tr>
 	  <tr>
-        <td align="right" >来源：</td>
+        <td align="right" >出典：</td>
         <td ><input name="source" type="text" class="input_text_150" id="source" maxlength="50"/></td>
-        <td align="right" >外部链接：</td>
+        <td align="right" >外部リンク：</td>
         <td ><input name="is_url" type="text" class="input_text_150" id="is_url" value="" maxlength="100"/></td>
 	    <td >&nbsp;</td>
 	  </tr>
 	  <tr>
-        <td align="right" >文章属性：</td>
+        <td align="right" >記事属性：</td>
         <td colspan="4" >
 		{#highway_news_property set="列表名:property"#}
 		{#foreach from=$property item=list#}

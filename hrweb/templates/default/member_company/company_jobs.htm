@@ -40,7 +40,7 @@ $(document).ready(function(){
 		var mycoDialog=dialog(),
 		url = $(this).attr("url");
 		mycoDialog.title('系统提示');
-		mycoDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">关闭后将不对外展示招聘信息，您确定要关闭吗？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		mycoDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">閉じた後募集情報を公開しませんので、閉じることが確定ですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 	    mycoDialog.width('300');
 	    mycoDialog.showModal();
 	    /* 关闭 */
@@ -177,7 +177,7 @@ $(document).ready(function(){
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 职位管理</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > ポジション管理</div>
 <div class="usermain">
   <div class="leftmenu  com link_bk">
   	 {#include file="member_company/left.htm"#}
@@ -192,14 +192,14 @@ $(document).ready(function(){
 					发布中职位<span >({#$jobs_total[0]#})</span></a>
 					<a href="?act={#$act#}&jobtype=2" {#if $smarty.get.jobtype=="2"#}class="se"{#/if#}>
 					审核中职位<span >({#$jobs_total[2]#})</span></a>
-					<a href="?act={#$act#}&jobtype=3" {#if $smarty.get.jobtype=="3"#}class="se"{#/if#}>未显示职位<span class="check">({#$jobs_total[3]#})</span></a>
+					<a href="?act={#$act#}&jobtype=3" {#if $smarty.get.jobtype=="3"#}class="se"{#/if#}>ジョブズが示されていません<span class=“check”>({#$jobs_total[3]#})</span></a>
 					<a href="?act={#$act#}&jobtype=1" {#if $smarty.get.jobtype=="1"#}class="se"{#/if#}>
 					全部职位<span >({#$jobs_total[1]#})</span></a>
 					<div class="clear"></div>
 				</div>
 			</div>
 			{#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
-			<div class="addjob-number">最大职位并发数为<span>{#$setmeal.jobs_ordinary#}</span>个，现发布中<span>{#$total[2]#}</span>个职位。</div>
+			<div class="addjob-number">ジョブの最大数<span>{#$setmeal.jobs_ordinary#}</span>個、現在掲載中<span>{#$total[2]#}</span>ジョブズ。</div>
 			{#/if#}
 		</div>
 		<form id="form1" name="form1" method="post" action="?act=jobs_perform">
@@ -207,17 +207,17 @@ $(document).ready(function(){
 		{#if $smarty.get.jobtype==""#}
 		<div class="company-data-list">
 			<div class="c-data-top com-job-ma clearfix">
-				<div class="item f-left check-item"><input type="checkbox" name="chkAll"   id="chk" title="全选/反选" /></div>
-				<div class="item f-left top-item1">职位名称</div>
+				<div class="item f-left check-item"><input type="checkbox" name="chkAll"   id="chk" title="全部選択/逆選択" /></div>
+				<div class="item f-left top-item1">ジョブ・title</div>
 				<div class="item f-left top-item3">
 					<div class="data-filter span4">
-						<span class="filter-span">{#if $smarty.get.generalize_cn==''#}推广状态{#else#}{#$smarty.get.generalize_cn#}{#/if#}<i class="filter-icon"></i></span>
+						<span class="filter-span">{#if $smarty.get.generalize_cn==‘’#}プロモーション状態{#else#}{#$smarty.get.generalize_cn#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">  
 							<li><a href="{#"generalize:,generalize_cn:全部"|highway_parse_url#}">全部</a></li>
-							<li><a href="{#"generalize:stick,generalize_cn:置顶"|highway_parse_url#}">置顶</a></li>
-							<li><a href="{#"generalize:highlight,generalize_cn:套色"|highway_parse_url#}">套色</a></li>
-							<li><a href="{#"generalize:emergency,generalize_cn:紧急"|highway_parse_url#}">紧急</a></li>
-							<li><a href="{#"generalize:recommend,generalize_cn:推荐"|highway_parse_url#}">推荐</a></li>
+							<li><a href=“{#”generalize:stick,generalize_cn:トップ設置”|HIGHWAY_parse_url#}”>置顶</a></li>
+							<li><a href="{#"generalize:highlight,generalize_cn:パッケージ”|highway_parse_url#}">套色</a></li>
+							<li><a href="{#"generalize:emergency,generalize_cn:緊急”|highway_parse_url#}">紧急</a></li>
+							<li><a href=“{#”generalize:recommend,generalize_cn:推薦”|HIGHWAY_parse_url#}”>推荐</a></li>
 						</ul>
 					</div>
 				</div>
@@ -230,32 +230,32 @@ $(document).ready(function(){
 					<div class="c-item f-left content1">
 						<div class="job-ma-block">
 							<div><a href="{#$li.jobs_url#}" target="_blank" class="name-link underline" title="{#$li.jobs_name_#}">{#$li.jobs_name#}</a></div>
-							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#} <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a></p>
+							<p>履歴書：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#} <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a></p>
 							<div class="job-ma-ctrl">
-								<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="{#"HW_resumelist,jobcategory:"|cat:$li.jobcategory|highway_url#}" class="data-ctrl underline" target="_blank">匹配</a>&nbsp;<a url="?act=jobs_perform&display2=1&y_id={#$li.id#}" href="javascript:;" class="data-ctrl underline ctrl-close">关闭</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+								<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">変更</a>&nbsp;<a href="{#"HW_resumelist,jobcategory:"|cat:$li.jobcategory|highway_url#}" class="data-ctrl underline" target="_blank">マッチ</a>&nbsp;<a url="?act=jobs_perform&display2=1&y_id={#$li.id#}" href="javascript:;" class="data-ctrl underline ctrl-close">閉じる</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 							</div>
 						</div>
 					</div>
 					<div class="c-item f-left content3">
 						{#if $li.stick!=1#}
-							<a  href="javascript:void(0);" class="data-ctrl set_promotion" catid="3" jobid="{#$li.id#}">置顶</a>
+							<a  href="javascript:void(0);" class="data-ctrl set_promotion" catid="3" jobid="{#$li.id#}">トップ</a>
 						{#else#}
-							<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已置顶">置顶</a>
+							<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已置顶">トップ</a>
 						{#/if#}
 						{#if $li.highlight==""#}
-						<a  href="javascript:void(0);" class="data-ctrl set_promotion" catid="4" jobid="{#$li.id#}">变色</a><br />
+						<a  href="javascript:void(0);" class="data-ctrl set_promotion" catid="4" jobid="{#$li.id#}">変色</a><br />
 						{#else#}
-						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已变色">变色</a><br />
+						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已变色">変色</a><br />
 						{#/if#}
 						{#if $li.emergency=="0"#}
-						<a href="javascript:void(0);" class="data-ctrl set_promotion" catid="2" jobid="{#$li.id#}">紧急</a>
+						<a href="javascript:void(0);" class="data-ctrl set_promotion" catid="2" jobid="{#$li.id#}">緊急</a>
 						{#else#}
-						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已经行紧急推广">紧急</a>
+						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已经行紧急推广">緊急</a>
 						{#/if#}
 						{#if $li.recommend=="0"#}
-						<a href="javascript:void(0);" class="data-ctrl set_promotion" catid="1" jobid="{#$li.id#}">推荐</a>
+						<a href="javascript:void(0);" class="data-ctrl set_promotion" catid="1" jobid="{#$li.id#}">勧め</a>
 						{#else#}
-						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已经行紧急推荐">推荐</a>
+						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已经行紧急推荐">勧め</a>
 						{#/if#}
 					</div>
 				</div>
@@ -263,7 +263,7 @@ $(document).ready(function(){
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title="全选/反选" /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択” /></div>
 					<div class="data-last-btn f-left">
 						{#if $HIGHWAY.operation_mode=="3"#}
 						<input type="hidden" name="refresh" id="refresh" value="" />
@@ -277,7 +277,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 			{#else#}
-			<div class="c-data-row emptytip">没有找到对应的职位信息</div>
+			<div class="c-data-row emptytip">対応の仕事を見つけることができません</div>
 			{#/if#}
 		</div>
 		{#/if#}
@@ -286,8 +286,8 @@ $(document).ready(function(){
 		<div class="company-data-list">
 			<div class="c-data-top com-job-ma clearfix">
 				<div class="item f-left check-item"><input type="checkbox" name="chkAll"   id="chk"/></div>
-				<div class="item f-left top-item1">职位名称</div>
-				<div class="item f-left top-item2">工作地区</div>
+				<div class="item f-left top-item1">ジョブ・title</div>
+				<div class="item f-left top-item2">職場</div>
 				<div class="item f-left top-item3" style="text-align: center;">操作</div>
 			</div>
 			{#if $jobs#}
@@ -298,12 +298,12 @@ $(document).ready(function(){
 					<div class="c-item f-left content1" style="width:535px;">
 						<div class="job-ma-block">
 							<div><a href="{#$li.jobs_url#}" target="_blank" class="name-link underline" title="{#$li.jobs_name_#}">{#$li.jobs_name#}</a></div>
-							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</p>
+							<p>履歴書：{#$li.countresume#} | 更新時間：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</p>
 						</div>
 					</div>
 					<div class="c-item f-left content2" style="width:218px;">{#$li.district_cn#}</div>
 					<div class="c-item f-left content3">
-						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">変更</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 					</div>
 				</div>
 			</div>
@@ -317,7 +317,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 			{#else#}
-			<div class="c-data-row emptytip">没有找到对应的职位信息</div>
+			<div class="c-data-row emptytip">対応の仕事を見つけることができません</div>
 			{#/if#}
 		</div>
 		{#/if#}
@@ -326,10 +326,10 @@ $(document).ready(function(){
 		<div class="company-data-list">
 			<div class="c-data-top com-job-ma clearfix">
 				<div class="item f-left check-item"><input type="checkbox" name="chkAll"   id="chk"/></div>
-				<div class="item f-left top-item1">职位名称</div>
+				<div class="item f-left top-item1">ジョブ・title</div>
 				<div class="item f-left top-item2">
 					<div class="data-filter span4">
-						<span class="filter-span">职位状态<i class="filter-icon"></i></span>
+						<span class="filter-span">ジョブステータス<i class="filter-icon"></i></span>
 						<ul class="filter-down">
 							<li><a href="{#"state:1"|highway_parse_url#}">未通过</a></li>
 							<li><a href="{#"state:2"|highway_parse_url#}">已关闭</a></li>
@@ -346,15 +346,15 @@ $(document).ready(function(){
 					<div class="c-item f-left content1" style="width:535px;">
 						<div class="job-ma-block">
 							<div><a href="{#$li.jobs_url#}" target="_blank" class="name-link underline" title="{#$li.jobs_name_#}">{#$li.jobs_name#}</a></div>
-							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</p>
+							<p>履歴書：{#$li.countresume#} | 更新時間：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</p>
 						</div>
 					</div>
 					<div class="c-item f-left content2" style="width:218px;">{#$li.status_cn#}</div>
 					<div class="c-item f-left content3">
 						{#if $li.status==2#}
-						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="?act=jobs_perform&display1=1&y_id={#$li.id#}" class="data-ctrl underline">恢复</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">変更</a>&nbsp;<a href="?act=jobs_perform&display1=1&y_id={#$li.id#}" class="data-ctrl underline">回復</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 						{#else#}
-						<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 						{#/if#}
 					</div>
 				</div>
@@ -369,7 +369,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 			{#else#}
-			<div class="c-data-row emptytip">没有找到对应的职位信息</div>
+			<div class="c-data-row emptytip">対応の仕事を見つけることができません</div>
 			{#/if#}
 		</div>
 		{#/if#}
@@ -378,10 +378,10 @@ $(document).ready(function(){
 		<div class="company-data-list">
 			<div class="c-data-top com-job-ma clearfix">
 				<div class="item f-left check-item"><input type="checkbox" id="chk" name="chkAll"></div>
-				<div class="item f-left top-item1">职位名称</div>
+				<div class="item f-left top-item1">ジョブ・title</div>
 				<div class="item f-left top-item2">
 					<div class="data-filter span4">
-						<span class="filter-span">职位状态<i class="filter-icon"></i></span>
+						<span class="filter-span">ジョブステータス<i class="filter-icon"></i></span>
 						<ul class="filter-down">
 							<li><a href="{#"state:1"|highway_parse_url#}">发布中</a></li>
 							<li><a href="{#"state:2"|highway_parse_url#}">审核中</a></li>
@@ -400,19 +400,19 @@ $(document).ready(function(){
 					<div class="c-item f-left content1" style="width:535px;">
 						<div class="job-ma-block">
 							<div><a href="{#$li.jobs_url#}" target="_blank" class="name-link underline" title="{#$li.jobs_name_#}">{#$li.jobs_name#}</a></div>
-							<p>应聘简历：{#$li.countresume#} | 更新时间：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}{#if $li.status==1#}  <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a>{#/if#}</p>
+							<p>履歴書：{#$li.countresume#} | 更新時間：{#$li.refreshtime|date_format:"%Y-%m-%d %H:%M"#}{#if $li.status==1#}  <a  href="{#if $HIGHWAY.operation_mode=="1"#}?act=jobs_perform&refresh=1&y_id={#$li.id#}{#else#}javascript:;{#/if#}" jobsid="{#$li.id#}" class="data-ctrl underline refresh">[刷新]</a>{#/if#}</p>
 						</div>
 					</div>
 					<div class="c-item f-left content2" style="width:218px;"><span style="{#if $li.status==2 || $li.status==4#}color:red;{#elseif $li.status==3#}color:#FFB443;{#else#}{#/if#}">{#$li.status_cn#}</span></div>
 					<div class="c-item f-left content3">
 						{#if $li.status==1#}
-						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="?act=jobs_perform&display2=1&y_id={#$li.id#}" class="data-ctrl underline">关闭</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">変更</a>&nbsp;<a href="?act=jobs_perform&display2=1&y_id={#$li.id#}" class="data-ctrl underline">閉じる</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 						{#elseif $li.status==2#}
-						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="?act=jobs_perform&display1=1&y_id={#$li.id#}" class="data-ctrl underline">恢复</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">変更</a>&nbsp;<a href="?act=jobs_perform&display1=1&y_id={#$li.id#}" class="data-ctrl underline">回復</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 						{#elseif $li.status==3#}
-						<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 						{#else#}
-						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">修改</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">删除</a>
+						<a href="?act=editjobs&id={#$li.id#}" class="data-ctrl underline">変更</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=jobs_perform&delete=1&y_id={#$li.id#}">削除</a>
 						{#/if#}
 					</div>
 				</div>
@@ -420,14 +420,14 @@ $(document).ready(function(){
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title="全选/反选" /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択” /></div>
 					<div class="data-last-btn f-left">
 						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="删除" id="delete" act="?act=jobs_perform&delete=1"/>
 					</div>
 				</div>
 			</div>
 			{#else#}
-			<div class="c-data-row emptytip">没有找到对应的职位信息</div>
+			<div class="c-data-row emptytip">対応の仕事を見つけることができません</div>
 			{#/if#}
 		</div>
 		{#/if#}
@@ -448,8 +448,8 @@ $(document).ready(function(){
 {#include file="user/footer.htm"#}
 <!-- 发布职位成功弹出 -->
 <div class="addjob-success-dialog" style="display:none">
-	<div class="success-tip">职 位 发 布 成 功<a href="?act=addjobs" class="underline">继续发布职位</a></div>
-	<p class="sns-tips">让企业品牌更红，让招聘效率更高，<span>立即分享转发招聘职位吧！</span></p>
+	<div class="success-tip">仕事公表成功<a href="?act=addjobs" class="underline">继续发布职位</a></div>
+	<p class="sns-tips">より効率的な採用を行い、ブランド名を向上させる<span>立即分享转发招聘职位吧！</span></p>
 	<style>.bdshare-button-style1-16 a, .bdshare-button-style1-16 .bds_more{padding-left: 0;}</style>
 	<div class="bdsharebuttonbox bdshare sns-block share clearfix">
 		<a href="#" class="sns-icon sina f-left " title="分享到新浪微博" data-cmd="tsina"></a>
@@ -462,12 +462,12 @@ $(document).ready(function(){
 			<div class="weixin-border">
 				<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$jobs_one.jobs_url#}" alt="二维码" width="70" height="70" />
 			</div>
-				<span>微信扫一扫</span>
+				<span>wechatシェイク/span>
 		</div>
 		<script>window._bd_share_config={"common":{"bdText":"{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs_one.jobs_name#}(月薪 : {#$jobs_one.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs_one.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 		</script>
 	</div>
-	<p class="succsee-more">为了吸引更多求职者的关注，建议您：<a href="javascript:;" class="underline set_promotion" catid="3" jobid="{#$jobs_one.id#}">置顶职位</a></p>
+	<p class="succsee-more">多くの求職者に注意を引き付けるために、私たちはこのことをお勧めします：<a href=“javascript:;” class=“underline set_promotion” catid=“3” jobid=“{#$jobs_one.id#}”>置顶职位</a></p>
 </div>
 </body>
 </html>

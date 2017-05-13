@@ -16,22 +16,22 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 点击“继续添加”按钮，可同时添加多个分类！<br />
 </p>
 </div>
-<div class="toptit">在 <span style="color:#0066CC">[{#$group.g_name#}] </span>下新增分类</div>
+<div class="toptit"> <span style=“color:#0066CC”>[{#$group.g_name#}] </span>新しい分類のダウンロード</div>
 <form id="form1" name="form1" method="post" action="?act=add_category_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">名称:</td>
+    <td width="120" align="right">名前：</td>
     <td><input name="c_name[]" type="text" class="input_text_200"  value="" /></td>
   </tr>
     <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td>	
 	<input name="c_order[]" type="text" class="input_text_200"  value="0" />
 	<input name="c_alias[]" type="hidden" value="{#$group.g_alias#}" />
@@ -40,10 +40,10 @@ $(document).ready(function()
   </tr>
   {#if $group.g_alias=="HW_officebuilding"#}
       <tr>
-    <td width="120" align="right">说明:</td>
+    <td width="120" align="right">説明：</td>
     <td>	
 	<input name="c_note[]" type="text" class="input_text_200" maxlength="60" /> 
-	<span class="admin_note">如：建设与东环路交叉口鼎元时代中心</span>
+	<span class="admin_note">以下のような：建設や東環状道路の交差点Dingyuanタイムズセンター</span>
 	</td>
   </tr>
   {#/if#}

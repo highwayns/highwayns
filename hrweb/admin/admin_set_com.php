@@ -128,9 +128,6 @@ elseif($act == 'set_meal_add_save')
 	$setsqlarr['display']=intval($_POST['display']);
 	$setsqlarr['apply']=intval($_POST['apply']);
 	$setsqlarr['added']=trim($_POST['added']);
-	/**
-	 * 2014-01-26新增start
-	 */
 	$setsqlarr['refresh_jobs_space']=intval($_POST['refresh_jobs_space']);
 	$setsqlarr['refresh_jobs_time']=intval($_POST['refresh_jobs_time']);
 	//2015-01-09薪资短信设置 set_sms 
@@ -185,9 +182,6 @@ elseif($act == 'set_meal_edit_save')
 	$setsqlarr['display']=intval($_POST['display']);
 	$setsqlarr['apply']=intval($_POST['apply']);
 	$setsqlarr['added']=trim($_POST['added']);
-	/**
-	 * 2014-01-26新增start
-	 */
 	$setsqlarr['refresh_jobs_space']=intval($_POST['refresh_jobs_space']);
 	$setsqlarr['refresh_jobs_time']=intval($_POST['refresh_jobs_time']);
 	//2015-01-09薪资短信设置 set_sms 

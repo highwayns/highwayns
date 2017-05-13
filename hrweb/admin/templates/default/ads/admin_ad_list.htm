@@ -27,7 +27,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统将自动下架到期广告。<br />
 按广告位显示广告请点击右下角按钮
@@ -37,8 +37,8 @@ $(document).ready(function()
 <div class="seltpye_y">
 
 	<div class="tit link_lan">
-	<strong>广告列表</strong><span>(共找到{#$total#}条)</span>
-	<a href="?act=list">[恢复默认]</a>
+	<strong>広告一覧</strong><span>（見つかった{#$total#}記事）</span>
+	<a href="?act=list">[既定値に戻します]</a >
 	<div class="pli link_bk"><u>每页显示：</u>
 	<a href="{#"perpage:10"|highway_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
 	<a href="{#"perpage:20"|highway_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
@@ -48,27 +48,27 @@ $(document).ready(function()
 	</div>
 	</div>	
     <div class="list">
-	  <div class="t">到期时间</div>	  
+	  <div class="t">有効期限</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:0"|highway_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>已经到期</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
+	 	<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:0"|highway_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>期限が切れた</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内満期終了</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
 	  </div>
     </div>
 	<div class="list">
-	  <div class="t">显示状态</div>	  
+	  <div class="t">表示状態</div>	  
 	  <div class="txt link_lan">
-	 	<a href="{#"is_display:"|highway_parse_url#}" {#if $smarty.get.is_display==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"is_display:1"|highway_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>正常</a>
+	 	<a href="{#"is_display:"|highway_parse_url#}" {#if $smarty.get.is_display==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"is_display:1"|highway_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>ノーマル</a>
 		<a href="{#"is_display:0"|highway_parse_url#}" {#if $smarty.get.is_display=="0"#}class="select"{#/if#}>停止</a>
 	  </div>
     </div>
 	
 	<div class="list listod" style=" width:200px;">
-	  <div class="t">广告位</div>	  
+	  <div class="t">広告</div>	  
 	  <div class="txt link_lan">
-	  <a href="{#"category_id:"|highway_parse_url#}" {#if $smarty.get.category_id==""#}class="select"{#/if#}>不限</a>
+	  <a href="{#"category_id:"|highway_parse_url#}" {#if $smarty.get.category_id==""#}class="select"{#/if#}>制限なし</a>
  {#foreach from=$ad_category item=cli#}
  <a href="{#"category_id:"|cat:$cli.id|highway_parse_url#}" {#if $smarty.get.category_id==$cli.id#}class="select"{#/if#}>{#$cli.categoryname#}</a>
 	{#/foreach#}
@@ -85,14 +85,14 @@ $(document).ready(function()
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td   class="admin_list_tit admin_list_first">
-     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>广告标题</label>
+     <label id="chkAll"><input type="checkbox" name="" title=“全部選択/逆選択” id="chk"/>广告标题</label>
 	 </td>
-	  <td width="16%"  class="admin_list_tit">所属广告位</td>
-	  <td width="7%" align="center"  class="admin_list_tit">类型</td>
-      <td width="9%" align="center"  class="admin_list_tit">开始时间</td>
-      <td width="9%" align="center"  class="admin_list_tit">到期时间</td>	  
-      <td width="7%" align="center"  class="admin_list_tit">状态</td>
-	  <td width="6%" align="center"  class="admin_list_tit">排序</td>
+	  <td width="16%"  class="admin_list_tit">所有広告</td>
+	  <td width="7%" align="center"  class="admin_list_tit">タイプ</td>
+      <td width="9%" align="center"  class="admin_list_tit">開始時刻</td>
+      <td width="9%" align="center"  class="admin_list_tit">有効期限</td>	  
+      <td width="7%" align="center"  class="admin_list_tit">ステータス</td>
+	  <td width="6%" align="center"  class="admin_list_tit">並び替え</td>
       <td width="10%" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$list item=li#}
@@ -126,7 +126,7 @@ $(document).ready(function()
 		无限制
 		{#else#}
 					{#if $li.deadline < $smarty.now#}
-					<span style="color:#FF6600">已经到期</span>
+					<span style="color:#FF6600">期限が切れている</span>
 					{#else#}
 					{#$li.deadline|date_format:"%Y-%m-%d"#}
 					{#/if#}
@@ -134,19 +134,19 @@ $(document).ready(function()
       <td align="center"  class="admin_list">
 	  {#if $li.is_display=="1"#}
 	正常	{#else#}
-		<span style="color:#999999">暂停</span>
+		<span style="color:#999999">一時停止</span>
 		{#/if#}	  </td>
 	  <td align="center"  class="admin_list">{#$li.show_order#}</td>
       <td align="center"  class="admin_list">
-	  <a href="?act=edit_ad&id={#$li.id#}">修改</a>
+	  <a href="?act=edit_ad&id={#$li.id#}">変更</a>
 	  &nbsp; &nbsp; 
-	  <a href="?act=del_ad&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">删除</a>	  </td>
+	  <a href="?act=del_ad&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">削除</a>	  </td>
     </tr>
 	{#/foreach#}
   </table>
     </form>
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
    <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
@@ -166,7 +166,7 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="广告标题">广告标题</li>
+														<li id="1" title="广告标题">広告title</li>
 														</ul>
 												</div>
 						</div>				

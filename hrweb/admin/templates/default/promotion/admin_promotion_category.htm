@@ -6,7 +6,7 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统内置方案不能删除<br />
 会员申请推广方案后，系统将自动开通，到期后自动取消。
@@ -15,14 +15,14 @@
  
 		  <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
           <tr>
-            <td  class="admin_list_tit admin_list_first">方案名称</td>
-			<td width="15%" align="center" class="admin_list_tit">积分</td>
-            <td width="15%" align="center" class="admin_list_tit">状态</td>
-            <td width="15%" align="center" class="admin_list_tit" >类型</td>
-            <td width="15%" align="center" class="admin_list_tit">排序</td>
+            <td  class="admin_list_tit admin_list_first">プログラム名</td>
+			<td width="15%" align="center" class="admin_list_tit">ポイント</td>
+            <td width="15%" align="center" class="admin_list_tit">ステータス</td>
+            <td width="15%" align="center" class="admin_list_tit" >タイプ</td>
+            <td width="15%" align="center" class="admin_list_tit">並び替え</td>
 
 			
-            <td width="15%" align="center" class="admin_list_tit">编辑</td>
+            <td width="15%" align="center" class="admin_list_tit">編集</td>
             </tr>
 			{#foreach from=$list item=li#}
 			
@@ -38,13 +38,13 @@
 			{#if $li.cat_available=="1"#}
 			正常
 			{#else#}
-			<span style="color:#999999">禁用</span>
+			<span style="color:#999999">無効にする</span>
 			{#/if#}
 			</td>
             <td align="center" class="admin_list" >	
 			
 			{#if $li.cat_type=="1"#}
-			<span style="color:#FF6600">内置</span>
+			<span style="color:#FF6600">中身の設置</span>
 			{#else#}
 			自定义
 			{#/if#}					
@@ -56,12 +56,12 @@
 		 
 			
             <td align="center" class="admin_list">
-	 <a href="?act=edit_category&id={#$li.cat_id#}">修改</a>
+	 <a href="?act=edit_category&id={#$li.cat_id#}">変更</a>
 	 
 	  {#if $li.cat_type=="1"#}
-	  <span style="color:#999999">删除</span>
+	  <span style="color:#999999">削除</span>
 	  {#else#}
-		 <a href="?act=del_ad&id={#$li.id#}"  onclick="return confirm('你确定要删除吗？')">删除</a>
+		 <a href="?act=del_ad&id={#$li.id#}"  onclick="return confirm('你确定要删除吗？')">削除</a>
 			{#/if#}	
 				</td>
             </tr>

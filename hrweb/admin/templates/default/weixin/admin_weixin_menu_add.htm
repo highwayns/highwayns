@@ -5,16 +5,16 @@
 	{#include file="weixin/admin_weixin_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">新增菜单</div>
+<div class="toptit">新メニュー</div>
 <form id="form1" name="form1" method="post" action="?act=add_menu_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #93AEDD  dashed">
  <tr>
-    <td width="120" align="right">所属菜单:</td>
+    <td width="120" align="right">メニュー所属：</td>
     <td>
 	<select name="parentid">
-	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>顶级菜单</option>
+	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>トップレベルのメニュー</option>
 	  {#foreach from=$parent_manu item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$smarty.get.parentid#}selected="selected"{#/if#}>{#$list.title#}</option>
 	{#/foreach#}
@@ -23,19 +23,19 @@
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">标题:</td>
+    <td width="120" align="right">title：</td>
     <td><input name="title" type="text" class="input_text_200"  value=""/></td>
   </tr>
   <tr>
-    <td width="120" align="right">菜单KEY:</td>
+    <td width="120" align="right">MENUキー：</td>
     <td><input name="key" type="text" class="input_text_200"  value=""/></td>
   </tr>
    <tr>
-    <td width="120" align="right">菜单类型:</td>
+    <td width="120" align="right">メニューの種類：</td>
     <td>
 	<select name="type">
-	  <option value="click" selected="selected">点击事件</option>
-	  <option value="view">链接事件</option>
+	  <option value="click" selected="selected">イベントをクリックします</option>
+	  <option value="view">リンクイベント</option>
 	</select>
 	</td>
  </tr>
@@ -44,14 +44,14 @@
     <td><input name="url" type="text" class="input_text_200"  value=""/></td>
   </tr>
   <tr>
-    <td width="120" align="right">菜单状态:</td>
+    <td width="120" align="right">メニューステータス：</td>
     <td>
 		<label><input type="radio" name="status" value="1" checked>显示</label>
 		<label><input type="radio" name="status" value="0">隐藏</label>
 	</td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="menu_order" type="text" class="input_text_200"  value="0"/></td>
   </tr>
 </table>

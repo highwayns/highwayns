@@ -6,7 +6,7 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统默认分类不能删除！<br />
 删除分类组将同时删除此组下的所有分类。
@@ -17,9 +17,9 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>分类组名称</label></td>
-	  <td  class="admin_list_tit">调用名</td>
-	  <td   align="center"  class="admin_list_tit">类型</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>分类组名称</label></td>
+	  <td  class="admin_list_tit">コール名</td>
+	  <td   align="center"  class="admin_list_tit">タイプ</td>
       <td width="20%"   class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$group item=li#}
@@ -41,10 +41,10 @@
  
 		 </td>
       <td class="admin_list">
-	  <a href="?act=show_category&alias={#$li.g_alias#}">查看</a>&nbsp;&nbsp;
+	  <a href="?act=show_category&alias={#$li.g_alias#}">確認</a>&nbsp;&nbsp;
 	  		{#if $li.g_sys<>"1"#}
-				 <a href="?act=edit_group&alias={#$li.g_alias#}">修改</a>&nbsp;&nbsp;			 
-			 <a onclick="return confirm('删除后无法恢复，你确定要删除吗？')" href="?act=del_group&alias={#$li.g_alias#}&{#$urltoken#}">删除</a>
+				 <a href="?act=edit_group&alias={#$li.g_alias#}">変更</a>&nbsp;&nbsp;			 
+			 <a onclick="return confirm('删除后无法恢复，你确定要删除吗？')" href="?act=del_group&alias={#$li.g_alias#}&{#$urltoken#}">削除</a>
 		 {#/if#}
 		</td>
     </tr>

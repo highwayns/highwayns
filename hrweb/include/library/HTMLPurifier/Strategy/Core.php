@@ -1,8 +1,5 @@
 ﻿<?php
 
-/**
- * Core strategy composed of the big four strategies.
- */
 class HTMLPurifier_Strategy_Core extends HTMLPurifier_Strategy_Composite
 {
     public function __construct()

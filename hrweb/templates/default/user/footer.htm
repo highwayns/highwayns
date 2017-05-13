@@ -3,7 +3,7 @@
 	<div class="footer_box">
 		<div class="box link_bk">
 				<div class="list">
-					<h4>关于我们</h4>
+					<h4>会社概要</h4>
 					<div class="foot_list">
 						<ul>
 						{#highway_explain_list set="列表名:explain,显示数目:3,标题长度:6,分类ID:1"#}
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 				<div class="list">
-					<h4>帮助中心</h4>
+					<h4>ヘルプセンター</h4>
 					<div class="foot_list">
 						<ul>
 							<li><a target="_blank" href="{#"HW_helplist,id:4"|highway_url#}">注册与登录</a></li>
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				<div class="list">
-					<h4>个人求职</h4>
+					<h4>個人仕事の検索</h4>
 					<div class="foot_list">
 						<ul>
 							<li><a target="_blank" href="{#"HW_jobslist"|highway_url#}">职位搜索</a></li>
@@ -45,7 +45,7 @@
 					</div>
 				</div>
 				<div class="list">
-					<h4>企业服务</h4>
+					<h4>エンタープライズサービス</h4>
 					<div class="foot_list">
 						<ul>
 							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}user/company/company_jobs.php?act=addjobs">发布职位</a></li>
@@ -63,18 +63,18 @@
 		        <div class="weixin">
 		        	<div class="weixin_con">
 		        		<div class="weixin_img">
-		        			<span>官方微信</span><br />
+		        			<span>公式マイクロチャネル</span><br />
 		        			<img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" width="64" height="65">
 		        		</div>
 		        		<div class="clear"></div>
 		        	</div>
 		        	<div class="weixin_cons" style="display:none;">
-		        		<div class="w_txt">官方微信</div>
+		        		<div class="w_txt">公式マイクロチャネル</div>
 		        		<img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" alt="" width="64" height="65">
 		        		<div class="clear"></div>
 		        	</div>
 		        	<div class="comment">
-		        		<p>服务热线</p>
+		        		<p>お問い合わせの電話</P>
 		        		<p class="phone_number">{#$HIGHWAY.bootom_tel#}</p>
 		        	</div>
 			</div>
@@ -85,16 +85,16 @@
   <div class="copyright">
 联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}<br />
 {#$HIGHWAY.bottom_other#}<br />
-Powered by <a href="http://www.jp.highwayns.com/" target="_blank" style="color:#009900"><em> 74cms v{#$HIGHWAY.version#} 迅易科技版权所有</em></a><br />
+Powered by <a href="http://jp.highwayns.com/" target="_blank" style="color:#009900"><em> 74cms v{#$HIGHWAY.version#} 迅易科技版权所有</em></a><br />
 </div>
 </div>
 <!-- 回到顶部组件 -->
 <div class="back_to_top" id="back_to_top">
 	<div class="back" style="display:none;">
-		<div>回到顶部</div>
+		<div>トップに戻る</div>
 	</div>
 	<div class="steer">
-		<div onclick="javascript:location.href='{#"HW_suggest"|highway_url#}'">我要建议</div>
+		<div onclick="javascript:location.href='{#"HW_suggest"|highway_url#}'">私の勧め</div>
 	</div>
 </div>
 <script>

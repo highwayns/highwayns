@@ -51,19 +51,11 @@ elseif ($act=='make1')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	/**
-	 * 3.6优化start
-	 * @var [type]
-	 */
 	$total=$db->get_total("SELECT COUNT(*) AS num FROM ".table('resume')." WHERE uid='{$uid}'");
 	if ($total>=intval($_CFG['resume_max']))
 	{
 	showmsg("最大{$_CFG['resume_max']} 件履歴書を作成できます,制限を超えました！",1);
 	}
-	/**
-	 * 3.6优化end
-	 * @var [type]
-	 */
 	$_SESSION['send_mobile_key']=mt_rand(100000, 999999);
 	$smarty->assign('send_key',$_SESSION['send_mobile_key']);
 	$smarty->assign('resume_basic',get_resume_basic($uid,$pid));

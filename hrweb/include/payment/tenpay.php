@@ -1,14 +1,4 @@
 ﻿<?php
-/**
- * 74cms 财付通支付插件
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.jp.highwayns.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
 
  if(!defined('IN_HIGHWAY'))
  {
@@ -48,9 +38,6 @@ function get_code($order, $payment)
 	$def_url  ="<input type=\"button\" class=\"but130lan intrgration_but\" value=\"确认支付\"  onclick=\"javascript:window.open('".$reqUrl."')\"/>";
 	 return $def_url;
     }
-/**
- * 响应操作
-*/
 function respond()
 {
 $payment= get_payment_info('tenpay');
@@ -103,10 +90,6 @@ class PayRequestHandler extends RequestHandler {
 		$this->setGateURL("https://www.tenpay.com/cgi-bin/v1.0/pay_gate.cgi");	
 	}
 	
-	/**
-	*@Override
-	*初始化函数，默认给一些参数赋值，如cmdno,date等。
-	*/
 	function init() {
 		//任务代码
 		$this->setParameter("cmdno", "1");
@@ -152,10 +135,6 @@ class PayRequestHandler extends RequestHandler {
 		
 	}
 	
-	/**
-	*@Override
-	*创建签名
-	*/
 	function createSign() {
 		$cmdno = $this->getParameter("cmdno");
 		$date = $this->getParameter("date");
@@ -197,9 +176,6 @@ class PayRequestHandler extends RequestHandler {
 }
 class PayResponseHandler extends ResponseHandler {
 	
-	/**
-	*@Override
-	*/
 	function isTenpaySign() {
 		$cmdno = $this->getParameter("cmdno");
 		$pay_result = $this->getParameter("pay_result");
@@ -261,66 +237,38 @@ class RequestHandler {
 		$this->debugInfo = "";
 	}
 	
-	/**
-	*初始化函数。
-	*/
 	function init() {
 		//nothing to do
 	}
 	
-	/**
-	*获取入口地址,不包含参数值
-	*/
 	function getGateURL() {
 		return $this->gateUrl;
 	}
 	
-	/**
-	*设置入口地址,不包含参数值
-	*/
 	function setGateURL($gateUrl) {
 		$this->gateUrl = $gateUrl;
 	}
 	
-	/**
-	*获取密钥
-	*/
 	function getKey() {
 		return $this->key;
 	}
 	
-	/**
-	*设置密钥
-	*/
 	function setKey($key) {
 		$this->key = $key;
 	}
 	
-	/**
-	*获取参数值
-	*/
 	function getParameter($parameter) {
 		return $this->parameters[$parameter];
 	}
 	
-	/**
-	*设置参数值
-	*/
 	function setParameter($parameter, $parameterValue) {
 		$this->parameters[$parameter] = $parameterValue;
 	}
 	
-	/**
-	*获取所有请求的参数
-	*@return array
-	*/
 	function getAllParameters() {
 		return $this->parameters;
 	}
 	
-	/**
-	*获取带参数的请求URL
-	*/
 	function getRequestURL() {
 	
 		$this->createSign();
@@ -340,24 +288,15 @@ class RequestHandler {
 		
 	}
 		
-	/**
-	*获取debug信息
-	*/
 	function getDebugInfo() {
 		return $this->debugInfo;
 	}
 	
-	/**
-	*重定向到财付通支付
-	*/
 	function doSend() {
 		header("Location:" . $this->getRequestURL());
 		exit;
 	}
 	
-	/**
-	*创建md5摘要,规则是:按参数名称a-z排序,遇到空值的参数不参加签名。
-	*/
 	function createSign() {
 		$signPars = "";
 		ksort($this->parameters);
@@ -377,9 +316,6 @@ class RequestHandler {
 		
 	}	
 	
-	/**
-	*设置debug信息
-	*/
 	function _setDebugInfo($debugInfo) {
 		$this->debugInfo = $debugInfo;
 	}
@@ -415,47 +351,26 @@ class ResponseHandler  {
 		}
 	}
 		
-	/**
-	*获取密钥
-	*/
 	function getKey() {
 		return $this->key;
 	}
 	
-	/**
-	*设置密钥
-	*/	
 	function setKey($key) {
 		$this->key = $key;
 	}
 	
-	/**
-	*获取参数值
-	*/	
 	function getParameter($parameter) {
 		return $this->parameters[$parameter];
 	}
 	
-	/**
-	*设置参数值
-	*/	
 	function setParameter($parameter, $parameterValue) {
 		$this->parameters[$parameter] = $parameterValue;
 	}
 	
-	/**
-	*获取所有请求的参数
-	*@return array
-	*/
 	function getAllParameters() {
 		return $this->parameters;
 	}	
 	
-	/**
-	*是否财付通签名,规则是:按参数名称a-z排序,遇到空值的参数不参加签名。
-	*true:是
-	*false:否
-	*/	
 	function isTenpaySign() {
 		$signPars = "";
 		ksort($this->parameters);
@@ -478,17 +393,10 @@ class ResponseHandler  {
 		
 	}
 	
-	/**
-	*获取debug信息
-	*/	
 	function getDebugInfo() {
 		return $this->debugInfo;
 	}
 	
-	/**
-	*显示处理结果。
-	*@param $show_url 显示处理结果的url地址,绝对url地址的形式(http://www.xxx.com/xxx.php)。
-	*/	
 	function doShow($show_url) {
 		$strHtml = "<html><head>\r\n" .
 			"<meta name=\"TENCENT_ONLINE_PAYMENT\" content=\"China TENCENT\">" .
@@ -502,11 +410,6 @@ class ResponseHandler  {
 		exit;
 	}
 	
-	/**
-	 * 是否财付通签名
-	 * @param signParameterArray 签名的参数数组
-	 * @return boolean
-	 */	
 	function _isTenpaySign($signParameterArray) {
 	
 		$signPars = "";
@@ -531,9 +434,6 @@ class ResponseHandler  {
 	
 	}
 	
-	/**
-	*设置debug信息
-	*/	
 	function _setDebugInfo($debugInfo) {
 		$this->debugInfo = $debugInfo;
 	}

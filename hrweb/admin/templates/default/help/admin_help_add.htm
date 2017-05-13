@@ -15,21 +15,21 @@ $(document).ready(function()
 	{#include file="help/admin_help_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">新增帮助</div>
+<div class="toptit">新しいヘルプ</div>
   <form action="?act=addsave" method="post"   name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="3" cellspacing="0"  class="admin_table">
       <tr>
-        <td width="50" align="right" >标题：</td>
+        <td width="50" align="right" >title：</td>
         <td ><input name="title" type="text"  class="input_text_400" />		</td>
       </tr>
 	  <tr>
-        <td align="right"  >排序：</td>
+        <td align="right"  >並べ替え：</td>
         <td><input name="order" type="text"  class="input_text_200"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" value="0" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> 
-        <span class="admin_note">数字越大越靠前</span>       </td>
+        <span class="admin_note">数字が大きければトップに行けます</span>       </td>
       </tr>
       <tr>
-        <td align="right" >分类：</td>
+        <td align="right" >カテゴリー：</td>
         <td >		
 		<div>		
 		<input type="text" value="{#$smarty.get.type_id_cn|default:"请选择"#}"  readonly="readonly" name="type_id_cn" id="type_id_cn" class="input_text_200 input_text_selsect"/>

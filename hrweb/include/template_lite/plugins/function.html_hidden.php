@@ -1,15 +1,4 @@
 ﻿<?php
-/**
- * template_lite {html_hidden} function plugin
- *
- * Type:     function
- * Name:     html_hidden
- * Purpose:  Creates a hidden box
- * Input:
- *           - name = the name of the hidden field
- *           - value = the value of the hidden field
- * Author:   Paul Lockaby <paul@paullockaby.com>
- */
 function tpl_function_html_hidden($params, &$tpl)
 {
 	require_once("shared.escape_chars.php");

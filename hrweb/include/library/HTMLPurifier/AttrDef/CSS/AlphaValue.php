@@ -8,12 +8,6 @@ class HTMLPurifier_AttrDef_CSS_AlphaValue extends HTMLPurifier_AttrDef_CSS_Numbe
         parent::__construct(false); // opacity is non-negative, but we will clamp it
     }
 
-    /**
-     * @param string $number
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return string
-     */
     public function validate($number, $config, $context)
     {
         $result = parent::validate($number, $config, $context);

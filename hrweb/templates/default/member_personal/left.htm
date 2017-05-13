@@ -116,7 +116,7 @@ $(document).ready(function()
 		var mynrDialog=dialog(),
 		url = $(this).attr("url");
 		mynrDialog.title('系统提示');
-		mynrDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">您还没有创建简历，建议您立即创建。</span></div></div><div class="center-btn-wrap"><input type="button" value="创建" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		mynrDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">あなたがあなたの履歴書を作成していない、あなたが今作成することをお勧めします。</span></div></div><div class="center-btn-wrap"><input type=“button” value=“創立” class=“btn-65-30blue btn-big-font DialogSubmit” /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 	    mynrDialog.width('320');
 	    mynrDialog.showModal();
 	    /* 关闭 */
@@ -147,7 +147,7 @@ $(document).ready(function()
 				<tr>
 				<td class="us_list" title="{#$list.title_#}"><a class="co01" href="{#$list.resume_url#}" target="_blank">{#$list.title_#}</a></td>
 				<td align="center" class="us_list">{#$list.refreshtime|date_format:"%m/%d %H:%M"#}</td>
-				<td class="us_list">{#$list.click#}次</td>
+				<td class="us_list">{#$List.click#}回</td>
 				</tr>
 				{#/foreach#}
 				</table>

@@ -1,17 +1,4 @@
 ﻿<?php
-/**
- * Template_Lite {html_textbox} function plugin
- *
- * Type:     function
- * Name:     html_textbox
- * Purpose:  Creates a textbox
- * Input:
- *           - name = the name of the textbox
- *           - rows = optional number of rows in the textbox
- *           - cols = optional number of columns in the textbox
- *           - value = optional preset value to put in the textbox
- * Author:   Paul Lockaby <paul@paullockaby.com>
- */
 function tpl_function_html_textbox($params, &$tpl)
 {
 	require_once("shared.escape_chars.php");

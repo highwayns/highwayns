@@ -30,7 +30,7 @@ $(document).ready(function()
 <!-- 当前位置 -->
 <div class="page_location link_bk">
 {#highway_news_category set="列表名:category,名称长度:10,资讯小类:"|cat:$show.type_id#}
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_noticelist,id:1"|highway_url#}">网站公告</a>&nbsp;>&nbsp;正文
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_noticelist,id:1"|highway_url#}">网站公告</a>&nbsp;>&nbsp;正文
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
@@ -42,7 +42,7 @@ $(document).ready(function()
 					<div class="title">{#$show.title#}</div>
 					<div class="news_dateil">
 						<div class="time">{#$show.addtime|date_format:"%Y-%m-%d %H:%M"#}</div>
-						<div class="time">查看：<span id="click"></span> 次</div>
+						<div class="time">確認：<span id="click"></span> タイムズ</div>
 						<div><a href="javascript:window.print();">[打印]</a><a href="javascript:void(0);" onclick="window.external.addFavorite(parent.location.href,document.title);">[收藏]</a></div>
 						<div class="clear"></div>
 					</div>
@@ -55,7 +55,7 @@ $(document).ready(function()
 						        <a class="bds_tsina"></a>
 						        <a class="bds_tqq"></a>
 						        <a class="bds_renren"></a>
-						        <span class="bds_more">更多</span>
+						        <span class="bds_more">もっと</span>
 						    </div>
 						<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=659075" ></script>
 						<script type="text/javascript" id="bdshell_js"></script>
@@ -76,7 +76,7 @@ $(document).ready(function()
 		<div class="right_area">
 			<div class="right_box">
 				<div class="title_box">
-					<h5>最新职位</h5>
+					<h5>最新のジョブズ</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">

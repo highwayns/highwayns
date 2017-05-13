@@ -6,21 +6,21 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 自定义分类调用名不能以 “HW_”开头
 </p>
 </div>
- <div class="toptit">修改导航分类 <span style="color:#0033CC">{#$list.categoryname#}</span></div>
+ <div class="toptit">ナビゲーション・カテゴリーを変更する<span style="color:#0033CC">{#$list.categoryname#}</span></div>
  <form id="form1" name="form1" method="post" action="?act=site_navigation_category_edit_save">
  {#$inputtoken#}
                 <table border="0" cellspacing="5" cellpadding="1" >
                   <tr>
-                    <td width="120" align="right">分类名称(必填)：</td>
+                    <td width="120" align="right">カテゴリ名（必須）：</td>
                     <td><input name="categoryname" type="text"  class="input_text_200" id="categoryname" value="{#$list.categoryname#}" maxlength="30"/></td>
                   </tr>
                   <tr id="show_url">
-                    <td align="right">调用名称(必填)：</td>
+                    <td align="right">コール名（必須）：</td>
                     <td><input name="alias" type="text"  class="input_text_200" id="alias" value="{#$list.alias#}" maxlength="180"/>
                     </td>
                   </tr>

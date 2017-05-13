@@ -7,20 +7,20 @@
 </div>
  
 
- <div class="toptit">CSRF防御</div>
+ <div class="toptit">CSRFの防御</div>
  <form action="?act=setsave" method="post"  name="form1" id="form1">
  {#$inputtoken#}
 	  <table width="700" border="0" cellspacing="10" cellpadding="1" style=" margin-bottom:3px;">
         <tr>
-          <td width="162" align="right">开启CSRF防御：</td>
+          <td width="162" align="right">オープンCSRFの防御：</td>
           <td>
 		  
 		  <label>
-        <input name="open_csrf" type="radio" id="open_csrf" value="1"  {#if $config.open_csrf=="1"#}checked=checked {#/if#}/>开启</label>
+        <input name="open_csrf" type="radio" id="open_csrf" value="1"  {#if $config.open_csrf=="1"#}checked=checked {#/if#}/>開く</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label >
-<input type="radio" name="open_csrf" value="0" id="open_csrf"  {#if $config.open_csrf=="0"#}checked=checked{#/if#}/>关闭</label>
-		<span class="admin_note">开启后可有效防御CSRF攻击、跨域提交数据、重复提交表单等操作。</span>  
+<input type="radio" name="open_csrf" value="0" id="open_csrf"  {#if $config.open_csrf=="0"#}checked=checked{#/if#}/>閉じる</label>
+		<span class="admin_note">開封後は効果的にフォームの送信などの操作を複製、クロスドメインのデータを提出し、提出の繰り返しを防ぐことができます。</span>  
 		  </td>
         </tr>
         <tr>

@@ -19,7 +19,7 @@ $(document).ready(function(){
 	});
 	function news_search_location(key)
 	{
-		$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+		$("body").append('<div id="pageloadingbox">ロードページ…. </div><div id="pageloadingbg"></div>');
 		$("#pageloadingbg").css("opacity", 0.5);
 		$.get("{#$HIGHWAY.site_dir#}plus/ajax_search_location.php", {"act":"HW_newssearch","key":key},
 				function (data,textStatus)
@@ -36,7 +36,7 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-	当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>
+	当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
@@ -90,7 +90,7 @@ $(document).ready(function(){
 			<div class="clear"></div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>热点推荐</h5>
+					<h5>注目推奨</h5>
 				</div>
 				<div class="list" style="height:100px;">
 					<ol class="hot">
@@ -117,7 +117,7 @@ $(document).ready(function(){
 			<div class="information_box">
 				<div class="job_box {#if $smarty.section.nclist.index==2#}r{#else#}l{#/if#}">
 					<div class="box_tit">
-						<h4>{#$newscategory[nclist].title#} </h4><a target="_blank" href="{#$newscategory[nclist].url#}">更多>></a>
+						<h4>{#$newscategory[nclist].title#} </h4><a target="_blank" href="{#$newscategory[nclist].url#}">もっと>></a>
 					</div>
 					<div class="box_content">
 						<div class="info_box">
@@ -167,7 +167,7 @@ $(document).ready(function(){
 			<div class="information_box">
 				<div class="job_box {#if $smarty.section.nclist.index==2#}r{#else#}l{#/if#}">
 					<div class="box_tit">
-						<h4>{#$newscategory[nclist].title#} </h4><a target="_blank" href="{#$newscategory[nclist].url#}">更多>></a>
+						<h4>{#$newscategory[nclist].title#} </h4><a target="_blank" href="{#$newscategory[nclist].url#}">もっと>></a>
 					</div>
 					<div class="box_content" >
 						<div class="info_box">
@@ -208,7 +208,7 @@ $(document).ready(function(){
 		<div class="f_link">
 		<div class="job_box">
 				<div class="box_tit">
-					<div class="tits" style="float:left">友情链接</div> <div class="more link_bk"><a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank">申请>></a></div>
+					<div class="tits" style="float:left">リンク</div> <div class="more link_bk"><a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank">申请>></a></div>
 					<div class="clear"></div>
 				</div>
 				<div class="box_contents">

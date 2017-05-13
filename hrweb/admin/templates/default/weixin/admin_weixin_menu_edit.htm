@@ -5,17 +5,17 @@
 	{#include file="weixin/admin_weixin_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">新增菜单</div>
+<div class="toptit">新メニュー</div>
 <form id="form1" name="form1" method="post" action="?act=edit_menu_save">
 	<input name="id" type="hidden" class="input_text_200"  value="{#$menu.id#}"/>
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #93AEDD  dashed">
  <tr>
-    <td width="120" align="right">所属菜单:</td>
+    <td width="120" align="right">メニュー所属：</td>
     <td>
 	<select name="parentid">
-	  <option value="0" {#if "0"==$menu.parentid#}selected="selected"{#/if#}>顶级菜单</option>
+	  <option value="0" {#if "0"==$menu.parentid#}selected="selected"{#/if#}>トップレベルのメニュー</option>
 	  {#foreach from=$parent_manu item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$menu.parentid#}selected="selected"{#/if#}>{#$list.title#}</option>
 	{#/foreach#}
@@ -24,19 +24,19 @@
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">标题:</td>
+    <td width="120" align="right">title：</td>
     <td><input name="title" type="text" class="input_text_200"  value="{#$menu.title#}"/></td>
   </tr>
   <tr>
-    <td width="120" align="right">菜单KEY:</td>
+    <td width="120" align="right">MENUキー：</td>
     <td><input name="key" type="text" class="input_text_200"  value="{#$menu.key#}"/></td>
   </tr>
    <tr>
-    <td width="120" align="right">菜单类型:</td>
+    <td width="120" align="right">メニューの種類：</td>
     <td>
 	<select name="type">
-	  <option value="click" {#if $menu.type=="click"#}selected="selected"{#/if#}>点击事件</option>
-	  <option value="view" {#if $menu.type=="view"#}selected="selected"{#/if#}>链接事件</option>
+	  <option value="click" {#if $menu.type=="click"#}selected="selected"{#/if#}>イベントをクリックします</option>
+	  <option value="view" {#if $menu.type=="view"#}selected="selected"{#/if#}>リンクイベント</option>
 	</select>
 	</td>
  </tr>
@@ -45,14 +45,14 @@
     <td><input name="url" type="text" class="input_text_200"  value="{#$menu.url#}"/></td>
   </tr>
   <tr>
-    <td width="120" align="right">菜单状态:</td>
+    <td width="120" align="right">メニューステータス：</td>
     <td>
 		<label><input type="radio" name="status" value="1" {#if $menu.status=="1"#}checked{#/if#}>显示</label>
 		<label><input type="radio" name="status" value="0" {#if $menu.status=="0"#}checked{#/if#}>隐藏</label>
 	</td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="menu_order" type="text" class="input_text_200" value="{#$menu.menu_order#}"/></td>
   </tr>
 </table>

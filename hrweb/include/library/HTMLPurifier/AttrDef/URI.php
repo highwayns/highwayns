@@ -1,47 +1,24 @@
 ﻿<?php
 
-/**
- * Validates a URI as defined by RFC 3986.
- * @note Scheme-specific mechanics deferred to HTMLPurifier_URIScheme
- */
 class HTMLPurifier_AttrDef_URI extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * @type HTMLPurifier_URIParser
-     */
     protected $parser;
 
-    /**
-     * @type bool
-     */
     protected $embedsResource;
 
-    /**
-     * @param bool $embeds_resource Does the URI here result in an extra HTTP request?
-     */
     public function __construct($embeds_resource = false)
     {
         $this->parser = new HTMLPurifier_URIParser();
         $this->embedsResource = (bool)$embeds_resource;
     }
 
-    /**
-     * @param string $string
-     * @return HTMLPurifier_AttrDef_URI
-     */
     public function make($string)
     {
         $embeds = ($string === 'embedded');
         return new HTMLPurifier_AttrDef_URI($embeds);
     }
 
-    /**
-     * @param string $uri
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($uri, $config, $context)
     {
         if ($config->get('URI.Disable')) {

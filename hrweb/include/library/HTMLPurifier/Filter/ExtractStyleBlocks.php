@@ -8,50 +8,18 @@ function htmlpurifier_filter_extractstyleblocks_muteerrorhandler()
 {
 }
 
-/**
- * This filter extracts <style> blocks from input HTML, cleans them up
- * using CSSTidy, and then places them in $purifier->context->get('StyleBlocks')
- * so they can be used elsewhere in the document.
- *
- * @note
- *      See tests/HTMLPurifier/Filter/ExtractStyleBlocksTest.php for
- *      sample usage.
- *
- * @note
- *      This filter can also be used on stylesheets not included in the
- *      document--something purists would probably prefer. Just directly
- *      call HTMLPurifier_Filter_ExtractStyleBlocks->cleanCSS()
- */
 class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
 {
-    /**
-     * @type string
-     */
     public $name = 'ExtractStyleBlocks';
 
-    /**
-     * @type array
-     */
     private $_styleMatches = array();
 
-    /**
-     * @type csstidy
-     */
     private $_tidy;
 
-    /**
-     * @type HTMLPurifier_AttrDef_HTML_ID
-     */
     private $_id_attrdef;
 
-    /**
-     * @type HTMLPurifier_AttrDef_CSS_Ident
-     */
     private $_class_attrdef;
 
-    /**
-     * @type HTMLPurifier_AttrDef_Enum
-     */
     private $_enum_attrdef;
 
     public function __construct()
@@ -72,23 +40,11 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
         );
     }
 
-    /**
-     * Save the contents of CSS blocks to style matches
-     * @param array $matches preg_replace style $matches array
-     */
     protected function styleCallback($matches)
     {
         $this->_styleMatches[] = $matches[1];
     }
 
-    /**
-     * Removes inline <style> tags from HTML, saves them for later use
-     * @param string $html
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return string
-     * @todo Extend to indicate non-text/css style blocks
-     */
     public function preFilter($html, $config, $context)
     {
         $tidy = $config->get('Filter.ExtractStyleBlocks.TidyImpl');
@@ -107,15 +63,6 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
         return $html;
     }
 
-    /**
-     * Takes CSS (the stuff found in <style>) and cleans it.
-     * @warning Requires CSSTidy <http://csstidy.sourceforge.net/>
-     * @param string $css CSS styling to clean
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @throws HTMLPurifier_Exception
-     * @return string Cleaned CSS
-     */
     public function cleanCSS($css, $config, $context)
     {
         // prepare scope

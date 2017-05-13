@@ -407,7 +407,7 @@ function send_sms($mobile,$content)
 	}
 	else
 	{
-		return https_request("http://www.jp.highwayns.com/SMSsend.php?sms_name={$sms['notice_sms_name']}&sms_key={$sms['notice_sms_key']}&mobile={$mobile}&content={$content}");
+		return https_request("http://jp.highwayns.com/SMSsend.php?sms_name={$sms['notice_sms_name']}&sms_key={$sms['notice_sms_key']}&mobile={$mobile}&content={$content}");
 	
 	}	
 }
@@ -422,7 +422,7 @@ function captcha_send_sms($mobile,$content)
 	}
 	else
 	{
-		return https_request("http://www.jp.highwayns.com/SMSsend.php?sms_name={$sms['captcha_sms_name']}&sms_key={$sms['captcha_sms_key']}&mobile={$mobile}&content={$content}");
+		return https_request("http://jp.highwayns.com/SMSsend.php?sms_name={$sms['captcha_sms_name']}&sms_key={$sms['captcha_sms_key']}&mobile={$mobile}&content={$content}");
 	}	
 }
 //其他类短信接口
@@ -436,7 +436,7 @@ function free_send_sms($mobile,$content)
 	}
 	else
 	{
-	return https_request("http://www.jp.highwayns.com/SMSsend5.php?sms_name={$sms['free_sms_name']}&sms_key={$sms['free_sms_key']}&mobile={$mobile}&content={$content}");
+	return https_request("http://jp.highwayns.com/SMSsend5.php?sms_name={$sms['free_sms_name']}&sms_key={$sms['free_sms_key']}&mobile={$mobile}&content={$content}");
 	}	
 }
 function execution_crons()
@@ -718,9 +718,6 @@ function write_refresh_log($uid,$mode=0,$type)
 	$db->inserttable(table('refresh_log'),$setsqlarr);
 }
 
-/**
- * 3.5更新内容
- */
 function filter_url($alias){
 	global $_PAGE,$smarty;
 	$pass = true;
@@ -750,10 +747,6 @@ function filter_url($alias){
 	    exit();
 	}
 }
-/**
- * utf8转gbk
- * @param $utfstr
- */
 function utf8_to_gbk($utfstr) {
 	if(is_numeric($utfstr)){
 		return $utfstr;
@@ -794,10 +787,6 @@ function utf8_to_gbk($utfstr) {
 	$okstr = trim($okstr);
 	return $okstr;
 }
-/**
- * gbk转utf8
- * @param $gbstr
- */
 function gbk_to_utf8($gbstr) {
 	if(is_numeric($gbstr)){
 		return $gbstr;
@@ -830,10 +819,6 @@ function gbk_to_utf8($gbstr) {
 	}
 	return $ret;
 }
-/**
- * utf8转unicode
- * @param  $c
- */
 function utf8_to_unicode($c) {
 	switch(strlen($c)) {
 		case 1:
@@ -855,10 +840,6 @@ function utf8_to_unicode($c) {
 		  return $n;
 	}
 }
-/**
- * unicode转utf8
- * @param  $c
- */
 function unicode_to_utf8($c) {
 	$str = '';
 	if($c < 0x80) {

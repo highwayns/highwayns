@@ -20,7 +20,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 会员服务</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 会員サービス</div>
 	<div class="usermain">
 		<div class="leftmenu com link_bk">
 			{#include file="member_company/left.htm"#}
@@ -31,70 +31,70 @@
 					<div class="titleH1"><div class="h1-title">我的账户</div></div>
 					<div class="navs link_bk">
 						{#if $HIGHWAY.operation_mode == '1' || $HIGHWAY.operation_mode == '3'#}
-						<a href="company_service.php?act=j_account" {#if $act=='j_account'#}class="se"{#/if#}>我的积分</a>
+						<a href="company_service.php?act=j_account" {#if $act=='j_account'#}class="se"{#/if#}>マイポイント</a>
 						{#/if#}
 						{#if $HIGHWAY.operation_mode == '2' || $HIGHWAY.operation_mode == '3'#}
-						<a href="company_service.php?act=t_account" {#if $act=='t_account'#}class="se"{#/if#}>我的套餐</a>
+						<a href="company_service.php?act=t_account" {#if $act=='t_account'#}class="se"{#/if#}>私のパッケージ</a>
 						{#/if#}
 						<div class="clear"></div>
 					</div>
 				</div>
 				<div class="account-wrap">
 					<div class="account-top-block clearfix">
-						<div class="account-state f-left">账户状态</div>
+						<div class="account-state f-left">アカウントの状態</div>
 						<div class="a-state-content f-left">
 							{#if $HIGHWAY.operation_mode == '2' || $HIGHWAY.operation_mode == '3'#}
-							<span class="account-type">当前套餐：<span>{#$setmeal.setmeal_name#}</span><em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em><a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a></span>
+							<span class="account-type">現在のパッケージ：<span>{#$setmeal.setmeal_name#}</span><em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em><a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a></span>
 							{#/if#}
 							{#if $HIGHWAY.operation_mode == '1' || $HIGHWAY.operation_mode == '3'#}
-							<span class="account-type last">当前{#$HIGHWAY.points_byname#}：<span>{#$points#}</span>{#$HIGHWAY.points_quantifier#}<a href="company_service.php?act=order_add" class="underline">积分充值</a></span>
+							<span class="account-type last">目前{#$HIGHWAY.points_byname#}：<span>{#$points#}</span>{#$HIGHWAY.points_quantifier#}<a href="company_service.php?act=order_add" class="underline">积分充值</a></span>
 							{#/if#}
 						</div>
 					</div>
 					<div class="account-ctrl-bar clearfix">
-						<h3 class="f-left">套餐余量</h3>
-						<a href="company_service.php?act=t_account&detail=1" class="f-right underline">套餐消费明细</a>
+						<h3 class="f-left">パッケージのバランス</h3>
+						<a href="company_service.php?act=t_account&detail=1" class="f-right underline">パッケージラインアイテム</a>
 					</div>
 					<div class="account-lost clearfix">
 						<div class="account-item f-left">
-							<div class="ai-text f-left">发布招聘职位</div>
+							<div class="ai-text f-left">求人掲載</div>
 							<div class="ai-number f-left">{#$setmeal.jobs_ordinary#}/{#$setmeal_rule.jobs_ordinary#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">下载普通人才简历</div>
+							<div class="ai-text f-left">一般の人々が再開ダウンロード</div>
 							<div class="ai-number f-left">{#$setmeal.download_resume_ordinary#}/{#$setmeal_rule.download_resume_ordinary#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">下载高级人才简历</div>
+							<div class="ai-text f-left">CVシニア人材をダウンロード</div>
 							<div class="ai-number f-left">{#$setmeal.download_resume_senior#}/{#$setmeal_rule.download_resume_senior#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">邀请普通人才</div>
+							<div class="ai-text f-left">普通人材の招待</div>
 							<div class="ai-number f-left">{#$setmeal.interview_ordinary#}/{#$setmeal_rule.interview_ordinary#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">邀请高级人才</div>
+							<div class="ai-text f-left">高級人材の招待</div>
 							<div class="ai-number f-left">{#$setmeal.interview_senior#}/{#$setmeal_rule.interview_senior#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">职位推广-推荐</div>
+							<div class="ai-text f-left">ジョブの推進 - 推奨</div>
 							<div class="ai-number f-left">{#$setmeal.recommend_num#}/{#$setmeal_rule.recommend_num#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">职位推广-紧急</div>
+							<div class="ai-text f-left">ジョブの推進 - 緊急</div>
 							<div class="ai-number f-left">{#$setmeal.emergency_num#}/{#$setmeal_rule.emergency_num#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">职位推广-置顶</div>
+							<div class="ai-text f-left">ジョブの推進 - トップ設置</div>
 							<div class="ai-number f-left">{#$setmeal.stick_num#}/{#$setmeal_rule.stick_num#}</div>
 						</div>
 						<div class="account-item f-left">
-							<div class="ai-text f-left">职位推广-变色</div>
+							<div class="ai-text f-left">ジョブの推進 - 変色</div>
 							<div class="ai-number f-left">{#$setmeal.highlight_num#}/{#$setmeal_rule.highlight_num#}</div>
 						</div>
 					</div>
 					<div class="bottomtip">
-				 	   	<div class="tp h2-title">小贴士</div>
+				 	   	<div class="tp h2-title">ヒント</div>
 					   套餐余量显示的数额为当前剩套餐余数/总数，如：发布招聘职位  18/20 即套餐发布招聘职位总数20，可使用数18。<br />
 						如果后台开通套餐叠加服务，套餐余量数额可能会大于为当前剩套餐总数，如：下载高级人才简历  38/20 即套餐下载高级人才简历总数20，还可使用数38。<br />
 					</div>

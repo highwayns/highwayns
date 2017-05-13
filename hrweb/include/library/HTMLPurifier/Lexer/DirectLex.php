@@ -1,44 +1,16 @@
 ﻿<?php
 
-/**
- * Our in-house implementation of a parser.
- *
- * A pure PHP parser, DirectLex has absolutely no dependencies, making
- * it a reasonably good default for PHP4.  Written with efficiency in mind,
- * it can be four times faster than HTMLPurifier_Lexer_PEARSax3, although it
- * pales in comparison to HTMLPurifier_Lexer_DOMLex.
- *
- * @todo Reread XML spec and document differences.
- */
 class HTMLPurifier_Lexer_DirectLex extends HTMLPurifier_Lexer
 {
-    /**
-     * @type bool
-     */
     public $tracksLineNumbers = true;
 
-    /**
-     * Whitespace characters for str(c)spn.
-     * @type string
-     */
     protected $_whitespace = "\x20\x09\x0D\x0A";
 
-    /**
-     * Callback function for script CDATA fudge
-     * @param array $matches, in form of array(opening tag, contents, closing tag)
-     * @return string
-     */
     protected function scriptCallback($matches)
     {
         return $matches[1] . htmlspecialchars($matches[2], ENT_COMPAT, 'UTF-8') . $matches[3];
     }
 
-    /**
-     * @param String $html
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array|HTMLPurifier_Token[]
-     */
     public function tokenizeHTML($html, $config, $context)
     {
         // special normalization for script tags without any armor
@@ -343,14 +315,6 @@ class HTMLPurifier_Lexer_DirectLex extends HTMLPurifier_Lexer
         return $array;
     }
 
-    /**
-     * PHP 5.0.x compatible substr_count that implements offset and length
-     * @param string $haystack
-     * @param string $needle
-     * @param int $offset
-     * @param int $length
-     * @return int
-     */
     protected function substrCount($haystack, $needle, $offset, $length)
     {
         static $oldVersion;
@@ -365,14 +329,6 @@ class HTMLPurifier_Lexer_DirectLex extends HTMLPurifier_Lexer
         }
     }
 
-    /**
-     * Takes the inside of an HTML tag and makes an assoc array of attributes.
-     *
-     * @param string $string Inside of tag excluding name.
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array Assoc array of attributes.
-     */
     public function parseAttributeString($string, $config, $context)
     {
         $string = (string)$string; // quick typecast

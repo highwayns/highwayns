@@ -2,20 +2,20 @@
 	<table width="480">
 		<tbody>
 			<tr height="50">
-				<td width="90">推广职位：</td>
+				<td width="90">プロモーションポジション：</td>
 				<td>{#$jobs_name#}</td>
 			</tr>
 			<tr height="30">
-				<td>推广方案：</td>
+				<td>アウトリーチプログラム：</td>
 				<td width="120">
 					{#$promotion_name#}
 				</td>
-				<td>(每天消耗{#$points_perday#}{#$points_quantifier#}{#$points_byname#})</td>
+				<td>毎日消耗{#$points_perday#}{#$points_quantifier#}{#$points_byname#})</td>
 			</tr>
 			<tr>
-				<td height="50">推广期限：</td>
+				<td height="50">プロモーション期間：</td>
 				<td><input name="days" type="text" class="input_text_200" id="days" maxlength="4" value=""/></td>
-				<td> 天</td>
+				<td> デイ</td>
 			</tr>
 		    {#$color_list#}
 		              		
@@ -31,7 +31,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<p>推广天数最少：{#$cat_minday#}天<br />推广期每天消耗{#$points_byname#}：{#$points_perday#}{#$points_quantifier#}{#$points_byname#}<br />推广天数最多：{#$cat_maxday#}天</p>
+	<p>推進最低日数：{#$cat_minday#}日<BR />推广期每天消耗{#$points_byname#}：{#$points_perday#}{#$points_quantifier#}{#$points_byname#}<br />プロモーション日最上限：{#$cat_maxday#}日</P>
 </div>
 <div class="spread_but_box">
 	<input type="hidden" id="jobid" value="{#$jobid#}">
@@ -47,7 +47,7 @@ $(document).ready(function(){
 			var user_points={#$user_points#};
 			if((/^(\+|-)?\d+$/.test($(this).val())) && $(this).val()>={#$cat_minday#} && $(this).val()>0 && days_points>0)
 			{
-			$("#count").html("<br />您推广天数为<strong style=\"color:#009900\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>天，需要扣除：&nbsp;&nbsp;<strong style=\"color: #009900;\">"+$(this).val()*days_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，您目前共有&nbsp;&nbsp;<strong style=\"color: #FF6600;\">"+user_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}。<br /><br />");   
+			$("#count").html("<br />プロモーション日数<strong style=\"color:#009900\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>日、控除する必要があります：&nbsp;&nbsp;<strong style=\"color: #009900;\">"+$(this).val()*days_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，あなだは現在&nbsp;&nbsp;<strong style=\”color: #FF6600;\”>"+user_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}。<br /><br />");   
 			}
 			else if($(this).val()<{#$cat_minday#}){
 				$("#count").html("推广天数不能小于<strong style=\"color: #FF6600;\">{#$cat_minday#}</strong>天");

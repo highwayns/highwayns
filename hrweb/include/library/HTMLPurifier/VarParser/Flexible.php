@@ -1,19 +1,7 @@
 ﻿<?php
 
-/**
- * Performs safe variable parsing based on types which can be used by
- * users. This may not be able to represent all possible data inputs,
- * however.
- */
 class HTMLPurifier_VarParser_Flexible extends HTMLPurifier_VarParser
 {
-    /**
-     * @param mixed $var
-     * @param int $type
-     * @param bool $allow_null
-     * @return array|bool|float|int|mixed|null|string
-     * @throws HTMLPurifier_VarParserException
-     */
     protected function parseImplementation($var, $type, $allow_null)
     {
         if ($allow_null && $var === null) {

@@ -12,7 +12,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 我预定的展位</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 私は予約したブース/ div>
 
 <div class="usermain">
   <div class="leftmenu com link_bk">
@@ -21,17 +21,17 @@
   <div class="rightmain">
   
  	<div class="bbox1 link_bk my_account intrgration">
-		<div class="title_h1">我预定的展位</div>
+		<div class="title_h1">私はのブースを予約しました</div>
 		<div class="data resume">
 			{#if $list#}
 		  	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  		<tbody>
 		  			<tr bgcolor="#F5F5F5" align="left" height="44">
-		  				<th class="left" width="178" align="left">招聘会标题</th>
-		  				<th width="140" align="left">举办日期</th>
-		  				<th width="80" align="left">预定方式</th>
-		  				<th width="80" align="left">预订时间</th>
-		  				<th width="101" align="center">状态</th>
+		  				<th class="left" width="178" align="left">ジョブフェアのtitle</th>
+		  				<th width="140" align="left">開催日</目>
+		  				<th width="80" align="left">予定方法</th>
+		  				<th width="80" align="left">予約時間</th>
+		  				<th width="101" align="center">ステータス</th>
 		  			</tr>
 		  			{#foreach from=$list item=li#}
 		  			<tr class="data_content" height="54">
@@ -52,10 +52,10 @@
 						</td>
 		  				<td width="80" align="left">{#$li.eaddtime|date_format:"%Y-%m-%d"#}</a></td>
 		  				<td width="101" align="center">{#if $li.audit=="0"#}
-						  <span style="color:#FF3300" class="vtip"  title="请耐心等待管理员确认...">等待确认</span>
+						  <span style="color:#FF3300" class="vtip"  title="请耐心等待管理员确认...">リクエスト</span>
 						  {#/if#}
 						  {#if $li.audit=="1"#}
-						  <span style="color:#009900" >预定成功</span>
+						  <span style="color:#009900" >予約成功</span>
 						  {#/if#}</td>
 		  			</tr>
 		  			{#/foreach#}
@@ -72,15 +72,15 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  		<tbody>
 		  			<tr bgcolor="#F5F5F5" align="left" height="44">
-		  				<th width="100" class="left">添加时间</th>
-		  				<th width="178">招聘会标题</th>
-		  				<th width="100" align="center">举办日期</th>
-		  				<th width="100" align="center">预定方式</th>
-		  				<th width="101" align="center">状态</th>
+		  				<th width="100" class="left">時間の追加</th>
+		  				<th width="178">ジョブフェアのtitle</th>
+		  				<th width="100" align="center">開催日</目>
+		  				<th width="100" align="center">予定方法</th>
+		  				<th width="101" align="center">ステータス</th>
 		  			</tr>
 		  		</tbody>
 		  	</table>
-			<div class="emptytip">没有找到对应的信息！</div>
+			<div class="emptytip">該当する情報が見つかりません！</div>
 			{#/if#}
 		  </div>
 

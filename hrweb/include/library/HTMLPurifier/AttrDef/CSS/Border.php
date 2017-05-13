@@ -1,20 +1,10 @@
 ﻿<?php
 
-/**
- * Validates the border property as defined by CSS.
- */
 class HTMLPurifier_AttrDef_CSS_Border extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * Local copy of properties this property is shorthand for.
-     * @type HTMLPurifier_AttrDef[]
-     */
     protected $info = array();
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function __construct($config)
     {
         $def = $config->getCSSDefinition();
@@ -23,12 +13,6 @@ class HTMLPurifier_AttrDef_CSS_Border extends HTMLPurifier_AttrDef
         $this->info['border-top-color'] = $def->info['border-top-color'];
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         $string = $this->parseCDATA($string);

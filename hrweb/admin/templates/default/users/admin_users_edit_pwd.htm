@@ -6,27 +6,27 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 通过管理员设置，您可以进行编辑管理员资料、权限、密码以及删除管理员等操作；
 </p>
 </div>  
-  <div class="toptit">修改密码</div>
+  <div class="toptit">パスワードの変更</div>
   <form id="form1" name="form1" method="post" action="?act=edit_users_pwd_save">
   {#$inputtoken#}
     {#if $admin_purview=="all"#}
 			{#if $account.purview=="all"#}
   	<table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  >旧密码：</td>
+      <td width="120" height="30" align="right"  >古いパスワード：</td>
       <td   ><input name="old_password" type="password" class="input_text_200" id="old_password" maxlength="25" value=""/></td>
     </tr>
     <tr>
-      <td height="30" align="right"  >密码：</td>
+      <td height="30" align="right"  >パスワード：</td>
       <td   ><input name="password" type="password" class="input_text_200" id="password" maxlength="25" value=""/></td>
     </tr>
     <tr>
-      <td height="30" align="right"  >再次输入密码：</td>
+      <td height="30" align="right"  >もう一度パスワードを入力します。</td>
       <td   ><input name="password1" type="password" class="input_text_200" id="password1" maxlength="25" value=""/></td>
     </tr>
     <tr>
@@ -41,7 +41,7 @@
   				{#else#}
  	<table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  >密码：</td>
+      <td width="120" height="30" align="right"  >パスワード：</td>
       <td   ><input name="password" type="text" class="input_text_200" id="password" maxlength="25" value=""/>
         如果不更改密码此处请留空</td>
     </tr> 
@@ -58,15 +58,15 @@
   {#else#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  >旧密码：</td>
+      <td width="120" height="30" align="right"  >古いパスワード：</td>
       <td   ><input name="old_password" type="password" class="input_text_200" id="old_password" maxlength="25" value=""/></td>
     </tr>
     <tr>
-      <td height="30" align="right"  >密码：</td>
+      <td height="30" align="right"  >パスワード：</td>
       <td   ><input name="password" type="password" class="input_text_200" id="password" maxlength="25" value=""/></td>
     </tr>
     <tr>
-      <td height="30" align="right"  >再次输入密码：</td>
+      <td height="30" align="right"  >もう一度パスワードを入力します。</td>
       <td   ><input name="password1" type="password" class="input_text_200" id="password1" maxlength="25" value=""/></td>
     </tr>
     <tr>

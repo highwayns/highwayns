@@ -5,17 +5,17 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 安装在线支付插件需申请对应在线支付服务公司的服务账户。
 </p>
 </div>
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  class="link_lan" id="list" >
     <tr>
-            <td width="15%"  class="admin_list_tit admin_list_first">名称</td>
-            <td width="34%" class="admin_list_tit">支付方式简短描述</td>
-            <td align="center" class="admin_list_tit">手续费</td>
-            <td align="center" class="admin_list_tit">排序</td>
+            <td width="15%"  class="admin_list_tit admin_list_first">名前</td>
+            <td width="34%" class="admin_list_tit">支払い方法について簡単な説明</td>
+            <td align="center" class="admin_list_tit">手数料</td>
+            <td align="center" class="admin_list_tit">並び替え</td>
             <td width="15%" align="center" class="admin_list_tit">操作</td>
     </tr>
 		 {#foreach from=$payment item=li#}
@@ -27,10 +27,10 @@
 			{#$li.listorder#}      </td>
             <td align="center" class="admin_list">
 				{#if $li.p_install==2#}
-				<a href="?act=uninstall_payment&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要卸载吗？')">卸载</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="?act=action_payment&name={#$li.typename#}" >编辑</a>
+				<a href="?act=uninstall_payment&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要卸载吗？')">アンインストール</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="?act=action_payment&name={#$li.typename#}" >編集</a>
 				{#else#}
-				<a href="?act=action_payment&type=install&name={#$li.typename#}">安装</a>
+				<a href="?act=action_payment&type=install&name={#$li.typename#}">インストール</a>
 				{#/if#}				</td>
           </tr>
          

@@ -15,26 +15,26 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
  
-		  <div class="toptit">发送测试短信</div>
+		  <div class="toptit">テストSMSを送信</div>
     <span id="submitbox">
 		<form action="?act=sms_testing" method="post"   name="form1" id="form1">
 		{#$inputtoken#}
 		<table width="700" border="0" cellspacing="10" cellpadding="1" style=" margin-bottom:3px;">
 			<tr>
-            <td width="100" align="right">测试接口:</td>
+            <td width="100" align="right">試験インタフェース</td>
             <td width="560">
 			<input name="type" type="radio" value="1" checked/>验证码类&nbsp;&nbsp;&nbsp;
 			<input name="type" type="radio" value="2"/>通知类&nbsp;&nbsp;&nbsp;
-			<input name="type" type="radio" value="3"/>其他类</td>
+			<input name="type" type="radio" value="3"/>他の種類</td>
           </tr>
           <tr>
-            <td width="100" align="right">接收手机:</td>
+            <td width="100" align="right">電話を受信する：</td>
             <td width="560">
 			<input name="mobile" type="text"  class="input_text_200"  value="" maxlength="11"/></td>
           </tr>
           <tr>
             <td align="right">&nbsp;</td>
-            <td><input name="check" type="submit" class="admin_submit" id="check"    value="立即测试" /></td>
+            <td><input name="check" type="submit" class="admin_submit" id="check"    value=“即時テスト” /></td>
           </tr>
         </table>
 	    </form>

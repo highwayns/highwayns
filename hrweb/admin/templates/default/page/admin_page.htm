@@ -34,7 +34,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 你可以通过全选来设置所有页面的链接方式和缓存时间<br />
         职位列表页，人才列表页，会员中心，职位对比页面均不能开启缓存
@@ -47,13 +47,13 @@ $(document).ready(function()
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="link_lan"   id="list">
      <tr>
       <td   class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />页面名称</label>
+      <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />页面名称</label>
 	  </td>
-      <td class="admin_list_tit"> 调用名 </td>
-      <td   align="center" class="admin_list_tit">类型</td>
-      <td   align="center"  class="admin_list_tit">链接</td>
-      <td   align="center"   class="admin_list_tit">缓存</td>
-      <td width="130" align="center"  class="admin_list_tit" >编辑</td>
+      <td class="admin_list_tit"> コール名</td>
+      <td   align="center" class="admin_list_tit">タイプ</td>
+      <td   align="center"  class="admin_list_tit">リンク</td>
+      <td   align="center"   class="admin_list_tit">キャッシュ</td>
+      <td width="130" align="center"  class="admin_list_tit" >編集</td>
     </tr>
 	 {#foreach from=$list item=li#}
 	<tr>
@@ -66,7 +66,7 @@ $(document).ready(function()
       <td   align="center" class="admin_list">
 	  
 	  {#if $li.systemclass=="1"#}
-		<span style="color: #FF6600">系统内置</span>
+		<span style="color: #FF6600">システム設置</span>
 		{#else#}
 		自定义页面
 		{#/if#}
@@ -77,13 +77,13 @@ $(document).ready(function()
 	  </td>
       <td   align="center"   class="admin_list">
 	  {#if $li.caching=="0"#}
-		<span style="color:#999999">已关闭</span>
+		<span style="color:#999999">クローズ</span>
 		{#else#}
 		<em>{#$li.caching#}</em> 分
 		{#/if#}	
 	  </td>
       <td   align="center"  class="admin_list" >
-	  <a href="?act=edit_page&id={#$li.id#}">修改</a>{#if $li.systemclass!="1"#} <a href="?act=del_page&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a> {#/if#}
+	  <a href="?act=edit_page&id={#$li.id#}">変更</a>{#if $li.systemclass!="1"#} <a href="?act=del_page&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a> {#/if#}
 	  </td>
     </tr>
 	{#/foreach#}
@@ -130,7 +130,7 @@ $(document).ready(function()
 
 	  <tr>
 	    <td height="25">&nbsp;</td>
-	    <td><input type="submit" name="set_url" value="确定" class="admin_submit"    /></td>
+	    <td><input type="submit" name="set_url" value=“確定” class="admin_submit"    /></td>
       </tr>
   </table>
 </div>
@@ -148,12 +148,12 @@ $(document).ready(function()
 
             分钟 <br /><br />
 
-			<span style="color:#666666">(0为不缓存,建议设为180 以上) </span></td>
+			<span style="color:#666666">（0はキャッシュなし、180以上の設定を推奨します）</span></td>
     </tr>
  
 	      <tr>
 	        <td height="25">&nbsp;</td>
-	        <td><input type="submit" name="set_caching" value="确定" class="admin_submit"></td>
+	        <td><input type="submit" name="set_caching" value=“確定” class="admin_submit"></td>
     </tr>
   </table>
 </div>

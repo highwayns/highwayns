@@ -1,25 +1,11 @@
 ﻿<?php
 
-/**
- * Definition that allows a set of elements, but disallows empty children.
- */
 class HTMLPurifier_ChildDef_Required extends HTMLPurifier_ChildDef
 {
-    /**
-     * Lookup table of allowed elements.
-     * @type array
-     */
     public $elements = array();
 
-    /**
-     * Whether or not the last passed node was all whitespace.
-     * @type bool
-     */
     protected $whitespace = false;
 
-    /**
-     * @param array|string $elements List of allowed element names (lowercase).
-     */
     public function __construct($elements)
     {
         if (is_string($elements)) {
@@ -39,22 +25,10 @@ class HTMLPurifier_ChildDef_Required extends HTMLPurifier_ChildDef
         $this->elements = $elements;
     }
 
-    /**
-     * @type bool
-     */
     public $allow_empty = false;
 
-    /**
-     * @type string
-     */
     public $type = 'required';
 
-    /**
-     * @param array $children
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array
-     */
     public function validateChildren($children, $config, $context)
     {
         // Flag for subclasses

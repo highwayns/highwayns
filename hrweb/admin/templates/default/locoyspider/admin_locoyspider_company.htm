@@ -6,15 +6,15 @@
   <div class="clear"></div>
 </div>
     <div class="toptip">
-	<h2>提示：</h2>
-	<p>火车头采集规则请到论坛下载！</p>
+	<h2>ヒント：</h2>
+	<p>機関車コレクションのルールはフォーラムにダウンロードに行きます！</p>
 	</div>
 	 <form action="?act=set_save" method="post"  name="form1" id="form1">
 	{#$inputtoken#}
-    <div class="toptit">企业信息采集设置</div>
+    <div class="toptit">企業情報のキャプチャ設定</div>
     <table width="100%" border="0" cellpadding="1" cellspacing="10" style=" margin-bottom:3px; margin-top:10px;">
       <tr>
-        <td width="180" align="right">默认企业认证状态：</td>
+        <td width="180" align="right">デフォルトのEnterpriseの認定状況：</td>
         <td >
 		  <label><input name="company_audit"  type="radio" value="1" {#if $show.company_audit eq "1"#}checked="checked"{#/if#} />认证通过</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 <label><input name="company_audit"  type="radio" value="2" {#if $show.company_audit eq "2"#}checked="checked"{#/if#} />等待认证</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -24,7 +24,7 @@
       </tr>
 	 
       <tr>
-        <td align="right">企业性质无法匹配则为：</td>
+        <td align="right">所有権が一致することができませんでした：</td>
         <td>
 	<div>
 	{#highway_get_classify set="类型:HW_company_type,列表名:li"#}
@@ -41,7 +41,7 @@
 	</td>
       </tr>
 <tr>
-        <td align="right">企业行业无法匹配则为：</td>
+        <td align="right">ビジネス業界が一致することはできませんでした:</td>
         <td>
 		<div>
 		{#highway_get_classify set="列表名:li,类型:HW_trade"#}
@@ -58,7 +58,7 @@
 	</td>
       </tr>
 	  <tr>
-        <td align="right">企业所在地区无法匹配则为：</td>
+        <td align="right">地域の企業だっ一致することはできません。</td>
         <td>
 		<div>
 		{#highway_get_classify set="列表名:li,类型:HW_district"#}
@@ -78,7 +78,7 @@
 	 </td>
       </tr>
 	    <tr>
-        <td align="right">企业规模无法匹配则为：</td>
+        <td align="right">企業規模に合わせすることができませんでした</td>
         <td>
 	<div>
 	{#highway_get_classify set="类型:HW_scale,列表名:li"#}
@@ -96,11 +96,11 @@
 	</td>
       </tr>
 	  <tr>
-        <td align="right">注册资金无法匹配则为：</td>
+        <td align="right">登録資本金は一致することができませんでした：</td>
         <td >
 		<input name="company_registered" type="text"  class="input_text_200" id="company_registered"   value="{#$show.company_registered#}" style="width:80px;"/>&nbsp;万
-		<label><input name="company_currency"  type="radio" value="人民币" {#if $show.company_currency eq "人民币"#}checked="checked"{#/if#} />人民币</label>&nbsp;&nbsp;
-		 <label><input name="company_currency"  type="radio" value="美元" {#if $show.company_currency eq "美元"#}checked="checked"{#/if#} />美元</label>&nbsp;&nbsp;</td>
+		<label><input name=“company_currency”  type=“radio” value=“人民元” {#if $show.company_currency eq “人民元”#}checked=“checked”{#/if#} />人民币</label>&nbsp;&nbsp;
+		 <label><input name="company_currency"  type="radio" value=“ドル” {#if $show.company_currency eq “ドル”#}checked="checked"{#/if#} />美元</label>&nbsp;&nbsp;</td>
       </tr>
 	  <tr>
         <td align="right">&nbsp;</td>

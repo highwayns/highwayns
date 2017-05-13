@@ -26,27 +26,27 @@ $(document).ready(function()
 </div>
 
 <div class="toptip">
-	<h2>提示：请输入筛选条件,删除后将不可恢复,谨慎操作！</h2>
+	<h2>ヒント：、フィルタ条件を入力し、削除を復元しませんが、十分に注意してください！</h2>
 
 </div>
   <form id="form1" name="form1" method="post" action="?act=pidel_syslog_del">
   {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"  class="link_lan">
 		<tr width="300">
-          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 错误类型：</td>
+          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> エラーの種類：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 			<input name="l_type[]" type="checkbox"  checked="checked" value="1"/>MYSQL 
 			<input name="l_type[]" type="checkbox"  checked="checked"  value="2"/>MAIL 
 		  </td>
         </tr>
 		<tr width="300">
-          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 开始时间：</td>
+          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 開始時間：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 			<input name="starttime" type="text"  class="input_text_150 date_input"  value=""/>
 		  </td>
         </tr>
 		<tr width="300">
-          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 结束时间：</td>
+          <td height="30" width="90" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 終了時刻：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 			<input name="endtime" type="text"  class="input_text_150 date_input"  value=""/>
 		  </td>

@@ -6,17 +6,17 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 编辑前强烈建议您先做模板备份<br />
       请尽量避免在网速较慢时编辑模板，以防止编辑过程中出错。
 </p>
 </div>
-<div class="toptit">编辑模板</div>
+<div class="toptit">テンプレートの編集</div>
  <table width="460" border="0" cellspacing="12" cellpadding="0"  style="line-height:180%">
     <tr>
       <td width="225"><a href="../" target="_blank"><img src="../templates/{#$templates.dir#}/thumbnail.jpg" alt="{#$templates.info.name#}" width="225" height="136" border="1"  style="border: #CCCCCC;" /></a></td>
-      <td width="220" class="link_lan">名称：{#$templates.info.name#}<br />
+      <td width="220" class="link_lan">名前：{#$templates.info.name#} <BR />
         版本：{#$templates.info.version#}<br />
         作者：<a href="{#$templates.info.authorurl#}" target="_blank">{#$templates.info.author#}</a> <br />
 		模版ID：{#$templates.dir#}
@@ -26,9 +26,9 @@
   </table>
   <table width="100%" border="0" cellspacing="0"  id="list" class="link_lan">
         <tr >
-          <td class="admin_list_tit admin_list_first">模板文件名</td>
-          <td width="15%" align="center" class="admin_list_tit">修改时间</td>
-          <td width="15%" align="center" class="admin_list_tit">大小(字节)</td>
+          <td class="admin_list_tit admin_list_first">テンプレートファイル名</td>
+          <td width="15%" align="center" class="admin_list_tit">時間の変更</td>
+          <td width="15%" align="center" class="admin_list_tit">サイズ（バイト）</td>
           <td width="15%" align="center" class="admin_list_tit">操作</td>
         </tr>
 		{#section name=list loop=$list#}

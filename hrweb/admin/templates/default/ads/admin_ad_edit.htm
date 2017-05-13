@@ -109,22 +109,22 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 上传大文件建议通过FTP上传
 在填写路径的时候，建议使用“/”或“http:// ”  开头的绝对路径。
 </p>
 </div>
-<div class="toptit">修改广告 <span style="color:#0033CC">{#$ad.title#} </span></div>
+<div class="toptit">広告編集<span style="color:#0033CC">{#$ad.title#} </span></div>
 <form action="?act=ad_edit_save" method="post" enctype="multipart/form-data"  name="FormData" id="FormData" >
 <input name="id" type="hidden" value="{#$ad.id#}" /><input name="url" type="hidden" value="{#$url#}" />
 <table width="100%" border="0" cellpadding="3" cellspacing="3">
               <tr>
-                <td width="100" align="right">广告标题(必填)：</td>
-                <td><input name="title" type="text" class="input_text_400" id="title" maxlength="100"  value="{#$ad.title#}"/> <span class="admin_note">广告标题只为识别辨认不同广告条目之用，并不在广告中显示</span></td>
+                <td width="100" align="right">広告のtitle（必須）：</td>
+                <td><input name="title" type="text" class="input_text_400" id="title" maxlength="100"  value="{#$ad.title#}"/> <span class="admin_note">見出しが異なる広告の唯一のエントリが識別される説明し、広告でが表示されませんの</span></td>
               </tr>
 			  <tr>
-                <td align="right">显示状态：</td>
+                <td align="right">ディスプレイのステータス：</td>
                 <td>
 				<label>
                   <input name="is_display" type="radio" value="1" {#if $ad.is_display=="1"#}checked="checked"{#/if#}/>
@@ -133,7 +133,7 @@ $(document).ready(function()
 停止 </label></td>
               </tr>
               <tr>
-                <td align="right">选择分类：</td>
+                <td align="right">選択されたカテゴリ：</td>
                 <td><select name="category"   id="category"  >           
   					{#foreach from=$ad_category item=li#}		
                   <option value="{#$li.id#},{#$li.type_id#},{#$li.alias#}"  {#if $li.id==$ad.category_id#}selected="selected"{#/if#}>{#$li.categoryname#}</option>
@@ -144,37 +144,37 @@ $(document).ready(function()
 				<input name="alias" id="alias" type="hidden" value="{#$ad.alias#}" />				</td>
               </tr>
               <tr>
-                <td align="right">显示顺序：</td>
-                <td><input name="show_order" type="text" class="input_text_200" id="show_order"  value="{#$ad.show_order#}" maxlength="3" />                   <span class="admin_note">数字越大越靠前</span></td>
+                <td align="right">表示順序：</td>
+                <td><input name="show_order" type="text" class="input_text_200" id="show_order"  value="{#$ad.show_order#}" maxlength="3" />                   <span class="admin_note">数字が大きければトップに行けます</span></td>
               </tr>
   <tr>
-    <td align="right">开始时间：</td>
+    <td align="right">開始時間：</td>
     <td>
       <input name="starttime" type="text" class="input_text_200 date_input"   maxlength="10"  value="{#$ad.starttime#}"  /> <span class="admin_note">设置广告起始生效的时间，格式 yyyy-mm-dd，留空为不限制起始时间</span></td>
     </tr>
   <tr>
-    <td align="right">结束时间：</td>
+    <td align="right">終了時刻：</td>
     <td>
       <input name="deadline" type="text" class="input_text_200 date_input" id="deadline" maxlength="10"  value="{#$ad.deadline#}"/> <span class="admin_note">设置广告广告结束的时间，格式 yyyy-mm-dd，留空为不限制结束时间</span></td>
     </tr>
   <tr>
-    <td align="right">备注：</td>
+    <td align="right">注：</td>
     <td><textarea name="note" id="note" style="width:300px; height:50px; font-size:12px; line-height:180%">{#$ad.note#}</textarea></td>
     </tr>
     </table>
 <div class="adshow" id="show1">
- <div class="toptit">文字广告</div>
+ <div class="toptit">テキスト広告</div>
  <table width="100%" border="0" cellpadding="3" cellspacing="3" >
                 <tr>
-                  <td width="100" align="right">文字内容(必填)：</td>
-                  <td><input name="text_content" type="text" class="input_text_400" id="text_content" maxlength="250" value="{#$ad.text_content#}"/> <span class="admin_note">文字广告的显示内容</span></td>
+                  <td width="100" align="right">テキスト（必須）：</td>
+                  <td><input name="text_content" type="text" class="input_text_400" id="text_content" maxlength="250" value="{#$ad.text_content#}"/> <span class="admin_note">テキスト広告の内容を表示します</span></td>
                 </tr>
                 <tr>
-                  <td align="right">文字链接：</td>
-                  <td><input name="text_url" type="text" class="input_text_400" id="text_url" maxlength="250" value="{#$ad.text_url#}"/>                     <span class="admin_note">如:http://www.jp.highwayns.com</span></td>
+                  <td align="right">テキストリンク：</td>
+                  <td><input name="text_url" type="text" class="input_text_400" id="text_url" maxlength="250" value="{#$ad.text_url#}"/>                     <span class="admin_note">以下のような：のhttp：//www.highwayns.com </span></td>
                 </tr>
                 <tr>
-                  <td align="right">文字颜色：</td>
+                  <td align="right">テキストの色：</td>
                   <td>
 				  
 				  <div class="color_layer">	
@@ -189,35 +189,35 @@ $(document).ready(function()
      
 	</div>
 <div class="adshow" id="show2">			
-	 <div class="toptit">图片广告</div>
+	 <div class="toptit">ピクチャー広告</div>
 	
 	<table width="100%" border="0" cellpadding="3" cellspacing="3">
 	
 				<tr>
-                  <td width="100" align="right">本地上传：</td>
+                  <td width="100" align="right">ローカルのアップロード：</td>
                   <td >
 				 <input name="img_file" type="file"   id="img_file" style="font-size:12px; height:24px; width:273px;" />
-				  <span class="admin_note">(允许格式为：gif/jpg/bmp/png，文件大小：1000KB)</span></td>
+				  <span class="admin_note">（フォーマットを許可する：gif/jpg/bmp/png，文件大小：1000KB)</span></td>
                 </tr>
                 <tr>
-                  <td width="100" align="right">或图片地址：</td>
-                  <td ><input name="img_path" type="text" class="input_text_200" id="img_path" maxlength="250" value="{#$ad.img_path#}"/>                     <span class="admin_note">如：/images/logo.gif 或 http://www.baidu.com/img/baidu_logo.gif</span></td>
+                  <td width="100" align="right">または絵：</td>
+                  <td ><input name="img_path" type="text" class="input_text_200" id="img_path" maxlength="250" value="{#$ad.img_path#}"/>                     <span class="admin_note">以下のような：/images/logo.gifまたはhttp://www.baidu.com/img/baidu_logo.gif</span></td>
                 </tr>
                 <tr>
-                  <td align="right">图片链接：</td>
-                  <td><input name="img_url" type="text" class="input_text_200" id="img_url" maxlength="250"  value="{#$ad.img_url#}"/><span class="admin_note">如:http://www.jp.highwayns.com</span></td>
+                  <td align="right">画像リンク：</td>
+                  <td><input name="img_url" type="text" class="input_text_200" id="img_url" maxlength="250"  value="{#$ad.img_url#}"/><span class="admin_note">以下のような：のhttp：//www.highwayns.com </span></td>
                 </tr>
                 <tr>
-                  <td align="right">图片说明文字：</td>
+                  <td align="right">写真説明：</td>
                   <td><input name="img_explain" type="text" class="input_text_200" id="img_explain" maxlength="250" value="{#$ad.img_explain#}"/></td>
                 </tr>
 				<tr>
-                  <td align="right">会员UID：</td>
+                  <td align="right">メンバーのUID：</td>
                   <td>
 				  
 				  <input name="img_uid" type="text" class="input_text_200" id="img_uid" maxlength="10" value="{#$ad.img_uid#}"/>
 				  
-				  <span class="admin_note">设置会员UID后，当鼠标移动到图片上将会显示相关的职位和企业信息</span>
+				  <span class="admin_note">メンバーを設定した後、マウスを画像の上にあるUIDは、関連の仕事やビジネスの情報が表示されます</span>
 				  </td>
                 </tr>
       </table>
@@ -227,10 +227,10 @@ $(document).ready(function()
 		  </div>
 	</div>
 	<div class="adshow" id="show3">	
-		 <div class="toptit">代码广告</div>
+		 <div class="toptit">広告コード</div>
 		<table width="100%" border="0" cellpadding="3" cellspacing="3">
                 <tr>
-                  <td width="100" align="right" valign="top"> 代码(必填):</td>
+                  <td width="100" align="right" valign="top"> コード（必須）：</td>
                   <td><textarea name="code_content" id="code_content" style="width:300px; height:50px; font-size:12px; line-height:180%">{#$ad.code_content#}</textarea>               <span class="admin_note">请直接输入需要展现的广告代码</span></td>
                 </tr>
       </table>
@@ -241,26 +241,26 @@ $(document).ready(function()
 	</div>
 		<div class="adshow" id="show4">
 		
-		 <div class="toptit">Flash广告</div>
+		 <div class="toptit">Flash広告</div>
 		
 		<table width="100%" border="0" cellpadding="3" cellspacing="3">
 		<tr>
-                  <td width="100" align="right">本地上传：</td>
+                  <td width="100" align="right">ローカルのアップロード：</td>
           <td >
 				 <input name="flash_file" type="file"   id="flash_file" style="font-size:12px; height:24px; width:273px;" />
-			 <span class="admin_note">(允许格式为：swf，文件大小：1000KB)</span></td>
+			 <span class="admin_note">（ファイル：swf，テキストサイズ：1000KB）</span></td>
           </tr>
                 <tr>
-                  <td width="100" align="right">或者Flash地址：</td>
-                  <td><input name="flash_path" type="text" class="input_text_200" id="flash_path" maxlength="250"  value="{#$ad.flash_path#}"/>               <span class="admin_note">如：/images/123.swf 或 http://www.jp.highwayns.com/123.swf</span></td>
+                  <td width="100" align="right">或いはFlashアドレス：</td>
+                  <td><input name="flash_path" type="text" class="input_text_200" id="flash_path" maxlength="250"  value="{#$ad.flash_path#}"/>               <span class="admin_note">以下のような：/images/123.swfまたはhttp://www.highwayns.com/123.swf</span></td>
                 </tr>
                 <tr>
-                  <td align="right">Flash宽度(必填)：</td>
+                  <td align="right">フラッシュ幅（必須）：</td>
                   <td><input name="flash_width" type="text" class="input_text_200" id="flash_width" maxlength="5"   value="{#$ad.flash_width#}"/>
                   px</td>
                 </tr>
                 <tr>
-                  <td align="right">Flash高度(必填)：</td>
+                  <td align="right">フラッシュ高さ（必須）：</td>
                   <td><input name="flash_height" type="text" class="input_text_200" id="flash_height" maxlength="5"   value="{#$ad.flash_height#}"/>
                   px</td>
                 </tr>
@@ -271,10 +271,10 @@ $(document).ready(function()
 		  </div>
 	</div>
 					<div class="adshow" id="show5">
-					<div class="toptit">浮动广告</div>
+					<div class="toptit">動き広告</div>
 				<table width="100%" border="0" cellpadding="3" cellspacing="3">
                 <tr>
-                  <td width="100" align="right">类型：</td>
+                  <td width="100" align="right">タイプ：</td>
                   <td><label>
                     <input name="floating_type" type="radio" value="1" {#if $ad.floating_type=="1"#}checked="checked"{#/if#} />
 图片</label>
@@ -284,41 +284,41 @@ $(document).ready(function()
 Flash </label></td>
                   </tr>
 				  <tr>
-                  <td width="100" align="right">本地上传：</td>
+                  <td width="100" align="right">ローカルのアップロード：</td>
                   <td >
 				 <input name="floating_file" type="file" id="floating_file" style="font-size:12px; height:24px; width:273px;" />
-                 <span class="admin_note">(允许格式为：gif/jpg/bmp/png/swf，文件大小：1000KB)</span></td>
+                 <span class="admin_note">（フォーマットを許可する：GIF / JPG / BMP / PNG / SWFファイルサイズ：1000KB）</span></td>
                 </tr>
                 <tr>
-                  <td align="right">或者路径：</td>
+                  <td align="right">またはパス：</td>
                   <td><input name="floating_path" type="text" class="input_text_200" id="floating_path"  value="{#$ad.floating_path#}"/></td>
                   </tr>
                 <tr id="show_url">
-                  <td align="right" >链接地址：</td>
+                  <td align="right" >リンクアドレス：</td>
                   <td><input name="floating_url" type="text" class="input_text_200" id="floating_url" value="{#$ad.floating_url#}"/></td>
                   </tr>
                 <tr>
-                  <td align="right">宽度(必填)：</td>
+                  <td align="right">幅（必須）：</td>
                   <td><input name="floating_width" type="text" class="input_text_200" id="floating_width" value="{#$ad.floating_width#}" />
                   px</td>
                   </tr> 
                 <tr>
-                  <td align="right">高度(必填)：</td>
+                  <td align="right">高さ（必須）：</td>
                   <td><input name="floating_height" type="text" class="input_text_200" id="floating_height" value="{#$ad.floating_height#}" />
                   px</td>
                   </tr>
                    <tr>
-                  <td align="right">左距(选填)：</td>
+                  <td align="right">左から（記入自由）</td>
                   <td><input name="floating_left" type="text" class="input_text_200" id="floating_left"   value="{#$ad.floating_left#}" maxlength="5"   />
   px(左距与右距选填一个，如左距设置为0，则此浮动将在左侧浮动，如设置为100，则此浮动将在距离浏览器左侧100像素处浮动。)</td>
                   </tr>
 				   <tr>
-                  <td align="right">右距(选填)：</td>
+                  <td align="right">右から（記入自由）</td>
                   <td><input name="floating_right" type="text" class="input_text_200" id="floating_right"    value="{#$ad.floating_right#}"  maxlength="5"  />
   px(左距与右距选填一个，如右距设置为0，则此浮动将在右侧浮动，如设置为100，则此浮动将在距离浏览器右侧100像素处浮动。)</td>
                   </tr>
 				   <tr>
-                  <td align="right">顶距(必填)：</td>
+                  <td align="right">トップ距離（必須）：</td>
                   <td><input name="floating_top" type="text" class="input_text_200" id="floating_top"  value="{#$ad.floating_top#}" maxlength="5"  />
   px(此浮动距离浏览器顶端的距离，如有多个浮动，请设置不同的顶距，以免被遮盖)</td>
                   </tr>
@@ -329,27 +329,27 @@ Flash </label></td>
 		  </div>
 				</div>	
 				<div class="adshow" id="show6">			
-	 <div class="toptit">视频广告</div>
+	 <div class="toptit">動画広告</div>
 	
 	<table width="100%" border="0" cellpadding="3" cellspacing="3">
 	
 				<tr>
-                  <td width="100" align="right">本地上传：</td>
+                  <td width="100" align="right">ローカルのアップロード：</td>
                   <td >
 				 <input name="video_file" type="file"   id="video_file" style="font-size:12px; height:24px; width:273px;" />
-                <span class="admin_note">(允许格式为：swf/flv/f4v，文件大小：5000KB,大文件请从FTP上传)</span></td>
+                <span class="admin_note">（可フォーマット：SWF / FLV / F4V、ファイルサイズ：5000キロバイト、FTPから大きなファイルをアップロードしてください）</span></td>
                 </tr>
                 <tr>
-                  <td width="100" align="right">或填写路径：</td>
-                  <td ><input name="video_path" type="text" class="input_text_200" id="video_path"   value="{#$ad.video_path#}"/> <span class="admin_note">如：/images/logo.swf 或 http://www.baidu.com/img/baidu_logo.swf</span></td>
+                  <td width="100" align="right">またはパスを入力する：</td>
+                  <td ><input name="video_path" type="text" class="input_text_200" id="video_path"   value="{#$ad.video_path#}"/> <span class="admin_note">以下のような：/images/logo.swfまたはhttp://www.baidu.com/img/baidu_logo.swf</span></td>
                 </tr>
                <tr>
-                  <td align="right">视频宽度(必填)：</td>
+                  <td align="right">動画の幅（必須）：</td>
                   <td><input name="video_width" type="text" class="input_text_200" id="video_width" maxlength="5"   value="{#$ad.video_width#}"/>
                   px</td>
                 </tr>
                 <tr>
-                  <td align="right">视频高度(必填)：</td>
+                  <td align="right">ビデオの高さ（必須）：</td>
                   <td><input name="video_height" type="text" class="input_text_200" id="video_height" maxlength="5"  value="{#$ad.video_height#}"  />
                   px</td>
                 </tr>

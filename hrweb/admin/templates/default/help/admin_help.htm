@@ -19,9 +19,9 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">帮助分类</div>	
+		<div class="left">ヘルプカテゴリ</div>	
 		<div class="right">
-		<a href="{#"type_id:,parentid:"|highway_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:,parentid:"|highway_parse_url#}" {#if $smarty.get.parentid==""#}class="select"{#/if#}>制限なし</a>
 		{#highway_help_category set="列表名:category,大类:0"#}
 		{#foreach from=$category item=list#}
 			<a href="{#"type_id:,parentid:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.parentid==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
@@ -32,9 +32,9 @@ $(document).ready(function()
 </div>
 {#if $smarty.get.parentid<>""#}
 <div class="seltpye_x">
-		<div class="left"><span style="color:#999999">└ </span>子分类</div>	
+		<div class="left"><span style="color:#999999">└ </span>サブカテゴリ</div>	
 		<div class="right">
-		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"type_id:"|highway_parse_url#}" {#if $smarty.get.type_id==""#}class="select"{#/if#}>制限なし</a>
 	 	{#highway_help_category set="列表名:category,大类:"|cat:$smarty.get.parentid#}
 		{#foreach from=$category item=list#}
 		<a href="{#"type_id:"|cat:$list.id|highway_parse_url#}" {#if $smarty.get.type_id==$list.id#}class="select"{#/if#}>{#$list.categoryname#}</a>
@@ -51,10 +51,10 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>标题</label></td>
-      <td width="100"   align="center" class="admin_list_tit">排序</td>
-      <td width="100"   align="center" class="admin_list_tit">点击</td>
-      <td width="120"   align="center" class="admin_list_tit" >添加日期</td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>标题</label></td>
+      <td width="100"   align="center" class="admin_list_tit">並び替え</td>
+      <td width="100"   align="center" class="admin_list_tit">クリック</td>
+      <td width="120"   align="center" class="admin_list_tit" >日にちの追加</td>
       <td width="130"   align="center" class="admin_list_tit" >操作</td>
     </tr>
 	  {#foreach from=$helplist item=list#}
@@ -72,14 +72,14 @@ $(document).ready(function()
         <td align="center"  class="admin_list">{#$list.click#}</td>
         <td align="center"  class="admin_list">{#$list.addtime|date_format:"%Y-%m-%d"#}</td>
         <td align="center"  class="admin_list">
-		<a href="?act=edit&id={#$list.id#}">修改</a> &nbsp;&nbsp;
-		<a href="?act=help_del&id={#$list.id#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">删除</a></td>
+		<a href="?act=edit&id={#$list.id#}">変更</a> &nbsp;&nbsp;
+		<a href="?act=help_del&id={#$list.id#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a></td>
       </tr>
       {#/foreach#}
     </table>
   </form>
 	{#if !$helplist#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}	
 <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
@@ -97,8 +97,8 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="标题">标题</li>
-														<li id="2" title="帮助ID">帮助ID</li>
+														<li id="1" title="标题">titleます。</li>
+														<li id="2" title="帮助ID">ヘルプID</li>
 														</ul>
 												</div>
 						</div>				

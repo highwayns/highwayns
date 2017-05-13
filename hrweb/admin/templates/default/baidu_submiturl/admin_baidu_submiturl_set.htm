@@ -5,23 +5,23 @@
   <div class="clear"></div>
 </div>
 <div class="toptip link_lan">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 开启百度提交链接功能可以缩短百度爬虫发现您站点新链接的时间，使新发布的页面可以在第一时间被百度收录<br />
 并且对于网站的最新原创内容，可以快速通知到百度，使内容可以在转发之前被百度发现<br />
-请输入准入密钥并配置开启项，系统会在信息录入时自动把生成的链接地址发送给百度。<a href="http://zhanzhang.baidu.com/" target="_blank">现在就去申请</a>
+请输入准入密钥并配置开启项，系统会在信息录入时自动把生成的链接地址发送给百度。<a href="http://zhanzhang.baidu.com/" target="_blank">今すぐ申請</a>
 </p>
 </div>
-<div class="toptit">配置</div>
+<div class="toptit">設定</div>
   <form action="?act=setsave" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="150" align="right">准入密钥：</td>
+      <td width="150" align="right">アクセスキー：</td>
       <td><input name="token" type="text"  class="input_text_200" id="token" value="{#$data.token#}" maxlength="16"/></td>
     </tr>
     <tr>
-      <td align="right"  >职位：</td>
+      <td align="right"  >職位：</td>
       <td >
      <label><input name="addjob" type="radio"   value="1" {#if $data.addjob=="1"#}checked="checked"{#/if#}/>开启</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -29,7 +29,7 @@
     </td>
     </tr>
     <tr>
-      <td align="right"  >简历：</td>
+      <td align="right"  >履歴書：</td>
       <td >
      <label><input name="addresume" type="radio"   value="1" {#if $data.addresume=="1"#}checked="checked"{#/if#}/>开启</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -37,7 +37,7 @@
     </td>
     </tr>
     <tr>
-      <td align="right"  >新闻资讯：</td>
+      <td align="right"  >ニュース：</td>
       <td >
      <label><input name="addarticle" type="radio"   value="1" {#if $data.addarticle=="1"#}checked="checked"{#/if#}/>开启</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -45,7 +45,7 @@
     </td>
     </tr>
     <tr>
-      <td align="right"  >企业：</td>
+      <td align="right"  >企業：</td>
       <td >
      <label><input name="addcompany" type="radio"   value="1" {#if $data.addcompany=="1"#}checked="checked"{#/if#}/>开启</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -53,7 +53,7 @@
     </td>
     </tr>
     <tr>
-      <td align="right"  >说明页：</td>
+      <td align="right"  >説明ページ：</td>
       <td >
      <label><input name="addexplain" type="radio"   value="1" {#if $data.addexplain=="1"#}checked="checked"{#/if#}/>开启</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -61,7 +61,7 @@
     </td>
     </tr>
     <tr>
-      <td align="right"  >公告：</td>
+      <td align="right"  >注意：</td>
       <td >
      <label><input name="addnotice" type="radio"   value="1" {#if $data.addnotice=="1"#}checked="checked"{#/if#}/>开启</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 

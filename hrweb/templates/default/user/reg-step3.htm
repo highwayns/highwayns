@@ -15,15 +15,15 @@
 	<div class="container">
 		<div class="step_wrap">
 			<div class="three-step-bar clearfix">
-				<div class="step tstep1 f-left"><i class="step-icon">1</i>设置登录名</div>
-				<div class="step tstep2 f-left"><i class="step-icon">2</i>填写账户信息</div>
-				<div class="step tstep3 f-left active"><i class="step-icon">3</i>注册成功</div>
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>ログイン設定</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>アカウント情報を入力してください</div>
+				<div class="step tstep3 f-left active"><i class="step-icon">3</i>登録成功</div>
 			</div>
 		</div>
 		<div class="common-status" style="padding:120px 0px">
 			<div class="status-main">
-				<span><img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" /></span>恭喜您成功注册{#if $user.utype==1#}企业{#elseif $user.utype==2#}个人{#/if#}用户</div>
-			<p>立即进入 <a href="{#$user.url#}">会员中心</a> 或 <a href="{#$HIGHWAY.site_dir#}">返回首页</a></p>
+				<span><img src=“{#$HIGHWAY.site_template#}images/icon-success.png” alt=“成功” /></span>ご登録おめでとうござい{#if $user.utype==1#}企業{#elseif $user.utype==2#}個人{#/if#}ユーザー</div>
+			<p>すぐ入る<a href = “{#$user.url#}”>会员中心</a> または<hREF = “{#$HIGHWAY.site_dir#}”>返回首页</a></p>
 		</div>
 	</div>
 {#include file="user/footer.htm"#}

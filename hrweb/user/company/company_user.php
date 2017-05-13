@@ -65,9 +65,6 @@ elseif ($act=='authenticate')
 	$smarty->assign('title','認定管理 - 企業会員センター - '.$_CFG['site_name']);
 	$_SESSION['send_key']=mt_rand(100000, 999999);
 	$smarty->assign('send_key',$_SESSION['send_key']);
-	/**
-	 * 微信扫描绑定start
-	 */
     if(intval($_CFG['weixin_apiopen'])==1 && intval($_CFG['weixin_scan_bind'])==1 && !$user['weixin_openid']){
 	    $scene_id = mt_rand(20000001,30000000);
 	    $_SESSION['scene_id'] = $scene_id;
@@ -85,9 +82,6 @@ elseif ($act=='authenticate')
 	}else{
 		$smarty->assign('qrcode_img','');
 	}
-    /**
-     * 微信扫描绑定end
-     */
 	$smarty->display('member_company/company_authenticate.htm');
 }
 //修改密码

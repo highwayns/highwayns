@@ -1,11 +1,4 @@
-﻿/**
- * Created by JetBrains PhpStorm.
- * User: taoqili
- * Date: 12-2-20
- * Time: 上午11:19
- * To change this template use File | Settings | File Templates.
- */
-
+﻿
 (function(){
 
     var video = {},
@@ -67,9 +60,6 @@
         })();
     }
 
-    /**
-     * 监听确认和取消两个按钮事件，用户执行插入或者清空正在播放的视频实例操作
-     */
     function addOkListener(){
         dialog.onok = function(){
             $G("preview").innerHTML = "";
@@ -91,10 +81,6 @@
         };
     }
 
-    /**
-     * 依据传入的align值更新按钮信息
-     * @param align
-     */
     function updateAlignButton( align ) {
         var aligns = $G( "videoFloat" ).children;
         for ( var i = 0, ci; ci = aligns[i++]; ) {
@@ -110,9 +96,6 @@
         }
     }
 
-    /**
-     * 将单个视频信息插入编辑器中
-     */
     function insertSingle(){
         var width = $G("videoWidth"),
             height = $G("videoHeight"),
@@ -128,10 +111,6 @@
         }, isModifyUploadVideo ? 'upload':null);
     }
 
-    /**
-     * 将元素id下的所有代表视频的图片插入编辑器中
-     * @param id
-     */
     function insertSearch(id){
         var imgs = domUtils.getElementsByTagName($G(id),"img"),
             videoObjs=[];
@@ -148,11 +127,6 @@
         editor.execCommand('insertvideo',videoObjs);
     }
 
-    /**
-     * 找到id下具有focus类的节点并返回该节点下的某个属性
-     * @param id
-     * @param returnProperty
-     */
     function findFocus( id, returnProperty ) {
         var tabs = $G( id ).children,
                 property;
@@ -183,10 +157,6 @@
         return url;
     }
 
-    /**
-      * 检测传入的所有input框中输入的长宽是否是正数
-      * @param nodes input框集合，
-      */
      function checkNum( nodes ) {
          for ( var i = 0, ci; ci = nodes[i++]; ) {
              var value = ci.value;
@@ -200,18 +170,10 @@
          return true;
      }
 
-    /**
-     * 数字判断
-     * @param value
-     */
     function isNumber( value ) {
         return /(0|^[1-9]\d*$)/.test( value );
     }
 
-    /**
-      * 创建图片浮动选择按钮
-      * @param ids
-      */
      function createAlignButton( ids ) {
          for ( var i = 0, ci; ci = ids[i++]; ) {
              var floatContainer = $G( ci ),
@@ -228,10 +190,6 @@
          }
      }
 
-    /**
-     * 选择切换
-     * @param selectParentId
-     */
     function switchSelect( selectParentId ) {
         var selects = $G( selectParentId ).children;
         for ( var i = 0, ci; ci = selects[i++]; ) {
@@ -245,10 +203,6 @@
         }
     }
 
-    /**
-     * 监听url改变事件
-     * @param url
-     */
     function addUrlChangeListener(url){
         if (browser.ie) {
             url.onpropertychange = function () {
@@ -261,10 +215,6 @@
         }
     }
 
-    /**
-     * 根据url生成视频预览
-     * @param url
-     */
     function createPreviewVideo(url){
         if ( !url )return;
 

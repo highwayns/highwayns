@@ -1,20 +1,8 @@
 ﻿<?php
 
-/**
- * Validates a MultiLength as defined by the HTML spec.
- *
- * A multilength is either a integer (pixel count), a percentage, or
- * a relative number.
- */
 class HTMLPurifier_AttrDef_HTML_MultiLength extends HTMLPurifier_AttrDef_HTML_Length
 {
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         $string = trim($string);

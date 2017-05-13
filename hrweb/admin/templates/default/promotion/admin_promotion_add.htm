@@ -6,12 +6,12 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 系统将自动取消到期的企业推广。<br />
 </p>
 </div>  
- <div class="toptit">新增推广</div>
+ <div class="toptit">新しいプロモーション</div>
  <script type="text/javascript" src="js/jquery.iColorPicker.js"></script>
  <script type="text/javascript">
 $(document).ready(function()
@@ -65,7 +65,7 @@ $(document).ready(function()
 				}
 				else
 				{
-				html="<div style=\"padding:15px; color:#0066CC\">没有找到对应的职位。</div>";
+				html="<div style=\"padding:15px; color:#0066CC\">対応する位置が見つかりません。</div>";
 				$("#showtd").html(html);
 				}
 			 })
@@ -143,33 +143,33 @@ $(document).ready(function()
     <tr>
       <td width="350" valign="top"><table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#F4FDFF"   class="link_lan"  style="border-bottom:1px #B4E0ED solid;border-top:1px #B4E0ED solid;border-left:1px #B4E0ED solid;">
         <tr>
-          <td height="32" align="right"  class="trcolor" >请输入职位ID：</td>
+          <td height="32" align="right"  class="trcolor" >ジョブIDを入力します。</td>
           <td width="215"  class="trcolor" ><input name="admin_name" type="text" class="input_text_200 getinfo" id="get_id" maxlength="25" value=""/></td>
         </tr>
         <tr>
-          <td height="32" align="right"  class="trcolor"  >或职位名称：</td>
+          <td height="32" align="right"  class="trcolor"  >またはジョブtitle：</td>
           <td class="trcolor"  ><input name="admin_name" type="text" class="input_text_200 getinfo" id="get_jobname" maxlength="25" value=""/></td>
         </tr>
         <tr>
-          <td height="32" align="right" class="trcolor"  >或企业名称：</td>
+          <td height="32" align="right" class="trcolor"  >または事業名：</td>
           <td   class="trcolor"  ><input name="admin_name" type="text" class="input_text_200 getinfo" id="get_comname" maxlength="25" value=""/></td>
         </tr>
         <tr>
-          <td height="32" align="right" class="trcolor"  >或会员ID：</td>
+          <td height="32" align="right" class="trcolor"  >またはメンバーID：</td>
           <td   class="trcolor"  ><input name="admin_name" type="text" class="input_text_200 getinfo" id="get_uid" maxlength="25" value=""/></td>
         </tr>
 		</table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="3" class="link_lan">
         
         <tr>
-          <td height="35" align="right" >推广期限(天)：</td>
+          <td height="35" align="right" >プロモーション期間（日）：</td>
           <td ><input name="days"  id="days" type="text" class="input_text_200"   maxlength="3" value=""/></td>
         </tr>
 		<tr>
-          <td height="35" align="right"  >推广方案：</td>
+          <td height="35" align="right"  >アウトリーチプログラム：</td>
           <td width="215"    >
               <select name="promotionid" id="promotionid">
-                <option value="-1">请选择推广方案</option>
+                <option value="-1">アウトリーチプログラムを選択してください</option>
                
                 
 				{#foreach from=$cat item=li#}
@@ -179,23 +179,23 @@ $(document).ready(function()
               </select>          </td>
 		</tr>
 		<tr>
-          <td height="35" align="right"  class="showColor" style="display:none">推广颜色：</td>
+          <td height="35" align="right"  class="showColor" style="display:none">推進カラー：</td>
           <td class="showColor" style="display:none">
 		  <input id="val" name="val" type="text" value="" class="iColorPicker input_text_150"  onclick="iColorShow('val','icp_val')"/>		  </td>
         </tr>
         <tr>
-          <td height="35" align="right"  class="showhour" style="display:none">自动刷新时间点：</td>
+          <td height="35" align="right"  class="showhour" style="display:none">オートリフレッシュの時間点：</td>
           <td class="showhour" style="display:none">
 		  <select name="hour">
-			          <option value="8 时" selected="selected">8 时</option>
-			          <option value="11 时">11 时</option>
-			          <option value="14 时">14 时</option>
-			          <option value="20 时">20 时</option>
+			          <option value="8 时" selected="selected">8 時</option>
+			          <option value="11 时">11 時</option>
+			          <option value="14 时">14 時</option>
+			          <option value="20 时">20 時</option>
 			        </select></td>
         </tr>
         <tr>
           <td height="35" align="right"  >&nbsp;</td>
-          <td height="60"  ><input name="submit3" type="button" class="admin_submit"   id="ADD"  value="确定"/>
+          <td height="60"  ><input name=“submit3” type=“button” class=“admin_submit”   id=“aDD”  value=“確定”/>
             <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/></td>
         </tr>
         <tr>
@@ -211,7 +211,7 @@ $(document).ready(function()
 			  <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 		  <tr>
 			<td style="border:1px  #B4E0ED solid; height:152px;" id="showtd"  bgcolor="#FFFFFF"  valign="top">
-			<div style="padding:15px; color: #0066CC">请在左侧表单中输入你要查找的值。</div>
+			<div style="padding:15px; color: #0066CC">あなたは左のフォームを見つけたい値を入力してください。</div>
 			
 			</td>
 			</tr>

@@ -16,10 +16,10 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first">
-      <label id="chkAll">顾问照片</label>
+      <label id="chkAll">コンサルタントの写真</label>
 	  </td>
-	  <td    class="admin_list_tit">顾问姓名</td> 
-	  <td  width="12%" class="admin_list_tit">顾问QQ</td>  
+	  <td    class="admin_list_tit">コンサルタント名</td> 
+	  <td  width="12%" class="admin_list_tit">コンサルタントQQ </td>  
       <td width="15%" align="center" class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$consultants item=list#}
@@ -43,7 +43,7 @@ $(document).ready(function()
     </table>
   </form>
 	{#if !$consultants#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
   
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">

@@ -1,22 +1,10 @@
 ﻿<?php
 
-/**
- * Validates shorthand CSS property background.
- * @warning Does not support url tokens that have internal spaces.
- */
 class HTMLPurifier_AttrDef_CSS_Background extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * Local copy of component validators.
-     * @type HTMLPurifier_AttrDef[]
-     * @note See HTMLPurifier_AttrDef_Font::$info for a similar impl.
-     */
     protected $info;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function __construct($config)
     {
         $def = $config->getCSSDefinition();
@@ -27,12 +15,6 @@ class HTMLPurifier_AttrDef_CSS_Background extends HTMLPurifier_AttrDef
         $this->info['background-position'] = $def->info['background-position'];
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         // regular pre-processing

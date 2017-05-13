@@ -207,7 +207,7 @@ function showyearbox(divname,inputname,birth)
 			htm+="<ul>";
 			for (i=y;i>=ymin;i--)
 			{
-			htm+="<li title=\""+i+"\">"+i+"年</li>";
+			htm+="<li title=\""+i+"\">“+i+”年</li>";
 			}
 			htm+="<div class=\"clear\"></div>";
 			htm+="</ul>";
@@ -219,7 +219,7 @@ function showyearbox(divname,inputname,birth)
 			htm+="<ul>";
 			for (i=y;i>=ymin;i--)
 			{
-			htm+="<li title=\""+i+"\">"+i+"年</li>";
+			htm+="<li title=\""+i+"\">“+i+”年</li>";
 			}
 			htm+="<div class=\"clear\"></div>";
 			htm+="</ul>";
@@ -554,7 +554,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<tr>
 				<td i="header" class="ui-dialog-header">
 					<button i="close" class="ui-dialog-close">&#215;</button>
-					<div i="title" class="ui-dialog-title">简历照片</div>
+					<div i="title" class="ui-dialog-title">写真</div>
 				</td>
 			</tr>
 			<tr>
@@ -568,9 +568,9 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
   	</div>
 </div>
 <!-- 简历照片弹出框 end-->
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.main_domain#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > {#$h_title#}</div>
+<div class="page_location link_bk">現在の位置：<a href=“{#$HIGHWAY.main_domain#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > {#$h_title#}</div>
 <!-- 进度条 -->
-<div class="photoTrad" id="photoTrad">正在上传，请稍后！</div>
+<div class="photoTrad" id="photoTrad">アップロード中、お待ちください！</div>
 <!-- 进度条 End-->
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -586,34 +586,34 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
         </div>
         <!-- 基本信息 start -->
 	    <div class="titleH2">
-			<span>基本信息</span>
+			<span>基本情報</span>
 			<a style="width:20px; height:20px; background: url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 3px -379px; margin:10px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" id="base_info_update"></a>
 		</div>
 		<!--个人基本信息 show -->
 		<div id="base_info_update_show"> 
 			<div class="c-resume-info-show">
 				<div class="info-list">
-					<div class="all-row" >简历名称：<strong id="base_info_title">{#if $resume_basic.title#}{#$resume_basic.title#}{#else#}未命名简历{#/if#}</strong></div>
+					<div class="all-row" >履歴書名前：<strong id=“base_info_title”>{#if $resume_basic.title#}{#$resume_basic.title#}{#else#}未命名简历{#/if#}</strong></div>
 					<div class="half-wrap clearfix">
-						<div class="half-row f-left">姓&nbsp;&nbsp;名：<span id="base_info_fullname">{#$resume_basic.fullname#}</span><span id="base_info_fullname_display_name"></span></div>
-						<div class="half-row f-left">出生年份：<span id="base_info_birthdate">{#$resume_basic.birthdate#}</span>年</div>
+						<div class="half-row f-left">姓＆NBSP;＆NBSP;名：<spanID = “base_info_fullname”>{#$resume_basic.fullname#}</span><span id="base_info_fullname_display_name"></span></div>
+						<div class="half-row f-left">誕生の年：<span id=“base_info_birthdate”>{#$resume_basic.birthdate#}</span>年</div>
 						<div class="half-row f-left">性&nbsp;&nbsp;别：<span id="base_info_sex_cn">{#if $resume_basic.sex==1#} 男{#/if#}  {#if $resume_basic.sex==2#} 女{#/if#}</span></div>
-						<div class="half-row f-left">现居住地：<span id="base_info_residence">{#$resume_basic.residence#}</span></div>
-						<div class="half-row f-left">最高学历：<span id="base_info_education_cn">{#$resume_basic.education_cn#}</span></div>
-						<div class="half-row f-left">专&nbsp;&nbsp;业：<span id="base_info_major_cn">{#$resume_basic.major_cn#}</span></div>
-						<div class="half-row f-left">工作经验：<span id="base_info_experience_cn">{#$resume_basic.experience_cn#}</span></div>
-						<div class="half-row f-left">婚姻状况：<span id="base_info_marriage_cn">{#$resume_basic.marriage_cn#}</span></div>
-						<div class="half-row f-left">身&nbsp;&nbsp;高：<span id="base_info_height">{# if $resume_basic.height#}{#$resume_basic.height#}{#else#}未填写{#/if#}</span></div>
-						<div class="half-row f-left">籍&nbsp;&nbsp;贯：<span id="base_info_householdaddress">{#$resume_basic.householdaddress#}</span></div>
+						<div class="half-row f-left">住所：<spanID = “base_info_residence”>{#$resume_basic.residence#}</span></div>
+						<div class="half-row f-left">最高学歴：<spanID =「base_info_education_cn」>{#$resume_basic.education_cn#}</span></div>
+						<div class="half-row f-left">専&nbsp;&nbsp;業：<span id=“base_info_major_cn”>{#$resume_basic.major_cn#}</span></div>
+						<div class="half-row f-left">職歴：<spanID = “base_info_experience_cn”>{#$resume_basic.experience_cn#}</span></div>
+						<div class="half-row f-left">婚姻状況：<span id = “base_info_marriage_cn”>{#$resume_basic.marriage_cn#}</span></div>
+						<div class="half-row f-left">ボディ＆NBSP;＆NBSP;高さ：<spanID = “base_info_height”>{# if $resume_basic.height#}{#$resume_basic.height#}{#else#}未填写{#/if#}</span></div>
+						<div class="half-row f-left">籍＆NBSP;＆NBSP;貫：<span id=“base_info_householdaddress”>{#$resume_basic.householdaddress#}</span></div>
 					</div>
-					<div class="all-row">手机：<span id="base_info_telephone">{#$resume_basic.telephone#}</span> {#if $user.mobile_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
-					<div class="all-row">邮箱：<span id="base_info_email">{#$resume_basic.email#}</span> {#if $user.email_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
+					<div class="all-row">電話番号：<spanID = “base_info_telephone”>{#$resume_basic.telephone#}</span> {#if $user.mobile_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
+					<div class="all-row">Eメール：<span id=“base_info_email”>{#$resume_basic.email#}</span> {#if $user.email_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
 				</div>
 				<div class="leftbox" style="position: absolute;right:95px;top:25px;border:1px solid #c0c0c0;width: 150px;">
 					<div>
 					  	<img name="" src="{#if $$resume_basic.photo_img#}{#$HIGHWAY.site_dir#}data/photo/{#$resume_basic.photo_img#}{#else#}{#$HIGHWAY.site_template#}images/06.jpg{#/if#}" width="150" height="150" alt="" id="img_src_w"/>
 					</div>
-					<a href="javascript:;" class="edit" id="resumePhotosButton_w" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 150px;">简历照片</a>
+					<a href="javascript:;" class="edit" id="resumePhotosButton_w" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 150px;">履歴書写真</a>
 		  		</div>
 			</div>
 		</div> 
@@ -621,7 +621,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	    <div id="base_info_update_part" style="display:none;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall"> 
 			 <tr>
-				<td width="125" align="right">简历名称：</td>
+				<td width="125" align="right">履歴書名前：</td>
 				<td width="230"><input name="title" type="text" class="input_text_200" id="title" maxlength="80"   value="{#$resume_basic.title#}"/></td>
 				<td style="position: relative;">
 					
@@ -629,7 +629,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						<div>
 						  	<img name="" src="{#if $$resume_basic.photo_img#}{#$HIGHWAY.site_dir#}data/photo/{#$resume_basic.photo_img#}{#else#}{#$HIGHWAY.site_template#}images/06.jpg{#/if#}" width="150" height="150" alt="" id="img_src"/>
 						</div>
-						<a href="javascript:;"  class="edit" id="resumePhotosButton" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 150px;">简历照片</a>
+						<a href="javascript:;"  class="edit" id="resumePhotosButton" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 150px;">履歴書写真</a>
 			  		</div>
 				</td>
 			  </tr>
@@ -639,11 +639,11 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<td>
 				<input name="display_name" id="display_name" type="hidden" value="{#$resume_basic.display_name#}" />
 				  <div class="publicity" id="publicitydiv">
-				    <div class="input_text_70_bg" id="display_name_cn">{#if $resume_basic.display_name=="1"#}完全公开{#elseif $resume_basic.display_name=="2"#}显示编号{#elseif $resume_basic.display_name=="3"#}隐藏名字{#/if#}</div>
+				    <div class="input_text_70_bg" id="display_name_cn">{#if $resume_basic.display_name=="1"#}完全公開{#elseif $resume_basic.display_name==“2”#}番号表示{#elseif $resume_basic.display_name==“3”#}名前隠す{#/if#}</div>
 						<div class="selbox">
-							<div class="div" id="1">完全公开</div>
-							<div class="div" id="2">显示编号</div>
-							<div class="div" id="3">隐藏名字</div>
+							<div class="div" id="1">完全開示</div>
+							<div class="div" id="2">番号表示</div>
+							<div class="div" id="3">名前を隠します</div>
 						</div>
 				  </div>
 			    </td>
@@ -654,8 +654,8 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<div id="sex_radio">
 				<input name="sex" id="sex" type="hidden" value="{#$resume_basic.sex#}" />
 				<input name="sex_cn" id="sex_cn" type="hidden" value="{#$resume_basic.sex_cn#}" />
-				  <div class="input_radio{#if $resume_basic.sex==1#} select{#/if#}" id="1">男</div>
-				  <div class="input_radio{#if $resume_basic.sex==2#} select{#/if#}" id="2">女</div>			  
+				  <div class="input_radio{#if $resume_basic.sex==1#} select{#/if#}" id="1">男性</div>
+				  <div class="input_radio{#if $resume_basic.sex==2#} select{#/if#}" id="2">女性</div>			  
 				  <div class="clear"></div>
 				  </div>
 			    </td>
@@ -819,7 +819,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	             	 	<div class="menu" id="menu2">
 		              		<ul>
 		              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
-		              			<li id="-1" title="应届生">应届生</li>
+		              			<li id="-1" title="应届生">新卒</li>
 		              			{#foreach from=$c_experience item=list#}
 		              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 		              			{#/foreach#}
@@ -835,7 +835,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<td align="right"><span class="nec">手机</span>：</td>
 				<td>
 					{#if $user.mobile_audit=="1"#}
-					{#$resume_basic.telephone#} <a href="javascript:;" class="audit_mobile">修改</a>
+					{#$resume_basic.telephone#} <a href="javascript:;" class="audit_mobile">変更</a>
 					<input name="mobile" type="hidden" id="mobile" class="input_text_200" value="{#$resume_basic.telephone#}" />
 					{#else#}
 					<input name="mobile" id="mobile" type="text" class="input_text_200" value="{#$resume_basic.telephone#}" />
@@ -849,7 +849,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<td width="125" align="right"><span class="nec">邮箱</span>：</td>
 				<td>
 					{#if $user.email_audit=="1"#}
-					{#$user.email#} <a href="javascript:;" class="audit_email">修改</a>
+					{#$user.email#} <a href="javascript:;" class="audit_email">変更</a>
 					<input name="email"  id="email" type="hidden" class="input_text_200" value="{#$user.email#}" />
 					{#else#}
 					<input name="email" id="email" type="text" class="input_text_200" value="{#$user.email#}" />
@@ -859,23 +859,23 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			  <tr>
-				<td width="125" align="right">身高：</td>
+				<td width="125" align="right">身長：</td>
 				<td width="220"><input name="height" id="height" type="text" class="input_text_200_bgsg" value="{#$resume_basic.height#}" /> </td>
 				<td>&nbsp;</td>
 			  </tr>
 			  <tr class="jobmain">
-				<td width="125" align="right">籍贯：</td>
+				<td width="125" align="right">出身：</td>
 				<td><input name="householdaddress" type="text" class="input_text_200" id="householdaddress"  value="{#$resume_basic.householdaddress#}" /> </td>
 				<td>&nbsp;</td>
 			  </tr>
 			  <tr>
-				<td align="right">婚姻状况：</td>
+				<td align="right">婚姻状況：</td>
 				<td>
 				<div id="marriage_radio">
 				<input name="marriage" id="marriage" type="hidden" value="{#$resume_basic.marriage#}" />
 				<input name="marriage_cn" id="marriage_cn" type="hidden" value="{#$resume_basic.marriage_cn#}" />
 				  <div class="input_radio{#if $resume_basic.marriage==1#} select{#/if#}" id="1">未婚</div>
-				  <div class="input_radio{#if $resume_basic.marriage==2#} select{#/if#}" id="2">已婚</div>			  
+				  <div class="input_radio{#if $resume_basic.marriage==2#} select{#/if#}" id="2">既婚</div>			  
 				  <div class="clear"></div>
 				  </div>
 			    </td>
@@ -966,19 +966,19 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 
 		<!-- 个人求职意向 start -->
 			<div class="titleH2">
-				<span>求职意向</span>
+				<span>ジョブターゲット</span>
 				<a style="width:20px; height:20px; background: url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 3px -379px; margin:10px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" id="base_update"> </a>
 			</div>
 			<!-- 求职意向 show -->
 			<div class="base_table" id="base_update_show"> 
 				<div class="c-resume-info-show">
 					<div class="info-list">
-						<div class="all-row">求职状态：<span id="base_current_cn">{#$resume_basic.current_cn#}</span></div>
-						<div class="all-row">工作性质：<span id="base_nature_cn">{#$resume_basic.nature_cn#}</span></div>
-						<div class="all-row">期望行业：<span id="base_trade_cn">{#$resume_basic.trade_cn#}</span></div>
-						<div class="all-row">期望职位：<span id="base_intention_jobs">{#$resume_basic.intention_jobs#}</span></div>
-						<div class="all-row">工作地区：<span id="base_district_cn">{#$resume_basic.district_cn#}</span></div>
-						<div class="all-row">期望薪资：<span id="base_wage_cn">{#$resume_basic.wage_cn#}</span></div>
+						<div class="all-row">応募ステータス：<spanID = “base_current_cn”>{#$resume_basic.current_cn#}</span></div>
+						<div class="all-row">仕事性質：<spanID = “base_nature_cn”>{#$resume_basic.nature_cn#}</span></div>
+						<div class="all-row">希望業種：<spanID = “base_trade_cn”>{#$resume_basic.trade_cn#}</span></div>
+						<div class="all-row">予想職位：<span id = “base_intention_jobs”>{#$resume_basic.intention_jobs#}</span></div>
+						<div class="all-row">作業エリア：<spanID = “base_district_cn”>{#$resume_basic.district_cn#}</span></div>
+						<div class="all-row">希望給与：<spanID = “base_wage_cn”>{#$resume_basic.wage_cn#}</span></div>
 					</div>
 				</div>
 			</div>
@@ -1023,7 +1023,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					<td width="127" align="right" valign="top" style="padding-top:16px;"><span class="nec">期望行业：</span></td>
 					<td style="position:relative">
 						<div id="jobsTrad" style="width:200px;">
-							<div class="input_text_200_bg ucc-default" id="tradText">请选择</div>
+							<div class="input_text_200_bg ucc-default" id="tradText">選択してください</div>
 							<!-- 期望行业弹出框 -->
 							<div class="aui_outer" id="aui_outer">
 								<table class="aui_border">
@@ -1039,7 +1039,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 																		<div class="items jquery-localdata">
 																			<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="item-table">
 																				<table class="options-table options-table-7">
 																					<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
@@ -1070,7 +1070,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					<td width="127" align="right" valign="top" style="padding-top:16px;"><span class="nec">期望职位：</span></td>
 					<td style="position:relative">
 						<div id="jobsSort" style="width:200px;">
-							<div class="input_text_200_bg ucc-default" id="jobText">请选择</div>
+							<div class="input_text_200_bg ucc-default" id="jobText">選択してください</div>
 							<!-- 期望职位弹出框 -->
 							<div class="aui_outer" id="aui_outer_job">
 								<table class="aui_border">
@@ -1086,7 +1086,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 																		<div class="LocalDataMultiC">
 																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning">0</strong> 项</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars” class=“text-warning”>0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="job_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -1112,7 +1112,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				  <tr class="jobmain">
 					<td width="127" align="right"><span class="nec">工作地区：</span></td>
 					<td  id="jobsCity" style="position:relative">
-						<div class="input_text_200_bg ucc-default" id="cityText">请选择</div>
+						<div class="input_text_200_bg ucc-default" id="cityText">選択してください</div>
 						<!-- 工作地区弹出框 -->
 						<div class="aui_outer" id="aui_outer_city">
 							<table class="aui_border">
@@ -1128,7 +1128,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 																	<div class="LocalDataMultiC" style="width:623px;">
 																		<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																		<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																		<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																		<div class="data-row-list data-row-main" id="city_list">
 																			<!-- 列表内容 -->
 																		</div>
@@ -1169,7 +1169,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				  </tr> 
 			          <tr>
 						<td width="125" align="right"> </td> 
-						<td><input type="submit" name="basic_save" id="basic_save" value="保存"  class="but100lan"/><input type="button" name="" id="close_basic" value="取消"  class="but100hui"/>
+						<td><input type=“submit” name=“basic_save” id=“basic_save” value=“保存”  class=“but100lan”/><input type="button" name="" id="close_basic" value="取消"  class="but100hui"/>
 						</td>
 					  </tr>
 			</table>
@@ -1239,9 +1239,9 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	  <div class="addresume2">
 		
 	    	<div class="titleH2">
-				<div class="lt h2-title">教育经历</div>
+				<div class="lt h2-title">教育経験</div>
 				<div class="add" id="add_education" 
-				{#if $resume_education#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_education" value="添加"  class="but55lan_add"/></div><!--当教育经历存在，则显示这个按钮 -->
+				{#if $resume_education#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button”   id=“nav_add_education” value=“追加”  class=“but55lan_add”/></div><！--教育経験が存在する場合、このボタンを表示 —  >
 				<div class="clear"></div>
 			</div> 
 			<div id="education_list_box"></div> 
@@ -1250,18 +1250,18 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		    <div class="addbox" id="education_add_form">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >		  
 					<tr>
-						<td width="100" align="left">学校名称：</td>
+						<td width="100" align="left">学校名：</td>
 						<td><input name="school" id="school" type="text" class="input_text_200"      value="" /></td>
 					</tr>
 					<tr>
-						<td width="100" align="left">专业名称：</td>
+						<td width="100" align="left">プロフェッショナル名：</td>
 						<td><input name="speciality" id="speciality" type="text" class="input_text_200"      value="" /></td>
 					</tr>
 					<tr>
-						<td width="100" align="left">学历：</td>
+						<td width="100" align="left">学歴：</td>
 						<td>
 							<div style="position:relateve;">
-								<div id="edu_education_menu" class="input_text_200_bg">请选择</div>	
+								<div id="edu_education_menu" class="input_text_200_bg">選択してください</div>	
 								<div class="menu" id="menu4">
 									<ul>
 									{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
@@ -1276,13 +1276,13 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						</td>
 					</tr>
 					<tr>
-						<td width="100" align="left" >就读时间：</td>
+						<td width="100" align="left" >読み時間：</td>
 						<td >
 							<table border="0" cellpadding="0" cellspacing="0" >
 								<tr>
 									<td width="90" style="padding:0px" class="infoContent">
 										<div class="timeSel">
-											<div class="input_text_60_bg input_text_60_bg_s date_input" id="edu_start_year_box">年份</div>
+											<div class="input_text_60_bg input_text_60_bg_s date_input" id="edu_start_year_box">年</div>
 											<input name="edu_start_year" id="edu_start_year" type="hidden" value="" />
 											<div class="setBox" id="">
 								                <i class="prevIcon"></i>
@@ -1301,7 +1301,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 									<td width="20" style="padding:0px">&nbsp;至&nbsp;</td>
 									<td class="edu_td_h infoContent" width="90" style="padding:0px">
 										<div class="timeSel">
-											<div class="input_text_60_bg input_text_60_bg_s date_input" id="edu_end_year_box">年份</div>
+											<div class="input_text_60_bg input_text_60_bg_s date_input" id="edu_end_year_box">年</div>
 											<input name="edu_end_year" id="edu_end_year" type="hidden" value="" />
 											<div class="setBox" id="">
 								                <i class="prevIcon"></i>
@@ -1454,8 +1454,8 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<!-- 教育经历  end -->
 		<!-- 工作经历 start -->
       	<div class="titleH2">
-			<div class="lt h2-title">工作经历</div>
-			<div class="add" id="add_work" {#if $resume_work#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_work" value="添加"  class="but55lan_add"/></div><!--当工作经历存在，则显示这个按钮 -->
+			<div class="lt h2-title">実務経験</div>
+			<div class="add" id="add_work" {#if $resume_work#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_work" value=“追加”  class="but55lan_add"/></div><！ - 仕事の経験は、このボタンが表示され存在している場合 - >
 			<div class="clear"></div>
 		</div>
 			
@@ -1464,21 +1464,21 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		    <div class="addbox" id="work_add_form">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >		  
 					   <tr>
-						<td width="100" align="left">公司名称：</td>
+						<td width="100" align="left">会社名：</td>
 						<td><input name="companyname" id="companyname" type="text" class="input_text_200" value="" /></td>
 					  </tr>
 					<tr>
-						<td width="100" align="left">职位名称：</td>
+						<td width="100" align="left">職位ポスト：</td>
 						<td><input name="jobs" id="jobs" type="text" class="input_text_200" value="" /></td>
 					  </tr>
-						<td width="100" align="left" >任职时间：</td>
+						<td width="100" align="left" >時間が務めた。</td>
 						<td >
 			
 						<table border="0" cellpadding="0" cellspacing="0" >
                           <tr>
                             <td width="90" style="padding:0px" class="infoContent">
                             	<div class="timeSel">
-								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="work_start_year_box">年份</div>
+								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="work_start_year_box">年</div>
 					                <input name="work_start_year" id="work_start_year" type="hidden" value="" />
 					                <div class="setBox" id="">
 						                <i class="prevIcon"></i>
@@ -1489,7 +1489,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             </td>
                             <td width="80" style="padding:0px" class="infoContent">
                             	<div style="position:relateve;" class="timeSel monthSel">
-				             	 	<div id="work_start_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月份</div>
+				             	 	<div id="work_start_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月</div>
 				             	 	<div class="setBox"><ul class="smbYear"></ul></div>
 					            </div>
 					            <input name="work_start_month" type="hidden" id="work_start_month" value="" />
@@ -1497,7 +1497,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             <td width="20" style="padding:0px">&nbsp;至&nbsp;</td>
                             <td class="work_td_h infoContent" width="90" style="padding:0px">
                             	<div class="timeSel">
-								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="work_end_year_box">年份</div>
+								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="work_end_year_box">年</div>
 					                <input name="work_end_year" id="work_end_year" type="hidden" value="" />
 					                <div class="setBox" id="">
 						                <i class="prevIcon"></i>
@@ -1508,7 +1508,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             </td>
                             <td class="work_td_h infoContent" style="padding:0px">
                             	<div style="position:relateve;" class="timeSel monthSel">
-				             	 	<div id="work_end_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月份</div>
+				             	 	<div id="work_end_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月</div>
 				             	 	<div class="setBox"><ul class="smbYear"></ul></div>
 					            </div>
 					            <input name="work_end_month" type="hidden" id="work_end_month" value="" />
@@ -1519,7 +1519,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						</td>
 					  </tr>
 					  <tr>
-						<td width="100" align="left">工作职责：</td>
+						<td width="100" align="left">仕事責任：</td>
 						<td>
 						<textarea name="achievements" id="achievements" cols="" rows="" class="input_textarea_500"></textarea>
 						</td>
@@ -1527,7 +1527,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					   <tr>
 						<td width="100" align="left"> </td>
 						<input type="hidden" name="work_id" id="work_id">
-						<td><input type="submit" name="save_work" id="save_work" value="保存"  class="but100lan"/><input type="button" name="" id="close_work_form" value="取消"  class="but100hui"/>
+						<td><input type=“submit” name=“save_work” id=“save_work” value=“保存”  class=“but100lan”/><input type="button" name="" id="close_work_form" value="取消"  class="but100hui"/>
 						</td>
 					  </tr>
 			  </table>
@@ -1650,9 +1650,9 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<!-- 工作经历 end -->
 			<!-- 工作经历 start -->
 	      	<div class="titleH2">
-				<div class="lt h2-title">培训经历</div>
+				<div class="lt h2-title">トレーニング経験</div>
 				<div class="add" id="add_training" 
-				{#if $resume_training#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_training" value="添加"  class="but55lan_add"/></div>
+				{#if $resume_training#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button”   id=“nav_add_training” value=“追加”  class=“but55lan_add”/></div>
 				<!--当培训经历存在，则显示这个按钮 -->
 				<div class="clear"></div>
 			</div>		
@@ -1661,21 +1661,21 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		    <div class="addbox" id="training_add_form">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >		  
 					   <tr>
-						<td width="100" align="left">培训机构：</td>
+						<td width="100" align="left">研修機関：</td>
 						<td><input name="agency" id="agency" type="text" class="input_text_200" value="" /></td>
 					  </tr>
 					<tr>
-						<td width="100" align="left">培训课程：</td>
+						<td width="100" align="left">トレーニング：</td>
 						<td><input name="course" id="course" type="text" class="input_text_200" value="" /></td>
 					  </tr>
-						<td width="100" align="left" >培训时间：</td>
+						<td width="100" align="left" >トレーニング時間：</td>
 						<td >
 			
 						<table border="0" cellpadding="0" cellspacing="0" >
                           <tr>
                             <td width="90" style="padding:0px" class="infoContent">
                             	<div class="timeSel">
-								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="training_start_year_box">年份</div>
+								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="training_start_year_box">年</div>
 					                <input name="training_start_year" id="training_start_year" type="hidden" value="" />
 					                <div class="setBox" id="">
 						                <i class="prevIcon"></i>
@@ -1686,7 +1686,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             </td>
                             <td width="80" style="padding:0px" class="infoContent">
                             	<div style="position:relateve;" class="timeSel monthSel">
-				             	 	<div id="training_start_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月份</div>
+				             	 	<div id="training_start_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月</div>
 				             	 	<div class="setBox"><ul class="smbYear"></ul></div>
 					            </div>
 					            <input name="training_start_month" type="hidden" id="training_start_month" value="" />
@@ -1694,7 +1694,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             <td width="20" style="padding:0px">&nbsp;至&nbsp;</td>
                             <td class="training_td_h infoContent" width="90" style="padding:0px">
                             	<div class="timeSel">
-								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="training_end_year_box">年份</div>
+								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="training_end_year_box">年</div>
 					                <input name="training_end_year" id="training_end_year" type="hidden" value="" />
 					                <div class="setBox" id="">
 						                <i class="prevIcon"></i>
@@ -1705,7 +1705,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             </td>
                             <td class="training_td_h infoContent" style="padding:0px">
                             	<div style="position:relateve;" class="timeSel monthSel">
-				             	 	<div id="training_end_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月份</div>
+				             	 	<div id="training_end_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月</div>
 				             	 	<div class="setBox"><ul class="smbYear"></ul></div>
 					            </div>
 					            <input name="training_end_month" type="hidden" id="training_end_month" value="" />
@@ -1735,7 +1735,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						</td>
 					  </tr>
 					  <tr>
-						<td width="100" align="left">培训内容：</td>
+						<td width="100" align="left">研修内容：</td>
 						<td>
 						<textarea name="description" id="description" cols="" rows="" class="input_textarea_500"></textarea>
 						</td>
@@ -1868,9 +1868,9 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<!-- 培训经历 end -->
 			<!-- 语言能力 start -->	
 			<div class="titleH2">
-				<div class="lt h2-title">语言能力</div>
+				<div class="lt h2-title">言語能力</div>
 				<div class="add" id="add_language" 
-				{#if $resume_language#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_language" value="添加"  class="but55lan_add"/></div>
+				{#if $resume_language#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button” id=“nav_add_language” value=“添加” class=“but55lan_add”/></div>
 				<!--当培训经历存在，则显示这个按钮 -->
 				<div class="clear"></div>
 			</div>		
@@ -1878,13 +1878,13 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<!--添加表单，默认是隐藏 -->
 				<div class="addbox" id="language_add_form"  style="border:0px; ">
 					 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >
-						<td width="80" align="left" >语言能力：</td>
+						<td width="80" align="left" >言語：</td>
 						<td > 
 						<table border="0" cellpadding="0" cellspacing="0" >
                           <tr>
                             <td width="110" style="padding:0px">
                             	<div style="position:relateve;">
-				             	 	<div id="language_div" class="input_text_70_bg">语言</div>
+				             	 	<div id="language_div" class="input_text_70_bg">言語</div>
 				             	 	<div class="menu" id="language_menu">
 					              		<ul>
 										{#highway_get_classify  set="类型:HW_language,列表名:c_language"#}
@@ -2025,9 +2025,9 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<!-- 语言能力 end -->
 			<!-- 获得证书 start -->	
 			<div class="titleH2">
-				<div class="lt h2-title">获得证书</div>
+				<div class="lt h2-title">証明書を受け取ります</div>
 				<div class="add" id="add_credent" 
-				{#if $resume_credent#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_credent" value="添加"  class="but55lan_add"/></div>
+				{#if $resume_credent#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_credent" value=“追加”  class="but55lan_add"/></div>
 				<!--当培训经历存在，则显示这个按钮 -->
 				<div class="clear"></div>
 			</div>		
@@ -2037,17 +2037,17 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<div class="addbox" id="credent_add_form">
 			      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >		  
 					   <tr>
-						<td width="100" align="left">证书名称：</td>
+						<td width="100" align="left">証明書の名前：</td>
 						<td><input name="credent" id="credent" type="text" class="input_text_200" value="" /></td>
 					  </tr> 
-						<td width="100" align="left" >获得时间：</td>
+						<td width="100" align="left" >取得した時刻：</td>
 						<td >
 			
 						<table border="0" cellpadding="0" cellspacing="0" >
                           <tr>
                             <td width="90" style="padding:0px" class="infoContent">
                             	<div class="timeSel">
-								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="credent_year_box">年份</div>
+								    <div class="input_text_60_bg input_text_60_bg_s date_input" id="credent_year_box">年</div>
 					                <input name="credent_year" id="credent_year" type="hidden" value="" />
 					                <div class="setBox" id="">
 						                <i class="prevIcon"></i>
@@ -2058,7 +2058,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
                             </td>
                             <td width="80" style="padding:0px" class="infoContent">
                             	<div style="position:relateve;" class="timeSel monthSel">
-				             	 	<div id="credent_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月份</div>
+				             	 	<div id="credent_month_box" class="input_text_60_bg input_text_60_bg_s date_input">月</div>
 				             	 	<div class="setBox"><ul class="smbYear"></ul></div>
 					            </div>
 					            <input name="credent_month" type="hidden" id="credent_month" value="" />
@@ -2269,7 +2269,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<!-- 获得证书 end -->
 		<!-- 自我描述 start specialty -->	
 		<div class="titleH2">
-			<div class="lt h2-title">自我描述</div>
+			<div class="lt h2-title">自己説明</div>
 			<div class="add" id="edit_specialty" {#if $resume_basic.specialty#}style="display:block;"{#else#}style="display:none;"{#/if#}><a style="width:20px; height:20px; background: url({#$HIGHWAY.site_template#}images/13.gif) no-repeat 3px -379px; margin:2px 30px 0 0;*margin-top:-30px; float: right;" href="javascript:;" class="empty_add_specialty"></a></div>
 			<div class="clear"></div>
 		</div>
@@ -2280,7 +2280,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		</div>
 		{#else#}
 		<div class="noinfo">	
-		 	 <div class="txt">客观全面的自我评价更容易获得企业的好感，快来完善以获得HR的亲睐！</div>
+		 	 <div class="txt">簡単に客観的かつ総合的な自己評価は会社の良い印象を得るために、hRの親しい友人を得るために完璧に来ます！</div>
 			 <div class="addbut">
 			 	<input type="button" name="" value="自我描述"  class="but130lan_add empty_add_specialty"/>
 			 </div>
@@ -2290,7 +2290,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<div class="addbox" id="specialty_add_form" style="border-top: 0;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >
 				<tr>
-					<td width="80" align="left" valign="top">自我描述：</td>
+					<td width="80" align="left" valign="top">自己説明：</td>
 					<td>
 					<textarea name="specialty" id="specialty" style="width: 500px;height: 110px;">{#$resume_basic.specialty#}</textarea>
 					</td>
@@ -2341,13 +2341,13 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		</script>
 		<!-- 自我描述 end -->
 		<!-- 特长标签 start  -->
-		<div class="titleH2 h2-title">特长标签</div>
+		<div class="titleH2 h2-title">特殊タグ</div>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			<tr>
-				<td width="117" align="right" valign="top" style="vertical-align:middle;">特长标签：</td>
+				<td width="117" align="right" valign="top" style="vertical-align:middle;">特殊label：</td>
 				<td style="position:relative;">
 					<div class="showchecktag"></div>
-		              <div class="input_checkbox_add ucc-default">添加</div>	
+		              <div class="input_checkbox_add ucc-default">追加</div>	
 		              <!-- 职位亮点弹出框 -->
 						<div class="aui_outer" id="aui_outer_tag">
 							<table class="aui_border">
@@ -2363,7 +2363,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 																	<div class="items jquery-localdata">
 																		<div class="selector-header"><span class="selector-title">特长标签选择</span><span id="tag-selector-save" class="selector-save">确定</span><span class="selector-close">X</span></div>
 
-																		<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">5</strong> 项&nbsp;&nbsp;已选 <strong id="arstag" class="text-warning">0</strong> 项</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																		<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">5</strong> アイテム&nbsp;&nbsp;已选 <strong id="arstag" class="text-warning">0</strong> 項目</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																		<div class="item-table">
 																			<table class="options-table options-table-7">
 																				<tbody class="item-list"><tr><td class="bno"><table><tbody id="tag_list">
@@ -2391,9 +2391,9 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		</table>
 		<!-- 特长标签 end  -->
 		<!-- 附件上传 start -->
-		<div class="titleH2 h2-title">附件上传</div>
+		<div class="titleH2 h2-title">添付ファイルのアップロード</div>
 		<div class="resume-upload clearfix">
-			<div class="left-type f-left">上传图片：</div>
+			<div class="left-type f-left">写真のアップロード：</div>
 			<div class="right-content f-left">
 				<div class="{#if $resume_img#}has-upload{#else#}has-uploadmb{#/if#} clearfix has-upload-img">
 					{#if $resume_img#}
@@ -2401,8 +2401,8 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					<div class="has-upload-block f-left">
 						<div class="has-img"><img src="{#$HIGHWAY.site_dir#}data/photo/{#$img_list.img#}" title="{#$img_list.title#}" width="148" height="148" /></div>
 						<div class="has-img-ctrl clearfix">
-							<a href="javascript:;" class="f-left underline note" imgId="{#$img_list.id#}" title="{#$img_list.title#}">备注</a>
-							<a href="javascript:;" class="f-right underline del" imgId="{#$img_list.id#}">删除</a>
+							<a href="javascript:;" class="f-left underline note" imgId="{#$img_list.id#}" title="{#$img_list.title#}">備考</a>
+							<a href="javascript:;" class="f-right underline del" imgId="{#$img_list.id#}">削除</a>
 						</div>
 					</div>
 					{#/foreach#}
@@ -2410,10 +2410,10 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				</div>
 				<div class="upload-ctrl clearfix">
 					<div class="f-left rimgup">
-						<div class="but55lan_add">上传</div>
+						<div class="but55lan_add">アップロード</div>
 						<input class="filestyle" type="file" value="" name="resume_img" id="resume_img">
 					</div>
-					<p class="f-left">最多上传4张，每张最大800KB,支持jpg/gif/bmp/png格式 <br />建议上传清晰自然生活照，或者您的专业代表作品。</p>
+					<p class="f-left">アップロード4つまで、最大800キロバイト各支持JPG / GIF / BMP / PNG形式<BR />建议上传清晰自然生活照，或者您的专业代表作品。</p>
 				</div>
 			</div>
 		</div>
@@ -2457,7 +2457,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			var id=$(this).attr("imgId");
 			var del_img=dialog();
 		    del_img.title('系统提示');
-		    del_img.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">删除后无法恢复，您确定要删除吗？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		    del_img.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 		    del_img.width('300');
 		    del_img.showModal();
 		    /* 关闭 */
@@ -2480,7 +2480,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			var note_img=dialog();
 			var title=$(this).attr("title");
 		    note_img.title('系统提示');
-		    note_img.content('<div class="img-edit-dialog dialog-block"><div class="dialog-item clearfix"><div class="d-type f-left">附件描述</div><div class="d-content f-left"><textarea id="note_title" cols="30" rows="10" class="dialog-textarea">'+title+'</textarea></div></div><div class="center-btn-wrap"><input type="button" value="保存" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div></div>');
+		    note_img.content('<div class="img-edit-dialog dialog-block"><div class="dialog-item clearfix"><div class="d-type f-left">附属書の説明</div><div class="d-content f-left"><textarea id="note_title" cols="30" rows="10" class="dialog-textarea">'+title+'</textarea></div></div><div class="center-btn-wrap"><input type="button" value="保存" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value=“取り消し” class="btn-65-30grey btn-big-font DialogClose" /></div></div>');
 		    note_img.width('300');
 		    note_img.showModal();
 		    /* 关闭 */
@@ -2500,7 +2500,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		</script>
 		<!-- 附件上传 end  -->
 		<!-- word 简历上传 start -->
-		<div class="titleH2 h2-title">word简历</div>
+		<div class="titleH2 h2-title">word履歴書</div>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			<!-- <tr>
 				<td class="resume-upload" align="left" valign="top" style="padding-top:8px;padding-left: 50px;">
@@ -2513,15 +2513,15 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					</div>
 					{#/if#}
 					<div class="f-left rimgup">
-						<div class="but55lan_add">{#if $resume_basic.word_resume#}更换{#else#}上传{#/if#}</div>
+						<div class="but55lan_add">{#ifの$ resume_basic.word_resume#} 更新{#else#}交換アップロード{#/if#} </div>
 						<input class="filestyle" type="file" value="" name="word_resume" id="word_resume">
 					</div>
-					<p class="f-left"style="height:32px;line-height:32px;margin-left: 70px;">请上传.DOC格式的附件(文件大小2M以内)</p>
+					<p class="f-left"style="height:32px;line-height:32px;margin-left: 70px;">アップロードしてください。DOC形式の添付ファイル（ファイルサイズ2M未満）</P>
 					<div class="clear"></div>
 				</td>
 			</tr> -->
 			<tr>
-				<td align="right" width="117px">附件简历：</td>
+				<td align="right" width="117px">履歴書付録：</td>
 				<td class="resume-upload" align="left" valign="top">
 					{#if $resume_basic.word_resume#}
 					<div class="f-left" style="margin-right: 10px;">
@@ -2532,10 +2532,10 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					</div>
 					{#else#}
 					<div class="f-left rimgup">
-						<div class="but55lan_add">{#if $resume_basic.word_resume#}更换{#else#}上传{#/if#}</div>
+						<div class="but55lan_add">{#ifの$ resume_basic.word_resume#} 更新{#else#}交換アップロード{#/if#} </div>
 						<input class="filestyle" type="file" value="" name="word_resume" id="word_resume">
 					</div>
-					<p class="f-left"style="height:32px;line-height:32px;margin-left:67px;color:#999">请上传.DOC格式的附件(文件大小2M以内)</p>
+					<p class="f-left"style="height:32px;line-height:32px;margin-left:67px;color:#999">アップロードしてください。DOC形式の添付ファイル（ファイルサイズ2M未満）</P>
 					<div class="clear"></div>
 					{#/if#}	
 				</td>
@@ -2545,10 +2545,10 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<td align="right" width="117px"></td>
 				<td class="resume-upload" align="left" valign="top">
 					<div class="f-left rimgup">
-						<div class="but55lan_add">更换</div>
+						<div class="but55lan_add">交換</div>
 						<input class="filestyle" type="file" value="" name="word_resume" id="word_resume">
 					</div>
-					<p class="f-left"style="height:32px;line-height:32px;margin-left:67px;color:#999">请上传.DOC格式的附件(文件大小2M以内)</p>
+					<p class="f-left"style="height:32px;line-height:32px;margin-left:67px;color:#999">アップロードしてください。DOC形式の添付ファイル（ファイルサイズ2M未満）</P>
 					<div class="clear"></div>
 				</td>
 			</tr>	
@@ -2592,7 +2592,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			var pid=$(this).attr("resume_id");
 			var word_del=dialog();
 		    word_del.title('系统提示');
-		    word_del.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">删除后无法恢复，您确定要删除吗？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		    word_del.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 		    word_del.width('300');
 		    word_del.showModal();
 		    /* 关闭 */

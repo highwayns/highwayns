@@ -208,7 +208,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 基本资料</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 基本情報</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -219,14 +219,14 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	  <div class="addresume link_bk">
  	    <div class="topnav">
 				 	<div class="titleH1">
-					  <div class="h1-title">账号管理</div>
+					  <div class="h1-title">アカウント管理</div>
 					</div>
 			  <div class="navs link_bk">
-				<a href="?act=userprofile" class="se">基本资料</a>
-				  <a href="?act=authenticate">账号安全</a>
-				  <a href="?act=avatars">我的头像</a>
-				  <a href="?act=pm">我的消息{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
-				   <a href="?act=login_log">登录日志</a>
+				<a href="?act=userprofile" class="se">基本情報</a>
+				  <a href="?act=authenticate">アカウントのセキュリティ</a>
+				  <a href="?act=avatars">マイ写真</a>
+				  <a href="?act=pm">私のメッセージ{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
+				   <a href="?act=login_log">登録日誌</あ>
 				  <div class="clear"></div>
 			</div>
 	  	</div>
@@ -243,8 +243,8 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<div id="sex_radio">
 			<input name="sex" id="sex" type="hidden" value="{#$userprofile.sex|default:1#}" />
 			<input name="sex_cn" id="sex_cn" type="hidden" value="{#$userprofile.sex_cn|default:'男'#}" />
-			  <div class="input_radio{#if $userprofile.sex==1||$userprofile.sex==''#} select{#/if#}" id="1">男</div>
-			  <div class="input_radio{#if $userprofile.sex==2#} select{#/if#}" id="2">女</div>			  
+			  <div class="input_radio{#if $userprofile.sex==1||$userprofile.sex==''#} select{#/if#}" id="1">男性</div>
+			  <div class="input_radio{#if $userprofile.sex==2#} select{#/if#}" id="2">女性</div>			  
 			  <div class="clear"></div>
 			  </div>
 		    </td>
@@ -361,7 +361,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">所学专业</span>：</td>
 			<td style="position:relative;z-index:2;">
 				<div style="position:relateve;">
-			 	 	<div id="majorText" class="input_text_200_bg ucc-default">{#if $userprofile.major#}{#$userprofile.major_cn#}{#else#}请选择{#/if#}</div>	
+			 	 	<div id="majorText" class="input_text_200_bg ucc-default">{#if $userprofile.major#}{#$userprofile.major_cn#}{#else#}選択してください{#/if#}</div>	
 			 	 	<!-- 所学专业弹出框 -->
 					<div class="aui_outer" id="aui_outer_major">
 						<table class="aui_border">
@@ -426,7 +426,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">手机</span>：</td>
 			<td>
 				{#if $user.mobile_audit=="1"#}
-				{#$user.mobile#}&nbsp;&nbsp;<a href="javascript:;" class="edit_mobile" style="color: #0180cf">修改</a>
+				{#$user.mobile#}&nbsp;&nbsp;<a href="javascript:;" class="edit_mobile" style="color: #0180cf">変更</a>
 				<input name="mobile" id="mobile" type="hidden" class="input_text_200" value="{#$user.mobile#}" />
 				{#else#}
 				<input name="mobile" id="mobile" type="text" class="input_text_200" value="{#$userprofile.phone#}" />
@@ -439,7 +439,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td width="125" align="right"><span class="nec">邮箱</span>：</td>
 			<td>
 				{#if $user.email_audit=="1"#}
-				{#$user.email#}&nbsp;&nbsp;<a href="javascript:;" class="audit_email" style="color: #0180cf">修改</a>
+				{#$user.email#}&nbsp;&nbsp;<a href="javascript:;" class="audit_email" style="color: #0180cf">変更</a>
 				<input name="email" id="email" type="hidden" class="input_text_200" value="{#$user.email#}" />
 				{#else#}
 				<input name="email" id="email" type="text" class="input_text_200" value="{#if $userprofile.email#}{#$userprofile.email#}{#else#}{#$user.email#}{#/if#}" />
@@ -449,23 +449,23 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		</table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" id="displaymorediv">
 		  <tr>
-			<td width="125" align="right">身高：</td>
+			<td width="125" align="right">身長：</td>
 			<td width="220"><input name="height" type="text" class="input_text_200_bgsg" value="{#$userprofile.height#}" /> </td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr class="jobmain">
-			<td width="125" align="right">籍贯：</td>
+			<td width="125" align="right">出身：</td>
 			<td><input name="householdaddress" type="text" class="input_text_200" id="householdaddress"  value="{#$userprofile.householdaddress#}" /> </td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr>
-			<td align="right">婚姻状况：</td>
+			<td align="right">婚姻状況：</td>
 			<td>
 			<div id="marriage_radio">
 			<input name="marriage" id="marriage" type="hidden" value="{#$userprofile.marriage#}" />
 			<input name="marriage_cn" id="marriage_cn" type="hidden" value="{#$userprofile.marriage_cn#}" />
 			  <div class="input_radio{#if $userprofile.marriage==1#} select{#/if#}" id="1">未婚</div>
-			  <div class="input_radio{#if $userprofile.marriage==2#} select{#/if#}" id="2">已婚</div>			  
+			  <div class="input_radio{#if $userprofile.marriage==2#} select{#/if#}" id="2">既婚</div>			  
 			  <div class="clear"></div>
 			  </div>
 		    </td>
@@ -476,7 +476,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" >
 		  <tr>
 			<td width="127" align="right"> </td>
-			<td colspan="2"><input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/></td>
+			<td colspan="2"><input type=“submit” name=“submitsave” id=“submitsave” value=“保存”  class=“but220lan” onclick=“$(window).unbind(‘beforeunload’);”/></td>
 		  </tr>
 		</table>
 	</form>  

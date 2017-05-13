@@ -18,7 +18,7 @@
 			var mypmDialog=dialog(),
 			url = $(this).attr("url");
 			mypmDialog.title('系统提示');
-			mypmDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">删除后无法恢复，您确定要删除吗？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+			mypmDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 		    mypmDialog.width('300');
 		    mypmDialog.showModal();
 		    /* 关闭 */
@@ -36,7 +36,7 @@
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 我的消息</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 私のメッセージ</div>
 
 <div class="usermain">
   <div class="leftmenu com link_bk">
@@ -51,7 +51,7 @@
  	    	<div class="topnav" style="height:62px;margin:0px 15px;">
 			  
 			<div class="titleH1" style="padding-left:5px;">
-				<div class="h1-title">我的消息</div>
+				<div class="h1-title">私のメッセージ</div>
 			</div>
 	  	</div>
 
@@ -59,7 +59,7 @@
 	  		{#if $pms#}
 	  		{#foreach from=$pms item=list#}
 		  <div class="list link_lan userliststyle">
-		  	<div class="title">系统消息<span>({#$list.dateline|date_format:"%Y-%m-%d"#})</span>{#if $list.new=='1'#}<u>[新消息]</u>{#/if#}</div>			
+		  	<div class="title">システムメッセージの<span>({#$list.dateline|date_format:"%Y-%m-%d"#})</span>{#if $list.new=='1'#}<u>[新消息]</u>{#/if#}</div>			
 			<div class="del"><a class="del-pm" href="javascript:;" url="?act=pm_del&pmid={#$list.pmid#}">[删除]</a></div>
 			<div class="clear"></div>
 			<p>{#$list.message#}</p>
@@ -73,7 +73,7 @@
       </table>
       {#/if#}
 		  {#else#}
-		  <div class="emptytip">对不起！没有找到您要的信息！</div>
+		  <div class="emptytip">すみません！あなたが欲しい情報を見つけられませんでした！</div>
 		  {#/if#}
 	  	</div>
 	</div>

@@ -6,20 +6,20 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 正式使用后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。<br />
 </p>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_major_category_save">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="6" cellpadding="0" >
  <tr>
-    <td width="120" align="right">所属分类:</td>
+    <td width="120" align="right">カテゴリー：</td>
     <td>
 	<select name="parentid">
-	  <option value="0" {#if "0"==$category.parentid#}selected="selected"{#/if#}>顶级分类</option>
+	  <option value="0" {#if "0"==$category.parentid#}selected="selected"{#/if#}>トップカテゴリ</option>
 	  {#highway_get_classify set="列表名:major,类型:HW_major,id:0"#}{#foreach from=$major item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$category.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 	  {#highway_get_classify set="列表名:sub_major,类型:HW_major,id:$list.id"#}{#foreach from=$sub_major item=s_list#}
@@ -31,17 +31,17 @@
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">名称:</td>
+    <td width="120" align="right">名前：</td>
     <td><input name="categoryname" type="text" class="input_text_200"  value="{#$category.categoryname#}"/></td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="category_order" type="text" class="input_text_200"  value="{#$category.category_order#}"/></td>
   </tr>
   <tr>
-    <td width="120" align="right">范例:</td>
+    <td width="120" align="right">例：</td>
     <td><textarea name="content" cols="70" rows="7" style="font-size:12px;"/>{#$category.content#}</textarea><br />
-<span style="color:#666666">注：只三级分类添加范例即可</span>
+<span style="color:#666666">注意：3つだけの例が追加分類することができます</span>
     </td>
   </tr>
 </table>

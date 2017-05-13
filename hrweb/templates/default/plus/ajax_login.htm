@@ -134,18 +134,18 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			{#/if#}
 		</div>
 		<div class="auto">
-			<div><input type="checkbox" name="autologin" id="expire" name="expire" value="7" /><span>一周内自动登录</span></div>
-			<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php">忘记密码？</a>
-			<a href="{#$HIGHWAY.site_dir#}user/user_reg.php">免费注册</a>
+			<div><input type="checkbox" name="autologin" id="expire" name="expire" value="7" /><span>一週以内自動ログ</span></div>
+			<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php">パスワードを忘れましたか？</a>
+			<a href="{#$HIGHWAY.site_dir#}user/user_reg.php">無料でサインアップ</a>
 			<div class="clear"></div>
 		</div>
 		<div class="input-box-waiting" id="waiting">
 			正在登录中...
 		</div>
 		<div class="clear"></div>
-		<div class="button"><input type="submit" name="submitlogin" id="login" value="立即登录" class="but_login_335" /></div>
+		<div class="button"><input type="submit" name="submitlogin" id="login" value="すぐ登録” class=“but_login_335" class="but_login_335" /></div>
 		{#if $HIGHWAY.qq_apiopen=="1" || $HIGHWAY.sina_apiopen=="1"  || $HIGHWAY.taobao_apiopen=="1"#}
-		<p>使用合作网站账号登录：</p>
+		<p>パートナーサイトのログインアカウントを使用する：</P>
 		<ul>
 			{#if $HIGHWAY.qq_apiopen=="1"#}
 			<li><a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}"class="qq">QQ</a></li>

@@ -1,59 +1,27 @@
 ﻿<?php
 
-/**
- * Error collection class that enables HTML Purifier to report HTML
- * problems back to the user
- */
 class HTMLPurifier_ErrorCollector
 {
 
-    /**
-     * Identifiers for the returned error array. These are purposely numeric
-     * so list() can be used.
-     */
     const LINENO   = 0;
     const SEVERITY = 1;
     const MESSAGE  = 2;
     const CHILDREN = 3;
 
-    /**
-     * @type array
-     */
     protected $errors;
 
-    /**
-     * @type array
-     */
     protected $_current;
 
-    /**
-     * @type array
-     */
     protected $_stacks = array(array());
 
-    /**
-     * @type HTMLPurifier_Language
-     */
     protected $locale;
 
-    /**
-     * @type HTMLPurifier_Generator
-     */
     protected $generator;
 
-    /**
-     * @type HTMLPurifier_Context
-     */
     protected $context;
 
-    /**
-     * @type array
-     */
     protected $lines = array();
 
-    /**
-     * @param HTMLPurifier_Context $context
-     */
     public function __construct($context)
     {
         $this->locale    =& $context->get('Locale');
@@ -62,11 +30,6 @@ class HTMLPurifier_ErrorCollector
         $this->errors    =& $this->_stacks[0];
     }
 
-    /**
-     * Sends an error message to the collector for later use
-     * @param int $severity Error severity, PHP error style (don't use E_USER_)
-     * @param string $msg Error message text
-     */
     public function send($severity, $msg)
     {
         $args = array();
@@ -157,20 +120,11 @@ class HTMLPurifier_ErrorCollector
         $struct->addError($severity, $msg);
     }
 
-    /**
-     * Retrieves raw error data for custom formatter to use
-     */
     public function getRaw()
     {
         return $this->errors;
     }
 
-    /**
-     * Default HTML formatting implementation for error messages
-     * @param HTMLPurifier_Config $config Configuration, vital for HTML output nature
-     * @param array $errors Errors array to display; used for recursion.
-     * @return string
-     */
     public function getHTMLFormatted($config, $errors = null)
     {
         $ret = array();

@@ -16,9 +16,9 @@
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 头像</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> >写真</div>
 <!-- 进度条 -->
-<div class="photoTrad" id="photoTrad">正在上传，请稍后！</div>
+<div class="photoTrad" id="photoTrad">アップロード中、お待ちください！</div>
 <!-- 进度条 End-->
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -34,15 +34,15 @@
  	    	<div class="topnav">
 			  
 			<div class="titleH1">
-				<div class="h1-title">账号管理</div>
+				<div class="h1-title">アカウント管理</div>
 			</div>
 					
 			<div class="navs link_bk">
-				<a href="?act=userprofile">基本资料</a>
-				  <a href="?act=authenticate">账号安全</a>
-				  <a href="?act=avatars" class="se">我的头像</a>
-				  <a href="?act=pm">我的消息{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
-				   <a href="?act=login_log">登录日志</a>
+				<a href="?act=userprofile">基本情報</a>
+				  <a href="?act=authenticate">アカウントのセキュリティ</a>
+				  <a href="?act=avatars" class="se">マイ写真</a>
+				  <a href="?act=pm">私のメッセージ{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
+				   <a href="?act=login_log">登録日誌</あ>
 				  <div class="clear"></div>
 			</div>
 	  	</div>

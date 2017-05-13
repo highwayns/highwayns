@@ -190,7 +190,7 @@ function run(){
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 安全认证</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 安全認証</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -201,14 +201,14 @@ function run(){
 	  <div class="pwd link_bk">
  	    <div class="topnav">
 		 	<div class="titleH1">
-			  <div class="h1-title">账号管理</div>
+			  <div class="h1-title">アカウント管理</div>
 			</div>
 			<div class="navs link_bk">
-				<a href="?act=userprofile">基本资料</a>
-				  <a href="?act=authenticate" class="se">账号安全</a>
-				  <a href="?act=avatars">我的头像</a>
-				  <a href="?act=pm">我的消息{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
-				   <a href="?act=login_log">登录日志</a>
+				<a href="?act=userprofile">基本情報</a>
+				  <a href="?act=authenticate" class="se">アカウントのセキュリティ</a>
+				  <a href="?act=avatars">マイ写真</a>
+				  <a href="?act=pm">私のメッセージ{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
+				   <a href="?act=login_log">登録日誌</あ>
 				  <div class="clear"></div>
 			</div>
 	  	</div>
@@ -216,10 +216,10 @@ function run(){
 			<div class="my_account">
 				<div class="row rowpdno">
 					<dl>
-						<dt class="field_Key">用户名</dt>
+						<dt class="field_Key">ユーザー名</dtは>
 						<dd class="field_value"><b id="account-newName" class="old-userName">{#$user.username#}</b></dd>
-						<dd class="msg_box">用户名和邮箱都能作为登录{#$HIGHWAY.site_name#}的帐户名。</dd>
-						<dd class="btn"><a id="updateName" title="修改" href="javascript:;">修改</a></dd>
+						<dd class="msg_box">ユーザーとメールボックスは{#$HIGHWAY.site_name#}アカウント名でログインすることができます。</DD>
+						<dd class="btn"><a id = “updateName” title = “変更” href= “JavaScript：;”>修改</a></dd>
 					</dl>
 				</div>
 				<div id="editUserNameBox" class="pwd" style="display:none;">
@@ -235,19 +235,19 @@ function run(){
 						</tr>
 					   <tr>
 						<td align="right"> </td>
-						<td colspan="2"><input type="button" name="usernamesave" id="newusernamesave" value="修改"  class="but220lan"/>
+						<td colspan="2"><input type=“button” name=“usernamesave” id=“newusernamesave” value=“変更”  class=“but220lan”/>
 						</td>
 					  </tr>
 					</table>
 				</div>
 				<div class="row rowpdt">
 					<dl>
-						<dt class="field_Key">密码</dt>
+						<dt class="field_Key">パスワード</dt>
 						<dd class="field_value">
 							<div id="default-pd-level" class="password_level low"><em>最后一次登录时间</em>&nbsp;{#$user.last_login_time|date_format:"%Y-%m-%d %H:%M"#}</div>
 						</dd>
-						<dd class="msg_box">互联网账户存在被盗风险，建议你定期更改密码以保护账户安全。</dd>
-						<dd class="btn"><a id="updatePassword" title="修改" href="javascript:;">修改</a></dd>
+						<dd class="msg_box">インターネットアカウントがリスクを盗まれている、我々はあなたがアカウントのセキュリティを保護するために定期的にパスワードを変更することをお勧めします。</dd>
+						<dd class="btn"><a id=“updatePassword” title=“変更” href=“javascript:;”>修改</a></dd>
 					</dl>
 					<dl>
 						<dt class="field_Key">&nbsp;</dt>
@@ -276,7 +276,7 @@ function run(){
 						</tr>
 					   <tr>
 						<td align="right"> </td>
-						<td colspan="2"><input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/>
+						<td colspan="2"><input type=“submit” name=“submitsave” id=“submitsave” value=“保存”  class=“but220lan” onclick=“$(window).unbind(‘beforeunload’);”/>
 						</td>
 					  </tr>
 					</table>
@@ -335,43 +335,43 @@ function run(){
 				</div>
 				<div class="row rowpdt">
 					<dl>
-						<dt class="field_Key">邮箱</dt>
+						<dt class="field_Key">メールボックス</dt>
 						<dd class="field_value"><b>{#if $user.email#}{#$user.email#}{#else#}未填写{#/if#}</b></dd>
-						<dd class="msg_box">邮箱验证后，可以通过邮箱随时取回账户密码，接收企业面试邀请邮件。</dd>
-						<dd class="btn"><a class="audit_email" title="{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;">{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}</a></dd>
+						<dd class="msg_box">確認メールの後、あなたは常にビジネスの面接を受けるために、メール、招待メールでアカウントのパスワードを取得することができます。</dd>
+						<dd class="btn"><a class=“audit_email” title=“{#if $user.email_audit==“1”#}修正{#else#}検証{#/if#}” href=“javascript:;”>{#if $user.email_audit=="1"#}修改{#else#}验证{#/if#}</a></dd>
 					</dl>
 					<dl>
 						<dt class="field_Key">&nbsp;</dt>
 						<dd class="field_value">
 							{#if $user.email_audit=="1"#}
-							<div class="verified"><i></i>已验证</div>
+							<div class="verified"><i></i>確認済み</div>
 							{#else#}
-							<div id="fieldValPhone" class="unverified"><i></i>未验证</div>
+							<div id="fieldValPhone" class="unverified"><i></i>未検証</div>
 							{#/if#}
 						</dd>													
 					</dl>
 				</div>
 				<div class="row rowpdt">
 					<dl>
-						<dt class="field_Key">手机</dt>
+						<dt class="field_Key">電話番号</dt>
 						<dd class="field_value"><b>{#if $user.mobile#}{#$user.mobile#}{#else#}未填写{#/if#}</b></dd>
-						<dd class="msg_box">手机验证后，可以通过手机随时取回账户密码，接收企业面试邀请短信。</dd>
-						<dd class="btn"><a class="{#if $user.mobile_audit=="1"#}edit_mobile{#else#}audit_mobile{#/if#}" title="{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}" href="javascript:;">{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}</a></dd>
+						<dd class="msg_box">電話確認した後、あなたは常にテキストメッセージビジネス面接の招待状を受け取るために電話でアカウントのパスワードを取得することができます。</DD>
+						<dd class="btn"><a class=“{#if $user.mobile_audit==“1”#}edit_mobile{#else#}audit_mobile{#/if#}” title=“{#if $user.mobile_audit==“1”#}変更{#else#}検証#/if#}” href=“javascript:;”>{#if $user.mobile_audit=="1"#}修改{#else#}验证{#/if#}</a></dd>
 					</dl>
 					<dl>
 						<dt class="field_Key">&nbsp;</dt>							
 						<dd class="field_value ">
 							{#if $user.mobile_audit=="1"#}
-							<div class="verified"><i></i>已验证</div>
+							<div class="verified"><i></i>確認済み</div>
 							{#else#}
-							<div id="fieldValPhone" class="unverified"><i></i>未验证</div>
+							<div id="fieldValPhone" class="unverified"><i></i>未検証</div>
 							{#/if#}
 						</dd>				
 					</dl>
 				</div>
 				<div class="row binding rownb rowpdt">
 					<dl class="clearfix">
-						<dt class="field_Key">账号绑定</dt>
+						<dt class="field_Key">アカウント結合</dt>
 						<dd class="field_value">
 							<ul class="clearfix">
 								<!-- 微博绑定 -->
@@ -402,13 +402,13 @@ function run(){
 									<div class="con">
 										<div class="f-left"><img src="{#$HIGHWAY.site_template#}images/wx_showmsg.jpg"></div>
 										<div class="f-right tex">
-											确定要解除与<span class="co">新浪微博</span>的绑定吗?<br>如果解除绑定，你将无法使用新浪微博帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
+											确定要解除与<span class="co">Weibo </span>的绑定吗?<br>如果解除绑定，你将无法使用新浪微博帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
 										</div>
 										<div class="clear"></div>
 									</div>
 									<div class="sclosePd">
-										<a class="sclose f-left" id="bind_sina_true" uid="{#$user.uid#}" href="javascript:;">确认</a>
-										<a class="sclose f-left sclosem" href="javascript:;">取消</a>
+										<a class="sclose f-left" id="bind_sina_true" uid="{#$user.uid#}" href="javascript:;">確認</a>
+										<a class="sclose f-left sclosem" href="javascript:;">キャンセル</a>
 									</div>
 								</div>
 								{#/if#}
@@ -441,13 +441,13 @@ function run(){
 									<div class="con">
 										<div class="f-left"><img src="{#$HIGHWAY.site_template#}images/wx_showmsg.jpg"></div>
 										<div class="f-right tex">
-											确定要解除与<span class="co">腾讯QQ</span>的绑定吗?<br>如果解除绑定，你将无法使用腾讯QQ帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
+											确定要解除与<span class="co">テンセントQQ </span>的绑定吗?<br>如果解除绑定，你将无法使用腾讯QQ帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
 										</div>
 										<div class="clear"></div>
 									</div>
 									<div class="sclosePd">
-										<a class="sclose f-left" id="bind_qq_true" uid="{#$user.uid#}" href="javascript:;">确认</a>
-										<a class="sclose f-left sclosem" href="javascript:;">取消</a>
+										<a class="sclose f-left" id="bind_qq_true" uid="{#$user.uid#}" href="javascript:;">確認</a>
+										<a class="sclose f-left sclosem" href="javascript:;">キャンセル</a>
 									</div>
 								</div>
 								{#/if#}
@@ -482,7 +482,7 @@ function run(){
 										<td align="center">{#$qrcode_img#}</td>
 										</tr>
 										<tr>
-										<td align="center">请用微信扫描上方二维码，在打开的页面中点击“关注”</td>
+										<td align="center">wechatコードをスキャンしてください、ページの気に入りをクリックして</td>
 										</tr>
 									</table>
 						  		</div>
@@ -516,13 +516,13 @@ function run(){
 									<div class="con">
 										<div class="f-left"><img src="{#$HIGHWAY.site_template#}images/wx_showmsg.jpg"></div>
 										<div class="f-right tex">
-											确定要解除与<span class="co">淘宝账号</span>的绑定吗?<br>如果解除绑定，你将无法使用淘宝账号帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
+											确定要解除与<span class="co">淘宝網のアカウント</span>的绑定吗?<br>如果解除绑定，你将无法使用淘宝账号帐号直接登录{#$HIGHWAY.site_name#}。确定并继续吗?
 										</div>
 										<div class="clear"></div>
 									</div>
 									<div class="sclosePd">
-										<a class="sclose f-left" id="bind_taobao_true" uid="{#$user.uid#}" href="javascript:;">确认</a>
-										<a class="sclose f-left sclosem" href="javascript:;">取消</a>
+										<a class="sclose f-left" id="bind_taobao_true" uid="{#$user.uid#}" href="javascript:;">確認</a>
+										<a class="sclose f-left sclosem" href="javascript:;">キャンセル</a>
 									</div>
 								</div>
 								{#/if#}
@@ -532,7 +532,7 @@ function run(){
 					</dl>
 					<dl class="clearfix">
 						<dt class="field_Key">&nbsp;</dt>
-						<dd class="field_value remark">绑定第三方账号后，你可以用绑定账号直接登录{#$HIGHWAY.site_name#}，便于账号密码记忆。</dd>
+						<dd class="field_value remark">サードパーティのアカウントを結合した後、そのアカウントのパスワードを覚えやすい、アカウントを{#$HIGHWAY.site_name#}結合することによって、直接ログインすることができます。</dd>
 					</dl>
 				</div>
 			</div>

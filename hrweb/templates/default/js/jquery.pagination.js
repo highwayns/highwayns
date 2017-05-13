@@ -1,13 +1,4 @@
-﻿/**
- * This jQuery plugin displays pagination links inside the selected elements.
- *
- * @author Gabriel Birke (birke *at* d-scribe *dot* de)
- * @version 1.1
- * @param {int} maxentries Number of entries to paginate
- * @param {Object} opts Several options (see README for documentation)
- * @return {Object} jQuery Object
- */
-jQuery.fn.pagination = function(maxentries, opts){
+﻿jQuery.fn.pagination = function(maxentries, opts){
 	opts = jQuery.extend({
 		items_per_page:10,
 		num_display_entries:10,
@@ -23,18 +14,10 @@ jQuery.fn.pagination = function(maxentries, opts){
 	},opts||{});
 	
 	return this.each(function() {
-		/**
-		 * Calculate the maximum number of pages
-		 */
 		function numPages() {
 			return Math.ceil(maxentries/opts.items_per_page);
 		}
 		
-		/**
-		 * Calculate start and end point of pagination links depending on 
-		 * current_page and num_display_entries.
-		 * @return {Array}
-		 */
 		function getInterval()  {
 			var ne_half = Math.ceil(opts.num_display_entries/2);
 			var np = numPages();
@@ -44,10 +27,6 @@ jQuery.fn.pagination = function(maxentries, opts){
 			return [start,end];
 		}
 		
-		/**
-		 * This is the event handling function for the pagination links. 
-		 * @param {int} page_id The new page number
-		 */
 		function pageSelected(page_id, evt){
 			current_page = page_id;
 			drawLinks();
@@ -63,9 +42,6 @@ jQuery.fn.pagination = function(maxentries, opts){
 			return continuePropagation;
 		}
 		
-		/**
-		 * This function inserts the pagination links into the container element
-		 */
 		function drawLinks() {
 			panel.empty();
 			var interval = getInterval();

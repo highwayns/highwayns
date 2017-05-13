@@ -1,21 +1,10 @@
 ﻿<?php
 
-/**
- * Validates a host according to the IPv4, IPv6 and DNS (future) specifications.
- */
 class HTMLPurifier_AttrDef_URI_Host extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * IPv4 sub-validator.
-     * @type HTMLPurifier_AttrDef_URI_IPv4
-     */
     protected $ipv4;
 
-    /**
-     * IPv6 sub-validator.
-     * @type HTMLPurifier_AttrDef_URI_IPv6
-     */
     protected $ipv6;
 
     public function __construct()
@@ -24,12 +13,6 @@ class HTMLPurifier_AttrDef_URI_Host extends HTMLPurifier_AttrDef
         $this->ipv6 = new HTMLPurifier_AttrDef_URI_IPv6();
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         $length = strlen($string);

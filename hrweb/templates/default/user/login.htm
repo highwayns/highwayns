@@ -148,30 +148,30 @@ $(document).ready(function()
 	</div>
 	<div id="login-box">
 		{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1'#}
-		<div class="weixin-login-box"><a href="javascript:void(0);" class="login-type wx" title="微信登录"></a><!-- pc登录class="pc" --></div> 
+		<div class="weixin-login-box"><a href=“javascript:void(0);” class=“login-type wx” title=“wechatログイン”></a><!-- pc登录class="pc" --></div> 
 		{#/if#}
-		<h1>会员登录</h1>
+		<h1>メンバーログイン</h1>
 		<form action="" id="pcLogin">
-			<div class="login-ver-box tips">公共场所不建议自动登录，以防账号丢失</div>
+			<div class="login-ver-box tips">アカウント損失を防ぐため、公共の場所で自動ログインをお勧めしません</div>
 			<div class="login-ver-box error login_err" style="display: none;"></div>
 			<div class="login-input-item clearfix">
 				<i class="login-icon l-icon-user f-left"></i>
-				<div class="f-left"><input type="text" name="username" id="username" placeholder="用户名/手机/邮箱" class="login-input" /></div>
+				<div class="f-left"><input type="text" name="username" id="username" placeholder=“ユーザー名/携帯/メールボックス” class="login-input" /></div>
 				<div class="input-clear"></div>
 			</div>
 			<div class="login-input-item clearfix">
 				<i class="login-icon l-icon-password f-left"></i>
-				<div class="f-left"><input type="password" name="password" id="password" placeholder="密码" class="login-input" /></div>
+				<div class="f-left"><input type=“password” name=“password” id=“password” placeholder=“パスワード” class=“login-input” /></div>
 			</div>
 			{#if $verify_userlogin=="1"#}
 			<div class="login-input-item lver clearfix">
-				<div class="f-left"><input type="text" class="text span190 text-lg" name="postcaptcha" id="postcaptcha" placeholder="输入右侧验证码" /></div>
-				<div class="login-ver f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+				<div class="f-left"><input type="text" class="text span190 text-lg" name="postcaptcha" id="postcaptcha" placeholder= “コードを右に入力” /></div>
+				<div class="login-ver f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title=“検証コードを変更してください”  border="0" /></div>
 			</div>
 			{#/if#}
 			<div class="auto-login clearfix">
-				<label class="f-left clearfix"><input type="checkbox" name="autologin" id="expire" name="expire" value="7" class="f-left" style="margin-top: 1px;*margin-top: -3px;margin-right: 5px;"/><span class="f-left">7日内自动登录</span></label>
-				<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">忘记密码？</a>
+				<label class="f-left clearfix"><input type="checkbox" name="autologin" id="expire" name="expire" value="7" class="f-left" style="margin-top: 1px;*margin-top: -3px;margin-right: 5px;"/><span class="f-left">7日以内に自動ログイン</span></label>
+				<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">パスワードを忘れましたか？</a>
 			</div>
 			<div class="login-btn-box">
 				<input type="submit" name="submitlogin" id="login" value="登&nbsp;&nbsp;&nbsp;录" class="btn login-submit" />
@@ -179,16 +179,16 @@ $(document).ready(function()
 			</div>
 			{#if $HIGHWAY.qq_apiopen=="1" || $HIGHWAY.sina_apiopen=="1" || $HIGHWAY.taobao_apiopen=="1"#}
 			<div class="cooperation-account">
-				<p>使用合作账号登录</p>
+				<p>共同アカウントのログインを使用します</P>
 				<div class="coop-account">
 					{#if $HIGHWAY.qq_apiopen=="1"#}
 					<a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}"class="qq">QQ</a>
 					{#/if#}
 					{#if $HIGHWAY.sina_apiopen=="1"#}
-					&nbsp;|&nbsp;<a href="{#$HIGHWAY.site_dir#}user/connect_sina.php" class="weibo">新浪微博</a>
+					&nbsp;|&nbsp;<a href="{#$HIGHWAY.site_dir#}user/connect_sina.php" class="weibo">sina </a>
 					{#/if#}
 					{#if $HIGHWAY.taobao_apiopen=="1"#}
-					&nbsp;|&nbsp;<a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php" class="taobao">淘宝</a>
+					&nbsp;|&nbsp;<a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php" class="taobao">taobao網</a>
 					{#/if#}
 				</div>
 			</div>
@@ -197,13 +197,13 @@ $(document).ready(function()
 		{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1'#}
 		<div id="codeLogin">
 			<div class="code-login" id="login_container">{#$qrcode_img#}</div>
-			<p>打开微信扫描二维码</p>
+			<p>オープン二次元コードスキャニングマイクロチャネル</P>
 		</div>
 		{#/if#}
 	</div>
 	<div id="footer">
-	<p>联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}</p>
-	<p>{#$HIGHWAY.site_name#}   Powered by   <a href="http://www.jp.highwayns.com/" target="_blank">74cms v{#$HIGHWAY.version#}</a>   版权所有 | 仿冒必究</p>
+	<p>住所：{#$HIGHWAY.address#}電話：{#$HIGHWAY.bootom_tel#}レコードのサイト：{#$HIGHWAY.icp#} {#$HIGHWAY.statistics#} </P>
+	<p>{#$HIGHWAY.site_name#}   Powered by   <a href="http://jp.highwayns.com/" target="_blank">74cms v{#$HIGHWAY.version#}</a>   著作権所有|偽造禁止</P>
 	<p>{#$HIGHWAY.bottom_other#}</p>
 </div>
 </body>

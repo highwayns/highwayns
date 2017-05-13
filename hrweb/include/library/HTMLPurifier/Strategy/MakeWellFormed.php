@@ -1,68 +1,22 @@
 ﻿<?php
 
-/**
- * Takes tokens makes them well-formed (balance end tags, etc.)
- *
- * Specification of the armor attributes this strategy uses:
- *
- *      - MakeWellFormed_TagClosedError: This armor field is used to
- *        suppress tag closed errors for certain tokens [TagClosedSuppress],
- *        in particular, if a tag was generated automatically by HTML
- *        Purifier, we may rely on our infrastructure to close it for us
- *        and shouldn't report an error to the user [TagClosedAuto].
- */
 class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
 {
 
-    /**
-     * Array stream of tokens being processed.
-     * @type HTMLPurifier_Token[]
-     */
     protected $tokens;
 
-    /**
-     * Current token.
-     * @type HTMLPurifier_Token
-     */
     protected $token;
 
-    /**
-     * Zipper managing the true state.
-     * @type HTMLPurifier_Zipper
-     */
     protected $zipper;
 
-    /**
-     * Current nesting of elements.
-     * @type array
-     */
     protected $stack;
 
-    /**
-     * Injectors active in this stream processing.
-     * @type HTMLPurifier_Injector[]
-     */
     protected $injectors;
 
-    /**
-     * Current instance of HTMLPurifier_Config.
-     * @type HTMLPurifier_Config
-     */
     protected $config;
 
-    /**
-     * Current instance of HTMLPurifier_Context.
-     * @type HTMLPurifier_Context
-     */
     protected $context;
 
-    /**
-     * @param HTMLPurifier_Token[] $tokens
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return HTMLPurifier_Token[]
-     * @throws HTMLPurifier_Exception
-     */
     public function execute($tokens, $config, $context)
     {
         $definition = $config->getHTMLDefinition();
@@ -511,27 +465,6 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
         return $zipper->toArray($token);
     }
 
-    /**
-     * Processes arbitrary token values for complicated substitution patterns.
-     * In general:
-     *
-     * If $token is an array, it is a list of tokens to substitute for the
-     * current token. These tokens then get individually processed. If there
-     * is a leading integer in the list, that integer determines how many
-     * tokens from the stream should be removed.
-     *
-     * If $token is a regular token, it is swapped with the current token.
-     *
-     * If $token is false, the current token is deleted.
-     *
-     * If $token is an integer, that number of tokens (with the first token
-     * being the current one) will be deleted.
-     *
-     * @param HTMLPurifier_Token|array|int|bool $token Token substitution value
-     * @param HTMLPurifier_Injector|int $injector Injector that performed the substitution; default is if
-     *        this is not an injector related operation.
-     * @throws HTMLPurifier_Exception
-     */
     protected function processToken($token, $injector = -1)
     {
         // normalize forms of token
@@ -573,11 +506,6 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
 
     }
 
-    /**
-     * Inserts a token before the current token. Cursor now points to
-     * this token.  You must reprocess after this.
-     * @param HTMLPurifier_Token $token
-     */
     private function insertBefore($token)
     {
         // NB not $this->zipper->insertBefore(), due to positioning
@@ -587,10 +515,6 @@ class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
         return $splice[1];
     }
 
-    /**
-     * Removes current token. Cursor now points to new token occupying previously
-     * occupied space.  You must reprocess after this.
-     */
     private function remove()
     {
         return $this->zipper->delete();

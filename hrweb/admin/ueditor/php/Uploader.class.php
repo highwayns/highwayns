@@ -1,12 +1,5 @@
 ﻿<?php
 
-/**
- * Created by JetBrains PhpStorm.
- * User: taoqili
- * Date: 12-7-18
- * Time: 上午11: 32
- * UEditor编辑器通用上传类
- */
 class Uploader
 {
     private $fileField; //文件域名
@@ -42,12 +35,6 @@ class Uploader
         "ERROR_HTTP_CONTENTTYPE" => "リンクcontentType不正"
     );
 
-    /**
-     * 构造函数
-     * @param string $fileField 表单名称
-     * @param array $config 配置项
-     * @param bool $base64 是否解析base64编码，可省略。若开启，则$fileField代表的是base64编码的字符串表单名
-     */
     public function __construct($fileField, $config, $type = "upload")
     {
         $this->fileField = $fileField;
@@ -61,13 +48,9 @@ class Uploader
             $this->upFile();
         }
 
-        $this->stateMap['ERROR_TYPE_NOT_ALLOWED'] = iconv('unicode', 'gbk', $this->stateMap['ERROR_TYPE_NOT_ALLOWED']);
+        $this->stateMap['ERROR_TYPE_NOT_ALLOWED'] = iconv('unicode', 'utf8', $this->stateMap['ERROR_TYPE_NOT_ALLOWED']);
     }
 
-    /**
-     * 上传文件的主处理方法
-     * @return mixed
-     */
     private function upFile()
     {
         $file = $this->file = $_FILES[$this->fileField];
@@ -123,10 +106,6 @@ class Uploader
         }
     }
 
-    /**
-     * 处理base64编码的图片上传
-     * @return mixed
-     */
     private function upBase64()
     {
         $base64Data = $_POST[$this->fileField];
@@ -164,10 +143,6 @@ class Uploader
 
     }
 
-    /**
-     * 拉取远程图片
-     * @return mixed
-     */
     private function saveRemote()
     {
         $imgUrl = htmlspecialchars($this->fileField);
@@ -235,29 +210,16 @@ class Uploader
 
     }
 
-    /**
-     * 上传错误检查
-     * @param $errCode
-     * @return string
-     */
     private function getStateInfo($errCode)
     {
         return !$this->stateMap[$errCode] ? $this->stateMap["ERROR_UNKNOWN"] : $this->stateMap[$errCode];
     }
 
-    /**
-     * 获取文件扩展名
-     * @return string
-     */
     private function getFileExt()
     {
         return strtolower(strrchr($this->oriName, '.'));
     }
 
-    /**
-     * 重命名文件
-     * @return string
-     */
     private function getFullName()
     {
         //替换日期事件
@@ -288,18 +250,10 @@ class Uploader
         return $format . $ext;
     }
 
-    /**
-     * 获取文件名
-     * @return string
-     */
     private function getFileName () {
         return substr($this->filePath, strrpos($this->filePath, '/') + 1);
     }
 
-    /**
-     * 获取文件完整路径
-     * @return string
-     */
     private function getFilePath()
     {
         $fullname = $this->fullName;
@@ -312,28 +266,16 @@ class Uploader
         return $rootPath . $fullname;
     }
 
-    /**
-     * 文件类型检测
-     * @return bool
-     */
     private function checkType()
     {
         return in_array($this->getFileExt(), $this->config["allowFiles"]);
     }
 
-    /**
-     * 文件大小检测
-     * @return bool
-     */
     private function  checkSize()
     {
         return $this->fileSize <= ($this->config["maxSize"]);
     }
 
-    /**
-     * 获取当前上传成功文件的各项信息
-     * @return array
-     */
     public function getFileInfo()
     {
         return array(

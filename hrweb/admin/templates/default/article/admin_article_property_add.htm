@@ -16,22 +16,22 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 点击“继续添加”按钮，可同时添加多个分类！<br />
 </p>
 </div>
-<div class="toptit">新增属性分类</div>
+<div class="toptit">新しいプロパティの分類</div>
 <form id="form1" name="form1" method="post" action="?act=add_property_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">属性名称:</td>
+    <td width="120" align="right">属性名前:</td>
     <td><input name="categoryname[]" type="text" class="input_text_200"  value="" maxlength=""/></td>
   </tr>
     <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="category_order[]" type="text" class="input_text_200"  value="0" maxlength=""/></td>
   </tr>
 </table>

@@ -1,33 +1,15 @@
 ﻿<?php
 
-/**
- * Validates a number as defined by the CSS spec.
- */
 class HTMLPurifier_AttrDef_CSS_Number extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * Indicates whether or not only positive values are allowed.
-     * @type bool
-     */
     protected $non_negative = false;
 
-    /**
-     * @param bool $non_negative indicates whether negatives are forbidden
-     */
     public function __construct($non_negative = false)
     {
         $this->non_negative = $non_negative;
     }
 
-    /**
-     * @param string $number
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return string|bool
-     * @warning Some contexts do not pass $config, $context. These
-     *          variables should not be used without checking HTMLPurifier_Length
-     */
     public function validate($number, $config, $context)
     {
         $number = $this->parseCDATA($number);

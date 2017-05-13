@@ -1,53 +1,23 @@
 ﻿<?php
 
-/**
- * Takes the contents of blockquote when in strict and reformats for validation.
- */
 class HTMLPurifier_ChildDef_StrictBlockquote extends HTMLPurifier_ChildDef_Required
 {
-    /**
-     * @type array
-     */
     protected $real_elements;
 
-    /**
-     * @type array
-     */
     protected $fake_elements;
 
-    /**
-     * @type bool
-     */
     public $allow_empty = true;
 
-    /**
-     * @type string
-     */
     public $type = 'strictblockquote';
 
-    /**
-     * @type bool
-     */
     protected $init = false;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @return array
-     * @note We don't want MakeWellFormed to auto-close inline elements since
-     *       they might be allowed.
-     */
     public function getAllowedElements($config)
     {
         $this->init($config);
         return $this->fake_elements;
     }
 
-    /**
-     * @param array $children
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array
-     */
     public function validateChildren($children, $config, $context)
     {
         $this->init($config);
@@ -91,9 +61,6 @@ class HTMLPurifier_ChildDef_StrictBlockquote extends HTMLPurifier_ChildDef_Requi
         return $ret;
     }
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     private function init($config)
     {
         if (!$this->init) {

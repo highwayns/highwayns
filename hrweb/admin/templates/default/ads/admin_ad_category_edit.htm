@@ -6,12 +6,12 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
  自定义广告位调用名不可以以 “HW_”开头
 </p>
 </div>
-<div class="toptit">修改广告位：<span style="color:#006699">{#$ad_category.categoryname#}</span></div>
+<div class="toptit">広告場所の変更：<span style=“color:#006699”>{#$ad_category.categoryname#}</span></div>
   <form action="?act=ad_category_edit_save" method="post"  name="form1" id="form1">
      
     <table width="100%" border="0" cellspacing="0" cellpadding="4" class="link_lan"  >
@@ -19,7 +19,7 @@
       <tr>
         <td style=" line-height:220%; color:#666666;"><table width="700" border="0" cellspacing="4" cellpadding="4">
           <tr>
-            <td width="181" align="right">广告位名称：</td>
+            <td width="181" align="right">スロット名：</td>
             <td width="498">
               {#if $ad_category.admin_set=="1"#}
               {#$ad_category.categoryname#}
@@ -29,18 +29,18 @@
             </td>
           </tr>
 		  <tr>
-            <td width="181" align="right">调用名称：</td>
+            <td width="181" align="right">コール名：</td>
             <td width="498">
               {#if $ad_category.admin_set=="1"#}
               {#$ad_category.alias#}
               {#else#}
 			<input name="alias" type="text" class="input_text_200" id="alias" maxlength="50" value="{#$ad_category.alias#}"/>
-           <span style="color: #999999"> 调用名称用于在模板中调用此广告位</span>
+           <span style="color: #999999"> コール名がこの場所テンプレートで広告を呼び出すために使用されている</span>
            {#/if#}
 			</td>
           </tr>
           <tr>
-            <td align="right">所属类型：</td>
+            <td align="right">所属タイプ：</td>
             <td>
               {#if $ad_category.admin_set=="1"#}
               {#$type#}
@@ -62,9 +62,9 @@
 		  </td>
           </tr>
           <tr>
-            <td width="181" align="right">售价：</td>
+            <td width="181" align="right">価格：</td>
             <td width="498"><input name="expense" type="text" class="input_text_200" id="expense" maxlength="5" value="{#$ad_category.expense#}"/> 积分
-           <span style="color: #999999"> 0为免费</span>
+           <span style="color: #999999"> 0無料</span>
       </td>
           </tr>
           <tr>

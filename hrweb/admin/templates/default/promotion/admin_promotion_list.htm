@@ -21,29 +21,29 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统将自动取消到期的企业推广。<br />
 此列表不显示到期、停止、未通过审核等职位的推广信息。<br />
 </p>
 </div>
 <div class="seltpye_x">
-		<div class="left">到期时间</div>	
+		<div class="left">有効期限</div>	
 		<div class="right">
-		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>不限</a>
-		<a href="{#"settr:0"|highway_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>已经到期</a>
-		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>三天内到期</a>
-		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一周内到期</a>
-		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>一月内到期</a>
-		<a href="{#"settr:90"|highway_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>三月内到期</a>
+		<a href="{#"settr:"|highway_parse_url#}" {#if $smarty.get.settr==""#}class="select"{#/if#}>制限なし</a>
+		<a href="{#"settr:0"|highway_parse_url#}" {#if $smarty.get.settr=="0"#}class="select"{#/if#}>期限が切れた</a>
+		<a href="{#"settr:3"|highway_parse_url#}" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>3日以内満期終了</a>
+		<a href="{#"settr:7"|highway_parse_url#}" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>一週以内</a>
+		<a href="{#"settr:30"|highway_parse_url#}" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>1ヶ月以内満期</a>
+		<a href="{#"settr:90"|highway_parse_url#}" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>三ヶ月の有効期限</a>
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 </div>
 <div class="seltpye_x">
-		<div class="left">推广方案</div>	
+		<div class="left">アウトリーチプログラム</div>	
 		<div class="right">
-		<a href="{#"promotionid:"|highway_parse_url#}" {#if $smarty.get.promotionid==""#}class="select"{#/if#}>不限</a>
+		<a href="{#"promotionid:"|highway_parse_url#}" {#if $smarty.get.promotionid==""#}class="select"{#/if#}>制限なし</a>
 		{#foreach from=$cat item=li#}
 		<a href="{#"promotionid:"|cat:$li.cat_id|highway_parse_url#}" {#if $smarty.get.promotionid==$li.cat_id#}class="select"{#/if#}>{#$li.cat_name#}</a>
 		{#/foreach#}
@@ -56,11 +56,11 @@ $(document).ready(function()
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  width="30%" class="admin_list_tit admin_list_first">
-     <label id="chkAll"><input type="checkbox" name="" title="全选/反选" id="chk"/>推广职位</label>	 </td>
-	  <td  width="20%" class="admin_list_tit">所属公司</td>
-	  <td  align="center"  class="admin_list_tit">会员ID</td>
-      <td align="center"  class="admin_list_tit">开始时间</td>
-      <td  align="center"  class="admin_list_tit">到期时间</td>	  
+     <label id="chkAll"><input type="checkbox" name="" title=“全部選択/逆選択” id="chk"/>推广职位</label>	 </td>
+	  <td  width="20%" class="admin_list_tit">所属会社</td>
+	  <td  align="center"  class="admin_list_tit">会員ID </td>
+      <td align="center"  class="admin_list_tit">開始時刻</td>
+      <td  align="center"  class="admin_list_tit">有効期限</td>	  
       <td width="10%" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$list item=list#}
@@ -98,13 +98,13 @@ $(document).ready(function()
 		无限制
 		{#else#}
 					{#if $list.cp_endtime < $smarty.now#}
-					<span style="color:#FF6600">已经到期</span>
+					<span style="color:#FF6600">期限が切れている</span>
 					{#else#}
 					{#$list.cp_endtime|date_format:"%Y-%m-%d"#}
 					{#/if#}
 		{#/if#}	  </td>	  
       <td align="center"  class="admin_list">
-	  <a href="?act=promotion_edit&id={#$list.cp_id#}">修改</a>
+	  <a href="?act=promotion_edit&id={#$list.cp_id#}">変更</a>
 	  &nbsp;
 	<a href="admin_company.php?act=management&id={#$list.cp_uid#}"  target="_blank" class="userinfo"  id="{#$list.cp_uid#}">管理</a>
 
@@ -113,7 +113,7 @@ $(document).ready(function()
   </table>
   
 	{#if !$list#}
-	<div class="admin_list_no_info">没有任何信息！</div>
+	<div class="admin_list_no_info">メッセージなし！</div>
 	{#/if#}
   </form>
 	
@@ -138,11 +138,11 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="职位名">职位名</li>
-														<li id="2" title="公司名">公司名</li>
-														<li id="3" title="职位ID">职位ID</li>
-														<li id="4" title="公司ID">公司ID</li>
-														<li id="5" title="会员ID">会员ID</li>
+														<li id="1" title="职位名">ポジション名</li>
+														<li id="2" title="公司名">会社名</li>
+														<li id="3" title="职位ID">ジョブID</li>
+														<li id="4" title="公司ID">企業ID</li>
+														<li id="5" title="会员ID">会員ID</li>
 														</ul>
 												</div>
 						</div>				

@@ -6,18 +6,18 @@
   <div class="clear"></div>
 </div>
     <div class="toptip">
-	<h2>提示：</h2>
-	<p>通过友情链接分类可以在多个页面调用不同的友情链接！</p>
+	<h2>ヒント：</h2>
+	<p>リンク分類することで複数のページ内の異なるリンクを呼び出すことができます！</P>
 	</div>
   <form id="form1" name="form1" method="post" action="?act=del_category">
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td width="18%"  class="admin_list_tit admin_list_first" >
-	  <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />分类名称</label></td>
+	  <label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” />分类名称</label></td>
 	       
-            <td class="admin_list_tit">调用名</td>
-		    <td width="15%" align="center"  class="admin_list_tit">类型</td>
+            <td class="admin_list_tit">コール名</td>
+		    <td width="15%" align="center"  class="admin_list_tit">タイプ</td>
             <td width="15%" align="center"   class="admin_list_tit">操作</td>
 	
       </tr>
@@ -32,7 +32,7 @@
             <td  class="admin_list"  >{#$li.c_alias#}</td>
 			<td align="center"  class="admin_list">
 			{#if $li.c_sys=="1"#}
-			<span style="color:#FF6600">系统分类</span>
+			<span style="color:#FF6600">システム分類</span>
 			{#else#}
 			自定义分类
 			{#/if#}
@@ -42,9 +42,9 @@
 		{#if $li.c_sys=="1"#}
 			修改&nbsp;&nbsp;&nbsp;删除
 			{#else#}
-			<a href="?act=category_edit&alias={#$li.c_alias#}">修改</a>
+			<a href="?act=category_edit&alias={#$li.c_alias#}">変更</a>
 		&nbsp;&nbsp;&nbsp;
-		<a href="?act=del_category&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">删除</a>
+		<a href="?act=del_category&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">削除</a>
 			{#/if#}
 	</td>
 	

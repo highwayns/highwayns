@@ -194,7 +194,7 @@ elseif($act=="jobs_add_save")
 		report_deal($_SESSION['uid'],$points_rule['jobs_daily']['type'],$points_day);
 		$user_points=get_user_points($_SESSION['uid']);
 		$operator=$points_rule['jobs_daily']['type']=="1"?"+":"-";
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"配布職位:<strong>{$_POST['jobs_name']}</strong>，有效期限は$_POST['days']}日，({$operator}{$points_day})，(残る:{$user_points})",1,1001,"職位配布","{$operator}{$points_day}","{$user_points}");
+		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"配布職位:<strong>{$_POST['jobs_name']}</strong>，有效期限は{$_POST['days']}日，({$operator}{$points_day})，(残る:{$user_points})",1,1001,"職位配布","{$operator}{$points_day}","{$user_points}");
 		}
 	}	
 	elseif ($add_mode=='2')

@@ -6,16 +6,16 @@
   <div class="clear"></div>
 </div>
     <div class="toptip">
-	<h2>提示：</h2>
-	<p>火车头采集规则请到论坛下载！</p>
+	<h2>ヒント：</h2>
+	<p>機関車コレクションのルールはフォーラムにダウンロードに行きます！</p>
 	</div>
 	
    <form action="?act=set_save" method="post"  name="form1" id="form1">
    {#$inputtoken#}
-  <div class="toptit">资讯采集设置</div>
+  <div class="toptit">情報収集設定</div>
     <table width="700" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px; margin-top:10px;">
       <tr>
-        <td width="180" align="right">默认显示状态：</td>
+        <td width="180" align="right">デフォルトの表示状態：</td>
         <td ><label >
           <input name="article_display" type="radio" id="article_display" value="1"  {#if $show.article_display=="1"#}checked="checked"{#/if#}/>
           显示</label>
@@ -25,7 +25,7 @@
             不显示 </label></td>
       </tr>
       <tr>
-        <td align="right">默认属性：</td>
+        <td align="right">デフォルトの属性：</td>
         <td>
 		{#highway_news_property set="列表名:property"#}
 		{#foreach from=$property item=list#}

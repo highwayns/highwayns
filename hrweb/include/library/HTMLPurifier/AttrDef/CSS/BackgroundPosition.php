@@ -38,20 +38,11 @@
 // control freaks may appreciate the ability to convert these to
 // percentages or something, but it's not necessary
 
-/**
- * Validates the value of background-position.
- */
 class HTMLPurifier_AttrDef_CSS_BackgroundPosition extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * @type HTMLPurifier_AttrDef_CSS_Length
-     */
     protected $length;
 
-    /**
-     * @type HTMLPurifier_AttrDef_CSS_Percentage
-     */
     protected $percentage;
 
     public function __construct()
@@ -60,12 +51,6 @@ class HTMLPurifier_AttrDef_CSS_BackgroundPosition extends HTMLPurifier_AttrDef
         $this->percentage = new HTMLPurifier_AttrDef_CSS_Percentage();
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         $string = $this->parseCDATA($string);

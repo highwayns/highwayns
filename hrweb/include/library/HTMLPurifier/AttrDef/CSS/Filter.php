@@ -1,15 +1,7 @@
 ﻿<?php
 
-/**
- * Microsoft's proprietary filter: CSS property
- * @note Currently supports the alpha filter. In the future, this will
- *       probably need an extensible framework
- */
 class HTMLPurifier_AttrDef_CSS_Filter extends HTMLPurifier_AttrDef
 {
-    /**
-     * @type HTMLPurifier_AttrDef_Integer
-     */
     protected $intValidator;
 
     public function __construct()
@@ -17,12 +9,6 @@ class HTMLPurifier_AttrDef_CSS_Filter extends HTMLPurifier_AttrDef
         $this->intValidator = new HTMLPurifier_AttrDef_Integer();
     }
 
-    /**
-     * @param string $value
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($value, $config, $context)
     {
         $value = $this->parseCDATA($value);

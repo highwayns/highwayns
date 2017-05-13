@@ -6,13 +6,13 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 系统内置方案不能删除<br />
 会员申请推广方案后，系统将自动开通，到期后自动下架。
 </p>
 </div>
-<div class="toptit">修改方案：<span style="color:#006699">{#$show.cat_name#}</span></div>
+<div class="toptit">修改プラン：<span style=“color:#006699”>{#$show.cat_name#}</span></div>
   <form action="?act=edit_category_save" method="post"  name="form1" id="form1">
      {#$inputtoken#}
     <table width="100%" border="0" cellspacing="0" cellpadding="4" class="link_lan"  >
@@ -20,13 +20,13 @@
       <tr>
         <td style=" line-height:220%; color:#666666;"><table width="100%" border="0" cellspacing="4" cellpadding="4">
           <tr>
-            <td width="120" align="right">方案名称：</td>
+            <td width="120" align="right">プログラム名：</td>
             <td><input name="cat_name" type="text" class="input_text_200"   maxlength="15" value="{#$show.cat_name#}"/>
-			<span class="admin_note">方案名称尽量控制在5个字符左右</span>
+			<span class="admin_note">約5文字でプログラム名を制御しよう</span>
 			</td>
           </tr>
 		        <tr>
-            <td align="right">状态：</td>
+            <td align="right">ステータス：</td>
             <td>
 			 <label><input type="radio" name="cat_available" value="1" {#if $show.cat_available=="1" || $show.cat_available==""#}checked="checked"{#/if#}/>正常</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -36,36 +36,36 @@
 		  </td>
           </tr>
 		  <tr>
-            <td align="right">推广天数最少：</td>
+            <td align="right">推奨日最低限：</td>
             <td>
 			<input name="cat_minday" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_minday#}"/>天
-           <span class="admin_note"> “0”为不限制</span>
+           <span class="admin_note"> ”0”は制限なし</span>
 		   </td>
           </tr>
     
 	 <tr>
-            <td align="right">推广天数最多：</td>
+            <td align="right">プロモーション日数最多</td：>
             <td>
 			<input name="cat_maxday" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_maxday#}"/>天
-           <span class="admin_note"> “0”为不限制</span>
+           <span class="admin_note"> ”0”は制限なし</span>
 		   </td>
           </tr>
 	 <tr>
-            <td align="right">推广期每天消耗积分：</td>
+            <td align="right">日々の消費ポイントの推進：</td>
             <td>
 			<input name="cat_points" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_points#}"/>点
-           <span class="admin_note"> “0”不消耗</span>
+           <span class="admin_note"> 「0」が消費されていない</span>
 		   </td>
           </tr>
 		   <tr>
-            <td align="right">方案排序：</td>
+            <td align="right">方案順番：</td>
             <td>
 			<input name="cat_order" type="text" class="input_text_200"   maxlength="3" value="{#$show.cat_order#}"/>
-           <span class="admin_note"> 数字越大，排序越靠前</span>
+           <span class="admin_note"> 数字が大きければ、前方の順序へ行けます</span>
 		   </td>
           </tr>
 		   <tr>
-            <td align="right" valign="top">方案说明：</td>
+            <td align="right" valign="top">プログラムの説明：</td>
             <td>
 <link rel="stylesheet" href="kindeditor/themes/default/default.css" />
 <script charset="utf-8" src="kindeditor/kindeditor-min.js"></script>

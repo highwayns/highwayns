@@ -212,34 +212,34 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
         <table>
           <tbody>
             <tr>
-              <td>招聘职位：</td>
+              <td>求人仕事：</td>
               <td><input type="text" class="input_text_300" name="jobname" id="jobname" maxlength="20" /></td>
             </tr>
             <tr>
-              <td>招聘人数：</td>
-              <td><input type="text" class="input_text_155" name="amount" id="amount" maxlength="3" /><span>填写数字，0代表若干</span></td>
+              <td>雇用人数：</td>
+              <td><input type="text" class="input_text_155" name="amount" id="amount" maxlength="3" /><span>数字を記入し、0 は多少である</span></td>
             </tr>
             <tr>
-              <td>公司名称：</td>
+              <td>会社名：</td>
               <td><input type="text" class="input_text_300" name="comname" id="comname" maxlength="20" /></td>
             </tr>
             <tr>
-              <td>联 系 人：</td>
+              <td>連絡先：</td>
               <td><input type="text" class="input_text_300" name="contact" id="contact" maxlength="15" /></td>
             </tr>
             <tr>
-              <td>联系电话：</td>
+              <td>電話：</td>
               <td><input type="text" class="input_text_155" name="tel" id="tel" maxlength="25"  />
                 {#if $HIGHWAY.simple_tel_edit=="0"#}
-                <span>发布后不能修改</span>  
+                <span>リリース後に変更することはできません</span>  
                 {#/if#}
               </td>
             </tr>
             <tr>
-              <td>联系地址：</td>
+              <td>住所：</td>
               <td>
                 <div style="position:relateve;float:left;">
-                <div id="district_menu" class="input_text_100_bg">请选择</div>  
+                <div id="district_menu" class="input_text_100_bg">選択してください</div>  
                 <div class="menu" id="menu1">
                     <ul>
                       {#highway_get_classify  set="类型:HW_district,id:0,列表名:c_distrcit"#}
@@ -253,7 +253,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
                <input name="district_cn" type="hidden" id="district_cnz" value="" />
 
                 <div style="position:relateve;float:left;margin-left:10px;">
-                <div id="sdistrict_menu" class="input_text_100_bg">请选择</div>  
+                <div id="sdistrict_menu" class="input_text_100_bg">選択してください</div>  
                   <div class="menu" id="menu2">
                     <ul>
                     </ul>
@@ -265,27 +265,27 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
               </td>
             </tr>
             <tr>
-              <td>有 效 期：</td>
+              <td>有効期限：</td>
               <td>
-                <label><input type="radio" name="validity" value="7"/><span class="valid">7天</span></label>
-                <label><input type="radio" name="validity" value="15"/><span class="valid">15天</span></label>
-                <label><input type="radio" name="validity" value="30" checked/><span class="valid">30天</span></label>
-                <label><input type="radio" name="validity" value="0"/><span class="valid">长期</span></label>
-                <span>到期后自动删除</span>
+                <label><input type="radio" name="validity" value="7"/><span class="valid">7日</span></label>
+                <label><input type="radio" name="validity" value="15"/><span class="valid">15日</span></label>
+                <label><input type="radio" name="validity" value="30" checked/><span class="valid">30日</span></label>
+                <label><input type="radio" name="validity" value="0"/><span class="valid">長期</span></label>
+                <span>期間満了後に自動的に削除</span>
               </td>
             </tr>
             <tr>
-              <td valign="top">具体要求：</td>
-              <td><textarea name="detailed" id="detailed" class="simpleinput400" style="height:60px;" onblur="if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}" onfocus="if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}">请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息</textarea></td>
+              <td valign="top">具体的な要件：</td>
+              <td><textarea name="detailed" id="detailed" class="simpleinput400" style="height:60px;" onblur="if(this.value==''){this.value='「特定の要件の動員を記入してください以下のような：性別、学歴、年齢、仕事の経験、賃金およびその他の関連情報'}”onfocus="if(this.value=='特定の要件、募集を記入してください：性別、学歴、年齢、仕事の経験、給与治療およびその他の関連情報'）{this.value=''}">请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息</textarea></td>
             </tr>
             <tr>
-              <td>管理密码：</td>
+              <td>管理者パスワード：</td>
               <td><input type="text" class="input_text_155" name="pwd" id="pwd" maxlength="25"/>
               </td>
             </tr>
             {#if $verify_simple=="1"#}
             <tr>
-              <td>验 证 码：</td>
+              <td>コード：</td>
               <td>
                 <div>
                 <div id="imgdiv"></div>
@@ -306,7 +306,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
         </table>
       </div>
       <div class="wei_jobs_tip">
-        <p>1.您当前的IP是：{#$ip#}，请不要发布虚假、违法信息！   </p>
-        <p>2.请妥善保存管理密码，管理密码可用于修改/删除信息！{#if $HIGHWAY.simple_tel_edit=="0"#}联系电话发布后不可修改！{#/if#}</p>
+        <p>1.あなたの現在のIPがある：{#$ip#}、虚偽、不正な情報を公開しないでください！</P>
+        <p>2.パスワード管理を維持し、パスワード管理は、削除/情報を変更するために使用することができます！{#if $HIGHWAY.simple_tel_edit == “0” #}電話公開後に変更することはできません！{#/if#} </P>
       </div>
 </form>

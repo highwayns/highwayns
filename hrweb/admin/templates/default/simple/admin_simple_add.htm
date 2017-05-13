@@ -97,33 +97,33 @@ $("#FormData").validate({
   <div class="clear"></div>
 </div>
 <form action="?act=simple_add_save" method="post"   name="FormData" id="FormData" >
-<div class="toptit">新增微招聘</div>
+<div class="toptit">新しいマイクロ募集</div>
 
   {#$inputtoken#}
 <table width="100%" border="0" cellspacing="8" cellpadding="0">
   <tr>
-    <td width="100" align="right"><strong  style="color:#FF0000">*</strong>招聘职位：</td>
+    <td width="100" align="right"><strong  style="color:#FF0000">*</strong>求人仕事：</td>
     <td><input name="jobname" type="text" class="input_text_200" id="jobname" maxlength="20"></td>
   </tr>
   <tr>
-    <td align="right">招聘人数：</td>
+    <td align="right">雇用人数：</td>
     <td><input name="amount" type="text" id="amount" class="input_text_200" style="width:60px;" value="0" maxlength="3">
-	<span class="admin_note">填写数字，"0"为若干</span>	</td>
+	<span class="admin_note">数字記入，”0”为若干</span>	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>公司名称：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>会社名：</td>
     <td><input name="comname" type="text" class="input_text_200" id="comname" maxlength="20"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系人：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>連絡先：</td>
     <td><input name="contact" type="text" class="input_text_200" id="contact" maxlength="15"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系电话：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>電話：</td>
     <td><input name="tel" type="text" class="input_text_200" id="tel" maxlength="25"></td>
   </tr>
   <tr>
-    <td align="right">联系地址：</td>
+    <td align="right">住所：</td>
     <td>
 		<div>
 		<input type="text" value="请选择"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
@@ -142,8 +142,8 @@ $("#FormData").validate({
 	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>具体要求：</td>
-    <td><textarea name="detailed" id="detailed" class="input_text_400" style="height:60px;" onblur="if(this.value==''){this.value='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'}" onfocus="if(this.value=='请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息'){this.value=''}">请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息</textarea></td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>具体的な要件：</td>
+    <td><textarea name="detailed" id="detailed" class="input_text_400" style="height:60px;" onblur="if(this.value==''){this.value='「の特定の要件の動員を記入してください以下のような：性別、学歴、年齢、仕事の経験、賃金およびその他の関連情報「} " onfocus="if(this.value=='特定の要件、募集を記入してください：性別、学歴、年齢、仕事の経験、給与治療およびその他の関連情報'）{this.value=''}">请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息</textarea></td>
   </tr>
     <tr>
     <td align="right"> </td>
@@ -152,19 +152,19 @@ $("#FormData").validate({
 	</td>
   </tr>
   <tr>
-    <td align="right">有效期：</td>
+    <td align="right">有効期限：</td>
     <td>	
 	<label><input type="radio" name="validity" value="7">7天</label>&nbsp;&nbsp;
 	<label><input type="radio" name="validity" value="15">15天</label>&nbsp;&nbsp;
 	<label><input name="validity" type="radio" value="30" checked>
 	30天</label>&nbsp;&nbsp;
 	<label><input type="radio" name="validity" value="0">长期</label>
-	<span class="simple_note">到期后系统将自动删除</span>	</td>
+	<span class="simple_note">システムの満了後は自動的に削除します</span>	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>管理密码：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>管理者パスワード：</td>
     <td><input name="pwd" type="text" class="input_text_200" id="pwd" style="width:100px;" maxlength="25">
-	<span class="admin_note">管理密码可用于前台修改和删除信息</span>	</td>
+	<span class="admin_note">管理パスワードは情報フロントを変更および削除するために使用することができます</span>	</td>
   </tr>
   <tr>
     <td align="right">&nbsp;</td>

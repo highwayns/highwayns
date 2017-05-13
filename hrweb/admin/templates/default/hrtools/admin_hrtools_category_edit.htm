@@ -5,17 +5,17 @@
 	{#include file="explain/admin_explain_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改分类</div>
+<div class="toptit">分類を変更します</div>
 <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">分类名称:</td>
+    <td width="120" align="right">カテゴリ名：</td>
     <td><input name="c_name" type="text" class="input_text_200"  value="{#$category.c_name#}"/></td>
   </tr>
    <tr>
-    <td width="120" align="right">排序:</td>
+    <td width="120" align="right">並べ替え：</td>
     <td><input name="c_order" type="text" class="input_text_200"  value="{#$category.c_order#}"/></td>
   </tr>
 </table>

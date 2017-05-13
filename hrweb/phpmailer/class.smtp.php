@@ -27,48 +27,15 @@
 '---------------------------------------------------------------------------'
 */
 
-/**
- * PHPMailer - PHP SMTP email transport class
- * NOTE: Designed for use with PHP version 5 and up
- * @package PHPMailer
- * @author Andy Prevost
- * @author Marcus Bointon
- * @copyright 2004 - 2008 Andy Prevost
- * @license http://www.gnu.org/copyleft/lesser.html Distributed under the Lesser General Public License (LGPL)
- * @version $Id: class.smtp.php 444 2009-05-05 11:22:26Z coolbru $
- */
 
-/**
- * SMTP is rfc 821 compliant and implements all the rfc 821 SMTP
- * commands except TURN which will always return a not implemented
- * error. SMTP also provides some utility methods for sending mail
- * to an SMTP server.
- * original author: Chris Ryan
- */
 
 class SMTP {
-  /**
-   *  SMTP server port
-   *  @var int
-   */
   public $SMTP_PORT = 25;
 
-  /**
-   *  SMTP reply line ending
-   *  @var string
-   */
   public $CRLF = "\r\n";
 
-  /**
-   *  Sets whether debugging is turned on
-   *  @var bool
-   */
   public $do_debug;       // the level of debug to perform
 
-  /**
-   *  Sets VERP use on/off (default is off)
-   *  @var bool
-   */
   public $do_verp = false;
 
   /////////////////////////////////////////////////
@@ -79,11 +46,6 @@ class SMTP {
   private $error;     // error if any on the last call
   private $helo_rply; // the reply the server sent to us for HELO
 
-  /**
-   * Initialize the class so that the data is in a known state.
-   * @access public
-   * @return void
-   */
   public function __construct() {
     $this->smtp_conn = 0;
     $this->error = null;
@@ -96,19 +58,6 @@ class SMTP {
   // CONNECTION FUNCTIONS
   /////////////////////////////////////////////////
 
-  /**
-   * Connect to the server specified on the port specified.
-   * If the port is not specified use the default SMTP_PORT.
-   * If tval is specified then a connection will try and be
-   * established with the server for that number of seconds.
-   * If tval is not specified the default is 30 seconds to
-   * try on the connection.
-   *
-   * SMTP CODE SUCCESS: 220
-   * SMTP CODE FAILURE: 421
-   * @access public
-   * @return bool
-   */
   public function Connect($host, $port = 0, $tval = 30) {
     // set the error val to null so there is no confusion
     $this->error = null;
@@ -156,15 +105,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Initiate a TLS communication with the server.
-   *
-   * SMTP CODE 220 Ready to start TLS
-   * SMTP CODE 501 Syntax error (no parameters allowed)
-   * SMTP CODE 454 TLS not available due to temporary reason
-   * @access public
-   * @return bool success
-   */
   public function StartTLS() {
     $this->error = null; # to avoid confusion
 
@@ -201,12 +141,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Performs SMTP authentication.  Must be run after running the
-   * Hello() method.  Returns true if successfully authenticated.
-   * @access public
-   * @return bool
-   */
   public function Authenticate($username, $password) {
     // Start authentication
     fputs($this->smtp_conn,"AUTH LOGIN" . $this->CRLF);
@@ -262,11 +196,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Returns true if connected to a server otherwise false
-   * @access public
-   * @return bool
-   */
   public function Connected() {
     if(!empty($this->smtp_conn)) {
       $sock_status = socket_get_status($this->smtp_conn);
@@ -283,13 +212,6 @@ class SMTP {
     return false;
   }
 
-  /**
-   * Closes the socket and cleans up the state of the class.
-   * It is not considered good to use this function without
-   * first trying to use QUIT.
-   * @access public
-   * @return void
-   */
   public function Close() {
     $this->error = null; // so there is no confusion
     $this->helo_rply = null;
@@ -304,25 +226,6 @@ class SMTP {
   // SMTP COMMANDS
   /////////////////////////////////////////////////
 
-  /**
-   * Issues a data command and sends the msg_data to the server
-   * finializing the mail transaction. $msg_data is the message
-   * that is to be send with the headers. Each header needs to be
-   * on a single line followed by a <CRLF> with the message headers
-   * and the message body being seperated by and additional <CRLF>.
-   *
-   * Implements rfc 821: DATA <CRLF>
-   *
-   * SMTP CODE INTERMEDIATE: 354
-   *     [data]
-   *     <CRLF>.<CRLF>
-   *     SMTP CODE SUCCESS: 250
-   *     SMTP CODE FAILURE: 552,554,451,452
-   * SMTP CODE FAILURE: 451,554
-   * SMTP CODE ERROR  : 500,501,503,421
-   * @access public
-   * @return bool
-   */
   public function Data($msg_data) {
     $this->error = null; // so no confusion is caused
 
@@ -448,18 +351,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Sends the HELO command to the smtp server.
-   * This makes sure that we and the server are in
-   * the same known state.
-   *
-   * Implements from rfc 821: HELO <SP> <domain> <CRLF>
-   *
-   * SMTP CODE SUCCESS: 250
-   * SMTP CODE ERROR  : 500, 501, 504, 421
-   * @access public
-   * @return bool
-   */
   public function Hello($host = '') {
     $this->error = null; // so no confusion is caused
 
@@ -485,11 +376,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Sends a HELO/EHLO command.
-   * @access private
-   * @return bool
-   */
   private function SendHello($hello, $host) {
     fputs($this->smtp_conn, $hello . " " . $host . $this->CRLF);
 
@@ -516,20 +402,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Starts a mail transaction from the email address specified in
-   * $from. Returns true if successful or false otherwise. If True
-   * the mail transaction is started and then one or more Recipient
-   * commands may be called followed by a Data command.
-   *
-   * Implements rfc 821: MAIL <SP> FROM:<reverse-path> <CRLF>
-   *
-   * SMTP CODE SUCCESS: 250
-   * SMTP CODE SUCCESS: 552,451,452
-   * SMTP CODE SUCCESS: 500,501,421
-   * @access public
-   * @return bool
-   */
   public function Mail($from) {
     $this->error = null; // so no confusion is caused
 
@@ -562,17 +434,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Sends the quit command to the server and then closes the socket
-   * if there is no error or the $close_on_error argument is true.
-   *
-   * Implements from rfc 821: QUIT <CRLF>
-   *
-   * SMTP CODE SUCCESS: 221
-   * SMTP CODE ERROR  : 500
-   * @access public
-   * @return bool
-   */
   public function Quit($close_on_error = true) {
     $this->error = null; // so there is no confusion
 
@@ -614,18 +475,6 @@ class SMTP {
     return $rval;
   }
 
-  /**
-   * Sends the command RCPT to the SMTP server with the TO: argument of $to.
-   * Returns true if the recipient was accepted false if it was rejected.
-   *
-   * Implements from rfc 821: RCPT <SP> TO:<forward-path> <CRLF>
-   *
-   * SMTP CODE SUCCESS: 250,251
-   * SMTP CODE FAILURE: 550,551,552,553,450,451,452
-   * SMTP CODE ERROR  : 500,501,503,421
-   * @access public
-   * @return bool
-   */
   public function Recipient($to) {
     $this->error = null; // so no confusion is caused
 
@@ -657,18 +506,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Sends the RSET command to abort and transaction that is
-   * currently in progress. Returns true if successful false
-   * otherwise.
-   *
-   * Implements rfc 821: RSET <CRLF>
-   *
-   * SMTP CODE SUCCESS: 250
-   * SMTP CODE ERROR  : 500,501,504,421
-   * @access public
-   * @return bool
-   */
   public function Reset() {
     $this->error = null; // so no confusion is caused
 
@@ -701,22 +538,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * Starts a mail transaction from the email address specified in
-   * $from. Returns true if successful or false otherwise. If True
-   * the mail transaction is started and then one or more Recipient
-   * commands may be called followed by a Data command. This command
-   * will send the message to the users terminal if they are logged
-   * in and send them an email.
-   *
-   * Implements rfc 821: SAML <SP> FROM:<reverse-path> <CRLF>
-   *
-   * SMTP CODE SUCCESS: 250
-   * SMTP CODE SUCCESS: 552,451,452
-   * SMTP CODE SUCCESS: 500,501,502,421
-   * @access public
-   * @return bool
-   */
   public function SendAndMail($from) {
     $this->error = null; // so no confusion is caused
 
@@ -748,19 +569,6 @@ class SMTP {
     return true;
   }
 
-  /**
-   * This is an optional command for SMTP that this class does not
-   * support. This method is here to make the RFC821 Definition
-   * complete for this class and __may__ be implimented in the future
-   *
-   * Implements from rfc 821: TURN <CRLF>
-   *
-   * SMTP CODE SUCCESS: 250
-   * SMTP CODE FAILURE: 502
-   * SMTP CODE ERROR  : 500, 503
-   * @access public
-   * @return bool
-   */
   public function Turn() {
     $this->error = array("error" => "This method, TURN, of the SMTP ".
                                     "is not implemented");
@@ -770,11 +578,6 @@ class SMTP {
     return false;
   }
 
-  /**
-  * Get the current error
-  * @access public
-  * @return array
-  */
   public function getError() {
     return $this->error;
   }
@@ -783,15 +586,6 @@ class SMTP {
   // INTERNAL FUNCTIONS
   /////////////////////////////////////////////////
 
-  /**
-   * Read in as many lines as possible
-   * either before eof or socket timeout occurs on the operation.
-   * With SMTP we can tell if we have more lines to read if the
-   * 4th character is '-' symbol. If it is a space then we don't
-   * need to read anything else.
-   * @access private
-   * @return string
-   */
   private function get_lines() {
     $data = "";
     while($str = @fgets($this->smtp_conn,515)) {

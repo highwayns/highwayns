@@ -6,18 +6,18 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-<h2>提示：</h2>
+<h2>ヒント：</h2>
 <p>
 通过管理员设置，您可以进行编辑管理员资料、权限、密码以及删除管理员等操作；
 </p>
 </div> 
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan">
     <tr>
-      <td class="admin_list_tit admin_list_first">用户名</td>
-      <td  class="admin_list_tit">头衔</td>
-      <td  class="admin_list_tit">创建时间</td>
-      <td  class="admin_list_tit">最后登录时间</td>
-      <td  class="admin_list_tit">最后登录ip</td>
+      <td class="admin_list_tit admin_list_first">ユーザー名</td>
+      <td  class="admin_list_tit">title</td>
+      <td  class="admin_list_tit">創立時間</td>
+      <td  class="admin_list_tit">最終ログイン時間</td>
+      <td  class="admin_list_tit">最終ログインIP </td>
       <td width="230" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	 {#foreach from=$list item=li#}
@@ -34,16 +34,16 @@
 	  </td>
       <td   class="admin_list">{#$li.last_login_ip#}</td>
       <td   class="admin_list">
-	  <a href="?act=loglist&adminname={#$li.admin_name#}" >管理员日志</a>
+	  <a href="?act=loglist&adminname={#$li.admin_name#}" >管理者日誌</a>
 		&nbsp;&nbsp;
-		<a href="?act=users_set&id={#$li.admin_id#}">权限</a>
+		<a href="?act=users_set&id={#$li.admin_id#}">権限</a>
 		&nbsp;&nbsp;
-		<a href="?act=edit_users&id={#$li.admin_id#}" >详情</a>
+		<a href="?act=edit_users&id={#$li.admin_id#}" >詳細</a>
 		&nbsp;&nbsp;
-		<a href="?act=edit_users_pwd&id={#$li.admin_id#}" >密码</a>
+		<a href="?act=edit_users_pwd&id={#$li.admin_id#}" >パスワード</a>
 		{#if $admin_purview=="all"#}
 		&nbsp;&nbsp;
-		<a href="?act=del_users&id={#$li.admin_id#}&{#$urltoken#}" onclick="return confirm('确定要删除吗？')">删除</a>
+		<a href="?act=del_users&id={#$li.admin_id#}&{#$urltoken#}" onclick="return confirm('确定要删除吗？')">削除</a>
 		{#/if#}		
 	  </td>
     </tr>

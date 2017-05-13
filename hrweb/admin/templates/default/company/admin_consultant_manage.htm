@@ -16,24 +16,24 @@ $(document).ready(function()
 </div>
 
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 重置顾问是指：对已有顾问企业会员删除其顾问并进行重新设置。<br />
 </p>
 </div>
 <div class="toptip">
-  <h2>顾问姓名：{#$consultant.name#}&nbsp;&nbsp;&nbsp;&nbsp;顾问QQ：{#$consultant.qq#}</h2>
+  <h2>コンサルタント名：：{#$consultant.name#}&nbsp;&nbsp;&nbsp;&nbsp;顧問QQ：{#$consultant.qq#}</h2>
 </div>
   <form id="form1" name="form1" method="post" action="?act=resetting">
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>用户名</label></td>
+      <label id="chkAll"><input type=“checkbox” name=“ “ title=“全部選択/逆選択” id=“chk”/>用户名</label></td>
       <td  class="admin_list_tit">email</td>
-    <td  class="admin_list_tit">手机</td>
-      <td  class="admin_list_tit">企业信息</td>
-      <td width="13%"   align="center"   class="admin_list_tit">注册时间</td>
-    <td width="13%"   align="center"   class="admin_list_tit">最后登录时间</td>
+    <td  class="admin_list_tit">電話番号</td>
+      <td  class="admin_list_tit">企業情報</td>
+      <td width="13%"   align="center"   class="admin_list_tit">登録</td>
+    <td width="13%"   align="center"   class="admin_list_tit">最終ログイン時間</td>
       <td width="13%"  align="center"  class="admin_list_tit" >操作</td>
     </tr>
   {#foreach from=$members item=list#}
@@ -44,18 +44,18 @@ $(document).ready(function()
     <td class="admin_list">
     {#$list.email#}
     
-    {#if $list.email_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
-    <a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title="发送邮件" /></a>   
+    {#if $list.email_audit=="1"#}<span style="color:#009900">[テスト] </span>{#/if#}
+    <a href="admin_mail.php?act=send&email={#$list.email#}&uid={#$list.uid#}"> <img src="images/email.gif" border="0" title=“メール送信” /></a>   
     </td>
      <td  class="admin_list">
-     {#if $list.mobile#}{#$list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="发送短信" /></a>
+     {#if $list.mobile#}{#$list.mobile#}<a href="admin_sms.php?act=send&mobile={#$list.mobile#}&uid={#$list.uid#}"><img src="images/sms.gif" border="0" title="ショットメッセージ送信" /></a>
 {#else#}未填写{#/if#}
-    {#if $list.mobile_audit=="1"#}<span style="color:#009900">[验]</span>{#/if#}
+    {#if $list.mobile_audit=="1"#}<span style="color:#009900">[テスト] </span>{#/if#}
     </td>
         <td class="admin_list">
     {#if $list.companyname#}
     <a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
-    {#else#}<span style="color: #999999">未完善企业资料</span>
+    {#else#}<span style="color: #999999">企業資料未完成</span>
     {#/if#}
     </td>
     <td align="center" class="admin_list">
@@ -69,7 +69,7 @@ $(document).ready(function()
     {#/if#}
     </td>       
         <td align="center" class="admin_list">
-    <a href="?act=resetting&uid={#$list.uid#}"  id="{#$list.uid#}">重置</a>
+    <a href="?act=resetting&uid={#$list.uid#}"  id="{#$list.uid#}">リセット</a>
     </td>
       </tr>
       {#/foreach#}
@@ -79,7 +79,7 @@ $(document).ready(function()
   <span id="OpPhotoresume"></span>
  </form>
 {#if !$list#}
-<div class="admin_list_no_info">没有任何信息！</div>
+<div class="admin_list_no_info">メッセージなし！</div>
 {#/if#}
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>

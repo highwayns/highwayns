@@ -55,7 +55,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 面试邀请</div>
+<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> > 面接の招待</div>
 	<div class="usermain">
 		<div class="leftmenu com link_bk">
 			{#include file="member_company/left.htm"#}	
@@ -65,9 +65,9 @@
 				<div class="topnav get_resume">
 					<div class="titleH1"><div class="h1-title">面试邀请</div></div>
 					<div class="navs link_bk">
-						<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>所有简历<span class="check">({#$count#})</span></a>
-						<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>对方未查看<span class="no_check">({#$count1#})</span></a>
-						<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>对方已查看<span class="check">({#$count2#})</span></a>
+						<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>すべての履歴書 <span class="check">({#$count#})</span></a>
+						<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>相手未確認<span class="no_check">({#$count1#})</span></a>
+						<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>相手は確認した<span class=“check”>({#$count2#})</span></a>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -75,11 +75,11 @@
 				<div class="company-data-list">
 					<div class="c-data-top interview clearfix">
 						<div class="item f-left check-item"><input type="checkbox" name="chkAll" id="chk" class="checkbox" /></div>
-						<div class="item f-left top-item1">姓名</div>
-						<div class="item f-left top-item2">基本信息</div>
+						<div class="item f-left top-item1">名前</div>
+						<div class="item f-left top-item2">基本情報</div>
 						<div class="item f-left top-item3">
 							<div class="data-filter span2">
-								<span class="filter-span">{#if $smarty.get.jname#}{#$smarty.get.jname#}{#else#}面试职位{#/if#}<i class="filter-icon"></i></span>
+								<span class="filter-span">{#if $smarty.get.jname#}{#$smarty.get.jname#}{#else#}仕事面接{#/if#}<i class="filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="?act={#$act#}&jobsid=&jname=&look={#$smarty.get.look#}">全部职位</a></li>
 									{#foreach from=$filter_jobs item=list#}
@@ -91,7 +91,7 @@
 						<div class="item f-left top-item4">通知内容</div>
 						<div class="item f-left top-item5">
 							<div class="data-filter span4">
-								<span class="filter-span">{#if $smarty.get.look=='1'#}对方未查看{#elseif $smarty.get.look=='2'#}对方已查看{#else#}查看状态{#/if#}<i class="filter-icon"></i></span>
+								<span class="filter-span">{#if $smarty.get.look==‘1’#}相手未確認{#elseif $smarty.get.look==‘2’#}相手確認済み{#else#}見る状態{#/if#}<i class=“filter-icon”></i></span>
 								<ul class="filter-down">
 									<li><a href="?act={#$act#}&jobsid={#$smarty.get.jobsid#}&jname={#$smarty.get.jname#}&look=">全部</a></li>
 									<li><a href="?act={#$act#}&jobsid={#$smarty.get.jobsid#}&jname={#$smarty.get.jname#}&look=2">对方已查看</a></li>
@@ -99,7 +99,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="item f-left top-item6">邀请时间</div>
+						<div class="item f-left top-item6">招待時間</div>
 						<div class="item f-left top-item7">操作</div>
 					</div>
 					{#if $resume#}
@@ -109,9 +109,9 @@
 						<div class="c-data-content interview clearfix">
 							<div class="c-item f-left check-item"><input type="checkbox" name="y_id[]" id="y_id" value="{#$list.did#}" class="checkbox" /></div>
 							<div class="c-item f-left content1"><a href="javascript:;" class="name-link underline">{#$list.resume_name#}</a></div>
-							<div class="c-item f-left content2">{#$list.age#}岁/{#$list.education_cn#}/{#$list.experience_cn#}</div>
+							<div class="c-item f-left content2">{#$List.age#}歳/{#$list.education_cn#}/{#$list.experience_cn#}</div>
 							<div class="c-item f-left content3">{#$list.jobs_name_#}</div>
-							<div class="c-item f-left content4"><a href="javascript:;" notes="{#if $list.notes#}{#$list.notes|nl2br#}{#else#}无面试邀请通知内容{#/if#}" class="data-ctrl underline check-detail">查看</a></div>
+							<div class="c-item f-left content4"><a href="javascript:;" notes="{#if $list.notes#}{#$list.notes|nl2br#}{#else#}面接招待内容なし{#/if#}" class="data-ctrl underline check-detail">查看</a></div>
 							<div class="c-item f-left content5">
 								{#if $list.personal_look=="1"#}
 					   			对方未查看
@@ -126,7 +126,7 @@
 							<i class="arrow"></i>
 							{#if $list.resume_education_list#}
 							<div class="detail-block clearfix">
-								<div class="db-type f-left">教育经历：</div>
+								<div class="db-type f-left">教育経験：</div>
 								<div class="db-content f-left">
 									{#foreach from=$list.resume_education_list item=edu_list#}
 									<p class="db-info"><span>{#$edu_list.startyear#}年{#$edu_list.startmonth#}月-{#$edu_list.endyear#}年{#$edu_list.endmonth#}月</span><span>{#$edu_list.school#}</span><span>{#$edu_list.speciality#}</span><span>{#$edu_list.education_cn#}</span></p>
@@ -136,7 +136,7 @@
 							{#/if#}
 							{#if $list.resume_work_list#}
 							<div class="detail-block clearfix">
-								<div class="db-type f-left">工作经历：</div>
+								<div class="db-type f-left">実務経験：</div>
 								<div class="db-content f-left">
 									{#foreach from=$list.resume_work_list item=w_list#}
 									<p class="db-info"><span>{#$w_list.startyear#}年{#$w_list.startmonth#}月-{#$w_list.endyear#}年{#$w_list.endmonth#}月</span><span>{#$w_list.companyname#}</span><span>{#$w_list.jobs#}</span></p>
@@ -145,7 +145,7 @@
 							</div>
 							{#/if#}
 							<div class="detail-block clearfix">
-								<div class="db-type f-left">求职意向：</div>
+								<div class="db-type f-left">キャリア意向：</div>
 								<div class="db-content f-left">
 									<div class="job-flow"><span>期望工作性质 {#$list.nature_cn#}</span> | <span>期望工作地区 {#$list.district_cn#}</span> | <span>期望薪资 <em>{#$list.wage_cn#}</em></span> | <span>期望职位 {#$list.intention_jobs#}</span> | <span>期望行业 {#$list.trade_cn#}</span></div>
 								</div>
@@ -178,7 +178,7 @@
 						</div>
 					</div>
 					{#else#}
-					<div class="emptytip">您还没有发起过面试邀请！</div>
+					<div class="emptytip">あなたは面接の招待が開始されていません！</div>
 					{#/if#}
 				</div>
 				</form>

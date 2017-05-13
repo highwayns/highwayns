@@ -17,12 +17,12 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" id="list" class="link_lan"  >
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
-      <label id="categorychkAll"><input type="checkbox" name=" " title="全选/反选" id="chk" />用户名
+      <label id="categorychkAll"><input type="checkbox" name=" " title=“全部選択/逆選択” id="chk" />用户名
      </label>
 	 
 	  </td>
 	  <td width="230"   align="center"  class="admin_list_tit">OpenId</td>
-	  <td width="230"   align="center"  class="admin_list_tit">绑定时间</td>
+	  <td width="230"   align="center"  class="admin_list_tit">結合時間</td>
       <td width="260"   align="center" class="admin_list_tit">操作</td>
     </tr>
     {#if $userlist#}
@@ -39,7 +39,7 @@ $(document).ready(function()
 		{#$list.bindingtime|date_format:"%Y-%m-%d"#}
 	  </td>
       <td align="center" class="admin_list">
-			  <a onclick="return confirm('你确定要解除此会员绑定吗？')" href="?act=del_binding&uid={#$list.uid#}&{#$urltoken#}">解除绑定</a>
+			  <a onclick="return confirm('你确定要解除此会员绑定吗？')" href="?act=del_binding&uid={#$list.uid#}&{#$urltoken#}">バインド解除</a>
 			 </td>
     </tr>
       {#/foreach#}

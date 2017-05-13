@@ -43,17 +43,17 @@ $(document).ready(function() {
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 此修改无法影响已经收到消息的用户<br />
 </p>
 </div>
-<div class="toptit">修改消息</div>
+<div class="toptit">変更メッセージ</div>
   <form action="?act=pms_editsave" method="post"   name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="5" cellspacing="0"  class="admin_table">
       <tr>
-        <td width="100" align="right" >接受会员：</td>
+        <td width="100" align="right" >メンバーの受け入れ：</td>
         <td >
 		<label><input name="spms_usertype" type="radio" value="0" {#if $pms.spms_usertype=="0"#}checked="checked"{#/if#} />全部会员</label>
 		&nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		</td>
       </tr>
       <tr>
-        <td align="right" >类型：</td>
+        <td align="right" >タイプ：</td>
         <td >
 		<label><input name="spms_type" type="radio" value="1" {#if $pms.spms_type=="1"#}checked="checked"{#/if#}/>普通消息</label>
 		&nbsp;&nbsp;&nbsp;&nbsp;
@@ -76,7 +76,7 @@ $(document).ready(function() {
       </tr>
 	   
       <tr>
-        <td align="right" valign="top" >消息内容：</td>
+        <td align="right" valign="top" >メッセージ内容：</td>
         <td > <textarea name="message" id="message" style="width:400px; height:150px; font-size:12px; line-height:180%">{#$pms.message#}</textarea></td>
       </tr>
       <tr>

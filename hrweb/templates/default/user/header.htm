@@ -98,7 +98,7 @@
 				<li><a href="{#$list.url#}" target="{#$list.target#}" class="nav-li {#if $list.tag==$page_select && $list.tag!=""#}active{#/if#}">{#$list.title#}</a></li>
 			    {#/foreach#}
 				<li class="nav-list">
-					<a href="javascript:;" class="nav-li">更多<i class="nav-more"></i></a>
+					<a href="javascript:;" class="nav-li">もっと<i class="nav-more"></i></a>
 					<div class="nav-more-drop">
 						<ul class="nav-detail clearfix">
 							{#foreach from=$list_more item=li#}
@@ -110,10 +110,10 @@
 							<li><a href="{#"HW_helplist"|highway_url#}" class="underline f-left">使用帮助</a></li>
 						</ul>
 						<div class="mob-list">
-							<h4>移动互联</h4>
+							<h4>モバイルインターネット</h4>
 							<div class="mob-list-box clearfix">
-								<a href="{#$HIGHWAY.site_dir#}mobile/?type=touch" class="mob-link wap-link f-left" target="_balnk">触屏版</a>
-								<a href="{#$HIGHWAY.site_dir#}mobile/?type=weixin" class="mob-link wechat-link f-left" target="_balnk">微信版</a>
+								<a href="{#$HIGHWAY.site_dir#}mobile/?type=touch" class="mob-link wap-link f-left" target="_balnk">タッチ版</a>
+								<a href="{#$HIGHWAY.site_dir#}mobile/?type=weixin" class="mob-link wechat-link f-left" target="_balnk">マイクロチャネルバージョン</a>
 							</div>
 						</div>
 					</div>
@@ -144,7 +144,7 @@
 							<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="请输入职位名称或企业名称" />
 						</div>
 					</div>
-					<div class="search-submit f-left"><input type="button" name="btnForIndexSearch" id="btnForIndexSearch" value="搜索" class="search-submit" /></div>
+					<div class="search-submit f-left"><input type=“button” name=“btnForIndexSearch” id=“btnForIndexSearch” value=“搜索” class=“search-submit” /></div>
 				</div>
 			</div>
 		</div>

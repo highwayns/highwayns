@@ -243,9 +243,9 @@ $(document).ready(function($) {
 	<div class="container">
 		<div class="step_wrap">
 			<div class="three-step-bar clearfix">
-				<div class="step tstep1 f-left active"><i class="step-icon">1</i>设置登录名</div>
-				<div class="step tstep2 f-left"><i class="step-icon">2</i>填写账户信息</div>
-				<div class="step tstep3 f-left"><i class="step-icon">3</i>注册成功</div>
+				<div class="step tstep1 f-left active"><i class="step-icon">1</i>ログイン設定</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>アカウント情報を入力してください</div>
+				<div class="step tstep3 f-left"><i class="step-icon">3</i>登録成功</div>
 			</div>
 		</div>
 		<!-- 用手机注册 -->
@@ -253,11 +253,11 @@ $(document).ready(function($) {
 		<div class="reg-main clearfix">
 			<div class="reg-left-form f-left">
 				<div class="reg-form-item reg-form-item-w clearfix">
-					<div class="reg-form-type f-left">会员类型</div>
+					<div class="reg-form-type f-left">メンバーの種類</div>
 					<div class="reg-form-content f-left">
 						<div class="member-type-wrap clearfix">
-							<div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>个人</div>
-							<div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企业</div>
+							<div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>パーソナル</div>
+							<div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企業</div>
 						</div>
 					</div>
 				</div>
@@ -265,36 +265,36 @@ $(document).ready(function($) {
 				<!-- 个人 -->
 				<div class="reg-warning">
 					<i class="regw-arrow"><em></em></i>
-					<div class="warlist"><span class="colorfe">1.免费创简历</span> — 注册个人会员，免费创建多份简历</div>
-					<div class="warlist"><span class="colorfe">2.职位海量淘</span> — 网站每天新增大量职位，高薪等你挑</div>
-					<div class="warlist warlist-last"><span class="colorfe">3.简历轻松投</span> — 简历投递无限量，是金子总会发光</div>
+					<div class="warlist"><span class="colorfe">1.免费创简历</span>  - 個人会員登録、複数の履歴書を無料に作成できる</div>
+					<div class="warlist"><span class="colorfe">2.职位海量淘</span>  - 新しいサイトの高賃金の仕事の毎日多数なので、あなたの選択を待つ</div>
+					<div class="warlist warlist-last"><span class="colorfe">3.简历轻松投</span>  - 無制限の履歴書の配信、常に輝いている金</div>
 				</div>
 				<!-- 企业 -->
 				<div class="reg-warning">
 					<i class="regw-arrow regw-arrow-com"><em></em></i>
-					<div class="warlist"><span class="colorfe">1.发布招聘信息</span> — 注册企业会员，轻轻松松招聘人才</div>
-					<div class="warlist"><span class="colorfe">2.收取简历投递</span> — 无限量收取求职者投递的简历</div>
-					<div class="warlist warlist-last"><span class="colorfe">3.多种职位分享</span> — 微信招聘让企业更出色，招人更便捷</div>
+					<div class="warlist"><span class="colorfe">1.发布招聘信息</span>  - 登録会員企業、簡単リクルート</div>
+					<div class="warlist"><span class="colorfe">2.收取简历投递</span>  - 履歴書の受け取ることが無制限</div>
+					<div class="warlist warlist-last"><span class="colorfe">3.多种职位分享</span>  - マイクロチャネル募集企業はの人を募集し、より良いより便利に</div>
 				</div>
 				<!-- 注册提示信息 end-->
 				<!-- 手机注册开始  -->
 				{#if $SMSconfig.open==1#}
 				<form action="?act=reg_step2" id="reg_by_mobile" method="post">
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">手机</div>
+						<div class="reg-form-type f-left">電話番号</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
 						</div>
 						<div class="verification f-left"></div>
 					</div>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">验证码</div>
+						<div class="reg-form-type f-left">PINコード</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="验证码" />
 						</div>
 						<div class="reg-form-other verification f-left">
-							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">获取短信验证码</a>
-							<a id="send_ok" class="btn short-text-btn" style="display: none;"><span id="remainTime"></span>秒后可重新获取</a>
+							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">メッセージ認証コードを取得します</a>
+							<a id="send_ok" class="btn short-text-btn" style="display: none;"><span id="remainTime"></span>秒後改めて受け取る</a>
 						</div>
 					</div>
 					<div class="sms_send_succeed"><label class="ver-success" style="display: inline;">验证码已发送至您的手机，请查收</label></div>
@@ -320,7 +320,7 @@ $(document).ready(function($) {
 				<!-- 邮箱注册开始  -->
 				<form action="?act=reg_step2_email" id="reg_by_email" method="post" {#if $SMSconfig.open==1#}style="display: none;"{#/if#}>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">邮箱</div>
+						<div class="reg-form-type f-left">メールボックス</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="email" id="email" class="text text-lg span350 inputElem" placeholder="请输入您的邮箱" />
 						</div>
@@ -328,12 +328,12 @@ $(document).ready(function($) {
 					</div>
 					{#if $verify_userreg=="1"#}
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">验证码</div>
+						<div class="reg-form-type f-left">PINコード</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
 						</div>
 						<div class="reg-form-other f-left verification" style="padding-left: 20px;">
-							<div class="ver-box f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" /></div>
+							<div class="ver-box f-left"><img src=“{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}” id=“getcode” align=“absmiddle”  style=“cursor:pointer;width: 148px;height: 38px;” title=“ 置き換えるために、このコードをクリックを参照しないでください？”border=“0” /></div>
 						</div>
 					</div>
 					{#/if#}
@@ -360,7 +360,7 @@ $(document).ready(function($) {
 				<div class="reg-form-item special clearfix">
 					<div class="reg-form-type f-left">&nbsp;</div>
 					<div class="reg-form-content f-left">
-						<div class="agree-confirm">您也可以&nbsp;<a class="c" href="javascript:void(0)" id="change_reg_type" reg_type="1">使用邮箱注册>></a></div>
+						<div class="agree-confirm">あなたは&nbsp;<a class="c" href="javascript:void(0)" id="change_reg_type" reg_type="1" >使用邮箱注册>></a></div>
 					</div>
 				</div>
 				{#/if#}
@@ -368,9 +368,9 @@ $(document).ready(function($) {
 		</div>
 		<div class="common-status" style="display: none;padding: 70px 0 50px 0;">
 			<div class="status-main">
-				<span><img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" /></span>还差两步即可完成注册
+				<span><img src=“{#$HIGHWAY.site_template#}images/icon-success.png” alt=“成功” /></span>还差两步即可完成注册
 			</div>
-			<p>我们已经向您的邮箱<span id="send_email"></span>发送了一封激活邮件，请点击邮件中的链接完成注册！</p>
+			<p>私たちは、あなたのメールボックスに<spanID =「send_email」></span>アクティベーションメールを送信され、登録を完了するために、電子メールでリンクをクリックしてください！</P>
 			<div class="status-btn"><a href="#" target="_blank" id="goto_email" email="" class="btn btn-lg blue span2">立即进入邮箱</a></div>
 		</div>
 </div>

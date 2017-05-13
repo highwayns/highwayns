@@ -1,43 +1,16 @@
 ﻿<?php
 
-/*
 
-WARNING: THIS MODULE IS EXTREMELY DANGEROUS AS IT ENABLES INLINE SCRIPTING
-INSIDE HTML PURIFIER DOCUMENTS. USE ONLY WITH TRUSTED USER INPUT!!!
-
-*/
-
-/**
- * XHTML 1.1 Scripting module, defines elements that are used to contain
- * information pertaining to executable scripts or the lack of support
- * for executable scripts.
- * @note This module does not contain inline scripting elements
- */
 class HTMLPurifier_HTMLModule_Scripting extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'Scripting';
 
-    /**
-     * @type array
-     */
     public $elements = array('script', 'noscript');
 
-    /**
-     * @type array
-     */
     public $content_sets = array('Block' => 'script | noscript', 'Inline' => 'script | noscript');
 
-    /**
-     * @type bool
-     */
     public $safe = false;
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         // TODO: create custom child-definition for noscript that
