@@ -30,10 +30,10 @@ if (!file_exists(HIGHWAY_ROOT_PATH.'install/'))
 echo "“install”フォルダーが存在しません！";
 exit();
 }
-if (!is_readable(HIGHWAY_ROOT_PATH.'install/') || !is_writable(HIGHWAY_ROOT_PATH.'install/') || !is_readable(HIGHWAY_ROOT_PATH.'install/compile/') || !is_writable(HIGHWAY_ROOT_PATH.'install/compile/'))
-{
-exit("“install”フォルダー及びサブフォルダー下読み書き状態を（777）に設定して<br />インストール説明をご覧ください！");
-} 
+//if (!is_readable(HIGHWAY_ROOT_PATH.'install/') || !is_writable(HIGHWAY_ROOT_PATH.'install/') || !is_readable(HIGHWAY_ROOT_PATH.'install/compile/') || !is_writable(HIGHWAY_ROOT_PATH.'install/compile/'))
+//{
+//exit("“install”フォルダー及びサブフォルダー下読み書き状態を（777）に設定して<br />インストール説明をご覧ください！");
+//} 
  require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
  require_once(HIGHWAY_ROOT_PATH.'include/template_lite/class.template.php');
  $install_smarty = new Template_Lite();

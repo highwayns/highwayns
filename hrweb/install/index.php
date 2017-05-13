@@ -2,9 +2,9 @@
 define('IN_HIGHWAY', true);
 define('HIGHWAY_PRE','hw_');
 define('HIGHWAY_CHARSET', 'utf-8');
-define('HIGHWAY_DBCHARSET', 'GBK');
+define('HIGHWAY_DBCHARSET', 'utf8');
 require_once(dirname(__FILE__) . '/include/common.inc.php');
-require_once(HIGHWAY_ROOT_PATH . 'include/74cms_version.php');
+require_once(HIGHWAY_ROOT_PATH . 'include/highwayns_version.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '1';
 if(file_exists(HIGHWAY_ROOT_PATH.'data/install.lock')&&$act!='5')
 {
@@ -154,7 +154,7 @@ if($act =="4")
 				$query = str_replace(HIGHWAY_PRE,$pre,$query);
 				if ( $mysql_version >= 4.1 )
 				{
-					mysql_query(str_replace("TYPE=MyISAM", "ENGINE=MyISAM  DEFAULT CHARSET=".HIGHWAY_DBCHARSET,  $query), $db);
+					mysql_query(str_replace("TYPE=InnoDB", "ENGINE=InnoDB  DEFAULT CHARSET=".HIGHWAY_DBCHARSET,  $query), $db);
 				}
 				else
 				{
