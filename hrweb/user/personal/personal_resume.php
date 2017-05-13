@@ -208,7 +208,7 @@ elseif($act=='ajax_get_interest_jobs'){
 					<td width="228"><div class="index-line2"><a href="'.$company_url.'" class="underline com-link">'.$v["companyname"].'</a></div></td>
 					<td width="139"><div class="index-line3">'.$v["district_cn"].'</div></td>
 					<td width="195"><span>'.$v["wage_cn"].'</span></td>
-					<td width="75">2015-06-01</td>
+					<td width="75">2017-06-01</td>
 				</tr>';
 		}
 	}
