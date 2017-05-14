@@ -20,39 +20,40 @@
 		<div class="step">
 			<div class="step_show step_2"></div>
 			<ul>
-				<li class="complete">環境を確認します</li>
-				<li class="complete">パラメーター</li>
-				<li>インストールを開始します。</li>
+				<li class="complete">環境確認</li>
+				<li class="complete">システム設定</li>
+				<li>インストール開始。</li>
 				<li>インストール成功</li>
 				<div class="clear"></div>
+
 			</ul>
 		</div>
 		<form action="index.php?act=4" method="post">
 		<div class="setting">
 			<div class="setting_check">
-				<h3>情報データベースの記入</h3>
+				<h3>データベース情報</h3>
 				<table>
 					<tbody>
 						<tr height="40">
-							<td width="95" align="right">データベースのホスト：</td>
-							<td width="269"><input name="dbhost" id="dbhost" value="localhost" type="text" class="install_input_text" /></td>
-							<td style="color:#999999;">データベースサーバーのアドレス、通常はlocalhost </td>
+							<td width="135" align="right">ホスト：</td>
+							<td width="229"><input name="dbhost" id="dbhost" value="localhost" type="text" class="install_input_text" /></td>
+							<td style="color:#999999;">通常はlocalhost </td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">データベースユーザー名：</td>
-							<td width="269"><input name="dbuser" id="dbuser" type="text" class="install_input_text" /></td>
+							<td width="135" align="right">ユーザー名：</td>
+							<td width="229"><input name="dbuser" id="dbuser" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">データベースパスワード：</td>
-							<td width="269"><input name="dbpass" id="dbpass" type="text" class="install_input_text" /></td>
+							<td width="135" align="right">パスワード：</td>
+							<td width="229"><input name="dbpass" id="dbpass" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">データベース名：</td>
-							<td width="269"><input name="dbname" id="dbname" type="text" class="install_input_text" /></td>
+							<td width="135" align="right">データベース名：</td>
+							<td width="229"><input name="dbname" id="dbname" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">テーブル接頭辞：</td>
-							<td width="269"><input name="pre" id="pre" value="hw_" type="text" class="install_input_text" /></td>
+							<td width="135" align="right">テーブル接頭辞：</td>
+							<td width="229"><input name="pre" id="pre" value="hw_" type="text" class="install_input_text" /></td>
 						</tr>
 					</tbody>
 				</table>
@@ -62,28 +63,28 @@
 				<table>
 					<tbody>
 						<tr height="40">
-							<td width="95" align="right">カストディアン名：</td>
-							<td width="269"><input name="admin_name" id="admin_name" type="text" class="install_input_text" /></td>
+							<td width="135" align="right">ユーザ名：</td>
+							<td width="229"><input name="admin_name" id="admin_name" type="text" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">パスワード：</td>
-							<td width="269"><input name="admin_pwd" id="admin_pwd" type="password" class="install_input_text" /></td>
+							<td width="135" align="right">パスワード：</td>
+							<td width="229"><input name="admin_pwd" id="admin_pwd" type="password" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">パスワードの確認：</td>
-							<td width="269"><input name="admin_pwd1" id="admin_pwd1" type="password" class="install_input_text" /></td>
+							<td width="135" align="right">パスワード確認：</td>
+							<td width="229"><input name="admin_pwd1" id="admin_pwd1" type="password" class="install_input_text" /></td>
 						</tr>
 						<tr height="40">
-							<td width="95" align="right">Eメール：</td>
-							<td width="269"><input name="admin_email" id="admin_email" type="text" class="install_input_text" /></td>
+							<td width="135" align="right">Eメール：</td>
+							<td width="229"><input name="admin_email" id="admin_email" type="text" class="install_input_text" /></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 		<div class="next">
-			<input type="button" value="上一步" class="up" onclick="window.location.href='index.php?act=2';"/>
-			<input type="submit" value="下一步" class="down" onclick="openLayer('op1','tis');"/>
+			<input type="button" value="前へ" class="up" onclick="window.location.href='index.php?act=2';"/>
+			<input type="submit" value="次へ" class="down" onclick="openLayer('op1','tis');"/>
 		</div>
 		</form>
 		<div class="copyright">
