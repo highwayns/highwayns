@@ -37,8 +37,8 @@ jQuery(document).ready(function($) {
 		$('.loginicon').toggle(function(){
 			$('#pcLogin').hide();
 			$('#codeLogin').show();
-			$('#login-box h1').html('微信登录');
-			$(this).attr('title', '用户名登录');
+			$('#login-box h1').html('Wechat登録');
+			$(this).attr('title', 'ユーザ名登録');
 			$(this).removeClass('wx').addClass('pc');
 			{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1' && $smarty.session.username==''#}
 			wxrun = window.setInterval(run, 5000);
@@ -53,8 +53,8 @@ jQuery(document).ready(function($) {
 		}, function(){
 			$('#pcLogin').show();
 			$('#codeLogin').hide();
-			$('#login-box h1').html('会员登录');
-			$(this).attr('title', '微信登录');
+			$('#login-box h1').html('会員登録');
+			$(this).attr('title', 'Wechat登録');
 			$(this).removeClass('pc').addClass('wx');
 			{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1' && $smarty.session.username==''#}
 			window.clearInterval(wxrun);
@@ -82,34 +82,34 @@ jQuery(document).ready(function($) {
 	<div class="complex-main clearfix">
 		<div class="complex-left f-left">
 			<div class="job-sort-wrap">
-				<div class="job-sort-control">全て職種の分類<i class="sotr-icon"></i></div>
+				<div class="job-sort-control">全ての職種<i class="sotr-icon"></i></div>
 				<div class="job-sort-list"></div>
 				<div class="leftmenu_box"></div>
 			</div>
 			<div class="bolck-nav clearfix">
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}jobs" target="_blank">
 					<i class="b-nav-icon icon1"></i>
-					<p>仕事を探す</P>
+					<p>仕事探す</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}resume" target="_blank">
 					<i class="b-nav-icon icon2"></i>
-					<p>人材を探す</P>
+					<p>人材探す</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}user/company/company_jobs.php?act=addjobs" target="_blank">
 					<i class="b-nav-icon icon9"></i>
-					<p>ポストを掲示する</P>
+					<p>ポスト掲示</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#$HIGHWAY.site_dir#}user/personal/personal_resume.php?act=make1" target="_blank">
 					<i class="b-nav-icon icon4"></i>
-					<p>履歴書を作成します</P>
+					<p>履歴書作成</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#"HW_simplelist"|highway_url#}" target="_blank">
 					<i class="b-nav-icon icon5"></i>
-					<p>マイクロ地区</P>
+					<p>サービス</P>
 				</a>
 				<a class="b-nav-item f-left" href="{#"HW_hrtoolsindex"|highway_url#}" target="_blank">
 					<i class="b-nav-icon icon6"></i>
-					<p>hRツール</P>
+					<p>HRツール</P>
 				</a>
 			</div>
 			<div class="news-tab">
@@ -148,17 +148,17 @@ jQuery(document).ready(function($) {
 			<div class="search-wrap clearfix">
 				<div class="search-box f-left">
 					<div class="search-type f-left">
-						<div title="找工作" code="HW_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
-						<div title="找人才" code="HW_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
+						<div title="仕事探す" code="HW_jobslist" data="職位名または企業名" class="search-type-show"><span>仕事探す</span><i class="search-icon"></i></div>
+						<div title="人材探す" code="HW_resumelist" data="履歴書キーワード" class="search-type-drop"><a href="javascript:;">人材探す</a></div>
 					</div>
 					<div class="search-text f-left">
-						<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="请输入职位名称或企业名称" />
+						<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="職位名または企業名を入力してください。" />
 					</div>
 				</div>
 				<div class="search-box f-left">
 					<div class="search-area-box"><input type="text" name="cityForIndexSearch" id="cityForIndexSearch"placeholder= “作業領域を入力してください。” /></div>
 				</div>
-				<div class="search-submit f-left"><input type=“button” name=“btnForIndexSearch” id=“btnForIndexSearch” code=“hW_jobslist” value=“搜索” class=“search-submit” /></div>
+				<div class="search-submit f-left"><input type=“button” name=“btnForIndexSearch” id=“btnForIndexSearch” code=“hW_jobslist” value=“検索” class=“search-submit” /></div>
 				<input type="hidden" name="citycategory" id="citycategory" value="">
 				<!-- 工作地区弹出框 -->
 				<div class="aui_outer" id="aui_outer_city">
@@ -173,9 +173,9 @@ jQuery(document).ready(function($) {
 													<td class="aui_main">
 														<div class="aui_content" style="padding: 0px;">
 															<div class="LocalDataMultiC" style="width:623px;">
-																<div class="selector-header"><span class="selector-title">选择地区</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+																<div class="selector-header"><span class="selector-title">地域選択</span><div></div><span id="ct-selector-save" class="selector-save">確定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム&nbsp; &nbsp; 選択して<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="data-row-list data-row-main" id="city_list">
 																	<!-- 列表内容 -->
 																</div>
@@ -238,16 +238,16 @@ jQuery(document).ready(function($) {
 		</div>
 		<div class="complex-right f-left">
 			<div class="login-block" id="ajax_login">
-				<h4>メンバーログイン</h4>
+				<h4>会員ログイン</h4>
 				<div class="login-wrap">
 					<div class="login-item">
-						<div class="login-text-box clearfix"><i class="login-icon user f-left"></i><div class="login-input f-left"><input type="text" name="" id="" placeholder="邮箱/手机号/用户名" /></div></div>
+						<div class="login-text-box clearfix"><i class="login-icon user f-left"></i><div class="login-input f-left"><input type="text" name="" id="" placeholder="メール/携帯/ユーザ名" /></div></div>
 					</div>
 					<div class="login-item">
-						<div class="login-text-box clearfix"><i class="login-icon pass f-left"></i><div class="login-input f-left"><input type="password" name="" id="" placeholder="请输入密码" /></div></div>
+						<div class="login-text-box clearfix"><i class="login-icon pass f-left"></i><div class="login-input f-left"><input type="password" name="" id="" placeholder="パスワード" /></div></div>
 					</div>
 					<div class="login-item clearfix">
-						<label class="auto-login f-left"><input type="checkbox" name="" id="" />自动登录</label>
+						<label class="auto-login f-left"><input type="checkbox" name="" id="" />自動登録</label>
 						<a href="" class="forget underline f-right">パスワードを忘れましたか？</a>
 					</div>
 					<div class="login-item clearfix">
@@ -255,7 +255,7 @@ jQuery(document).ready(function($) {
 						<div class="f-left"><input type="button" value=“無料登録” class="index-reg-btn" /></div>
 					</div>
 					<div class="third-login clearfix">
-						<span class="f-left">他のアカウントのログイン：</span>
+						<span class="f-left">その他ログイン：</span>
 						<a href="" class="third-icon qq f-left"></a><a href="" class="third-icon sina f-left"></a><a href="" class="third-icon taobao f-left"></a>
 					</div>
 				</div>
@@ -332,7 +332,7 @@ jQuery(document).ready(function($) {
 						<div class="companyname"><a href="{#$list.company_url#}" class="underline" target="_blank">{#$list.companyname#}</a></div>
 						<p>{#$list.briefly#}</p>
 					</div>
-					<a href="{#$list.company_url#}" class="ad-more" target="_blank">もっと見ます>></a>
+					<a href="{#$list.company_url#}" class="ad-more" target="_blank">もっと>></a>
 				</div>
 				{#/if#}
 			</div>
@@ -345,8 +345,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap index-data-wrap-i7">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">注目のジョブズ<span>Recommended Job</span></h4>
-			<a href="{#"HW_helplist,id:10"|highway_url#}" class="f-right underline" target="_blank">私は求人会社であり、私がここに来ています</a>
+			<h4 class="f-left">お勧め職位<span>Recommended Job</span></h4>
+			<a href="{#"HW_helplist,id:10"|highway_url#}" class="f-right underline" target="_blank">私は求人会社です、ここに職位登録したい</a>
 		</div>
 		<div class="famous-list clearfix">
 			{#highway_companyjobs_list set="列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1"#}
@@ -357,7 +357,7 @@ jQuery(document).ready(function($) {
 					<a href="{#$list.company_url#}" class="underline" target="_balnk">{#$list.companyname#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a>
 					<div class="famous-more-info" style="display:none;">
 						<i class="fmi-icon"></i>
-						<div class="fmi-title">職位募集</div>
+						<div class="fmi-title">募集職位</div>
 						<ul class="fmi-list">
 							{#highway_jobs_list set="列表名:com_jobs_all,显示数目:3,会员UID:$list.uid"#}
 							{#foreach from=$com_jobs_all item=job_li#}
@@ -366,7 +366,7 @@ jQuery(document).ready(function($) {
 							</li>
 							{#/foreach#}
 						</ul>
-						<p>企業は{#$list.jobs_num#}仕事を持ち，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline">查看全部</a></p>
+						<p>企業は{#$list.jobs_num#}仕事を持っている，<a href="{#"HW_companyjobs,id:$list.company_id"|highway_url#}" target="_balnk" class="underline">全て閲覧</a></p>
 					</div>
 				</div>
 				<div class="famous-job">
@@ -427,7 +427,7 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">写真履歴書<span>Photo Resume</span></h4>
+			<h4 class="f-left">履歴書写真<span>Photo Resume</span></h4>
 			<a href="{#"HW_resumelist,photo:1"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="photo-list clearfix">
@@ -451,7 +451,7 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">位置ナビゲーションの<span>Jobs Navigation</span></h4>
+			<h4 class="f-left">職位ナビ<span>Jobs Navigation</span></h4>
 		</div>
 		<div class="job-build">
 			<!-- 楼层1  -->
@@ -636,7 +636,7 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">キャリア・リソースの<span>Workplace Information</span></h4>
+			<h4 class="f-left">キャリア情報の<span>Workplace Information</span></h4>
 			<a href="{#"HW_news"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="job-news-block clearfix">
@@ -667,8 +667,8 @@ jQuery(document).ready(function($) {
 	<div class="index-data-wrap">
 		<div class="blue-line"></div>
 		<div class="data-title-box clearfix">
-			<h4 class="f-left">リンク<span>Friendly Link</span></h4>
-			<a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">アプリケーション>></a>
+			<h4 class="f-left">相互リンク<span>Friendly Link</span></h4>
+			<a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">申込>></a>
 		</div>
 		<div class="friendly-link">
 			{#highway_link set="列表名:link,显示数目:100,调用名称:HW_index,类型:1"#}
