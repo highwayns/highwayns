@@ -1,4 +1,4 @@
-﻿name:蓝色永恒
-version:3.6
-author:jp.highwayns.com
-authorurl:http://www.jp.highwayns.com
+﻿name:海威人材
+version:1.0
+author:highwayns
+authorurl:http://www.highwayns.com

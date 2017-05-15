@@ -1,4 +1,4 @@
 ﻿name:默认模版
-version:3.6
-author:jp.highwayns.com
-authorurl:http://www.jp.highwayns.com
+version:1.0
+author:highwayns
+authorurl:http://www.highwayns.com
