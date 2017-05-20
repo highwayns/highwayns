@@ -11,11 +11,11 @@ $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'reg';
 $smarty->assign('header_nav',"reg");
 $SMSconfig=get_cache('sms_config');
 $smarty->assign('SMSconfig',$SMSconfig);
-if(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] )
+if(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] )
 {
-	if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['uid'],$_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['uid'],false,false);
+	update_user_info($_COOKIE['HW']['uid'],false,false);
 	header("Location:".get_member_url($_SESSION['utype']));
 	}
 	else
@@ -109,7 +109,7 @@ elseif ($act=='activate_save')
 			exit();
 		}
 }
-elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
+elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'])
 {
 	header("Location:".get_member_url($_SESSION['utype']));
 }

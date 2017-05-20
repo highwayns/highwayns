@@ -164,7 +164,7 @@ elseif($act == 'check_email')
 elseif ($act=="top_loginform")
 {
 	$contents='';
-	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
+	if ($_COOKIE['HW']['username'] && $_COOKIE['HW']['password'])
 	{
 		$contents='よこそ&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登録！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}">[会員センター]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" >[終了]</a>';
 	}
@@ -178,39 +178,39 @@ elseif ($act=="top_loginform")
 	}
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
-		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
-		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
+		$contents=str_replace('{#$username#}',$_COOKIE['HW']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['HW']['pmscount'],$contents);
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-		if ($_COOKIE['QS']['utype']=='1')
+		if ($_COOKIE['HW']['utype']=='1')
 		{
 		$user_url=$_CFG['site_dir']."user/company/company_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='2')
+		if ($_COOKIE['HW']['utype']=='2')
 		{
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='4')
+		if ($_COOKIE['HW']['utype']=='4')
 		{
 			$user_url=$_CFG['site_dir']."user/train/train_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='3')
+		if ($_COOKIE['HW']['utype']=='3')
 		{
 			$user_url=$_CFG['site_dir']."user/hunter/hunter_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
@@ -224,7 +224,7 @@ elseif ($act=="top_loginform")
 elseif ($act=="loginform")
 {
 	$contents='';
-	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
+	if ($_COOKIE['HW']['username'] && $_COOKIE['HW']['password'])
 	{
 		$tpl='../templates/'.$_CFG['template_dir']."plus/login_success.htm";
 	}
@@ -239,40 +239,40 @@ elseif ($act=="loginform")
 		$contents=file_get_contents($tpl);
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
-		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
-		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
+		$contents=str_replace('{#$username#}',$_COOKIE['HW']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['HW']['pmscount'],$contents);
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 		$contents=str_replace('{#$site_dir#}',$_CFG['site_dir'],$contents);
-		if ($_COOKIE['QS']['utype']=='1')
+		if ($_COOKIE['HW']['utype']=='1')
 		{
 			$user_url=$_CFG['site_dir']."user/company/company_index.php";
-			 if($_COOKIE['QS']['pmscount']>0)
+			 if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='2')
+		if ($_COOKIE['HW']['utype']=='2')
 		{
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
-			 if($_COOKIE['QS']['pmscount']>0)
+			 if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='4')
+		if ($_COOKIE['HW']['utype']=='4')
 		{
 			$user_url=$_CFG['site_dir']."user/train/train_index.php";
-			 if($_COOKIE['QS']['pmscount']>0)
+			 if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='3')
+		if ($_COOKIE['HW']['utype']=='3')
 		{
 			$user_url=$_CFG['site_dir']."user/hunter/hunter_index.php";
-			 if($_COOKIE['QS']['pmscount']>0)
+			 if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);

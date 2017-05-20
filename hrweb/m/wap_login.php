@@ -30,11 +30,11 @@ elseif($act == 'weixin_login'){
 	
 	$smarty->display('wap/scan/scan_success.html');
 }
-elseif(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] )
+elseif(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] )
 {
-	if(check_cookie($_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['username'],false,false);
+	update_user_info($_COOKIE['HW']['username'],false,false);
 			if($_SESSION['utype']==2)	header("location:personal/wap_user.php");
 			if($_SESSION['utype']==1)	header("location:company/wap_user.php");
 	}

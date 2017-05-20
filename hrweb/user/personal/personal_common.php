@@ -6,12 +6,12 @@ $smarty->cache = false;
 require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 require_once(HIGHWAY_ROOT_PATH.'include/fun_personal.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
-if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_COOKIE['QS']['uid'])
+if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] && $_COOKIE['HW']['uid'])
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
-	if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['uid'],$_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['uid'],false,false);
+	update_user_info($_COOKIE['HW']['uid'],false,false);
 	header("Location:".get_member_url($_SESSION['utype']));
 	}
 	else

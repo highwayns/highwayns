@@ -45,8 +45,8 @@ $(document).ready(function()
 	$('.login-type').toggle(function(){
 		$('#pcLogin').hide();
 		$('#codeLogin').show();
-		$('#login-box h1').html('微信登录');
-		$(this).attr('title', '用户名登录');
+		$('#login-box h1').html('WeChat登録');
+		$(this).attr('title', 'ユーザ名登録');
 		$(this).removeClass('wx').addClass('pc');
 		{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1'#}
 		wxrun = window.setInterval(run, 5000);
@@ -61,8 +61,8 @@ $(document).ready(function()
 	}, function(){
 		$('#pcLogin').show();
 		$('#codeLogin').hide();
-		$('#login-box h1').html('会员登录');
-		$(this).attr('title', '微信登录');
+		$('#login-box h1').html('会員登録');
+		$(this).attr('title', 'Wechat登録');
 		$(this).removeClass('pc').addClass('wx');
 		{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1'#}
 		window.clearInterval(wxrun);
@@ -71,21 +71,21 @@ $(document).ready(function()
 	//表单验证
 	$("form[id=pcLogin]").submit(function(e) {
 	e.preventDefault();
-		if ($("#username").val()=="" || $("#username").val()=="用户名/邮箱/手机号")
+		if ($("#username").val()=="" || $("#username").val()=="ユーザ名/メール/携帯番号")
 		{			
-			$(".login_err").html("请填写：用户名 / 邮箱 / 手机号");	
+			$(".login_err").html("ユーザ名/メール/携帯番号を入力してください");	
 			$(".login_err").show();
 		}
 		else if($("#password").val()=="")
 		{	
-		$(".login_err").html("请填写密码！");
+		$(".login_err").html("パスワードを入力してください");
 		$(".login_err").show();
 		}
 		{#if $verify_userlogin=="1"#}
 		else if($("#postcaptcha").val()=="")
 		{	
 
-			$(".login_err").html("请填写验证码！");
+			$(".login_err").html("検証コードを入力してください");
 			$(".login_err").show();
 		}
 		{#/if#}
@@ -112,16 +112,16 @@ $(document).ready(function()
 					$(".login_err").show();	
 					if (data=="err")
 					{
-					errinfo="帐号或者密码错误";
+					errinfo="アカウントまたはパスワード一致しません";
 					}
 					else if(data=="errcaptcha")
 					{
 					$("#imgdiv img").attr("src",$("#imgdiv img").attr("src")+"1");
-					errinfo="验证码错误";
+					errinfo="検証コードエラー";
 					}
 					else if(data=="status_err")
 					{
-					errinfo="账号已经被暂停，请联系管理员！";
+					errinfo="アカウントを停止しました、管理者に連絡してください！";
 					}
 					$(".login_err").html(errinfo);
 				}
@@ -150,7 +150,7 @@ $(document).ready(function()
 		{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1'#}
 		<div class="weixin-login-box"><a href=“javascript:void(0);” class=“login-type wx” title=“wechatログイン”></a><!-- pc登录class="pc" --></div> 
 		{#/if#}
-		<h1>メンバーログイン</h1>
+		<h1>会員ログイン</h1>
 		<form action="" id="pcLogin">
 			<div class="login-ver-box tips">アカウント損失を防ぐため、公共の場所で自動ログインをお勧めしません</div>
 			<div class="login-ver-box error login_err" style="display: none;"></div>
