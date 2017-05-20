@@ -19,6 +19,7 @@ encoding//admin/templates/default/sys/admin_main.htm=UTF-8
 encoding//admin/templates/default/users/admin_users_edit.htm=UTF-8
 encoding//admin/ueditor/php/config.json=UTF-8
 encoding//templates/default/footer.htm=UTF-8
+encoding//templates/default/header.htm=UTF-8
 encoding//templates/default/plus/ajax_login.htm=UTF-8
 encoding//templates/default/simple/simple-add.htm=UTF-8
 encoding//templates/default/user/footer.htm=UTF-8
