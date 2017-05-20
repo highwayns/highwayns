@@ -23,5 +23,6 @@ encoding//templates/default/header.htm=UTF-8
 encoding//templates/default/plus/ajax_login.htm=UTF-8
 encoding//templates/default/simple/simple-add.htm=UTF-8
 encoding//templates/default/user/footer.htm=UTF-8
+encoding//templates/default/user/reg_header.htm=UTF-8
 encoding//templates/default/wap/footer.htm=UTF-8
 encoding/<project>=UTF-8
