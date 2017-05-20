@@ -1,22 +1,17 @@
-﻿<div style="width:100%;height:400px ; border:1px #CCCCCC solid; margin:0 auto; margin-top:6px;" id="map_full"></div>
+<div style="width:100%;height:400px ; border:1px #CCCCCC solid; margin:0 auto; margin-top:6px;" id="map_full"></div>
 <script type="text/javascript">
 var map = new BMap.Map("map_full");   
 var point = new BMap.Point({#$company.map_x#}, {#$company.map_y#});   
 map.centerAndZoom(point, {#$company.map_zoom#});
 var opts = {type: BMAP_NAVIGATION_CONTROL_SMALL,anchor: BMAP_ANCHOR_TOP_RIGHT}
-map.addControl(new BMap.NavigationControl(opts)); //添加鱼骨
-//map.enableScrollWheelZoom();//启用滚轮放大缩小，默认禁用。
-// 创建标注
+map.addControl(new BMap.NavigationControl(opts)); 
 var hw_marker = new BMap.Marker(point);           
 map.addOverlay(hw_marker); 
-// 创建标注 
-// 打开信息窗口 
 var opts = {   
-  width : 150,     // 信息窗口宽度   
-  height: 50,     // 信息窗口高度   
-  title : "{#$company.companyname#}"  // 信息窗口标题   
+  width : 150,        
+  height: 50,        
+  title : "{#$company.companyname#}"     
 }   
-var infoWindow = new BMap.InfoWindow("{#$company.address#}", opts);  // 创建信息窗口对象   
+var infoWindow = new BMap.InfoWindow("{#$company.address#}", opts);    
 map.openInfoWindow(infoWindow, point);
-// 打开信息窗口  			
 </script>	
