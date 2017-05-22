@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$Company.companyname#}  - ジョブリスト -  {#$HIGHWAY.site_name#} </title>
-<meta name="description" content="{#$company.description#}},职位列表">
-<meta name="keywords" content="{#$company.companyname#},职位列表">
+<meta name="description" content="{#$company.description#}},職位一覧">
+<meta name="keywords" content="{#$company.companyname#},職位一覧">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
@@ -24,7 +24,7 @@ $(document).ready(function(){
 		    url: '{#$HIGHWAY.site_dir#}user/user_apply_jobs.php?id='+id+'&act=app',
 		    success: function (data) {
 		        myDialog.content(data);// 填充对话框内容
-		        myDialog.title('申请职位');// 填充对话框内容
+		        myDialog.title('職位申込');// 填充对话框内容
 		    	myDialog.showModal();
 		    }
 		});
@@ -36,7 +36,7 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
+		海威人材：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>><a href="{#"HW_jobs"|highway_url#}">募集情報</a>>{#$company.companyname#}
 	</div>
 	<!-- 主体内容 -->
 	<div class="container">
@@ -49,9 +49,9 @@ $(document).ready(function(){
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
-									<img title="企业已认证" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
+									<img title="企業認定済み" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企业未认证" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
+									<img title="企業未認定" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user == '1'#}
 									

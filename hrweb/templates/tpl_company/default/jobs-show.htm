@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$show.jobs_name#} - {#$show.companyname#} - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$show.companyname#}招聘{#$show.jobs_name#}">
+<meta name="description" content="{#$show.companyname#}募集{#$show.jobs_name#}">
 <meta name="keywords" content="{#$show.jobs_name#},{#$show.companyname#}">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
@@ -51,7 +51,7 @@ $(document).ready(function(){
 	// 点击查看大图
 	$(".img_big_show").click(function() {
 		dialog({
-			title: '企业风采',
+			title: '企業記事',
 		    content: $("#focus")
 		}).showModal();
 	});
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		    success: function (data) {
 		    	myDialog.width(475);
 		        myDialog.content(data);// 填充对话框内容
-		        myDialog.title('用户登录');// 填充对话框内容
+		        myDialog.title('ユーザログイン');// 填充对话框内容
 		    	myDialog.showModal();
 		    }
 		});
@@ -81,7 +81,7 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
+		当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>><a href="{#"HW_jobs"|highway_url#}">募集情報</a>>{#$company.companyname#}
 	</div>
 	<!-- 主体内容 -->
 	<div class="container">
@@ -94,9 +94,9 @@ $(document).ready(function(){
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
-									<img title="企业已认证" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
+									<img title="認定済み" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企业未认证" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
+									<img title="未認定" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user == '1'#}
 									
@@ -110,7 +110,7 @@ $(document).ready(function(){
 					<div class="company-control clearfix">
 						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">企業ホームページ</a>
 						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">会社紹介</a>
-						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">職位募集</a>
+						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">募集職位</a>
 					</div>
 					<!-- 职位详情 -->
 					<div class="job-main">
@@ -136,7 +136,7 @@ $(document).ready(function(){
 								{#elseif $show.jobs_gq==2#}
 								<img src="{#$HIGHWAY.site_template#}images/job_sx.gif" />
 								{#else#}
-								<div class="apply-btn f-left"><a href="javascript:;" class="app-button app_jobs" style="display: block;line-height:34px;text-align: center;" jobs_id="{#$show.id#}">申请职位</a></div>
+								<div class="apply-btn f-left"><a href="javascript:;" class="app-button app_jobs" style="display: block;line-height:34px;text-align: center;" jobs_id="{#$show.id#}">職位申込</a></div>
 								<a href="javascript:;" class="collect {#if $show.check_fav=='1'#}done{#/if#} f-left add_favorites">コレクション</a>
 								{#/if#}
 							</div>
@@ -144,7 +144,7 @@ $(document).ready(function(){
 						<div class="job-block">
 							<h3 class="c-left-title">ジョブズ</h3>
 							<div class="job-info-detail clearfix">
-								<div class="job-id-item f-left">給与：<span>{#$show.wage_cn#} {#if $show.negotiable == 1#}(可面议){#else#}{#/if#}</span></div>
+								<div class="job-id-item f-left">給与：<span>{#$show.wage_cn#} {#if $show.negotiable == 1#}(面談可){#else#}{#/if#}</span></div>
 								<div class="job-id-item f-left">仕事の性質：{#$show.nature_cn#} </div>
 								<div class="job-id-item f-left">年齢要件：{#if $show.age==“-“#}制限なし{#else#}{#$show.age#}年{#/if#}</div>
 								<div class="job-id-item f-left">雇用人数：{#$show.amount#}人</div>
@@ -183,37 +183,37 @@ $(document).ready(function(){
 											<div style="width:100%;height:300px;border:1px #CCCCCC solid; margin:0 auto;" id="map"></div>
 										</div>
 										<div class="map_r">
-											<b>周囲リサーチ</B>
+											<b>周辺リサーチ</B>
 											<ul>
 												<li>
-													<label for="hotel"><input type=“checkbox” value=“ホテル” id=“hotel”  class=“serch”/>&nbsp;酒店</label>
+													<label for="hotel"><input type=“checkbox” value=“ホテル” id=“hotel”  class=“serch”/>&nbsp;ホテル</label>
 												</li>
 												<li>
-													<label for="catering"><input type=“checkbox” value=“飲食” id=“catering”  class=“serch”/>&nbsp;餐饮</label>
+													<label for="catering"><input type=“checkbox” value=“飲食” id=“catering”  class=“serch”/>&nbsp;飲食</label>
 												</li>
 												<li>
-													<label for="supermarket"><input type="checkbox" value=“スーパー” id="supermarket" class="serch"/>&nbsp;超市</label>
+													<label for="supermarket"><input type="checkbox" value=“スーパー” id="supermarket" class="serch"/>&nbsp;スーパー</label>
 												</li>
 												<li>
-													<label for="bank"><input type=“checkbox” value=“銀行” id=“bank” class=“serch”/>&nbsp;银行</label>
+													<label for="bank"><input type=“checkbox” value=“銀行” id=“bank” class=“serch”/>&nbsp;銀行</label>
 												</li>
 												<li>
-													<label for="hospital"><input type="checkbox" value=“病院” id="hospital" class="serch"/>&nbsp;医院</label>
+													<label for="hospital"><input type="checkbox" value=“病院” id="hospital" class="serch"/>&nbsp;病院</label>
 												</li>
 												<li>
 													<label for="scholl"><input type="checkbox" value="学校" id="scholl" class="serch"/>&nbsp;学校</label>
 												</li>
 												<li>
-													<label for="bus"><input type=“checkbox” value=“バス” id=“bus” class=“serch”/>&nbsp;公交</label>
+													<label for="bus"><input type=“checkbox” value=“交通” id=“bus” class=“serch”/>&nbsp;交通</label>
 												</li>
 											</ul>
 										</div>
 										<div class="clear"></div>
 										<div class="map_bottom">
 											<h4>線路を調べる</h4>
-											<span>スタート：<input type="text" name="start" value="" class="addr_inpt"/></span>
+											<span>起点：<input type="text" name="start" value="" class="addr_inpt"/></span>
 											<span>終点：<input type=“text” name=“end” value=“{#$company.address#}” class=“addr_inpt” readonly/></span>
-											<span><input type=“button”value=”バス検索”class=“bus_submit”/></span>
+											<span><input type=“button”value=”交通検索”class=“bus_submit”/></span>
 										</div>
 										<div id="r-result" style="margin-bottom: 10px;"></div>
 									</div>
@@ -260,7 +260,7 @@ $(document).ready(function(){
 											});
 											transit.search(""+start+"", ""+end+"");
 											}else{
-											alert("输入起点！");
+											alert("起点を入力してください！");
 											}
 										});
 									</script>
@@ -275,21 +275,21 @@ $(document).ready(function(){
 										{#elseif $show.jobs_gq==2#}
 										<img src="{#$HIGHWAY.site_template#}images/job_sx.gif" />
 										{#else#}
-										<div class="apply-btn f-left"><a href="javascript:;" class="app-button app_jobs" style="display: block;line-height:34px;text-align: center;" jobs_id="{#$show.id#}">申请职位</a></div>
+										<div class="apply-btn f-left"><a href="javascript:;" class="app-button app_jobs" style="display: block;line-height:34px;text-align: center;" jobs_id="{#$show.id#}">職位申込</a></div>
 										<a href="javascript:;" class="collect {#if $show.check_fav=='1'#}done{#/if#} f-left add_favorites" jobs_id="{#$show.id#}">コレクション</a>
 										{#/if#}
 									</div>
 									<div class="share-box f-right">
-										<div class="jubao"><a class="report_button" href="javascript:void(0);" jobs_id="{#$smarty.get.id#}" jobs_name="{#$show.jobs_name#}" jobs_addtime="{#$show.addtime#}">举报</a></div>
+										<div class="jubao"><a class="report_button" href="javascript:void(0);" jobs_id="{#$smarty.get.id#}" jobs_name="{#$show.jobs_name#}" jobs_addtime="{#$show.addtime#}">報告</a></div>
 										<div class="share-item clearfix">
 											<span class="f-left">シェア</span>
 											<div class="bdsharebuttonbox f-left">
 												<a href="#" class="bds_more" data-cmd="more"></a>
-												<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-												<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-												<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-												<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-												<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+												<a href="#" class="bds_qzone" data-cmd="qzone" title="QQに共有"></a>
+												<a href="#" class="bds_tsina" data-cmd="tsina" title="SinaWeiboに共有"></a>
+												<a href="#" class="bds_tqq" data-cmd="tqq" title="TencentWeiboに共有"></a>
+												<a href="#" class="bds_renren" data-cmd="renren" title="Renrenに共有"></a>
+												<a href="#" class="bds_weixin" data-cmd="weixin" title="Wechatに共有"></a>
 											</div>
 											<script>
 												window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
@@ -300,7 +300,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 						<div class="com-left-block">
-						<h3 class="c-left-title">他の職位</h3>
+						<h3 class="c-left-title">その他職位</h3>
 						<div class="company-jobs-list clearfix">
 							{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:14,显示数目:8,会员UID:"|cat:$show.uid#}
 			  				{#foreach from=$jobs item=list#}
@@ -312,7 +312,7 @@ $(document).ready(function(){
 							</div>
 							{#/foreach#}
 						</div>
-						<div class="job-all clearfix"><a href="{#$HIGHWAY.site_dir#}jobs/jobs-list.php" class="f-right">全部职位>></a></div>
+						<div class="job-all clearfix"><a href="{#$HIGHWAY.site_dir#}jobs/jobs-list.php" class="f-right">全て職位>></a></div>
 					</div>
 					</div>
 				</div>
@@ -326,7 +326,7 @@ $(document).ready(function(){
 					</div>
 					<div class="ring-item f-left">
 						<h4 class="jobs">{#$company.jobs_num#}</h4>
-						<p>求人仕事</P>
+						<p>仕事求人</P>
 					</div>
 					<div class="ring-item f-left">
 						<h4 class="interest">{#$company.resume_num#}</h4>
@@ -348,7 +348,7 @@ $(document).ready(function(){
 				<div class="c-right-block">
 					<h3 class="c-right-title">モバイルブラウザ</h3>
 					<div class="com-code">
-						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$company.company_url#}" alt="扫描二维码" width="100" height="100" />
+						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$company.company_url#}" alt="スキャン" width="100" height="100" />
 					</div>
 				</div>
 			</div>
