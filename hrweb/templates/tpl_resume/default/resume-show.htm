@@ -75,7 +75,7 @@ $(document).ready(function()
 				}
 				else
 				{
-					myDialog.title('系统提示');
+					myDialog.title('システム提示');
 					myDialog.content(data); 
 					myDialog.width('350'); 
 					myDialog.showModal();
@@ -93,8 +93,8 @@ $(document).ready(function()
 		var pid = $(this).attr("pid");
 		var url = "{#$HIGHWAY.site_dir#}user/personal/personal_ajax.php?act=tpl&pid="+pid;
 		var myDialog = dialog();
-		myDialog.content("加载中...");
-	    myDialog.title('更换模板');
+		myDialog.content("ロード中...");
+	    myDialog.title('テンプレート更新');
 	    myDialog.showModal();
 	    $.get(url, function(data){
 		    myDialog.content(data);
@@ -109,8 +109,8 @@ $(document).ready(function()
 		var pid = $(this).attr("pid");
 		var url = "{#$HIGHWAY.site_dir#}user/personal/personal_ajax.php?act=privacy&pid="+pid;
 		var myDialog = dialog();
-		myDialog.content("加载中...");
-	    myDialog.title('隐私设置');
+		myDialog.content("ロード中...");
+	    myDialog.title('プライバシー設定');
 	    myDialog.width('550');
 	    myDialog.showModal();
 	    $.get(url, function(data){
@@ -138,7 +138,7 @@ $(".ajax_user_login").live('click',function(){
       success: function (data) {
      	 	myDialog.width(475);
 		myDialog.content(data);// 填充对话框内容
-		myDialog.title('用户登录');// 填充对话框内容
+		myDialog.title('ユーザログイン');// 填充对话框内容
 		myDialog.showModal();
       }
   });
@@ -155,12 +155,12 @@ $(".ajax_user_login").live('click',function(){
 			<div class="top-streamer"><i class="streamer-angle"></i>{#$show.message#}</div>
 			{#/if#}
 			{#if $show.isminesee == '1'#}
-			<div class="top-streamer"><i class="streamer-angle"></i>履歴書名前：<font style=“font-weight:bold”>{#$show.title#}</font>  &nbsp;公開状态：<font style="font-weight:bold"><span id="showDisplayName">{#if $show.display == ‘1’#}公開{#else#}秘密保守{#/if#}</span></font></div>
+			<div class="top-streamer"><i class="streamer-angle"></i>履歴書名前：<font style=“font-weight:bold”>{#$show.title#}</font>  &nbsp;公開状態：<font style="font-weight:bold"><span id="showDisplayName">{#if $show.display == ‘1’#}公開{#else#}未公開{#/if#}</span></font></div>
 			{#/if#}
 			<div class="personal-info clearfix">
 				<div class="personal-pic f-left"><img src="{#$show.photosrc#}" alt="" width="160" height="178" /></div>
 				<div class="info-text f-left">
-					<h2>{#$show.fullname#} <span>（{#$show.sex_cn#}，{#$show.age#}岁）</span></h2>
+					<h2>{#$show.fullname#} <span>（{#$show.sex_cn#}，{#$show.age#}才）</span></h2>
 					<div class="resume-time">更新：{#$show.refreshtime | DaTE_FORMaT： “％Y-％M-％D” #} </div>
 					<div class="resonal-auth clearfix">
 						{#if $show.is_audit_mobile == 1#}<div class="auth-item phone f-left">携帯電話は認定済み</div>{#/if#}
@@ -171,10 +171,10 @@ $(".ajax_user_login").live('click',function(){
 						{#/if#}
 					</div>
 					<div class="info-detail">
-						<p>{#if $show.education_cn#}<span>最高学历：{#$show.education_cn#}</span>{#/if#}{#if $show.experience_cn#}&nbsp;|&nbsp;<span>工作经验：{#$show.experience_cn#}</span>{#/if#}{#if $show.major_cn#}&nbsp;|&nbsp;<span>专业：{#$show.major_cn#}</span>{#/if#}</p>
-						<p>{#if $show.marriage_cn#}<span>婚姻状况：{#$show.marriage_cn#}</span>{#/if#}{#if $show.height#}&nbsp;|&nbsp;<span>身&nbsp;&nbsp;高：{#$show.height#} cm</span>{#/if#}</p>
-						<p>{#if $show.householdaddress#}<span>籍&nbsp;&nbsp;贯：{#$show.householdaddress#}</span>&nbsp;|&nbsp;{#/if#}<span>现居住地：{#$show.residence#}</span></p>
-						{#if $show.current_cn#}<p><span>求职状态：{#$show.current_cn#}</span></p>{#/if#}
+						<p>{#if $show.education_cn#}<span>最高学歴：{#$show.education_cn#}</span>{#/if#}{#if $show.experience_cn#}&nbsp;|&nbsp;<span>仕事経験：{#$show.experience_cn#}</span>{#/if#}{#if $show.major_cn#}&nbsp;|&nbsp;<span>専門：{#$show.major_cn#}</span>{#/if#}</p>
+						<p>{#if $show.marriage_cn#}<span>結婚状況：{#$show.marriage_cn#}</span>{#/if#}{#if $show.height#}&nbsp;|&nbsp;<span>身&nbsp;&nbsp;長：{#$show.height#} cm</span>{#/if#}</p>
+						<p>{#if $show.householdaddress#}<span>故&nbsp;&nbsp;郷：{#$show.householdaddress#}</span>&nbsp;|&nbsp;{#/if#}<span>現住所：{#$show.residence#}</span></p>
+						{#if $show.current_cn#}<p><span>求職状態：{#$show.current_cn#}</span></p>{#/if#}
 					</div>
 					{#if $show.tag_cn#}
 					<div class="personal-tag clearfix">
@@ -200,8 +200,8 @@ $(".ajax_user_login").live('click',function(){
 						<div class="percent-star f-left star-{#$show.attention#}">企業の注目度：</div>
 						<div class="star-state f-left">
 							<p>アクセス再開<span>{#$show.com_view#}</span>次</p>
-							<p>履歴書がダウンロードされている<span>{#$show.com_down#}</span>次</p>
-							<p>面接招待状を受け取ります<span>{#$show.com_invite#}</span>次</p>
+							<p>履歴書がダウンロード<span>{#$show.com_down#}</span>回</p>
+							<p>面接誘い受け取り<span>{#$show.com_invite#}</span>回</p>
 						</div>
 					</div>
 				</div>
@@ -220,7 +220,7 @@ $(".ajax_user_login").live('click',function(){
  				{#if $show.intention_jobs#}<div class="rb-content">希望仕事：{#$show.intention_jobs#}</div>{#/if#} 
 			</div>
 			{#if $show.specialty#}
-			<div class="resume-title">自己説明</div>
+			<div class="resume-title">自己紹介</div>
 			<div class="resume-block-detail">
 				<div class="rb-content-more">{#$show.specialty|nl2br#}</div>
 			</div>
@@ -280,7 +280,7 @@ $(".ajax_user_login").live('click',function(){
 		<div class="fix-control">
 			<div class="fix-wrap">
 				<div class="code-box"><img src="{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.wap_domain#}/wap-resume-show.php?id={#$show.id#}" alt=“QRコード” width="74" height="74" /></div>
-				<div class="download">{#if $show.isminesee != '1'#}<a href="javascript:;" class="download-btn">下载简历</a>{#else#}<a href="javascript:;" pid="{#$show.id#}" class="download-btn tpl">更换模板</a>{#/if#}</div>
+				<div class="download">{#if $show.isminesee != '1'#}<a href="javascript:;" class="download-btn">履歴書ダウンロード</a>{#else#}<a href="javascript:;" pid="{#$show.id#}" class="download-btn tpl">テンプレート更新</a>{#/if#}</div>
 				<div class="ctrl-text"></div>
 				<div class="ctrl-bar">
 					{#if $show.isminesee != '1'#}<a href="javascript:;" class="resume-ctrl add_resume_pool">人材庫に参加</a>{#/if#}
@@ -293,7 +293,7 @@ $(".ajax_user_login").live('click',function(){
 		</div>
 	</div>
 	<div id="footer">
-		联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#} <br />
+		住所：{#$HIGHWAY.address#} 電話番号：{#$HIGHWAY.bootom_tel#} ウェブコード：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#} <br />
 		{#$HIGHWAY.bottom_other#} <br />
 		Powered by <a href="http://highwayns.com/" style="color:#009900"><em> highwayns v{#$HIGHWAY.version#}</em></a>
 	</div>

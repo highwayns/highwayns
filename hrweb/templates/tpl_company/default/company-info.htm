@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$company.companyname#} - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$company.description#}},公司简介">
-<meta name="keywords" content="{#$company.companyname#},公司简介">
+<meta name="description" content="{#$company.description#}},会社紹介">
+<meta name="keywords" content="{#$company.companyname#},会社紹介">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
@@ -33,7 +33,7 @@
 			    success: function (data) {
 			    	myDialog.width(475);
 			        myDialog.content(data);// 填充对话框内容
-			        myDialog.title('用户登录');// 填充对话框内容
+			        myDialog.title('ユーザログイン');// 填充对话框内容
 			    	myDialog.showModal();
 			    }
 			});
@@ -57,9 +57,9 @@
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
-									<img title="企业已认证" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
+									<img title="企業認定済み" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企业未认证" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
+									<img title="企業未認定" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user > 1#}
 									<img title="" src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
