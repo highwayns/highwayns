@@ -45,13 +45,13 @@ function is_form_changed() {
 }
 if ($.browser.msie){
     window.onunload = function(){
-        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
+        return "編集している内容が保存されていません，この頁から移動しますか？";
     }
 }
 else{
     window.onbeforeunload = function(){
         if (is_form_changed()) {
-			return '您正在编辑的内容尚未保存，确定要离开此页吗？';
+			return '編集している内容が保存されていません，この頁から移動しますか？';
 		}
     }
 }
@@ -324,7 +324,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> >プロフィールを作成 </div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> >プロフィールを作成 </div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">

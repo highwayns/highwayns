@@ -1057,7 +1057,7 @@ function tag_filldata(fillID, data_resources, showID, resultlist, resultshowID, 
 			else
 			{
 				dialog({
-                    title: '系统提示',
+                    title: 'システム提示',
                     content: ""+data+"",
                     width:300
                 }).show();

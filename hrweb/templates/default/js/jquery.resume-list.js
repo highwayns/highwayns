@@ -25,7 +25,7 @@ function allfavorites(ajaxurl)
 			{
 				var myDialog = dialog();
 				myDialog.content("请选择简历");
-		        myDialog.title('系统提示');
+		        myDialog.title('システム提示');
 		        myDialog.width('300');
 		        myDialog.showModal();
 			}
