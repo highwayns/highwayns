@@ -4,7 +4,7 @@ $(document).ready(function()
 function imgcaptcha(inputID,imgdiv)
 {
 	$(inputID).focus(function(){
-		if ($(inputID).val()=="点击获取验证码")
+		if ($(inputID).val()=="点击取得検証コード")
 		{
 		$(inputID).val("");
 		$(inputID).css("color","#333333");
@@ -92,46 +92,46 @@ $("#form_simple").validate({
 	},
     messages: {
     district: {
-    required: "请选择地区",
+    required: "地区選択",
     },
     jobname: {
-    required: "请输入职位名称",
-    minlength: jQuery.format("职位名称不能小于{0}个字符"),
-	maxlength: jQuery.format("职位名称不能大于{0}个字符")
+    required: "職位名称入力",
+    minlength: jQuery.format("職位名称の長さ{0}文字から"),
+	maxlength: jQuery.format("職位名長さ{0}だけ")
    },
    amount: {
-    range: jQuery.format("请输入一个介于 {0} 和 {1} 之间的值")
+    range: jQuery.format(" {0} から {1} までの値を入力してください")
    },
    comname: {
-    required: "请输入公司名称"
+    required: "会社名称"
    },
    contact: {
-    required: "请输入联系人"
+    required: "連絡先入力"
    },
    tel: {
-    required: "请输入联系电话",
-	digits: "联系电话必须是数字",
-    minlength: jQuery.format("电话不能<{0}位数")
+    required: "電話番号入力",
+	digits: "電話番号数字だけ",
+    minlength: jQuery.format("電話{0}桁以上必要")
 	{#if $HIGHWAY.simple_tel_repeat=="0"#}
 	,
-	remote: jQuery.format("此号码已存在,请更换")	
+	remote: jQuery.format("この番号すでに存在,変換して")	
 	{#/if#}
    },
     pwd: {
-    required: jQuery.format("请输入管理密码"),
-	minlength: jQuery.format("密码不能小于{0}个字符")
+    required: jQuery.format("管理パスワードを入力してください"),
+	minlength: jQuery.format("パスワードは{0}文字以上")
    }
    ,
     detailed: {
-    required: jQuery.format("请输入具体要求"),
-	maxlength: jQuery.format("具体要求不能大于{0}个字符")
+    required: jQuery.format("詳細要求を入力してください"),
+	maxlength: jQuery.format("{0}文字まで入力してください")
  
    }
    {#if $verify_simple=="1"#}
    ,
     postcaptcha: {
-    required: "请填写验证码",
-	remote: jQuery.format("验证码错误")	
+    required: "検証コード入力",
+	remote: jQuery.format("検証コードエラー")	
    }
    {#/if#}
   },
@@ -148,23 +148,23 @@ $("#form_simple").validate({
     });
 	 //具体要求
 	jQuery.validator.addMethod("ISdetailed", function(value, element) {
-	var str="请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息";
+	var str="募集の詳細要求入力，例えば：性别，学歴，年齢，仕事経験，給料など情報";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写具体要求");
+	}, "詳細要求入力");
 	jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-	var str="点击获取验证码";
+	var str="点击取得検証コード";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写验证码");
+	}, "検証コード入力");
 
 	/////验证码部分
 menuDown("#district_menu","#district","#district_cnz","#menu1","118px","#sdistrict_menu","#menu2");
@@ -195,7 +195,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
     $(".menu_bg_layer").remove();
 
      if(next_div=="#sdistrict_menu"){
-      $("#sdistrict_menu").html("请选择");
+      $("#sdistrict_menu").html("選択");
       $("#sdistrict").val("");
       $("#sdistrict_cn").val("");
 	  $.get("{#$HIGHWAY.site_dir#}plus/ajax_simple.php?act=get_sdistrict&id="+id,function(result){
@@ -242,7 +242,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
                 <div id="district_menu" class="input_text_100_bg">選択してください</div>  
                 <div class="menu" id="menu1">
                     <ul>
-                      {#highway_get_classify  set="类型:HW_district,id:0,列表名:c_distrcit"#}
+                      {#highway_get_classify  set="タイプ:HW_district,id:0,リスト名:c_distrcit"#}
                       {#foreach from=$c_distrcit item=list#}
                       <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
                       {#/foreach#}
@@ -289,7 +289,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
               <td>
                 <div>
                 <div id="imgdiv"></div>
-                  <input  class="input_text_155" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999;width:100px;"/>
+                  <input  class="input_text_155" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999;width:100px;"/>
                 </div>    
               </td>
             </tr>
@@ -298,7 +298,7 @@ function menuDown(menuId,input,input_cn,menuList,width,next_div,next_menu){
               <td></td>
               <td>
                 <div>
-                <input type="submit" value="发布" class="but95_35lan" id="addsimple" />
+                <input type="submit" value="配布" class="but95_35lan" id="addsimple" />
               </td>
             </tr>
 

@@ -20,7 +20,7 @@
       <td class="admin_list admin_list_first" align="center" style="color:#3366CC"> {#$li.plug_name#}{#if $li.p_install==2#}&nbsp;&nbsp;[<font color="green">已开启</font>]{#else#}&nbsp;&nbsp;[<font color="grey">未开启</font>]{#/if#} </td>
             <td align="center" class="admin_list">
 				{#if $li.p_install==2#}
-				<a href="?act=uninstall_plug&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要关闭吗？')"><font color="red">关闭</font></a> 
+				<a href="?act=uninstall_plug&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('閉じてよろしいでしょうか？')"><font color="red">关闭</font></a> 
 				{#else#}
 				<a href="?act=install_plug&id={#$li.id#}&{#$urltoken#}"><font color="blue">开启</font></a>
 				{#/if#}				</td>

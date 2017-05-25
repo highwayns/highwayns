@@ -3,7 +3,7 @@
 <head>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-{#highway_pageinfo set="列表名:pageinfo,调用:HW_noticelist"#}
+{#highway_pageinfo set="リスト名:pageinfo,Call:HW_noticelist"#}
 {#if $pageinfo.title#}
 <title>{#$pageinfo.title#}</title>
 {#else#}
@@ -37,7 +37,7 @@
 					<!-- 企业动态 -->
 					<div class="news">
 						<ul>
-							{#highway_notice_list set="列表名:notice,显示数目:10,标题长度:35,分类:GET[id],分页显示:1,摘要长度:100,填补字符:...,排序:id>desc"#}
+							{#highway_notice_list set="リスト名:notice,表示件数:10,タイトル長さ:35,分類:GET[id],ページング表示:1,摘要長さ:100,文字:...,ソート:id>desc"#}
 							{#foreach from=$notice item=list#}  
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
@@ -65,7 +65,7 @@
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_jobs_list set="列表名:jobslist,显示数目:5,职位名长度:14,填补字符:...,排序:rtime>desc"#}
+						{#highway_jobs_list set="リスト名:jobslist,表示件数:5,職位名長さ:14,文字:...,ソート:rtime>desc"#}
 						{#foreach from=$jobslist item=list#}
 						<li><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a></li>
 						{#/foreach#}

@@ -29,10 +29,10 @@ $(document).ready(function()
  		var display_name=$("input[name='display_name']:checked").val();
  		$.post("?act=resume_privacy_save",{pid:pid,display:display,display_name:display_name},function(data){
 		    if(data=="ok"){
-		    	alert("隐私设置成功");
+		    	alert("プライバシー設定成功");
 		    	window.location.reload();
 		    }else if(data=="err"){
-		    	alert("隐私设置失败");
+		    	alert("プライバシー設定失敗");
 		    }
 		  });
  	});

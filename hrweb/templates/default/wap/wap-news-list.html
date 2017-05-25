@@ -33,7 +33,7 @@ $(document).ready(function()
 		$.get("plus/wap_ajax.php?act=ajaxnewslist&offset="+(offset+5)+"&rows=5", function(result){
 		    if(result=="-1"){
 		    	$(".more").show();
-		    	$(".more").html("没有更多资讯了");
+		    	$(".more").html("もっとニュースなし");
 		    }else{
 		    	$(".showlist").append(result);
 		    	$(".more").show();

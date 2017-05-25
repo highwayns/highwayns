@@ -32,7 +32,7 @@ $(document).ready(function()
           <td>
 		  <select name="parentid[]" id="parentid"  style="width:108px; font-size:12px;">
               <option value="0">トップカテゴリ</option>
-			  {#highway_news_category set="列表名:category,资讯大类:0"#}
+			  {#highway_news_category set="リスト名:category,ニュース大类:0"#}
 			  {#foreach from=$category item=list#}
             <option value="{#$list.id#}" {#if $smarty.get.parentid==$list.id#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 			{#/foreach#}       
@@ -67,8 +67,8 @@ $(document).ready(function()
           <td width="120" align="right">&nbsp;</td>
           <td >
 		  <input type="submit" name="addsave" value="保存" class="admin_submit" />
-		  <input type="button" name="add_form" id="add_form" value="继续添加" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="history.go(-1)"/>
+		  <input type="button" name="add_form" id="add_form" value="続く追加" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="history.go(-1)"/>
 		  </td>
         </tr>
       </table>

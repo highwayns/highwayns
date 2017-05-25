@@ -34,30 +34,30 @@
 				<div class="clear"></div>
 			</div>			
 		          <div class="butbox">
-				<input type="button" name="submitsave" id="submitsave" value="搜索简历"  class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"/>
-				<input type="button" name="submitsave" id="submitsave" value="推广职位"  class="but180hui" onclick="javascript:location.href='company_promotion.php?act=promotion'"/>
-				<input type="button" name="submitsave" id="submitsave" value="继续发布"  class="but180hui" onclick="javascript:location.href='?act=addjobs'"/>
+				<input type="button" name="submitsave" id="submitsave" value="履歴書検索"  class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"/>
+				<input type="button" name="submitsave" id="submitsave" value="お勧め職位"  class="but180hui" onclick="javascript:location.href='company_promotion.php?act=promotion'"/>
+				<input type="button" name="submitsave" id="submitsave" value="続く配布"  class="but180hui" onclick="javascript:location.href='?act=addjobs'"/>
 				<!-- 分享按钮 -->
 				<div class="share" style="border-top-width: 0px; margin-top: 19px; margin-left: 310px;">
 					<div class="share_txt">誰もがあなたを助けるために誰かを見つけることができるように、友達に教えます！</div>
 				           <div class="bdsharebuttonbox bdshare">
 						<a class="bds_more" href="#" data-cmd="more"></a>
-						<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
-						<a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
-						<a title="分享到腾讯微博" class="bds_tqq" href="#" data-cmd="tqq"></a>
-						<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
-						<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+						<a title="QQスペースに共有" class="bds_qzone" href="#" data-cmd="qzone"></a>
+						<a title="SinaWeiboに共有" class="bds_tsina" href="#" data-cmd="tsina"></a>
+						<a title="腾讯Weiboに連携" class="bds_tqq" href="#" data-cmd="tqq"></a>
+						<a title="人人網に共有" class="bds_renren" href="#" data-cmd="renren"></a>
+						<a title="Wechatに共有" class="bds_weixin" href="#" data-cmd="weixin"></a>
 					</div>
-					<script>window._bd_share_config={"common":{"bdText":"{#$jobs.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs.jobs_name#}(月薪 : {#$jobs.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+					<script>window._bd_share_config={"common":{"bdText":"{#$jobs.companyname#}在@{#$HIGHWAY.site_name#}  最新職位配布 : {#$jobs.jobs_name#}(月給 : {#$jobs.wage_cn#})","bdDesc":"もっと最新職位履歴書ニュースはこちらへ{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 					</script>
 				</div>
 				<!-- 分享按钮  结束-->
 			</div>						
 			 <div class="recommend">
 				<div class="title"><div class="h2-title">为您推荐的人才</div></div>
-					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:"|cat:$concern_id#}
+					{#highway_resume_list set="リスト名:resumelist,表示件数:6,意向職位長さ:30,文字:...,ソート:rtime>desc,職位大类:"|cat:$concern_id#}
 					{#if !$resumelist#}
-					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc"#}
+					{#highway_resume_list set="リスト名:resumelist,表示件数:6,意向職位長さ:30,文字:...,ソート:rtime>desc"#}
 					{#/if#}
 					{#if $resumelist#}
 					{#foreach from=$resumelist item=list#}

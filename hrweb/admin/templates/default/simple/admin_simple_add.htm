@@ -37,32 +37,32 @@ $("#FormData").validate({
 	},
     messages: {
     jobname: {
-    required: "请输入职位名称",
-    minlength: jQuery.format("职位名称不能小于{0}个字符"),
-	maxlength: jQuery.format("职位名称不能大于{0}个字符")
+    required: "職位名称入力",
+    minlength: jQuery.format("職位名称の長さ{0}文字から"),
+	maxlength: jQuery.format("職位名長さ{0}だけ")
    },
    amount: {
-    range: jQuery.format("请输入一个介于 {0} 和 {1} 之间的值")
+    range: jQuery.format(" {0} から {1} までの値を入力してください")
    },
    comname: {
-    required: "请输入公司名称"
+    required: "会社名称"
    },
    contact: {
-    required: "请输入联系人"
+    required: "連絡先入力"
    },
    tel: {
-    required: "请输入联系电话",
-	digits: "联系电话必须是数字",
-    minlength: jQuery.format("电话不能<{0}位数")
+    required: "電話番号入力",
+	digits: "電話番号数字だけ",
+    minlength: jQuery.format("電話{0}桁以上必要")
    },
     pwd: {
-    required: jQuery.format("请输入管理密码"),
-	minlength: jQuery.format("密码不能小于{0}个字符")
+    required: jQuery.format("管理パスワードを入力してください"),
+	minlength: jQuery.format("パスワードは{0}文字以上")
    }
    ,
     detailed: {
-    required: jQuery.format("请输入具体要求"),
-	maxlength: jQuery.format("具体要求不能大于{0}个字符")
+    required: jQuery.format("詳細要求を入力してください"),
+	maxlength: jQuery.format("{0}文字まで入力してください")
  
    }
   },
@@ -79,14 +79,14 @@ $("#FormData").validate({
     });
 	 //具体要求
 	jQuery.validator.addMethod("ISdetailed", function(value, element) {
-	var str="请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息";
+	var str="募集の詳細要求入力，例えば：性别，学歴，年齢，仕事経験，給料など情報";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写具体要求");
+	}, "詳細要求入力");
 	/////验证码部分
 });
 </script>
@@ -126,12 +126,12 @@ $("#FormData").validate({
     <td align="right">住所：</td>
     <td>
 		<div>
-		<input type="text" value="请选择"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="選択"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
 		<input name="district" id="district" type="hidden" value="{#$show.district#}" />
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$show.sdistrict#}" />
 		<div id="menu2" class="dmenu shadow">
 			<ul>
-			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
+			{#highway_get_classify set="リスト名:c_province,タイプ:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -170,7 +170,7 @@ $("#FormData").validate({
     <td align="right">&nbsp;</td>
     <td height="60"  >
 	
-	 <input type="submit" name="Submit3" value="提交" class="admin_submit"   />
+	 <input type="submit" name="Submit3" value="提出" class="admin_submit"   />
  
 	</td>
   </tr>

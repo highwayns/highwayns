@@ -4,7 +4,7 @@ $(document).ready(function()
 {
 //
 $("#username").focus(function(){
-	if ($("#username").val()=="用户名/邮箱/手机号")
+	if ($("#username").val()=="ユーザ名/メール/携帯番号")
 	{
 	$("#username").val('');
 	$("#username").css("color","");
@@ -20,26 +20,26 @@ $(".but80").hover(function(){$(this).addClass("but80_hover")},function(){$(this)
 //验证
 $("form[id=Formlogin]").submit(function(e) {
 e.preventDefault();
-	if ($("#username").val()=="" || $("#username").val()=="用户名/邮箱/手机号")
+	if ($("#username").val()=="" || $("#username").val()=="ユーザ名/メール/携帯番号")
 	{			
-		$(".ajax_login_err").html("请填写：用户名 / 邮箱 / 手机号");	
+		$(".ajax_login_err").html("入力：ユーザ名 / メール / 携帯番号");	
 		$(".ajax_login_err").show();
 	}
 	else if($("#password").val()=="")
 	{	
-	$(".ajax_login_err").html("请填写密码！");
+	$(".ajax_login_err").html("パスワード入力！");
 	$(".ajax_login_err").show();
 	}
 	{#if $verify_userlogin=="1"#}
-	else if($("#postcaptcha").val()=="" || $("#postcaptcha").val()=="点击获取验证码")
+	else if($("#postcaptcha").val()=="" || $("#postcaptcha").val()=="点击取得検証コード")
 	{	
-	$(".ajax_login_err").html("请填写验证码！");
+	$(".ajax_login_err").html("検証コード入力！");
 	$(".ajax_login_err").show();
 	}
 	{#/if#}
 	else
 	{
-		$("#login").val("正在登录");
+		$("#login").val("ログイン中");
 		$("#login").attr("disabled","disabled");
 		 if($("#expire").attr("checked")==true)
 		 {
@@ -54,18 +54,18 @@ e.preventDefault();
 	 	 {
 			if (data=="err" || data=="errcaptcha")
 			{			
-				$("#login").val("登录");
+				$("#login").val("ログイン");
 				$("#login").attr("disabled","");
 				$("#password").attr("value","");
 				$(".ajax_login_err").show();
 				if (data=="err")
 				{
-				errinfo="帐号或者密码错误";
+				errinfo="アカウント或者パスワードエラー";
 				}
 				else if(data=="errcaptcha")
 				{
 				$("#imgdiv img").attr("src",$("#imgdiv img").attr("src")+"1");
-				errinfo="验证码错误";
+				errinfo="検証コードエラー";
 				}
 				$(".ajax_login_err").html(errinfo);
 				$("#login").removeAttr('disabled');
@@ -84,7 +84,7 @@ e.preventDefault();
 function imgcaptcha(inputID,imgdiv)
 {
 	
-		if ($(inputID).val()=="点击获取验证码")
+		if ($(inputID).val()=="点击取得検証コード")
 		{
 		$(inputID).val("");
 		$(inputID).css("color","#333333");
@@ -123,13 +123,13 @@ imgcaptcha("#postcaptcha","#imgdiv");
 	<div class="content_box">
 		<div class="login_err"></div>
 		<div class="list">
-			<input type="text" name="username" id="username" class="input_text_login_user" value="用户名/邮箱/手机号" maxlength="30" style="color:#999999;" />
-			<input type="text" name="passwordtxt" id="passwordtxt" class="input_text_login_pwd" value="密码"  maxlength="30" style="color:#999999;"/>
+			<input type="text" name="username" id="username" class="input_text_login_user" value="ユーザ名/メール/携帯番号" maxlength="30" style="color:#999999;" />
+			<input type="text" name="passwordtxt" id="passwordtxt" class="input_text_login_pwd" value="パスワード"  maxlength="30" style="color:#999999;"/>
 			<input type="password" name="password" id="password" class="input_text_login_pwd" value=""  maxlength="30" style="display:none"/>
 			{#if $verify_userlogin=="1"#}
 			<div class="postcaptcha">
 			<div id="imgdiv"></div>
-			<input  class="txtinput" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999;width:130px"/>
+			<input  class="txtinput" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999;width:130px"/>
 			</div>
 			{#/if#}
 		</div>
@@ -143,7 +143,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			正在登录中...
 		</div>
 		<div class="clear"></div>
-		<div class="button"><input type="submit" name="submitlogin" id="login" value="すぐ登録” class=“but_login_335" class="but_login_335" /></div>
+		<div class="button"><input type="submit" name="submitlogin" id="login" value="すぐログイン” class=“but_login_335" class="but_login_335" /></div>
 		{#if $HIGHWAY.qq_apiopen=="1" || $HIGHWAY.sina_apiopen=="1"  || $HIGHWAY.taobao_apiopen=="1"#}
 		<p>パートナーサイトのログインアカウントを使用する：</P>
 		<ul>

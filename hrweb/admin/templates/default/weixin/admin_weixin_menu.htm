@@ -53,10 +53,10 @@ $(document).ready(function()
 		var num=$(":checkbox[checked][id!='chk']").length;
 		if (num==0)
 		{
-			alert("您没有选择项目");
+			alert("アイテム選択してください");
 			return false;
 		}
-		if (confirm("你选择了"+num+"个菜单，删除顶级菜单同时将删除其子菜单，确定都要删除吗？"))
+		if (confirm("選択された"+num+"件メニュー，サブメニュー一緒に削除する，よろしいでしょうか？"))
 		{
 			$("form[name=form1]").attr("action","?act=del_menu");
 			$("form[name=form1]").submit()
@@ -95,9 +95,9 @@ $(document).ready(function()
 			 		html+="<td align=\"center\"  class=\"admin_list\">"+val[3]+"</td>";
 			 		html+="<td align=\"center\"  class=\"admin_list\">"+val[5]+"</td>";
 			 		if(val[6]==1){
-			 			html+="<td align=\"center\"  class=\"admin_list\"><font color=\"green\">显示</font></td>";
+			 			html+="<td align=\"center\"  class=\"admin_list\"><font color=\"green\">表示</font></td>";
 			 		}else{
-			 			html+="<td align=\"center\"  class=\"admin_list\"><font color=\"grey\">隐藏</font></td>";
+			 			html+="<td align=\"center\"  class=\"admin_list\"><font color=\"grey\">隠す</font></td>";
 			 		}
 			 		
 			   		html+="<td align=\"center\"  class=\"admin_list\">";
@@ -178,7 +178,7 @@ $(document).ready(function()
       <td class="admin_list">
 	  <a href="?act=add_menu&parentid={#$list.id#}">このメニューの下でサブメニューを加える</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="?act=edit_menu&id={#$list.id#}">変更</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-			  <a onclick="return confirm('你确定要删除吗？')" href="?act=del_menu&id={#$list.id#}&{#$urltoken#}">削除</a>
+			  <a onclick="return confirm('削除してよろしいでしようか？')" href="?act=del_menu&id={#$list.id#}&{#$urltoken#}">削除</a>
 			 </td>
     </tr>
       {#/foreach#}
@@ -199,10 +199,10 @@ $(document).ready(function()
 	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-		<input name="ButSave" type="submit" class="admin_submit" id="ButSave" value="保存菜单"/>
-        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加菜单"  onclick="window.location='?act=add_menu'"/>
-		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除所选" />
-        <input name="create_menu" id="create_menu" type="button" class="admin_submit"    value="同步菜单"/>
+		<input name="ButSave" type="submit" class="admin_submit" id="ButSave" value="メニュー保存"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="メニュー追加"  onclick="window.location='?act=add_menu'"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="選択された削除" />
+        <input name="create_menu" id="create_menu" type="button" class="admin_submit"    value="メニュー同期"/>
 		</td>
         <td width="305" align="right">
 	  

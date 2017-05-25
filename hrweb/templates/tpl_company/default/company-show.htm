@@ -1,4 +1,4 @@
-﻿{#highway_company_show set="列表名:company,企业ID:GET[id],企业介绍长度:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_company_show set="リスト名:company,企業ID:GET[id],企業介绍長さ:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -69,7 +69,7 @@
 								{#if $company.audit=="1"#}
 									<img title="企業認定済み" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企業未認定" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
+									<img title="未認定企業" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user>1#}
 									<img title="" src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
@@ -87,9 +87,9 @@
 						<div>
 						{#$company.company_profile|nl2br#}
 						</div>
-						<a href="javascript:;" class="c-info-more" title="查看全部"></a>
+						<a href="javascript:;" class="c-info-more" title="すべて閲覧"></a>
 					</div>
-					{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:8,列表页:HW_companyjobs,描述长度:68,会员UID:"|cat:$company.uid#}
+					{#highway_jobs_list set="リスト名:jobs,文字:...,職位名長さ:10,ページング:1,表示件数:8,リスト頁:HW_companyjobs,コメント長さ:68,会員UID:"|cat:$company.uid#}
 					{#if $jobs#}
 					<div class="com-left-block">
 						<h3 class="c-left-title">求人の掲載</h3>
@@ -206,7 +206,7 @@
 										});
 										transit.search(""+start+"", ""+end+"");
 										}else{
-										alert("输入起点！");
+										alert("起点入力して！");
 										}
 									});
 								</script>
@@ -247,7 +247,7 @@
 				<div class="c-right-block">
 					<h3 class="c-right-title">モバイルブラウザ</h3>
 					<div class="com-code">
-						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="扫描二维码" width="100" height="100" />
+						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="バーコードスキャン" width="100" height="100" />
 					</div>
 				</div>
 			</div>

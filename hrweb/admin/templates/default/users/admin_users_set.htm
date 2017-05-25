@@ -58,7 +58,7 @@ $(document).ready(function()
     <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
     <tr>
       <td bgcolor="#FFFFFF"  style="padding-left:24px;" > 
-      <input name="submit22" type="button" class="admin_submit"    value="返回上一步" onclick="Javascript:window.history.go(-1)"/></td>
+      <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/></td>
     </tr>
   </table>
   {#else#}
@@ -872,10 +872,10 @@ $(document).ready(function()
     <td height="50" bgcolor="#FFFFFF" style=" border-top:1px #CCCCCC dashed; padding-left:20px;">
      {#if $admin_purview=="all"#}
      <input name="id" type="hidden" value="{#$account.admin_id#}" />
-     <input name="submit3" type="submit" class="admin_submit"    value="修改"/>
+     <input name="submit3" type="submit" class="admin_submit"    value="修正"/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      {#/if#}
-     <input name="submit222" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+     <input name="submit222" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
    </td>
  </tr>
 </table>

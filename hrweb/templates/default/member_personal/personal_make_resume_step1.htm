@@ -45,7 +45,7 @@ function is_form_changed() {
 }
 if ($.browser.msie){
     window.onunload = function(){
-        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
     }
 }
 else{
@@ -169,7 +169,7 @@ var y=myDate.getFullYear();
 jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
     var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}|17[0-9]{9}$/;
     return this.optional(element) || (tel.test(value));
-}, "请正确填写手机号码");
+}, "携帯番号正しく入力してください");
  $("#Form1").validate({
    rules:{
    fullname: "required",
@@ -206,45 +206,45 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	},
     messages: {
     fullname: {
-    required: jQuery.format("请输入真实姓名")
+    required: jQuery.format("名前を入力してください")
    },
    birthdate: {
-    required: jQuery.format("请选择出生年份")
+    required: jQuery.format("出生年代")
    },
    residence: {
-    required: jQuery.format("请填写现居住地")
+    required: jQuery.format("現住所入力")
    },
    education: {
-    required: jQuery.format("请选择你的学历")
+    required: jQuery.format("学歴選択してください")
    },
    major_cn: {
-    required: jQuery.format("请选择你的专业")
+    required: jQuery.format("専門選択")
    },
    experience: {
-    required: jQuery.format("请选择工作经验")
+    required: jQuery.format("仕事経験を選択してください")
    },
    mobile: {
-    required: jQuery.format("请填写手机号"),
-    isPhoneNumber: jQuery.format("请正确填写手机号码")
+    required: jQuery.format("携帯番号入力"),
+    isPhoneNumber: jQuery.format("携帯番号正しく入力してください")
    },
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    },
-   current:"请选择目前状态",
-   intention_jobs:"请选择期望职位",
-   trade_cn:"请选择期望行业",
+   current:"現状選択してください",
+   intention_jobs:"期望職位選択",
+   trade_cn:"期望業界選択",
    district: {
-    required: jQuery.format("请选择工作地区")
+    required: jQuery.format("仕事地区選択")
    },
    wage: {
-    required: jQuery.format("请选择期望薪资")
+    required: jQuery.format("選択期望薪资")
    }
    {#if $verify_resume=="1" && $resume_basic.fullname==""#}
    ,
     postcaptcha: {
-    required: "请填写验证码",
-	remote: jQuery.format("验证码错误")	
+    required: "検証コード入力",
+	remote: jQuery.format("検証コードエラー")	
    }
     {#/if#}
   },
@@ -262,20 +262,20 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	}
     });
 	jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-	var str="点击获取验证码";
+	var str="点击取得検証コード";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写验证码");
+	}, "検証コード入力");
 	/////验证码部分
 	{#if $verify_resume=="1" && $resume_basic.fullname==""#}
 	function imgcaptcha(inputID,imgdiv)
 	{
 		$(inputID).focus(function(){
-			if ($(inputID).val()=="点击获取验证码")
+			if ($(inputID).val()=="点击取得検証コード")
 			{
 			$(inputID).val("");
 			$(inputID).css("color","#333333");
@@ -476,7 +476,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="education_menu" class="input_text_200_bg">{#ifの$ userprofile.education#} {#$userprofile.education_cn#} {#else#} </div {#場合/#}を選択>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -539,8 +539,8 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="experience_menu" class="input_text_200_bg">{#if $userprofile.experience#}{#$userprofile.experience_cn#}{#else#}選択してください{#/if#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
-	              			<li id="-1" title="应届生">新卒</li>
+	              			{#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
+	              			<li id="-1" title="新卒">新卒</li>
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -616,7 +616,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			             	 	<div id="current_menu" class="input_text_200_bg">選択してください</div>	
 			             	 	<div class="menu" id="menu5">
 				              		<ul>
-				              			{#highway_get_classify  set="类型:HW_current,列表名:c_current"#}
+				              			{#highway_get_classify  set="タイプ:HW_current,リスト名:c_current"#}
 				              			{#foreach from=$c_current item=list#}
 				              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#}
@@ -765,7 +765,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="" />
 			<input name="nature_cn" id="nature_cn" type="hidden" value="" />
-			{#highway_get_classify  set="类型:HW_jobs_nature,列表名:c_nature"#}
+			{#highway_get_classify  set="タイプ:HW_jobs_nature,リスト名:c_nature"#}
 			{#section name=list loop=$c_nature#}
 			  <div class="input_radio {#if $smarty.section.list.index==0#}select{#/if#}" id="{#$c_nature[list].id#}">{#$c_nature[list].categoryname#}</div>
 			  {#/section#}			  
@@ -781,7 +781,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="wage_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
+	              			{#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
 	              			{#foreach from=$c_wage item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -799,7 +799,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td width="230">
 				<div>
 					<div id="imgdiv"></div>
-					<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+					<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
 				</div></td>
 		  </tr>
 		  {#/if#}

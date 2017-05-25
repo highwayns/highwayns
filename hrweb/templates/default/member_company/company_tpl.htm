@@ -15,12 +15,12 @@ $(document).ready(function()
 	$('input[name=choose_tpl_btn]').click(function() {
 		{#if ($HIGHWAY.operation_mode=="2"||$HIGHWAY.operation_mode=="3") && ( $setmeal.change_templates=="0" || $setmeal.change_templates=="")#}
 			{#if $setmeal.setmeal_name==""#}
-				var setmeal_name="您没有开通套餐";
+				var setmeal_name="コースを申込してください";
 			{#else#}
-				var setmeal_name="你的套餐：{#$setmeal.setmeal_name#}";
+				var setmeal_name="マイコース：{#$setmeal.setmeal_name#}";
 			{#/if#}
 			$("input[name=choose_tpl_btn]").click(function(){
-				alert(setmeal_name+",没有自由切换模板的权限！");
+				alert(setmeal_name+",テンプレート切り替える権限なし！");
 				return false;
 			})
 		{#/if#}

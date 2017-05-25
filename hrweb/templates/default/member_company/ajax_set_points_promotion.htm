@@ -36,7 +36,7 @@
 <div class="spread_but_box">
 	<input type="hidden" id="jobid" value="{#$jobid#}">
 	<input type="hidden" id="catid" value="{#$catid#}">
-	<input type="button" value="确定" class="but95cheng DialogSubmit"/>
+	<input type="button" value="確定" class="but95cheng DialogSubmit"/>
 	<input type="button" value="取消" class="but95hui DialogClose"/>
 </div>
 <script type="text/javascript">
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			$("#count").html("<br />プロモーション日数<strong style=\"color:#009900\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>日、控除する必要があります：&nbsp;&nbsp;<strong style=\"color: #009900;\">"+$(this).val()*days_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，あなだは現在&nbsp;&nbsp;<strong style=\”color: #FF6600;\”>"+user_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}。<br /><br />");   
 			}
 			else if($(this).val()<{#$cat_minday#}){
-				$("#count").html("推广天数不能小于<strong style=\"color: #FF6600;\">{#$cat_minday#}</strong>天");
+				$("#count").html("お勧め日数は＞<strong style=\"color: #FF6600;\">{#$cat_minday#}</strong>日");
 			}
 			else
 			{

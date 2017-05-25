@@ -48,7 +48,7 @@ $(document).ready(function()
 	  </td>
 	
       <td align="center"   class="admin_list">
-	  <a href="?act=edit&id={#$list.w_id#}">変更</a> <a href="?act=hottype_del&id={#$list.w_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a>	  </td>
+	  <a href="?act=edit&id={#$list.w_id#}">変更</a> <a href="?act=hottype_del&id={#$list.w_id#}&{#$urltoken#}" onclick="return confirm('削除してよろしいでしようか？')">削除</a>	  </td>
     </tr>
 	 {#/foreach#}
   </table>
@@ -59,8 +59,8 @@ $(document).ready(function()
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-<input type="button" class="admin_submit" id="ButAudit" value="添加词语"  onclick="window.location='?act=add'"/>
-<input type="button" class="admin_submit" id="ButDel" value="删除所选"/>
+<input type="button" class="admin_submit" id="ButAudit" value="単語追加"  onclick="window.location='?act=add'"/>
+<input type="button" class="admin_submit" id="ButDel" value="選択された削除"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -75,7 +75,7 @@ $(document).ready(function()
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="list" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

@@ -39,15 +39,15 @@ $(document).ready(function()
         作者：<a href="{#$templates.info.authorurl#}" target="_blank">{#$templates.info.author#}</a><br />
 		模版ID：{#$templates.dir#}
 		<br />
-	  <input type="button" name="Submit22" value="备份此模板" class="admin_submit"    onclick="window.location='?act=backup&tpl_name={#$templates.dir#}&{#$urltoken#}'"  style="margin-top:10px;"/>
-	  <input type="button" name="Submit22" value="编辑模板" class="admin_submit"    onclick="window.location='?act=edit'"  style="margin-top:10px;"/>
+	  <input type="button" name="Submit22" value="テンプレートバックアップ" class="admin_submit"    onclick="window.location='?act=backup&tpl_name={#$templates.dir#}&{#$urltoken#}'"  style="margin-top:10px;"/>
+	  <input type="button" name="Submit22" value="テンプレート編集" class="admin_submit"    onclick="window.location='?act=edit'"  style="margin-top:10px;"/>
 	  </td>
     </tr>
   </table>
 	<div class="toptit">利用可能なテンプレート</div>
 	{#foreach from=$list item=li#}
 	  <div style="float:left; width:240px;  text-align:center; padding:15px; line-height:180%"  class="link_lan tpl_list">
-	  <a href="?act=set&tpl_dir={#$li.dir#}&{#$urltoken#}" onclick="return confirm('你确定要使用此模板吗？(提示：频繁更换模版会影响网站排名)')">
+	  <a href="?act=set&tpl_dir={#$li.dir#}&{#$urltoken#}" onclick="return confirm('このテンプレートを使いますか？(提示：テンプレート変更するとランキング変わります)')">
 	  <img src="../templates/{#$li.dir#}/thumbnail.jpg" alt="{#$li.info.name#}" width="225" height="136" border="1"  style="border: #CCCCCC;"/>
 	  </a>
 	  <br />

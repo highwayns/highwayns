@@ -62,7 +62,7 @@ $(document).ready(function()
       <td width="160"   align="center"  class="admin_list_tit">並び替え</td>
       <td width="200"   align="center" class="admin_list_tit">操作</td>
     </tr>
-	{#highway_news_category set="列表名:category,资讯大类:0"#}
+	{#highway_news_category set="リスト名:category,ニュース大类:0"#}
 	  {#foreach from=$category item=list#}
      <tr>
       <td   class="admin_list admin_list_first" >
@@ -84,11 +84,11 @@ $(document).ready(function()
       <td class="admin_list">
 	  <a href="?act=category_add&parentid={#$list.id#}">サブクラスの追加</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?act=edit_category&id={#$list.id#}">変更</a>&nbsp;&nbsp;
 			  {#if $list.admin_set<>"1"#}
-			  |&nbsp;&nbsp;<a onclick="return confirm('你确定要删除吗？')" href="?act=del_category&id={#$list.id#}">削除</a>
+			  |&nbsp;&nbsp;<a onclick="return confirm('削除してよろしいでしようか？')" href="?act=del_category&id={#$list.id#}">削除</a>
 			  {#/if#}	  </td>
     </tr>
 			<!--小类 -->
-			{#highway_news_category set="列表名:sclass,资讯大类:"|cat:$list.id#}
+			{#highway_news_category set="リスト名:sclass,ニュース大类:"|cat:$list.id#}
 			{#foreach from=$sclass item=slist#}
 			 <tr class="Sclass_{#$list.id#}"  >
 			  <td  class="admin_list"  style="padding-left:31px;">
@@ -110,7 +110,7 @@ $(document).ready(function()
 			  
 			  <a href="?act=edit_category&id={#$slist.id#}">変更</a>&nbsp;&nbsp;
 					  {#if $slist.admin_set<>"1"#}
-					  |&nbsp;&nbsp;<a onclick="return confirm('你确定要删除吗？')" href="?act=del_category&id={#$slist.id#}&{#$urltoken#}">削除</a>
+					  |&nbsp;&nbsp;<a onclick="return confirm('削除してよろしいでしようか？')" href="?act=del_category&id={#$slist.id#}&{#$urltoken#}">削除</a>
 					  {#/if#}	  </td>
 			</tr>
 			{#/foreach#}
@@ -120,8 +120,8 @@ $(document).ready(function()
 	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加分类"  onclick="window.location='?act=category_add'"/>
-		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="删除所选" onclick="return confirm('你确定要删除吗？')"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="分類追加"  onclick="window.location='?act=category_add'"/>
+		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="選択された削除" onclick="return confirm('削除してよろしいでしようか？')"/>
 		</td>
         <td width="305" align="right">
 	  

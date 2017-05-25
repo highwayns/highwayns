@@ -116,10 +116,10 @@ $(document).ready(function()
     $.post('?act=resume_basic_save', {"pid":pid,"title":title,"fullname":fullname,"sex":sex,"sex_cn":sex_cn,"birthdate":birthdate,"education":education,"education_cn":education_cn,"experience":experience,"experience_cn":experience_cn,"residence":residence,"telephone":telephone,"email":email,"wage":wage,"wage_cn":wage_cn,"nature":nature,"nature_cn":nature_cn}, 
       function(data) {
         if (data == "ok") {
-          alert("修改基本信息成功");
+          alert("基本情報修正成功");
           window.location.reload();
         } else if(data == "err") {
-          alert("修改基本信息失败");
+          alert("基本情報修正失敗");
           window.location.reload();
         } else {
           alert(data);
@@ -204,7 +204,7 @@ $(document).ready(function()
             <div class="menu_title">最高学歴</div>
             <div class="choose_close"></div>
             <ul>
-              {#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+              {#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
               {#foreach from=$c_education item=list#}
               <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
               {#/foreach#}
@@ -223,7 +223,7 @@ $(document).ready(function()
             <div class="menu_title">仕事経験</div>
             <div class="choose_close"></div>
             <ul>
-              {#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
+              {#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
               {#foreach from=$c_experience item=list#}
               <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
               {#/foreach#}
@@ -245,7 +245,7 @@ $(document).ready(function()
           <td class="make_resume_td_R"><input name="email" id="email" type="text" class="make_resume_input" value="{#$resume_basic.email#}" /></td>  
         </tr>
     </table>
-    <input type="button" id="resume_save" value="保存信息" class="personal_submit"/>
+    <input type="button" id="resume_save" value="情報保存" class="personal_submit"/>
 </form>
 {#include file="wap/footer.htm"#}
 </body>

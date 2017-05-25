@@ -82,7 +82,7 @@ $(".resume_privacy").click(function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=privacy&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('隐私设置');
     myDialog.width('550');
     myDialog.showModal();
@@ -98,7 +98,7 @@ $(".del_resume").click(function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=del_resume&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('删除简历');
     myDialog.width('350');
     myDialog.showModal();
@@ -116,7 +116,7 @@ $(".refresh_resume").click(function(){
 		if(result=="1"){
 			dialog({
 			  title: '温馨提示',
-			  content: "刷新成功",
+			  content: "更新成功",
 			  width:'300px'
 			}).showModal();
 			location.reload();
@@ -271,7 +271,7 @@ $(".refresh_resume").click(function(){
 		简历是求职的利器，填写简历才能更快找到好工作！<br />
 		去填写一份优质的简历吧，认真的人，才能让认真的企业找上你！
 	</p>
-	<input type="button" value="创建简历" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/>
+	<input type="button" value="履歴書作成" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/>
 </div>
 {#/if#}
 	<div class="personal-rec-jobs">

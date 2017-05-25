@@ -29,7 +29,7 @@ $(document).ready(function()
 		$.get("?act=ajax_collect_resume&offset="+(offset)+"&rows=5", function(result){
 		    if(result=="-1"){
 		    	$(".check_more").show();
-		    	$(".check_more").html("没有更多收藏的简历了");
+		    	$(".check_more").html("もっとお気に入り履歴書なし");
 		    }else{
 		    	$(".get_resume_bbox").append(result);
 		    	$(".check_more").show();

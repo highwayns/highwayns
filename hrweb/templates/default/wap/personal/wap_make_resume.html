@@ -185,10 +185,10 @@ $(document).ready(function()
         var   type="^[0-9]*[1-9][0-9]*$";
         var   re = new RegExp(type); 
         if (data.match(re)!=null) {
-          alert("创建简历成功");
+          alert("履歴書所作成成功");
           window.location.href='?act=resume_success&pid='+data+'';
         } else if(data == "err") {
-          alert("创建简历失败");
+          alert("履歴書作成失敗");
           window.location.reload();
         } else {
           alert(data);
@@ -276,7 +276,7 @@ $(document).ready(function()
             <div class="menu_title">最高学歴</div>
             <div class="choose_close"></div>
             <ul>
-              {#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+              {#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
               {#foreach from=$c_education item=list#}
               <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
               {#/foreach#}
@@ -295,7 +295,7 @@ $(document).ready(function()
             <div class="menu_title">仕事経験</div>
             <div class="choose_close"></div>
             <ul>
-              {#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
+              {#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
               {#foreach from=$c_experience item=list#}
               <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
               {#/foreach#}
@@ -356,7 +356,7 @@ $(document).ready(function()
             var sjobstr = "";
             if(HW_jobs[rid]) {
               var cjobsArray = HW_jobs[rid].split("|");
-              sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">限定なし</li>';
+              sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/制限なし" pid="'+rpid+'.0">限定なし</li>';
               $.each(cjobsArray, function(cindex, cval) {
                 if(cval) {
                   var cjobs = cval.split(",");
@@ -398,7 +398,7 @@ $(document).ready(function()
             <div class="menu_title">希望給料</div>
             <div class="choose_close"></div>
             <ul>
-              {#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
+              {#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
               {#foreach from=$c_wage item=list#}
               <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
               {#/foreach#}
@@ -441,7 +441,7 @@ $(document).ready(function()
               var scitystr = "";
               if(HW_city[cid]) {
                 var ccitysArray = HW_city[cid].split("|");
-                scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
+                scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/制限なし" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
                 $.each(ccitysArray, function(cindex, cval) {
                   if(cval) {
                     var ccitys = cval.split(",");
@@ -515,7 +515,7 @@ $(document).ready(function()
             <div class="menu_title">仕事性質</div>
             <div class="choose_close"></div>
             <ul>
-              {#highway_get_classify  set="类型:HW_jobs_nature,列表名:c_nature"#}
+              {#highway_get_classify  set="タイプ:HW_jobs_nature,リスト名:c_nature"#}
               {#section name=list loop=$c_nature#}
               <li id="{#$c_nature[list].id#}" title="{#$c_nature[list].categoryname#}">{#$c_nature[list].categoryname#}</li>
               {#/section#}
@@ -527,8 +527,8 @@ $(document).ready(function()
           <td class="make_resume_td_R"><input type="text" name="specialty" class="make_resume_input" /><div class="errr_span"></div></td>  
         </tr>
     </table>
-    <input type="button" id="resume_save" value="保存简历" class="personal_submit"/>
-    <input type="button" id="resume_save_no" value="正在保存中..." class="personal_submit" style="display: none;"/>
+    <input type="button" id="resume_save" value="履歴書保存" class="personal_submit"/>
+    <input type="button" id="resume_save_no" value="保存中..." class="personal_submit" style="display: none;"/>
 </form>
     <div class="personal_user_main_loginout"><a href="../wap_login.php?act=logout">退出登录</a></div>
 {#include file="wap/footer.htm"#}

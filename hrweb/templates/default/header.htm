@@ -3,7 +3,7 @@
 	<div class="top-nav-wrap">
 		<div class="top-nav clearfix">
 			<ul class="f-left">
-				{#highway_nav set="调用名称:HW_top,列表名:list,分割:5"#}
+				{#highway_nav set="Call名称:HW_top,リスト名:list,分割:5"#}
 				{#foreach from=$list item=list#}
 				<li><a href="{#$list.url#}" target="{#$list.target#}" class="nav-li {#if $list.tag==$page_select && $list.tag!=""#}active{#/if#}">{#$list.title#}</a></li>
 			    {#/foreach#}

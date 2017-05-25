@@ -84,7 +84,7 @@
 			document.getElementById("zoom").value= map.getZoom(); 
 			//alert(map.getZoom());//地图缩放级别
 			//map.zoomIn();地图放大一个级别
-			//alert("您标注的位置：" + e.marker.getPoint().lng + ", " + e.marker.getPoint().lat);
+			//alert("表記されたポジション：" + e.marker.getPoint().lng + ", " + e.marker.getPoint().lat);
 			//打开提示层
 			});
 			//myPushpin.setIcon(icon:Icon);
@@ -109,7 +109,7 @@
 			  // 创建一个DOM元素   
 			  var div = document.createElement("div");   
 			  // 添加文字说明   
-			  div.appendChild(document.createTextNode("标记我的位置"));   
+			  div.appendChild(document.createTextNode("マイポジション"));   
 			  // 设置样式  
 			  div.style.cursor = "pointer";   
 			  div.style.padding = "6px"; 
@@ -129,7 +129,7 @@
 			  // 创建一个DOM元素   
 			  var div = document.createElement("div");   
 			  // 添加文字说明   
-			  div.appendChild(document.createTextNode("保存我的位置"));   
+			  div.appendChild(document.createTextNode("マイポジション保存"));   
 			  // 设置样式 
 			  div.style.cursor = "pointer";   
 			  div.style.padding = "6px"; 
@@ -156,7 +156,7 @@
 			{
 			if (document.form1.x.value=="" || document.form1.y.value=="")
 				{
-				alert("请先在地图上标记您的位置")
+				alert("地图上にマイポジションをマック")
 				return (false);
 				}
 				else

@@ -102,10 +102,10 @@ $(document).ready(function()
 		var endmonth =$("#endmonth").attr("data");
 		$.post("?act=resume_education_save",{id:id,pid:pid,school:school,speciality:speciality,startyear:startyear,startmonth:startmonth,endyear:endyear,endmonth:endmonth},function(data){
 			if(data=="ok"){
-				alert("添加成功");
+				alert("追加成功");
 				window.location.href="?act=resume_education&pid="+pid+"";
 			}else if(data=="err"){
-				alert("添加失败");
+				alert("追加失敗");
 			}else{
 				alert(data);
 			}

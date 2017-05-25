@@ -42,7 +42,7 @@
 	     <tr>
         <td width="180" align="right"> ジョブタイプが一致していませんでした。</td>
         <td >
-{#highway_get_classify set="列表名:nature,类型:HW_jobs_nature"#}
+{#highway_get_classify set="リスト名:nature,タイプ:HW_jobs_nature"#}
 {#foreach from=$nature item=list#}
 <label><input type="radio" name="jobs_nature" value="{#$list.id#}"  {#if $show.jobs_nature == $list.id#}checked="checked"{#/if#} >{#$list.categoryname#}</label>
 {#/foreach#}
@@ -74,13 +74,13 @@
         <td>
  
 <div>
-		{#highway_get_classify set="列表名:li,类型:HW_jobs,id:"|cat:$show.jobs_category#}
+		{#highway_get_classify set="リスト名:li,タイプ:HW_jobs,id:"|cat:$show.jobs_category#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.jobs_subclass#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="jobs_category_cn" id="jobs_category_cn" class="input_text_200 input_text_selsect"/>
 		<input name="jobs_category" id="jobs_category" type="hidden" value="{#$show.jobs_category#}" />
 		<input name="jobs_subclass" id="jobs_subclass" type="hidden" value="{#$show.jobs_subclass#}" />
 		<div id="menu5" class="dmenu shadow">
 			<ul>
-			{#highway_get_classify set="列表名:jobs,类型:HW_jobs"#}
+			{#highway_get_classify set="リスト名:jobs,タイプ:HW_jobs"#}
 			{#foreach from=$jobs item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -97,13 +97,13 @@
         <td align="right">作業領域は一致することはできません：</td>
         <td>
 	<div>
-		{#highway_get_classify set="列表名:li,类型:HW_district"#}
+		{#highway_get_classify set="リスト名:li,タイプ:HW_district"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.jobs_district#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="jobs_district_cn" id="jobs_district_cn" class="input_text_200 input_text_selsect"/>
 		<input name="sdistrict" id="sdistrict" type="hidden" value="" />
 		<input name="jobs_district" id="jobs_district" type="hidden" value="{#$show.jobs_district#}" />
 		<div id="menu6" class="dmenu shadow">
 			<ul>
-			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
+			{#highway_get_classify set="リスト名:c_province,タイプ:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -117,7 +117,7 @@
         <td align="right">学術要件は一致することができませんでした：</td>
         <td>
 	<div>
-	{#highway_get_classify set="类型:HW_education,列表名:li"#}
+	{#highway_get_classify set="タイプ:HW_education,リスト名:li"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.jobs_education#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="jobs_education_cn" id="jobs_education_cn" class="input_text_200 input_text_selsect"/>
 		<input name="jobs_education" id="jobs_education" type="hidden" value="{#$show.jobs_education#}" />
 		<div id="menu7" class="menu">
@@ -135,7 +135,7 @@
         <td>
  
 	<div>
-	{#highway_get_classify set="类型:HW_experience,列表名:li"#}
+	{#highway_get_classify set="タイプ:HW_experience,リスト名:li"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.jobs_experience#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="jobs_experience_cn" id="jobs_experience_cn" class="input_text_200 input_text_selsect"/>
 		<input name="jobs_experience" id="jobs_experience" type="hidden" value="{#$show.jobs_experience#}" />
 		<div id="menu8" class="menu">
@@ -152,7 +152,7 @@
         <td align="right">給与は一致していませんでした。</td>
         <td>
 	<div>
-	{#highway_get_classify set="类型:HW_wage,列表名:li"#}
+	{#highway_get_classify set="タイプ:HW_wage,リスト名:li"#}
 		<input type="text" value="{#foreach from=$li item=list#}{#if $list.id==$show.jobs_wage#}{#$list.categoryname#}{#/if#}{#/foreach#}"  readonly="readonly" name="jobs_wage_cn" id="jobs_wage_cn" class="input_text_200 input_text_selsect"/>
 		<input name="jobs_wage" id="jobs_wage" type="hidden" value="{#$show.jobs_wage#}" />
 		<div id="menu9" class="menu">
@@ -169,7 +169,7 @@
 	        <tr>
         <td align="right">&nbsp;</td>
         <td height="50"><span style="font-size:14px;">
-          <input name="submit2222" type="submit" class="admin_submit"    value="保存修改"/>
+          <input name="submit2222" type="submit" class="admin_submit"    value="修正保存"/>
         </span></td>
       </tr>
     </table>

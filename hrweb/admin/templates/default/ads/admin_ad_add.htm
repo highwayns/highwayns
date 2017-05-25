@@ -16,49 +16,49 @@ $(document).ready(function()
 //验证文字广告
 	$("#sub1").click(function()
 	{
-	 if ($("#title").val()==""){alert ("请填写广告标题"); return false;}
-	 if ($("#text_content").val()==""){alert ("请填写文字");return false;}
+	 if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
+	 if ($("#text_content").val()==""){alert ("文字入力");return false;}
 	 $("#FormData").submit();
 	});
 	//图片
 	$("#sub2").click(function()
 	{
-	 if ($("#title").val()==""){alert ("请填写广告标题"); return false;}
-	 if ($("#img_file").val()=="" && $("#img_path").val()==""){alert ("请上传图片或填写图片路径");return false;}
+	 if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
+	 if ($("#img_file").val()=="" && $("#img_path").val()==""){alert ("写真アップロードまたは写真パス入力");return false;}
 	 $("#FormData").submit();
 	});	
 	//代码
 	$("#sub3").click(function()
 	{
-	 if ($("#code_content").val()==""){alert ("请填写输入广告代码"); return false;}
+	 if ($("#code_content").val()==""){alert ("広告代码を入力してください"); return false;}
 	 $("#FormData").submit();
 	});	
 	//FLASH
 	$("#sub4").click(function()
 	{
-	  if ($("#title").val()==""){alert ("请填写广告标题"); return false;}
-	 if ($("#flash_file").val()=="" && $("#flash_path").val()==""){alert ("请上传FLASH或填写FLASH路径");return false;}
-	 if ($("#flash_width").val()=="" || $("#flash_height").val()==""){alert ("请填写宽和高");return false;}
+	  if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
+	 if ($("#flash_file").val()=="" && $("#flash_path").val()==""){alert ("FLASHアップロードまたはFLASHパス入力");return false;}
+	 if ($("#flash_width").val()=="" || $("#flash_height").val()==""){alert ("広さ和高さ入力");return false;}
 	 $("#FormData").submit();
 	});	
 	
 //浮动
 	$("#sub5").click(function()
 	{
-	  if ($("#title").val()==""){alert ("请填写广告标题"); return false;}
-	 if ($("#floating_file").val()=="" && $("#floating_path").val()==""){alert ("请上传或填写路径");return false;}
-	 if ($("#floating_width").val()=="" || $("#floating_height").val()==""){alert ("请填写宽和高");return false;}
-	  if ($("#floating_left").val()=="" && $("#floating_right").val()==""){alert ("请填写左距或者右距");return false;}
-	  if ($("#floating_top").val()==""){alert ("请填写顶距");return false;}
-	  if ($("#floating_top").val()>800){alert ("顶距超过了800，多数情况下无法正确显示，推荐设置在300内");return false;}
+	  if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
+	 if ($("#floating_file").val()=="" && $("#floating_path").val()==""){alert ("アップロードまたはパス入力");return false;}
+	 if ($("#floating_width").val()=="" || $("#floating_height").val()==""){alert ("広さ和高さ入力");return false;}
+	  if ($("#floating_left").val()=="" && $("#floating_right").val()==""){alert ("左距または右距入力");return false;}
+	  if ($("#floating_top").val()==""){alert ("トップ距入力");return false;}
+	  if ($("#floating_top").val()>800){alert ("顶距800を超えた，表示できないかもしれません，300以内に設定してください");return false;}
 	 $("#FormData").submit();
 	});	
 	//视频
 	$("#sub6").click(function()
 	{
-	  if ($("#title").val()==""){alert ("请填写广告标题"); return false;}
-	 if ($("#video_file").val()=="" && $("#video_path").val()==""){alert ("请上传或填写路径");return false;}
-	 if ($("#video_width").val()=="" || $("#video_height").val()==""){alert ("请填写宽和高");return false;}
+	  if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
+	 if ($("#video_file").val()=="" && $("#video_path").val()==""){alert ("アップロードまたはパス入力");return false;}
+	 if ($("#video_width").val()=="" || $("#video_height").val()==""){alert ("広さ和高さ入力");return false;}
 	 $("#FormData").submit();
 	});	
 }); 
@@ -182,8 +182,8 @@ $(document).ready(function()
                 </tr>
       </table>
 	  <div style="padding-left:110px; padding-top:10px;">
-	  <input type="button"  id="sub1" value="确定提交" class="admin_submit"   />
-      <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+	  <input type="button"  id="sub1" value="提出確定" class="admin_submit"   />
+      <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 	  </div>
      
 	</div>
@@ -223,8 +223,8 @@ $(document).ready(function()
                 </tr>
       </table>
 		  <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub2" value="确定提交" class="admin_submit"   />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+		  <input type="button"  id="sub2" value="提出確定" class="admin_submit"   />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 	</div>
 	<div class="adshow" id="show3">	
@@ -236,8 +236,8 @@ $(document).ready(function()
                 </tr>
       </table>
 	   	<div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub3" value="确定提交" class="admin_submit"   />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+		  <input type="button"  id="sub3" value="提出確定" class="admin_submit"   />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 	  </div>
 	</div>
 		<div class="adshow" id="show4">
@@ -267,8 +267,8 @@ $(document).ready(function()
                 </tr>
           </table>
 		  <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub4" value="确定提交" class="admin_submit"   />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+		  <input type="button"  id="sub4" value="提出確定" class="admin_submit"   />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 	</div>
 					<div class="adshow" id="show5">
@@ -325,8 +325,8 @@ Flash </label></td>
                   </tr>
             </table>
 				 <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub5" value="确定提交" class="admin_submit"   />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+		  <input type="button"  id="sub5" value="提出確定" class="admin_submit"   />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 				</div>	
 				<div class="adshow" id="show6">			
@@ -357,8 +357,8 @@ Flash </label></td>
       </table>
 		  <div style="padding-left:110px; padding-top:10px;">
 		  {#$inputtoken#}
-		  <input type="button"  id="sub6" value="确定提交" class="admin_submit"   />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+		  <input type="button"  id="sub6" value="提出確定" class="admin_submit"   />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 	</div>
 </form>

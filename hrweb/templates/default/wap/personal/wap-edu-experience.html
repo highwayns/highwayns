@@ -26,10 +26,10 @@ $(document).ready(function()
 		var id=$(this).attr("data");
 		$.get("?act=resume_education_del",{ education_id: ""+id+""},function(data){
 			if(data=="ok"){
-				alert("删除成功");
+				alert("削除成功");
 				location.reload();
 			}else if(data=="err"){
-				alert("删除失败");
+				alert("削除失敗");
 			}
 		})
 	});

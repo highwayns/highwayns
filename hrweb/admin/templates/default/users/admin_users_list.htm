@@ -43,7 +43,7 @@
 		<a href="?act=edit_users_pwd&id={#$li.admin_id#}" >パスワード</a>
 		{#if $admin_purview=="all"#}
 		&nbsp;&nbsp;
-		<a href="?act=del_users&id={#$li.admin_id#}&{#$urltoken#}" onclick="return confirm('确定要删除吗？')">削除</a>
+		<a href="?act=del_users&id={#$li.admin_id#}&{#$urltoken#}" onclick="return confirm('削除してよろしいでしょうか？')">削除</a>
 		{#/if#}		
 	  </td>
     </tr>
@@ -54,7 +54,7 @@
       <tr>
         <td>
 
-          <input type="button" name="add" value="添加管理员" class="admin_submit"   onclick="window.location.href='?act=add_users'" />
+          <input type="button" name="add" value="管理员追加" class="admin_submit"   onclick="window.location.href='?act=add_users'" />
         	
 		</td>
         <td width="305" align="right">

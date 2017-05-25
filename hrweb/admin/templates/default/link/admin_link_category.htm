@@ -44,7 +44,7 @@
 			{#else#}
 			<a href="?act=category_edit&alias={#$li.c_alias#}">変更</a>
 		&nbsp;&nbsp;&nbsp;
-		<a href="?act=del_category&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">削除</a>
+		<a href="?act=del_category&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('削除してよろしいでしようか？')">削除</a>
 			{#/if#}
 	</td>
 	
@@ -56,8 +56,8 @@
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-<input type="button" name="Submit" value="新增分类" class="admin_submit"     onclick="window.location='?act=category_add'"/>
-<input name="del" type="submit" class="admin_submit" id="ButDel" value="删除所选" onclick="return confirm('你确定要删除吗？')"/>
+<input type="button" name="Submit" value="分類追加" class="admin_submit"     onclick="window.location='?act=category_add'"/>
+<input name="del" type="submit" class="admin_submit" id="ButDel" value="選択された削除" onclick="return confirm('削除してよろしいでしようか？')"/>
 		</td>
         <td width="305" align="right">		
 	    </td>

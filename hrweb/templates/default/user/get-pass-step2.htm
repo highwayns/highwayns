@@ -80,8 +80,8 @@ $(document).ready(function()
 		messages: {
 			mobile_vcode:
 			{
-				required: "请输入手机验证码",
-				remote: jQuery.format("验证码错误")	
+				required: "携帯検証コードを入力してください",
+				remote: jQuery.format("検証コードエラー")	
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -107,7 +107,7 @@ $(document).ready(function()
 						SysSecond --;
 						$("#sms_send").hide();
 						$("#send_ok").show();
-						$("#send_ok").html( SysSecond +" 秒后重新发送");
+						$("#send_ok").html( SysSecond +" 秒後再送信");
 					} 
 					else 
 					{
@@ -202,10 +202,10 @@ $(document).ready(function()
 							</div>
 							<ul class="drop-list" id="menu1">
 								{#if $usinfo.mobile && $usinfo.mobile_audit==1#}
-								<li id="1" title="已认证手机"><a href="javascript:void(0);">已认证手机</a></li>
+								<li id="1" title="認定済み携帯"><a href="javascript:void(0);">已认证手机</a></li>
 								{#/if#}
 								{#if $usinfo.email#}
-								<li id="2" title="已认证邮箱"><a href="javascript:void(0);" >已认证邮箱</a></li>
+								<li id="2" title="認定済みメール"><a href="javascript:void(0);" >已认证邮箱</a></li>
 								{#/if#}
 							</ul>
 						</div>
@@ -225,7 +225,7 @@ $(document).ready(function()
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type long f-left">PINコード</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="验证码" />
+							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="検証コード" />
 						</div>
 						<div class="reg-form-other f-left verification">
 							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">無料のアクティブSMSを取得します</a>
@@ -241,7 +241,7 @@ $(document).ready(function()
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type long f-left">PINコード</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
+							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="検証コード" />
 						</div>
 						<div class="reg-form-other f-left verification">
 							<label class='error' id="postcaptcha_err"></label>
@@ -260,7 +260,7 @@ $(document).ready(function()
 						{#/if#}
 						<input type="hidden" name="uid" value="{#$usinfo.uid#}" />
 						<input type="hidden" name="token" value="{#$token#}"/>
-						<input type="button" value="提交" class="btn btn-lg blue span1" id="getpass_submit"/>
+						<input type="button" value="提出" class="btn btn-lg blue span1" id="getpass_submit"/>
 					</div>
 				</div>
 			</div>

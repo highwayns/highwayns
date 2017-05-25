@@ -57,7 +57,7 @@
 										{#if $setmeal[key].apply=='1'#}
 										<del>価格：：{#$setmeal[key].original_price#}元</del>
 										<p>現在の価格：{#$setmeal[key].expense#}元</p>
-										<input type="button" value="申请套餐" class="vip-btn" onclick="window.location='?act=setmeal_order_add&setmealid={#$setmeal[key].id#}'"/>
+										<input type="button" value="コース申込" class="vip-btn" onclick="window.location='?act=setmeal_order_add&setmealid={#$setmeal[key].id#}'"/>
 										{#/if#}
 									</div>
 								</th>

@@ -36,14 +36,14 @@ $("#Form1").validate({
   },
     messages: {
       feedback: {
-    required: "请输入内容"
+    required: "内容を入力してください"
    },
    tel: {
-    required: "请输入联系方式"
+    required: "連絡方式を入力してください"
    },
    postcaptcha: {
-    required: "请填写验证码",
-  remote: jQuery.format("验证码错误")  
+    required: "検証コード入力",
+  remote: jQuery.format("検証コードエラー")  
    }
   },
   errorPlacement: function(error, element) {
@@ -56,18 +56,18 @@ $("#Form1").validate({
   }
     });
 jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-  var str="点击获取验证码";
+  var str="点击取得検証コード";
   var flag=true;
   if (str==value)
   {
   flag=false;
   }
   return  flag || this.optional(element) ;
-  }, "请填写验证码");
+  }, "検証コード入力");
 function imgcaptcha(inputID,imgdiv)
 {
   $(inputID).focus(function(){
-    if ($(inputID).val()=="点击获取验证码")
+    if ($(inputID).val()=="点击取得検証コード")
     {
     $(inputID).val("");
     $(inputID).css("color","#333333");
@@ -112,7 +112,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 	<!-- 主体内容 -->
 	<div class="container link_bk">
 		<div class="about_left">
-			{#highway_explain_list set="列表名:explain,分类ID:1"#}
+			{#highway_explain_list set="リスト名:explain,分類ID:1"#}
 		      <h2 class="about_tit">会社概要</h2>
 		      <ul>
 		        {#foreach from=$explain item=list#}
@@ -152,7 +152,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 							<td>
 								<div>
 								  <div id="imgdiv"></div>
-								  <input  class="input_text_300" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+								  <input  class="input_text_300" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
 								</div>
 							</td>
 						</tr>

@@ -1,4 +1,4 @@
-﻿{#highway_news_show set="列表名:show,资讯ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_news_show set="リスト名:show,ニュースID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -54,7 +54,7 @@ $(document).ready(function()
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-{#highway_news_category set="列表名:category,名称长度:10,资讯小类:"|cat:$show.type_id#}
+{#highway_news_category set="リスト名:category,名称長さ:10,ニュース小類:"|cat:$show.type_id#}
 当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;
 <a href="{#$category.url#}">{#$category.title_#}</a>&nbsp;>&nbsp;正文
 </div>
@@ -124,7 +124,7 @@ $(document).ready(function()
 				</div>
 				<div class="list">
 					<ul class="sort">
-						{#highway_news_category set="列表名:categorylist,名称长度:7,资讯大类:1"#}
+						{#highway_news_category set="リスト名:categorylist,名称長さ:7,ニュース大分類:1"#}
 						{#section loop=$categorylist name=list#}
 						<li {#if $smarty.section.list.index%2>0#}class="s"{#/if#}><a href="{#$categorylist[list].url#}" {#if $show.type_id==$categorylist[list].id#}class="select"{#/if#}>{#$categorylist[list].categoryname#}</a></li>
 						{#/section#}
@@ -144,7 +144,7 @@ $(document).ready(function()
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_news_list set="列表名:news,资讯小类:$show.type_id,显示数目:7,标题长度:16,排序:article_order>desc"#}
+						{#highway_news_list set="リスト名:news,ニュース小類:$show.type_id,表示件数:7,タイトル長さ:16,ソート:article_order>desc"#}
 						{#foreach from=$news item=list#}
 						<li><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
 						{#/foreach#}
@@ -157,7 +157,7 @@ $(document).ready(function()
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_news_list set="列表名:news,显示数目:7,标题长度:16,排序:id>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,タイトル長さ:16,ソート:id>desc"#}
 						{#foreach from=$news item=list#}
 						<li><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
 						{#/foreach#}

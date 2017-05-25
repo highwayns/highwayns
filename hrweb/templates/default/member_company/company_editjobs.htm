@@ -48,7 +48,7 @@ function is_form_changed() {
 }
 if ($.browser.msie){
     window.onunload = function(){
-        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
     }
 }
 else{
@@ -218,7 +218,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
     	$("#receiveit").attr('checked',false);
     }
     return this.optional(element) || (tel.test(value));
-}, "请正确填写联系电话");
+}, "電話番号正しく入力してください");
 $("#Form1").validate({
  //debug: true,
 // onsubmit:false,
@@ -256,45 +256,45 @@ $("#Form1").validate({
 	},
     messages: {
     jobs_name: {
-    required: "请输入职位名称",
-    minlength: jQuery.format("职位名称不能小于{0}个字符"),
-	maxlength: jQuery.format("职位名称不能大于{0}个字符")
+    required: "職位名称入力",
+    minlength: jQuery.format("職位名称の長さ{0}文字から"),
+	maxlength: jQuery.format("職位名長さ{0}だけ")
    },
    amount: {
-    range: jQuery.format("请输入一个介于 {0} 和 {1} 之间的值")
+    range: jQuery.format(" {0} から {1} までの値を入力してください")
    },
     category: {
-    required: jQuery.format("请选择所属职位，精确选择职位类别可以有效提高招聘效果")
+    required: jQuery.format("所属職位選択，精确な職位種別選択は募集に效果がある")
    },
     district: {
-    required: jQuery.format("请选择工作地区")
+    required: jQuery.format("仕事地区選択")
    },
    wage: {
-    required: jQuery.format("请选择月薪范围")
+    required: jQuery.format("月給範囲選択")
    },
    education: {
-    required: jQuery.format("请选择学历要求")
+    required: jQuery.format("学歴要求選択")
    },
     experience: {
-    required: jQuery.format("请选择工作经验")
+    required: jQuery.format("仕事経験を選択してください")
    },
    contents: {
-    required: jQuery.format("请填写职位描述"),
-	minlength: jQuery.format("职位描述内容不能小于{0}个字符")
+    required: jQuery.format("職位説明入力"),
+	minlength: jQuery.format("職位描述内容不能小于{0}个字符")
    },
    contact: {
-    required: jQuery.format("请填写联系人")
+    required: jQuery.format("連絡先入力")
    },
    telephone: {
-    required: jQuery.format("请填写联系电话"),
-	isPhoneNumber: jQuery.format("请正确填写联系电话")
+    required: jQuery.format("電話番号入力"),
+	isPhoneNumber: jQuery.format("電話番号正しく入力してください")
    },
    address: {
-    required: jQuery.format("请填写联系地址")
+    required: jQuery.format("住所を入力してください")
    },
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    } 
   },
   errorPlacement: function(error, element) {
@@ -341,7 +341,7 @@ $("#Form1").validate({
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="{#$jobs.nature#}" />
 			<input name="nature_cn" id="nature_cn" type="hidden" value="{#$jobs.nature_cn#}" />
-			 {#highway_get_classify set="类型:HW_jobs_nature,列表名:c_nature"#}{#foreach from=$c_nature item=list#}
+			 {#highway_get_classify set="タイプ:HW_jobs_nature,リスト名:c_nature"#}{#foreach from=$c_nature item=list#}
 			  <div class="input_radio {#if $list.id eq $jobs.nature#}select{#/if#}" id="{#$list.id#}">{#$list.categoryname#}</div>
 			   {#/foreach#}			  
 			  <div class="clear"></div>
@@ -441,7 +441,7 @@ $("#Form1").validate({
              	 	<div id="wage_menu" class="input_text_200_bg">{#$jobs.wage_cn#}</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
+	              			{#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
 	              			{#foreach from=$c_wage item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -522,7 +522,7 @@ $("#Form1").validate({
              	 	<div id="education_menu" class="input_text_200_bg">{#$jobs.education_cn#}</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -540,7 +540,7 @@ $("#Form1").validate({
              	 	<div id="experience_menu" class="input_text_200_bg">{#$jobs.experience_cn#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
+	              			{#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -678,7 +678,7 @@ $(document).ready(function()
 			var points = {#$points_total#};
 			var jobs_edit = {#$points.jobs_edit.value#};
 			var totals=jobs_edit;			
-			$("#total").html("修改本条信息总计扣除&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，<a href=\"company_service.php?act=order_add\">[チャージポイント]</a><br />");
+			$("#total").html("本情報修正合計&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，合計<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，<a href=\"company_service.php?act=order_add\">[チャージポイント]</a><br />");
 			$("#totals").val({#$points_total#}-totals);	
 	}				
 	$("#editsubmit").click(function()
@@ -688,13 +688,13 @@ $(document).ready(function()
 			{#if $HIGHWAY.operation_mode=="2"#}
 			dialog({
 			  title: '系统提示',
-			  content: "您的积分不足，请申请新的服务或者充值积分！",
+			  content: "ポイント足りない，振込してください！",
 			  width:'300px'
 			}).showModal();
 			{#else#}
 			dialog({
 			  title: '系统提示',
-			  content: "您的积分不足，请充值后再发布！",
+			  content: "ポイント足りない，振込後で！",
 			  width:'300px'
 			}).showModal();
 			{#/if#}

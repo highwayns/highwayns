@@ -101,7 +101,7 @@ $(document).ready(function()
         <td align="center" class="admin_list">
 		{#if $list.is_paid==2#}<a href="?act=show_order&id={#$list.id#}">確認</a>{#/if#}
 		{#if $list.is_paid==1#}
-		<a href="?act=order_set&id={#$list.id#}">設定</a> <a href="?act=order_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要取消吗？')">キャンセル</a>{#/if#}
+		<a href="?act=order_set&id={#$list.id#}">設定</a> <a href="?act=order_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你確定要取消吗？')">キャンセル</a>{#/if#}
 		&nbsp;
 		<a href="?act=management&id={#$list.uid#}"  target="_blank" class="userinfo"  id="{#$list.uid#}">管理</a>
 		</td>
@@ -115,7 +115,7 @@ $(document).ready(function()
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-          <input name="ButAudit" type="button" class="admin_submit" id="ButDelOrder"  value="取消订单"  />
+          <input name="ButAudit" type="button" class="admin_submit" id="ButDelOrder"  value="オーダー取消"  />
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -127,16 +127,16 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="公司名">会社名</li>
-														<li id="2" title="会员名">ユーザー名</li>
-														<li id="3" title="单号">シングルナンバー</li>
+														<li id="1" title="会社名">会社名</li>
+														<li id="2" title="会員名">ユーザー名</li>
+														<li id="3" title="オーダー番号">シングルナンバー</li>
 														</ul>
 												</div>
 						</div>				
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="order_list" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

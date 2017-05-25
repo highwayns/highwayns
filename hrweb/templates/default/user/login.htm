@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-{#highway_pageinfo set="列表名:page,调用:HW_login"#}
+{#highway_pageinfo set="リスト名:page,Call:HW_login"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
@@ -174,8 +174,8 @@ $(document).ready(function()
 				<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">パスワードを忘れましたか？</a>
 			</div>
 			<div class="login-btn-box">
-				<input type="submit" name="submitlogin" id="login" value="登&nbsp;&nbsp;&nbsp;录" class="btn login-submit" />
-				<input type="text"  id="waiting" value="正在登录..." class="btn login-submit"  style="display: none;" disabled/>
+				<input type="submit" name="submitlogin" id="login" value="ログイン&nbsp;&nbsp;&nbsp;" class="btn login-submit" />
+				<input type="text"  id="waiting" value="ログイン中..." class="btn login-submit"  style="display: none;" disabled/>
 			</div>
 			{#if $HIGHWAY.qq_apiopen=="1" || $HIGHWAY.sina_apiopen=="1" || $HIGHWAY.taobao_apiopen=="1"#}
 			<div class="cooperation-account">

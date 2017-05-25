@@ -42,7 +42,7 @@ function is_form_changed() {
 }
 if ($.browser.msie){
     window.onunload = function(){
-        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
     }
 }
 else{
@@ -143,7 +143,7 @@ function menuDown(menuId,input,input_cn,menuList,width){
 jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
     var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
     return this.optional(element) || (tel.test(value));
-}, "请正确填写手机号码");
+}, "携帯番号正しく入力してください");
  $("#Form1").validate({
    rules:{
    realname: "required",
@@ -163,30 +163,30 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	},
     messages: {
     realname: {
-    required: jQuery.format("请输入真实姓名")
+    required: jQuery.format("名前を入力してください")
    },
    birthday: {
-    required: jQuery.format("请选择出生年份")
+    required: jQuery.format("出生年代")
    },
    residence: {
-    required: jQuery.format("请选择现居住地")
+    required: jQuery.format("現住所選択")
    },
    education: {
-    required: jQuery.format("请选择你的学历")
+    required: jQuery.format("学歴選択してください")
    },
    major_cn: {
-    required: jQuery.format("请选择你的专业")
+    required: jQuery.format("専門選択")
    },
    experience: {
-    required: jQuery.format("请选择工作经验")
+    required: jQuery.format("仕事経験を選択してください")
    },
    mobile: {
-    required: jQuery.format("请填写手机号"),
-    isPhoneNumber: jQuery.format("请正确填写手机号码")
+    required: jQuery.format("携帯番号入力"),
+    isPhoneNumber: jQuery.format("携帯番号正しく入力してください")
    },
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    }
   },
   errorPlacement: function(error, element) {
@@ -345,7 +345,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="education_menu" class="input_text_200_bg">{#if $userprofile.education>0#}{#$userprofile.education_cn#}{#else#}请选择{#/if#}</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -410,7 +410,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
              	 	<div id="experience_menu" class="input_text_200_bg">{#if $userprofile.experience>0#}{#$userprofile.experience_cn#}{#else#}请选择{#/if#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
+	              			{#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}

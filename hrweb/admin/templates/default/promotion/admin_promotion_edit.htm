@@ -64,10 +64,10 @@
   <tr>
       <td height="30" align="right"   width="120" style="border:0px;" >オートリフレッシュの時間点：</td>
       <td   > <select name="hour">
-                <option value="8 时" {#if $show.cp_hour==8#}selected="selected"{#/if#}>8 時</option>
-                <option value="11 时" {#if $show.cp_hour==11#}selected="selected"{#/if#}>11 時</option>
-                <option value="14 时" {#if $show.cp_hour==14#}selected="selected"{#/if#}>14 時</option>
-                <option value="20 时" {#if $show.cp_hour==20#}selected="selected"{#/if#}>20 時</option>
+                <option value="8 時" {#if $show.cp_hour==8#}selected="selected"{#/if#}>8 時</option>
+                <option value="11 時" {#if $show.cp_hour==11#}selected="selected"{#/if#}>11 時</option>
+                <option value="14 時" {#if $show.cp_hour==14#}selected="selected"{#/if#}>14 時</option>
+                <option value="20 時" {#if $show.cp_hour==20#}selected="selected"{#/if#}>20 時</option>
               </select></td>
     </tr>
       {#/if#}
@@ -78,9 +78,9 @@
 	  <input name="jobid" type="hidden" value="{#$show.cp_jobid#}" />
  <input name="promotionid" type="hidden" value="{#$show.cp_promotionid#}" />
 	  <input name="id" type="hidden" value="{#$show.cp_id#}" />
-            <input name="submit3" type="submit" class="admin_submit"    value="修改"/>
+            <input name="submit3" type="submit" class="admin_submit"    value="修正"/>
 	 
-            <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+            <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
        </td>
     </tr>	
   </table>

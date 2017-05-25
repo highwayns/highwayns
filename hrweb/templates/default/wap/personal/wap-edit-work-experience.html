@@ -101,10 +101,10 @@ $(document).ready(function()
 		var achievements =$("textarea[name='achievements']").val();
 		$.post("?act=resume_work_save",{id:id,pid:pid,companyname:companyname,jobs:jobs,startyear:startyear,startmonth:startmonth,endyear:endyear,endmonth:endmonth,achievements:achievements},function(data){
 			if(data=="ok"){
-				alert("添加成功");
+				alert("追加成功");
 				window.location.href="?act=resume_work_list&pid="+pid+"";
 			}else if(data=="err"){
-				alert("添加失败");
+				alert("追加失敗");
 			}else{
 				alert(data);
 			}

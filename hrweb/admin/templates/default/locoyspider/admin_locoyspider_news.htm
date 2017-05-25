@@ -27,7 +27,7 @@
       <tr>
         <td align="right">デフォルトの属性：</td>
         <td>
-		{#highway_news_property set="列表名:property"#}
+		{#highway_news_property set="リスト名:property"#}
 		{#foreach from=$property item=list#}
 		 <label>
           <input name="article_focos" type="radio" value="{#$list.id#}" {#if $list.id==$show.article_focos#} checked="checked"{#/if#} />
@@ -39,7 +39,7 @@
       <tr>
         <td align="right">&nbsp;</td>
         <td height="50"><span style="font-size:14px;">
-          <input name="submit222" type="submit" class="admin_submit"    value="保存修改"/>
+          <input name="submit222" type="submit" class="admin_submit"    value="修正保存"/>
         </span></td>
       </tr>
     </table>

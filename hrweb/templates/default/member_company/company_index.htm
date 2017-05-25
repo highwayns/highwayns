@@ -113,7 +113,7 @@
 				<div class="index-company-wrap">
 					<div class="top-welcome clearfix top-welcome-mt5">
 						<h1 class="f-left">ようこそ、{#$user.username#} </h1>
-						<div class="f-right short-message">メッセージアラート：<a href = “company_user.php?act=pm" class="underline">已读({#$msg_total1#})</a>&nbsp;<a href="company_user.php?act=pm" class="underline">未读<span>({#$msg_total2#})</span></a></div>
+						<div class="f-right short-message">メッセージアラート：<a href = “company_user.php?act=pm" class="underline">読んだ({#$msg_total1#})</a>&nbsp;<a href="company_user.php?act=pm" class="underline">未读<span>({#$msg_total2#})</span></a></div>
 					</div>
 					<div class="company-log-auth clearfix">
 						<div class="index-logo f-left">
@@ -220,7 +220,7 @@
 				</div>
 				<div class="rec-resumes">
 					<!-- 企业会员中心中部广告 -->
-					{#highway_ad set="显示数目:1,调用名称:HW_company_index,列表名:list,文字长度:12"#}
+					{#highway_ad set="表示件数:1,Call名称:HW_company_index,リスト名:list,文字長さ:12"#}
 					{#if $list.0#}
 					<div class="user-company-ad">
 						<a href="{#$list.0.img_url#}" target="_blank"><img src="{#$list.0.img_path#}" alt="{#$list.0.img_explain#}" width="950" height="120" /></a>
@@ -231,9 +231,9 @@
 						<h4 class="f-left">推奨履歴書</h4>
 						<a href="{#"HW_resumelist"|highway_url#}" class="f-right underline">もっと見ます>></a>
 					</div>
-					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:"|cat:$concern_id#}
+					{#highway_resume_list set="リスト名:resumelist,表示件数:6,意向職位長さ:30,文字:...,ソート:rtime>desc,職位大类:"|cat:$concern_id#}
 					{#if !$resumelist#}
-					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc"#}
+					{#highway_resume_list set="リスト名:resumelist,表示件数:6,意向職位長さ:30,文字:...,ソート:rtime>desc"#}
 					{#/if#}
 					<div class="rec-data">
 						<table>

@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#$Smarty.get.key#}  - ニュース -  {#$HIGHWAY.site_name#} </title>
-<meta name="description" content="{#$smarty.get.key#} 资讯中心">
-<meta name="keywords" content="{#$smarty.get.key#} 资讯中心">
+<meta name="description" content="{#$smarty.get.key#} ニュースセンター">
+<meta name="keywords" content="{#$smarty.get.key#} ニュースセンター">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
@@ -52,7 +52,7 @@ $(document).ready(function(){
 					<!-- 列表 -->
 					<div class="news">
 						<ul>
-							{#highway_news_list set="列表名:news,列表页:HW_newssearch,显示数目:10,标题长度:35,关键字:GET[key],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc"#}
+							{#highway_news_list set="リスト名:news,列表頁:HW_newssearch,表示件数:10,タイトル長さ:35,キーワード:GET[key],ページング表示:1,タイトル長さ:35,摘要長さ:100,文字:...,ソート:article_order>desc"#}
 							{#foreach from=$news item=list#}
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
@@ -76,7 +76,7 @@ $(document).ready(function(){
 		<div class="right_area">
 			<div class="right_search">
 				<!-- <input type="text" class="input_text_180" name="key" id="key" value="{#$smarty.get.key#}"/>
-				<input type="button" value="搜索" class="but70lan search_news" /> -->
+				<input type="button" value="検索" class="but70lan search_news" /> -->
 				<div class="news_search"><input type="text" name="key" id="key" value="{#$smarty.get.key#}" /></div>
 				<button class="news_sreach_but search_news">検索</button>
 			</div>
@@ -88,7 +88,7 @@ $(document).ready(function(){
 				</div>
 				<div class="list">
 					<ul class="sort">
-						{#highway_news_category set="列表名:categorylist,名称长度:7,资讯大类:1"#}
+						{#highway_news_category set="リスト名:categorylist,名称長さ:7,ニュース大分類:1"#}
 						{#section loop=$categorylist name=list#}
 						<li {#if $smarty.section.list.index%2>0#}class="s"{#/if#}><a href="{#$categorylist[list].url#}" {#if $category.id==$categorylist[list].id#}class="select"{#/if#}>{#$categorylist[list].categoryname#}</a></li>
 						{#/section#}
@@ -102,7 +102,7 @@ $(document).ready(function(){
 				</div>
 				<div class="list">
 					<ol class="hot">
-						{#highway_news_list set="列表名:news,显示数目:7,属性:4,标题长度:16,排序:article_order>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,属性:4,タイトル長さ:16,ソート:article_order>desc"#}
 						{#section loop=$news name=list#}
 						<li class="hot{#$smarty.section.list.index#}"><a href="{#$news[list].url#}" target="_blank">{#$news[list].title#}</a></li>
 						{#/section#}
@@ -115,7 +115,7 @@ $(document).ready(function(){
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_news_list set="列表名:news,显示数目:7,标题长度:16,排序:id>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,タイトル長さ:16,ソート:id>desc"#}
 						{#foreach from=$news item=list#}
 						<li><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
 						{#/foreach#}

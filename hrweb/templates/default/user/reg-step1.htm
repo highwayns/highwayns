@@ -31,7 +31,7 @@ $(document).ready(function($) {
 		submitHandler:function(form){
 			if($("#agreement_mobile").attr("checked")==false)
 			{
-				alert("您必须同意[注册协议]才能继续下一步");
+				alert("[登録协议]に合意したら、人材続次へ");
 				return false;
 			}
         	form.submit();  
@@ -62,13 +62,13 @@ $(document).ready(function($) {
 		},
 		messages: {
 			mobile: {
-				required: "请填写手机号",
-				remote: jQuery.format("手机号已被注册")
+				required: "携帯番号入力",
+				remote: jQuery.format("携帯番号すでに登録")
 			},
 			mobile_vcode:
 			{
-				required: "请输入手机验证码",
-				remote: jQuery.format("验证码错误")	
+				required: "携帯検証コードを入力してください",
+				remote: jQuery.format("検証コードエラー")	
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -86,14 +86,14 @@ $(document).ready(function($) {
 	var $cstr= false;
 	if (tel.test(value)) $cstr= true;
 	return $cstr || this.optional(element); 
-	}, "请输入正确的手机号");
+	}, "携帯番号正しく入力してください");
 
 	// 邮箱注册 表单验证 
 	$("#reg_by_email").validate({
 		submitHandler:function(form){
 			if($("#agreement_email").attr("checked")==false)
 			{
-				alert("您必须同意[注册协议]才能继续下一步");
+				alert("[登録协议]に合意したら、人材続次へ");
 				return false;
 			}
 			var check_reg_email="{#$HIGHWAY.check_reg_email#}";
@@ -153,14 +153,14 @@ $(document).ready(function($) {
 		messages: {
 			email:
 			{
-				required: "请输入邮箱",
-				email: "请输入正确格式的邮箱",
-				remote: jQuery.format("该邮箱已经被注册过！")	
+				required: "メールアドレス入力してください",
+				email: "メールを正しく入力してください",
+				remote: jQuery.format("該当メールが登録済み！")	
 			},
 			postcaptcha:
 			{
-				required: "请输验证码",
-				remote: jQuery.format("验证码错误")	
+				required: "検証コード入力",
+				remote: jQuery.format("検証コードエラー")	
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -187,7 +187,7 @@ $(document).ready(function($) {
 						$("#sms_send").closest('.reg-form-item').addClass('reg-form-item-sms');
 						$("#sms_send").hide();
 						$("#send_ok").css('display', 'inline-block');
-						$("#send_ok").html( SysSecond +" 秒后可重新获取");
+						$("#send_ok").html( SysSecond +" 秒後可再取得");
 						$(".sms_send_succeed").show();
 					} 
 					else 
@@ -219,7 +219,7 @@ $(document).ready(function($) {
 		if(reg_type==1)
 		{
 			$(this).attr("reg_type","2");
-			$(this).html("使用手机注册>>");
+			$(this).html("携帯利用の登録>>");
 			$("#reg_type").val("2");
 			$("#reg_by_email").show();
 			$("#reg_by_mobile").hide();
@@ -227,7 +227,7 @@ $(document).ready(function($) {
 		else
 		{
 			$(this).attr("reg_type","1");
-			$(this).html("使用邮箱注册>>");
+			$(this).html("メールでログイン>>");
 			$("#reg_type").val("1");
 			$("#reg_by_mobile").show();
 			$("#reg_by_email").hide();
@@ -283,14 +283,14 @@ $(document).ready(function($) {
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">電話番号</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
+							<input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="携帯番号を入力してください" />
 						</div>
 						<div class="verification f-left"></div>
 					</div>
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">PINコード</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="验证码" />
+							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="検証コード" />
 						</div>
 						<div class="reg-form-other verification f-left">
 							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">メッセージ認証コードを取得します</a>
@@ -311,7 +311,7 @@ $(document).ready(function($) {
 						<div class="reg-form-content f-left">
 							<input type="hidden" name="utype" class="utype" value="2"/>
 							<input type="hidden" name="token" value="{#$token#}" />
-							<input type="submit" value="下一步" class="btn btn-lg blue span1"/>
+							<input type="submit" value="次へ" class="btn btn-lg blue span1"/>
 						</div>
 					</div>
 				</form>
@@ -322,7 +322,7 @@ $(document).ready(function($) {
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">メールボックス</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="email" id="email" class="text text-lg span350 inputElem" placeholder="请输入您的邮箱" />
+							<input type="text" name="email" id="email" class="text text-lg span350 inputElem" placeholder="メールを入力してください" />
 						</div>
 						<div class="verification f-left"></div>
 					</div>
@@ -330,7 +330,7 @@ $(document).ready(function($) {
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">PINコード</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="验证码" />
+							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="検証コード" />
 						</div>
 						<div class="reg-form-other f-left verification" style="padding-left: 20px;">
 							<div class="ver-box f-left"><img src=“{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}” id=“getcode” align=“absmiddle”  style=“cursor:pointer;width: 148px;height: 38px;” title=“ 置き換えるために、このコードをクリックを参照しないでください？”border=“0” /></div>
@@ -350,8 +350,8 @@ $(document).ready(function($) {
 						<div class="reg-form-content f-left">
 							<input type="hidden" name="utype" class="utype" value="2" id="utype"/>
 							<input type="hidden" name="token" value="{#$token#}" />
-							<input type="submit" value="下一步" class="btn btn-lg blue span1" id="reg_email_submit"/>
-							<input type="text" value="正在发送邮件..." class="btn btn-lg blue span1" id="reg_email_submit_"  style="display: none;"disabled/>
+							<input type="submit" value="次へ" class="btn btn-lg blue span1" id="reg_email_submit"/>
+							<input type="text" value="メール送信中..." class="btn btn-lg blue span1" id="reg_email_submit_"  style="display: none;"disabled/>
 						</div>
 					</div>
 				</form>

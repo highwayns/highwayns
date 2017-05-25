@@ -3,7 +3,7 @@
 <head>
 <head>{#HIGHWAY_news_category　set= “リスト名：カテゴリ、名前の長さ：10、情報のサブクラス：GET [ID]” #} <！ - 情報のカテゴリ名を取得します - >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-{#highway_pageinfo set="列表名:pageinfo,调用:HW_newslist,分类ID:GET[id]"#}
+{#highway_pageinfo set="リスト名:pageinfo,Call:HW_newslist,分類ID:GET[id]"#}
 {#if $pageinfo.title#}
 <title>{#$pageinfo.title#}</title>
 {#else#}
@@ -37,7 +37,7 @@
 					<!-- 企业动态 -->
 					<div class="news">
 						<ul>
-							{#highway_news_list set="列表名:news,显示数目:10,标题长度:35,资讯小类:GET[id],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc"#}
+							{#highway_news_list set="リスト名:news,表示件数:10,タイトル長さ:35,ニュース小類:GET[id],ページング表示:1,タイトル長さ:35,摘要長さ:100,文字:...,ソート:article_order>desc"#}
 							{#foreach from=$news item=list#}
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
@@ -66,7 +66,7 @@
 				</div>
 				<div class="list">
 					<ul class="sort">
-						{#highway_news_category set="列表名:categorylist,名称长度:7,资讯大类:1"#}
+						{#highway_news_category set="リスト名:categorylist,名称長さ:7,ニュース大分類:1"#}
 						{#section loop=$categorylist name=list#}
 						<li {#if $smarty.section.list.index%2>0#}class="s"{#/if#}><a href="{#$categorylist[list].url#}" {#if $category.id==$categorylist[list].id#}class="select"{#/if#}>{#$categorylist[list].categoryname#}</a></li>
 						{#/section#}
@@ -81,7 +81,7 @@
 				</div>
 				<div class="list">
 					<ol class="hot">
-						{#highway_news_list set="列表名:news,显示数目:7,属性:4,标题长度:16,排序:article_order>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,属性:4,タイトル長さ:16,ソート:article_order>desc"#}
 						{#section loop=$news name=list#}
 						<li class="hot{#$smarty.section.list.index#}"><a href="{#$news[list].url#}" target="_blank">{#$news[list].title#}</a></li>
 						{#/section#}
@@ -94,7 +94,7 @@
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_news_list set="列表名:news,显示数目:7,标题长度:16,排序:id>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,タイトル長さ:16,ソート:id>desc"#}
 						{#foreach from=$news item=list#}
 						<li><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
 						{#/foreach#}

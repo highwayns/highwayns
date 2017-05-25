@@ -58,23 +58,23 @@ $(function() {
 		messages: {
 			password: 
 			{
-				required: "请填写密码",
-				minlength: jQuery.format("填写不能小于{0}个字符"),
-				maxlength: jQuery.format("填写不能大于{0}个字符")
+				required: "パスワード入力",
+				minlength: jQuery.format("入力文字は少なくとも{0}"),
+				maxlength: jQuery.format("入力内容{0}文字以内")
 			},
 			rpassword: {
-				required: "请填写密码",
-				equalTo: "两次输入的密码不同"
+				required: "パスワード入力",
+				equalTo: "パスワード一致しません"
 			},
 			mobile: {
-				required: "请填写手机号",
-				remote: jQuery.format("手机号已被注册")
+				required: "携帯番号入力",
+				remote: jQuery.format("携帯番号すでに登録")
 			},
 			email:
 			{
-				required: "请输入邮箱",
-				email: "请输入正确格式的邮箱",
-				remote: jQuery.format("该邮箱已经被注册过！")	
+				required: "メールアドレス入力してください",
+				email: "メールを正しく入力してください",
+				remote: jQuery.format("該当メールが登録済み！")	
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -92,24 +92,24 @@ $(function() {
 	var $cstr= false;
 	if (tel.test(value)) $cstr= true;
 	return $cstr || this.optional(element); 
-	}, "请输入正确的手机号");
+	}, "携帯番号正しく入力してください");
 	//绑定 表单验证
 	$("form[id=pcLogin]").submit(function(e) {
 	e.preventDefault();
-		if ($("#username").val()=="" || $("#username").val()=="用户名/邮箱/手机号")
+		if ($("#username").val()=="" || $("#username").val()=="ユーザ名/メール/携帯番号")
 		{			
-			$(".login_err").html("请填写：用户名 / 邮箱 / 手机号");	
+			$(".login_err").html("入力：ユーザ名 / メール / 携帯番号");	
 			$(".login_err").show();
 		}
 		else if($("#login_password").val()=="")
 		{	
-		$(".login_err").html("请填写密码！");
+		$(".login_err").html("パスワード入力！");
 		$(".login_err").show();
 		}
 		else if($("#postcaptcha").val()=="")
 		{	
 
-			$(".login_err").html("请填写验证码！");
+			$(".login_err").html("検証コード入力！");
 			$(".login_err").show();
 		}
 		else
@@ -128,16 +128,16 @@ $(function() {
 					$(".login_err").show();	
 					if (data=="err")
 					{
-					errinfo="帐号或者密码错误";
+					errinfo="アカウント或者パスワードエラー";
 					}
 					else if(data=="errcaptcha")
 					{
 					$("#imgdiv img").attr("src",$("#imgdiv img").attr("src")+"1");
-					errinfo="验证码错误";
+					errinfo="検証コードエラー";
 					}
 					else if(data=="status_err")
 					{
-					errinfo="账号已经被暂停，请联系管理员！";
+					errinfo="アカウント已经被暂停，联系管理员！";
 					}
 					$(".login_err").html(errinfo);
 				}
@@ -181,28 +181,28 @@ $(function() {
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">	パスワード</div>
 						<div class="reg-form-content f-left">
-							<input type="password" name="password" id="password" class="text text-lg span350" placeholder="密码" />
+							<input type="password" name="password" id="password" class="text text-lg span350" placeholder="パスワード" />
 						</div>
 						<div class="verification f-left" style="width: 110px;overflow: hidden;"></div>
 					</div>
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">	パスワードの確認</div>
 						<div class="reg-form-content f-left">
-							<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="重新输入密码" />
+							<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="パスワード再入力" />
 						</div>
 						<div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
 					</div>
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">	電話番号</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
+							<input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="携帯番号を入力してください" />
 						</div>
 						<div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
 					</div>
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">メールボックス</div>
 						<div class="reg-form-content f-left">
-							<input type="text" name="email" id="email" class="text text-lg span350" placeholder="请输入您的邮箱" />
+							<input type="text" name="email" id="email" class="text text-lg span350" placeholder="メールを入力してください" />
 						</div>
 						<div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
 					</div>
@@ -224,27 +224,27 @@ $(function() {
 						<div class="bind-item">
 							<div class="login-ver-box error login_err" style="display: none;"></div>
 							<div class="bind-content">
-								<input type="text" name="username" id="username" class="text text-lg span300" placeholder="请输入您的用户名/手机/邮箱" />
+								<input type="text" name="username" id="username" class="text text-lg span300" placeholder="ユーザ名/携帯/メールを入力してください" />
 							</div>
 						</div>
 						<div class="bind-item">
 							<div class="bind-content">
-								<input type="password" name="password" id="login_password" class="text text-lg span300" placeholder="请输入密码" />
+								<input type="password" name="password" id="login_password" class="text text-lg span300" placeholder="パスワード入力" />
 							</div>
 						</div>
 						<div class="bind-item">
 							<div class="bind-content clearfix">
 								<div class="bind-ver f-left">
-									<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span190" placeholder="请输入验证码" />
+									<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span190" placeholder="検証コード入力" />
 								</div>
 								<div class="bind-ver-img f-left">
-									<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="看不请验证码？点击更换一张"  border="0" />
+									<img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="検証コード見づらい？クリックして更新する"  border="0" />
 								</div>
 							</div>
 						</div>
 						<div class="bind-submit-item">
-							<input type="submit" name="submitlogin" id="login" value="绑定账号" class="btn btn-small blue span3" />
-							<input type="text"  id="waiting" value="正在绑定..." class="btn btn-small blue span3"  style="display: none;" disabled/>
+							<input type="submit" name="submitlogin" id="login" value="アカウント設定" class="btn btn-small blue span3" />
+							<input type="text"  id="waiting" value="設定中..." class="btn btn-small blue span3"  style="display: none;" disabled/>
 							<a href="{#$HIGHWAY.site_dir#}user/user_getpass.php" class="f-right">パスワードを忘れましたか？</a>
 						</div>
 						<p class="bind-tips">結合後、あなたは直接{#$third_name#}を使用してログインすることができます </P>

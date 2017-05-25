@@ -29,7 +29,7 @@ $(document).ready(function()
 		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajax_interview_list&offset="+(offset)+"&rows=5", function(result){
 		    if(result=="-1"){
 		    	$(".more").show();
-		    	$(".more").html("没有更多的面试邀请了");
+		    	$(".more").html("もっと面接誘いなし");
 		    }else{
 		    	$(".interview_list").append(result);
 		    	$(".more").show();

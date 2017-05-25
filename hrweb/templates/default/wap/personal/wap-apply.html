@@ -34,7 +34,7 @@ $(document).ready(function()
 		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajax_apply_list&offset="+(offset)+"&rows=5", function(result){
 		    if(result=="-1"){
 		    	$(".check_more").show();
-		    	$(".check_more").html("没有更多申请职位了");
+		    	$(".check_more").html("もっと職位申込なし");
 		    }else{
 		    	$(".apply_jobs_list").append(result);
 		    	$(".list_centent").click(function(){

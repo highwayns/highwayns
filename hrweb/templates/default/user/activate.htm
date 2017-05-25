@@ -39,13 +39,13 @@ $(function() {
     messages: {
       password: 
       {
-        required: "请填写密码",
-        minlength: jQuery.format("填写不能小于{0}个字符"),
-        maxlength: jQuery.format("填写不能大于{0}个字符")
+        required: "パスワード入力",
+        minlength: jQuery.format("入力文字は少なくとも{0}"),
+        maxlength: jQuery.format("入力内容{0}文字以内")
       },
       mobile: {
-        required: "请填写手机号",
-        remote: jQuery.format("手机号已被注册")
+        required: "携帯番号入力",
+        remote: jQuery.format("携帯番号すでに登録")
       }
     },
     errorPlacement: function(error, element) {
@@ -63,7 +63,7 @@ $(function() {
   var $cstr= false;
   if (tel.test(value)) $cstr= true;
   return $cstr || this.optional(element); 
-  }, "请输入正确的手机号");
+  }, "携帯番号正しく入力してください");
 });
 </script>
 </head>
@@ -98,21 +98,21 @@ $(function() {
             <div class="reg-form-type f-left">メールボックス</div>
             <div class="reg-form-content f-left">
               {#$activate_email#}
-              <input type="hidden" name="act_email" id="email" class="text text-lg span350" value="{#$activate_email#}" placeholder="请输入您的邮箱" />
+              <input type="hidden" name="act_email" id="email" class="text text-lg span350" value="{#$activate_email#}" placeholder="メールを入力してください" />
             </div>
             <div class="verification f-left"  style="width: 180px;overflow: hidden;"></div>
           </div>
           <div class="reg-form-item clearfix">
             <div class="reg-form-type f-left"> パスワード</div>
             <div class="reg-form-content f-left">
-              <input type="password" name="pwd" id="password" class="text text-lg span350" placeholder="密码" />
+              <input type="password" name="pwd" id="password" class="text text-lg span350" placeholder="パスワード" />
             </div>
             <div class="verification f-left" style="width: 110px;overflow: hidden;"></div>
           </div>
           <div class="reg-form-item clearfix">
             <div class="reg-form-type f-left">  電話番号</div>
             <div class="reg-form-content f-left">
-              <input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="请输入您的手机号码" />
+              <input type="text" name="mobile" id="mobile" class="text text-lg span350" placeholder="携帯番号を入力してください" />
             </div>
             <div class="verification f-left"  style="width: 110px;overflow: hidden;"></div>
           </div>
@@ -120,7 +120,7 @@ $(function() {
             <div class="reg-form-type f-left">&nbsp;</div>
             <div class="reg-form-content f-left">
               <input type="hidden" name="member_type" class="utype" value="2"/>
-              <input type="submit" value="立即激活" class="btn btn-lg blue span1" />
+              <input type="submit" value="即時にActive" class="btn btn-lg blue span1" />
             </div>
           </div>
           </form>

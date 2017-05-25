@@ -34,7 +34,7 @@ $(document).ready(function(){
 		var uid = $(this).attr('uid');
 		var myDialog = dialog();
 		myDialog.title('解除账号绑定');
-		myDialog.content("加载中...");
+		myDialog.content("ロード中...");
 		myDialog.width('500');
 		myDialog.showModal();
 		$.get("{#$HIGHWAY.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid, function(data)
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		var uid = $(this).attr('uid');
 		var myDialog = dialog();
 		myDialog.title('解除账号绑定');
-		myDialog.content("加载中...");
+		myDialog.content("ロード中...");
 		myDialog.width('500');
 		myDialog.showModal();
 		$.get("{#$HIGHWAY.site_dir#}plus/ajax_common.php?act=bind_wx_jc&uid="+uid+"&bind_wx_true=1", function(data)
@@ -305,17 +305,17 @@ function run(){
 						},
 					    messages: {
 					    oldpassword: {
-					    required: "请输入旧密码",
-					    minlength: jQuery.format("旧密码不能小于{0}个字符"),
-						maxlength: jQuery.format("旧密码不能大于{0}个字符")
+					    required: "旧パスワード入力",
+					    minlength: jQuery.format("旧パスワード{0}文字以上"),
+						maxlength: jQuery.format("旧パスワード{0}文字まで")
 					   },
 					   password: {
-					    required: "请输入新密码",
-					    minlength: jQuery.format("新密码不能小于{0}个字符"),
-						maxlength: jQuery.format("新密码不能大于{0}个字符")
+					    required: "新パスワード入力",
+					    minlength: jQuery.format("新パスワード{0}文字以上"),
+						maxlength: jQuery.format("新パスワード{0}文字以内")
 					   },
 					   password1: {
-					    equalTo: "两次输入的密码不同"
+					    equalTo: "パスワード一致しません"
 					   }
 					  },
 					  errorPlacement: function(error, element) {
@@ -330,7 +330,7 @@ function run(){
 						jQuery.validator.addMethod("NOequalTo", function(value, element,param) {
 						var toval=$(param).val();
 					    return this.optional(element) || (toval!=value);
-					}, "新密码不可以和旧密码相同");
+					}, "新パスワードと旧パスワード一致している");
 					</script>
 				</div>
 				<div class="row rowpdt">

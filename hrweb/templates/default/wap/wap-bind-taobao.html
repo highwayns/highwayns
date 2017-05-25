@@ -30,7 +30,7 @@ $(document).ready(function()
 	 	var email=$("input[name=email]").val();
 	 	$.post("connect_taobao.php?act=reg_save",{username:username,member_type:member_type,password:password,rpassword:rpassword,email:email},function(data){
 	 		if(data=="reg_err"){
-	 			alert("注册失败");
+	 			alert("登録失敗");
 	 			window.location.reload();
 	 		}else if(data=="ok"){
 	 			window.location.href='wap_login.php';

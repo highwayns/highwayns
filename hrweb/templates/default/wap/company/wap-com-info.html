@@ -96,7 +96,7 @@ $(document).ready(function()
 		var contents=$("textarea[name=contents]").val();
 		$.post("?act=company_info_save",{companyname:companyname,nature_cn:nature_cn,nature:nature,trade_cn:trade_cn,trade:trade,scale_cn:scale_cn,scale:scale,district_cn:district_cn,district:district,sdistrict:sdistrict,contact:contact,telephone:telephone,email:email,address:address,contents:contents},function(data){
 			if(data=="1"){
-				alert("保存企业信息成功");
+				alert("企業情報保存失敗");
 				window.location.href="wap_user.php";
 			}else{
 				alert(data);
@@ -154,7 +154,7 @@ $(document).ready(function()
 		            <div class="menu_title">企業性質</div>
             		<div class="choose_close"></div>
 		            <ul>
-		              {#highway_get_classify set="列表名:c_nature,类型:HW_company_type"#}
+		              {#highway_get_classify set="リスト名:c_nature,タイプ:HW_company_type"#}
 		              {#foreach from=$c_nature item=list#}
 		              <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 		              {#/foreach#}
@@ -204,7 +204,7 @@ $(document).ready(function()
 		            <div class="menu_title">企業規模</div>
             		<div class="choose_close"></div>
 		            <ul>
-		              	{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+		              	{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 	              		{#foreach from=$c_scale item=list#}
 		              	<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 		              	{#/foreach#}
@@ -245,7 +245,7 @@ $(document).ready(function()
 	            var scitystr = "";
 	            if(HW_city[cid]) {
 	              var ccitysArray = HW_city[cid].split("|");
-	              scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
+	              scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/制限なし" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
 	              $.each(ccitysArray, function(cindex, cval) {
 	                if(cval) {
 	                  var ccitys = cval.split(",");

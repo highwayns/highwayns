@@ -28,7 +28,7 @@ $(document).ready(function()
 			if(data=="ok"){
 					$.post('company/wap_company_download_reusme.php?act=ajax_download_resume_add_save', {resume_id:{#$smarty.get.id#}}, function(data){
 						if(data=="ok"){
-							alert("下载简历成功");
+							alert("履歴書ダウンロード成功");
 							window.location.reload();
 						}else{
 							window.location.reload();
@@ -60,13 +60,13 @@ $(document).ready(function()
 				$(".menu_bg_layer").remove();
 				$.post("plus/wap_ajax.php?act=invited_add",{jobs_id:jobs_id,resume_id:resume_id},function(data){
 					if(data=="ok"){
-						alert("邀请面试成功");
+						alert("面接誘い成功");
 						window.location.reload();
 					}else if(data=="err"){
-						alert("邀请面试失败");
+						alert("面接誘い失敗");
 						window.location.reload();
 					}else if(data=="repeat"){
-						alert("此职位您已经邀请过该求职者");
+						alert("該当求職者がすでに誘いました");
 						window.location.reload();
 					}
 					else{
@@ -75,7 +75,7 @@ $(document).ready(function()
 					}
 				});
 			}else{
-				alert("请选择职位");
+				alert("職位を選択してください");
 			}
 		});
 		$("#but_right").click(function(){
@@ -88,10 +88,10 @@ $(document).ready(function()
 		var resume_id = {#$smarty.get.id#};
 		$.post("company/wap_company_collect_reusme.php?act=ajax_collect_resume_add",{resume_id:resume_id},function(data){
 			if(data=="ok"){
-				alert("收藏简历成功");
+				alert("履歴書お気に入り成功");
 				window.location.reload();
 			}else if(data=="err"){
-				alert("收藏简历失败");
+				alert("履歴書お気に入り失敗");
 				window.location.reload();
 			}else{
 				alert(data);

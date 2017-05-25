@@ -52,7 +52,7 @@ $(document).ready(function()
 	}
 	if ($.browser.msie){
 	    window.onunload = function(){
-	        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+	        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
 	    }
 	}
 	else{
@@ -105,7 +105,7 @@ $(document).ready(function()
 	jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
 	    var tel = /^((0\d{2,3}-[2-9][0-9]{6,7})|(0\d{2,3}[2-9][0-9]{6,7})|([2-9][0-9]{6,7})|(1[35847]\d{9}))$/;
 	    return this.optional(element) || (tel.test(value));
-	}, "请正确填写联系电话");
+	}, "電話番号正しく入力してください");
 	$("#Form1").validate({
  //debug: true,
 // onsubmit:false,
@@ -139,39 +139,39 @@ $(document).ready(function()
 	},
     messages: {
     companyname: {
-    required: "请输入企业名称",
-    minlength: jQuery.format("企业名称不能小于{0}个字符"),
-	maxlength: jQuery.format("企业名称不能大于{0}个字符")
+    required: "企業名称入力",
+    minlength: jQuery.format("企業名の長さ{0}まで"),
+	maxlength: jQuery.format("企業名称{0}文字以内")
    },
    nature: {
-    required: jQuery.format("请选择企业性质")
+    required: jQuery.format("企業性质選択")
    },
     trade: {
-    required: jQuery.format("请选择所属行业")
+    required: jQuery.format("所属業界選択")
    },
     district: {
-    required: jQuery.format("请选择所在地区")
+    required: jQuery.format("所在地区選択")
    },
    scale: {
-    required: jQuery.format("请选择企业规模")
+    required: jQuery.format("企業規模選択")
    },
    contents: {
-	required: jQuery.format("请填写公司简介"),
-	minlength: jQuery.format("公司简介内容不能小于{0}个字符")
+	required: jQuery.format("会社简介入力"),
+	minlength: jQuery.format("会社紹介{0}文字以上")
    },
    contact: {
-    required: jQuery.format("请填写联系人")
+    required: jQuery.format("連絡先入力")
    },
     telephone: {
-    required: jQuery.format("请填写联系电话"),
-	isPhoneNumber: jQuery.format("请正确填写联系电话")
+    required: jQuery.format("電話番号入力"),
+	isPhoneNumber: jQuery.format("電話番号正しく入力してください")
    },
    address: {
-    required: jQuery.format("请填写联系地址")
+    required: jQuery.format("住所を入力してください")
    },
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    } 
   },
   errorPlacement: function(error, element) {
@@ -228,7 +228,7 @@ $(document).ready(function()
              	 	<div id="nature_menu" class="input_text_200_bg">{#$Company_profile.nature_cn |default：# “を選択してください”} </div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify set="列表名:c_nature,类型:HW_company_type"#}
+	              			{#highway_get_classify set="リスト名:c_nature,タイプ:HW_company_type"#}
 	              			{#foreach from=$c_nature item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -292,7 +292,7 @@ $(document).ready(function()
              	 	<div id="scale_menu" class="input_text_200_bg">{#$Company_profile.scale_cn | default:：# “を選択してください”} </div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+	              			{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 	              			{#foreach from=$c_scale item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -316,7 +316,7 @@ $(document).ready(function()
 		             	 	<div id="currency_menu" class="input_text_60_bg">{#$Company_profile.currency | default： “人民元” #} </div>	
 		             	 	<div class="menu" id="menu3">
 			              		<ul>
-			              			<li title="人民币">人民元</li>
+			              			<li title="円">人民元</li>
 			              			<li title="美元">ドル</li>
 			              		</ul>
 			              	</div>
@@ -392,7 +392,7 @@ $(document).ready(function()
 																	<table class="options-table options-table-7">
 																		<tbody class="item-list"><tr><td class="bno"><table><tbody id="street_list"><tr>
 																			<!-- 列表内容 -->
-																			{#highway_get_classify set="类型:HW_street,列表名:list"#}
+																			{#highway_get_classify set="タイプ:HW_street,リスト名:list"#}
 																			{#section name=lis loop=$list#}
 																			{#if $smarty.section.lis.index%6 == 0 && $smarty.section.lis.index != 0#}
 																				</tr><tr><td><label class="selectra" data="{#$list[lis].c_id#},{#$list[lis].categoryname#}">{#$list[lis].categoryname#}</label></td>

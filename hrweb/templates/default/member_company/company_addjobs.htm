@@ -48,7 +48,7 @@ function is_form_changed() {
 }
 if ($.browser.msie){
     window.onunload = function(){
-        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
     }
 }
 else{
@@ -203,7 +203,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
     	$("#receiveit").attr('checked',false);
     }
     return this.optional(element) || (tel.test(value));
-}, "请正确填写联系电话");
+}, "電話番号正しく入力してください");
 $("#Form1").validate({
  //debug: true,
 // onsubmit:false,
@@ -252,51 +252,51 @@ $("#Form1").validate({
 	},
     messages: {
     jobs_name: {
-    required: "请输入职位名称",
-    minlength: jQuery.format("职位名称不能小于{0}个字符"),
-	maxlength: jQuery.format("职位名称不能大于{0}个字符")
+    required: "職位名称入力",
+    minlength: jQuery.format("職位名称の長さ{0}文字から"),
+	maxlength: jQuery.format("職位名長さ{0}だけ")
    },
    amount: {
-    range: jQuery.format("请输入一个介于 {0} 和 {1} 之间的值")
+    range: jQuery.format(" {0} から {1} までの値を入力してください")
    },
     category: {
-    required: jQuery.format("请选择所属职位，精确选择职位类别可以有效提高招聘效果")
+    required: jQuery.format("所属職位選択，精确な職位種別選択は募集に效果がある")
    },
     district: {
-    required: jQuery.format("请选择工作地区")
+    required: jQuery.format("仕事地区選択")
    },
    wage: {
-    required: jQuery.format("请选择月薪范围")
+    required: jQuery.format("月給範囲選択")
    },
    education: {
-    required: jQuery.format("请选择学历要求")
+    required: jQuery.format("学歴要求選択")
    },
     experience: {
-    required: jQuery.format("请选择工作经验")
+    required: jQuery.format("仕事経験を選択してください")
    },
    contents: {
-	required: jQuery.format("请填写职位描述"),
-	minlength: jQuery.format("职位描述内容不能小于{0}个字符")
+	required: jQuery.format("職位説明入力"),
+	minlength: jQuery.format("職位描述内容不能小于{0}个字符")
    },
    contact: {
-    required: jQuery.format("请填写联系人")
+    required: jQuery.format("連絡先入力")
    },
     telephone: {
-    required: jQuery.format("请填写联系电话"),
-	isPhoneNumber: jQuery.format("请正确填写联系电话")
+    required: jQuery.format("電話番号入力"),
+	isPhoneNumber: jQuery.format("電話番号正しく入力してください")
    },
    address: {
-    required: jQuery.format("请填写联系地址")
+    required: jQuery.format("住所を入力してください")
    },
    {#if $verify_addjob=="1"#}
     postcaptcha: {
-    required: "请填写验证码",
-	remote: jQuery.format("验证码错误")	
+    required: "検証コード入力",
+	remote: jQuery.format("検証コードエラー")	
    },
     {#/if#}
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    } 
   },
   errorPlacement: function(error, element) {
@@ -313,20 +313,20 @@ $("#Form1").validate({
 	}
     });
     jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-	var str="点击获取验证码";
+	var str="点击取得検証コード";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写验证码");
+	}, "検証コード入力");
 		/////验证码部分
 {#if $verify_addjob=="1"#}
 function imgcaptcha(inputID,imgdiv)
 {
 	$(inputID).focus(function(){
-		if ($(inputID).val()=="点击获取验证码")
+		if ($(inputID).val()=="点击取得検証コード")
 		{
 		$(inputID).val("");
 		$(inputID).css("color","#333333");
@@ -389,8 +389,8 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td colspan="2">
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="1" />
-			<input name="nature_cn" id="nature_cn" type="hidden" value="全职" />
-			 {#highway_get_classify set="类型:HW_jobs_nature,列表名:c_nature"#}{#foreach from=$c_nature item=list#}
+			<input name="nature_cn" id="nature_cn" type="hidden" value="全日" />
+			 {#highway_get_classify set="タイプ:HW_jobs_nature,リスト名:c_nature"#}{#foreach from=$c_nature item=list#}
 			  <div class="input_radio {#if $list.id eq $c_nature.0.id#}select{#/if#}" id="{#$list.id#}">{#$list.categoryname#}</div>
 			   {#/foreach#}			  
 			  <div class="clear"></div>
@@ -491,7 +491,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
              	 	<div id="wage_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
+	              			{#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
 	              			{#foreach from=$c_wage item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -558,7 +558,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td colspan="2">
 			<div id="sex_radio">
 			<input name="sex" id="sex" type="hidden" value="3" />
-			<input name="sex_cn" id="sex_cn" type="hidden" value="不限" />
+			<input name="sex_cn" id="sex_cn" type="hidden" value="制限なし" />
 			  <div class="input_radio select" id="3">制限なし</div>			
 			  <div class="input_radio" id="1">男性</div>
 			  <div class="input_radio" id="2">女性</div>			  
@@ -572,7 +572,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
              	 	<div id="education_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -590,7 +590,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
              	 	<div id="experience_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
+	              			{#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -713,7 +713,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td>
 				<div>
 				<div id="imgdiv"></div>
-				<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+				<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
 			</div>
 			</td>
 		  </tr>
@@ -740,7 +740,7 @@ $(document).ready(function()
 			var totals=jobs_add;
 			if (jobs_add>0)
 			{			
-			$("#total").html("发布本条信息总计扣除&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，你目前共有<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}；<br />");
+			$("#total").html("本情報配布合計&nbsp;<span style=\"font-size:20px; color: #FF0000\" >"+totals+"</span>&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，合計<strong style=\"color:#0033FF\"> {#$points_total#}  </strong>{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}；<br />");
 			$("#totals").val({#$points_total#}-totals);	
 			}
 	}				
@@ -751,13 +751,13 @@ $(document).ready(function()
 			{#if $HIGHWAY.operation_mode=="2"#}
 			dialog({
 			  title: '系统提示',
-			  content: "您的积分不足，请申请新的服务或者充值积分！",
+			  content: "ポイント足りない，振込してください！",
 			  width:'300px'
 			}).showModal();
 			{#else#}
 			dialog({
 			  title: '系统提示',
-			  content: "您的积分不足，请充值后再发布！",
+			  content: "ポイント足りない，振込後で！",
 			  width:'300px'
 			}).showModal();
 			{#/if#}

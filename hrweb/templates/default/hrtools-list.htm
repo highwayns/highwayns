@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-{#highway_hrtools_category set="列表名:category,分类ID:GET[id]"#}
+{#highway_hrtools_category set="リスト名:category,分類ID:GET[id]"#}
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#HIGHWAY_hrtools_category set=“リスト名前:category,分類ID:GET[id]”#}{#$category.0.c_name#} - HRツールボックス</title>
 <meta name="description" content="{#$page.description#}">
@@ -26,7 +26,7 @@
       <div class="clear"></div>
       <div class="hr_list">
         <ul>
-          {#highway_hrtools_list set="列表名:list,显示数目:500,分类ID:GET[id]"#}
+          {#highway_hrtools_list set="リス名:list,表示件数:500,分類ID:GET[id]"#}
           {#foreach from=$list item=list#}
             <li><a href="{#$list.h_fileurl#}" target="_blank" >{#$list.h_filename#}</a></li>
             {#/foreach#}

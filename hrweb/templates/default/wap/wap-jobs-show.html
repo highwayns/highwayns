@@ -26,10 +26,10 @@ $(document).ready(function()
 		var id = {#$smarty.get.id#};
 		$.post("personal/wap_user.php?act=add_favorites",{id:id},function(data){
 			if(data=="ok"){
-				alert("收藏职位成功");
+				alert("職位お気に入り失敗");
 				window.location.reload();
 			}else if(data=="err"){
-				alert("收藏职位失败");
+				alert("職位お気に入り失敗");
 				window.location.reload();
 			}else{
 				alert(data);
@@ -63,10 +63,10 @@ $(document).ready(function()
 				$(".menu_bg_layer").remove();
 				$.post("personal/wap_apply.php?act=apply_add",{jobs_id:jobs_id,jobs_name:jobs_name,company_id:company_id,company_name:company_name,company_uid:company_uid,resume_id:resume_id,resume_title:resume_title},function(data){
 					if(data=="ok"){
-						alert("申请职位成功");
+						alert("職位申込成功");
 						window.location.reload();
 					}else if(data=="err"){
-						alert("申请职位失败");
+						alert("職位申込失敗");
 						window.location.reload();
 					}else{
 						alert(data);
@@ -74,7 +74,7 @@ $(document).ready(function()
 					}
 				});
 			}else{
-				alert("请选择简历");
+				alert("履歴書選択失敗");
 			}
 		});
 		$("#but_right").click(function(){
