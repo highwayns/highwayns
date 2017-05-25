@@ -3,7 +3,7 @@
 $(document).ready(function()
 {
 	$("#ButAudit").QSdialog({
-	DialogTitle:"请选择",
+	DialogTitle:"選択",
 	DialogContent:"#AuditSet",
 	DialogContentType:"id",
 	DialogAddObj:"#OpAudit",	
@@ -152,7 +152,7 @@ $(document).ready(function()
 		</td>
         <td align="center"  class="admin_list">
 		<a href="?act=simple_edit&id={#$list.id#}">変更</a> &nbsp;&nbsp;
-		<a href="?act=simple_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a></td>
+		<a href="?act=simple_del&id={#$list.id#}&{#$urltoken#}" onclick="return confirm('削除してよろしいでしようか？')">削除</a></td>
       </tr>
       {#/foreach#}
     </table>
@@ -164,10 +164,10 @@ $(document).ready(function()
 <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="新增"  onclick="window.location='?act=simple_add'"/>
-		<input name="ButAudit" type="button" class="admin_submit" id="ButAudit" value="审核" />
-		 <input name="Butrefresh" type="button" class="admin_submit" id="Butrefresh" value="刷新" />
-		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="追加"  onclick="window.location='?act=simple_add'"/>
+		<input name="ButAudit" type="button" class="admin_submit" id="ButAudit" value="審査" />
+		 <input name="Butrefresh" type="button" class="admin_submit" id="Butrefresh" value="更新" />
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="削除"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -179,17 +179,17 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="职位">ポジションます。</li>
-														<li id="2" title="公司">会社</li>
-														<li id="3" title="电话">電話</li>
-														<li id="4" title="联系人">連絡先</li>
+														<li id="1" title="職位">ポジションます。</li>
+														<li id="2" title="会社">会社</li>
+														<li id="3" title="電話">電話</li>
+														<li id="4" title="連絡先">連絡先</li>
 														</ul>
 												</div>
 						</div>				
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>
@@ -221,7 +221,7 @@ $(document).ready(function()
     <tr>
       <td height="25">&nbsp;</td>
       <td>
-	  <input type="submit" name="set_audit" value="确定" class="admin_submit"/>
+	  <input type="submit" name="set_audit" value="確定" class="admin_submit"/>
  </td>
     </tr>
   </table>

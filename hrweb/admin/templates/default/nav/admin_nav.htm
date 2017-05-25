@@ -50,7 +50,7 @@
 				</td>
 				<td align="center"  class="admin_list" >
 					<a href="?act=site_navigation_edit&id={#$li.id#}">変更</a>		{#if $li.systemclass!="1"#}
-					<a href="?act=del_navigation&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">削除</a>
+					<a href="?act=del_navigation&id={#$li.id#}&{#$urltoken#}"  onclick="return confirm('削除してよろしいでしようか？')">削除</a>
 					{#/if#}
 					<input name="id[]" type="hidden" value="{#$li.id#}" />	
 				</td>
@@ -67,9 +67,9 @@
 			<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
 				<tr>
 					<td>
-						<input type="submit" name="Submit22" value="保存修改" class="admin_submit"   />
+						<input type="submit" name="Submit22" value="修正保存" class="admin_submit"   />
 
-						<input name="add" type="button" class="admin_submit" id="add"    value="添加栏目"  onclick="window.location='?act=site_navigation_add'"/>
+						<input name="add" type="button" class="admin_submit" id="add"    value="欄追加"  onclick="window.location='?act=site_navigation_add'"/>
 					</td>
 					<td width="305" align="right">		
 					</td>

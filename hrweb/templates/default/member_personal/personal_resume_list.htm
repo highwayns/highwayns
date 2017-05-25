@@ -28,7 +28,7 @@ $(".resume_privacy").live("click",function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=privacy&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('隐私设置');
     myDialog.width('550');
     myDialog.showModal();
@@ -44,7 +44,7 @@ $(".tpl").live("click",function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=tpl&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('更换模板');
     myDialog.showModal();
     $.get(url, function(data){
@@ -59,7 +59,7 @@ $(".del_resume").live("click",function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=del_resume&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('删除简历');
     myDialog.width('350');
     myDialog.showModal();
@@ -77,7 +77,7 @@ $(".refresh_resume").live("click",function(){
 		if(result=="1"){
 			dialog({
 			  title: '系统提示',
-			  content: "刷新成功",
+			  content: "更新成功",
 			  width:'300px'
 			}).showModal();
 		}else{
@@ -165,7 +165,7 @@ $(".refresh_resume").live("click",function(){
 		      </table>
 		    {#/if#}
 			 <div class="addbut">
-			 <input type="button" name="submitsave" id="submitsave" value="新增简历" onclick="javascript:location.href='personal_resume.php?act=make1'"  class="but100lan"/>
+			 <input type="button" name="submitsave" id="submitsave" value="履歴書追加" onclick="javascript:location.href='personal_resume.php?act=make1'"  class="but100lan"/>
 			 </div>
 			 
 	         <div class="bottomtip">
@@ -181,7 +181,7 @@ $(".refresh_resume").live("click",function(){
 					简历是求职的利器，填写简历才能更快找到好工作！<br />
 					去填写一份优质的简历吧，认真的人，才能让认真的企业找上你！
 				</p>
-				<input type="button" value="创建简历" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/><span style="margin-left:20px;font-family:'SimSun';color:#666;">共可创建 <span style="color:#0180cf;">3</span> 份简历，您已创建 <span style="color:#0180cf;">{#$total#}</span> 份</span>
+				<input type="button" value="履歴書作成" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/><span style="margin-left:20px;font-family:'SimSun';color:#666;">共可创建 <span style="color:#0180cf;">3</span> 份简历，您已创建 <span style="color:#0180cf;">{#$total#}</span> 份</span>
 			</div>
 			{#/if#}
 	  </div>	  

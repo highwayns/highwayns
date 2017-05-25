@@ -40,7 +40,7 @@ $(document).ready(function(){
 		var mycoDialog=dialog(),
 		url = $(this).attr("url");
 		mycoDialog.title('系统提示');
-		mycoDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">閉じた後募集情報を公開しませんので、閉じることが確定ですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		mycoDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text close-tips-text">閉じた後募集情報を公開しませんので、閉じることが確定ですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="確定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 	    mycoDialog.width('300');
 	    mycoDialog.showModal();
 	    /* 关闭 */
@@ -72,7 +72,7 @@ $(document).ready(function(){
 			var length=$("#form1 :checkbox[name='y_id[]'][checked]").length;
 			var refresh_point="{#$points_rule.jobs_refresh.value#}";
 			var total_point=length*refresh_point;
-			var cof = confirm("刷新职位可提高职位排名，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，您选择了"+length+"条职位，总共需要消耗"+total_point+"{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？");
+			var cof = confirm("職位更新はランクインアップができる，{#$points_rule.jobs_refresh.value#}ポイント毎更新{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，選択した"+length+"件職位，必要ポイント"+total_point+"{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，更新しますか？");
 			if(cof) {
 				return true;
 			} else {
@@ -98,7 +98,7 @@ $(document).ready(function(){
 				//需要消耗积分
 				if(result=='ok')
 				{
-					var con= confirm("由于您的套餐已过期或者超出次数限制，所以刷新职位需要消耗积分，每条职位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，确定刷新吗？")
+					var con= confirm("由于您的コース已过期或者超出次数制限，所以刷新職位需要消耗积分，每条職位消耗{#$points_rule.jobs_refresh.value#}{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}，確定刷新吗？")
 					if(con)
 					{
 						if(jobsid)
@@ -107,7 +107,7 @@ $(document).ready(function(){
 						}
 						else
 						{
-							$("#refresh").val("刷新职位");
+							$("#refresh").val("職位更新");
 							$("#form1").submit();
 						}
 					}
@@ -121,7 +121,7 @@ $(document).ready(function(){
 					}
 					else
 					{
-						$("#refresh").val("刷新职位");
+						$("#refresh").val("職位更新");
 						$("#form1").submit();
 					}
 				}
@@ -133,7 +133,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-					$("#refresh").val("刷新职位");
+					$("#refresh").val("職位更新");
 					$("#form1").submit();
 				}
 			{#/if#}
@@ -154,7 +154,7 @@ $(document).ready(function(){
 		var length=$("#form1 :checkbox[checked]").length;
 		if(length>0)
 		{
-			var cof = confirm("您是否要关闭您选中的职位，您共选中"+length+"个职位,确定关闭吗？");
+			var cof = confirm("選択された職位を閉じる，選択数は"+length+"件職位,閉じてよろしいでしょうか？");
 			if(cof) {
 				return true;
 			} else {
@@ -163,7 +163,7 @@ $(document).ready(function(){
 		}
 		else
 		{
-			alert("您没有选中职位！");
+			alert("選択された職位なし！");
 			return false;
 		}
 		
@@ -240,22 +240,22 @@ $(document).ready(function(){
 						{#if $li.stick!=1#}
 							<a  href="javascript:void(0);" class="data-ctrl set_promotion" catid="3" jobid="{#$li.id#}">トップ</a>
 						{#else#}
-							<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已置顶">トップ</a>
+							<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="該当職位トップにした">トップ</a>
 						{#/if#}
 						{#if $li.highlight==""#}
 						<a  href="javascript:void(0);" class="data-ctrl set_promotion" catid="4" jobid="{#$li.id#}">変色</a><br />
 						{#else#}
-						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已变色">変色</a><br />
+						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="職位すでに色付け">変色</a><br />
 						{#/if#}
 						{#if $li.emergency=="0"#}
 						<a href="javascript:void(0);" class="data-ctrl set_promotion" catid="2" jobid="{#$li.id#}">緊急</a>
 						{#else#}
-						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已经行紧急推广">緊急</a>
+						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="該当職位すでに紧急お勧めしました">緊急</a>
 						{#/if#}
 						{#if $li.recommend=="0"#}
 						<a href="javascript:void(0);" class="data-ctrl set_promotion" catid="1" jobid="{#$li.id#}">勧め</a>
 						{#else#}
-						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="该职位已经行紧急推荐">勧め</a>
+						<a  href="javascript:void(0);" class="data-ctrl underline" style="color:#999" title="該当職位紧急お勧め済み">勧め</a>
 						{#/if#}
 					</div>
 				</div>
@@ -267,12 +267,12 @@ $(document).ready(function(){
 					<div class="data-last-btn f-left">
 						{#if $HIGHWAY.operation_mode=="3"#}
 						<input type="hidden" name="refresh" id="refresh" value="" />
-						<input type="button" name="refresh" class="btn-65-30blue refresh"  value="刷新职位"  id="refresh"/>
+						<input type="button" name="refresh" class="btn-65-30blue refresh"  value="職位更新"  id="refresh"/>
 						{#else#}
-						<input type="submit" name="refresh" class="btn-65-30blue refresh"  value="刷新职位"  id="refresh"/>
+						<input type="submit" name="refresh" class="btn-65-30blue refresh"  value="職位更新"  id="refresh"/>
 						{#/if#}
-						<input type="submit" value="关闭" name="display2" class="btn-65-30blue" id="display2"/>
-						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="删除" id="delete" act="?act=jobs_perform&delete=1"/>
+						<input type="submit" value="閉じる" name="display2" class="btn-65-30blue" id="display2"/>
+						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="削除" id="delete" act="?act=jobs_perform&delete=1"/>
 					</div>
 				</div>
 			</div>
@@ -312,7 +312,7 @@ $(document).ready(function(){
 				<div class="c-data-content apply_jobs clearfix">
 					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2"/></div>
 					<div class="data-last-btn f-left">
-						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="删除" id="delete" act="?act=jobs_perform&delete=1"/>
+						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="削除" id="delete" act="?act=jobs_perform&delete=1"/>
 					</div>
 				</div>
 			</div>
@@ -364,7 +364,7 @@ $(document).ready(function(){
 				<div class="c-data-content apply_jobs clearfix">
 					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2"/></div>
 					<div class="data-last-btn f-left">
-						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="删除" id="delete" act="?act=jobs_perform&delete=1"/>
+						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="削除" id="delete" act="?act=jobs_perform&delete=1"/>
 					</div>
 				</div>
 			</div>
@@ -422,7 +422,7 @@ $(document).ready(function(){
 				<div class="c-data-content apply_jobs clearfix">
 					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択” /></div>
 					<div class="data-last-btn f-left">
-						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="删除" id="delete" act="?act=jobs_perform&delete=1"/>
+						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="削除" id="delete" act="?act=jobs_perform&delete=1"/>
 					</div>
 				</div>
 			</div>
@@ -452,19 +452,19 @@ $(document).ready(function(){
 	<p class="sns-tips">より効率的な採用を行い、ブランド名を向上させる<span>立即分享转发招聘职位吧！</span></p>
 	<style>.bdshare-button-style1-16 a, .bdshare-button-style1-16 .bds_more{padding-left: 0;}</style>
 	<div class="bdsharebuttonbox bdshare sns-block share clearfix">
-		<a href="#" class="sns-icon sina f-left " title="分享到新浪微博" data-cmd="tsina"></a>
-		<a href="#" class="sns-icon renren f-left" title="分享到人人网" data-cmd="renren"></a>
-		<a href="#" class="sns-icon qzone f-left" title="分享到QQ空间" data-cmd="qzone"></a>
-		<a href="#" class="sns-icon t-weibo f-left" title="分享到腾讯微博"data-cmd="tqq" ></a>
-		<a href="#" class="sns-icon qq f-left" title="分享到QQ好友" data-cmd="sqq"></a>
-		<a href="javascript:;" class="sns-icon weixin f-left" title="分享到微信"></a>
+		<a href="#" class="sns-icon sina f-left " title="SinaWeiboに共有" data-cmd="tsina"></a>
+		<a href="#" class="sns-icon renren f-left" title="人人網に共有" data-cmd="renren"></a>
+		<a href="#" class="sns-icon qzone f-left" title="QQスペースに共有" data-cmd="qzone"></a>
+		<a href="#" class="sns-icon t-weibo f-left" title="腾讯Weiboに連携"data-cmd="tqq" ></a>
+		<a href="#" class="sns-icon qq f-left" title="QQ好友に共有" data-cmd="sqq"></a>
+		<a href="javascript:;" class="sns-icon weixin f-left" title="Wechatに共有"></a>
 		<div class="weixin-code-box f-left">
 			<div class="weixin-border">
-				<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$jobs_one.jobs_url#}" alt="二维码" width="70" height="70" />
+				<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$jobs_one.jobs_url#}" alt="バーコード" width="70" height="70" />
 			</div>
 				<span>wechatシェイク/span>
 		</div>
-		<script>window._bd_share_config={"common":{"bdText":"{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  发布了最新职位 : {#$jobs_one.jobs_name#}(月薪 : {#$jobs_one.wage_cn#})","bdDesc":"想了解更多最新职位简历资讯请关注{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs_one.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		<script>window._bd_share_config={"common":{"bdText":"{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  配布了最新職位 : {#$jobs_one.jobs_name#}(月給 : {#$jobs_one.wage_cn#})","bdDesc":"もっと最新職位履歴書ニュースはこちらへ{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs_one.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 		</script>
 	</div>
 	<p class="succsee-more">多くの求職者に注意を引き付けるために、私たちはこのことをお勧めします：<a href=“javascript:;” class=“underline set_promotion” catid=“3” jobid=“{#$jobs_one.id#}”>置顶职位</a></p>

@@ -23,7 +23,7 @@
             var extStart = filepath.lastIndexOf(".");
             var ext = filepath.substring(extStart, filepath.length).toUpperCase();
             if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
-                alert("图片限于bmp,png,gif,jpeg,jpg格式");
+                alert("真限はbmp,png,gif,jpeg,jpgフォーマット支持");
                 return false;
             }
 			$.ajaxFileUpload ({
@@ -33,13 +33,13 @@
 				dataType : 'json',
 				success : function (data, status){
 					switch(data){
-						case -1 :alert("上传图片失败：上传目录不存在!");return false;break;
-						case -2 :alert("上传图片失败：上传目录无法写入!");return false;break;
-						case -3 :alert("上传图片失败：你选择的文件无法上传");return false;break;
-						case -4 :alert("上传图片失败：文件大小超过限制");return false;break;
-						case -5 :alert("上传图片失败：文件类型错误！");return false;break;
-						case -6 :alert("上传图片失败：文件上传出错！");return false;break;
-						case -7 :alert("上传图片失败：企业图片最多发布8张！");return false;break;
+						case -1 :alert("アップロード写真失敗：アップロード目录不存在!");return false;break;
+						case -2 :alert("写真アップロード失敗：アップロードフォルダー書けない!");return false;break;
+						case -3 :alert("写真アップロード失敗：選択されたファイルがアップロードできません");return false;break;
+						case -4 :alert("画像アップロード失敗：ファイルサイズ制限を超えた");return false;break;
+						case -5 :alert("写真アップロード失敗：ファイルタイプエラー！");return false;break;
+						case -6 :alert("写真アップロード失敗：ファイルアップロードエラー！");return false;break;
+						case -7 :alert("アップロード写真失敗：企業写真最多配布8张！");return false;break;
 						default:
 							location.reload();
 						break;
@@ -75,7 +75,7 @@
 						<div class="upload-type f-left">ビジネスライセンスをアップロードします：</div>
 						<div class="upload-content f-left">
 							<div class="but100_30lan">ピクチャーの選択</div>
-							<input class="filestyle" type="file" name="certificate_img" id="certificate_img" value="选择图片" />
+							<input class="filestyle" type="file" name="certificate_img" id="certificate_img" value="写真選択" />
 						</div>
 					</div>
 					</form>
@@ -89,7 +89,7 @@
 						<div class="upload-type f-left">ビジネスライセンスをアップロードします：</div>
 						<div class="upload-content f-left">
 							<div class="but100_30lan">ピクチャーの選択</div>
-							<input class="filestyle" type="file" name="certificate_img" id="certificate_img" value="选择图片" />
+							<input class="filestyle" type="file" name="certificate_img" id="certificate_img" value="写真選択" />
 						</div>
 					</div>
 					</form>

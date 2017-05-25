@@ -19,7 +19,7 @@ $(document).ready(function()
 	$("#topmenu_sub").click( function () { 
 		$("#topmenu").slideToggle("fast");
 	});
-	OpenCity("#district_input","#district_cn","#district","#sdistrict","请选择地区");
+	OpenCity("#district_input","#district_cn","#district","#sdistrict","地区を選択してください");
 	//
 	$("#key").focus(function()
 	{
@@ -92,7 +92,7 @@ $(document).ready(function()
 </div>
 <!--搜索 -->
 <div class="d2">
-  	<input name="key" type="text"  id="key"  class="keyinput" value="请输入关键字"/>
+  	<input name="key" type="text"  id="key"  class="keyinput" value="キーワードを入力してください"/>
 	 <div class="more" id="clearkey"><img src="images/17.jpg"  border="0"/></div>
 </div>
 <div class="d3" id="district_input">
@@ -115,10 +115,10 @@ $(document).ready(function()
 {#foreach from=$emergency_jobs item=list#}
 	<div class="list" url="{#$list.url#}">
 	  <div class="t1"><span><a href="{#$list.url#}">{#$list.jobs_name#}</a>
-		{#if $list.stick=="1"#}<img title="置顶信息" src="images/ding.jpg" border="0" class="vtip"/>{#/if#}
-             		{#if $list.emergency=="1"#}<img title="紧急招聘" src="images/iconji.gif" border="0" class="vtip" />{#/if#}
-              	{#if $list.recommend=="1"#}<img title="推荐职位" src="images/iconjian.gif" border="0" class="vtip" />{#/if#}
-            		{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="images/ying.jpg" border="0" class="vtip"/>{#/if#}
+		{#if $list.stick=="1"#}<img title="トップ情報" src="images/ding.jpg" border="0" class="vtip"/>{#/if#}
+             		{#if $list.emergency=="1"#}<img title="緊急募集" src="images/iconji.gif" border="0" class="vtip" />{#/if#}
+              	{#if $list.recommend=="1"#}<img title="お勧め職位" src="images/iconjian.gif" border="0" class="vtip" />{#/if#}
+            		{#if $list.graduate=="1"#}<img title="新卒大歓迎" src="images/ying.jpg" border="0" class="vtip"/>{#/if#}
 	  </span><br />
 {#$list.companyname#}</div>
 	  <div class="t2">{#$list.district_cn#}<br />{#$list.wage_cn#}</div>

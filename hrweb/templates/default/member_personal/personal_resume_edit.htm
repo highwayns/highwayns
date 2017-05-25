@@ -271,11 +271,11 @@ function showyearbox(divname,inputname,birth)
 $("#empty_add_education").live("click",function(){
 	$("#education_empty_box").hide();
 	$(":input","#education_add_form").not(':button,:submit').val("");
-	$("#education_menu").html("请选择");
-	$("#edu_start_year_div").html("年份");
+	$("#education_menu").html("選択");
+	$("#edu_start_year_div").html("年代");
 	$("#edu_start_month_menu").html("9月");
 	$("#edu_start_month").val("9月");
-	$("#edu_end_year_div").html("年份");
+	$("#edu_end_year_div").html("年代");
 	$("#edu_end_month_menu").html("7月");
 	$("#edu_end_month").val("7月");
 	$("#education_add_form").slideDown("slow");	
@@ -291,11 +291,11 @@ $("#empty_add_education").live("click",function(){
 //当有教育经历，点击标题右侧添加按钮打开表单
 $("#nav_add_education").click(function(){
 	$(":input","#education_add_form").not(':button,:submit').val("");
-	$("#education_menu").html("请选择");
-	$("#edu_start_year_div").html("年份");
+	$("#education_menu").html("選択");
+	$("#edu_start_year_div").html("年代");
 	$("#edu_start_month_menu").html("9月");
 	$("#edu_start_month").val("9月");
-	$("#edu_end_year_div").html("年份");
+	$("#edu_end_year_div").html("年代");
 	$("#edu_end_month_menu").html("7月");
 	$("#edu_end_month").val("7月");
 	$("#education_add_form").slideUp("fast");
@@ -323,10 +323,10 @@ $("#close_education_form").click(function(){
 $("#empty_add_work").live("click",function(){
 	$("#work_empty_box").hide();
 	$(":input","#work_add_form").not(':button,:submit').val("");
-	$("#work_start_year_div").html("年份");
-	$("#work_start_month_menu").html("月份");
-	$("#work_end_year_div").html("年份");
-	$("#work_end_month_menu").html("月份");
+	$("#work_start_year_div").html("年代");
+	$("#work_start_month_menu").html("月");
+	$("#work_end_year_div").html("年代");
+	$("#work_end_month_menu").html("月");
 	$("#work_add_form").slideDown("slow");	
 	$("#education_add_form").slideUp("fast");	
 	{#if !$resume_education#}
@@ -340,10 +340,10 @@ $("#empty_add_work").live("click",function(){
 //当有工作经历，点击标题右侧添加按钮打开表单
 $("#nav_add_work").click(function(){
 	$(":input","#work_add_form").not(':button,:submit').val("");
-	$("#work_start_year_div").html("年份");
-	$("#work_start_month_menu").html("月份");
-	$("#work_end_year_div").html("年份");
-	$("#work_end_month_menu").html("月份");
+	$("#work_start_year_div").html("年代");
+	$("#work_start_month_menu").html("月");
+	$("#work_end_year_div").html("年代");
+	$("#work_end_month_menu").html("月");
 	$("#work_add_form").slideUp("fast");
 	$("#work_add_form").slideDown("slow");
 	$("#education_add_form").slideUp("fast");	
@@ -369,10 +369,10 @@ $("#close_work_form").click(function(){
 $("#empty_add_training").live("click",function(){
 	$("#training_empty_box").hide();
 	$(":input","#training_add_form").not(':button,:submit').val("");
-	$("#training_start_year_div").html("年份");
-	$("#training_start_month_menu").html("月份");
-	$("#training_end_year_div").html("年份");
-	$("#training_end_month_menu").html("月份");
+	$("#training_start_year_div").html("年代");
+	$("#training_start_month_menu").html("月");
+	$("#training_end_year_div").html("年代");
+	$("#training_end_month_menu").html("月");
 	$("#training_add_form").slideDown("slow");
 	$("#education_add_form").slideUp("fast");	
 	{#if !$resume_education#}
@@ -386,10 +386,10 @@ $("#empty_add_training").live("click",function(){
 //当有培训经历，点击标题右侧添加按钮打开表单
 $("#nav_add_training").click(function(){
 	$(":input","#training_add_form").not(':button,:submit').val("");
-	$("#training_start_year_div").html("年份");
-	$("#training_start_month_menu").html("月份");
-	$("#training_end_year_div").html("年份");
-	$("#training_end_month_menu").html("月份");
+	$("#training_start_year_div").html("年代");
+	$("#training_start_month_menu").html("月");
+	$("#training_end_year_div").html("年代");
+	$("#training_end_month_menu").html("月");
 	$("#training_add_form").slideUp("fast");
 	$("#training_add_form").slideDown("slow");
 	$(".training_td_h").show();
@@ -415,7 +415,7 @@ $("#close_training_form").click(function(){
 $("#empty_add_language").live("click",function(){ 
 	$("#language_empty_box").hide();
 	$(":input","#language_add_form").not(':button,:submit').val("");
-	$("#language_div").html("语言");
+	$("#language_div").html("言語");
 	$("#language_level_div").html("水平程度"); 
 	$("#language_add_form").slideDown("slow");	
 	$("#education_add_form").slideUp("fast");	
@@ -430,7 +430,7 @@ $("#empty_add_language").live("click",function(){
 //当有语言能力，点击标题右侧添加按钮打开表单
 $("#nav_add_language").click(function(){
 	$(":input","#language_add_form").not(':button,:submit').val("");
-	$("#language_div").html("语言");
+	$("#language_div").html("言語");
 	$("#language_level_div").html("水平程度"); 
 	$("#language_add_form").slideUp("fast");
 	$("#language_add_form").slideDown("slow");
@@ -454,7 +454,7 @@ $("#close_language_form").click(function(){
 $("#empty_add_credent").live("click",function(){ 
 	$("#credent_empty_box").hide();
 	$(":input","#credent_add_form").not(':button,:submit').val("");
-	$("#credent_div").html("语言");
+	$("#credent_div").html("言語");
 	$("#credent_level_div").html("程度"); 
 	$("#credent_add_form").slideDown("slow");	
 	//$("#credent_add_form").slideUp("fast");	
@@ -469,7 +469,7 @@ $("#empty_add_credent").live("click",function(){
 //当有语言能力，点击标题右侧添加按钮打开表单
 $("#nav_add_credent").click(function(){
 	$(":input","#credent_add_form").not(':button,:submit').val("");
-	$("#credent_div").html("语言");
+	$("#credent_div").html("言語");
 	$("#credent_level_div").html("水平程度"); 
 	$("#credent_add_form").slideUp("fast");
 	$("#credent_add_form").slideDown("slow");
@@ -755,7 +755,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	             	 	<div id="education_menu" class="input_text_200_bg">{#$resume_basic.education_cn#}</div>	
 	             	 	<div class="menu" id="menu1">
 		              		<ul>
-		              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+		              			{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 		              			{#foreach from=$c_education item=list#}
 		              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 		              			{#/foreach#}
@@ -818,8 +818,8 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	             	 	<div id="experience_menu" class="input_text_200_bg">{#$resume_basic.experience_cn#}</div>	
 	             	 	<div class="menu" id="menu2">
 		              		<ul>
-		              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
-		              			<li id="-1" title="应届生">新卒</li>
+		              			{#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
+		              			<li id="-1" title="新卒">新卒</li>
 		              			{#foreach from=$c_experience item=list#}
 		              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 		              			{#/foreach#}
@@ -993,7 +993,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				             	 	<div id="current_menu" class="input_text_200_bg">{#$resume_basic.current_cn#}</div>	
 				             	 	<div class="menu" id="menuc">
 					              		<ul>
-					              			{#highway_get_classify  set="类型:HW_current,列表名:c_current"#}
+					              			{#highway_get_classify  set="タイプ:HW_current,リスト名:c_current"#}
 					              			{#foreach from=$c_current item=list#}
 					              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 					              			{#/foreach#}
@@ -1011,7 +1011,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						<div id="nature_radio">
 							<input name="nature" id="nature" type="hidden" value="{#$resume_basic.nature#}" />
 							<input name="nature_cn" id="nature_cn" type="hidden" value="{#$resume_basic.nature_cn#}" />
-							{#highway_get_classify  set="类型:HW_jobs_nature,列表名:c_nature"#}
+							{#highway_get_classify  set="タイプ:HW_jobs_nature,リスト名:c_nature"#}
 							{#foreach from=$c_nature item=list#}
 							<div class="input_radio {#if $list.id==$resume_basic.nature#}select{#/if#}" id="{#$list.id#}">{#$list.categoryname#}</div>
 							{#/foreach#}			  
@@ -1156,7 +1156,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		             	 	<div id="wage_menu" class="input_text_200_bg">{#$resume_basic.wage_cn#}</div>	
 		             	 	<div class="menu" id="menu3">
 			              		<ul>
-			              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
+			              			{#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
 			              			{#foreach from=$c_wage item=list#}
 			              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			              			{#/foreach#}
@@ -1264,7 +1264,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 								<div id="edu_education_menu" class="input_text_200_bg">選択してください</div>	
 								<div class="menu" id="menu4">
 									<ul>
-									{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+									{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 									{#foreach from=$c_education item=list#}
 									<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 									{#/foreach#}
@@ -1422,7 +1422,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						var del_education=dialog();
 						del_education.title('删除');
 						del_education.width('300');
-						del_education.content("加载中...");
+						del_education.content("ロード中...");
 						del_education.showModal();
 						$(".DialogClose").live('click',function() {
 					        del_education.close().remove();
@@ -1438,7 +1438,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 										$(".FloatBg").css("display","none");
 										dialog({
 						                    title: '系统提示',
-						                    content: "删除成功",
+						                    content: "削除成功",
 						                    width:300
 						                }).show();
 						                del_education.close().remove();
@@ -1619,7 +1619,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						var del_work=dialog();
 						del_work.title('删除');
 						del_work.width('300');
-						del_work.content("加载中...");
+						del_work.content("ロード中...");
 						del_work.showModal();
 						$(".DialogClose").live('click',function() {
 					      del_work.close().remove();
@@ -1634,7 +1634,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 										$(".FloatBg").css("display","none");
 										dialog({
 						                    title: '系统提示',
-						                    content: "删除成功",
+						                    content: "削除成功",
 						                    width:300
 						                }).showModal();
 						                del_work.close().remove();
@@ -1836,7 +1836,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						var del_training=dialog();
 						del_training.title('删除');
 						del_training.width('300');
-						del_training.content("加载中...");
+						del_training.content("ロード中...");
 						del_training.showModal();
 						$(".DialogClose").live('click',function() {
 					      del_training.close().remove();
@@ -1852,7 +1852,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 										$(".FloatBg").css("display","none");
 										dialog({
 						                    title: '系统提示',
-						                    content: "删除成功!",
+						                    content: "削除成功!",
 						                    width:300
 						                }).showModal();
 						                del_training.close().remove();
@@ -1887,7 +1887,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				             	 	<div id="language_div" class="input_text_70_bg">言語</div>
 				             	 	<div class="menu" id="language_menu">
 					              		<ul>
-										{#highway_get_classify  set="类型:HW_language,列表名:c_language"#}
+										{#highway_get_classify  set="タイプ:HW_language,リスト名:c_language"#}
 				              			{#foreach from=$c_language item=list#}
 											<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#} 
@@ -1902,7 +1902,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				             	 	<div id="language_level_div" class="input_text_70_bg">程度</div>
 				             	 	<div class="menu" id="language_level_menu">
 					              		<ul>
-										{#highway_get_classify  set="类型:HW_language_level,列表名:c_language_level"#}
+										{#highway_get_classify  set="タイプ:HW_language_level,リスト名:c_language_level"#}
 				              			{#foreach from=$c_language_level item=list#}
 											<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#}  
@@ -1993,7 +1993,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						var del_language=dialog();
 						del_language.title('删除');
 						del_language.width('300');
-						del_language.content("加载中...");
+						del_language.content("ロード中...");
 						del_language.showModal();
 						/* 关闭 */
 			            $(".DialogClose").live('click',function() {
@@ -2009,7 +2009,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 										$(".FloatBg").css("display","none");
 										dialog({
 						                    title: '系统提示',
-						                    content: "删除成功!",
+						                    content: "削除成功!",
 						                    width:300
 						                }).showModal();
 										del_language.close().remove();
@@ -2237,7 +2237,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 						var del_credent=dialog();
 						del_credent.title('删除');
 						del_credent.width('300');
-						del_credent.content("加载中...");
+						del_credent.content("ロード中...");
 						del_credent.showModal();
 						$(".DialogClose").live('click',function() {
 			              del_credent.close().remove();
@@ -2252,7 +2252,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 										$(".FloatBg").css("display","none");
 										dialog({
 						                    title: '系统提示',
-						                    content: "删除成功!",
+						                    content: "削除成功!",
 						                    width:300
 						                }).show();
 										del_credent.close().remove();
@@ -2282,7 +2282,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<div class="noinfo">	
 		 	 <div class="txt">簡単に客観的かつ総合的な自己評価は会社の良い印象を得るために、hRの親しい友人を得るために完璧に来ます！</div>
 			 <div class="addbut">
-			 	<input type="button" name="" value="自我描述"  class="but130lan_add empty_add_specialty"/>
+			 	<input type="button" name="" value="自己紹介"  class="but130lan_add empty_add_specialty"/>
 			 </div>
 		</div>
 		{#/if#}
@@ -2427,7 +2427,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
             var extStart = filepath.lastIndexOf(".");
             var ext = filepath.substring(extStart, filepath.length).toUpperCase();
             if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
-            	alert("图片限于bmp,png,gif,jpeg,jpg格式");
+            	alert("真限はbmp,png,gif,jpeg,jpgフォーマット支持");
                 return false;
             }
 			$.ajaxFileUpload ({
@@ -2437,13 +2437,13 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				dataType : 'json',
 				success : function (data, status){
 					switch(data){
-						case "-1":alert("上传图片失败：上传目录不存在!");return false;
-						case "-2":alert("上传图片失败：上传目录无法写入!");return false;
-						case "-3":alert("上传图片失败：你选择的文件无法上传");return false;
-						case "-4":alert("上传图片失败：文件大小超过限制");return false;
-						case "-5":alert("上传图片失败：文件类型错误！");return false;
-						case -6:alert("上传图片失败：文件上传出错！");return false;
-						case -7:alert("上传图片失败：附件图片只能上传4张");return false;
+						case "-1":alert("アップロード写真失敗：アップロード目录不存在!");return false;
+						case "-2":alert("写真アップロード失敗：アップロードフォルダー書けない!");return false;
+						case "-3":alert("写真アップロード失敗：選択されたファイルがアップロードできません");return false;
+						case "-4":alert("画像アップロード失敗：ファイルサイズ制限を超えた");return false;
+						case "-5":alert("写真アップロード失敗：ファイルタイプエラー！");return false;
+						case -6:alert("写真アップロード失敗：ファイルアップロードエラー！");return false;
+						case -7:alert("写真アップロード失敗：写真4枚アップロードしかできません");return false;
 						default:
 							var imgHtml ='<div class="has-upload-block f-left"><div class="has-img"><img src="{#$HIGHWAY.site_dir#}data/photo/'+data['url']+'" title="" width="148" height="148" /></div><div class="has-img-ctrl clearfix"><a href="javascript:;" class="f-left underline note" imgId="'+data['id']+'">备注</a><a href="javascript:;" class="f-right underline del" imgId="'+data['id']+'">删除</a></div></div>';
 							$(".has-upload-img").append(imgHtml);
@@ -2457,7 +2457,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			var id=$(this).attr("imgId");
 			var del_img=dialog();
 		    del_img.title('系统提示');
-		    del_img.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		    del_img.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="確定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 		    del_img.width('300');
 		    del_img.showModal();
 		    /* 关闭 */
@@ -2564,7 +2564,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
             var extStart = filepath.lastIndexOf(".");
             var ext = filepath.substring(extStart, filepath.length).toUpperCase();
             if (ext != ".DOC") {
-                alert("文件仅限于.doc格式");
+                alert("ファイルフォーマット.docだけ");
                 return false;
             }
 			$.ajaxFileUpload ({
@@ -2574,12 +2574,12 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				dataType : 'json',
 				success : function (data, status){
 					switch(data){
-						case -1:alert("上传word失败：上传目录不存在!");return false;
-						case -2:alert("上传word失败：上传目录无法写入!");return false;
-						case -3:alert("上传word失败：你选择的文件无法上传");return false;
-						case -4:alert("上传word失败：文件大小超过限制");return false;
-						case -5:alert("上传word失败：文件类型错误！");return false;
-						case -6:alert("上传word失败：文件上传出错！");return false;
+						case -1:alert("アップロードword失敗：アップロード目录不存在!");return false;
+						case -2:alert("wordアップロード失敗：アップロードフォルダーかけない!");return false;
+						case -3:alert("wordアップロード失敗：選択されたファイルがアップロードできません");return false;
+						case -4:alert("wordアップロード失敗：ファイルサイズ制限");return false;
+						case -5:alert("wordアップロード失敗：ファイルタイプ間違いました。！");return false;
+						case -6:alert("wordアップロード失敗：ファイルアップロードエラー！");return false;
 						default:
 							window.location.reload();
 						break;
@@ -2592,7 +2592,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			var pid=$(this).attr("resume_id");
 			var word_del=dialog();
 		    word_del.title('系统提示');
-		    word_del.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
+		    word_del.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">あなたの削除を復元することはできませんした後、あなたはそれを削除してもよろしいですか？</span></div></div><div class="center-btn-wrap"><input type="button" value="確定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
 		    word_del.width('300');
 		    word_del.showModal();
 		    /* 关闭 */
@@ -2614,7 +2614,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<form action="?act=edit_resume_save" method="post">
 				<input type="hidden" name="pid" value="{#$resume_basic.id#}"/>
 				<input type="hidden" name="make" value="{#$smarty.get.make#}"/>
-				<input type="submit" value="发布简历" class="finish-btn" />
+				<input type="submit" value="履歴書配布" class="finish-btn" />
 			</form>
 		</div>
 	  </div>

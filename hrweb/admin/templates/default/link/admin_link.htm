@@ -77,7 +77,7 @@ $(document).ready(function()
 	  {#if $list.type_id=="2"#}自助申请{#/if#}
 	  </td>
       <td align="center"   class="admin_list">
-	  <a href="?act=edit&id={#$list.link_id#}">変更</a> <a href="?act=del_link&id={#$list.link_id#}&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a>	  </td>
+	  <a href="?act=edit&id={#$list.link_id#}">変更</a> <a href="?act=del_link&id={#$list.link_id#}&{#$urltoken#}" onclick="return confirm('削除してよろしいでしようか？')">削除</a>	  </td>
     </tr>
 	 {#/foreach#}
   </table>
@@ -88,8 +88,8 @@ $(document).ready(function()
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-<input type="button" class="admin_submit" id="ButAudit" value="添加"  onclick="window.location='?act=add'"/>
-<input type="button" class="admin_submit" id="ButDlete" value="删除"/>
+<input type="button" class="admin_submit" id="ButAudit" value="追加"  onclick="window.location='?act=add'"/>
+<input type="button" class="admin_submit" id="ButDlete" value="削除"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -101,7 +101,7 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="标题">titleます。</li>
+														<li id="1" title="タイトル">titleます。</li>
 														<li id="2" title="URL">URL</li>
 														</ul>
 												</div>
@@ -109,7 +109,7 @@ $(document).ready(function()
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="list" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

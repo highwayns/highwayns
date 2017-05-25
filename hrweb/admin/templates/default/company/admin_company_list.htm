@@ -4,21 +4,21 @@
 $(document).ready(function()
 {
 	$("#ButAudit").QSdialog({
-	DialogTitle:"请选择",
+	DialogTitle:"選択",
 	DialogContent:"#OpAuditLayer",
 	DialogContentType:"id",
 	DialogAddObj:"#OpAudit",	
 	DialogAddType:"html"	
 	});
 	$("#ButDel").QSdialog({
-	DialogTitle:"请选择",
+	DialogTitle:"選択",
 	DialogContent:"#OpDelLayer",
 	DialogContentType:"id",
 	DialogAddObj:"#OpDel",	
 	DialogAddType:"html"	
 	});
 	$("#Butrefresh").QSdialog({
-	DialogTitle:"请选择",
+	DialogTitle:"選択",
 	DialogContent:"#OprefreshLayer",
 	DialogContentType:"id",
 	DialogAddObj:"#Oprefresh",	
@@ -104,7 +104,7 @@ $(document).ready(function()
 		</td>
         <td class="admin_list">
 		{#if $list.certificate_img#}
-		<a href="{#$certificate_dir#}{#$list.certificate_img#}" target="_blank" title="点击查看">アップロード済み</a>&nbsp;
+		<a href="{#$certificate_dir#}{#$list.certificate_img#}" target="_blank" title="クリックして閲覧">アップロード済み</a>&nbsp;
 		{#else#}
 		<span  style="color: #999999">アップロードしない</span>
 		{#/if#}	
@@ -157,9 +157,9 @@ $(document).ready(function()
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-        <input type="button" name="" value="认证企业" class="admin_submit"  id="ButAudit" />
-		<input type="button" name="" value="刷新" class="admin_submit"  id="Butrefresh" />
-		<input type="button" name="" value="删除" class="admin_submit"   id="ButDel"/>
+        <input type="button" name="" value="企業認定" class="admin_submit"  id="ButAudit" />
+		<input type="button" name="" value="更新" class="admin_submit"  id="Butrefresh" />
+		<input type="button" name="" value="削除" class="admin_submit"   id="ButDel"/>
 		  
 		</td>
         <td width="305" align="right">
@@ -172,19 +172,19 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="公司名">会社名</li>
-														<li id="2" title="会员id">企業ID</li>
-														<li id="3" title="会员名">ユーザー名</li>
-														<li id="4" title="会员id">メンバーID</li>														
-														<li id="5" title="地址">住所</li>
-														<li id="6" title="电话">電話</li>
+														<li id="1" title="会社名">会社名</li>
+														<li id="2" title="会員id">企業ID</li>
+														<li id="3" title="会員名">ユーザー名</li>
+														<li id="4" title="会員id">メンバーID</li>														
+														<li id="5" title="住所">住所</li>
+														<li id="6" title="電話">電話</li>
 														</ul>
 												</div>
 						</div>				
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="company_list" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

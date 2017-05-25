@@ -26,10 +26,10 @@ $(document).ready(function()
 		var id = $(this).attr("jid");
 		$.post("?act=jobs_pause",{id:id},function(data){
 			if(data=="ok"){
-				alert("职位关闭成功");
+				alert("職位閉じる成功");
 				window.location.reload();
 			}else if(data=="err"){
-				alert("职位关闭失败");
+				alert("職位閉じる失敗");
 				window.location.reload();
 			}else{
 				alert(data);
@@ -42,10 +42,10 @@ $(document).ready(function()
 		var id = $(this).attr("jid");
 		$.post("?act=jobs_regain",{id:id},function(data){
 			if(data=="ok"){
-				alert("职位恢复成功");
+				alert("職位回復成功");
 				window.location.reload();
 			}else if(data=="err"){
-				alert("职位恢复失败");
+				alert("職位回復失敗");
 				window.location.reload();
 			}else{
 				alert(data);
@@ -58,10 +58,10 @@ $(document).ready(function()
 		var id = $(this).attr("jid");
 		$.post("?act=jobs_refresh",{id:id},function(data){
 			if(data=="ok"){
-				alert("刷新职位成功");
+				alert("職位更新成功");
 				window.location.reload();
 			}else if(data=="err"){
-				alert("刷新职位失败");
+				alert("職位更新失敗");
 				window.location.reload();
 			}else{
 				alert(data);
@@ -72,17 +72,17 @@ $(document).ready(function()
 	// 删除职位
 	$(".jobs_del").click(function(){
 		var id = $(this).attr("jid");
-		if (!confirm("确认要删除？")) {
+		if (!confirm("削除してよろしいでしょうか？")) {
             window.event.returnValue = false;
         }
         else
         {
 			$.post("?act=jobs_del",{id:id},function(data){
 				if(data=="ok"){
-					// alert("删除职位成功");
+					// alert("職位削除成功");
 					window.location.reload();
 				}else if(data=="err"){
-					alert("删除职位失败");
+					alert("職位削除失敗");
 					window.location.reload();
 				}else{
 					alert(data);

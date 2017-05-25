@@ -154,7 +154,7 @@ $(document).ready(function()
 		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajaxresumelist&offset="+(offset+5)+"&rows=5&key="+key+"&district="+district+"&sdistrict="+sdistrict+"&education="+education+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&experience="+experience+"&talent="+talent, function(result){
 		    if(result=="-1"){
 		    	$(".more").show();
-		    	$(".more").html("没有更多简历了");
+		    	$(".more").html("もっと履歴書なし");
 		    }else{
 		    	$(".showlist").append(result);
 		    	$(".more").show();
@@ -200,7 +200,7 @@ $(document).ready(function()
 <!--快捷按钮 -->
 <!--关键字搜索 -->
 <div class="resume_so">
-	<input name="key" type="text"  id="key"  class="keyinput" value="{#if $smarty.get.key==""#}请输入关键字{#else#}{#$smarty.get.key#}{#/if#}"/>
+	<input name="key" type="text"  id="key"  class="keyinput" value="{#if $smarty.get.key==""#}キーワード入力してください{#else#}{#$smarty.get.key#}{#/if#}"/>
 	<div class="clearkey" id="clearkey"><img src="images/17.jpg"  border="0"/></div>
     <div class="so_sub"><img src="images/19.jpg"  border="0"/></div>
 </div>
@@ -238,7 +238,7 @@ $(document).ready(function()
         var scitystr = "";
         if(HW_city[cid]) {
           var ccitysArray = HW_city[cid].split("|");
-          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
+          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/制限なし" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
           $.each(ccitysArray, function(cindex, cval) {
             if(cval) {
               var ccitys = cval.split(",");
@@ -342,7 +342,7 @@ $(document).ready(function()
       var sjobstr = "";
       if(HW_jobs[rid]) {
         var cjobsArray = HW_jobs[rid].split("|");
-        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">限定なし</li>';
+        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/制限なし" pid="'+rpid+'.0">限定なし</li>';
         $.each(cjobsArray, function(cindex, cval) {
           if(cval) {
             var cjobs = cval.split(",");
@@ -422,7 +422,7 @@ $(document).ready(function()
   <div class="menu_title">仕事経験</div>
       <div class="choose_close"></div>
       <ul>
-          {#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
+          {#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
           {#foreach from=$c_experience item=list#}
           <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
           {#/foreach#}
@@ -439,7 +439,7 @@ $(document).ready(function()
 	    <div class="menu_title">学歴</div>
       <div class="choose_close"></div>
 	    <ul>
-	        {#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+	        {#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 	        {#foreach from=$c_education item=list#}
 	        <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	        {#/foreach#}
@@ -471,7 +471,7 @@ $(document).ready(function()
      }
   });
   if(citygetSdistrictId == "0") {
-    showCityHtm += "不限";
+    showCityHtm += "制限なし";
   } else {
     if(HW_city[citygetDistrictId]) {
       var ccitysArray = HW_city[citygetDistrictId].split("|");
@@ -515,7 +515,7 @@ $(document).ready(function()
     });
   }
   if(citygetSubclassId == "0") {
-    showJobsHtm += "不限";
+    showJobsHtm += "制限なし";
   } else {
     if(HW_jobs[citygetCategoryId]) {
       var tsjobsArray = HW_jobs[citygetCategoryId].split("|");

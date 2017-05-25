@@ -1,4 +1,4 @@
-﻿{#highway_jobs_show set="列表名:show,职位ID:GET[id]"#}{#highway_company_show set="列表名:company,企业ID:"|cat:$show.company_id#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_jobs_show set="リスト名:show,職位ID:GET[id]"#}{#highway_company_show set="リスト名:company,企業ID:"|cat:$show.company_id#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -302,7 +302,7 @@ $(document).ready(function(){
 						<div class="com-left-block">
 						<h3 class="c-left-title">その他職位</h3>
 						<div class="company-jobs-list clearfix">
-							{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:14,显示数目:8,会员UID:"|cat:$show.uid#}
+							{#highway_jobs_list set="リスト名:jobs,文字:...,職位名長さ:14,表示件数:8,会員UID:"|cat:$show.uid#}
 			  				{#foreach from=$jobs item=list#}
 							<div class="c-jobs-item f-left">
 								<div class="job-name"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a></div>

@@ -10,7 +10,7 @@ $(document).ready(function()
         jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
             var tel = /^((0\d{2,3}-[2-9][0-9]{6,7})|(0\d{2,3}[2-9][0-9]{6,7})|([2-9][0-9]{6,7})|(1[35847]\d{9}))$/;
             return this.optional(element) || (tel.test(value));
-        }, "请正确填写联系电话");
+        }, "電話番号正しく入力してください");
       $("#Form1").validate({
             rules:{
                   companyname:{
@@ -48,36 +48,36 @@ $(document).ready(function()
             },
             messages: {
                   companyname: {
-                        required: jQuery.format("请输入公司名称")
+                        required: jQuery.format("会社名称")
                   },
                   nature: {
-                        required: jQuery.format("请选择企业性质")
+                        required: jQuery.format("企業性质選択")
                   },
                   trade: {
-                        required: jQuery.format("请选择所属行业")
+                        required: jQuery.format("所属業界選択")
                   },
                   district: {
-                        required: jQuery.format("请选择所在地区")
+                        required: jQuery.format("所在地区選択")
                   },
                   scale: {
-                        required: jQuery.format("请选择公司规模")
+                        required: jQuery.format("会社規模選択")
                   },
                   contact: {
-                        required:("请填写联系人"),
+                        required:("連絡先入力"),
                   },
                   telephone: {
-                        required: jQuery.format("请填写联系电话"),
-                        isPhoneNumber: jQuery.format("请正确填写手机号码"),
+                        required: jQuery.format("電話番号入力"),
+                        isPhoneNumber: jQuery.format("携帯番号正しく入力してください"),
                   },
                   email: {
-                        required: jQuery.format("请填写电子邮箱"),
-                        email: jQuery.format("请正确填写电子邮箱"),
+                        required: jQuery.format("メールアドレス入力してください"),
+                        email: jQuery.format("メール正しく入力してください"),
                   },
                   address: {
-                        required:("请填写通讯地址"),
+                        required:("住所入力"),
                   },
                   contents: {
-                        required:("请填写公司介绍"),
+                        required:("会社介绍入力"),
                   },
             }
       });
@@ -115,7 +115,7 @@ $(document).ready(function()
           <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ビジネスライセンス：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed" class="link_lan">
 		  {#if $company_profile.certificate_img#}
-		  <a href="{#$certificate_dir#}{#$company_profile.certificate_img#}" target="_blank" title="点击查看"> アップロード</a>		 
+		  <a href="{#$certificate_dir#}{#$company_profile.certificate_img#}" target="_blank" title="クリックして閲覧"> アップロード</a>		 
 		  {#else#}
 		  未上传
 		  {#/if#}
@@ -139,7 +139,7 @@ $(document).ready(function()
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>企業性質：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-	{#highway_get_classify set="类型:HW_company_type,列表名:li"#}
+	{#highway_get_classify set="タイプ:HW_company_type,リスト名:li"#}
 		<input type="text" value="{#$company_profile.nature_cn|default:"请选择"#}"  readonly="readonly" name="nature_cn" id="nature_cn" class="input_text_200 input_text_selsect"/>
 		<input name="nature" id="nature" type="hidden" value="{#$company_profile.nature#}" />
 		<div id="menu1" class="menu">
@@ -157,7 +157,7 @@ $(document).ready(function()
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold;">*</span>業種：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-	{#highway_get_classify set="类型:HW_trade,列表名:li"#}
+	{#highway_get_classify set="タイプ:HW_trade,リスト名:li"#}
 		<input type="text" value="{#$company_profile.trade_cn|default:"请选择"#}"  readonly="readonly" name="trade_cn" id="trade_cn" class="input_text_200 input_text_selsect"/>
 		<input name="trade" id="trade" type="hidden" value="{#$company_profile.trade#}" />
 		<div id="menu2" class="dmenu shadow">
@@ -180,7 +180,7 @@ $(document).ready(function()
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$company_profile.sdistrict#}" />
 		<div id="menu3" class="dmenu shadow">
 			<ul>
-			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
+			{#highway_get_classify set="リスト名:c_province,タイプ:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -195,7 +195,7 @@ $(document).ready(function()
     <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>会社サイズ：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-	{#highway_get_classify set="类型:HW_scale,列表名:li"#}
+	{#highway_get_classify set="タイプ:HW_scale,リスト名:li"#}
 		<input type="text" value="{#$company_profile.scale_cn|default:"请选择"#}"  readonly="readonly" name="scale_cn" id="scale_cn" class="input_text_200 input_text_selsect"/>
 		<input name="scale" id="scale" type="hidden" value="{#$company_profile.scale#}" />
 		<div id="menu4" class="menu">
@@ -214,7 +214,7 @@ $(document).ready(function()
       万
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label>
-        <input name="currency" type="radio" value="人民币"  {#if $company_profile.currency=="" || $company_profile.currency == "人民币"#} checked="checked"{#/if#} />
+        <input name="currency" type="radio" value="円"  {#if $company_profile.currency=="" || $company_profile.currency == "円"#} checked="checked"{#/if#} />
         人民币</label>
       &nbsp;&nbsp;&nbsp;
       <label>
@@ -267,8 +267,8 @@ $(document).ready(function()
               <input type="hidden" name="id"  value="{#$company_profile.id#}" />
 			  <input type="hidden" name="cuid"  value="{#$company_profile.uid#}" />
 			  <input type="hidden" name="url"  value="{#$url#}" />
-              <input name="submit3" type="submit" class="admin_submit"    value="保存修改"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location.href='{#$url#}'"/>
+              <input name="submit3" type="submit" class="admin_submit"    value="修正保存"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location.href='{#$url#}'"/>
             </span></td>
           </tr>
   </table>
@@ -294,8 +294,8 @@ $(document).ready(function()
 		<tr>
             <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">&nbsp;</td>
             <td height="120" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="font-size:14px;">
-              <input name="submit3" type="submit" class="admin_submit"    value="删除所选"/> 
-              <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location.href='{#$url#}'"/>
+              <input name="submit3" type="submit" class="admin_submit"    value="選択された削除"/> 
+              <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location.href='{#$url#}'"/>
             </span></td>
           </tr>
   </table>

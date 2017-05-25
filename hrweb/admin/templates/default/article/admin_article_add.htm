@@ -18,15 +18,15 @@ $(document).ready(function()
     {
       title: 
       {
-        required: "请输入标题"
+        required: "タイトル入力"
       },
       type_id: 
       {
-        required: "请选择分类"
+        required: "分類選択"
       },
       content: 
       {
-        required: "请输入内容"
+        required: "内容を入力してください"
       }
     },
     errorPlacement: function(error, element)
@@ -129,7 +129,7 @@ $(document).ready(function()
 	  <tr>
         <td align="right" >記事属性：</td>
         <td colspan="4" >
-		{#highway_news_property set="列表名:property"#}
+		{#highway_news_property set="リスト名:property"#}
 		{#foreach from=$property item=list#}
 		<label><input name="focos" type="radio" value="{#$list.id#}" {#if $property.0.id==$list.id#}checked="checked" {#/if#}/>
 		{#$list.categoryname#}  </label>&nbsp;&nbsp;&nbsp; 

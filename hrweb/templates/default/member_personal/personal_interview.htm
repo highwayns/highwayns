@@ -99,7 +99,7 @@
 								<div class="c-item f-left content3" title="{#$list.resume_name#}">{#$list.resume_name#}</div>
 								<div class="c-item f-left content4">{#$list.interview_addtime|date_format:"%Y-%m-%d"#}</div>
 								<div class="c-item f-left content5">
-									<a href="javascript:;" class="data-ctrl underline check-detail" notes="{#if $list.notes#}{#$list.notes#}{#else#}无面试邀请通知{#/if#}">詳細</a>&nbsp;
+									<a href="javascript:;" class="data-ctrl underline check-detail" notes="{#if $list.notes#}{#$list.notes#}{#else#}面接誘い無し{#/if#}">詳細</a>&nbsp;
 									<a href="javascript:;" url="?act=interview_del&y_id={#$list.did#}&jobs_type={#$smarty.get.jobs_type#}" class="data-ctrl underline ctrl-del">削除</a>
 								</div>
 							</div>
@@ -117,8 +117,8 @@
 							<div class="c-data-content apply_jobs clearfix">
 								<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” class="checkbox" /></div>
 								<div class="data-last-btn f-left">
-									<input type="submit" value="设为已查看" class="btn-75-30blue" />
-									<input type="button" value="删除" class="btn-65-30blue ctrl-del" act="?act=interview_del&jobs_type={#$smarty.get.jobs_type#}"/>
+									<input type="submit" value="閲覧済みに設定" class="btn-75-30blue" />
+									<input type="button" value="削除" class="btn-65-30blue ctrl-del" act="?act=interview_del&jobs_type={#$smarty.get.jobs_type#}"/>
 								</div>
 							</div>
 						</div>

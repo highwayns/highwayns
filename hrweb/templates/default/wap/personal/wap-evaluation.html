@@ -27,10 +27,10 @@ $(document).ready(function()
 		var specialty= $("#specialty").val();
 		$.post("?act=resume_specialty_save",{pid:pid,specialty:specialty},function(data){
 			if(data=="ok"){
-				alert("添加成功");
+				alert("追加成功");
 				window.location.reload();
 			}else if(data=="err"){
-				alert("添加失败");
+				alert("追加失敗");
 			}else{
 				alert(data);
 			}

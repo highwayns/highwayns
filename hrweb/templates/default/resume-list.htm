@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#if $smarty.get.jobcategory#}{#”hW_jobs,jobcategory:”|cat:$smarty.get.jobcategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#”hW_trade,trade:”|cat:$smarty.get.trade|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#”hW_district,”|cat:$smarty.get.citycategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#”hW_experience,”|cat:$smarty.get.experience|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#”hW_resumetag,”|cat:$smarty.get.resumetag|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.education#}{#”hW_education,”|cat:$smarty.get.education|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.sex==“1”#}男 - {#/if#}{#if $smarty.get.sex==“2”#}女 - {#/if#}{#if $smarty.get.photo==“1”#}写真あり - {#/if#}{#if $smarty.get.photo==“0”#}写真なし - {#/if#}{#if $smarty.get.talent==“1”#}普通履歴書 - {#/if#}{#if $smarty.get.talent==“2”#}高級履歴書- {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}日内 - {#/if#}履歴書リスト  - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$HIGHWAY.site_name#}人才信息,人才简历">
-<meta name="keywords" content="{#$HIGHWAY.site_name#}人才信息，高级人才，求职信息，推荐人才">
+<meta name="description" content="{#$HIGHWAY.site_name#}人才情報,人才履歴書">
+<meta name="keywords" content="{#$HIGHWAY.site_name#}人才情報，高級人才，求職情報，お勧め人才">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
 <meta name="renderer" content="webkit"> 
@@ -41,7 +41,7 @@
 			var url_="{#$HIGHWAY.site_dir#}user/user_download_resume.php?id="+id+"&act=download&t="+tsTimeStamp;
 			var myDialog = dialog();
 			myDialog.title('下载联系方式');
-			myDialog.content("加载中...");
+			myDialog.content("ロード中...");
 			myDialog.width('500');
 			myDialog.showModal();
 			$.get(url_, function(data){
@@ -290,7 +290,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">職歴：</div>
 				<div class="fl-content r-choice f-left">
-					{#highway_get_classify set="列表名:experience,类型:HW_experience,显示数目:100"#}
+					{#highway_get_classify set="リスト名:experience,タイプ:HW_experience,表示件数:100"#}
 					{#foreach from=$experience item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.experience#} select{#/if#}" type="experience" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -299,7 +299,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">専門タグ：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#highway_get_classify set="列表名:resumetag,类型:HW_resumetag,显示数目:100"#}
+					{#highway_get_classify set="リスト名:resumetag,タイプ:HW_resumetag,表示件数:100"#}
 					{#foreach from=$resumetag item=list#}
 					<div class="fl-content-li" type="resumetag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -310,7 +310,7 @@
 				<div class="fl-type f-left">その他のフィルタ：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan{#if $smarty.get.education#} selected{#/if#}">
-						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
+						{#highway_get_classify set="リスト名:c_education,タイプ:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -375,7 +375,7 @@
 				<div class="has-select-item f-left" type="major">プロフェッショナルタイプ<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.experience#}
-				{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
+				{#highway_get_classify set="リスト名:c_experience,タイプ:HW_experience"#}
 				{#foreach from=$c_experience item=list#}
 				{#if $list.id == $smarty.get.experience#}
 					<div class="has-select-item f-left" type="experience">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -386,7 +386,7 @@
 				<div class="has-select-item f-left" type="resumetag">特殊なタグ<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.education#}
-				{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
+				{#highway_get_classify set="リスト名:c_education,タイプ:HW_education"#}
 				{#foreach from=$c_education item=list#}
 				{#if $list.id == $smarty.get.education#}
 					<div class="has-select-item f-left" type="education">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -411,7 +411,7 @@
 	</div>
 </div>
 <!-- 人才列表 -->
-{#highway_resume_list set="列表名:resume,分页显示:1,显示数目:GET[inforow],特长描述长度:130,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],行业:GET[trade],地区分类:GET[citycategory],专业:GET[major],工作经验:GET[experience],标签:GET[resumetag],学历:GET[education],性别:GET[sex],照片:GET[photo],等级:GET[talent],日期范围:GET[settr],排序:rtime>desc"#}
+{#highway_resume_list set="リスト名:resume,ページング表示:1,表示件数:GET[inforow],特长描述長さ:130,文字:...,キーワード:GET[key],職位分類:GET[jobcategory],業界:GET[trade],地区分類:GET[citycategory],専門:GET[major],仕事経験:GET[experience],タグ:GET[resumetag],学历:GET[education],性别:GET[sex],写真:GET[photo],等級:GET[talent],日期範囲:GET[settr],ソート:rtime>desc"#}
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="seq f-left"><span>排序</span>
@@ -438,8 +438,8 @@
 				<div class="info-list-block resume clearfix">
 					<div class="list-item item1 f-left">
 						<span><input type="checkbox" name="jid" value="{#$list.id#}" class="checkbox" /><a href="{#$list.resume_url#}" class="underline">{#if $list.checked#}<font color='#800080'>{#$list.fullname#}</font>{#else#}{#$list.fullname#}{#/if#}</a></span>
-						{#if $list.photo=="1"#}<i class="resume-auth pic" title="照片认证"></i>{#/if#}
-						{#if $list.is_audit_mobile=="1"#}<i class="resume-auth phone" title="手机认证"></i>{#/if#}
+						{#if $list.photo=="1"#}<i class="resume-auth pic" title="写真認定"></i>{#/if#}
+						{#if $list.is_audit_mobile=="1"#}<i class="resume-auth phone" title="携帯認定"></i>{#/if#}
 					</div>
 					<div class="list-item item2 f-left">{#$list.sex_cn#}</div>
 					<div class="list-item item3 f-left">{#$list.age#}歳</div>
@@ -456,7 +456,7 @@
 						<div>希望業種：{#$list.trade_cn_#} | 希望職種：{#$list.intention_jobs_#}</div>
 					</div>
 					<div class="info-control f-left">
-						<input resume_id="{#$list.id#}" type="button" value="下载简历" class="apply-job-btn collect" />	
+						<input resume_id="{#$list.id#}" type="button" value="履歴書ダウンロード" class="apply-job-btn collect" />	
 						<p><a href="javascript:;" resume_id="{#$list.id#}" class="collect-btn add_favoritesr"></a></p>
 					</div>
 				</div>

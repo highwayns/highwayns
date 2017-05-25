@@ -20,7 +20,7 @@
 	  </td>
       <td class="admin_list">
 				 <a href="?act=edit_color&id={#$li.id#}">変更</a>&nbsp;&nbsp;			 
-			 <a onclick="return confirm('删除后无法恢复，你确定要删除吗？')" href="?act=del_color&id={#$li.id#}&{#$urltoken#}">削除</a>
+			 <a onclick="return confirm('削除後回復できません，削除してよろしいでしょうか？')" href="?act=del_color&id={#$li.id#}&{#$urltoken#}">削除</a>
 		</td>
     </tr>
 	 {#/foreach#}
@@ -28,7 +28,7 @@
 	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加颜色"  onclick="window.location='?act=add_color'"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="色追加"  onclick="window.location='?act=add_color'"/>
 		</td>
         <td width="305" align="right">
 	  

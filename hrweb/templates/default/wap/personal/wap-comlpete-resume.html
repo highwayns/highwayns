@@ -74,14 +74,14 @@ $(document).ready(function()
 		$.post("?act=resume_name_save", {"resume_id":resume_id,"title":resvalue} , function(data) {
 
 			if(data == "ok") {
-				alert("修改成功！");
+				alert("修正成功！");
 				$("#show_modify_resume_one").html(resvalue);
 				$("#show_modify_resume_one").show();
 				$("#input_modify_resume_one").hide();
 				$("#modify_name_save").hide();
 				$("#modify_name").show();
 			} else if(data == "err") {
-				alert("修改失败！");
+				alert("修正失敗！");
 				window.location.reload();
 			} else {
 				alert(data);

@@ -58,7 +58,7 @@
     </tr>
     <tr>
       <td align="right">ウェブサイトのロゴ：</td>
-      <td><input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;" onKeyDown="alert(‘右側のビューをクリックし、pcの画像を選んでください！’);return false"/>&nbsp;&nbsp;&nbsp;{#if $config.web_logo#} <input type="button" name="Submit" value="查看Logo" class="vtip" title="<img src={#$upfiles_dir#}{#$config.web_logo#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
+      <td><input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;" onKeyDown="alert(‘右側のビューをクリックし、pcの画像を選んでください！’);return false"/>&nbsp;&nbsp;&nbsp;{#if $config.web_logo#} <input type="button" name="Submit" value="Logo閲覧" class="vtip" title="<img src={#$upfiles_dir#}{#$config.web_logo#}?t={#$rand#}  border=0  align=absmiddle>"  style=" font-size:12px;"/>{#/if#}         </td>
     </tr>
     <tr>
       <td align="right">一時的にサイトを閉鎖する</td>
@@ -108,7 +108,7 @@
     <tr>
       <td align="right">&nbsp;</td>
       <td height="50"> 
-        <input name="submit" type="submit" class="admin_submit"    value="保存修改"/>
+        <input name="submit" type="submit" class="admin_submit"    value="修正保存"/>
       </td>
     </tr>
   </table>

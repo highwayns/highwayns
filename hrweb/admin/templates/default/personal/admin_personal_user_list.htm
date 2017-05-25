@@ -4,7 +4,7 @@
 $(document).ready(function()
 {
 	$("#ButDel").QSdialog({
-	DialogTitle:"请选择",
+	DialogTitle:"選択",
 	DialogContent:"#GetDelInfo",
 	DialogContentType:"id",
 	DialogAddObj:"#DelSel",	
@@ -102,8 +102,8 @@ $(document).ready(function()
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-         <input type="button" name="ButAdd" value="添加会员" class="admin_submit"  onclick="window.location.href='?act=members_add'"/>
-		<input type="button" name="ButDel"  id="ButDel" value="删除会员" class="admin_submit"/>
+         <input type="button" name="ButAdd" value="会員追加" class="admin_submit"  onclick="window.location.href='?act=members_add'"/>
+		<input type="button" name="ButDel"  id="ButDel" value="会員削除" class="admin_submit"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -115,17 +115,17 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="用户名">ユーザー名<li>
+														<li id="1" title="ユーザ名">ユーザー名<li>
 														<li id="2" title="UID">UID</li>
 														<li id="3" title="email">email</li>
-														<li id="4" title="手机号">電話番号</li>
+														<li id="4" title="携帯番号">電話番号</li>
 														</ul>
 												</div>
 						</div>				
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="members_list" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

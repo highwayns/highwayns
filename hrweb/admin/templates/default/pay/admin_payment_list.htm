@@ -27,7 +27,7 @@
 			{#$li.listorder#}      </td>
             <td align="center" class="admin_list">
 				{#if $li.p_install==2#}
-				<a href="?act=uninstall_payment&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('你确定要卸载吗？')">アンインストール</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="?act=uninstall_payment&id={#$li.id#}&{#$urltoken#}" onclick="return confirm('アンインストールしてよろしいでしょうか？')">アンインストール</a> &nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="?act=action_payment&name={#$li.typename#}" >編集</a>
 				{#else#}
 				<a href="?act=action_payment&type=install&name={#$li.typename#}">インストール</a>

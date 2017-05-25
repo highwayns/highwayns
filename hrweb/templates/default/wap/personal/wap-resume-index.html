@@ -26,10 +26,10 @@ $(document).ready(function()
 		var id=$(this).attr("pid");
 		$.get("?act=resume_refresh&pid="+id+"", function(data){
 		    if(data=="ok"){
-		    	alert("刷新简历成功！");
+		    	alert("履歴書更新成功！");
 		    	window.location.reload();
 		    }else if(data="err"){
-		    	alert("刷新简历失败！");
+		    	alert("履歴書更新失敗！");
 		    	window.location.reload();
 		    }else{
 		    	alert(data);
@@ -39,17 +39,17 @@ $(document).ready(function()
 	// 删除简历
 	$(".resume_del").click(function(){
 		var id=$(this).attr("pid");
-		if (!confirm("确认要删除？")) {
+		if (!confirm("削除してよろしいでしょうか？")) {
             window.event.returnValue = false;
         }
         else
         {
         	$.get("?act=resume_del&pid="+id+"", function(data){
 		    if(data=="ok"){
-		    	// alert("删除简历成功");
+		    	// alert("履歴書削除成功");
 		    	window.location.reload();
 		    }else if(data=="err"){
-		    	alert("删除简历失败！");
+		    	alert("履歴書削除失敗！");
 		    }else{
 		    	alert(data);
 		    }
@@ -61,10 +61,10 @@ $(document).ready(function()
 		var id=$(this).attr("pid");
 		$.get("?act=resume_talent&pid="+id+"", function(data){
 		    if(data=="ok"){
-		    	alert("申请高级简历,请等待管理员审核！");
+		    	alert("高級履歴書申請中,管理者の審査をお待ちしてください！");
 		    	window.location.reload();
 		    }else if(data=="err"){
-		    	alert("申请失败！");
+		    	alert("申込失敗！");
 		    }else{
 		    	alert(data);
 		    }

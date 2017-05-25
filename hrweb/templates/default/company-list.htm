@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"HW_company_type,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}イェローページ  - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄页">
+<meta name="description" content="{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄頁">
 <meta name="keywords" content="{#$HIGHWAY.site_name#},イェローページ">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
@@ -138,7 +138,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">会社のタイプ：</div>
 				<div class="fl-content r-choice f-left">
-					{#highway_get_classify set="列表名:nature,类型:HW_company_type,显示数目:100"#}
+					{#highway_get_classify set="リスト名:nature,タイプ:HW_company_type,表示件数:100"#}
 					{#foreach from=$nature item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.nature#} select{#/if#}" type="nature" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -147,7 +147,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">会社規模： </div>
 				<div class="fl-content f-left">
-					{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+					{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 					{#foreach from=$c_scale item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.scale#} select{#/if#}" type="scale" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -167,7 +167,7 @@
 				<div class="has-select-item f-left" type="citycategory">エリアタイプ<i class=“fliter-clear-icon”></i></div>
 			{#/if#}
 			{#if $smarty.get.nature#}
-				{#highway_get_classify set="列表名:nature,类型:HW_company_type,显示数目:100"#}
+				{#highway_get_classify set="リスト名:nature,タイプ:HW_company_type,表示件数:100"#}
 				{#foreach from=$nature item=list#}
 				{#if $list.id == $smarty.get.nature#}
 					<div class="has-select-item f-left" type="nature">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -175,7 +175,7 @@
 				{#/foreach#}
 			{#/if#}
 			{#if $smarty.get.scale#}
-				{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+				{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 				{#foreach from=$c_scale item=list#}
 				{#if $list.id == $smarty.get.scale#}
 					<div class="has-select-item f-left" type="scale">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -188,7 +188,7 @@
 	</div>
 	<div class="left_area link_bk">
 		<ul>
-			{#highway_company_list  set="分页显示:1,列表名:company,显示数目:GET[inforow],填补字符:...,企业名长度:30,地区分类:GET[citycategory],企业性质:GET[nature],描述长度:50,关键字:GET[key],行业:GET[trade],黄页:1,规模:GET[scale],排序:id>desc"#}
+			{#highway_company_list  set="ページング表示:1,リスト名:company,表示件数:GET[inforow],文字:...,企業名長さ:30,地区分類:GET[citycategory],企業性质:GET[nature],描述長さ:50,キーワード:GET[key],業界:GET[trade],黄頁:1,規模:GET[scale],ソート:id>desc"#}
 			{#if $company#}
 			{#foreach from=$company item=list#}
 			<li class="com_box active">
@@ -247,7 +247,7 @@
 	</div>
 	<div class="right_area">
 		<div class="com-logo-list">
-			{#highway_ad set="显示数目:8,调用名称:HW_yellowpage,列表名:ad,文字长度:12"#}
+			{#highway_ad set="表示件数:8,Call名称:HW_yellowpage,リスト名:ad,文字長さ:12"#}
 			{#foreach from=$ad item=list#}
 			<div class="com-logo-item"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain|default:"广告描述"#}" width="298" height="142" border="0"/></a></div>
 			{#/foreach#}

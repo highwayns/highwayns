@@ -93,7 +93,7 @@
 	<div class="top-nav-wrap">
 		<div class="top-nav clearfix">
 			<ul class="f-left">
-				{#highway_nav set="调用名称:HW_top,列表名:list,分割:5"#}
+				{#highway_nav set="Call名称:HW_top,リスト名:list,分割:5"#}
 				{#foreach from=$list item=list#}
 				<li><a href="{#$list.url#}" target="{#$list.target#}" class="nav-li {#if $list.tag==$page_select && $list.tag!=""#}active{#/if#}">{#$list.title#}</a></li>
 			    {#/foreach#}
@@ -137,11 +137,11 @@
 				<div class="search-wrap clearfix">
 					<div class="search-box f-left">
 						<div class="search-type f-left">
-							<div title="找工作" code="HW_jobslist" data="请输入职位名称或企业名称" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
-							<div title="找人才" code="HW_resumelist" data="请输入简历关键字" class="search-type-drop"><a href="javascript:;">找人才</a></div>
+							<div title="仕事探す" code="HW_jobslist" data="職位名称または企業名称入力" class="search-type-show"><span>找工作</span><i class="search-icon"></i></div>
+							<div title="人才探す" code="HW_resumelist" data="履歴書キーワード入力" class="search-type-drop"><a href="javascript:;">找人才</a></div>
 						</div>
 						<div class="search-text f-left">
-							<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="请输入职位名称或企业名称" />
+							<input type="text" name="keyForIndexSearch" id="keyForIndexSearch" placeholder="職位名称または企業名称入力" />
 						</div>
 					</div>
 					<div class="search-submit f-left"><input type=“button” name=“btnForIndexSearch” id=“btnForIndexSearch” value=“搜索” class=“search-submit” /></div>

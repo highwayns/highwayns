@@ -20,9 +20,9 @@
     <td>
 	<select name="parentid">
 	  <option value="0" {#if "0"==$category.parentid#}selected="selected"{#/if#}>トップカテゴリ</option>
-	  {#highway_get_classify set="列表名:major,类型:HW_major,id:0"#}{#foreach from=$major item=list#}
+	  {#highway_get_classify set="リスト名:major,タイプ:HW_major,id:0"#}{#foreach from=$major item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$category.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
-	  {#highway_get_classify set="列表名:sub_major,类型:HW_major,id:$list.id"#}{#foreach from=$sub_major item=s_list#}
+	  {#highway_get_classify set="リスト名:sub_major,タイプ:HW_major,id:$list.id"#}{#foreach from=$sub_major item=s_list#}
 	  <option value="{#$s_list.id#}" {#if $s_list.id==$category.parentid#}selected="selected"{#/if#}>├─{#$s_list.categoryname#}</option>
 	  {#/foreach#}
 	{#/foreach#}
@@ -52,7 +52,7 @@
     <td>
 	<input name="id" type="hidden" value="{#$category.id#}" />
 	<input type="submit" name="addsave" value="保存" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=major'"/>
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location='?act=major'"/>
 	
 	</td>
   </tr>

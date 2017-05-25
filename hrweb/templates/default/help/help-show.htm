@@ -1,4 +1,4 @@
-﻿{#highway_help_show set="列表名:show,ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_help_show set="リスト名:show,ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -61,11 +61,11 @@ $(document).ready(function(){
 		<div class="about_left">
 			<h2 class="about_tit">ヘルプセンター</h2>
 			<ul>
-				{#highway_help_category set="列表名:category,大类:0"#}
+				{#highway_help_category set="リスト名:category,大类:0"#}
 				{#foreach from=$category item=list#}
 				<li class="help_nav t"><a href="javascript:void(0);">{#$list.title#}</a></li>
 				<ul class="nav_son" style="display:none;">
-					{#highway_help_category set="列表名:sclass,大类:"|cat:$list.id#}
+					{#highway_help_category set="リスト名:sclass,大分類:"|cat:$list.id#}
 					{#foreach from=$sclass item=slist#}
 					<li><a href="{#$slist.url#}">{#$slist.title#}</a></li>
 					{#/foreach#}

@@ -1,4 +1,4 @@
-﻿{#highway_notice_show set="列表名:show,公告ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_notice_show set="リスト名:show,公告ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +29,7 @@ $(document).ready(function()
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-{#highway_news_category set="列表名:category,名称长度:10,资讯小类:"|cat:$show.type_id#}
+{#highway_news_category set="リスト名:category,名称長さ:10,ニュース小類:"|cat:$show.type_id#}
 当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_noticelist,id:1"|highway_url#}">网站公告</a>&nbsp;>&nbsp;正文
 </div>
 	<!-- 主体内容 -->
@@ -80,7 +80,7 @@ $(document).ready(function()
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_jobs_list set="列表名:jobslist,显示数目:5,职位名长度:14,填补字符:...,排序:rtime>desc"#}
+						{#highway_jobs_list set="リスト名:jobslist,表示件数:5,職位名長さ:14,文字:...,ソート:rtime>desc"#}
 						{#foreach from=$jobslist item=list#}
 						<li><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a></li>
 						{#/foreach#}

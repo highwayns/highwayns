@@ -20,7 +20,7 @@
     <td>
 	<select name="parentid">
 	  <option value="0" {#if "0"==$district.parentid#}selected="selected"{#/if#}>トップカテゴリ</option>
-	  {#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}{#foreach from=$c_province item=list#}
+	  {#highway_get_classify set="リスト名:c_province,タイプ:HW_district,id:0"#}{#foreach from=$c_province item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$district.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 	 {#/foreach#}
 	</select>
@@ -42,7 +42,7 @@
     <td>
 	<input name="id" type="hidden" value="{#$district.id#}" />
 	<input type="submit" name="addsave" value="保存" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=district'"/>
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location='?act=district'"/>
 	
 	</td>
   </tr>

@@ -39,7 +39,7 @@ $(document).ready(function()
 		{#$list.bindingtime|date_format:"%Y-%m-%d"#}
 	  </td>
       <td align="center" class="admin_list">
-			  <a onclick="return confirm('你确定要解除此会员绑定吗？')" href="?act=del_binding&uid={#$list.uid#}&{#$urltoken#}">バインド解除</a>
+			  <a onclick="return confirm('この会員設定を解除してよろしいでしょうか？')" href="?act=del_binding&uid={#$list.uid#}&{#$urltoken#}">バインド解除</a>
 			 </td>
     </tr>
       {#/foreach#}
@@ -63,7 +63,7 @@ $(document).ready(function()
 	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-        <input name="ButCancel" type="submit" class="admin_submit" id="ButCancel" value="解除绑定"/>
+        <input name="ButCancel" type="submit" class="admin_submit" id="ButCancel" value="設定解除"/>
 		</td>
         <td width="305" align="right">
 	  

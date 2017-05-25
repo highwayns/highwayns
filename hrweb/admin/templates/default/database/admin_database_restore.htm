@@ -35,7 +35,7 @@
     <td align="center" class="admin_list">{#$li.add_time#}</td>
     <td align="center" class="admin_list">{#$li.file_size#} <em  style="font-size:10px;">MB</em></td>
     <td align="center" class="admin_list link_lan">
-	<a href="?act=import&file_name={#$li.file_name#}&{#$urltoken#}" onclick="return confirm('还原将覆盖现有数据，你确定要这么做吗？')">復元</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?act=del&file_name={#$li.file_name#}&{#$urltoken#}"  onclick="return confirm('你确定要删除吗？')">削除</a>	</td>
+	<a href="?act=import&file_name={#$li.file_name#}&{#$urltoken#}" onclick="return confirm('元データを上書きます，よろしいでしょうか？')">復元</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?act=del&file_name={#$li.file_name#}&{#$urltoken#}"  onclick="return confirm('削除してよろしいでしようか？')">削除</a>	</td>
   </tr>
 	 {#/foreach#}
 </table>
@@ -45,7 +45,7 @@
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-<input name="提交" type="submit" class="admin_submit" id="ButDel" value="删除所选"/>
+<input name="提出" type="submit" class="admin_submit" id="ButDel" value="選択された削除"/>
 		</td>
         <td width="305" align="right">
 		 

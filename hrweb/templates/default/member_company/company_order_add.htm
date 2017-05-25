@@ -18,7 +18,7 @@ $(document).ready(function()
 		if((/^(\+|-)?\d+$/.test($(this).val())) && $(this).val()>={#$HIGHWAY.payment_min#})
 		{
 		$("#count").css("display","");	
-		$("#show_val").html("充值金额为<strong style=\"color:#003399\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>元，可获得：&nbsp;&nbsp;<span style=\"color: #009900; font-size:22px; font-style:italic\">"+$(this).val()*{#$HIGHWAY.payment_rate#}+"</span>&nbsp;&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}");   
+		$("#show_val").html("振込金額は<strong style=\"color:#003399\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>円，得た：&nbsp;&nbsp;<span style=\"color: #009900; font-size:22px; font-style:italic\">"+$(this).val()*{#$HIGHWAY.payment_rate#}+"</span>&nbsp;&nbsp;{#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}");   
 		}
 		else
 		{
@@ -44,12 +44,12 @@ $(document).ready(function() {
 	},
     messages: {
 		amount: {
-			required: "请输入充值金额",
-			digits: "金额必须是整数",
-			min: jQuery.format("单笔金额不能低于{0}元")
+			required: "振込金額入力",
+			digits: "金額必须是整数",
+			min: jQuery.format("金額は＞{0}円")
 		},
 		payment_name:{
-			required: "请选择支付方式"
+			required: "支払い方式選択"
 		}
 	},
   errorPlacement: function(error, element) {
@@ -137,7 +137,7 @@ $(document).ready(function() {
 					<td width="150"><div id="pay_er"> </td> 
 				</tr>
 			</table> 
-  			<input class="but130lan intrgration_but" type="submit" style="margin-top:0;" name="submit" value="充值"/>
+  			<input class="but130lan intrgration_but" type="submit" style="margin-top:0;" name="submit" value="振込"/>
   		</div>
   		</form>
   	</div>

@@ -3,7 +3,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#Butdel").click(function(){
-			if(confirm("删除套餐变更记录后将不可恢复，您确定要删除么？")){
+			if(confirm("コース削除したら回復できません，削除して宜しいでしょうか？")){
 			$("#form1").submit();
 			}
 		})
@@ -138,7 +138,7 @@
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-        <input type="button" name="Butdel"  id="Butdel" value="删除记录" class="admin_submit"/>
+        <input type="button" name="Butdel"  id="Butdel" value="レコード削除" class="admin_submit"/>
 		</td>
 	{#if $sign!='1'#}
         <td width="305" align="right">
@@ -152,8 +152,8 @@
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="用户名">ユーザー名<li>
-														<li id="3" title="公司名">会社名</li>
+														<li id="1" title="ユーザ名">ユーザー名<li>
+														<li id="3" title="会社名">会社名</li>
 														<li id="2" title="UID">UID</li>
 														</ul>
 												</div>
@@ -162,7 +162,7 @@
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="meal_log" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

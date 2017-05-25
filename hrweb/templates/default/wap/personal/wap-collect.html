@@ -34,7 +34,7 @@ $(document).ready(function()
 		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajax_favorites_list&offset="+(offset)+"&rows=5", function(result){
 		    if(result=="-1"){
 		    	$(".check_more").show();
-		    	$(".check_more").html("没有更多收藏的职位了");
+		    	$(".check_more").html("もっとお気に入り職位がなし");
 		    }else{
 		    	$(".apply_jobs_list").append(result);
 		    	$(".list_centent").click(function(){

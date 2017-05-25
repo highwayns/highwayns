@@ -14,7 +14,7 @@
           <td>
 		  <select name="parentid" id="parentid"  style="width:108px; font-size:12px;">
               <option value="0">トップカテゴリ</option>
-			  {#highway_help_category set="列表名:categorylist,大类:0"#}
+			  {#highway_help_category set="リスト名:categorylist,大类:0"#}
 			  {#foreach from=$categorylist item=list#}
             <option value="{#$list.id#}" {#if $category.parentid==$list.id#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 			{#/foreach#}       
@@ -34,8 +34,8 @@
           <td width="120" align="right">&nbsp;</td>
           <td >
 		  <input name="id" type="hidden" value="{#$category.id#}" />
-		  <input type="submit" name="addsave" value="修改" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=category'"/>
+		  <input type="submit" name="addsave" value="修正" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location='?act=category'"/>
 		  </td>
         </tr>
       </table>

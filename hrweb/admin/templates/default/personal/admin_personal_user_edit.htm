@@ -4,7 +4,7 @@
     jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
       var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
       return this.optional(element) || (tel.test(value));
-  }, "请正确填写手机号码");
+  }, "携帯番号正しく入力してください");
       $("#form4").validate({
          rules:{
           mobile: {
@@ -17,11 +17,11 @@
         },
           messages: {
           mobile: {
-        isPhoneNumber: jQuery.format("请正确填写手机号码")
+        isPhoneNumber: jQuery.format("携帯番号正しく入力してください")
          },
          email: {
-          required: jQuery.format("请填写电子邮箱"),
-        email: jQuery.format("请正确填写电子邮箱")
+          required: jQuery.format("メールアドレス入力してください"),
+        email: jQuery.format("メール正しく入力してください")
          } 
         },
         errorPlacement: function(error, element) {
@@ -130,8 +130,8 @@
         <td height="50"  >
 		<input type="hidden" name="thisuid"  value="{#$user.uid#}" />
             <input type="hidden" name="url"  value="{#$url#}" />
-            <input name="submit32" type="submit" class="admin_submit"    value="确定"/>
-          <input name="submit222" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>        </td>
+            <input name="submit32" type="submit" class="admin_submit"    value="確定"/>
+          <input name="submit222" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>        </td>
       </tr>
     </table>
   </form>
@@ -156,8 +156,8 @@
       <td height="60"   ><span style="font-size:14px;">
         <input type="hidden" name="userstatus_uid"  value="{#$user.uid#}" />
 		<input type="hidden" name="url"  value="{#$url#}" />
-        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
-        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+        <input name="submit3" type="submit" class="admin_submit"    value="確定"/>
+        <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
       </span></td>
     </tr>	
   </table>
@@ -178,9 +178,9 @@
       <td  bgcolor="#FFFFFF"  > 
 	  <input type="hidden" name="memberuid"  value="{#$user.uid#}" />
 		<input type="hidden" name="url"  value="{#$url#}" />
-        <input name="submit3" type="submit" class="admin_submit"    value="确定"/>
+        <input name="submit3" type="submit" class="admin_submit"    value="確定"/>
      
-        <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="Javascript:window.history.go(-1)"/>
+        <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
        </td>
     </tr>
 	

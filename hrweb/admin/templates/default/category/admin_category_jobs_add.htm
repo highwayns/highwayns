@@ -31,9 +31,9 @@ $(document).ready(function()
     <td>
 	<select name="parentid[]">
 	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>トップカテゴリ</option>
-	  {#highway_get_classify set="列表名:jobs,类型:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
+	  {#highway_get_classify set="リスト名:jobs,タイプ:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$smarty.get.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
-	  {#highway_get_classify set="列表名:sub_jobs,类型:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
+	  {#highway_get_classify set="リスト名:sub_jobs,タイプ:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
 	  <option value="{#$s_list.id#}" {#if $s_list.id==$smarty.get.parentid#}selected="selected"{#/if#}>├─{#$s_list.categoryname#}</option>
 	  {#/foreach#}
 	{#/foreach#}
@@ -63,8 +63,8 @@ $(document).ready(function()
     <td width="120"> </td>
     <td>
 	<input type="submit" name="addsave" value="保存" class="admin_submit" />
-	<input type="button" name="add_form" id="add_form" value="继续添加" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=jobs'"/>
+	<input type="button" name="add_form" id="add_form" value="続く追加" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location='?act=jobs'"/>
 	
 	</td>
   </tr>

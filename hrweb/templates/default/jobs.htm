@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="列表名:page,调用:HW_jobs"#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="リスト名:page,CALL名:HW_jobs"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
@@ -58,7 +58,7 @@
 					<input type="hidden" name="page" id="page" value="">
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type = “ボタン” detype = “hW_jobslist” ID = “searcnbtn” value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type = “ボタン” detype = “hW_jobslist” ID = “searcnbtn” value="検&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap fwnob">
 			<div class="filter-drop clearfix">
@@ -188,7 +188,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">給与：</div>
 				<div class="fl-content r-choice f-left">
-					{#highway_get_classify set="列表名:wage,类型:HW_wage,显示数目:100"#}
+					{#highway_get_classify set="リスト名:wage,タイプ:HW_wage,表示件数:100"#}
 					{#foreach from=$wage item=list#}
 					<div class="fl-content-li" type="wage" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -197,7 +197,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">サービスハイライト：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#highway_get_classify set="列表名:jobtag,类型:HW_jobtag,显示数目:100"#}
+					{#highway_get_classify set="リスト名:jobtag,タイプ:HW_jobtag,表示件数:100"#}
 					{#foreach from=$jobtag item=list#}
 					<div class="fl-content-li" type="jobtag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -208,7 +208,7 @@
 				<div class="fl-type f-left">その他のフィルタ：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan">
-						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
+						{#highway_get_classify set="リスト名:c_education,タイプ:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -218,7 +218,7 @@
 						学历要求
 					</div>
 					<div class="saixuan">
-						{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
+						{#highway_get_classify set="リスト名:c_experience,タイプ:HW_experience"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_experience item=list#}
@@ -238,7 +238,7 @@
 						更新时间
 					</div>
 					<div class="saixuan">
-						{#highway_get_classify set="列表名:c_jobsnature,类型:HW_jobs_nature"#}
+						{#highway_get_classify set="リスト名:c_jobsnature,タイプ:HW_jobs_nature"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_jobsnature item=list#}
@@ -248,7 +248,7 @@
 						工作性质
 					</div>
 					<div class="saixuan">
-						{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+						{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_scale item=list#}
@@ -267,7 +267,7 @@
 			<a href="{#"HW_helplist,id:10"|highway_url#}"  target="_blank" class="right-link">私は求人会社であり、私がここに来ています</a>
 		</div>
 		<div class="job-normal-list clearfix">
-			{#highway_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc"#}
+			{#highway_jobs_list set="リスト名:jobslist,表示件数:30,文字:...,職位名長さ:6,企業名長さ:16,お勧め:1,ソート:rtime>desc"#}
 			{#foreach from=$jobslist item=list#}
 			<div class="job-normal-item f-left">
 				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
@@ -282,7 +282,7 @@
 			<a href="{#"HW_helplist,id:10"|highway_url#}"  target="_blank" class="right-link">私は求人会社であり、私がここに来ています</a>
 		</div>
 		<div class="job-normal-list clearfix">
-			{#highway_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc"#}
+			{#highway_jobs_list set="リスト名:jobslist,表示件数:30,文字:...,職位名長さ:6,企業名長さ:16,紧急募集:1,ソート:rtime>desc"#}
 			{#foreach from=$jobslist item=list#}
 			<div class="job-normal-item f-left">
 				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>
@@ -297,7 +297,7 @@
 			<a href="{#"HW_jobslist"|highway_url#}" target="_blank" class="right-link">もっと>></a>
 		</div>
 		<div class="job-normal-list clearfix">
-			{#highway_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc"#}
+			{#highway_jobs_list set="リスト名:jobslist,表示件数:30,文字:...,職位名長さ:6,企業名長さ:16,ソート:rtime>desc"#}
 			{#foreach from=$jobslist item=list#}
 			<div class="job-normal-item f-left">
 				<div class="job-info"><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a><span class="small-info">{#$list.district_cn#}</span><span class="small-info">{#$list.refreshtime|date_format:'%m-%d'#}</span></div>

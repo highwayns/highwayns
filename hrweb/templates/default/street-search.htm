@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{#if $smarty.get.streetid#}{#”hW_street,”|cat:$smarty.get.streetid|HIGHWAY_categoryname#}{#else#}道路搜索{#/if#}  - ジョブリスト  - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$HIGHWAY.site_name#} - 按道路搜索 - 招聘岗位">
-<meta name="keywords" content="{#$HIGHWAY.site_name#},职位信息">
+<meta name="description" content="{#$HIGHWAY.site_name#} - 駅検索 - 募集職位">
+<meta name="keywords" content="{#$HIGHWAY.site_name#},職位情報">
 <meta name="author" content="海威人材" />
 <meta name="copyright" content="highwayns.com" />
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
@@ -145,7 +145,7 @@ $(document).ready(function()
 			<a href="{#"HW_street"|highway_url#}" class="s-tab-item f-left active">検索道路</a>
 		</div>
 		<div class="fliter-wrap fwnob">
-			<input type="hidden" detype="HW_street" id="searcnbtn" value="搜&nbsp;索" />
+			<input type="hidden" detype="HW_street" id="searcnbtn" value="検&nbsp;索" />
 			<input type="hidden" name="sort" id="sort" value="{#$smarty.get.sort#}">
 			<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 			<input type="hidden" name="streetid" id="streetid" value="{#$smarty.get.streetid#}">
@@ -164,7 +164,7 @@ $(document).ready(function()
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">人気の道：</div>
 				<div class="fl-content r-choice f-left" id="show_street">
-					{#highway_get_classify set="列表名:c_jobs,类型:HW_street,显示数目:30"#}
+					{#highway_get_classify set="リスト名:c_jobs,タイプ:HW_street,表示件数:30"#}
 					{#foreach from=$c_jobs item=li#}
 					<div class="fl-content-li{#if $li.c_id == $smarty.get.streetid#} select{#/if#}" type="streetid" code="{#$li.c_id#}">{#$li.categoryname#}</div>
 					{#/foreach#}
@@ -174,7 +174,7 @@ $(document).ready(function()
 	</div>
 </div>
 <!--职位列表 -->
-{#highway_jobs_list  set="分页显示:1,列表名:jobslist,列表页:HW_street,填补字符:...,职位名长度:13,合并:$smarty.cookie.com_list,企业名长度:19,描述长度:135,道路:GET[streetid],排序:GET[sort]"#}
+{#highway_jobs_list  set="ページング表示:1,リスト名:jobslist,列表頁:HW_street,文字:...,職位名長さ:13,合併:$smarty.cookie.com_list,企業名長さ:19,描述長さ:135,駅:GET[streetid],ソート:GET[sort]"#}
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="sort">
@@ -214,7 +214,7 @@ $(document).ready(function()
 			<div class="merger_com_box">
 				<h2><a href="{#$list.0.company_url#}" target="_black">{#$list.0.companyname#}</a> 
 					{#if $list.0.company_audit=="1"#}
-					<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" class="vtip" title="企业已认证"/>
+					<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" class="vtip" title="企業認定済み"/>
 					{#/if#}
 				</h2>
 				<div class="merger_job_list">
@@ -223,10 +223,10 @@ $(document).ready(function()
 						<div class="merger_job_type mjob_name">
 							<div class="m_jobname_box">
 								<input type="checkbox" name="jid" value="{#$job_list.id#}" class="checkbox" /><a target="_black" href="{#$job_list.jobs_url#}" class="mjob_name_link">{#$job_list.jobs_name#}</a>
-								{#if $job_list.stick=="1"#}<img title="置顶信息" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
-					            {#if $job_list.emergency=="1"#}<img title="紧急招聘" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
-					            {#if $job_list.recommend=="1"#}<img title="推荐职位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
-					            {#if $job_list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+								{#if $job_list.stick=="1"#}<img title="情報トップにする" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
+					            {#if $job_list.emergency=="1"#}<img title="紧急募集" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.recommend=="1"#}<img title="お勧め職位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+					            {#if $job_list.graduate=="1"#}<img title="新卒履歴書送信大歓迎" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
 					            <!-- 弹出框 -->
 								<div class="merger_job_info">
 									<div class="merger_sanjiao"></div>
@@ -234,13 +234,13 @@ $(document).ready(function()
 										<div class="pop_top_left">
 											<h3><a target="_black" href="{#$job_list.company_url#}">{#$job_list.companyname#}</a>
 												{#if $job_list.company_audit=="1"#}
-						                      	<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" title="企业已认证" class="vtip" />
+						                      	<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="" title="企業認定済み" class="vtip" />
 						                     	{#/if#}
 											</h3>
 											<div class="pop_job_name"><a target="_black" href="{#$job_list.jobs_url#}">{#$job_list.jobs_name#}</a></div>
 										</div>
 										<div class="pop_top_right">
-											<input type="button" value="申请职位" jobs_id="{#$job_list.id#}" id="{#$job_list.id#}" class="merger_btn app_jobs" />
+											<input type="button" value="申込職位" jobs_id="{#$job_list.id#}" id="{#$job_list.id#}" class="merger_btn app_jobs" />
 											<a href="javascript:void(0);" jobs_id="{#$job_list.id#}" class="pop_collect add_favorites">コレクション</a>
 										</div>
 										<div class="clear"></div>
@@ -286,12 +286,12 @@ $(document).ready(function()
 				<div class="info-list-block job clearfix">
 					<div class="list-item item1 f-left">
 						<input type="checkbox" name="jid" value="{#$list.id#}" id="" class="checkbox" /><a href="{#$list.jobs_url#}" target="_blank" class="underline">{#$list.jobs_name#}</a>
-						{#if $list.stick=="1"#}<img title="置顶信息" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
-						{#if $list.emergency=="1"#}<img title="紧急招聘" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
-						{#if $list.recommend=="1"#}<img title="推荐职位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
-						{#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
+						{#if $list.stick=="1"#}<img title="情報トップにする" src="{#$HIGHWAY.site_template#}images/ding.jpg" border="0" class="vtip"/>{#/if#}
+						{#if $list.emergency=="1"#}<img title="紧急募集" src="{#$HIGHWAY.site_template#}images/iconji.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.recommend=="1"#}<img title="お勧め職位" src="{#$HIGHWAY.site_template#}images/iconjian.gif" border="0" class="vtip" />{#/if#}
+						{#if $list.graduate=="1"#}<img title="新卒履歴書送信大歓迎" src="{#$HIGHWAY.site_template#}images/ying.jpg" border="0" class="vtip"/>{#/if#}
 					</div>
-					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="已验证" />{#/if#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
+					<div class="list-item item2 f-left"><a href="{#$list.company_url#}" target="_blank" class="underline job-company">{#$list.companyname#} {#if $list.company_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/yan.gif" alt="検証済み" />{#/if#}{#if $HIGHWAY.operation_mode>="2" &&  $list.setmeal_id>1 #} <img src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$list.setmeal_id#}.gif" border="0" title="{#$list.setmeal_name#}" class="vtip" />{#/if#}</a></div>
 					<div class="list-item item3 f-left"><span>{#$list.wage_cn#}</span></div>
 					<div class="list-item item4 f-left">{#$list.district_cn#}</div>
 					<div class="list-item item5 f-left">{#$list.refreshtime_cn#}</div>
@@ -303,7 +303,7 @@ $(document).ready(function()
 						<div>仕事責任：{#$list.briefly#} </div>
 					</div>
 					<div class="info-control f-left">
-						<input type="button" value="申请职位" jobs_id="{#$list.id#}" class="apply-job-btn app_jobs" />
+						<input type="button" value="申込職位" jobs_id="{#$list.id#}" class="apply-job-btn app_jobs" />
 						<p><a href="javascript:;" class="collect-btn add_favorites" jobs_id="{#$list.id#}"></a></p>
 					</div>
 				</div>

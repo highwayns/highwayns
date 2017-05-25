@@ -70,22 +70,22 @@ $(document).ready(function()
 <form id="Form1" name="Form1" method="post" action="{#$HIGHWAY.wap_domain#}/wap_user_reg.php?act=do_reg">
 <input type="hidden" name="utype" id="utype" value="{#$type#}">
 <div class="user_login_box">
-<input name="username" type="text" class="txtinput"  placeholder="请填写用户名" id="username"  maxlength="25"/>
+<input name="username" type="text" class="txtinput"  placeholder="ユーザ名を入力してください" id="username"  maxlength="25"/>
 </div>
 <div class="user_login_box">
-<input name="email" type="text" class="txtinput"  placeholder="请填写邮箱" id="email"  maxlength="60"/>
+<input name="email" type="text" class="txtinput"  placeholder="メールを入力してください" id="email"  maxlength="60"/>
 </div>
 <div class="user_login_box">
-<input name="password" type="password" class="txtinput"  placeholder="密码" id="password"  maxlength="18"/>
+<input name="password" type="password" class="txtinput"  placeholder="パスワード" id="password"  maxlength="18"/>
 </div>
 <div class="user_login_box">
-<input name="password1" type="password" class="txtinput"  placeholder="确认密码" id="password1"  maxlength="18"/>
+<input name="password1" type="password" class="txtinput"  placeholder="パスワード確認" id="password1"  maxlength="18"/>
 </div>
 <div class="user_reg_box error" {#if !$err#}style="display:none"{#/if#}>
 {#$err#}
 </div>
 <div class="user_reg_box">
-<input name="reg" type="submit" class="user_reg_but" id="reg" value="注册"/>
+<input name="reg" type="submit" class="user_reg_but" id="reg" value="登録"/>
 </div>
 </form>
 <div class="user_login_getpws link_blue">

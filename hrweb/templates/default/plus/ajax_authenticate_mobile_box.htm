@@ -10,7 +10,7 @@
     <tr id="mobilesenddiv">
 		<td></td>
 		<td>
-			<input type="button" name="mobilesend" id="mobilesend" value="发送验证短信"  class="but130lan"/>
+			<input type="button" name="mobilesend" id="mobilesend" value="検証メッセージ送信"  class="but130lan"/>
 		</td>
     </tr>
     <tr id="postverify" style="display:none">
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		}
 		else
 		{
-			 $("#mobilesend").html("正在发送...");
+			 $("#mobilesend").html("送信中...");
 			 var mobile = $("#mobile_").val();
 			 $("#mobile_").attr("disabled","disabled");
 			 $.post("../../plus/ajax_verify_mobile.php", {"mobile": $("#mobile_").val(),"send_key": "{#$send_mobile_key#}","time":new Date().getTime(),"act":"send_code"},
@@ -70,7 +70,7 @@ $(document).ready(function(){
 			else
 			{
 				$("#mobilesenddiv").show();
-				$("#mobilesend").html("发送验证短信");
+				$("#mobilesend").html("検証メッセージ送信");
 				$("#displaymobilesend").hide();
 				$("#mobilesendsucceed").hide();
 				dialog({

@@ -42,12 +42,12 @@ $(document).ready(function()
   },
     messages: {
     week: {
-    required: "请输入展示期限",
+    required: "展示期限入力",
   digits: "展示期限必须是整数",
-    min: jQuery.format("展示期限不能低于1周")
+    min: jQuery.format("展示期限1週間以上")
    },
    payment_name:{
-    required: "请选择支付方式"
+    required: "支払い方式選択"
    }
   },
   errorPlacement: function(error, element) {
@@ -143,7 +143,7 @@ $(document).ready(function()
 
   				</tbody>
   			</table>
-  			<input class="but130lan intrgration_but" type="submit" name="submit" value="充值">
+  			<input class="but130lan intrgration_but" type="submit" name="submit" value="振込">
   		</div> 
       </form>
   	</div>

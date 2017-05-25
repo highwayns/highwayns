@@ -10,7 +10,7 @@
     <tr id="emailsenddiv">
 		<td></td>
 		<td>
-			<input type="button" name="emailsend" id="emailsend" value="发送验证邮件"  class="but130lan"/>
+			<input type="button" name="emailsend" id="emailsend" value="検証メール送信"  class="but130lan"/>
 		</td>
     </tr>
     <tr id="postverify" style="display:none">
@@ -73,10 +73,10 @@ $(document).ready(function(){
 			{
 				$("#email_").removeAttr('disabled');
 				$("#emailsenddiv").show();
-				$("#emailsend").html("发送验证邮件");
+				$("#emailsend").html("検証メール送信");
 				$("#displayemailsend").hide();
 				$("#emailsendsucceed").hide();
-				if(data.indexOf("邮箱配置出错，请联系网站管理员") > 0 ){
+				if(data.indexOf("メール配置エラー，ウェブ管理员に連絡してください") > 0 ){
 					dialog({
 					    title: '系统提示',
 					    content: '邮箱配置出错，请联系网站管理员',

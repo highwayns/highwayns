@@ -35,11 +35,11 @@ $(document).ready(function()
 				{
 					html="<table width=\"100%\" border=\"0\" cellpadding=\"4\" cellspacing=\"0\" style=\"margin-bottom:10px;\" >";
 					html+="<tr>";
-					html+="<td width=\"25%\" height=\"28\" bgcolor=\"#EBF7FC\"  >&nbsp;&nbsp;&nbsp;&nbsp;<strong>职位名称<\/strong><\/td>";
-					html+="<td bgcolor=\"#EBF7FC\"  ><strong>公司名称<\/strong><\/td>";
-					html+="<td width=\"13%\" align=\"center\" bgcolor=\"#EBF7FC\"  ><strong>发布时间<\/strong><\/td>";
-					html+="<td width=\"13%\" align=\"center\" bgcolor=\"#EBF7FC\"  ><strong>到期时间<\/strong><\/td>";
-					html+="<td width=\"13%\" align=\"center\" bgcolor=\"#EBF7FC\"  ><strong>刷新时间<\/strong><\/td>";
+					html+="<td width=\"25%\" height=\"28\" bgcolor=\"#EBF7FC\"  >&nbsp;&nbsp;&nbsp;&nbsp;<strong>職位名称<\/strong><\/td>";
+					html+="<td bgcolor=\"#EBF7FC\"  ><strong>会社名称<\/strong><\/td>";
+					html+="<td width=\"13%\" align=\"center\" bgcolor=\"#EBF7FC\"  ><strong>配布時間<\/strong><\/td>";
+					html+="<td width=\"13%\" align=\"center\" bgcolor=\"#EBF7FC\"  ><strong>期限時間<\/strong><\/td>";
+					html+="<td width=\"13%\" align=\"center\" bgcolor=\"#EBF7FC\"  ><strong>更新時間<\/strong><\/td>";
 					html+="<\/tr>";
 					var str=data.split("@@@");
 					var i=1;
@@ -65,7 +65,7 @@ $(document).ready(function()
 				}
 				else
 				{
-				html="<div style=\"padding:15px; color:#0066CC\">対応する位置が見つかりません。</div>";
+				html="<div style=\"padding:15px; color:#0066CC\">対応するポジションが見つかりません。</div>";
 				$("#showtd").html(html);
 				}
 			 })
@@ -107,12 +107,12 @@ $(document).ready(function()
             }
         });
         if(!flag){
-          alert("请选择要推广的职位");
+          alert("お勧め職位を選択");
           return false;
         };
 		if ($("#promotionid").val()=='-1')
 		{
-			alert("请选择要推广方案");
+			alert("お勧めケース選択");
 			$("#promotionid").focus();
           	return false;
 		}
@@ -120,13 +120,13 @@ $(document).ready(function()
 		{
 			if ($("#val").val()=="")
 			{
-			alert("请选择颜色");
+			alert("色選択");
 			return false;
 			}          	
 		}
 		else if ($("#days").val()=="")
 		{
-			alert("请填写推广天数");
+			alert("お勧め日数を入力してください");
 			$("#days").focus();
 			return false;       	
 		}
@@ -187,16 +187,16 @@ $(document).ready(function()
           <td height="35" align="right"  class="showhour" style="display:none">オートリフレッシュの時間点：</td>
           <td class="showhour" style="display:none">
 		  <select name="hour">
-			          <option value="8 时" selected="selected">8 時</option>
-			          <option value="11 时">11 時</option>
-			          <option value="14 时">14 時</option>
-			          <option value="20 时">20 時</option>
+			          <option value="8 時" selected="selected">8 時</option>
+			          <option value="11 時">11 時</option>
+			          <option value="14 時">14 時</option>
+			          <option value="20 時">20 時</option>
 			        </select></td>
         </tr>
         <tr>
           <td height="35" align="right"  >&nbsp;</td>
           <td height="60"  ><input name=“submit3” type=“button” class=“admin_submit”   id=“aDD”  value=“確定”/>
-            <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/></td>
+            <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/></td>
         </tr>
         <tr>
           <td height="35" align="right"  >&nbsp;</td>

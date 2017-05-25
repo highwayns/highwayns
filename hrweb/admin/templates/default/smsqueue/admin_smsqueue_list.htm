@@ -3,7 +3,7 @@
 $(document).ready(function()
 {
 	$("#ButSend").QSdialog({
-	DialogTitle:"请选择",
+	DialogTitle:"選択",
 	DialogContent:"#SendDiv",
 	DialogContentType:"id",
 	DialogAddObj:"#OpSend",	
@@ -11,7 +11,7 @@ $(document).ready(function()
 	DialogWidth:500	
 	});
 	$("#ButDel").QSdialog({
-	DialogTitle:"您要删除哪些信息?",
+	DialogTitle:"削除情報を選択してください",
 	DialogContent:"#DelDiv",
 	DialogContentType:"id",
 	DialogAddObj:"#OpDel",	
@@ -112,10 +112,10 @@ $(document).ready(function()
    <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 	<tr>
       <td>
-	  <input type="button" name="Submit22" value="发送" class="admin_submit" id="ButSend"/>
-       <input type="button" name="Submit22" value="添加任务" class="admin_submit"    onclick="window.location='?act=smsqueue_add'"/>
-	   <input type="button" name="Submit22" value="批量添加" class="admin_submit"    onclick="window.location='?act=smsqueue_batchadd'"/>
-	<input type="button" name="ButDel" id="ButDel" value="删除" class="admin_submit" />
+	  <input type="button" name="Submit22" value="送信" class="admin_submit" id="ButSend"/>
+       <input type="button" name="Submit22" value="タスク追加" class="admin_submit"    onclick="window.location='?act=smsqueue_add'"/>
+	   <input type="button" name="Submit22" value="一括追加" class="admin_submit"    onclick="window.location='?act=smsqueue_batchadd'"/>
+	<input type="button" name="ButDel" id="ButDel" value="削除" class="admin_submit" />
 	  </td>
       <td width="305">
 	  
@@ -132,13 +132,13 @@ $(document).ready(function()
 												<div id="sehmenu" class="seh_menu">
 														<ul>
 														<li id="1" title="短信内容">SMSコンテンツ</li>
-														<li id="2" title="手机号码">電話番号</li>
+														<li id="2" title="携帯番号">電話番号</li>
 														</ul>
 												</div>
 						</div>				
 				</div>
 				<div class="sbtbox">
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>
@@ -197,7 +197,7 @@ $(document).ready(function()
     <tr>
       <td height="70">&nbsp;</td>
       <td>
-	  <input type="submit" name="submitdel"  value="确定" class="admin_submit submitsend"/>
+	  <input type="submit" name="submitdel"  value="確定" class="admin_submit submitsend"/>
  </td>
     </tr>
   </table>
@@ -249,7 +249,7 @@ $(document).ready(function()
     <tr>
       <td height="70">&nbsp;</td>
       <td>
-	  <input type="submit" name="submitdel"  value="确定" class="admin_submit submitdel"/>
+	  <input type="submit" name="submitdel"  value="確定" class="admin_submit submitdel"/>
  </td>
     </tr>
   </table>

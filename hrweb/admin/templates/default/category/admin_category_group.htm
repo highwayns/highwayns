@@ -44,7 +44,7 @@
 	  <a href="?act=show_category&alias={#$li.g_alias#}">確認</a>&nbsp;&nbsp;
 	  		{#if $li.g_sys<>"1"#}
 				 <a href="?act=edit_group&alias={#$li.g_alias#}">変更</a>&nbsp;&nbsp;			 
-			 <a onclick="return confirm('删除后无法恢复，你确定要删除吗？')" href="?act=del_group&alias={#$li.g_alias#}&{#$urltoken#}">削除</a>
+			 <a onclick="return confirm('削除後回復できません，削除してよろしいでしょうか？')" href="?act=del_group&alias={#$li.g_alias#}&{#$urltoken#}">削除</a>
 		 {#/if#}
 		</td>
     </tr>
@@ -53,8 +53,8 @@
 	<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加分类组"  onclick="window.location='?act=add_group'"/>
-		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="删除所选" onclick="return confirm('删除分类组同时也会删除此分类组下个分类，你确定要删除吗？')"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="分類グループ追加"  onclick="window.location='?act=add_group'"/>
+		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="選択された削除" onclick="return confirm('サブグループも削除します，削除してよろしいでしょうか？')"/>
 		</td>
         <td width="305" align="right">
 	  

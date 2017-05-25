@@ -29,7 +29,7 @@ $(document).ready(function()
 		$.get("?act=ajax_get_resume&offset="+(offset)+"&rows=5", function(result){
 		    if(result=="-1"){
 		    	$(".check_more").show();
-		    	$(".check_more").html("没有更多收到的简历了");
+		    	$(".check_more").html("もっと履歴書なし");
 		    }else{
 		    	$(".get_resume_bbox").append(result);
 		    	$(".check_more").show();

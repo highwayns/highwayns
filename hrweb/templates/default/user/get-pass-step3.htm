@@ -38,14 +38,14 @@ $(document).ready(function()
 		messages: {
 			password:
 			{
-				required: "请输入密码",
-				minlength: jQuery.format("填写不能小于{0}个字符"),
-				maxlength: jQuery.format("填写不能大于{0}个字符")
+				required: "パスワード入力",
+				minlength: jQuery.format("入力文字は少なくとも{0}"),
+				maxlength: jQuery.format("入力内容{0}文字以内")
 			},
 			rpassword:
 			{
-				required: "请确认密码",
-    			equalTo: "两次输入的密码不同"
+				required: "パスワード確認",
+    			equalTo: "パスワード一致しません"
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -80,14 +80,14 @@ $(document).ready(function()
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">新しいパスワード</div>
 						<div class="reg-form-content f-left">
-							<input type="password" name="password" id="password" class="text text-lg span350" placeholder="请输入新密码" />
+							<input type="password" name="password" id="password" class="text text-lg span350" placeholder="新パスワード入力" />
 						</div>
 						<div class="verification f-left"></div>
 					</div>
 					<div class="reg-form-item clearfix">
 						<div class="reg-form-type f-left">パスワードの確認</div>
 						<div class="reg-form-content f-left">
-							<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="重复新密码" />
+							<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="再度新パスワード" />
 						</div>
 						<div class="verification f-left"></div>
 					</div>
@@ -96,7 +96,7 @@ $(document).ready(function()
 						<div class="reg-form-content f-left">
 							<input type="hidden" name="uid" value="{#$userinfo.uid#}"/>
 							<input type="hidden" name="token" value="{#$token#}"/>
-							<input type="submit" value="提交" class="btn btn-lg blue span1" />
+							<input type="submit" value="提出" class="btn btn-lg blue span1" />
 						</div>
 					</div>
 				</div>

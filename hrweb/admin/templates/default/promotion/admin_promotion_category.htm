@@ -61,7 +61,7 @@
 	  {#if $li.cat_type=="1"#}
 	  <span style="color:#999999">削除</span>
 	  {#else#}
-		 <a href="?act=del_ad&id={#$li.id#}"  onclick="return confirm('你确定要删除吗？')">削除</a>
+		 <a href="?act=del_ad&id={#$li.id#}"  onclick="return confirm('削除してよろしいでしようか？')">削除</a>
 			{#/if#}	
 				</td>
             </tr>
@@ -74,7 +74,7 @@
 <!--		<table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
       <td>
-       <input type="button" name="Submit22" value="新增方案" class="admin_submit"    onclick="window.location='?act=ad_category_add'"/> 
+       <input type="button" name="Submit22" value="ケース追加" class="admin_submit"    onclick="window.location='?act=ad_category_add'"/> 
 	  </td>
       <td width="360">	  
 	  </td>

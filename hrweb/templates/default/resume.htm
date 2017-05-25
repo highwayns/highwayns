@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="列表名:page,调用:HW_resume"#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="リスト名:page,Call:HW_resume"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
@@ -232,7 +232,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">職歴：</div>
 				<div class="fl-content r-choice f-left">
-					{#highway_get_classify set="列表名:experience,类型:HW_experience,显示数目:100"#}
+					{#highway_get_classify set="リスト名:experience,タイプ:HW_experience,表示件数:100"#}
 					{#foreach from=$experience item=list#}
 					<div class="fl-content-li" type="experience" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -241,7 +241,7 @@
 			<div class="filter-list-wrap clearfix">
 				<div class="fl-type f-left">専門タグ：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#highway_get_classify set="列表名:resumetag,类型:HW_resumetag,显示数目:100"#}
+					{#highway_get_classify set="リスト名:resumetag,タイプ:HW_resumetag,表示件数:100"#}
 					{#foreach from=$resumetag item=list#}
 					<div class="fl-content-li" type="resumetag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -252,7 +252,7 @@
 				<div class="fl-type f-left">その他のフィルタ：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan">
-						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
+						{#highway_get_classify set="リスト名:c_education,タイプ:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -286,7 +286,7 @@
 						简历等级
 					</div>
 					<div class="saixuan">
-						{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+						{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							<a defvalue="3" type="settr" href="javascript:;">3日内</a>
@@ -306,7 +306,7 @@
 			<a href="{#"HW_resumelist,photo:1"|highway_url#}" target="_blank" class="right-link">もっと>></a>
 		</div>
 		<div class="photo-resumes-list clearfix">
-			{#highway_resume_list set="列表名:resume,显示数目:14,照片:1,意向职位长度:18,填补字符:...,排序:rtime>desc"#}
+			{#highway_resume_list set="リスト名:resume,表示件数:14,写真:1,意向職位名長さ:18,文字:...,ソート:rtime>desc"#}
 			{#foreach from=$resume item=list#}
 			<div class="photo-resume-item f-left" onclick="javascript:window.open('{#$list.resume_url#}')">
 				<div class="photo-box">
@@ -328,7 +328,7 @@
 			<a href="{#"HW_resumelist"|highway_url#}" class="right-link">もっと>></a>
 		</div>
 		<div class="newst-resume-list clearfix">
-			{#highway_resume_list set="列表名:resume,显示数目:12,意向职位长度:25,填补字符:...,排序:rtime>desc"#}
+			{#highway_resume_list set="リスト名:resume,表示件数:12,意向職位長さ:25,文字:...,ソート:rtime>desc"#}
 			{#foreach from=$resume item=list#}
 			<div class="newst-resume-item f-left">
 				<div class="name-date"><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a><span>{#$list.refreshtime_cn#}</span></div>
@@ -346,12 +346,12 @@
 					<div class="clear"></div>
 				</div>
 				<div class="box_content">
-					{#highway_link set="列表名:link,显示数目:100,调用名称:HW_resume,类型:1"#}
+					{#highway_link set="リスト名:link,表示件数:100,Call名称:HW_resume,タイプ:1"#}
 					<div class="link_name link_bk">
 							{#foreach from=$link item=list#}
 							<a style="word_link" href="{#$list.link_url#}" target="_blank">{#$list.title#}</a>
 							{#/foreach#}
-							{#highway_link  set="列表名:imglink,显示数目:14,调用名称:HW_resume,类型:2"#}
+							{#highway_link  set="リスト名:imglink,表示件数:14,Call名称:HW_resume,タイプ:2"#}
 							{#if $imglink#}
 							<div class="link_img">
 								{#foreach from=$imglink  item=list#}

@@ -1,4 +1,4 @@
-﻿{#highway_company_show set="列表名:company,企业ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_company_show set="リスト名:company,企業ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -51,7 +51,7 @@ $(document).ready(function(){
 								{#if $company.audit=="1"#}
 									<img title="企業認定済み" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企業未認定" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
+									<img title="未認定企業" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user == '1'#}
 									
@@ -70,7 +70,7 @@ $(document).ready(function(){
 					<!-- 职位列表 -->
 					<div class="jobs-list-block">
 						<div class="list-title">共用<span>{#$company.jobs_num#}</span>仕事は募集中</div>
-						{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:5,列表页:HW_companyjobs,描述长度:200,会员UID:"|cat:$company.uid#}
+						{#highway_jobs_list set="リスト名:jobs,文字:...,職位名長さ:10,ページング表示:1,表示件数:5,列表頁:HW_companyjobs,描述長さ:200,会員UID:"|cat:$company.uid#}
 						{#if $jobs#}
 						{#foreach from=$jobs item=list#}
 						<div class="jobs-item">
@@ -137,7 +137,7 @@ $(document).ready(function(){
 				<div class="c-right-block">
 					<h3 class="c-right-title">モバイルブラウザ</h3>
 					<div class="com-code">
-						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="扫描二维码" width="100" height="100" />
+						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="バーコードスキャン" width="100" height="100" />
 					</div>
 				</div>
 			</div>

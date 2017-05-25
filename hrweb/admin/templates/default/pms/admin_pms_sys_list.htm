@@ -74,7 +74,7 @@ $(document).ready(function()
         <td align="center"  class="admin_list">{#$list.dateline|date_format:"%Y-%m-%d"#}</td>
 	    <td align="center"  class="admin_list">
 		<a href="?act=pms_edit&id={#$list.spmid#}">変更</a> &nbsp;&nbsp;
-		<a href="?act=pms_sys_del&id={#$list.spmid#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('你确定要删除吗？')">削除</a></td>
+		<a href="?act=pms_sys_del&id={#$list.spmid#}&del_Submit=ok&{#$urltoken#}" onclick="return confirm('削除してよろしいでしようか？')">削除</a></td>
       </tr>
       {#/foreach#}
     </table>
@@ -85,8 +85,8 @@ $(document).ready(function()
 <table width="100%" border="0" cellspacing="10"  class="admin_list_btm">
 <tr>
         <td>
-        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="添加"  onclick="window.location='?act=add_pms_sys'"/>
-		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="删除所选"/>
+        <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="追加"  onclick="window.location='?act=add_pms_sys'"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="選択された削除"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -98,14 +98,14 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="消息">メッセージ</li>
+														<li id="1" title="情報">メッセージ</li>
 														</ul>
 												</div>
 						</div>				
 				</div>
 				<div class="sbtbox">
 				<input name="act" type="hidden" value="list" />
-				<input type="submit" name="" class="sbt" id="sbt" value="搜索"/>
+				<input type="submit" name="" class="sbt" id="sbt" value="検索"/>
 				</div>
 				<div class="clear"></div>
 		  </div>

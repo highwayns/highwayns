@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="列表名:page,调用:HW_index"#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{#highway_pageinfo set="リスト名:page,Call:HW_index"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
@@ -121,21 +121,21 @@ jQuery(document).ready(function($) {
 				<div class="news-tab-box">
 					<!-- 公告 -->
 					<ul>
-						{#highway_notice_list set="列表名:notice,显示数目:9,标题长度:12,分类:1,填补字符:..."#}
+						{#highway_notice_list set="リスト名:notice,表示件数:9,タイトル長さ:12,分類:1,文字:..."#}
 						{#foreach from=$notice item=list#}
 						<li><i class="tab-icon"></i><a href="{#$list.url#}" target="_blank" title="{#$list.title_#}" class="underline">{#$list.title#}</a></li>
 						{#/foreach#}
 					</ul>
 					<!-- 资讯 -->
 					<ul style="display: none;">
-						{#highway_news_list set="列表名:news,显示数目:9,标题长度:12,分类:1,填补字符:..."#}
+						{#highway_news_list set="リスト名:news,表示件数:9,タイトル長さ:12,分類:1,文字:..."#}
 						{#foreach from=$news item=list#}
 						<li><i class="tab-icon"></i><a href="{#$list.url#}" target="_blank" title="{#$list.title_#}" class="underline">{#$list.title#}</a></li>
 						{#/foreach#}
 					</ul>
 					<!-- 帮助 -->
 					<ul style="display: none;">
-						{#highway_help_list set="列表名:help,显示数目:9,标题长度:12,填补字符:..."#}
+						{#highway_help_list set="リスト名:help,表示件数:9,タイトル長さ:12,文字:..."#}
 						{#foreach from=$help item=list#}
 						<li><i class="tab-icon"></i><a href="{#$list.url#}" target="_blank" title="{#$list.title_#}" class="underline">{#$list.title#}</a></li>
 						{#/foreach#}
@@ -195,7 +195,7 @@ jQuery(document).ready(function($) {
 			</div>
 			<!-- 搜索结束 -->
 			<div class="swipe-wrap">
-				{#highway_ad set="显示数目:6,调用名称:HW_indexfocus,列表名:ad"#}
+				{#highway_ad set="表示件数:6,Call名称:HW_indexfocus,リスト名:ad"#}
 				<div id="playBox">
 					<div class="pre"></div>
 					<div class="next"></div>
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 				</div>
 			</div>
 			<div class="block-ad-wrap clearfix lazyload">
-				{#highway_ad set="显示数目:6,调用名称:HW_indexrecommend,列表名:ad"#}
+				{#highway_ad set="表示件数:6,Call名称:HW_indexrecommend,リスト名:ad"#}
 				{#if $ad#}
 					{#foreach from=$ad item=list#}
 					{#if $list.img_uid>0#}
@@ -266,7 +266,7 @@ jQuery(document).ready(function($) {
 					<a href="{#"HW_jobs"|highway_url#}" class="underline f-right" target="_blank">もっと>></a>
 				</div>
 				<ul class="urgent-list">
-					{#highway_jobs_list set="列表名:jobs,显示数目:10,职位名长度:12,企业名长度:12,紧急招聘:1,排序:refreshtime>desc"#}
+					{#highway_jobs_list set="リスト名:jobs,表示件数:10,職位名長さ:12,企業名長さ:12,紧急募集:1,ソート:refreshtime>desc"#}
 					{#foreach from=$jobs item=list#}
 					<li class="clearfix"><a href="{#$list.company_url#}" class="u-com f-left underline" target="_blank">{#$list.companyname#}</a><a href="{#$list.jobs_url#}" class="u-job f-left underline" title="{#$list.jobs_name_#}" target="_blank">{#$list.jobs_name#}</a></li>
 					{#/foreach#}
@@ -277,7 +277,7 @@ jQuery(document).ready(function($) {
 	<!-- 广告位集中区域 -->
 	<div class="ad-area">
 		<!-- 1198*58 广告  -->
-		{#highway_ad set="显示数目:3,调用名称:HW_indextopimg,列表名:ad,文字长度:12"#}
+		{#highway_ad set="表示件数:3,Call名称:HW_indextopimg,リスト名:ad,文字長さ:12"#}
 		{#if $ad#}
 		{#foreach from=$ad item=list#}
 		<div class="ad-row clearfix lazyload">
@@ -286,7 +286,7 @@ jQuery(document).ready(function($) {
 		{#/foreach#}
 		{#/if#}
 		<!-- 392*58 广告  格子广告-->
-		{#highway_ad set="显示数目:6,调用名称:HW_indexcentreimg,列表名:ad,文字长度:12"#}
+		{#highway_ad set="表示件数:6,Call名:HW_indexcentreimg,リスト名:ad,文字長さ:12"#}
 		{#if $ad#}
 		<div class="ad-row clearfix lazyload">
 			{#foreach from=$ad item=list#}
@@ -313,7 +313,7 @@ jQuery(document).ready(function($) {
 		</div>
 		{#/if#}
 		<!-- 230x58 广告  格子广告-->
-		{#highway_ad set="显示数目:10,调用名称:HW_indexcentreimg_230x58,列表名:ad,文字长度:12"#}
+		{#highway_ad set="表示件数:10,Call名称:HW_indexcentreimg_230x58,リスト名:ad,文字長さ:12"#}
 		{#if $ad#}
 		<div class="ad-row a23058d clearfix lazyload">
 			{#foreach from=$ad item=list#}
@@ -349,7 +349,7 @@ jQuery(document).ready(function($) {
 			<a href="{#"HW_helplist,id:10"|highway_url#}" class="f-right underline" target="_blank">私は求人会社です、ここに職位登録したい</a>
 		</div>
 		<div class="famous-list clearfix">
-			{#highway_companyjobs_list set="列表名:comjob_recommend,显示数目:12,显示职位:3,推荐:1,统计职位:1"#}
+			{#highway_companyjobs_list set="リスト名:comjob_recommend,表示件数:12,表示職位:3,お勧め:1,統計職位:1"#}
 			{#foreach from=$comjob_recommend item=list#}
 			<div class="famous-items f-left">
 				<i class="fc-icon"></i>
@@ -359,7 +359,7 @@ jQuery(document).ready(function($) {
 						<i class="fmi-icon"></i>
 						<div class="fmi-title">募集職位</div>
 						<ul class="fmi-list">
-							{#highway_jobs_list set="列表名:com_jobs_all,显示数目:3,会员UID:$list.uid"#}
+							{#highway_jobs_list set="リスト名:com_jobs_all,表示件数:3,会員UID:$list.uid"#}
 							{#foreach from=$com_jobs_all item=job_li#}
 							<li class="clearfix">
 								<div class="fmi-jobname f-left"><a href="{#$job_li.jobs_url#}" class="underline" target="_balnk">{#$job_li.jobs_name#}</a></div><div class="fmi-time f-left"><span>{#$job_li.refreshtime_cn#}</span></div>
@@ -381,7 +381,7 @@ jQuery(document).ready(function($) {
 	</div>
 	<!-- 列表-名企招聘结束 -->
 	<!-- 1198*58 广告  -->
-	{#highway_ad set="显示数目:3,调用名称:HW_indexcenter,列表名:ad,文字长度:12"#}
+	{#highway_ad set="表示件数:3,Call名称:HW_indexcenter,リスト名:ad,文字長さ:12"#}
 	{#if $ad#}
 	<div class="ad-area">
 	{#foreach from=$ad item=list#}
@@ -399,7 +399,7 @@ jQuery(document).ready(function($) {
 			<a href="{#"HW_jobslist"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="newest-list clearfix">
-			{#highway_companyjobs_list set="列表名:jobs,显示数目:40,职位名长度:12,显示职位:1,企业名长度:12,排序:rtime>desc"#}
+			{#highway_companyjobs_list set="リスト名:jobs,表示件数:40,職位名長さ:12,表示職位:1,企業名長さ:12,ソート:rtime>desc"#}
 			{#foreach from=$jobs item=list#}
 			<div class="newest-items f-left">
 				<i class="nc-icon"></i>
@@ -413,7 +413,7 @@ jQuery(document).ready(function($) {
 	</div>
 	<!-- 列表-最新职位结束 -->
 	<!-- 1198*58 广告  -->
-	{#highway_ad set="显示数目:3,调用名称:HW_indexfootbanner,列表名:ad,文字长度:12"#}
+	{#highway_ad set="表示件数:3,Call名称:HW_indexfootbanner,リスト名:ad,文字長さ:12"#}
 	{#if $ad#}
 	<div class="ad-area">
 	{#foreach from=$ad item=list#}
@@ -431,7 +431,7 @@ jQuery(document).ready(function($) {
 			<a href="{#"HW_resumelist,photo:1"|highway_url#}" class="f-right underline" target="_blank">もっと>></a>
 		</div>
 		<div class="photo-list clearfix">
-			{#highway_resume_list set="列表名:resume,显示数目:7,照片:1,意向职位长度:14,填补字符:...,排序:rtime>desc"#}
+			{#highway_resume_list set="リスト名:resume,表示件数:7,写真:1,意向職位長さ:14,文字:...,ソート:rtime>desc"#}
 			{#foreach from=$resume item=list#}
 				<div class="photo-items f-left">
 					<div class="avater-box">
@@ -460,14 +460,14 @@ jQuery(document).ready(function($) {
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:76_77"#}
+						{#highway_get_classify set="リスト名:subcate,タイプ:HW_jobs_floor,表示件数:20,id:76_77"#}
 						{#foreach from=$subcate item=list#}
 						<a href="{#"HW_jobslist,jobcategory:"|cat:74|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:76_77"#}
+						{#highway_companyjobs_list set="リスト名:comjobs,表示件数:10,表示職位:3,職位分類:76_77"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -480,7 +480,7 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#highway_ad set="显示数目:4,调用名称:HW_floor_img1,列表名:ad,文字长度:12"#}
+						{#highway_ad set="表示件数:4,Call名称:HW_floor_img1,リスト名:ad,文字長さ:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
 						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
@@ -495,14 +495,14 @@ jQuery(document).ready(function($) {
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:3_5_6"#}
+						{#highway_get_classify set="リスト名:subcate,タイプ:HW_jobs_floor,表示件数:20,id:3_5_6"#}
 						{#foreach from=$subcate item=list#}
 						<a href="{#"HW_jobslist,jobcategory:"|cat:1|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:3_5_6"#}
+						{#highway_companyjobs_list set="リスト名:comjobs,表示件数:10,表示職位:3,職位分類:3_5_6"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -515,7 +515,7 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#highway_ad set="显示数目:4,调用名称:HW_floor_img2,列表名:ad,文字长度:12"#}
+						{#highway_ad set="表示件数:4,Call名称:HW_floor_img2,リスト名:ad,文字長さ:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
 						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
@@ -530,14 +530,14 @@ jQuery(document).ready(function($) {
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:117_120_121"#}
+						{#highway_get_classify set="リスト名:subcate,タイプ:HW_jobs_floor,表示件数:20,id:117_120_121"#}
 						{#foreach from=$subcate item=list#}
 						<a href="{#"HW_jobslist,jobcategory:"|cat:116|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:117_120_121"#}
+						{#highway_companyjobs_list set="リスト名:comjobs,表示件数:10,表示職位:3,職位分類:117_120_121"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -550,7 +550,7 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#highway_ad set="显示数目:4,调用名称:HW_floor_img3,列表名:ad,文字长度:12"#}
+						{#highway_ad set="表示件数:4,Call名称:HW_floor_img3,リスト名:ad,文字長さ:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
 						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
@@ -565,14 +565,14 @@ jQuery(document).ready(function($) {
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:97_98_99"#}
+						{#highway_get_classify set="リスト名:subcate,タイプ:HW_jobs_floor,表示件数:20,id:97_98_99"#}
 						{#foreach from=$subcate item=list#}
 						<a href="{#"HW_jobslist,jobcategory:"|cat:96|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:97_98_99"#}
+						{#highway_companyjobs_list set="リスト名:comjobs,表示件数:10,表示職位:3,職位分類:97_98_99"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -585,7 +585,7 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#highway_ad set="显示数目:4,调用名称:HW_floor_img4,列表名:ad,文字长度:12"#}
+						{#highway_ad set="表示件数:4,Call名称:HW_floor_img4,リスト名:ad,文字長さ:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
 						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
@@ -600,14 +600,14 @@ jQuery(document).ready(function($) {
 				<div class="floor-box clearfix">
 					<!-- 分类 -->
 					<div class="floor-sort f-left">
-						{#highway_get_classify set="列表名:subcate,类型:HW_jobs_floor,显示数目:20,id:50_51_52"#}
+						{#highway_get_classify set="リスト名:subcate,タイプ:HW_jobs_floor,表示件数:20,id:50_51_52"#}
 						{#foreach from=$subcate item=list#}
 						<a href="{#"HW_jobslist,jobcategory:"|cat:49|cat:"."|cat:$list.parentid|cat:"."|cat:$list.id|highway_url#}" class="f-sort-item f-left" target="_blank">{#$list.categoryname#}</a>
 						{#/foreach#}
 					</div>
 					<!-- 职位 -->
 					<div class="floor-jobs f-left">
-						{#highway_companyjobs_list set="列表名:comjobs,显示数目:10,显示职位:3,职位分类:50_51_52"#}
+						{#highway_companyjobs_list set="リスト名:comjobs,表示件数:10,表示職位:3,職位分類:50_51_52"#}
 						{#foreach from=$comjobs item=list#}
 						<div class="f-job-row">
 							<a href="{#$list.company_url#}" class="f-job-com underline" target="_blank">{#$list.companyname#}</a>
@@ -620,7 +620,7 @@ jQuery(document).ready(function($) {
 					</div>
 					<!-- 广告 楼层广告1 -->
 					<div class="floor-ad-box f-left lazyload">
-						{#highway_ad set="显示数目:4,调用名称:HW_floor_img5,列表名:ad,文字长度:12"#}
+						{#highway_ad set="表示件数:4,Call名称:HW_floor_img5,リスト名:ad,文字長さ:12"#}
 						{#if $ad#}
 						{#foreach from=$ad item=list#}
 						<div class="floor-ad"><a href="{#$list.img_url#}" target="_blank"><img original="{#$list.img_path#}" src="{#$HIGHWAY.site_template#}images/index/84.gif" alt="{#$list.img_explain#}" width="378" height="60" border="0" /></a></div>
@@ -641,12 +641,12 @@ jQuery(document).ready(function($) {
 		</div>
 		<div class="job-news-block clearfix">
 			<div class="jn-left f-left">
-				{#highway_news_category set="列表名:newscategory,资讯大类:1,显示数目:4"#}
+				{#highway_news_category set="リスト名:newscategory,ニュース大类:1,表示件数:4"#}
 				{#section loop=$newscategory name=nclist#}
 				<div class="jn-box f-left">
 					<div class="jn-img f-left"><a href="{#"HW_newslist,id:$newscategory[nclist].id"|highway_url#}" target="_blank"><img src="{#$HIGHWAY.site_template#}images/news{#$smarty.section.nclist.index#}.jpg" width="163" height="98" border="0"></a></div>
 					<ul class="jn-list f-left">
-					{#highway_news_list set="列表名:topnews,显示数目:4,标题长度:18,资讯小类:$newscategory[nclist].id,摘要长度:36,填补字符:...,排序:id>desc"#}
+					{#highway_news_list set="リスト名:topnews,表示件数:4,タイトル長さ:18,ニュース小類:$newscategory[nclist].id,摘要長さ:36,文字:...,ソート:id>desc"#}
 					{#foreach from=$topnews item=toplist#}
 					<li><i class="jn-icon"></i><a target="_blank" href="{#$toplist.url#}" class="underline" title="{#$toplist.title_#}" target="_blank">{#$toplist.title#}</a></li>
 					{#/foreach#}
@@ -655,7 +655,7 @@ jQuery(document).ready(function($) {
 				{#/section#}
 			</div>
 			<ol class="jn-right f-left">
-				{#highway_news_list set="列表名:news_list,显示数目:8,标题长度:12,填补字符:...,排序:click>desc"#}
+				{#highway_news_list set="リスト名:news_list,表示件数:8,タイトル長さ:12,文字:...,ソート:click>desc"#}
 				{#section loop=$news_list name=nclist start=1#}
 				<li><span>{#$smarty.section.nclist.index#}</span><a href="{#$news_list[nclist].url#}" class="underline" target="_blank">{#$news_list[nclist].title#}</a></li>
 				{#/section#}
@@ -671,12 +671,12 @@ jQuery(document).ready(function($) {
 			<a href="{#$HIGHWAY.site_dir#}link/add_link.php" target="_blank"  class="f-right underline">申込>></a>
 		</div>
 		<div class="friendly-link">
-			{#highway_link set="列表名:link,显示数目:100,调用名称:HW_index,类型:1"#}
+			{#highway_link set="リスト名:link,表示件数:100,Call名称:HW_index,タイプ:1"#}
 			{#foreach from=$link item=list#}
 			<a href="{#$list.link_url#}" target="_blank" class="underline">{#$list.title#}</a>
 			{#/foreach#}
 		</div>
-		{#highway_link  set="列表名:imglink,显示数目:14,调用名称:HW_index,类型:2"#}
+		{#highway_link  set="リスト名:imglink,表示件数:14,Call名称:HW_index,タイプ:2"#}
 		{#if $imglink#}
 		<div class="link_img">
 			{#foreach from=$imglink  item=list#}

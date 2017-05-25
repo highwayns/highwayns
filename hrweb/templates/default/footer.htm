@@ -6,14 +6,14 @@
 					<h4>会社概要</h4>
 					<div class="foot_list">
 						<ul>
-						{#highway_explain_list set="列表名:explain,显示数目:3,标题长度:6,分类ID:1"#}
+						{#highway_explain_list set="リスト名:explain,表示件数:3,タイトル長さ:6,分類ID:1"#}
 						{#foreach from=$explain item=list#}
 							<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
 						{#/foreach#}
 							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}suggest">意见反馈</a></li>
 						</ul>
 						<ul>
-							{#highway_explain_list set="列表名:explain,显示数目:3,开始位置:3,标题长度:6,分类ID:1"#}
+							{#highway_explain_list set="リスト名:explain,表示件数:3,開始ポジション:3,タイトル長さ:6,分類ID:1"#}
 							{#foreach from=$explain item=list#}
 								<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
 							{#/foreach#}

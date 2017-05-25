@@ -55,25 +55,25 @@ $(document).ready(function() {
   },
     messages: {
    member_type:{
-    required: "请选择您要成为哪种会员"
+    required: "会員タイプを選択してください"
    },
    username: {
-    required: "请填写用户名",
-  remote: jQuery.format("用户名已经存在或者不合法") 
+    required: "ユーザ名入力",
+  remote: jQuery.format("ユーザ名すでに存在または正しくない") 
    },
     email: {
-    required: "请填写电子邮箱",
-  email: jQuery.format("电子邮箱格式错误"),
-  remote: jQuery.format("email已经存在")  
+    required: "メールアドレス入力してください",
+  email: jQuery.format("电子メールフォーマットエラー"),
+  remote: jQuery.format("email")  
    },
    password: {
-    required: "请填写密码",
-    minlength: jQuery.format("填写不能小于{0}个字符"),
-  maxlength: jQuery.format("填写不能大于{0}个字符")
+    required: "パスワード入力",
+    minlength: jQuery.format("入力文字は少なくとも{0}"),
+  maxlength: jQuery.format("入力内容{0}文字以内")
    },
    password2: {
-   required: "请填写密码",
-    equalTo: "两次输入的密码不同"
+   required: "パスワード入力",
+    equalTo: "パスワード一致しません"
    }
   },
   errorPlacement: function(error, element) {
@@ -94,17 +94,17 @@ $(document).ready(function() {
       }
     }
   return this.optional(element) || (length >= param[0] && length <= param[1]);
-  }, "确保的值在3-18个字节之间");
+  }, "値が3-18文字");
   //字符验证
   jQuery.validator.addMethod("userName", function(value, element) {
   return this.optional(element) || /^[\u0391-\uFFE5\w]+$/.test(value);
-  }, "只能包含中英文、数字和下划线");
+  }, "英字、数字とアンドバーだけ");
   jQuery.validator.addMethod("nomobile", function(value, element) { 
     var tel = /^(13|15|18)\d{9}$/;
   var $cstr= true;
   if (tel.test(value)) $cstr= false;
   return $cstr || this.optional(element); 
-}, "用户名不能是手机号");
+}, "ユーザ名は携帯番号ではない");
 });
 </script>
 </head>
@@ -155,7 +155,7 @@ $(document).ready(function() {
               </li>
               <li>
                 <div class="w99"><span>*</span>Eメール：</div>
-                <div class="input_box"><input type="text" class="sign_up_input_mail" placeholder="あなたの通常のメールボックスを入力してください” name="email" id="email" /></div>
+                <div class="input_box"><input type="text" class="sign_up_input_mail" placeholder="よく使うメールボックスを入力してください” name="email" id="email" /></div>
                 <div class="clear"></div>
               </li>
               <li>

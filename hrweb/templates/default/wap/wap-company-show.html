@@ -31,7 +31,7 @@ $(document).ready(function()
 		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajaxcomjobslist&offset="+(offset+5)+"&rows=5&companyid={#$show.id#}", function(result){
 		    if(result=="-1"){
 		    	$(".more").show();
-		    	$(".more").html("没有更多职位了");
+		    	$(".more").html("もっと職位なし");
 		    }else{
 		    	$(".showlist").append(result);
 		    	$(".more").show();

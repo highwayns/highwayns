@@ -67,7 +67,7 @@
 						</td> 
 						<td align="center">
 							{#if $user.qq_openid#}
-							已绑定 <a href="?act=del_qq_binding" onclick="return confirm('您确定取消绑定吗?')">[アンバインド]</a>
+							已绑定 <a href="?act=del_qq_binding" onclick="return confirm('設定を取消よろしいでしょうか?')">[アンバインド]</a>
 							{#else#}
 							未绑定 <a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding">[すぐセットする]</a>
 							{#/if#}
@@ -93,7 +93,7 @@
 						</td>
 						<td align="center">
 							{#if $user.taobao_access_token#}
-							已绑定 <a href="?act=del_taobao_binding" onclick="return confirm('您确定取消绑定吗?')">[アンバインド]</a>
+							已绑定 <a href="?act=del_taobao_binding" onclick="return confirm('設定を取消よろしいでしょうか?')">[アンバインド]</a>
 							{#else#}
 							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php">[すぐセットする]</a>
 							{#/if#}
@@ -119,7 +119,7 @@
 						</td>
 						<td align="center">
 							{#if $user.sina_access_token#}
-							已绑定 <a href="?act=del_sina_binding" onclick="return confirm('您确定取消绑定吗?')">[アンバインド]</a>
+							已绑定 <a href="?act=del_sina_binding" onclick="return confirm('設定を取消よろしいでしょうか?')">[アンバインド]</a>
 							{#else#}
 							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_sina.php">[すぐセットする]</a>
 							{#/if#}

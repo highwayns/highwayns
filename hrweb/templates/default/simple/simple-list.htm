@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-{#highway_pageinfo set="列表名:page,调用:HW_simplelist"#}
+{#highway_pageinfo set="リスト名:page,Call:HW_simplelist"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('删除信息');
         myDialog.width('500');
-        myDialog.content("加载中..");
+        myDialog.content("ロード中..");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -45,7 +45,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('刷新信息');
         myDialog.width('500');
-        myDialog.content("加载中...");
+        myDialog.content("ロード中...");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -57,7 +57,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('编辑信息');
         myDialog.width('600');
-        myDialog.content("加载中...");
+        myDialog.content("ロード中...");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('发布微招聘');
         myDialog.width('600');
-        myDialog.content("加载中...");
+        myDialog.content("ロード中...");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -114,7 +114,7 @@ $(function(){
 	<div class="rec_banner" style="background:url({#$HIGHWAY.site_template#}images/simple.jpg) no-repeat top center #248ee6
 "></div>
 	<div class="container link_bk">
-		{#highway_ad set="显示数目:1,调用名称:HW_simpleallimg,列表名:ad"#}
+		{#highway_ad set="表示件数:1,Call名称:HW_simpleallimg,リスト名:ad"#}
 		{#if $ad#}
 		<div class="ad_1000" style="margin-bottom:15px;">
 			{#foreach from=$ad  item=list#}
@@ -170,15 +170,15 @@ $(function(){
 							</div>
 						</div>
 						<div class="keybox">
-					 		<input type="text" id="searckey" name="key" value="{#$smarty.get.key|default:请输入关键字#}" />
+					 		<input type="text" id="searckey" name="key" value="{#$smarty.get.key|default:キーワード入力#}" />
 					 	</div>
-						<input type="button" id="searcnbtn" detype="HW_simplelist" value="搜索" class="but100lan simpleso" />
+						<input type="button" id="searcnbtn" detype="HW_simplelist" value="検索" class="but100lan simpleso" />
 					</div>
 				</div>
 				<input id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}" name="citycategory">
 			</div>
 			
-			{#highway_simple_list  set="分页显示:1,列表名:simplelist,显示数目:15,填补字符:...,职位名长度:12,企业名长度:18,描述长度:40,关键字:GET[key],关键字类型:GET[keytype],地区分类:GET[citycategory],排序:refreshtime>desc"#}
+			{#highway_simple_list  set="ページング表示:1,リスト名:simplelist,表示件数:15,文字:...,職位名長さ:12,企業名長さ:18,コメント長さ:40,キー:GET[key],キータイプ:GET[keytype],地区分類:GET[citycategory],ソート:refreshtime>desc"#}
 			{#if $simplelist#}
 			<div class="wei_list">
 				<ul>
@@ -219,7 +219,7 @@ $(function(){
 
 		</div>
 		<div class="wei_right">
-			<input type="button" value="发布微招聘" class="but218cheng" id="add"/>
+			<input type="button" value="サービス配布" class="but218cheng" id="add"/>
 			<p>
 				为方便一些普工类企业(如饭店,店面,个体户等)发布招聘信息，我们特增加了快速通道，无需注册即可发布简短招聘信息！
 			</p>
