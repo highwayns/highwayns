@@ -22,75 +22,75 @@
 <script charset="utf-8" src="{#$HIGHWAY.site_template#}kindeditor/kindeditor-min.js"></script>
 <script charset="utf-8" src="{#$HIGHWAY.site_template#}kindeditor/lang/zh_CN.js"></script>
 <script type="text/javascript">
-$(document).ready(function()
-{
-$("#Form1 input, #Form1 textarea, #Form1 select").each(function(index, el) {
-	$(this).attr('_value', jQuery(this).val());
-});
-//绑定beforeunload事件
-function is_form_changed() {
-	//检测页面是否有保存按钮
-	var t_save = $("#submitsave");
-	if(t_save.length>0) {
-		var is_changed = false;
-		$("#Form1 input, #Form1 textarea, #Form1 select").each(function(index, el) {
-			var _v = $(this).attr('_value');
-			if(typeof(_v) == 'undefined') {
-				_v = '';
-			}
-			if(_v != jQuery(this).val()) {
-				is_changed = true;
-			}
-		});
-		return is_changed;
-	}
-	return false;
-}
-if ($.browser.msie){
-    window.onunload = function(){
-        return "您正在编辑的内容尚未保存，確定要离开此頁吗？";
-    }
-}
-else{
-    window.onbeforeunload = function(){
-        if (is_form_changed()) {
-			return '您正在编辑的内容尚未保存，确定要离开此页吗？';
-		}
-    }
-}
-allaround('{#$HIGHWAY.site_dir#}');
-// 职位类别填充数据 
-job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#topclass", "{#$HIGHWAY.site_dir#}");
-// 工作地区填充数据
-city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$HIGHWAY.site_dir#}");
-// 职位亮点填充数据
-tag_filldata("#tag_list", HW_jobtag, "#aui_outer_tag", "#result-list-tag", "#trade_result_show", "#tag", "{#$HIGHWAY.site_dir#}");
-//工作性质单选
-var nature_obj = $("#nature_radio .input_radio").first();
-$("#nature").val(nature_obj.attr("id"));
-$("#nature_cn").val(nature_obj.text());
-$("#nature_radio .input_radio").click(function(){
-		$("#nature").val($(this).attr('id'));
-		$("#nature_cn").val($(this).text());
-		$("#nature_radio .input_radio").removeClass("select");
-		$(this).addClass("select");
-});
-//性别单选
-$("#sex_radio .input_radio").click(function(){
-		$("#sex").val($(this).attr('id'));
-		$("#sex_cn").val($(this).text());
-		$("#sex_radio .input_radio").removeClass("select");
-		$(this).addClass("select");
-});
-menuDown("#education_menu","#education","#education_cn","#menu1","218px");
-menuDown("#experience_menu","#experience","#experience_cn","#menu2","218px");
-menuDown("#wage_menu","#wage","#wage_cn","#menu3","218px");
-function menuDown(menuId,input,input_cn,menuList,width){
-	$(menuId).click(function(){
-		$(menuList).css("width",width);
-		$(menuList).slideDown('fast');
-		//生成背景
-		$(menuId).parent("div").before("<div class=\"menu_bg_layer\"></div>");
+  $(document).ready(function()
+  {
+  $("#Form1 input, #Form1 textarea, #Form1 select").each(function(index, el) {
+  $(this).attr('_value', jQuery(this).val());
+  });
+  //绑定beforeunload事件
+  function is_form_changed() {
+  //检测页面是否有保存按钮
+  var t_save = $("#submitsave");
+  if(t_save.length>0) {
+  var is_changed = false;
+  $("#Form1 input, #Form1 textarea, #Form1 select").each(function(index, el) {
+  var _v = $(this).attr('_value');
+  if(typeof(_v) == 'undefined') {
+  _v = '';
+  }
+  if(_v != jQuery(this).val()) {
+  is_changed = true;
+  }
+  });
+  return is_changed;
+  }
+  return false;
+  }
+  if ($.browser.msie){
+  window.onunload = function(){
+  return "編集している内容が保存されていません，この頁から移動しますか？";
+  }
+  }
+  else{
+  window.onbeforeunload = function(){
+  if (is_form_changed()) {
+  return '編集している内容が保存されていません，この頁から移動しますか？';
+  }
+  }
+  }
+  allaround('{#$HIGHWAY.site_dir#}');
+  // 职位类别填充数据
+  job_filldata("#job_list", HW_jobs_parent, HW_jobs, "#result-list-job", "#aui_outer_job", "#job_result_show", "#topclass", "{#$HIGHWAY.site_dir#}");
+  // 工作地区填充数据
+  city_filldata("#city_list", HW_city_parent, HW_city, "#result-list-city", "#aui_outer_city", "#city_result_show", "#district", "{#$HIGHWAY.site_dir#}");
+  // 职位亮点填充数据
+  tag_filldata("#tag_list", HW_jobtag, "#aui_outer_tag", "#result-list-tag", "#trade_result_show", "#tag", "{#$HIGHWAY.site_dir#}");
+  //工作性质单选
+  var nature_obj = $("#nature_radio .input_radio").first();
+  $("#nature").val(nature_obj.attr("id"));
+  $("#nature_cn").val(nature_obj.text());
+  $("#nature_radio .input_radio").click(function(){
+  $("#nature").val($(this).attr('id'));
+  $("#nature_cn").val($(this).text());
+  $("#nature_radio .input_radio").removeClass("select");
+  $(this).addClass("select");
+  });
+  //性别单选
+  $("#sex_radio .input_radio").click(function(){
+  $("#sex").val($(this).attr('id'));
+  $("#sex_cn").val($(this).text());
+  $("#sex_radio .input_radio").removeClass("select");
+  $(this).addClass("select");
+  });
+  menuDown("#education_menu","#education","#education_cn","#menu1","218px");
+  menuDown("#experience_menu","#experience","#experience_cn","#menu2","218px");
+  menuDown("#wage_menu","#wage","#wage_cn","#menu3","218px");
+  function menuDown(menuId,input,input_cn,menuList,width){
+  $(menuId).click(function(){
+  $(menuList).css("width",width);
+  $(menuList).slideDown('fast');
+  //生成背景
+  $(menuId).parent("div").before("<div class=\"menu_bg_layer\"></div>");
 		$(".menu_bg_layer").height($(document).height());
 		$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute", left: "0", top: "0" , "z-index": "0", "background-color": "#ffffff"});
 		$(".menu_bg_layer").css("opacity","0");
@@ -159,185 +159,185 @@ function showagebox(divname,inputname)
 				var minval = $("#minage").val();
 				if(minval) {
 					tt <= minval ? $("#ageerr").show() : $("#ageerr").hide();
-				}
-			}
-			$(inputdiv).parent("div").children(".yearlist").hide();
-			$(".menu_bg_layer").remove();
-		});	
-		//
-		$(".showyearbox>ul>li").hover(
-		function()
-		{
-		$(this).css("background-color","#DAECF5");
-		$(this).css("color","#ff0000");
-		},
-		function()
-		{
-		$(this).css("background-color","");
-		$(this).css("color","");
-		}
-		);
-		//
-		$(".menu_bg_layer").click(function(){
-			$(".menu_bg_layer").hide();
-			$(inputdiv).parent("div").css("position","");
-			$(inputdiv).parent("div").find(".showyearbox").hide();	
-		});
-	});
-}
-// 手机号码验证   
-var mobile = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}|17[0-9]{9}$/;
-var current_tel = "{#$company_profile.telephone#}";
-if(!mobile.test(current_tel)){
-	$("#receiveit").attr('disabled','disabled');
-    $("#receiveit").attr('checked',false);
-}
-// 手机号码验证   
-jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
-    var tel = /^((0\d{2,3}-[2-9][0-9]{6,7})|(0\d{2,3}[2-9][0-9]{6,7})|([2-9][0-9]{6,7})|(1[35847]\d{9}))$/;
-    var mobile = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}|17[0-9]{9}$/;
-    if(this.optional(element) || (mobile.test(value))){
-    	$("#receiveit").removeAttr('disabled');
-    }else{
-    	$("#receiveit").attr('disabled','disabled');
-    	$("#receiveit").attr('checked',false);
-    }
-    return this.optional(element) || (tel.test(value));
-}, "電話番号正しく入力してください");
-$("#Form1").validate({
- //debug: true,
-// onsubmit:false,
-//onfocusout :true,
-   rules:{
-   jobs_name:{
-    required: true,
-	minlength:2,
-    maxlength:30
-   },
-   amount: {
-	range:[0,9999]
-   },
-   category: "required",
-   district: "required",
-   wage: "required",
-   education: "required",
-   experience: "required",
-   contents:{
-	required: true,
-	minlength:30
-   },
-   contact:{
-   required: true
-   },
-	  telephone: {
-	   required:true,
-	   isPhoneNumber:true
-	},
-	  address: "required",
-	   {#if $verify_addjob=="1"#}
-		postcaptcha:{
-		IScaptchastr: true,
-		required: true,
-		remote:{     
-		url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",     
-		type:"post",    
-		data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}     
-		}
-	   },
-	   {#/if#}  
-	   email: {
-	   required:true,
-	   email:true
-	   }
-	},
-    messages: {
-    jobs_name: {
-    required: "職位名称入力",
-    minlength: jQuery.format("職位名称の長さ{0}文字から"),
-	maxlength: jQuery.format("職位名長さ{0}だけ")
-   },
-   amount: {
-    range: jQuery.format(" {0} から {1} までの値を入力してください")
-   },
-    category: {
-    required: jQuery.format("所属職位選択，精确な職位種別選択は募集に效果がある")
-   },
-    district: {
-    required: jQuery.format("仕事地区選択")
-   },
-   wage: {
-    required: jQuery.format("月給範囲選択")
-   },
-   education: {
-    required: jQuery.format("学歴要求選択")
-   },
-    experience: {
-    required: jQuery.format("仕事経験を選択してください")
-   },
-   contents: {
-	required: jQuery.format("職位説明入力"),
-	minlength: jQuery.format("職位描述内容不能小于{0}个字符")
-   },
-   contact: {
-    required: jQuery.format("連絡先入力")
-   },
-    telephone: {
-    required: jQuery.format("電話番号入力"),
-	isPhoneNumber: jQuery.format("電話番号正しく入力してください")
-   },
-   address: {
-    required: jQuery.format("住所を入力してください")
-   },
-   {#if $verify_addjob=="1"#}
-    postcaptcha: {
-    required: "検証コード入力",
-	remote: jQuery.format("検証コードエラー")	
-   },
-    {#/if#}
-   email: {
-    required: jQuery.format("メールアドレス入力してください"),
-	email: jQuery.format("メール正しく入力してください")
-   } 
-  },
-  errorPlacement: function(error, element) {
-    if ( element.is(":radio") )
-        error.appendTo( element.parent().next().next() );
-    else if ( element.is(":checkbox") )
-        error.appendTo ( element.next());
-    else
-        error.appendTo(element.parent().next());
-	},
-	submitHandler: function(form) {
-		window.onbeforeunload = null;
-		form.submit();
-	}
-    });
-    jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-	var str="点击取得検証コード";
-	var flag=true;
-	if (str==value)
-	{
-	flag=false;
-	}
-	return  flag || this.optional(element) ;
-	}, "検証コード入力");
-		/////验证码部分
-{#if $verify_addjob=="1"#}
-function imgcaptcha(inputID,imgdiv)
-{
-	$(inputID).focus(function(){
-		if ($(inputID).val()=="点击取得検証コード")
-		{
-		$(inputID).val("");
-		$(inputID).css("color","#333333");
-		}
-		$(inputID).parent("div").css("position","relative");
-		//设置验证码DIV
-		$(imgdiv).css({position: "absolute", left:  $(inputID).width(), "bottom": "0px" , "z-index": "10", "background-color": "#FFFFFF", "border": "1px #A3C8DC solid","display": "none","margin-left": "25px"});
-		$(imgdiv).show();
-		if ($(imgdiv).html()=='')
-		{
-		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px; height:28px\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+            }
+            }
+            $(inputdiv).parent("div").children(".yearlist").hide();
+            $(".menu_bg_layer").remove();
+            });
+            //
+            $(".showyearbox>ul>li").hover(
+            function()
+            {
+            $(this).css("background-color","#DAECF5");
+            $(this).css("color","#ff0000");
+            },
+            function()
+            {
+            $(this).css("background-color","");
+            $(this).css("color","");
+            }
+            );
+            //
+            $(".menu_bg_layer").click(function(){
+            $(".menu_bg_layer").hide();
+            $(inputdiv).parent("div").css("position","");
+            $(inputdiv).parent("div").find(".showyearbox").hide();
+            });
+            });
+            }
+            // 手机号码验证
+            var mobile = /^0[7-9]0-{4}-{4}$/;
+            var current_tel = "{#$company_profile.telephone#}";
+            if(!mobile.test(current_tel)){
+            $("#receiveit").attr('disabled','disabled');
+            $("#receiveit").attr('checked',false);
+            }
+            // 手机号码验证
+            jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
+            var tel = /^((0\d{1}-{4}-{4}))$/;
+            var mobile = /^0[7-9]0-{4}-{4}$/;
+            if(this.optional(element) || (mobile.test(value))){
+            $("#receiveit").removeAttr('disabled');
+            }else{
+            $("#receiveit").attr('disabled','disabled');
+            $("#receiveit").attr('checked',false);
+            }
+            return this.optional(element) || (tel.test(value));
+            }, "電話番号正しく入力してください");
+            $("#Form1").validate({
+            //debug: true,
+            // onsubmit:false,
+            //onfocusout :true,
+            rules:{
+            jobs_name:{
+            required: true,
+            minlength:2,
+            maxlength:30
+            },
+            amount: {
+            range:[0,9999]
+            },
+            category: "required",
+            district: "required",
+            wage: "required",
+            education: "required",
+            experience: "required",
+            contents:{
+            required: true,
+            minlength:30
+            },
+            contact:{
+            required: true
+            },
+            telephone: {
+            required:true,
+            isPhoneNumber:true
+            },
+            address: "required",
+            {#if $verify_addjob=="1"#}
+            postcaptcha:{
+            IScaptchastr: true,
+            required: true,
+            remote:{
+            url:"{#$HIGHWAY.site_dir#}include/imagecaptcha.php",
+            type:"post",
+            data:{"postcaptcha":function (){return $("#postcaptcha").val()},"act":"verify","time":function (){return new Date().getTime()}}
+            }
+            },
+            {#/if#}
+            email: {
+            required:true,
+            email:true
+            }
+            },
+            messages: {
+            jobs_name: {
+            required: "職位名称入力",
+            minlength: jQuery.format("職位名称の長さ{0}文字から"),
+            maxlength: jQuery.format("職位名長さ{0}だけ")
+            },
+            amount: {
+            range: jQuery.format(" {0} から {1} までの値を入力してください")
+            },
+            category: {
+            required: jQuery.format("所属職位選択，精确な職位種別選択は募集に效果がある")
+            },
+            district: {
+            required: jQuery.format("仕事地区選択")
+            },
+            wage: {
+            required: jQuery.format("月給範囲選択")
+            },
+            education: {
+            required: jQuery.format("学歴要求選択")
+            },
+            experience: {
+            required: jQuery.format("仕事経験を選択してください")
+            },
+            contents: {
+            required: jQuery.format("職位説明入力"),
+            minlength: jQuery.format("職位描述内容不能小于{0}个字符")
+            },
+            contact: {
+            required: jQuery.format("連絡先入力")
+            },
+            telephone: {
+            required: jQuery.format("電話番号入力"),
+            isPhoneNumber: jQuery.format("電話番号正しく入力してください")
+            },
+            address: {
+            required: jQuery.format("住所を入力してください")
+            },
+            {#if $verify_addjob=="1"#}
+            postcaptcha: {
+            required: "検証コード入力",
+            remote: jQuery.format("検証コードエラー")
+            },
+            {#/if#}
+            email: {
+            required: jQuery.format("メールアドレス入力してください"),
+            email: jQuery.format("メール正しく入力してください")
+            }
+            },
+            errorPlacement: function(error, element) {
+            if ( element.is(":radio") )
+            error.appendTo( element.parent().next().next() );
+            else if ( element.is(":checkbox") )
+            error.appendTo ( element.next());
+            else
+            error.appendTo(element.parent().next());
+            },
+            submitHandler: function(form) {
+            window.onbeforeunload = null;
+            form.submit();
+            }
+            });
+            jQuery.validator.addMethod("IScaptchastr", function(value, element) {
+            var str="点击取得検証コード";
+            var flag=true;
+            if (str==value)
+            {
+            flag=false;
+            }
+            return  flag || this.optional(element) ;
+            }, "検証コード入力");
+            /////验证码部分
+            {#if $verify_addjob=="1"#}
+            function imgcaptcha(inputID,imgdiv)
+            {
+            $(inputID).focus(function(){
+            if ($(inputID).val()=="クリックして検証コード取得")
+            {
+            $(inputID).val("");
+            $(inputID).css("color","#333333");
+            }
+            $(inputID).parent("div").css("position","relative");
+            //设置验证码DIV
+            $(imgdiv).css({position: "absolute", left:  $(inputID).width(), "bottom": "0px" , "z-index": "10", "background-color": "#FFFFFF", "border": "1px #A3C8DC solid","display": "none","margin-left": "25px"});
+            $(imgdiv).show();
+            if ($(imgdiv).html()=='')
+            {
+            $(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px; height:28px\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -364,7 +364,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">現在の位置：<のhref = “{#$HIGHWAY.site_dir#}”>首页</a> > <a href="{#$userindexurl#}">会員センター</a> >ポストを追加 </div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> >ポストを追加 </div>
 <div class="usermain">
   <div class="leftmenu link_bk">
   {#include file="member_company/left.htm"#}
@@ -375,17 +375,17 @@ imgcaptcha("#postcaptcha","#imgdiv");
 	    <div class="titleH1">
 	      <div class="h1-title">仕事掲載</div>
         </div>
-	    <div class="titleH2"><span>职位信息</span></div>
+	    <div class="titleH2"><span>職位情報</span></div>
 		<form id="Form1" name="Form1" method="post" action="?act=addjobs_save" >
 		<input name="addrand" type="hidden"  id="addrand" value="{#$addrand#}" />
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
-			<td width="125" align="right"><span class="nec">职位名称</span>：</td>
+			<td width="125" align="right"><span class="nec">職位名称</span>：</td>
 			<td width="230"><input name="jobs_name" type="text" class="input_text_200" id="jobs_name" maxlength="80" value=""/></td>
 			<td></td>
 		  </tr>
 		  <tr>
-			<td align="right"><span class="nec">职位性质</span>：</td>
+			<td align="right"><span class="nec">職位性質</span>：</td>
 			<td colspan="2">
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="1" />
@@ -397,7 +397,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			  </div>		    </td>
 		  </tr>
 		  <tr class="jobmain">
-			<td align="right"><span class="nec">职位类别</span>：</td>
+			<td align="right"><span class="nec">職位種別</span>：</td>
 			<td id="jobsSort" style="position:relative;">
             	<div id="jobText" class="input_text_200_bg choose_cate ucc-default">選択してください</div>	
 				<!-- 职位类别弹出框 -->
@@ -413,7 +413,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 													<td class="aui_main">
 														<div class="aui_content" style="padding: 0px;">
 															<div class="LocalDataMultiC">
-																<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span class="selector-close">X</span><div class="clear"></div></div>
+																<div class="selector-header"><span class="selector-title">職位選択</span><div></div><span class="selector-close">X</span><div class="clear"></div></div>
 
 																<div class="data-row-list data-row-main" id="job_list">
 																	<!-- 列表内容 -->
@@ -439,12 +439,12 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td>&nbsp;</td>
 		  </tr>
 		   <tr>
-			<td align="right"><span class="nec">招聘人数</span>：</td>
+			<td align="right"><span class="nec">募集人数</span>：</td>
 			<td><input name="amount" type="text" class="input_text_200" id="amount" maxlength="4" value="5"/></td>
-			<td><div class="righttip">0表示若干!</div></td>
+			<td><div class="righttip">0は不定!</div></td>
 		  </tr>
 		   <tr class="jobmain">
-			<td align="right"><span class="nec">工作地区</span>：</td>
+			<td align="right"><span class="nec">仕事地区</span>：</td>
 			<td id="jobsCity" style="position:relative;">
               <div id="cityText" class="input_text_200_bg choose_district ucc-default">選択してください</div>	
 				<!-- 工作地区弹出框 -->
@@ -460,7 +460,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 													<td class="aui_main">
 														<div class="aui_content" style="padding: 0px;">
 															<div class="LocalDataMultiC" style="width:623px;">
-																<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span class="selector-close">X</span><div class="clear"></div></div>
+																<div class="selector-header"><span class="selector-title">地区選択</span><div></div><span class="selector-close">X</span><div class="clear"></div></div>
 
 																<div class="data-row-list data-row-main" id="city_list">
 																	<!-- 列表内容 -->
@@ -485,7 +485,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr>
-			<td align="right"><span class="nec">薪资待遇</span>：</td>
+			<td align="right"><span class="nec">給料</span>：</td>
 			<td>
 				<div style="position:relateve;">
              	 	<div id="wage_menu" class="input_text_200_bg">選択してください</div>	
@@ -522,7 +522,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 													<td class="aui_main">
 														<div class="aui_content">
 															<div class="items jquery-localdata">
-																<div class="selector-header"><span class="selector-title">职位亮点选择</span><div></div><span id="tag-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+																<div class="selector-header"><span class="selector-title">職位特徴選択</span><div></div><span id="tag-selector-save" class="selector-save">確定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
 																<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">5</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-tag" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="item-table">
@@ -551,10 +551,10 @@ imgcaptcha("#postcaptcha","#imgdiv");
           </td>
 		  </tr>
 	    </table>
-		<div class="titleH2"><span>职位要求</span></div>
+		<div class="titleH2"><span>職位要求</span></div>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
-			<td width="125" align="right"><span class="nec">性别要求</span>：</td>
+			<td width="125" align="right"><span class="nec">性別要求</span>：</td>
 			<td colspan="2">
 			<div id="sex_radio">
 			<input name="sex" id="sex" type="hidden" value="3" />
@@ -566,7 +566,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			  </div>		    </td>
 		  </tr>
 		  <tr>
-			<td align="right"><span class="nec">学历要求</span>：</td>
+			<td align="right"><span class="nec">学歴要求</span>：</td>
 			<td width="230">
 			<div style="position:relateve;">
              	 	<div id="education_menu" class="input_text_200_bg">選択してください</div>	
@@ -584,7 +584,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		<td><label> 及以上</label></td>
 		  </tr>
 		  <tr>
-			<td align="right"><span class="nec">工作经验</span>：</td>
+			<td align="right"><span class="nec">仕事経験</span>：</td>
 			<td>
 				<div style="position:relateve;">
              	 	<div id="experience_menu" class="input_text_200_bg">選択してください</div>	
@@ -625,10 +625,10 @@ imgcaptcha("#postcaptcha","#imgdiv");
 				</td>
 		  </tr>
 	    </table>
-		<div class="titleH2"><span>职位描述</span></div>
+		<div class="titleH2"><span>職位説明</span></div>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
-			<td width="125" align="right" valign="top"><span class="nec">职位描述</span>：</td>
+			<td width="125" align="right" valign="top"><span class="nec">職位説明</span>：</td>
 			<td width="500">
 			<div style="display:none;" id="template">
 				<span class="tdTemplateTitle">&nbsp;</span><font style="color:#FF6600">（自動的にテンプレートをクリックした後、自動的にジョブを記入する）</font>
@@ -650,22 +650,22 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			<td></td>
 		  </tr>
 	    </table>
-	<div class="titleH2"><span>联系方式</span></div>
+	<div class="titleH2"><span>連絡方式</span></div>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
-			<td width="125" align="right"><span class="nec">联系人</span>：</td>
+			<td width="125" align="right"><span class="nec">連絡先</span>：</td>
 			<td width="230"><input name="contact" type="text" class="input_text_200" id="contact" maxlength="20"   value="{#$company_profile.contact#}"/></td>
 			<td><label><input name="contact_show" type="checkbox" value="1" checked="checked" />公共の連絡先に開く</label></td>
 		  </tr>
 		  <tr>
-			<td align="right"><span class="nec">联系电话</span>：</td>
+			<td align="right"><span class="nec">電話番号</span>：</td>
 			<td>
 			
             <input name="telephone" oninput="OnInput (event,'#telephone_two')" onpropertychange="OnPropChanged (event,'#telephone_two')" type="text" class="input_text_200" id="telephone" maxlength="35"   value="{#$company_profile.telephone#}"/></td>
 			<td><label><input name="telephone_show" type="checkbox" value="1" checked="checked" />連絡電話を公開する</label></td>
 		  </tr>
 		  <tr>
-			<td align="right"><span class="nec">联系邮箱</span>：</td>
+			<td align="right"><span class="nec">メール</span>：</td>
 			<td>
 			
              <input name="email" oninput="OnInput (event,'#email_two')" onpropertychange="OnPropChanged (event,'#email_two')" type="text" class="input_text_200" id="email" maxlength="80" value="{#$company_profile.email#}"/>            	</td>
@@ -688,20 +688,20 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			<tbody>
 				<tr>
-					<td width="125" align="right"><span class="nec">联系地址</span>：</td>
+					<td width="125" align="right"><span class="nec">アドレス</span>：</td>
 					<td ><input name="address" id="address" type="text" class="input_text_500" maxlength="100" value="{#$company_profile.address#}"/></td>
 				 </tr>
 			</tbody>
 		</table>
-		<div class="titleH2"><span style="background:none;">高级设置</span></div>
+		<div class="titleH2"><span style="background:none;">高級設定</span></div>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			<tr>
-				<td width="125" align="right"><span class="">简历接收邮箱</span>：</td>
+				<td width="125" align="right"><span class="">受信メール</span>：</td>
 				<td width="230"><input name="email_two" id="email_two" type="text" class="input_text_200" maxlength="80" value="{#$company_profile.email#}" disabled="disabled"/></td>
 				<td><label><input name="notify" type="checkbox" value="1" checked="checked"/>受信</label></td>
 		  	</tr>
 			<tr>
-				<td width="125" align="right"><span class="">简历短信通知</span>：</td>
+				<td width="125" align="right"><span class="">ショートメッセージ</span>：</td>
 				<td width="230"><input name="telephone_two" id="telephone_two" type="text" class="input_text_200" maxlength="80" value="{#$company_profile.telephone#}" disabled="disabled"/></td>
 				<td><label><input name="notify_mobile" type="checkbox" value="1" id="receiveit"/>受信</label></td>
 		  	</tr>
@@ -709,18 +709,18 @@ imgcaptcha("#postcaptcha","#imgdiv");
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  {#if $verify_addjob=="1"#}
 		  <tr>
-			<td align="right"><span class="nec">验证码</span>：</td>
+			<td align="right"><span class="nec">検証コード</span>：</td>
 			<td>
 				<div>
 				<div id="imgdiv"></div>
-				<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
+				<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="検証コード取得" style="color:#999999"/>
 			</div>
 			</td>
 		  </tr>
 		  {#/if#}
 		   <tr>
 			<td width="125" align="right"> </td>
-			<td ><input type=“submit” name=“submitsave” id=“submitsave” value=“公表”  class=“but180lan” onclick=“$(window).unbind(‘beforeunload’);”/>
+			<td ><input type="submit" name="submitsave" id="submitsave" value="公表"  class="but180lan" onclick="$(window).unbind(‘beforeunload’);"/>
 		     </td>
 		  </tr>
 	    </table>
@@ -750,13 +750,13 @@ $(document).ready(function()
 		{
 			{#if $HIGHWAY.operation_mode=="2"#}
 			dialog({
-			  title: '系统提示',
+			  title: 'システム提示',
 			  content: "ポイント足りない，振込してください！",
 			  width:'300px'
 			}).showModal();
 			{#else#}
 			dialog({
-			  title: '系统提示',
+			  title: 'システム提示',
 			  content: "ポイント足りない，振込後で！",
 			  width:'300px'
 			}).showModal();

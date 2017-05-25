@@ -37,7 +37,7 @@ function imgcaptcha(inputID,imgdiv)
 		$(imgdiv).show();
 		if ($(imgdiv).html()=='')
 		{
-		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		$(imgdiv).append("<img src=\"{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"検証コード見づらい？クリックして更新する\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -64,7 +64,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 {#include file="header.htm"#}
   <!-- 当前位置 -->
   <div class="page_location link_bk">
-    当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>>&nbsp;友情链接申请
+    海威人材：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>>&nbsp;リンク申込
   </div>
   <!-- 主体内容 -->
   <div class="container link_bk">
@@ -109,14 +109,14 @@ imgcaptcha("#postcaptcha","#imgdiv");
               <div class="input_box">
                 <div>
                 <div id="imgdiv"></div>
-                <input  class="input_text_300"    name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
+                <input  class="input_text_300"    name="postcaptcha" id="postcaptcha" type="text" value="クリックして検証コードを取得する" style="color:#999999"/>
                </div>
               </div>
               <div class="clear"></div>
             </li>
              {#/if#}
             <li>
-              <div class="w83" align="right">申請要領：</div>
+              <div class="w83" align="right">申込要領：</div>
               <div class="input_box">
               	<textarea name="app_notes" class="input_textarea_400"></textarea>
               </div>
@@ -124,7 +124,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
             </li>
             <li>
               <div class="w83">&nbsp;</div>
-              <div class="input_box"><input type="submit" name="Submit" id="Submit" value=“提出” class="but130lan" /></div>
+              <div class="input_box"><input type="submit" name="Submit" id="Submit" value="提出" class="but130lan" /></div>
               <div class="clear"></div>
             </li>
             <div class="clear"></div>

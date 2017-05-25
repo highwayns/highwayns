@@ -1,10 +1,10 @@
 ﻿(function($) {   
-$.fn.QSdialog=function(options){
+$.fn.HWdialog=function(options){
 	var defaults = {
     DialogAddObj:"body",	
 	DialogAddType:"append",	
 	DialogClosed:"关闭",
-	DialogTitle:"系统提示",
+	DialogTitle:"システム提示",
 	DialogWidth:"420",
 	DialogHeight:"auto",
 	DialogCssName:"",

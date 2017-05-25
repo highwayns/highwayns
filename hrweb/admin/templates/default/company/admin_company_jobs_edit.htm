@@ -15,7 +15,7 @@ $(document).ready(function()
 	//设置职位性质中文字段
 	$("input[name='nature']").click(function(){$("#nature_cn").val($(this).attr("title"))	});
 	jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
-	    var tel = /^((0\d{2,3}-[2-9][0-9]{6,7})|(0\d{2,3}[2-9][0-9]{6,7})|([2-9][0-9]{6,7})|(1[35847]\d{9}))$/;
+	    var tel = /^((0\d{1}-{4}-{4}))$/;
 	    return this.optional(element) || (tel.test(value));
 	}, "電話番号正しく入力してください");
 	$("#Form1").validate({
