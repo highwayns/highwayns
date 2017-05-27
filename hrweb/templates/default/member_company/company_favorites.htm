@@ -62,18 +62,18 @@
 		<form id="form1" name="form1" method="post" action="?act=favorites_del">
 		<div class="company-data-list">
 			<div class="c-data-top favorites clearfix">
-				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” /></div>
+				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択" /></div>
 				<div class="item f-left top-item1">名前</div>
 				<div class="item f-left top-item2">基本情報</div>
 				<div class="item f-left top-item3">予想位置</div>
 				<div class="item f-left top-item4">
 					<div class="data-filter span4">
-						<span class="filter-span">{#if $smarty.get.settr_cn==‘’#}保存時間{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class=“filter-icon”></i></span>
+						<span class="filter-span">{#if $smarty.get.settr_cn==‘’#}保存時間{#else#}{#$smarty.get.settr_cn#}{#/if#}<i class=“filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href=“{#”settr:,settr_cn:全部”|HIGHWAY_parse_url#}”>全部</a></li>
+							<li><a href=“{#"settr:,settr_cn:全部"|HIGHWAY_parse_url#}">全部</a></li>
 							<li><a href="{#"settr:3,settr_cn:三日以内"|highway_parse_url#}">三天内</a></li>
-							<li><a href=“{#”settr:7,settr_cn:一週内”|HIGHWAY_parse_url#}”>一周内</a></li>
-							<li><a href=“{#”settr:30,settr_cn:一月内”|HIGHWAY_parse_url#}”>一月内</a></li>
+							<li><a href=“{#"settr:7,settr_cn:一週内"|HIGHWAY_parse_url#}">一周内</a></li>
+							<li><a href=“{#"settr:30,settr_cn:一月内"|HIGHWAY_parse_url#}">一月内</a></li>
 						</ul>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title=“全部選択/逆選択” /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title=“全部選択/逆選択" /></div>
 					<div class="data-last-btn f-left">
 						<input type="button" name="delete" value="削除"   class="btn-65-30blue ctrl-del" act="?act=favorites_del"/>
 					</div>

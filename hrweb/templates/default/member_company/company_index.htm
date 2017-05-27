@@ -88,9 +88,9 @@
 	<!-- 引导 -->
 	<div id="mask"></div>
 	<div id="searchTip">
-		<div class="stepA"><a>下一步</a><span title=“閉じる”>关闭</span></div>
-	    <div class="stepB"><a class="p">上一步</a><a>下一步</a><span title=“閉じる”>关闭</span></div>
-	    <div class="stepC"><a class="p">上一步</a><a>下一步</a><span title=“閉じる”>关闭</span></div>
+		<div class="stepA"><a>下一步</a><span title=“閉じる">关闭</span></div>
+	    <div class="stepB"><a class="p">上一步</a><a>下一步</a><span title=“閉じる">关闭</span></div>
+	    <div class="stepC"><a class="p">上一步</a><a>下一步</a><span title=“閉じる">关闭</span></div>
 	</div>
 	<!-- 引导 end-->
 	<div class="usermain">
@@ -129,31 +129,31 @@
 								<div class="c-name-edit-text f-left"><input type="text" /></div>
 								<a href="company_info.php?act=company_profile" class="name-edit f-left">編集</a>
 							</div>
-							<div class="last-login">{#if $loginlog#}最終ログイン：{#$loginlog.log_addtime | DaTE_FORMaT： “％Y-％M-％D％h：％M” #} {#の他の#}最初ログイン： {#$user.reg_time|date_format:”%Y-%m-%d %h:%M”#}{#/if#} <a href=“company_user.php?act=login_log” class=“underline”>[登录日志]</a></div>
+							<div class="last-login">{#if $loginlog#}最終ログイン：{#$loginlog.log_addtime | DaTE_FORMaT： “％Y-％M-％D％h：％M" #} {#の他の#}最初ログイン： {#$user.reg_time|date_format:"%Y-%m-%d %h:%M"#}{#/if#} <a href=“company_user.php?act=login_log" class=“underline">[登录日志]</a></div>
 							<div class="auth-wrap clearfix">
 								<div class="i-auth-item f-left">
-									<a href="company_info.php?act=company_auth" class="auth-block com {#if $company.audit=="1"#}done{#/if#}">エンタープライズ{#if $company.audit==“1”#}もう{#else#}未{#/if#}認証</a>
+									<a href="company_info.php?act=company_auth" class="auth-block com {#if $company.audit=="1"#}done{#/if#}">エンタープライズ{#if $company.audit==“1"#}もう{#else#}未{#/if#}認証</a>
 									{#if $company.audit!='1'#}
-									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>エンタープライズ証明した後、よりリアル、多くの求職者の信頼を募集する企業を可能にするために、企業イメージやブランドを高めることができます。<a href=“company_info.php?act=company_auth” class=“underline”>立即上传营业执照</a></div>
+									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>エンタープライズ証明した後、よりリアル、多くの求職者の信頼を募集する企業を可能にするために、企業イメージやブランドを高めることができます。<a href=“company_info.php?act=company_auth" class=“underline">立即上传营业执照</a></div>
 									{#/if#}
 								</div>
 								{#if $HIGHWAY.weixin_scan_bind=='1' && $HIGHWAY.weixin_apiopen=='1'#}
 								<div class="i-auth-item f-left">
 									<a href="company_user.php?act=authenticate" class="auth-block weixin {#if $user.weixin_openid#}done{#/if#}">マイクロチャネル{#if $user.weixin_openid#}済み{#else#}未{#/if#}認証</a>
 									{#if !$user.weixin_openid#}
-									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>マイクロチャネルの後の認証は、任意の時間位置での最新の動向について学ぶ募集の効率を向上させることができます。<a href=“company_user.php?act=authenticate” class=“underline”>立即认证</a></div>
+									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>マイクロチャネルの後の認証は、任意の時間位置での最新の動向について学ぶ募集の効率を向上させることができます。<a href=“company_user.php?act=authenticate" class=“underline">立即认证</a></div>
 									{#/if#}
 								</div>
 								{#/if#}
 								<div class="i-auth-item f-left">
-									<a href="company_user.php?act=authenticate" class="auth-block mail {#if $user.email_audit=="1"#}done{#/if#}">メールボックス{{#if $user.email_audit==“1”#}もう{#else#}未{#/if#}認証</a>
+									<a href="company_user.php?act=authenticate" class="auth-block mail {#if $user.email_audit=="1"#}done{#/if#}">メールボックス{{#if $user.email_audit==“1"#}もう{#else#}未{#/if#}認証</a>
 									{#if $user.email_audit!="1"#}
 									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>後にメールの認証は、メールによりアカウントのパスワードを取得することができ、および履歴書を受信します。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
 									{#/if#}
 								</div>
 								{#if $sms.open=="1"#}
 								<div class="i-auth-item f-left">
-									<a href="company_user.php?act=authenticate" class="auth-block phone {#if $user.mobile_audit=="1"#}done{#/if#}">モバイル{#if $user.mobile_audit == “1” #} {#の他の#}いない{#/if#}認証</a>
+									<a href="company_user.php?act=authenticate" class="auth-block phone {#if $user.mobile_audit=="1"#}done{#/if#}">モバイル{#if $user.mobile_audit == “1" #} {#の他の#}いない{#/if#}認証</a>
 									{#if $user.mobile_audit!="1"#}
 									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>電話認証した後、個人面接の招待状にテキストメッセージを送信、アカウントのパスワードを取得するために、いつでも電話することができます。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
 									{#/if#}
@@ -193,7 +193,7 @@
 			    				<span class="s_a">審査中の仕事：</span>{#$total_noaudit_jobs#}
 			    			</a>
 						</div>
-		    				<div class="but"><input name=“” type=“button” value=“仕事掲載” class=“but180lan” onclick=“javascript:location.href=‘company_jobs.php?act=addjobs’”></div>
+		    				<div class="but"><input name=“" type=“button" value=“仕事掲載" class=“but180lan" onclick=“javascript:location.href=‘company_jobs.php?act=addjobs’"></div>
 		    			</div>
 		    			<div class="list" style="width:300px">
 		  				<div class="t">履歴書管理</div>
@@ -205,7 +205,7 @@
 			    				<span class="s_a">ダウンロードした履歴書：</span>{#$total_down_resume#}
 			    			</a>
 						</div>
-		    				<div class="but"><input name=“” type=“button” value=“履歴書管理” class=“but180lan” onclick=“javascript:location.href=‘company_recruitment.php?act=apply_jobs’”></div>
+		    				<div class="but"><input name=“" type=“button" value=“履歴書管理" class=“but180lan" onclick=“javascript:location.href=‘company_recruitment.php?act=apply_jobs’"></div>
 		    			</div>
 					<div class="list last">
 		  				<div class="t">履歴書検索</div>
@@ -214,7 +214,7 @@
 			    				<span class="s_a">ブックマークした履歴書：</span>{#$total_favorites_resume#}
 			    			</a>
 						</div>
-		    				<div class="but"><input name="" type="button" value=“履歴書検索” class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"></div>
+		    				<div class="but"><input name="" type="button" value=“履歴書検索" class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"></div>
 		    			</div>
 		    			<div class="clear"></div>
 				</div>

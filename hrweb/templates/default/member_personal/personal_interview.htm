@@ -57,26 +57,26 @@
 					<div class="titleH1"><div class="h1-title">面试邀请</div></div>
 					<div class="navs">
 						<a href="?act={#$act#}&look=&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}" {#if $smarty.get.look==""#} class="se"{#/if#}>すべて<span>({#$count.2#})</span></a>
-						<a href="?act={#$act#}&look=1&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}" {#if $smarty.get.look=="1"#} class="se"{#/if#}>未レビュー<<span class=“h”>({#$count.0#})</span></a>
+						<a href="?act={#$act#}&look=1&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}" {#if $smarty.get.look=="1"#} class="se"{#/if#}>未レビュー<<span class=“h">({#$count.0#})</span></a>
 						<a href="?act={#$act#}&look=2&jobs_type={#$smarty.get.jobs_type#}&jobs_type_cn={#$smarty.get.jobs_type_cn#}" {#if $smarty.get.look=="2"#} class="se"{#/if#}>見た<span>({#$count.1#})</span></a>
 					</div>
 				</div>
 				<form id="form1" name="form1" method="post" action="?act=set_interview&jobs_type={#$smarty.get.jobs_type#}">
 				<div class="personal-data-list">
 					<div class="c-data-top interview36 clearfix">
-						<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” class="checkbox" /></div>
+						<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択" class="checkbox" /></div>
 						<div class="item f-left top-item1">
 							<div class="data-filter span4">
 								<span class="filter-span">{#if $smarty.get.jobs_type_cn#}{#$smarty.get.jobs_type_cn#}{#else#}普通仕事{#/if#}<i class="filter-icon"></i></span>
 								<ul class="filter-down">
-									<li><a href="{#"jobs_type:,jobs_type_cn:普通職位”|highway_parse_url#}">普通职位</a></li>
+									<li><a href="{#"jobs_type:,jobs_type_cn:普通職位"|highway_parse_url#}">普通职位</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="item f-left top-item2">会社名</div>
 						<div class="item f-left top-item3">
 							<div class="data-filter span4">
-								<span class="filter-span">{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}履歴書招待{#/if#}<i class=“filter-icon”></i></span>
+								<span class="filter-span">{#if $smarty.get.resume_cn#}{#$smarty.get.resume_cn#}{#else#}履歴書招待{#/if#}<i class=“filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="{#"resume_id:,resume_cn:"|highway_parse_url#}">全部简历</a></li>
 									{#foreach from=$resume_list item=list#}
@@ -115,7 +115,7 @@
 						{#/foreach#}
 						<div class="c-data-row last">
 							<div class="c-data-content apply_jobs clearfix">
-								<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” class="checkbox" /></div>
+								<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択" class="checkbox" /></div>
 								<div class="data-last-btn f-left">
 									<input type="submit" value="閲覧済みに設定" class="btn-75-30blue" />
 									<input type="button" value="削除" class="btn-65-30blue ctrl-del" act="?act=interview_del&jobs_type={#$smarty.get.jobs_type#}"/>

@@ -47,7 +47,7 @@ $(document).ready(function(){
 			var user_points={#$user_points#};
 			if((/^(\+|-)?\d+$/.test($(this).val())) && $(this).val()>={#$cat_minday#} && $(this).val()>0 && days_points>0)
 			{
-			$("#count").html("<br />プロモーション日数<strong style=\"color:#009900\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>日、控除する必要があります：&nbsp;&nbsp;<strong style=\"color: #009900;\">"+$(this).val()*days_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，あなだは現在&nbsp;&nbsp;<strong style=\”color: #FF6600;\”>"+user_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}。<br /><br />");   
+			$("#count").html("<br />プロモーション日数<strong style=\"color:#009900\">&nbsp;&nbsp;"+$(this).val()+"&nbsp;&nbsp;</strong>日、控除する必要があります：&nbsp;&nbsp;<strong style=\"color: #009900;\">"+$(this).val()*days_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}，あなだは現在&nbsp;&nbsp;<strong style=\"color: #FF6600;\">"+user_points+"</strong>&nbsp;&nbsp;{#$points_quantifier#}{#$points_byname#}。<br /><br />");   
 			}
 			else if($(this).val()<{#$cat_minday#}){
 				$("#count").html("お勧め日数は＞<strong style=\"color: #FF6600;\">{#$cat_minday#}</strong>日");

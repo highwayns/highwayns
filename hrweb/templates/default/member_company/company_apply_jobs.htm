@@ -84,7 +84,7 @@ $(document).ready(function(){
 			<div class="titleH1"><div class="h1-title">收到的简历</div></div>
 			<div class="navs link_bk">
 				<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>すべての履歴書 <span class="check">({#$count#})</span></a>
-				<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>未レビュー<span class=“no_check”>({#$count1#})</span></a>
+				<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>未レビュー<span class=“no_check">({#$count1#})</span></a>
 				<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>閲覧済み<span class="check">({#$count2#})</span></a>
 				<div class="clear"></div>
 			</div>
@@ -92,16 +92,16 @@ $(document).ready(function(){
 		<form id="form1" name="form1" method="post" action="?act=set_apply_jobs">
 		<div class="company-data-list">
 			<div class="c-data-top apply_jobs clearfix">
-				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択” /></div>
+				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択" /></div>
 				<div class="item f-left top-item1">
 					<div class="data-filter span1">
 						<span class="filter-span">{#if　$smarty.get.state_cn == ‘’ #} {#}の#elseタグ{#$smarty.get.state_cn#} {#/if#} <i class="filter-icon"></i></span>
 						<ul class="filter-down">
 							<li><a href="{#"state:,state_cn:全部"|highway_parse_url#}">全部</a></li>
-							<li><a href="{#"state:1,state_cn:適切””highway_parse_url#}">合适</a></li>
-							<li><a href="{#"state:2,state_cn:不適切”|highway_parse_url#}">不合适</a></li>
-							<li><a href="{#"state:3,state_cn:保留”|highway_parse_url#}">待定</a></li>
-							<li><a href="{#"state:4,state_cn:つながらない”|highway_parse_url#}">未接通</a></li>
+							<li><a href="{#"state:1,state_cn:適切""highway_parse_url#}">合适</a></li>
+							<li><a href="{#"state:2,state_cn:不適切"|highway_parse_url#}">不合适</a></li>
+							<li><a href="{#"state:3,state_cn:保留"|highway_parse_url#}">待定</a></li>
+							<li><a href="{#"state:4,state_cn:つながらない"|highway_parse_url#}">未接通</a></li>
 						</ul>
 					</div>
 				</div>
@@ -111,7 +111,7 @@ $(document).ready(function(){
 					<div class="data-filter span2">
 						<span class="filter-span">{#if $smarty.get.jobname==‘’#}仕事応募{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href=“{#”jobsid:,jobname:全部职位”|HIGHWAY_parse_url#}”>全部职位</a></li>
+							<li><a href=“{#"jobsid:,jobname:全部职位"|HIGHWAY_parse_url#}">全部职位</a></li>
 							{#foreach from=$jobs item=jos_li#}
 							<li><a href="{#"jobsid:$jos_li.id,jobname:$jos_li.jobs_name"|highway_parse_url#}">{#$jos_li.jobs_name#}</a></li>
 							{#/foreach#}
@@ -194,7 +194,7 @@ $(document).ready(function(){
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title=“全部選択/逆選択” /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title=“全部選択/逆選択" /></div>
 					<div class="data-last-btn f-left">
 						<input type="submit" name="set" value="閲覧済みに設定" class="btn-80-30blue"/>
 						<input type="button" name="delete" value="削除" class="btn-65-30blue ctrl-del" act="?act=apply_jobs_del"/>

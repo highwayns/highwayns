@@ -111,7 +111,7 @@ $(document).ready(function()
 						<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="検証コード" />
 					</div>
 					<div class="reg-form-other verification f-left" style="padding-left: 20px;">
-						<div class="ver-box f-left"><img src=“{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}” id=“getcode” align=“absmiddle”  style=“cursor:pointer;width: 148px;height: 38px;” title=“ 置き換えるために、このコードをクリックを参照しないでください？”border=“0” /></div>
+						<div class="ver-box f-left"><img src=“{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id=“getcode" align=“absmiddle"  style=“cursor:pointer;width: 148px;height: 38px;" title=“ 置き換えるために、このコードをクリックを参照しないでください？"border=“0" /></div>
 					</div>
 					
 				</div>
@@ -127,15 +127,15 @@ $(document).ready(function()
 		</form>
 		<div class="common-status" id="buding" style="display: none;padding:120px 0;">
 			<div class="status-main">
-			<span><IMG SRC = “{#$HIGHWAY.site_template#}イメージ/アイコンerror.png” aLT = “失敗” /></span>找回密码失败
+			<span><IMG SRC = “{#$HIGHWAY.site_template#}イメージ/アイコンerror.png" aLT = “失敗" /></span>找回密码失败
 			</div>
 			<p>お使いのアカウントは、電話または電子メールバインドされていない、ウェブマスターにお問い合わせいただくか、{#$HIGHWAY.site_name#}顧客サービスの電話{#$HIGHWAY.top_tel#}ダイヤルしてください！</P>
 		</div>
 		<div class="common-status" id="buding_wx" style="display: none;padding:50px 0;">
 			<div class="status-main">
-				<span><IMG SRC = “{#$HIGHWAY.site_template#}イメージ/アイコンerror.png” aLT = “失敗” /></span>您的账号暂不支持找回密码
+				<span><IMG SRC = “{#$HIGHWAY.site_template#}イメージ/アイコンerror.png" aLT = “失敗" /></span>您的账号暂不支持找回密码
 			</div>
-			<p>あなたのアカウントはwechatとセットし、直接wechatにログインできます <a href=“{#”hW_login”|HIGHWAY_url#}”>扫码登录>></a></p>
+			<p>あなたのアカウントはwechatとセットし、直接wechatにログインできます <a href="{#"HW_login"|HIGHWAY_url#}">扫码登录>></a></p>
 		</div>
 	</div>
 	{#include file="user/footer.htm"#}

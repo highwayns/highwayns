@@ -87,10 +87,10 @@ $(document).ready(function()
 		<img src="{#$thumb_dir#}{#$edit_article.Small_img#}" border="0" />
 		 </a>
 		 <a href="?act=del_img&id={#$edit_article.id#}&img={#$edit_article.Small_img#}&{#$urltoken#}" style="color: #006600">
-		 [删除重新上传]
+		 [削除して再度アップロード]
 		 </a>
 		 {#else#}
-		<input type="file" name="Small_img"    onKeyDown="alert('右側の“閲覧”クリックして、パソコンの写真を選択してください！');return false"   style="height:21px; width:210px; border:1px #999999 solid" />
+		<input type="file" name="Small_img"    onKeyDown="alert('右側の“閲覧"クリックして、パソコンの写真を選択してください！');return false"   style="height:21px; width:210px; border:1px #999999 solid" />
 		{#/if#}
 		</td>
       </tr>

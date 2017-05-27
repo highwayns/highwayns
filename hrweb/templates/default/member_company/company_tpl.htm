@@ -65,7 +65,7 @@ $(document).ready(function()
 				<div class="tpl-img f-left"><img src="{#$HIGHWAY.site_dir#}templates/tpl_company/{#$li.tpl_dir#}/thumbnail.jpg" alt="{#$li.tpl_name#}" width="298" height="148" /></div>
 				<div class="tpl-ctrl f-left">
 					<div class="tpl-text">テンプレート名：{#$li.tpl_name#} <a href="{#$HIGHWAY.site_dir#}company/company-show.php?id={#$com_info.id#}&style={#$li.tpl_dir#}" class="underline" target="_blank">[预览]</a></div>
-					{#if $HIGHWAY.operation_mode=="1"#}<div class="tpl-text">テンプレート価格：{#if $li.tpl_val==“0”#}無料{#else#}<span>{#$li.tpl_val#}</span> {#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}{#/if#}</div>{#/if#}
+					{#if $HIGHWAY.operation_mode=="1"#}<div class="tpl-text">テンプレート価格：{#if $li.tpl_val==“0"#}無料{#else#}<span>{#$li.tpl_val#}</span> {#$HIGHWAY.points_quantifier#}{#$HIGHWAY.points_byname#}{#/if#}</div>{#/if#}
 					<div class="use-ctrl"><input name="choose_tpl_btn" data="{#$li.tpl_dir#}" type="button" value="{#if $mytpl==$li.tpl_dir#}使用中...{#else#}テンプレート使用{#/if#}" class="{#if $mytpl==$li.tpl_dir#}but100cheng{#else#}but100lan{#/if#}" /></div>
 				</div>
 			</div>
