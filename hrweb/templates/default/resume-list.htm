@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#if $smarty.get.jobcategory#}{#”hW_jobs,jobcategory:”|cat:$smarty.get.jobcategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#”hW_trade,trade:”|cat:$smarty.get.trade|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#”hW_district,”|cat:$smarty.get.citycategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#”hW_experience,”|cat:$smarty.get.experience|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#”hW_resumetag,”|cat:$smarty.get.resumetag|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.education#}{#”hW_education,”|cat:$smarty.get.education|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.sex==“1”#}男 - {#/if#}{#if $smarty.get.sex==“2”#}女 - {#/if#}{#if $smarty.get.photo==“1”#}写真あり - {#/if#}{#if $smarty.get.photo==“0”#}写真なし - {#/if#}{#if $smarty.get.talent==“1”#}普通履歴書 - {#/if#}{#if $smarty.get.talent==“2”#}高級履歴書- {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}日内 - {#/if#}履歴書リスト  - {#$HIGHWAY.site_name#}</title>
+<title>{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"HW_resumetag,"|cat:$smarty.get.resumetag|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.sex==“1"#}男 - {#/if#}{#if $smarty.get.sex==“2"#}女 - {#/if#}{#if $smarty.get.photo==“1"#}写真あり - {#/if#}{#if $smarty.get.photo==“0"#}写真なし - {#/if#}{#if $smarty.get.talent==“1"#}普通履歴書 - {#/if#}{#if $smarty.get.talent==“2"#}高級履歴書- {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}日内 - {#/if#}履歴書リスト  - {#$HIGHWAY.site_name#}</title>
 <meta name="description" content="{#$HIGHWAY.site_name#}人才情報,人才履歴書">
 <meta name="keywords" content="{#$HIGHWAY.site_name#}人才情報，高級人才，求職情報，お勧め人才">
 <meta name="author" content="海威人材" />
@@ -101,7 +101,7 @@
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
 				<div class="type-input-box f-left" id="hidden_input_box">
-					<div class="key">{#$Smarty.get.key | default:： “キーワードを入力してください” #} </div>
+					<div class="key">{#$Smarty.get.key | default:： “キーワードを入力してください" #} </div>
 					<input type="text" name="key" id="key" value="{#$smarty.get.key#}" style="display:none;"/>
 					<input name="jobcategory" id="jobcategory" type="hidden" value="{#$smarty.get.jobcategory#}" />
 					<input name="trade" id="trade" type="hidden" value="{#$smarty.get.trade#}" />
@@ -116,7 +116,7 @@
 					<input name="settr" id="settr" type="hidden" value="{#$smarty.get.settr#}"/>
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type=“button” detype=“hW_resumelist” id=“searcnbtn” value=“搜&nbsp;索” /></div>
+			<div class="t-search-btn f-left"><input type=“button" detype=“HW_resumelist" id=“searcnbtn" value=“搜&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
@@ -139,7 +139,7 @@
 																		<div class="LocalDataMultiC">
 																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars” class=“text-warning”>0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars" class=“text-warning">0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="job_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -222,7 +222,7 @@
 																		<div class="LocalDataMultiC" style="width:623px;">
 																			<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity" class= “text-warning"">0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="city_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -403,7 +403,7 @@
 				<div class="has-select-item f-left" type="talent">{#if $smarty.get.talent == 1#}普通履歴書{#elseif $smarty.get.talent == 2#}高级履歴書{#/if#}<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.settr#}
-				<div class="has-select-item f-left" type="settr">{#if $smarty.get.settr == 3#}3日内{#elseif $smarty.get.settr == 7#}7日内{#elseif $smarty.get.settr == 15#}15日内{#elseif $smarty.get.settr == 30#}30日内{#/if#}<i class=“fliter-clear-icon”></i></div>
+				<div class="has-select-item f-left" type="settr">{#if $smarty.get.settr == 3#}3日内{#elseif $smarty.get.settr == 7#}7日内{#elseif $smarty.get.settr == 15#}15日内{#elseif $smarty.get.settr == 30#}30日内{#/if#}<i class=“fliter-clear-icon"></i></div>
 			{#/if#}
 			</div>
 			<div class="fliter-clear f-right" id="clear_all_selected"><a href="javascript:;" class="clear-link">清空所选</a></div>
@@ -425,7 +425,7 @@
 	<div class="infolists" id="infolists">
 		<div class="infolists-head clearfix">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type=“button” value=“履歴書気に入り” class=“all-down-btn allfavorites” /></div>
+			<div class="all-ctrl f-left"><input type=“button" value=“履歴書気に入り" class=“all-down-btn allfavorites" /></div>
 			<div class="list-tab f-right">
 				<a href="javascript:;" class="tab-item tab-list select">一覧リスト</a>
 				<a href="javascript:;" class="tab-item tab-detail">詳細</a>
@@ -465,7 +465,7 @@
 		</div>
 		<div class="infolists-head clearfix" style="border-top:1px solid #cccccc;border-bottom:none;">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type=“button” value=“履歴書気に入り” class=“all-down-btn allfavorites” /></div>
+			<div class="all-ctrl f-left"><input type=“button" value=“履歴書気に入り" class=“all-down-btn allfavorites" /></div>
 		</div>
 		{#if $page#}
 		<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">

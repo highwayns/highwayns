@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#if $smarty.get.streetid#}{#”hW_street,”|cat:$smarty.get.streetid|HIGHWAY_categoryname#}{#else#}道路搜索{#/if#}  - ジョブリスト  - {#$HIGHWAY.site_name#}</title>
+<title>{#if $smarty.get.streetid#}{#"HW_street,"|cat:$smarty.get.streetid|HIGHWAY_categoryname#}{#else#}道路搜索{#/if#}  - ジョブリスト  - {#$HIGHWAY.site_name#}</title>
 <meta name="description" content="{#$HIGHWAY.site_name#} - 駅検索 - 募集職位">
 <meta name="keywords" content="{#$HIGHWAY.site_name#},職位情報">
 <meta name="author" content="海威人材" />
@@ -197,7 +197,7 @@ $(document).ready(function()
 	<div class="infolists" id="infolists">
 		<div class="infolists-head clearfix">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type=“button” value=“職務申請” class=“all-down-btn deliver” /></div>
+			<div class="all-ctrl f-left"><input type=“button" value=“職務申請" class=“all-down-btn deliver" /></div>
 			<div class="all-ctrl f-left"><a href="javascript:;" class="collect-link collecter">收藏职位</a></div>
 			{#if $smarty.cookie.com_list!='1'#}
 			<div class="list-tab f-right">
@@ -299,7 +299,7 @@ $(document).ready(function()
 				</div>
 				<div class="info-list-detail clearfix">
 					<div class="info-text f-left">
-						<p>学歴要求：{#$list.education_cn|default:”制限なし”#}&nbsp;&nbsp;|&nbsp;&nbsp;勤務経験：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;仕事属性：{#$list.nature_cn|default:”全職”#}&nbsp;&nbsp;|&nbsp;&nbsp;募集人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:”制限なし”#}</p>
+						<p>学歴要求：{#$list.education_cn|default:"制限なし"#}&nbsp;&nbsp;|&nbsp;&nbsp;勤務経験：{#$list.experience_cn#}&nbsp;&nbsp;|&nbsp;&nbsp;仕事属性：{#$list.nature_cn|default:"全職"#}&nbsp;&nbsp;|&nbsp;&nbsp;募集人数：{#$list.amount#}人&nbsp;&nbsp;|&nbsp;&nbsp;性别要求：{#$list.sex_cn|default:"制限なし"#}</p>
 						<div>仕事責任：{#$list.briefly#} </div>
 					</div>
 					<div class="info-control f-left">
@@ -315,7 +315,7 @@ $(document).ready(function()
 		</div>
 		<div class="infolists-head clearfix" style="border-top:1px solid #cccccc;border-bottom:none;">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type=“button” value=“職務申請” class=“all-down-btn deliver” /></div>
+			<div class="all-ctrl f-left"><input type=“button" value=“職務申請" class=“all-down-btn deliver" /></div>
 			<div class="all-ctrl f-left"><a href="javascript:;" class="collect-link collecter">收藏职位</a></div>
 		</div>
 			{#if $page#}
