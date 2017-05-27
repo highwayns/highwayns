@@ -37,7 +37,7 @@ CREATE TABLE `hw_ad` (
   KEY `alias_starttime_deadline` (`alias`,`starttime`,`deadline`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||ad表创建成功！||-_-||#
+#||-_-||adテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_admin`;
 CREATE TABLE `hw_admin` (
@@ -54,7 +54,7 @@ CREATE TABLE `hw_admin` (
   PRIMARY KEY  (`admin_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||admin表创建成功！||-_-||#
+#||-_-||adminテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_admin_log`;
 CREATE TABLE `hw_admin_log` (
@@ -67,7 +67,7 @@ CREATE TABLE `hw_admin_log` (
   PRIMARY KEY  (`log_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||admin_log表创建成功！||-_-||#
+#||-_-||admin_logテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_ad_category`;
 CREATE TABLE `hw_ad_category` (
@@ -80,7 +80,7 @@ CREATE TABLE `hw_ad_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||ad_category表创建成功！||-_-||#
+#||-_-||ad_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_article`;
 CREATE TABLE `hw_article` (
@@ -111,7 +111,7 @@ CREATE TABLE `hw_article` (
   KEY `parentid_article_order_id` (`parentid`,`article_order`,`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||article表创建成功！||-_-||#
+#||-_-||articleテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_article_category`;
 CREATE TABLE `hw_article_category` (
@@ -126,7 +126,7 @@ CREATE TABLE `hw_article_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||article_category表创建成功！||-_-||#
+#||-_-||article_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_article_property`;
 CREATE TABLE `hw_article_property` (
@@ -137,7 +137,7 @@ CREATE TABLE `hw_article_property` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||article_property表创建成功！||-_-||#
+#||-_-||article_propertyテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_audit_reason`;
 CREATE TABLE `hw_audit_reason` (
@@ -153,7 +153,7 @@ CREATE TABLE `hw_audit_reason` (
   KEY `resume_id` (`resume_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||audit_reason表创建成功！||-_-||#
+#||-_-||audit_reasonテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_baiduxml`;
 CREATE TABLE `hw_baiduxml` (
@@ -163,7 +163,7 @@ CREATE TABLE `hw_baiduxml` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||baiduxml表创建成功！||-_-||#
+#||-_-||baiduxmlテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_baidu_submiturl`;
 CREATE TABLE `hw_baidu_submiturl` (
@@ -173,7 +173,7 @@ CREATE TABLE `hw_baidu_submiturl` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||baidu_submiturl表创建成功！||-_-||#
+#||-_-||baidu_submiturlテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_captcha`;
 CREATE TABLE `hw_captcha` (
@@ -183,7 +183,7 @@ CREATE TABLE `hw_captcha` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||captcha表创建成功！||-_-||#
+#||-_-||captchaテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_category`;
 CREATE TABLE `hw_category` (
@@ -200,7 +200,7 @@ CREATE TABLE `hw_category` (
   KEY `c_alias` (`c_alias`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||category表创建成功！||-_-||#
+#||-_-||categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_category_district`;
 CREATE TABLE `hw_category_district` (
@@ -213,7 +213,7 @@ CREATE TABLE `hw_category_district` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||category_district表创建成功！||-_-||#
+#||-_-||category_districtテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_category_group`;
 CREATE TABLE `hw_category_group` (
@@ -224,7 +224,7 @@ CREATE TABLE `hw_category_group` (
   PRIMARY KEY  (`g_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||category_group表创建成功！||-_-||#
+#||-_-||category_groupテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_category_jobs`;
 CREATE TABLE `hw_category_jobs` (
@@ -239,7 +239,7 @@ CREATE TABLE `hw_category_jobs` (
   KEY `parentid` (`parentid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||category_jobs表创建成功！||-_-||#
+#||-_-||category_jobsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_category_major`;
 CREATE TABLE `hw_category_major` (
@@ -250,7 +250,7 @@ CREATE TABLE `hw_category_major` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||category_major表创建成功！||-_-||#
+#||-_-||category_majorテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_color`;
 CREATE TABLE `hw_color` (
@@ -259,7 +259,7 @@ CREATE TABLE `hw_color` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||color表创建成功！||-_-||#
+#||-_-||colorテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_company_down_resume`;
 CREATE TABLE `hw_company_down_resume` (
@@ -276,7 +276,7 @@ CREATE TABLE `hw_company_down_resume` (
   KEY `company_uid_down_addtime` (`company_uid`,`down_addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||company_down_resume表创建成功！||-_-||#
+#||-_-||company_down_resumeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_company_favorites`;
 CREATE TABLE `hw_company_favorites` (
@@ -288,7 +288,7 @@ CREATE TABLE `hw_company_favorites` (
   KEY `company_uid` (`company_uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||company_favorites表创建成功！||-_-||#
+#||-_-||company_favoritesテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_company_interview`;
 CREATE TABLE `hw_company_interview` (
@@ -313,7 +313,7 @@ CREATE TABLE `hw_company_interview` (
   KEY `company_uid_jobs_id` (`company_uid`,`jobs_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||company_interview表创建成功！||-_-||#
+#||-_-||company_interviewテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_company_label_resume`;
 CREATE TABLE `hw_company_label_resume` (
@@ -326,7 +326,7 @@ CREATE TABLE `hw_company_label_resume` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||company_label_resume表创建成功！||-_-||#
+#||-_-||company_label_resumeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_company_profile`;
 CREATE TABLE `hw_company_profile` (
@@ -383,7 +383,7 @@ CREATE TABLE `hw_company_profile` (
   KEY `addtime` (`addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||company_profile表创建成功！||-_-||#
+#||-_-||company_profileテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_config`;
 CREATE TABLE `hw_config` (
@@ -393,7 +393,7 @@ CREATE TABLE `hw_config` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||config表创建成功！||-_-||#
+#||-_-||configテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_consultant`;
 CREATE TABLE `hw_consultant` (
@@ -404,7 +404,7 @@ CREATE TABLE `hw_consultant` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||consultant表创建成功！||-_-||#
+#||-_-||consultantテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_crons`;
 CREATE TABLE `hw_crons` (
@@ -422,7 +422,7 @@ CREATE TABLE `hw_crons` (
   PRIMARY KEY  (`cronid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||crons表创建成功！||-_-||#
+#||-_-||cronsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_explain`;
 CREATE TABLE `hw_explain` (
@@ -443,7 +443,7 @@ CREATE TABLE `hw_explain` (
   KEY `type_id` (`type_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||explain表创建成功！||-_-||#
+#||-_-||explainテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_explain_category`;
 CREATE TABLE `hw_explain_category` (
@@ -454,7 +454,7 @@ CREATE TABLE `hw_explain_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||explain_category表创建成功！||-_-||#
+#||-_-||explain_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_feedback`;
 CREATE TABLE `hw_feedback` (
@@ -466,7 +466,7 @@ CREATE TABLE `hw_feedback` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||feedback表创建成功！||-_-||#
+#||-_-||feedbackテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_help`;
 CREATE TABLE `hw_help` (
@@ -483,7 +483,7 @@ CREATE TABLE `hw_help` (
   KEY `order_id` (`order`,`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||help表创建成功！||-_-||#
+#||-_-||helpテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_help_category`;
 CREATE TABLE `hw_help_category` (
@@ -494,7 +494,7 @@ CREATE TABLE `hw_help_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||help_category表创建成功！||-_-||#
+#||-_-||help_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_hotword`;
 CREATE TABLE `hw_hotword` (
@@ -506,7 +506,7 @@ CREATE TABLE `hw_hotword` (
   KEY `w_hot` (`w_hot`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||hotword表创建成功！||-_-||#
+#||-_-||hotwordテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_hrtools`;
 CREATE TABLE `hw_hrtools` (
@@ -520,7 +520,7 @@ CREATE TABLE `hw_hrtools` (
   PRIMARY KEY  (`h_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||hrtools表创建成功！||-_-||#
+#||-_-||hrtoolsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_hrtools_category`;
 CREATE TABLE `hw_hrtools_category` (
@@ -531,7 +531,7 @@ CREATE TABLE `hw_hrtools_category` (
   PRIMARY KEY  (`c_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||hrtools_category表创建成功！||-_-||#
+#||-_-||hrtools_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs`;
 CREATE TABLE `hw_jobs` (
@@ -601,7 +601,7 @@ CREATE TABLE `hw_jobs` (
   KEY `audit` (`audit`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs表创建成功！||-_-||#
+#||-_-||jobsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_contact`;
 CREATE TABLE `hw_jobs_contact` (
@@ -623,7 +623,7 @@ CREATE TABLE `hw_jobs_contact` (
   KEY `pid` (`pid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_contact表创建成功！||-_-||#
+#||-_-||jobs_contactテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_search_hot`;
 CREATE TABLE `hw_jobs_search_hot` (
@@ -660,7 +660,7 @@ CREATE TABLE `hw_jobs_search_hot` (
   KEY `street_click` (`street`,`click`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_search_hot表创建成功！||-_-||#
+#||-_-||jobs_search_hotテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_search_key`;
 CREATE TABLE `hw_jobs_search_key` (
@@ -698,7 +698,7 @@ CREATE TABLE `hw_jobs_search_key` (
   FULLTEXT KEY `key` (`key`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_search_key表创建成功！||-_-||#
+#||-_-||jobs_search_keyテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_search_rtime`;
 CREATE TABLE `hw_jobs_search_rtime` (
@@ -738,7 +738,7 @@ CREATE TABLE `hw_jobs_search_rtime` (
   KEY `street_refreshtime` (`street`,`refreshtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_search_rtime表创建成功！||-_-||#
+#||-_-||jobs_search_rtimeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_search_scale`;
 CREATE TABLE `hw_jobs_search_scale` (
@@ -773,7 +773,7 @@ CREATE TABLE `hw_jobs_search_scale` (
   KEY `street_scale_refreshtime` (`street`,`scale`,`refreshtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_search_scale表创建成功！||-_-||#
+#||-_-||jobs_search_scaleテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_search_stickrtime`;
 CREATE TABLE `hw_jobs_search_stickrtime` (
@@ -809,7 +809,7 @@ CREATE TABLE `hw_jobs_search_stickrtime` (
   KEY `street_stick_refreshtime` (`street`,`stick`,`refreshtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_search_stickrtime表创建成功！||-_-||#
+#||-_-||jobs_search_stickrtimeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_search_wage`;
 CREATE TABLE `hw_jobs_search_wage` (
@@ -844,7 +844,7 @@ CREATE TABLE `hw_jobs_search_wage` (
   KEY `street_wage_refreshtime` (`street`,`wage`,`refreshtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_search_wage表创建成功！||-_-||#
+#||-_-||jobs_search_wageテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_tag`;
 CREATE TABLE `hw_jobs_tag` (
@@ -857,7 +857,7 @@ CREATE TABLE `hw_jobs_tag` (
   KEY `tag` (`tag`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_tag表创建成功！||-_-||#
+#||-_-||jobs_tagテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_jobs_tmp`;
 CREATE TABLE `hw_jobs_tmp` (
@@ -927,7 +927,7 @@ CREATE TABLE `hw_jobs_tmp` (
   KEY `audit` (`audit`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||jobs_tmp表创建成功！||-_-||#
+#||-_-||jobs_tmpテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_link`;
 CREATE TABLE `hw_link` (
@@ -945,7 +945,7 @@ CREATE TABLE `hw_link` (
   KEY `show_order` (`show_order`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||link表创建成功！||-_-||#
+#||-_-||linkテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_link_category`;
 CREATE TABLE `hw_link_category` (
@@ -956,7 +956,7 @@ CREATE TABLE `hw_link_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||link_category表创建成功！||-_-||#
+#||-_-||link_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_locoyspider`;
 CREATE TABLE `hw_locoyspider` (
@@ -966,7 +966,7 @@ CREATE TABLE `hw_locoyspider` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||locoyspider表创建成功！||-_-||#
+#||-_-||locoyspiderテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_mailconfig`;
 CREATE TABLE `hw_mailconfig` (
@@ -976,7 +976,7 @@ CREATE TABLE `hw_mailconfig` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||mailconfig表创建成功！||-_-||#
+#||-_-||mailconfigテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_mailqueue`;
 CREATE TABLE `hw_mailqueue` (
@@ -992,7 +992,7 @@ CREATE TABLE `hw_mailqueue` (
   KEY `m_uid` (`m_uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||mailqueue表创建成功！||-_-||#
+#||-_-||mailqueueテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_mail_templates`;
 CREATE TABLE `hw_mail_templates` (
@@ -1002,7 +1002,7 @@ CREATE TABLE `hw_mail_templates` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||mail_templates表创建成功！||-_-||#
+#||-_-||mail_templatesテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members`;
 CREATE TABLE `hw_members` (
@@ -1047,7 +1047,7 @@ CREATE TABLE `hw_members` (
   KEY `taobao_access_token` (`taobao_access_token`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members表创建成功！||-_-||#
+#||-_-||membersテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_charge_log`;
 CREATE TABLE `hw_members_charge_log` (
@@ -1068,7 +1068,7 @@ CREATE TABLE `hw_members_charge_log` (
   KEY `log_uid_log_addtime` (`log_uid`,`log_addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_charge_log表创建成功！||-_-||#
+#||-_-||members_charge_logテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_handsel`;
 CREATE TABLE `hw_members_handsel` (
@@ -1080,7 +1080,7 @@ CREATE TABLE `hw_members_handsel` (
   KEY `uid_htype_addtime` (`uid`,`htype`,`addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_handsel表创建成功！||-_-||#
+#||-_-||members_handselテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_info`;
 CREATE TABLE `hw_members_info` (
@@ -1107,7 +1107,7 @@ CREATE TABLE `hw_members_info` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_info表创建成功！||-_-||#
+#||-_-||members_infoテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_log`;
 CREATE TABLE `hw_members_log` (
@@ -1133,7 +1133,7 @@ CREATE TABLE `hw_members_log` (
   KEY `log_uid_log_addtime` (`log_uid`,`log_addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_log表创建成功！||-_-||#
+#||-_-||members_logテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_points`;
 CREATE TABLE `hw_members_points` (
@@ -1144,7 +1144,7 @@ CREATE TABLE `hw_members_points` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_points表创建成功！||-_-||#
+#||-_-||members_pointsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_points_rule`;
 CREATE TABLE `hw_members_points_rule` (
@@ -1157,7 +1157,7 @@ CREATE TABLE `hw_members_points_rule` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_points_rule表创建成功！||-_-||#
+#||-_-||members_points_ruleテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_members_setmeal`;
 CREATE TABLE `hw_members_setmeal` (
@@ -1197,7 +1197,7 @@ CREATE TABLE `hw_members_setmeal` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||members_setmeal表创建成功！||-_-||#
+#||-_-||members_setmealテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_navigation`;
 CREATE TABLE `hw_navigation` (
@@ -1216,7 +1216,7 @@ CREATE TABLE `hw_navigation` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||navigation表创建成功！||-_-||#
+#||-_-||navigationテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_navigation_category`;
 CREATE TABLE `hw_navigation_category` (
@@ -1227,7 +1227,7 @@ CREATE TABLE `hw_navigation_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||navigation_category表创建成功！||-_-||#
+#||-_-||navigation_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_notice`;
 CREATE TABLE `hw_notice` (
@@ -1248,7 +1248,7 @@ CREATE TABLE `hw_notice` (
   KEY `type_id_sort_id` (`type_id`,`sort`,`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||notice表创建成功！||-_-||#
+#||-_-||noticeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_notice_category`;
 CREATE TABLE `hw_notice_category` (
@@ -1259,7 +1259,7 @@ CREATE TABLE `hw_notice_category` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||notice_category表创建成功！||-_-||#
+#||-_-||notice_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_order`;
 CREATE TABLE `hw_order` (
@@ -1285,7 +1285,7 @@ CREATE TABLE `hw_order` (
   KEY `oid` (`oid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||order表创建成功！||-_-||#
+#||-_-||orderテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_page`;
 CREATE TABLE `hw_page` (
@@ -1306,7 +1306,7 @@ CREATE TABLE `hw_page` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||page表创建成功！||-_-||#
+#||-_-||pageテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_payment`;
 CREATE TABLE `hw_payment` (
@@ -1326,7 +1326,7 @@ CREATE TABLE `hw_payment` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||payment表创建成功！||-_-||#
+#||-_-||paymentテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_personal_favorites`;
 CREATE TABLE `hw_personal_favorites` (
@@ -1339,7 +1339,7 @@ CREATE TABLE `hw_personal_favorites` (
   KEY `personal_uid` (`personal_uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||personal_favorites表创建成功！||-_-||#
+#||-_-||personal_favoritesテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_personal_jobs_apply`;
 CREATE TABLE `hw_personal_jobs_apply` (
@@ -1364,7 +1364,7 @@ CREATE TABLE `hw_personal_jobs_apply` (
   KEY `personal_uid_apply_addtime` (`personal_uid`,`apply_addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||personal_jobs_apply表创建成功！||-_-||#
+#||-_-||personal_jobs_applyテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_plug`;
 CREATE TABLE `hw_plug` (
@@ -1375,7 +1375,7 @@ CREATE TABLE `hw_plug` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||plug表创建成功！||-_-||#
+#||-_-||plugテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_pms`;
 CREATE TABLE `hw_pms` (
@@ -1395,7 +1395,7 @@ CREATE TABLE `hw_pms` (
   KEY `msgtouid` (`msgtouid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||pms表创建成功！||-_-||#
+#||-_-||pmsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_pms_sys`;
 CREATE TABLE `hw_pms_sys` (
@@ -1407,7 +1407,7 @@ CREATE TABLE `hw_pms_sys` (
   PRIMARY KEY  (`spmid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||pms_sys表创建成功！||-_-||#
+#||-_-||pms_sysテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_pms_sys_log`;
 CREATE TABLE `hw_pms_sys_log` (
@@ -1418,7 +1418,7 @@ CREATE TABLE `hw_pms_sys_log` (
   KEY `loguid` (`loguid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||pms_sys_log表创建成功！||-_-||#
+#||-_-||pms_sys_logテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_promotion`;
 CREATE TABLE `hw_promotion` (
@@ -1438,7 +1438,7 @@ CREATE TABLE `hw_promotion` (
   KEY `cp_endtime` (`cp_endtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||promotion表创建成功！||-_-||#
+#||-_-||promotionテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_promotion_category`;
 CREATE TABLE `hw_promotion_category` (
@@ -1454,7 +1454,7 @@ CREATE TABLE `hw_promotion_category` (
   PRIMARY KEY  (`cat_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||promotion_category表创建成功！||-_-||#
+#||-_-||promotion_categoryテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_refresh_log`;
 CREATE TABLE `hw_refresh_log` (
@@ -1466,7 +1466,7 @@ CREATE TABLE `hw_refresh_log` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||refresh_log表创建成功！||-_-||#
+#||-_-||refresh_logテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_report`;
 CREATE TABLE `hw_report` (
@@ -1483,7 +1483,7 @@ CREATE TABLE `hw_report` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||report表创建成功！||-_-||#
+#||-_-||reportテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_report_resume`;
 CREATE TABLE `hw_report_resume` (
@@ -1500,7 +1500,7 @@ CREATE TABLE `hw_report_resume` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||report_resume表创建成功！||-_-||#
+#||-_-||report_resumeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume`;
 CREATE TABLE `hw_resume` (
@@ -1561,7 +1561,7 @@ CREATE TABLE `hw_resume` (
   KEY `addtime` (`addtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume表创建成功！||-_-||#
+#||-_-||resumeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_credent`;
 CREATE TABLE `hw_resume_credent` (
@@ -1576,7 +1576,7 @@ CREATE TABLE `hw_resume_credent` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_credent表创建成功！||-_-||#
+#||-_-||resume_credentテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_district`;
 CREATE TABLE `hw_resume_district` (
@@ -1590,7 +1590,7 @@ CREATE TABLE `hw_resume_district` (
   KEY `district_sdistrict` (`district`,`sdistrict`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_district表创建成功！||-_-||#
+#||-_-||resume_districtテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_education`;
 CREATE TABLE `hw_resume_education` (
@@ -1610,7 +1610,7 @@ CREATE TABLE `hw_resume_education` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_education表创建成功！||-_-||#
+#||-_-||resume_educationテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_img`;
 CREATE TABLE `hw_resume_img` (
@@ -1625,7 +1625,7 @@ CREATE TABLE `hw_resume_img` (
   KEY `resume_id` (`resume_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_img表创建成功！||-_-||#
+#||-_-||resume_imgテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_jobs`;
 CREATE TABLE `hw_resume_jobs` (
@@ -1640,7 +1640,7 @@ CREATE TABLE `hw_resume_jobs` (
   KEY `category_subclass` (`category`,`subclass`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_jobs表创建成功！||-_-||#
+#||-_-||resume_jobsテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_language`;
 CREATE TABLE `hw_resume_language` (
@@ -1655,7 +1655,7 @@ CREATE TABLE `hw_resume_language` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_language表创建成功！||-_-||#
+#||-_-||resume_languageテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_search_key`;
 CREATE TABLE `hw_resume_search_key` (
@@ -1683,7 +1683,7 @@ CREATE TABLE `hw_resume_search_key` (
   FULLTEXT KEY `key` (`key`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_search_key表创建成功！||-_-||#
+#||-_-||resume_search_keyテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_search_rtime`;
 CREATE TABLE `hw_resume_search_rtime` (
@@ -1713,7 +1713,7 @@ CREATE TABLE `hw_resume_search_rtime` (
   KEY `talent_refreshtime` (`talent`,`refreshtime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_search_rtime表创建成功！||-_-||#
+#||-_-||resume_search_rtimeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_tag`;
 CREATE TABLE `hw_resume_tag` (
@@ -1726,7 +1726,7 @@ CREATE TABLE `hw_resume_tag` (
   KEY `tag` (`tag`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_tag表创建成功！||-_-||#
+#||-_-||resume_tagテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_trade`;
 CREATE TABLE `hw_resume_trade` (
@@ -1739,7 +1739,7 @@ CREATE TABLE `hw_resume_trade` (
   KEY `trade` (`trade`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_trade表创建成功！||-_-||#
+#||-_-||resume_tradeテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_training`;
 CREATE TABLE `hw_resume_training` (
@@ -1758,7 +1758,7 @@ CREATE TABLE `hw_resume_training` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_training表创建成功！||-_-||#
+#||-_-||resume_trainingテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_resume_work`;
 CREATE TABLE `hw_resume_work` (
@@ -1777,7 +1777,7 @@ CREATE TABLE `hw_resume_work` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||resume_work表创建成功！||-_-||#
+#||-_-||resume_workテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_setmeal`;
 CREATE TABLE `hw_setmeal` (
@@ -1813,7 +1813,7 @@ CREATE TABLE `hw_setmeal` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||setmeal表创建成功！||-_-||#
+#||-_-||setmealテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_simple`;
 CREATE TABLE `hw_simple` (
@@ -1845,7 +1845,7 @@ CREATE TABLE `hw_simple` (
   FULLTEXT KEY `key` (`key`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||simple表创建成功！||-_-||#
+#||-_-||simpleテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_smsqueue`;
 CREATE TABLE `hw_smsqueue` (
@@ -1860,7 +1860,7 @@ CREATE TABLE `hw_smsqueue` (
   KEY `s_uid` (`s_uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||smsqueue表创建成功！||-_-||#
+#||-_-||smsqueueテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_sms_config`;
 CREATE TABLE `hw_sms_config` (
@@ -1870,7 +1870,7 @@ CREATE TABLE `hw_sms_config` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||sms_config表创建成功！||-_-||#
+#||-_-||sms_configテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_sms_templates`;
 CREATE TABLE `hw_sms_templates` (
@@ -1880,7 +1880,7 @@ CREATE TABLE `hw_sms_templates` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||sms_templates表创建成功！||-_-||#
+#||-_-||sms_templatesテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_syslog`;
 CREATE TABLE `hw_syslog` (
@@ -1895,7 +1895,7 @@ CREATE TABLE `hw_syslog` (
   PRIMARY KEY  (`l_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||syslog表创建成功！||-_-||#
+#||-_-||syslogテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_sys_email_log`;
 CREATE TABLE `hw_sys_email_log` (
@@ -1909,7 +1909,7 @@ CREATE TABLE `hw_sys_email_log` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||sys_email_log表创建成功！||-_-||#
+#||-_-||sys_email_logテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_text`;
 CREATE TABLE `hw_text` (
@@ -1919,7 +1919,7 @@ CREATE TABLE `hw_text` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||text表创建成功！||-_-||#
+#||-_-||textテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_tpl`;
 CREATE TABLE `hw_tpl` (
@@ -1932,7 +1932,7 @@ CREATE TABLE `hw_tpl` (
   PRIMARY KEY  (`tpl_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||tpl表创建成功！||-_-||#
+#||-_-||tplテーブル作成成功！||-_-||#
 
 DROP TABLE IF EXISTS `hw_weixin_menu`;
 CREATE TABLE `hw_weixin_menu` (
@@ -1947,5 +1947,5 @@ CREATE TABLE `hw_weixin_menu` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-#||-_-||weixin_menu表创建成功！||-_-||#
+#||-_-||weixin_menuテーブル作成成功！||-_-||#
 
