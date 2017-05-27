@@ -1,28 +1,9 @@
-﻿/**
- * @fileoverview Main function src.
- */
-
+﻿
 // HTML5 Shiv. Must be in <head> to support older browsers.
 document.createElement('video');
 document.createElement('audio');
 document.createElement('track');
 
-/**
- * Doubles as the main function for users to create a player instance and also
- * the main library object.
- *
- * **ALIASES** videojs, _V_ (deprecated)
- *
- * The `vjs` function can be used to initialize or retrieve a player.
- *
- *     var myPlayer = vjs('my_video_id');
- *
- * @param  {String|Element} id      Video element or video element ID
- * @param  {Object=} options        Optional options object for config/settings
- * @param  {Function=} ready        Optional ready callback
- * @return {vjs.Player}             A player instance
- * @namespace
- */
 var vjs = function(id, options, ready){
   var tag; // Element of ID
 
@@ -67,13 +48,6 @@ window.videojs = window.vjs = vjs;
 vjs.CDN_VERSION = '4.3';
 vjs.ACCESS_PROTOCOL = ('https:' == document.location.protocol ? 'https://' : 'http://');
 
-/**
- * Global Player instance options, surfaced from vjs.Player.prototype.options_
- * vjs.options = vjs.Player.prototype.options_
- * All options should use string keys so they avoid
- * renaming by closure compiler
- * @type {Object}
- */
 vjs.options = {
   // Default order of fallback technology
   'techOrder': ['html5','flash'],
@@ -111,62 +85,7 @@ if (vjs.CDN_VERSION !== 'GENERATED'+'_CDN_VSN') {
   videojs.options['flash']['swf'] = vjs.ACCESS_PROTOCOL + 'vjs.zencdn.net/'+vjs.CDN_VERSION+'/video-js.swf';
 }
 
-/**
- * Global player list
- * @type {Object}
- */
 vjs.players = {};
-/**
- * Core Object/Class for objects that use inheritance + contstructors
- *
- * To create a class that can be subclassed itself, extend the CoreObject class.
- *
- *     var Animal = CoreObject.extend();
- *     var Horse = Animal.extend();
- *
- * The constructor can be defined through the init property of an object argument.
- *
- *     var Animal = CoreObject.extend({
- *       init: function(name, sound){
- *         this.name = name;
- *       }
- *     });
- *
- * Other methods and properties can be added the same way, or directly to the
- * prototype.
- *
- *    var Animal = CoreObject.extend({
- *       init: function(name){
- *         this.name = name;
- *       },
- *       getName: function(){
- *         return this.name;
- *       },
- *       sound: '...'
- *    });
- *
- *    Animal.prototype.makeSound = function(){
- *      alert(this.sound);
- *    };
- *
- * To create an instance of a class, use the create method.
- *
- *    var fluffy = Animal.create('Fluffy');
- *    fluffy.getName(); // -> Fluffy
- *
- * Methods and properties can be overridden in subclasses.
- *
- *     var Horse = Animal.extend({
- *       sound: 'Neighhhhh!'
- *     });
- *
- *     var horsey = Horse.create('Horsey');
- *     horsey.getName(); // -> Horsey
- *     horsey.makeSound(); // -> Alert: Neighhhhh!
- *
- * @class
- * @constructor
- */
 vjs.CoreObject = vjs['CoreObject'] = function(){};
 // Manually exporting vjs['CoreObject'] here for Closure Compiler
 // because of the use of the extend/create class methods
@@ -174,17 +93,6 @@ vjs.CoreObject = vjs['CoreObject'] = function(){};
 // `a = ...` and `this.prototype` would refer to the global object instead of
 // CoreObject
 
-/**
- * Create a new object that inherits from this Object
- *
- *     var Animal = CoreObject.extend();
- *     var Horse = Animal.extend();
- *
- * @param {Object} props Functions and properties to be applied to the
- *                       new object's prototype
- * @return {vjs.CoreObject} An object that inherits from CoreObject
- * @this {*}
- */
 vjs.CoreObject.extend = function(props){
   var init, subObj;
 
@@ -227,14 +135,6 @@ vjs.CoreObject.extend = function(props){
   return subObj;
 };
 
-/**
- * Create a new instace of this Object class
- *
- *     var myAnimal = Animal.create();
- *
- * @return {vjs.CoreObject} An instance of a CoreObject subclass
- * @this {*}
- */
 vjs.CoreObject.create = function(){
   // Create a new object that inherits from this object's prototype
   var inst = vjs.obj.create(this.prototype);
@@ -245,23 +145,7 @@ vjs.CoreObject.create = function(){
   // Return the new object
   return inst;
 };
-/**
- * @fileoverview Event System (John Resig - Secrets of a JS Ninja http://jsninja.com/)
- * (Original book version wasn't completely usable, so fixed some things and made Closure Compiler compatible)
- * This should work very similarly to jQuery's events, however it's based off the book version which isn't as
- * robust as jquery's, so there's probably some differences.
- */
 
-/**
- * Add an event listener to element
- * It stores the handler function in a separate cache object
- * and adds a generic handler to the element's event,
- * along with a unique id (guid) to the element.
- * @param  {Element|Object}   elem Element or object to bind listeners to
- * @param  {String}   type Type of event to bind to.
- * @param  {Function} fn   Event listener.
- * @private
- */
 vjs.on = function(elem, type, fn){
   var data = vjs.getData(elem);
 
@@ -308,13 +192,6 @@ vjs.on = function(elem, type, fn){
   }
 };
 
-/**
- * Removes event listeners from an element
- * @param  {Element|Object}   elem Object to remove listeners from
- * @param  {String=}   type Type of listener to remove. Don't include to remove all events from element.
- * @param  {Function} fn   Specific listener to remove. Don't incldue to remove listeners for an event type.
- * @private
- */
 vjs.off = function(elem, type, fn) {
   // Don't want to add a cache object through getData if not needed
   if (!vjs.hasData(elem)) return;
@@ -359,12 +236,6 @@ vjs.off = function(elem, type, fn) {
   vjs.cleanUpEvents(elem, type);
 };
 
-/**
- * Clean up the listener cache and dispatchers
- * @param  {Element|Object} elem Element to clean up
- * @param  {String} type Type of event to clean up
- * @private
- */
 vjs.cleanUpEvents = function(elem, type) {
   var data = vjs.getData(elem);
 
@@ -399,12 +270,6 @@ vjs.cleanUpEvents = function(elem, type) {
   }
 };
 
-/**
- * Fix a native event to have standard property values
- * @param  {Object} event Event object to fix
- * @return {Object}
- * @private
- */
 vjs.fixEvent = function(event) {
 
   function returnTrue() { return true; }
@@ -502,12 +367,6 @@ vjs.fixEvent = function(event) {
   return event;
 };
 
-/**
- * Trigger an event for an element
- * @param  {Element|Object} elem  Element to trigger an event on
- * @param  {String} event Type of event to trigger
- * @private
- */
 vjs.trigger = function(elem, event) {
   // Fetches element data and a reference to the parent (for bubbling).
   // Don't want to add a data object to cache for every parent,
@@ -574,13 +433,6 @@ vjs.trigger = function(elem, event) {
   // event.target = elem;
 };
 
-/**
- * Trigger a listener only once for an event
- * @param  {Element|Object}   elem Element or object to
- * @param  {String}   type
- * @param  {Function} fn
- * @private
- */
 vjs.one = function(elem, type, fn) {
   var func = function(){
     vjs.off(elem, type, func);
@@ -591,13 +443,6 @@ vjs.one = function(elem, type, fn) {
 };
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
-/**
- * Creates an element and applies properties.
- * @param  {String=} tagName    Name of tag to be created.
- * @param  {Object=} properties Element properties to be applied.
- * @return {Element}
- * @private
- */
 vjs.createEl = function(tagName, properties){
   var el, propName;
 
@@ -625,32 +470,12 @@ vjs.createEl = function(tagName, properties){
   return el;
 };
 
-/**
- * Uppercase the first letter of a string
- * @param  {String} string String to be uppercased
- * @return {String}
- * @private
- */
 vjs.capitalize = function(string){
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-/**
- * Object functions container
- * @type {Object}
- * @private
- */
 vjs.obj = {};
 
-/**
- * Object.create shim for prototypal inheritance
- *
- * https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create
- *
- * @function
- * @param  {Object}   obj Object to use as prototype
- * @private
- */
  vjs.obj.create = Object.create || function(obj){
   //Create a new function called 'F' which is just an empty object.
   function F() {}
@@ -663,14 +488,6 @@ vjs.obj = {};
   return new F();
 };
 
-/**
- * Loop through each property in an object and call a function
- * whose arguments are (key,value)
- * @param  {Object}   obj Object of properties
- * @param  {Function} fn  Function to be called on each property.
- * @this {*}
- * @private
- */
 vjs.obj.each = function(obj, fn, context){
   for (var key in obj) {
     if (hasOwnProp.call(obj, key)) {
@@ -679,13 +496,6 @@ vjs.obj.each = function(obj, fn, context){
   }
 };
 
-/**
- * Merge two objects together and return the original.
- * @param  {Object} obj1
- * @param  {Object} obj2
- * @return {Object}
- * @private
- */
 vjs.obj.merge = function(obj1, obj2){
   if (!obj2) { return obj1; }
   for (var key in obj2){
@@ -696,15 +506,6 @@ vjs.obj.merge = function(obj1, obj2){
   return obj1;
 };
 
-/**
- * Merge two objects, and merge any properties that are objects
- * instead of just overwriting one. Uses to merge options hashes
- * where deeper default settings are important.
- * @param  {Object} obj1 Object to override
- * @param  {Object} obj2 Overriding object
- * @return {Object}      New object. Obj1 and Obj2 will be untouched.
- * @private
- */
 vjs.obj.deepMerge = function(obj1, obj2){
   var key, val1, val2;
 
@@ -728,22 +529,10 @@ vjs.obj.deepMerge = function(obj1, obj2){
   return obj1;
 };
 
-/**
- * Make a copy of the supplied object
- * @param  {Object} obj Object to copy
- * @return {Object}     Copy of object
- * @private
- */
 vjs.obj.copy = function(obj){
   return vjs.obj.merge({}, obj);
 };
 
-/**
- * Check if an object is plain, and not a dom node or any object sub-instance
- * @param  {Object} obj Object to check
- * @return {Boolean}     True if plain, false otherwise
- * @private
- */
 vjs.obj.isPlain = function(obj){
   return !!obj
     && typeof obj === 'object'
@@ -751,15 +540,6 @@ vjs.obj.isPlain = function(obj){
     && obj.constructor === Object;
 };
 
-/**
- * Bind (a.k.a proxy or Context). A simple method for changing the context of a function
-   It also stores a unique id on the function so it can be easily removed from events
- * @param  {*}   context The object to bind as scope
- * @param  {Function} fn      The function to be bound to a scope
- * @param  {Number=}   uid     An optional unique ID for the function to be set
- * @return {Function}
- * @private
- */
 vjs.bind = function(context, fn, uid) {
   // Make sure the function has a unique ID
   if (!fn.guid) { fn.guid = vjs.guid++; }
@@ -780,36 +560,12 @@ vjs.bind = function(context, fn, uid) {
   return ret;
 };
 
-/**
- * Element Data Store. Allows for binding data to an element without putting it directly on the element.
- * Ex. Event listneres are stored here.
- * (also from jsninja.com, slightly modified and updated for closure compiler)
- * @type {Object}
- * @private
- */
 vjs.cache = {};
 
-/**
- * Unique ID for an element or function
- * @type {Number}
- * @private
- */
 vjs.guid = 1;
 
-/**
- * Unique attribute name to store an element's guid in
- * @type {String}
- * @constant
- * @private
- */
 vjs.expando = 'vdata' + (new Date()).getTime();
 
-/**
- * Returns the cache object where data for an element is stored
- * @param  {Element} el Element to store data for.
- * @return {Object}
- * @private
- */
 vjs.getData = function(el){
   var id = el[vjs.expando];
   if (!id) {
@@ -819,22 +575,11 @@ vjs.getData = function(el){
   return vjs.cache[id];
 };
 
-/**
- * Returns the cache object where data for an element is stored
- * @param  {Element} el Element to store data for.
- * @return {Object}
- * @private
- */
 vjs.hasData = function(el){
   var id = el[vjs.expando];
   return !(!id || vjs.isEmpty(vjs.cache[id]));
 };
 
-/**
- * Delete data for the element from the cache and the guid attr from getElementById
- * @param  {Element} el Remove data for an element
- * @private
- */
 vjs.removeData = function(el){
   var id = el[vjs.expando];
   if (!id) { return; }
@@ -857,12 +602,6 @@ vjs.removeData = function(el){
   }
 };
 
-/**
- * Check if an object is empty
- * @param  {Object}  obj The object to check for emptiness
- * @return {Boolean}
- * @private
- */
 vjs.isEmpty = function(obj) {
   for (var prop in obj) {
     // Inlude null properties as empty.
@@ -873,24 +612,12 @@ vjs.isEmpty = function(obj) {
   return true;
 };
 
-/**
- * Add a CSS class name to an element
- * @param {Element} element    Element to add class name to
- * @param {String} classToAdd Classname to add
- * @private
- */
 vjs.addClass = function(element, classToAdd){
   if ((' '+element.className+' ').indexOf(' '+classToAdd+' ') == -1) {
     element.className = element.className === '' ? classToAdd : element.className + ' ' + classToAdd;
   }
 };
 
-/**
- * Remove a CSS class name from an element
- * @param {Element} element    Element to remove from class name
- * @param {String} classToAdd Classname to remove
- * @private
- */
 vjs.removeClass = function(element, classToRemove){
   var classNames, i;
 
@@ -908,28 +635,10 @@ vjs.removeClass = function(element, classToRemove){
   element.className = classNames.join(' ');
 };
 
-/**
- * Element for testing browser HTML5 video capabilities
- * @type {Element}
- * @constant
- * @private
- */
 vjs.TEST_VID = vjs.createEl('video');
 
-/**
- * Useragent for browser testing.
- * @type {String}
- * @constant
- * @private
- */
 vjs.USER_AGENT = navigator.userAgent;
 
-/**
- * Device is an iPhone
- * @type {Boolean}
- * @constant
- * @private
- */
 vjs.IS_IPHONE = (/iPhone/i).test(vjs.USER_AGENT);
 vjs.IS_IPAD = (/iPad/i).test(vjs.USER_AGENT);
 vjs.IS_IPOD = (/iPod/i).test(vjs.USER_AGENT);
@@ -971,15 +680,6 @@ vjs.IS_CHROME = (/Chrome/i).test(vjs.USER_AGENT);
 
 vjs.TOUCH_ENABLED = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch);
 
-/**
- * Get an element's attribute values, as defined on the HTML tag
- * Attributs are not the same as properties. They're defined on the tag
- * or with setAttribute (which shouldn't be used with HTML)
- * This will return true or false for boolean attributes.
- * @param  {Element} tag Element from which to get tag attributes
- * @return {Object}
- * @private
- */
 vjs.getAttributeValues = function(tag){
   var obj, knownBooleans, attrs, attrName, attrVal;
 
@@ -1013,14 +713,6 @@ vjs.getAttributeValues = function(tag){
   return obj;
 };
 
-/**
- * Get the computed style value for an element
- * From http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
- * @param  {Element} el        Element to get style value for
- * @param  {String} strCssRule Style name
- * @return {String}            Style value
- * @private
- */
 vjs.getComputedDimension = function(el, strCssRule){
   var strValue = '';
   if(document.defaultView && document.defaultView.getComputedStyle){
@@ -1033,12 +725,6 @@ vjs.getComputedDimension = function(el, strCssRule){
   return strValue;
 };
 
-/**
- * Insert an element as the first child node of another
- * @param  {Element} child   Element to insert
- * @param  {[type]} parent Element to insert child into
- * @private
- */
 vjs.insertFirst = function(child, parent){
   if (parent.firstChild) {
     parent.insertBefore(child, parent.firstChild);
@@ -1047,20 +733,8 @@ vjs.insertFirst = function(child, parent){
   }
 };
 
-/**
- * Object to hold browser support information
- * @type {Object}
- * @private
- */
 vjs.support = {};
 
-/**
- * Shorthand for document.getElementById()
- * Also allows for CSS (jQuery) ID syntax. But nothing other than IDs.
- * @param  {String} id  Element ID
- * @return {Element}    Element with supplied ID
- * @private
- */
 vjs.el = function(id){
   if (id.indexOf('#') === 0) {
     id = id.slice(1);
@@ -1069,15 +743,6 @@ vjs.el = function(id){
   return document.getElementById(id);
 };
 
-/**
- * Format seconds as a time string, H:MM:SS or M:SS
- * Supplying a guide (in seconds) will force a number of leading zeros
- * to cover the length of the guide
- * @param  {Number} seconds Number of seconds to be turned into a string
- * @param  {Number} guide   Number (in seconds) to model the string after
- * @return {String}         Time formatted as H:MM:SS or M:SS
- * @private
- */
 vjs.formatTime = function(seconds, guide) {
   // Default to using seconds as guide
   guide = guide || seconds;
@@ -1115,38 +780,15 @@ vjs.blockTextSelection = function(){
 // Turn off text selection blocking
 vjs.unblockTextSelection = function(){ document.onselectstart = function () { return true; }; };
 
-/**
- * Trim whitespace from the ends of a string.
- * @param  {String} string String to trim
- * @return {String}        Trimmed string
- * @private
- */
 vjs.trim = function(str){
   return (str+'').replace(/^\s+|\s+$/g, '');
 };
 
-/**
- * Should round off a number to a decimal place
- * @param  {Number} num Number to round
- * @param  {Number} dec Number of decimal places to round to
- * @return {Number}     Rounded number
- * @private
- */
 vjs.round = function(num, dec) {
   if (!dec) { dec = 0; }
   return Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
 };
 
-/**
- * Should create a fake TimeRange object
- * Mimics an HTML5 time range instance, which has functions that
- * return the start and end times for a range
- * TimeRanges are returned by the buffered() method
- * @param  {Number} start Start time in seconds
- * @param  {Number} end   End time in seconds
- * @return {Object}       Fake TimeRange object
- * @private
- */
 vjs.createTimeRange = function(start, end){
   return {
     length: 1,
@@ -1155,13 +797,6 @@ vjs.createTimeRange = function(start, end){
   };
 };
 
-/**
- * Simple http request for retrieving external files (e.g. text tracks)
- * @param  {String} url           URL of resource
- * @param  {Function=} onSuccess  Success callback
- * @param  {Function=} onError    Error callback
- * @private
- */
 vjs.get = function(url, onSuccess, onError){
   var local, request;
 
@@ -1204,10 +839,6 @@ vjs.get = function(url, onSuccess, onError){
   }
 };
 
-/**
- * Add to local storage (may removeable)
- * @private
- */
 vjs.setLocalStorage = function(key, value){
   try {
     // IE was throwing errors referencing the var anywhere without this
@@ -1227,13 +858,6 @@ vjs.setLocalStorage = function(key, value){
   }
 };
 
-/**
- * Get abosolute version of relative URL. Used to tell flash correct URL.
- * http://stackoverflow.com/questions/470832/getting-an-absolute-url-from-a-relative-one-ie6-issue
- * @param  {String} url URL to make absolute
- * @return {String}     Absolute URL
- * @private
- */
 vjs.getAbsoluteURL = function(url){
 
   // Check if absolute URL
@@ -1289,46 +913,8 @@ vjs.findPosition = function(el) {
       top: top
     };
 };
-/**
- * @fileoverview Player Component - Base class for all UI objects
- *
- */
 
-/**
- * Base UI Component class
- *
- * Components are embeddable UI objects that are represented by both a
- * javascript object and an element in the DOM. They can be children of other
- * components, and can have many children themselves.
- *
- *     // adding a button to the player
- *     var button = player.addChild('button');
- *     button.el(); // -> button element
- *
- *     <div class="video-js">
- *       <div class="vjs-button">Button</div>
- *     </div>
- *
- * Components are also event emitters.
- *
- *     button.on('click', function(){
- *       console.log('Button Clicked!');
- *     });
- *
- *     button.trigger('customevent');
- *
- * @param {Object} player  Main Player
- * @param {Object=} options
- * @class
- * @constructor
- * @extends vjs.CoreObject
- */
 vjs.Component = vjs.CoreObject.extend({
-  /**
-   * the constructor funciton for the class
-   *
-   * @constructor
-   */
   init: function(player, options, ready){
     this.player_ = player;
 
@@ -1359,9 +945,6 @@ vjs.Component = vjs.CoreObject.extend({
   }
 });
 
-/**
- * Dispose of the component and all child components
- */
 vjs.Component.prototype.dispose = function(){
   this.trigger('dispose');
 
@@ -1391,246 +974,66 @@ vjs.Component.prototype.dispose = function(){
   this.el_ = null;
 };
 
-/**
- * Reference to main player instance
- *
- * @type {vjs.Player}
- * @private
- */
 vjs.Component.prototype.player_ = true;
 
-/**
- * Return the component's player
- *
- * @return {vjs.Player}
- */
 vjs.Component.prototype.player = function(){
   return this.player_;
 };
 
-/**
- * The component's options object
- *
- * @type {Object}
- * @private
- */
 vjs.Component.prototype.options_;
 
-/**
- * Deep merge of options objects
- *
- * Whenever a property is an object on both options objects
- * the two properties will be merged using vjs.obj.deepMerge.
- *
- * This is used for merging options for child components. We
- * want it to be easy to override individual options on a child
- * component without having to rewrite all the other default options.
- *
- *     Parent.prototype.options_ = {
- *       children: {
- *         'childOne': { 'foo': 'bar', 'asdf': 'fdsa' },
- *         'childTwo': {},
- *         'childThree': {}
- *       }
- *     }
- *     newOptions = {
- *       children: {
- *         'childOne': { 'foo': 'baz', 'abc': '123' }
- *         'childTwo': null,
- *         'childFour': {}
- *       }
- *     }
- *
- *     this.options(newOptions);
- *
- * RESULT
- *
- *     {
- *       children: {
- *         'childOne': { 'foo': 'baz', 'asdf': 'fdsa', 'abc': '123' },
- *         'childTwo': null, // Disabled. Won't be initialized.
- *         'childThree': {},
- *         'childFour': {}
- *       }
- *     }
- *
- * @param  {Object} obj Object whose values will be overwritten
- * @return {Object}     NEW merged object. Does not return obj1.
- */
 vjs.Component.prototype.options = function(obj){
   if (obj === undefined) return this.options_;
 
   return this.options_ = vjs.obj.deepMerge(this.options_, obj);
 };
 
-/**
- * The DOM element for the component
- *
- * @type {Element}
- * @private
- */
 vjs.Component.prototype.el_;
 
-/**
- * Create the component's DOM element
- *
- * @param  {String=} tagName  Element's node type. e.g. 'div'
- * @param  {Object=} attributes An object of element attributes that should be set on the element
- * @return {Element}
- */
 vjs.Component.prototype.createEl = function(tagName, attributes){
   return vjs.createEl(tagName, attributes);
 };
 
-/**
- * Get the component's DOM element
- *
- *     var domEl = myComponent.el();
- *
- * @return {Element}
- */
 vjs.Component.prototype.el = function(){
   return this.el_;
 };
 
-/**
- * An optional element where, if defined, children will be inserted instead of
- * directly in `el_`
- *
- * @type {Element}
- * @private
- */
 vjs.Component.prototype.contentEl_;
 
-/**
- * Return the component's DOM element for embedding content.
- * Will either be el_ or a new element defined in createEl.
- *
- * @return {Element}
- */
 vjs.Component.prototype.contentEl = function(){
   return this.contentEl_ || this.el_;
 };
 
-/**
- * The ID for the component
- *
- * @type {String}
- * @private
- */
 vjs.Component.prototype.id_;
 
-/**
- * Get the component's ID
- *
- *     var id = myComponent.id();
- *
- * @return {String}
- */
 vjs.Component.prototype.id = function(){
   return this.id_;
 };
 
-/**
- * The name for the component. Often used to reference the component.
- *
- * @type {String}
- * @private
- */
 vjs.Component.prototype.name_;
 
-/**
- * Get the component's name. The name is often used to reference the component.
- *
- *     var name = myComponent.name();
- *
- * @return {String}
- */
 vjs.Component.prototype.name = function(){
   return this.name_;
 };
 
-/**
- * Array of child components
- *
- * @type {Array}
- * @private
- */
 vjs.Component.prototype.children_;
 
-/**
- * Get an array of all child components
- *
- *     var kids = myComponent.children();
- *
- * @return {Array} The children
- */
 vjs.Component.prototype.children = function(){
   return this.children_;
 };
 
-/**
- * Object of child components by ID
- *
- * @type {Object}
- * @private
- */
 vjs.Component.prototype.childIndex_;
 
-/**
- * Returns a child component with the provided ID
- *
- * @return {vjs.Component}
- */
 vjs.Component.prototype.getChildById = function(id){
   return this.childIndex_[id];
 };
 
-/**
- * Object of child components by name
- *
- * @type {Object}
- * @private
- */
 vjs.Component.prototype.childNameIndex_;
 
-/**
- * Returns a child component with the provided ID
- *
- * @return {vjs.Component}
- */
 vjs.Component.prototype.getChild = function(name){
   return this.childNameIndex_[name];
 };
 
-/**
- * Adds a child component inside this component
- *
- *     myComponent.el();
- *     // -> <div class='my-component'></div>
- *     myComonent.children();
- *     // [empty array]
- *
- *     var myButton = myComponent.addChild('MyButton');
- *     // -> <div class='my-component'><div class="my-button">myButton<div></div>
- *     // -> myButton === myComonent.children()[0];
- *
- * Pass in options for child constructors and options for children of the child
- *
- *    var myButton = myComponent.addChild('MyButton', {
- *      text: 'Press Me',
- *      children: {
- *        buttonChildExample: {
- *          buttonChildOption: true
- *        }
- *      }
- *    });
- *
- * @param {String|vjs.Component} child The class name or instance of a child to add
- * @param {Object=} options Options, including options to be passed to children of the child.
- * @return {vjs.Component} The child component (created by this process if a string was used)
- * @suppress {accessControls|checkRegExp|checkTypes|checkVars|const|constantProperty|deprecated|duplicate|es5Strict|fileoverviewTags|globalThis|invalidCasts|missingProperties|nonStandardJsDocs|strictModuleDepCheck|undefinedNames|undefinedVars|unknownDefines|uselessCode|visibility}
- */
 vjs.Component.prototype.addChild = function(child, options){
   var component, componentClass, componentName, componentId;
 
@@ -1683,12 +1086,6 @@ vjs.Component.prototype.addChild = function(child, options){
   return component;
 };
 
-/**
- * Remove a child component from this component's list of children, and the
- * child component's element from this component's element
- *
- * @param  {vjs.Component} component Component to remove
- */
 vjs.Component.prototype.removeChild = function(component){
   if (typeof component === 'string') {
     component = this.getChild(component);
@@ -1716,17 +1113,6 @@ vjs.Component.prototype.removeChild = function(component){
   }
 };
 
-/**
- * Add and initialize default child components from options
- *
- *     // when an instance of MyComponent is created, all children in options
- *     // will be added to the instance by their name strings and options
- *     MyComponent.prototype.options_.children = {
- *       myChildComponent: {
- *         myChildOption: true
- *       }
- *     }
- */
 vjs.Component.prototype.initChildren = function(){
   var options = this.options_;
 
@@ -1754,11 +1140,6 @@ vjs.Component.prototype.initChildren = function(){
   }
 };
 
-/**
- * Allows sub components to stack CSS class names
- *
- * @return {String} The constructed class name
- */
 vjs.Component.prototype.buildCSSClass = function(){
     // Child classes can include a function that does:
     // return 'CLASS NAME' + this._super();
@@ -1768,62 +1149,21 @@ vjs.Component.prototype.buildCSSClass = function(){
 /* Events
 ============================================================================= */
 
-/**
- * Add an event listener to this component's element
- *
- *     var myFunc = function(){
- *       var myPlayer = this;
- *       // Do something when the event is fired
- *     };
- *
- *     myPlayer.on("eventName", myFunc);
- *
- * The context will be the component.
- *
- * @param  {String}   type The event type e.g. 'click'
- * @param  {Function} fn   The event listener
- * @return {vjs.Component} self
- */
 vjs.Component.prototype.on = function(type, fn){
   vjs.on(this.el_, type, vjs.bind(this, fn));
   return this;
 };
 
-/**
- * Remove an event listener from the component's element
- *
- *     myComponent.off("eventName", myFunc);
- *
- * @param  {String=}   type Event type. Without type it will remove all listeners.
- * @param  {Function=} fn   Event listener. Without fn it will remove all listeners for a type.
- * @return {vjs.Component}
- */
 vjs.Component.prototype.off = function(type, fn){
   vjs.off(this.el_, type, fn);
   return this;
 };
 
-/**
- * Add an event listener to be triggered only once and then removed
- *
- * @param  {String}   type Event type
- * @param  {Function} fn   Event listener
- * @return {vjs.Component}
- */
 vjs.Component.prototype.one = function(type, fn) {
   vjs.one(this.el_, type, vjs.bind(this, fn));
   return this;
 };
 
-/**
- * Trigger an event on an element
- *
- *     myComponent.trigger('eventName');
- *
- * @param  {String}       type  The event type to trigger, e.g. 'click'
- * @param  {Event|Object} event The event object to be passed to the listener
- * @return {vjs.Component}      self
- */
 vjs.Component.prototype.trigger = function(type, event){
   vjs.trigger(this.el_, type, event);
   return this;
@@ -1831,44 +1171,12 @@ vjs.Component.prototype.trigger = function(type, event){
 
 /* Ready
 ================================================================================ */
-/**
- * Is the component loaded
- * This can mean different things depending on the component.
- *
- * @private
- * @type {Boolean}
- */
 vjs.Component.prototype.isReady_;
 
-/**
- * Trigger ready as soon as initialization is finished
- *
- * Allows for delaying ready. Override on a sub class prototype.
- * If you set this.isReadyOnInitFinish_ it will affect all components.
- * Specially used when waiting for the Flash player to asynchrnously load.
- *
- * @type {Boolean}
- * @private
- */
 vjs.Component.prototype.isReadyOnInitFinish_ = true;
 
-/**
- * List of ready listeners
- *
- * @type {Array}
- * @private
- */
 vjs.Component.prototype.readyQueue_;
 
-/**
- * Bind a listener to the component's ready state
- *
- * Different from event listeners in that if the ready event has already happend
- * it will trigger the function immediately.
- *
- * @param  {Function} fn Ready listener
- * @return {vjs.Component}
- */
 vjs.Component.prototype.ready = function(fn){
   if (fn) {
     if (this.isReady_) {
@@ -1883,11 +1191,6 @@ vjs.Component.prototype.ready = function(fn){
   return this;
 };
 
-/**
- * Trigger the ready listeners
- *
- * @return {vjs.Component}
- */
 vjs.Component.prototype.triggerReady = function(){
   this.isReady_ = true;
 
@@ -1910,137 +1213,54 @@ vjs.Component.prototype.triggerReady = function(){
 /* Display
 ============================================================================= */
 
-/**
- * Add a CSS class name to the component's element
- *
- * @param {String} classToAdd Classname to add
- * @return {vjs.Component}
- */
 vjs.Component.prototype.addClass = function(classToAdd){
   vjs.addClass(this.el_, classToAdd);
   return this;
 };
 
-/**
- * Remove a CSS class name from the component's element
- *
- * @param {String} classToRemove Classname to remove
- * @return {vjs.Component}
- */
 vjs.Component.prototype.removeClass = function(classToRemove){
   vjs.removeClass(this.el_, classToRemove);
   return this;
 };
 
-/**
- * Show the component element if hidden
- *
- * @return {vjs.Component}
- */
 vjs.Component.prototype.show = function(){
   this.el_.style.display = 'block';
   return this;
 };
 
-/**
- * Hide the component element if hidden
- *
- * @return {vjs.Component}
- */
 vjs.Component.prototype.hide = function(){
   this.el_.style.display = 'none';
   return this;
 };
 
-/**
- * Lock an item in its visible state
- * To be used with fadeIn/fadeOut.
- *
- * @return {vjs.Component}
- * @private
- */
 vjs.Component.prototype.lockShowing = function(){
   this.addClass('vjs-lock-showing');
   return this;
 };
 
-/**
- * Unlock an item to be hidden
- * To be used with fadeIn/fadeOut.
- *
- * @return {vjs.Component}
- * @private
- */
 vjs.Component.prototype.unlockShowing = function(){
   this.removeClass('vjs-lock-showing');
   return this;
 };
 
-/**
- * Disable component by making it unshowable
- */
 vjs.Component.prototype.disable = function(){
   this.hide();
   this.show = function(){};
 };
 
-/**
- * Set or get the width of the component (CSS values)
- *
- * Video tag width/height only work in pixels. No percents.
- * But allowing limited percents use. e.g. width() will return number+%, not computed width
- *
- * @param  {Number|String=} num   Optional width number
- * @param  {Boolean} skipListeners Skip the 'resize' event trigger
- * @return {vjs.Component} Returns 'this' if width was set
- * @return {Number|String} Returns the width if nothing was set
- */
 vjs.Component.prototype.width = function(num, skipListeners){
   return this.dimension('width', num, skipListeners);
 };
 
-/**
- * Get or set the height of the component (CSS values)
- *
- * @param  {Number|String=} num     New component height
- * @param  {Boolean=} skipListeners Skip the resize event trigger
- * @return {vjs.Component} The component if the height was set
- * @return {Number|String} The height if it wasn't set
- */
 vjs.Component.prototype.height = function(num, skipListeners){
   return this.dimension('height', num, skipListeners);
 };
 
-/**
- * Set both width and height at the same time
- *
- * @param  {Number|String} width
- * @param  {Number|String} height
- * @return {vjs.Component} The component
- */
 vjs.Component.prototype.dimensions = function(width, height){
   // Skip resize listeners on width for optimization
   return this.width(width, true).height(height);
 };
 
-/**
- * Get or set width or height
- *
- * This is the shared code for the width() and height() methods.
- * All for an integer, integer + 'px' or integer + '%';
- *
- * Known issue: Hidden elements officially have a width of 0. We're defaulting
- * to the style.width value and falling back to computedStyle which has the
- * hidden element issue. Info, but probably not an efficient fix:
- * http://www.foliotek.com/devblog/getting-the-width-of-a-hidden-element-with-jquery-using-width/
- *
- * @param  {String} widthOrHeight  'width' or 'height'
- * @param  {Number|String=} num     New dimension
- * @param  {Boolean=} skipListeners Skip resize event trigger
- * @return {vjs.Component} The component if a dimension was set
- * @return {Number|String} The dimension if nothing was set
- * @private
- */
 vjs.Component.prototype.dimension = function(widthOrHeight, num, skipListeners){
   if (num !== undefined) {
 
@@ -2093,22 +1313,8 @@ vjs.Component.prototype.dimension = function(widthOrHeight, num, skipListeners){
   }
 };
 
-/**
- * Fired when the width and/or height of the component changes
- * @event resize
- */
 vjs.Component.prototype.onResize;
 
-/**
- * Emit 'tap' events when touch events are supported
- *
- * This is used to support toggling the controls through a tap on the video.
- *
- * We're requireing them to be enabled because otherwise every component would
- * have this extra overhead unnecessarily, on mobile devices where extra
- * overhead is especially bad.
- * @private
- */
 vjs.Component.prototype.emitTapEvents = function(){
   var touchStart, touchTime, couldBeTap, noTap;
 
@@ -2149,18 +1355,7 @@ vjs.Component.prototype.emitTapEvents = function(){
 };
 /* Button - Base class for all buttons
 ================================================================================ */
-/**
- * Base class for all buttons
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- */
 vjs.Button = vjs.Component.extend({
-  /**
-   * @constructor
-   * @inheritDoc
-   */
   init: function(player, options){
     vjs.Component.call(this, player, options);
 
@@ -2228,13 +1423,6 @@ vjs.Button.prototype.onBlur = function(){
 };
 /* Slider
 ================================================================================ */
-/**
- * The base functionality for sliders like the volume bar and seek bar
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.Slider = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -2420,31 +1608,13 @@ vjs.Slider.prototype.onBlur = function(){
   vjs.off(document, 'keyup', vjs.bind(this, this.onKeyPress));
 };
 
-/**
- * Listener for click events on slider, used to prevent clicks
- *   from bubbling up to parent elements like button menus.
- * @param  {Object} event Event object
- */
 vjs.Slider.prototype.onClick = function(event){
   event.stopImmediatePropagation();
   event.preventDefault();
 };
 
-/**
- * SeekBar Behavior includes play progress bar, and seek handle
- * Needed so it can determine seek position based on handle position/size
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.SliderHandle = vjs.Component.extend();
 
-/**
- * Default value of the slider
- *
- * @type {Number}
- * @private
- */
 vjs.SliderHandle.prototype.defaultValue = 0;
 
 /** @inheritDoc */
@@ -2460,21 +1630,8 @@ vjs.SliderHandle.prototype.createEl = function(type, props) {
 };
 /* Menu
 ================================================================================ */
-/**
- * The Menu component is used to build pop up menus, including subtitle and
- * captions selection menus.
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- */
 vjs.Menu = vjs.Component.extend();
 
-/**
- * Add a menu item to the menu
- * @param {Object|String} component Component or component type to add
- */
 vjs.Menu.prototype.addItem = function(component){
   this.addChild(component);
   component.on('click', vjs.bind(this, function(){
@@ -2504,14 +1661,6 @@ vjs.Menu.prototype.createEl = function(){
   return el;
 };
 
-/**
- * The component for a menu item. `<li>`
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- */
 vjs.MenuItem = vjs.Button.extend({
   /** @constructor */
   init: function(player, options){
@@ -2528,17 +1677,10 @@ vjs.MenuItem.prototype.createEl = function(type, props){
   }, props));
 };
 
-/**
- * Handle a click on the menu item, and set it to selected
- */
 vjs.MenuItem.prototype.onClick = function(){
   this.selected(true);
 };
 
-/**
- * Set this menu item as selected or not
- * @param  {Boolean} selected
- */
 vjs.MenuItem.prototype.selected = function(selected){
   if (selected) {
     this.addClass('vjs-selected');
@@ -2550,12 +1692,6 @@ vjs.MenuItem.prototype.selected = function(selected){
 };
 
 
-/**
- * A button class with a popup menu
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.MenuButton = vjs.Button.extend({
   /** @constructor */
   init: function(player, options){
@@ -2577,11 +1713,6 @@ vjs.MenuButton = vjs.Button.extend({
   }
 });
 
-/**
- * Track the state of the menu button
- * @type {Boolean}
- * @private
- */
 vjs.MenuButton.prototype.buttonPressed_ = false;
 
 vjs.MenuButton.prototype.createMenu = function(){
@@ -2608,9 +1739,6 @@ vjs.MenuButton.prototype.createMenu = function(){
   return menu;
 };
 
-/**
- * Create the list of menu items. Specific to each subclass.
- */
 vjs.MenuButton.prototype.createItems = function(){};
 
 /** @inheritDoc */
@@ -2674,37 +1802,8 @@ vjs.MenuButton.prototype.unpressButton = function(){
   this.el_.setAttribute('aria-pressed', false);
 };
 
-/**
- * An instance of the `vjs.Player` class is created when any of the Video.js setup methods are used to initialize a video.
- *
- * ```js
- * var myPlayer = videojs('example_video_1');
- * ```
- *
- * In the follwing example, the `data-setup` attribute tells the Video.js library to create a player instance when the library is ready.
- *
- * ```html
- * <video id="example_video_1" data-setup='{}' controls>
- *   <source src="my-source.mp4" type="video/mp4">
- * </video>
- * ```
- *
- * After an instance has been created it can be accessed globally using `Video('example_video_1')`.
- *
- * @class
- * @extends vjs.Component
- */
 vjs.Player = vjs.Component.extend({
 
-  /**
-   * player's constructor function
-   *
-   * @constructs
-   * @method init
-   * @param {Element} tag        The original video tag used for configuring options
-   * @param {Object=} options    Player options
-   * @param {Function=} ready    Ready callback function
-   */
   init: function(tag, options, ready){
     this.tag = tag; // Store the original tag used to set options
 
@@ -2782,25 +1881,8 @@ vjs.Player = vjs.Component.extend({
   }
 });
 
-/**
- * Player instance options, surfaced using vjs.options
- * vjs.options = vjs.Player.prototype.options_
- * Make changes in vjs.options, not here.
- * All options should use string keys so they avoid
- * renaming by closure compiler
- * @type {Object}
- * @private
- */
 vjs.Player.prototype.options_ = vjs.options;
 
-/**
- * Destroys the video player and does any necessary cleanup
- *
- *     myPlayer.dispose();
- *
- * This is especially helpful if you are dynamically adding and removing videos
- * to/from the DOM.
- */
 vjs.Player.prototype.dispose = function(){
   this.trigger('dispose');
   // prevent dispose from being called twice
@@ -3075,48 +2157,19 @@ vjs.Player.prototype.stopTrackingCurrentTime = function(){ clearInterval(this.cu
 // /* Player event handlers (how the player reacts to certain events)
 // ================================================================================ */
 
-/**
- * Fired when the user agent begins looking for media data
- * @event loadstart
- */
 vjs.Player.prototype.onLoadStart;
 
-/**
- * Fired when the player has initial duration and dimension information
- * @event loadedmetadata
- */
 vjs.Player.prototype.onLoadedMetaData;
 
-/**
- * Fired when the player has downloaded data at the current playback position
- * @event loadeddata
- */
 vjs.Player.prototype.onLoadedData;
 
-/**
- * Fired when the player has finished downloading the source data
- * @event loadedalldata
- */
 vjs.Player.prototype.onLoadedAllData;
 
-/**
- * Fired whenever the media begins or resumes playback
- * @event play
- */
 vjs.Player.prototype.onPlay = function(){
   vjs.removeClass(this.el_, 'vjs-paused');
   vjs.addClass(this.el_, 'vjs-playing');
 };
 
-/**
- * Fired the first time a video is played
- *
- * Not part of the HLS spec, and we're not sure if this is the best
- * implementation yet, so use sparingly. If you don't have a reason to
- * prevent playback, use `myPlayer.one('play');` instead.
- *
- * @event firstplay
- */
 vjs.Player.prototype.onFirstPlay = function(){
     //If the first starttime attribute is specified
     //then we will start at the given offset in seconds
@@ -3127,28 +2180,13 @@ vjs.Player.prototype.onFirstPlay = function(){
     this.addClass('vjs-has-started');
 };
 
-/**
- * Fired whenever the media has been paused
- * @event pause
- */
 vjs.Player.prototype.onPause = function(){
   vjs.removeClass(this.el_, 'vjs-playing');
   vjs.addClass(this.el_, 'vjs-paused');
 };
 
-/**
- * Fired when the current playback position has changed
- *
- * During playback this is fired every 15-250 milliseconds, depnding on the
- * playback technology in use.
- * @event timeupdate
- */
 vjs.Player.prototype.onTimeUpdate;
 
-/**
- * Fired while the user agent is downloading media data
- * @event progress
- */
 vjs.Player.prototype.onProgress = function(){
   // Add custom event for when source is finished downloading.
   if (this.bufferedPercent() == 1) {
@@ -3156,10 +2194,6 @@ vjs.Player.prototype.onProgress = function(){
   }
 };
 
-/**
- * Fired when the end of the media resource is reached (currentTime == duration)
- * @event ended
- */
 vjs.Player.prototype.onEnded = function(){
   if (this.options_['loop']) {
     this.currentTime(0);
@@ -3167,25 +2201,13 @@ vjs.Player.prototype.onEnded = function(){
   }
 };
 
-/**
- * Fired when the duration of the media resource is first known or changed
- * @event durationchange
- */
 vjs.Player.prototype.onDurationChange = function(){
   // Allows for cacheing value instead of asking player each time.
   this.duration(this.techGet('duration'));
 };
 
-/**
- * Fired when the volume changes
- * @event volumechange
- */
 vjs.Player.prototype.onVolumeChange;
 
-/**
- * Fired when the player switches in or out of fullscreen mode
- * @event fullscreenchange
- */
 vjs.Player.prototype.onFullscreenChange = function() {
   if (this.isFullScreen) {
     this.addClass('vjs-fullscreen');
@@ -3194,10 +2216,6 @@ vjs.Player.prototype.onFullscreenChange = function() {
   }
 };
 
-/**
- * Fired when there is an error in playback
- * @event error
- */
 vjs.Player.prototype.onError = function(e) {
   vjs.log('Video Error', e);
 };
@@ -3205,10 +2223,6 @@ vjs.Player.prototype.onError = function(e) {
 // /* Player API
 // ================================================================================ */
 
-/**
- * Object for cached values.
- * @private
- */
 vjs.Player.prototype.cache_;
 
 vjs.Player.prototype.getCache = function(){
@@ -3264,56 +2278,21 @@ vjs.Player.prototype.techGet = function(method){
   return;
 };
 
-/**
- * start media playback
- *
- *     myPlayer.play();
- *
- * @return {vjs.Player} self
- */
 vjs.Player.prototype.play = function(){
   this.techCall('play');
   return this;
 };
 
-/**
- * Pause the video playback
- *
- *     myPlayer.pause();
- *
- * @return {vjs.Player} self
- */
 vjs.Player.prototype.pause = function(){
   this.techCall('pause');
   return this;
 };
 
-/**
- * Check if the player is paused
- *
- *     var isPaused = myPlayer.paused();
- *     var isPlaying = !myPlayer.paused();
- *
- * @return {Boolean} false if the media is currently playing, or true otherwise
- */
 vjs.Player.prototype.paused = function(){
   // The initial state of paused should be true (in Safari it's actually false)
   return (this.techGet('paused') === false) ? false : true;
 };
 
-/**
- * Get or set the current time (in seconds)
- *
- *     // get
- *     var whereYouAt = myPlayer.currentTime();
- *
- *     // set
- *     myPlayer.currentTime(120); // 2 minutes into the video
- *
- * @param  {Number|String=} seconds The time to seek to
- * @return {Number}        The time in seconds, when not setting
- * @return {vjs.Player}    self, when the current time is set
- */
 vjs.Player.prototype.currentTime = function(seconds){
   if (seconds !== undefined) {
 
@@ -3333,17 +2312,6 @@ vjs.Player.prototype.currentTime = function(seconds){
   return this.cache_.currentTime = (this.techGet('currentTime') || 0);
 };
 
-/**
- * Get the length in time of the video in seconds
- *
- *     var lengthOfVideo = myPlayer.duration();
- *
- * **NOTE**: The video must have started loading before the duration can be
- * known, and in the case of Flash, may not be known until the video starts
- * playing.
- *
- * @return {Number} The duration of the video in seconds
- */
 vjs.Player.prototype.duration = function(seconds){
   if (seconds !== undefined) {
 
@@ -3370,26 +2338,6 @@ vjs.Player.prototype.remainingTime = function(){
 // Kind of like an array of portions of the video that have been downloaded.
 // So far no browsers return more than one range (portion)
 
-/**
- * Get a TimeRange object with the times of the video that have been downloaded
- *
- * If you just want the percent of the video that's been downloaded,
- * use bufferedPercent.
- *
- *     // Number of different ranges of time have been buffered. Usually 1.
- *     numberOfRanges = bufferedTimeRange.length,
- *
- *     // Time in seconds when the first range starts. Usually 0.
- *     firstRangeStart = bufferedTimeRange.start(0),
- *
- *     // Time in seconds when the first range ends
- *     firstRangeEnd = bufferedTimeRange.end(0),
- *
- *     // Length in seconds of the first time range
- *     firstRangeLength = firstRangeEnd - firstRangeStart;
- *
- * @return {Object} A mock TimeRange object (following HTML spec)
- */
 vjs.Player.prototype.buffered = function(){
   var buffered = this.techGet('buffered'),
       start = 0,
@@ -3406,35 +2354,10 @@ vjs.Player.prototype.buffered = function(){
   return vjs.createTimeRange(start, end);
 };
 
-/**
- * Get the percent (as a decimal) of the video that's been downloaded
- *
- *     var howMuchIsDownloaded = myPlayer.bufferedPercent();
- *
- * 0 means none, 1 means all.
- * (This method isn't in the HTML5 spec, but it's very convenient)
- *
- * @return {Number} A decimal between 0 and 1 representing the percent
- */
 vjs.Player.prototype.bufferedPercent = function(){
   return (this.duration()) ? this.buffered().end(0) / this.duration() : 0;
 };
 
-/**
- * Get or set the current volume of the media
- *
- *     // get
- *     var howLoudIsIt = myPlayer.volume();
- *
- *     // set
- *     myPlayer.volume(0.5); // Set volume to half
- *
- * 0 is off (muted), 1.0 is all the way up, 0.5 is half way.
- *
- * @param  {Number} percentAsDecimal The new volume as a decimal percent
- * @return {Number}                  The current volume, when getting
- * @return {vjs.Player}              self, when setting
- */
 vjs.Player.prototype.volume = function(percentAsDecimal){
   var vol;
 
@@ -3452,19 +2375,6 @@ vjs.Player.prototype.volume = function(percentAsDecimal){
 };
 
 
-/**
- * Get the current muted state, or turn mute on or off
- *
- *     // get
- *     var isVolumeMuted = myPlayer.muted();
- *
- *     // set
- *     myPlayer.muted(true); // mute the volume
- *
- * @param  {Boolean=} muted True to mute, false to unmute
- * @return {Boolean} True if mute is on, false if not, when getting
- * @return {vjs.Player} self, when setting mute
- */
 vjs.Player.prototype.muted = function(muted){
   if (muted !== undefined) {
     this.techCall('setMuted', muted);
@@ -3476,20 +2386,6 @@ vjs.Player.prototype.muted = function(muted){
 // Check if current tech can support native fullscreen (e.g. with built in controls lik iOS, so not our flash swf)
 vjs.Player.prototype.supportsFullScreen = function(){ return this.techGet('supportsFullScreen') || false; };
 
-/**
- * Increase the size of the video to full screen
- *
- *     myPlayer.requestFullScreen();
- *
- * In some browsers, full screen is not supported natively, so it enters
- * "full window mode", where the video fills the browser window.
- * In browsers and devices that support native full screen, sometimes the
- * browser's default controls will be shown, and not the Video.js custom skin.
- * This includes most mobile devices (iOS, Android) and older versions of
- * Safari.
- *
- * @return {vjs.Player} self
- */
 vjs.Player.prototype.requestFullScreen = function(){
   var requestFullScreen = vjs.support.requestFullScreen;
   this.isFullScreen = true;
@@ -3530,13 +2426,6 @@ vjs.Player.prototype.requestFullScreen = function(){
   return this;
 };
 
-/**
- * Return the video to its normal size after having been in full screen mode
- *
- *     myPlayer.cancelFullScreen();
- *
- * @return {vjs.Player} self
- */
 vjs.Player.prototype.cancelFullScreen = function(){
   var requestFullScreen = vjs.support.requestFullScreen;
   this.isFullScreen = false;
@@ -3621,37 +2510,6 @@ vjs.Player.prototype.selectSource = function(sources){
   return false;
 };
 
-/**
- * The source function updates the video source
- *
- * There are three types of variables you can pass as the argument.
- *
- * **URL String**: A URL to the the video file. Use this method if you are sure
- * the current playback technology (HTML5/Flash) can support the source you
- * provide. Currently only MP4 files can be used in both HTML5 and Flash.
- *
- *     myPlayer.src("http://www.example.com/path/to/video.mp4");
- *
- * **Source Object (or element):** A javascript object containing information
- * about the source file. Use this method if you want the player to determine if
- * it can support the file using the type information.
- *
- *     myPlayer.src({ type: "video/mp4", src: "http://www.example.com/path/to/video.mp4" });
- *
- * **Array of Source Objects:** To provide multiple versions of the source so
- * that it can be played using HTML5 across browsers you can use an array of
- * source objects. Video.js will detect which version is supported and load that
- * file.
- *
- *     myPlayer.src([
- *       { type: "video/mp4", src: "http://www.example.com/path/to/video.mp4" },
- *       { type: "video/webm", src: "http://www.example.com/path/to/video.webm" },
- *       { type: "video/ogg", src: "http://www.example.com/path/to/video.ogv" }
- *     ]);
- *
- * @param  {String|Object|Array=} source The source URL, object, or array of sources
- * @return {vjs.Player} self
- */
 vjs.Player.prototype.src = function(source){
   // Case: Array of source objects to choose from and pick the best to play
   if (source instanceof Array) {
@@ -3746,28 +2604,8 @@ vjs.Player.prototype.loop = function(value){
   return this.techGet('loop');
 };
 
-/**
- * the url of the poster image source
- * @type {String}
- * @private
- */
 vjs.Player.prototype.poster_;
 
-/**
- * get or set the poster image source url
- *
- * ##### EXAMPLE:
- *
- *     // getting
- *     var currentPoster = myPlayer.poster();
- *
- *     // setting
- *     myPlayer.poster('http://example.com/myImage.jpg');
- *
- * @param  {String=} [src] Poster image source URL
- * @return {String} poster URL when getting
- * @return {vjs.Player} self when setting
- */
 vjs.Player.prototype.poster = function(src){
   if (src !== undefined) {
     this.poster_ = src;
@@ -3776,18 +2614,8 @@ vjs.Player.prototype.poster = function(src){
   return this.poster_;
 };
 
-/**
- * Whether or not the controls are showing
- * @type {Boolean}
- * @private
- */
 vjs.Player.prototype.controls_;
 
-/**
- * Get or set whether or not the controls are showing.
- * @param  {Boolean} controls Set controls to showing or not
- * @return {Boolean}    Controls are showing
- */
 vjs.Player.prototype.controls = function(bool){
   if (bool !== undefined) {
     bool = !!bool; // force boolean
@@ -3811,18 +2639,6 @@ vjs.Player.prototype.controls = function(bool){
 
 vjs.Player.prototype.usingNativeControls_;
 
-/**
- * Toggle native controls on/off. Native controls are the controls built into
- * devices (e.g. default iPhone controls), Flash, or other techs
- * (e.g. Vimeo Controls)
- *
- * **This should only be set by the current tech, because only the tech knows
- * if it can support native controls**
- *
- * @param  {Boolean} bool    True signals that native controls are on
- * @return {vjs.Player}      Returns the player
- * @private
- */
 vjs.Player.prototype.usingNativeControls = function(bool){
   if (bool !== undefined) {
     bool = !!bool; // force boolean
@@ -3832,26 +2648,10 @@ vjs.Player.prototype.usingNativeControls = function(bool){
       if (bool) {
         this.addClass('vjs-using-native-controls');
 
-        /**
-         * player is using the native device controls
-         *
-         * @event usingnativecontrols
-         * @memberof vjs.Player
-         * @instance
-         * @private
-         */
         this.trigger('usingnativecontrols');
       } else {
         this.removeClass('vjs-using-native-controls');
 
-        /**
-         * player is using the custom HTML controls
-         *
-         * @event usingcustomcontrols
-         * @memberof vjs.Player
-         * @instance
-         * @private
-         */
         this.trigger('usingcustomcontrols');
       }
     }
@@ -4059,14 +2859,6 @@ vjs.Player.prototype.listenForUserActivity = function(){
 })();
 
 
-/**
- * Container of main controls
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- * @extends vjs.Component
- */
 vjs.ControlBar = vjs.Component.extend();
 
 vjs.ControlBar.prototype.options_ = {
@@ -4090,13 +2882,6 @@ vjs.ControlBar.prototype.createEl = function(){
     className: 'vjs-control-bar'
   });
 };
-/**
- * Button to toggle between play and pause
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- */
 vjs.PlayToggle = vjs.Button.extend({
   /** @constructor */
   init: function(player, options){
@@ -4135,12 +2920,6 @@ vjs.PlayToggle.prototype.onPause = function(){
   vjs.addClass(this.el_, 'vjs-paused');
   this.el_.children[0].children[0].innerHTML = 'Play'; // change the button text to "Play"
 };
-/**
- * Displays the current time
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.CurrentTimeDisplay = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4171,12 +2950,6 @@ vjs.CurrentTimeDisplay.prototype.updateContent = function(){
   this.content.innerHTML = '<span class="vjs-control-text">Current Time </span>' + vjs.formatTime(time, this.player_.duration());
 };
 
-/**
- * Displays the duration
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.DurationDisplay = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4208,15 +2981,6 @@ vjs.DurationDisplay.prototype.updateContent = function(){
   }
 };
 
-/**
- * The separator between the current time and duration
- *
- * Can be hidden if it's not needed in the design.
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.TimeDivider = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4231,12 +2995,6 @@ vjs.TimeDivider.prototype.createEl = function(){
   });
 };
 
-/**
- * Displays the time left in the video
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.RemainingTimeDisplay = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4270,19 +3028,7 @@ vjs.RemainingTimeDisplay.prototype.updateContent = function(){
   // var time = (this.player_.scrubbing) ? this.player_.getCache().currentTime : this.player_.currentTime();
   // this.content.innerHTML = vjs.formatTime(time, this.player_.duration());
 };
-/**
- * Toggle fullscreen video
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @extends vjs.Button
- */
 vjs.FullscreenToggle = vjs.Button.extend({
-  /**
-   * @constructor
-   * @memberof vjs.FullscreenToggle
-   * @instance
-   */
   init: function(player, options){
     vjs.Button.call(this, player, options);
   }
@@ -4303,14 +3049,6 @@ vjs.FullscreenToggle.prototype.onClick = function(){
     this.el_.children[0].children[0].innerHTML = 'Fullscreen'; // change the button to "Fullscreen"
   }
 };
-/**
- * The Progress Control component contains the seek bar, load progress,
- * and play progress
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.ProgressControl = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4330,13 +3068,6 @@ vjs.ProgressControl.prototype.createEl = function(){
   });
 };
 
-/**
- * Seek Bar and holder for the progress bars
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.SeekBar = vjs.Slider.extend({
   /** @constructor */
   init: function(player, options){
@@ -4433,13 +3164,6 @@ vjs.SeekBar.prototype.stepBack = function(){
 };
 
 
-/**
- * Shows load progress
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.LoadProgressBar = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4460,13 +3184,6 @@ vjs.LoadProgressBar.prototype.update = function(){
 };
 
 
-/**
- * Shows play progress
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.PlayProgressBar = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4481,22 +3198,8 @@ vjs.PlayProgressBar.prototype.createEl = function(){
   });
 };
 
-/**
- * The Seek Handle shows the current position of the playhead during playback,
- * and can be dragged to adjust the playhead.
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.SeekHandle = vjs.SliderHandle.extend();
 
-/**
- * The default value for the handle content, which may be read by screen readers
- *
- * @type {String}
- * @private
- */
 vjs.SeekHandle.prototype.defaultValue = '00:00';
 
 /** @inheritDoc */
@@ -4505,13 +3208,6 @@ vjs.SeekHandle.prototype.createEl = function(){
     className: 'vjs-seek-handle'
   });
 };
-/**
- * The component for controlling the volume level
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.VolumeControl = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4543,13 +3239,6 @@ vjs.VolumeControl.prototype.createEl = function(){
   });
 };
 
-/**
- * The bar that contains the volume level and can be clicked on to adjust the level
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.VolumeBar = vjs.Slider.extend({
   /** @constructor */
   init: function(player, options){
@@ -4608,13 +3297,6 @@ vjs.VolumeBar.prototype.stepBack = function(){
   this.player_.volume(this.player_.volume() - 0.1);
 };
 
-/**
- * Shows volume level
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.VolumeLevel = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4629,13 +3311,6 @@ vjs.VolumeLevel.prototype.createEl = function(){
   });
 };
 
-/**
- * The volume handle can be dragged to adjust the volume level
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
  vjs.VolumeHandle = vjs.SliderHandle.extend();
 
  vjs.VolumeHandle.prototype.defaultValue = '00:00';
@@ -4646,13 +3321,6 @@ vjs.VolumeLevel.prototype.createEl = function(){
      className: 'vjs-volume-handle'
    });
  };
-/**
- * A button component for muting the audio
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.MuteToggle = vjs.Button.extend({
   /** @constructor */
   init: function(player, options){
@@ -4716,10 +3384,6 @@ vjs.MuteToggle.prototype.update = function(){
   }
   vjs.addClass(this.el_, 'vjs-vol-'+level);
 };
-/**
- * Menu button with a popup for showing the volume slider.
- * @constructor
- */
 vjs.VolumeMenuButton = vjs.MenuButton.extend({
   /** @constructor */
   init: function(player, options){
@@ -4766,13 +3430,6 @@ vjs.VolumeMenuButton.prototype.createEl = function(){
 vjs.VolumeMenuButton.prototype.update = vjs.MuteToggle.prototype.update;
 /* Poster Image
 ================================================================================ */
-/**
- * The component that handles showing the poster image.
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.PosterImage = vjs.Button.extend({
   /** @constructor */
   init: function(player, options){
@@ -4814,13 +3471,6 @@ vjs.PosterImage.prototype.onClick = function(){
 };
 /* Loading Spinner
 ================================================================================ */
-/**
- * Loading spinner for waiting events
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- */
 vjs.LoadingSpinner = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -4855,14 +3505,6 @@ vjs.LoadingSpinner.prototype.createEl = function(){
 };
 /* Big Play Button
 ================================================================================ */
-/**
- * Initial play button. Shows before the video has played. The hiding of the
- * big play button is done via CSS and player states.
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @class
- * @constructor
- */
 vjs.BigPlayButton = vjs.Button.extend();
 
 vjs.BigPlayButton.prototype.createEl = function(){
@@ -4876,17 +3518,7 @@ vjs.BigPlayButton.prototype.createEl = function(){
 vjs.BigPlayButton.prototype.onClick = function(){
   this.player_.play();
 };
-/**
- * @fileoverview Media Technology Controller - Base class for media playback
- * technology controllers like Flash and HTML5
- */
 
-/**
- * Base class for media (HTML5 Video, Flash) controllers
- * @param {vjs.Player|Object} player  Central player instance
- * @param {Object=} options Options object
- * @constructor
- */
 vjs.MediaTechController = vjs.Component.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -4896,26 +3528,6 @@ vjs.MediaTechController = vjs.Component.extend({
   }
 });
 
-/**
- * Set up click and touch listeners for the playback element
- * On desktops, a click on the video itself will toggle playback,
- * on a mobile device a click on the video toggles controls.
- * (toggling controls is done by toggling the user state between active and
- * inactive)
- *
- * A tap can signal that a user has become active, or has become inactive
- * e.g. a quick tap on an iPhone movie should reveal the controls. Another
- * quick tap should hide them again (signaling the user is in an inactive
- * viewing state)
- *
- * In addition to this, we still want the user to be considered inactive after
- * a few seconds of inactivity.
- *
- * Note: the only part of iOS interaction we can't mimic with this setup
- * is a touch and hold on the video element counting as activity in order to
- * keep the controls showing, but that shouldn't be an issue. A touch and hold on
- * any controls will still keep the user active
- */
 vjs.MediaTechController.prototype.initControlsListeners = function(){
   var player, tech, activateControls, deactivateControls;
 
@@ -4986,10 +3598,6 @@ vjs.MediaTechController.prototype.addControlsListeners = function(){
   this.on('tap', this.onTap);
 };
 
-/**
- * Remove the listeners used for click and tap controls. This is needed for
- * toggling to controls disabled, where a tap/touch should do nothing.
- */
 vjs.MediaTechController.prototype.removeControlsListeners = function(){
   // We don't want to just use `this.off()` because there might be other needed
   // listeners added by techs that extend this.
@@ -5003,9 +3611,6 @@ vjs.MediaTechController.prototype.removeControlsListeners = function(){
   this.off('mousedown');
 };
 
-/**
- * Handle a click on the media element. By default will play/pause the media.
- */
 vjs.MediaTechController.prototype.onClick = function(event){
   // We're using mousedown to detect clicks thanks to Flash, but mousedown
   // will also be triggered with right-clicks, so we need to prevent that
@@ -5022,10 +3627,6 @@ vjs.MediaTechController.prototype.onClick = function(event){
   }
 };
 
-/**
- * Handle a tap on the media element. By default it will toggle the user
- * activity state, which hides and shows the controls.
- */
 
 vjs.MediaTechController.prototype.onTap = function(){
   this.player().userActive(!this.player().userActive());
@@ -5045,10 +3646,6 @@ vjs.MediaTechController.prototype.features = {
 
 vjs.media = {};
 
-/**
- * List of default API methods for any MediaTechController
- * @type {String}
- */
 vjs.media.ApiMethods = 'play,pause,paused,currentTime,setCurrentTime,duration,buffered,volume,setVolume,muted,setMuted,width,height,supportsFullScreen,enterFullScreen,src,load,currentSrc,preload,setPreload,autoplay,setAutoplay,loop,setLoop,error,networkState,readyState,seeking,initialTime,startOffsetTime,played,seekable,ended,videoTracks,audioTracks,videoWidth,videoHeight,textTracks,defaultPlaybackRate,playbackRate,mediaGroup,controller,controls,defaultMuted'.split(',');
 // Create placeholder methods for each that warn when a method isn't supported by the current playback technology
 
@@ -5062,17 +3659,7 @@ for (var i = vjs.media.ApiMethods.length - 1; i >= 0; i--) {
   var methodName = vjs.media.ApiMethods[i];
   vjs.MediaTechController.prototype[vjs.media.ApiMethods[i]] = createMethod(methodName);
 }
-/**
- * @fileoverview HTML5 Media Controller - Wrapper for HTML5 Media API
- */
 
-/**
- * HTML5 Media Controller - Wrapper for HTML5 Media API
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @param {Function=} ready
- * @constructor
- */
 vjs.Html5 = vjs.MediaTechController.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -5355,20 +3942,7 @@ if (vjs.IS_OLD_ANDROID) {
     return (type && type.toLowerCase().indexOf('video/mp4') != -1) ? 'maybe' : '';
   };
 }
-/**
- * @fileoverview VideoJS-SWF - Custom Flash Player with HTML5-ish API
- * https://github.com/zencoder/video-js-swf
- * Not using setupTriggers. Using global onEvent func to distribute events
- */
 
-/**
- * Flash Media Controller - Wrapper for fallback SWF API
- *
- * @param {vjs.Player} player
- * @param {Object=} options
- * @param {Function=} ready
- * @constructor
- */
 vjs.Flash = vjs.MediaTechController.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -5649,19 +4223,11 @@ var api = vjs.Flash.prototype,
     readOnly = 'error,currentSrc,networkState,readyState,seeking,initialTime,duration,startOffsetTime,paused,played,seekable,ended,videoTracks,audioTracks,videoWidth,videoHeight,textTracks'.split(',');
     // Overridden: buffered
 
-/**
- * @this {*}
- * @private
- */
 var createSetter = function(attr){
   var attrUpper = attr.charAt(0).toUpperCase() + attr.slice(1);
   api['set'+attrUpper] = function(val){ return this.el_.vjs_setProperty(attr, val); };
 };
 
-/**
- * @this {*}
- * @private
- */
 var createGetter = function(attr){
   api[attr] = function(){ return this.el_.vjs_getProperty(attr); };
 };
@@ -5896,12 +4462,6 @@ vjs.Flash.RTMP_RE = /^rtmp[set]?:\/\//i;
 vjs.Flash.isStreamingSrc = function(src) {
   return vjs.Flash.RTMP_RE.test(src);
 };
-/**
- * The Media Loader is the component that decides which playback technology to load
- * when the player is initialized.
- *
- * @constructor
- */
 vjs.MediaLoader = vjs.Component.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -5929,45 +4489,16 @@ vjs.MediaLoader = vjs.Component.extend({
     }
   }
 });
-/**
- * @fileoverview Text Tracks
- * Text tracks are tracks of timed text events.
- * Captions - text displayed over the video for the hearing impared
- * Subtitles - text displayed over the video for those who don't understand langauge in the video
- * Chapters - text displayed in a menu allowing the user to jump to particular points (chapters) in the video
- * Descriptions (not supported yet) - audio descriptions that are read back to the user by a screen reading device
- */
 
 // Player Additions - Functions add to the player object for easier access to tracks
 
-/**
- * List of associated text tracks
- * @type {Array}
- * @private
- */
 vjs.Player.prototype.textTracks_;
 
-/**
- * Get an array of associated text tracks. captions, subtitles, chapters, descriptions
- * http://www.w3.org/html/wg/drafts/html/master/embedded-content-0.html#dom-media-texttracks
- * @return {Array}           Array of track objects
- * @private
- */
 vjs.Player.prototype.textTracks = function(){
   this.textTracks_ = this.textTracks_ || [];
   return this.textTracks_;
 };
 
-/**
- * Add a text track
- * In addition to the W3C settings we allow adding additional info through options.
- * http://www.w3.org/html/wg/drafts/html/master/embedded-content-0.html#dom-media-addtexttrack
- * @param {String}  kind        Captions, subtitles, chapters, descriptions, or metadata
- * @param {String=} label       Optional label
- * @param {String=} language    Optional language
- * @param {Object=} options     Additional track options, like src
- * @private
- */
 vjs.Player.prototype.addTextTrack = function(kind, label, language, options){
   var tracks = this.textTracks_ = this.textTracks_ || [];
   options = options || {};
@@ -5996,12 +4527,6 @@ vjs.Player.prototype.addTextTrack = function(kind, label, language, options){
   return track;
 };
 
-/**
- * Add an array of text tracks. captions, subtitles, chapters, descriptions
- * Track objects will be stored in the player.textTracks() array
- * @param {Array} trackList Array of track elements or objects (fake track elements)
- * @private
- */
 vjs.Player.prototype.addTextTracks = function(trackList){
   var trackObj;
 
@@ -6045,15 +4570,6 @@ vjs.Player.prototype.showTextTrack = function(id, disableSameKind){
   return this;
 };
 
-/**
- * The base class for all text tracks
- *
- * Handles the parsing, hiding, and showing of text track cues
- *
- * @param {vjs.Player|Object} player
- * @param {Object=} options
- * @constructor
- */
 vjs.TextTrack = vjs.Component.extend({
   /** @constructor */
   init: function(player, options){
@@ -6079,164 +4595,66 @@ vjs.TextTrack = vjs.Component.extend({
   }
 });
 
-/**
- * Track kind value. Captions, subtitles, etc.
- * @private
- */
 vjs.TextTrack.prototype.kind_;
 
-/**
- * Get the track kind value
- * @return {String}
- */
 vjs.TextTrack.prototype.kind = function(){
   return this.kind_;
 };
 
-/**
- * Track src value
- * @private
- */
 vjs.TextTrack.prototype.src_;
 
-/**
- * Get the track src value
- * @return {String}
- */
 vjs.TextTrack.prototype.src = function(){
   return this.src_;
 };
 
-/**
- * Track default value
- * If default is used, subtitles/captions to start showing
- * @private
- */
 vjs.TextTrack.prototype.dflt_;
 
-/**
- * Get the track default value. ('default' is a reserved keyword)
- * @return {Boolean}
- */
 vjs.TextTrack.prototype.dflt = function(){
   return this.dflt_;
 };
 
-/**
- * Track title value
- * @private
- */
 vjs.TextTrack.prototype.title_;
 
-/**
- * Get the track title value
- * @return {String}
- */
 vjs.TextTrack.prototype.title = function(){
   return this.title_;
 };
 
-/**
- * Language - two letter string to represent track language, e.g. 'en' for English
- * Spec def: readonly attribute DOMString language;
- * @private
- */
 vjs.TextTrack.prototype.language_;
 
-/**
- * Get the track language value
- * @return {String}
- */
 vjs.TextTrack.prototype.language = function(){
   return this.language_;
 };
 
-/**
- * Track label e.g. 'English'
- * Spec def: readonly attribute DOMString label;
- * @private
- */
 vjs.TextTrack.prototype.label_;
 
-/**
- * Get the track label value
- * @return {String}
- */
 vjs.TextTrack.prototype.label = function(){
   return this.label_;
 };
 
-/**
- * All cues of the track. Cues have a startTime, endTime, text, and other properties.
- * Spec def: readonly attribute TextTrackCueList cues;
- * @private
- */
 vjs.TextTrack.prototype.cues_;
 
-/**
- * Get the track cues
- * @return {Array}
- */
 vjs.TextTrack.prototype.cues = function(){
   return this.cues_;
 };
 
-/**
- * ActiveCues is all cues that are currently showing
- * Spec def: readonly attribute TextTrackCueList activeCues;
- * @private
- */
 vjs.TextTrack.prototype.activeCues_;
 
-/**
- * Get the track active cues
- * @return {Array}
- */
 vjs.TextTrack.prototype.activeCues = function(){
   return this.activeCues_;
 };
 
-/**
- * ReadyState describes if the text file has been loaded
- * const unsigned short NONE = 0;
- * const unsigned short LOADING = 1;
- * const unsigned short LOADED = 2;
- * const unsigned short ERROR = 3;
- * readonly attribute unsigned short readyState;
- * @private
- */
 vjs.TextTrack.prototype.readyState_;
 
-/**
- * Get the track readyState
- * @return {Number}
- */
 vjs.TextTrack.prototype.readyState = function(){
   return this.readyState_;
 };
 
-/**
- * Mode describes if the track is showing, hidden, or disabled
- * const unsigned short OFF = 0;
- * const unsigned short HIDDEN = 1; (still triggering cuechange events, but not visible)
- * const unsigned short SHOWING = 2;
- * attribute unsigned short mode;
- * @private
- */
 vjs.TextTrack.prototype.mode_;
 
-/**
- * Get the track mode
- * @return {Number}
- */
 vjs.TextTrack.prototype.mode = function(){
   return this.mode_;
 };
 
-/**
- * Change the font size of the text track to make it larger when playing in fullscreen mode
- * and restore it to its normal size when not in fullscreen mode.
- */
 vjs.TextTrack.prototype.adjustFontSize = function(){
     if (this.player_.isFullScreen) {
         // Scale the font by the same factor as increasing the video width to the full screen window width.
@@ -6249,26 +4667,12 @@ vjs.TextTrack.prototype.adjustFontSize = function(){
     }
 };
 
-/**
- * Create basic div to hold cue text
- * @return {Element}
- */
 vjs.TextTrack.prototype.createEl = function(){
   return vjs.Component.prototype.createEl.call(this, 'div', {
     className: 'vjs-' + this.kind_ + ' vjs-text-track'
   });
 };
 
-/**
- * Show: Mode Showing (2)
- * Indicates that the text track is active. If no attempt has yet been made to obtain the track's cues, the user agent will perform such an attempt momentarily.
- * The user agent is maintaining a list of which cues are active, and events are being fired accordingly.
- * In addition, for text tracks whose kind is subtitles or captions, the cues are being displayed over the video as appropriate;
- * for text tracks whose kind is descriptions, the user agent is making the cues available to the user in a non-visual fashion;
- * and for text tracks whose kind is chapters, the user agent is making available to the user a mechanism by which the user can navigate to any point in the media resource by selecting a cue.
- * The showing by default state is used in conjunction with the default attribute on track elements to indicate that the text track was enabled due to that attribute.
- * This allows the user agent to override the state if a later track is discovered that is more appropriate per the user's preferences.
- */
 vjs.TextTrack.prototype.show = function(){
   this.activate();
 
@@ -6278,12 +4682,6 @@ vjs.TextTrack.prototype.show = function(){
   vjs.Component.prototype.show.call(this);
 };
 
-/**
- * Hide: Mode Hidden (1)
- * Indicates that the text track is active, but that the user agent is not actively displaying the cues.
- * If no attempt has yet been made to obtain the track's cues, the user agent will perform such an attempt momentarily.
- * The user agent is maintaining a list of which cues are active, and events are being fired accordingly.
- */
 vjs.TextTrack.prototype.hide = function(){
   // When hidden, cues are still triggered. Disable to stop triggering.
   this.activate();
@@ -6294,11 +4692,6 @@ vjs.TextTrack.prototype.hide = function(){
   vjs.Component.prototype.hide.call(this);
 };
 
-/**
- * Disable: Mode Off/Disable (0)
- * Indicates that the text track is not active. Other than for the purposes of exposing the track in the DOM, the user agent is ignoring the text track.
- * No cues are active, no events are fired, and the user agent will not attempt to obtain the track's cues.
- */
 vjs.TextTrack.prototype.disable = function(){
   // If showing, hide.
   if (this.mode_ == 2) { this.hide(); }
@@ -6310,9 +4703,6 @@ vjs.TextTrack.prototype.disable = function(){
   this.mode_ = 0;
 };
 
-/**
- * Turn on cue tracking. Tracks that are showing OR hidden are active.
- */
 vjs.TextTrack.prototype.activate = function(){
   // Load text file if it hasn't been yet.
   if (this.readyState_ === 0) { this.load(); }
@@ -6333,9 +4723,6 @@ vjs.TextTrack.prototype.activate = function(){
   }
 };
 
-/**
- * Turn off cue tracking.
- */
 vjs.TextTrack.prototype.deactivate = function(){
   // Using unique ID for bind function so other tracks don't remove listener
   this.player_.off('timeupdate', vjs.bind(this, this.update, this.id_));
@@ -6602,29 +4989,14 @@ vjs.TextTrack.prototype.reset = function(){
 };
 
 // Create specific track types
-/**
- * The track component for managing the hiding and showing of captions
- *
- * @constructor
- */
 vjs.CaptionsTrack = vjs.TextTrack.extend();
 vjs.CaptionsTrack.prototype.kind_ = 'captions';
 // Exporting here because Track creation requires the track kind
 // to be available on global object. e.g. new window['videojs'][Kind + 'Track']
 
-/**
- * The track component for managing the hiding and showing of subtitles
- *
- * @constructor
- */
 vjs.SubtitlesTrack = vjs.TextTrack.extend();
 vjs.SubtitlesTrack.prototype.kind_ = 'subtitles';
 
-/**
- * The track component for managing the hiding and showing of chapters
- *
- * @constructor
- */
 vjs.ChaptersTrack = vjs.TextTrack.extend();
 vjs.ChaptersTrack.prototype.kind_ = 'chapters';
 
@@ -6633,11 +5005,6 @@ vjs.ChaptersTrack.prototype.kind_ = 'chapters';
 ============================================================================= */
 // Global container for both subtitle and captions text. Simple div container.
 
-/**
- * The component for displaying text track cues
- *
- * @constructor
- */
 vjs.TextTrackDisplay = vjs.Component.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -6660,11 +5027,6 @@ vjs.TextTrackDisplay.prototype.createEl = function(){
 };
 
 
-/**
- * The specific menu item type for selecting a language within a text track kind
- *
- * @constructor
- */
 vjs.TextTrackMenuItem = vjs.MenuItem.extend({
   /** @constructor */
   init: function(player, options){
@@ -6688,11 +5050,6 @@ vjs.TextTrackMenuItem.prototype.update = function(){
   this.selected(this.track.mode() == 2);
 };
 
-/**
- * A special menu item for turning of a specific type of text track
- *
- * @constructor
- */
 vjs.OffTextTrackMenuItem = vjs.TextTrackMenuItem.extend({
   /** @constructor */
   init: function(player, options){
@@ -6730,11 +5087,6 @@ vjs.OffTextTrackMenuItem.prototype.update = function(){
   this.selected(off);
 };
 
-/**
- * The base class for buttons that toggle specific text track types (e.g. subtitles)
- *
- * @constructor
- */
 vjs.TextTrackButton = vjs.MenuButton.extend({
   /** @constructor */
   init: function(player, options){
@@ -6790,11 +5142,6 @@ vjs.TextTrackButton.prototype.createItems = function(){
   return items;
 };
 
-/**
- * The button component for toggling and selecting captions
- *
- * @constructor
- */
 vjs.CaptionsButton = vjs.TextTrackButton.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -6806,11 +5153,6 @@ vjs.CaptionsButton.prototype.kind_ = 'captions';
 vjs.CaptionsButton.prototype.buttonText = 'Captions';
 vjs.CaptionsButton.prototype.className = 'vjs-captions-button';
 
-/**
- * The button component for toggling and selecting subtitles
- *
- * @constructor
- */
 vjs.SubtitlesButton = vjs.TextTrackButton.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -6824,11 +5166,6 @@ vjs.SubtitlesButton.prototype.className = 'vjs-subtitles-button';
 
 // Chapters act much differently than other text tracks
 // Cues are navigation vs. other tracks of alternative languages
-/**
- * The button component for toggling and selecting chapters
- *
- * @constructor
- */
 vjs.ChaptersButton = vjs.TextTrackButton.extend({
   /** @constructor */
   init: function(player, options, ready){
@@ -6912,9 +5249,6 @@ vjs.ChaptersButton.prototype.createMenu = function(){
 };
 
 
-/**
- * @constructor
- */
 vjs.ChaptersTrackMenuItem = vjs.MenuItem.extend({
   /** @constructor */
   init: function(player, options){
@@ -6958,21 +5292,7 @@ vjs.obj.merge(vjs.ControlBar.prototype.options_['children'], {
 //     vjs.Component.call(this, player, options);
 //   }
 // });
-/**
- * @fileoverview Add JSON support
- * @suppress {undefinedVars}
- * (Compiler doesn't like JSON not being declared)
- */
 
-/**
- * Javascript JSON implementation
- * (Parse Method Only)
- * https://github.com/douglascrockford/JSON-js/blob/master/json2.js
- * Only using for parse method when parsing data-setup attribute JSON.
- * @suppress {undefinedVars}
- * @namespace
- * @private
- */
 vjs.JSON;
 
 if (typeof window.JSON !== 'undefined' && window.JSON.parse === 'function') {
@@ -6983,12 +5303,6 @@ if (typeof window.JSON !== 'undefined' && window.JSON.parse === 'function') {
 
   var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
 
-  /**
-   * parse the json
-   *
-   * @memberof vjs.JSON
-   * @return {Object|Array} The parsed JSON
-   */
   vjs.JSON.parse = function (text, reviver) {
       var j;
 
@@ -7031,10 +5345,6 @@ if (typeof window.JSON !== 'undefined' && window.JSON.parse === 'function') {
       throw new SyntaxError('JSON.parse(): invalid or malformed JSON data');
   };
 }
-/**
- * @fileoverview Functions for automatically setting up a player
- * based on the data-setup attribute of the video tag
- */
 
 // Automatically set up any tags that have a data-setup attribute
 vjs.autoSetup = function(){
@@ -7097,12 +5407,6 @@ if (document.readyState === 'complete') {
 // Run Auto-load players
 // You have to wait at least once in case this script is loaded after your video in the DOM (weird behavior only with minified version)
 vjs.autoSetupTimeout(1);
-/**
- * the method for registering a video.js plugin
- *
- * @param  {String} name The name of the plugin
- * @param  {Function} init The function that is run when the player inits
- */
 vjs.plugin = function(name, init){
   vjs.Player.prototype[name] = init;
 };

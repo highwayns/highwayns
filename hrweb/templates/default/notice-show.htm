@@ -1,4 +1,4 @@
-﻿{#highway_notice_show set="列表名:show,公告ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_notice_show set="リスト名:show,公告ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,7 +6,7 @@
 <meta name="description" content="{#$show.description#}">
 <meta name="keywords" content="{#$show.keywords#}">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/news.css" rel="stylesheet" type="text/css" />
@@ -29,8 +29,8 @@ $(document).ready(function()
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-{#highway_news_category set="列表名:category,名称长度:10,资讯小类:"|cat:$show.type_id#}
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_noticelist,id:1"|highway_url#}">网站公告</a>&nbsp;>&nbsp;正文
+{#highway_news_category set="リスト名:category,名称長さ:10,ニュース小類:"|cat:$show.type_id#}
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_noticelist,id:1"|highway_url#}">网站公告</a>&nbsp;>&nbsp;正文
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
@@ -42,7 +42,7 @@ $(document).ready(function()
 					<div class="title">{#$show.title#}</div>
 					<div class="news_dateil">
 						<div class="time">{#$show.addtime|date_format:"%Y-%m-%d %H:%M"#}</div>
-						<div class="time">查看：<span id="click"></span> 次</div>
+						<div class="time">確認：<span id="click"></span> タイムズ</div>
 						<div><a href="javascript:window.print();">[打印]</a><a href="javascript:void(0);" onclick="window.external.addFavorite(parent.location.href,document.title);">[收藏]</a></div>
 						<div class="clear"></div>
 					</div>
@@ -55,7 +55,7 @@ $(document).ready(function()
 						        <a class="bds_tsina"></a>
 						        <a class="bds_tqq"></a>
 						        <a class="bds_renren"></a>
-						        <span class="bds_more">更多</span>
+						        <span class="bds_more">もっと</span>
 						    </div>
 						<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=659075" ></script>
 						<script type="text/javascript" id="bdshell_js"></script>
@@ -76,11 +76,11 @@ $(document).ready(function()
 		<div class="right_area">
 			<div class="right_box">
 				<div class="title_box">
-					<h5>最新职位</h5>
+					<h5>最新のジョブズ</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_jobs_list set="列表名:jobslist,显示数目:5,职位名长度:14,填补字符:...,排序:rtime>desc"#}
+						{#highway_jobs_list set="リスト名:jobslist,表示件数:5,職位名長さ:14,文字:...,ソート:rtime>desc"#}
 						{#foreach from=$jobslist item=list#}
 						<li><a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a></li>
 						{#/foreach#}

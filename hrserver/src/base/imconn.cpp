@@ -1,4 +1,4 @@
-/*
+﻿/*
  * imconn.cpp
  *
  *  Created on: 2013-6-5

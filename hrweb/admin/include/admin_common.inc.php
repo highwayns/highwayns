@@ -7,7 +7,7 @@ define('HIGHWAY_ROOT_PATH', dirname(ADMIN_ROOT_PATH).'/');
 ini_set('session.save_handler', 'files');
 session_save_path(HIGHWAY_ROOT_PATH.'data/sessions/');
 session_start();
-require_once(HIGHWAY_ROOT_PATH.'include/74cms_version.php');
+require_once(HIGHWAY_ROOT_PATH.'include/highwayns_version.php');
 require_once(ADMIN_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass);

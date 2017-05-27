@@ -1,4 +1,4 @@
-﻿HTML.Nofollow
+HTML.Nofollow
 TYPE: bool
 VERSION: 4.3.0
 DEFAULT: FALSE

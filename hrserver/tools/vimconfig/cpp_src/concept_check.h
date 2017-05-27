@@ -1,4 +1,4 @@
-// Concept-checking control -*- C++ -*-
+﻿// Concept-checking control -*- C++ -*-
 
 // Copyright (C) 2001 Free Software Foundation, Inc.
 //

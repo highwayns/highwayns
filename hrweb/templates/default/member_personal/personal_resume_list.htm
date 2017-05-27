@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
@@ -28,7 +28,7 @@ $(".resume_privacy").live("click",function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=privacy&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('隐私设置');
     myDialog.width('550');
     myDialog.showModal();
@@ -44,7 +44,7 @@ $(".tpl").live("click",function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=tpl&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('更换模板');
     myDialog.showModal();
     $.get(url, function(data){
@@ -59,7 +59,7 @@ $(".del_resume").live("click",function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=del_resume&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('删除简历');
     myDialog.width('350');
     myDialog.showModal();
@@ -77,7 +77,7 @@ $(".refresh_resume").live("click",function(){
 		if(result=="1"){
 			dialog({
 			  title: '系统提示',
-			  content: "刷新成功",
+			  content: "更新成功",
 			  width:'300px'
 			}).showModal();
 		}else{
@@ -96,7 +96,7 @@ $(".refresh_resume").live("click",function(){
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 我的简历</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > 私の履歴書</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -108,8 +108,8 @@ $(".refresh_resume").live("click",function(){
 	
 	  <div class="resumelist">
 				<div class="titleH1">
-				  <div class="h1-title f-left">我的简历</div>
-				  {#if $resume_list#}<div class="h1-title-num f-right">共可创建 <span>{#$HIGHWAY.resume_max#}</span> 份简历，您已创建 <span>{#$total#}</span> 份</div>{#/if#}
+				  <div class="h1-title f-left">私の履歴書 </div>
+				  {#if $resume_list#}<div class="h1-title-num f-right">共に作成<span>{#$HIGHWAY.resume_max#}</span> あなたの履歴書は、を作成しました<span>{#$total#}</span> パーツ</div>{#/if#}
 				  <div class="clear"></div>
 				</div>
 			{#if $resume_list#}
@@ -119,21 +119,21 @@ $(".refresh_resume").live("click",function(){
 			  <div class="toptitle">
 				<div class="t">
 					<span class="h2-title">{#$list.title#}</span>
-					<span class="date">刷新时间：{#$list.refreshtime|date_format:"%Y-%m-%d %H:%M"#}</span>
+					<span class="date">リフレッシュタイム：{#$list.refreshtime | DaTE_FORMaT： “％Y-％M-％D％h：％M" #} </span>
 				</div>
 			  </div>
 				<div class="fbox">
-					审核状态：{#if $list.audit=="1"#}<span style="color: #009900">审核通过</span>{#elseif $list.audit=="2"#}<span style="color: #FF6600">审核中</span>{#elseif $list.audit=="3"#}<span style="color: #FF0000">审核未通过</span>{#/if#}<br />简历等级：{#if $list.talent=="2"#}<span style="color:#FF6600">高级</span>{#elseif $list.talent=="3"#}高级待审{#else#}普通{#/if#}</div>
-				  <div class="fbox">完整度：{#$list.complete_percent#}%<span style="color:#FF0000">({#if $list.level=="1"#}差{#elseif $list.level=="2"#}良{#else#}优{#/if#})</span><br /> 公开状态：<span style="cursor:pointer;" class="resume_privacy" pid="{#$list.id#}" id="view_display_{#$list.id#}">{#if $list.display=="1"#}公开{#elseif $list.display=="2"#}保密{#/if#}</span></div>
-				  <div class="fbox">面试/申请：<a href="personal_apply.php?act=interview">{#$list.countinterview#}</a>/<a href="personal_apply.php?act=apply_jobs">{#$list.countapply#}</a><br />下载/浏览：<a href="personal_apply.php?act=attention_me">{#$list.countdown#}</a>/<a href="personal_apply.php?act=attention_me">{#$list.click#}</a></div>
+					审核状态：{#if $list.audit=="1"#}<span style="color: #009900">承認</span>{#elseif $list.audit=="2"#}<span style="color: #FF6600">審査中</span>{#elseif $list.audit=="3"#}<span style="color: #FF0000">承認されていません</span>{#/if#}<br />履歴書のレベル：{#if $list.talent=="2"#}<span style="color:#FF6600">高级</span>{#elseif $list.talent==“3"#}高級審査待ち{#else#}普通{#/if#}</div>
+				  <div class="fbox">完全性：{#$list.complete_percent#}%<span style="color:#FF0000">({#if $list.level=="1"#}差{#elseif $list.level=="2"#}良{#else#}优{#/if#})</span><br /> 公开状态：<span style="cursor:pointer;" class="resume_privacy" pid="{#$list.id#}" id="view_display_{#$list.id#}">{#if $list.display==“1"#}公開{#elseif $list.display==“2"#}非公開{#/if#}</span></div>
+				  <div class="fbox">面接/アプリケーション：<a href="personal_apply.php?act=interview">{#$list.countinterview#}</a>/<a href="personal_apply.php?act=apply_jobs">{#$list.countapply#}</a><br />下载/浏览：<a href="personal_apply.php?act=attention_me">{#$list.countdown#}</a>/<a href="personal_apply.php?act=attention_me">{#$list.click#}</a></div>
 			  <div class="fbox last">					 	
-				 	<div class="buts"><input type="button" class="refresh_resume but100_30lan" value="刷新简历" pid="{#$list.id#}"/></div>			 	   
-				   		<div class="buts"><input type="button"  class="but100_30hui" value="修改简历" onclick="javascript:location.href='?act=edit_resume&pid={#$list.id#}' "/></div>
+				 	<div class="buts"><input type="button" class="refresh_resume but100_30lan" value=“履歴書リフレッシュ" pid="{#$list.id#}"/></div>			 	   
+				   		<div class="buts"><input type="button"  class="but100_30hui" value=“履歴書の修正" onclick="javascript:location.href='?act=edit_resume&pid={#$list.id#}' "/"></div>
 						<div class="clear"></div>
-					<div class="buts"><input type="button"  class="but100_30hui" value="预览简历" onclick="javascript:window.open('{#$list.resume_url#}')"/></div>
+					<div class="buts"><input type="button"  class="but100_30hui" value=“履歴書ビュー" onclick="javascript:window.open('{#$list.resume_url#}')"/></div>
 						<div class="buts">
 								<div class="morebox" id="morebox">
-									<div class="more">更多操作</div>						
+									<div class="more">その他の操作</div>						
 										<div class="morelist link_bk">
 											{#if $list.talent=="1"#}<div><a href="?act=talent_save&pid={#$list.id#}">升级简历</a></div>{#/if#}
 												<div><a class="tpl" pid="{#$list.id#}" href="javascript:void(0);">更换模板</a></div>
@@ -165,11 +165,11 @@ $(".refresh_resume").live("click",function(){
 		      </table>
 		    {#/if#}
 			 <div class="addbut">
-			 <input type="button" name="submitsave" id="submitsave" value="新增简历" onclick="javascript:location.href='personal_resume.php?act=make1'"  class="but100lan"/>
+			 <input type="button" name="submitsave" id="submitsave" value="履歴書追加" onclick="javascript:location.href='personal_resume.php?act=make1'"  class="but100lan"/>
 			 </div>
 			 
 	         <div class="bottomtip">
-		 	   <div class="tp h2-title">小贴士</div>
+		 	   <div class="tp h2-title">ヒント</div>
 			   刷新简历：刷新简历完全免费，刷新后时间会变成最新，企业在搜索简历的时候会优先显示，提供应聘机会。<br />
 企业屏蔽：如果您的简历不想被某个公司看到，可以在更多操作中屏蔽该公司。<br />
 委托简历：设置委托后，在三天内我们会主动向适合您职位的公司投递您的简历，提高面试效果。
@@ -181,7 +181,7 @@ $(".refresh_resume").live("click",function(){
 					简历是求职的利器，填写简历才能更快找到好工作！<br />
 					去填写一份优质的简历吧，认真的人，才能让认真的企业找上你！
 				</p>
-				<input type="button" value="创建简历" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/><span style="margin-left:20px;font-family:'SimSun';color:#666;">共可创建 <span style="color:#0180cf;">3</span> 份简历，您已创建 <span style="color:#0180cf;">{#$total#}</span> 份</span>
+				<input type="button" value="履歴書作成" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/><span style="margin-left:20px;font-family:'SimSun';color:#666;">共可创建 <span style="color:#0180cf;">3</span> 份简历，您已创建 <span style="color:#0180cf;">{#$total#}</span> 份</span>
 			</div>
 			{#/if#}
 	  </div>	  

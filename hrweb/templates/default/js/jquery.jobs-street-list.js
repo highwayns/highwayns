@@ -57,7 +57,7 @@ function apply_jobs(ajaxurl)
 		{
 			var myDialog = dialog();
 			myDialog.content("请选择职位");
-	        myDialog.title('系统提示');
+	        myDialog.title('システム提示');
 	        myDialog.width('300');
 	        myDialog.showModal();
 		}
@@ -108,7 +108,7 @@ function favorites(ajaxurl)
 		{
 			var myDialog = dialog();
 			myDialog.content("请选择职位");
-	        myDialog.title('系统提示');
+	        myDialog.title('システム提示');
 	        myDialog.width('300');
 	        myDialog.showModal();
 		}

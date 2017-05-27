@@ -1,14 +1,4 @@
 ﻿<?php
-/**
- * 74cms 支付宝支付
- * ============================================================================
- * 版权所有: 骑士网络，并保留所有权利。
- * 网站地址: http://www.jp.highwayns.com；
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
- * 使用；不允许对程序代码以任何形式任何目的的再发布。
- * ============================================================================
-*/
 
  if(!defined('IN_HIGHWAY'))
  {
@@ -30,7 +20,7 @@ $sign_type		= "MD5";
 $_input_charset	= "GBK";
 $transport		= "http";
 $out_trade_no = $order['oid'];		//请与贵网站订单系统中的唯一订单号匹配
-$subject      =  "订单号：" . $out_trade_no;	
+$subject      =  "オーダー番号：" . $out_trade_no;	
 $body         = $order['remark1'];
 $total_fee    = intval($order['v_amount']);
 //扩展功能参数——默认支付方式
@@ -88,9 +78,6 @@ $sHtmlText = $alipay->build_form();
 $sHtmlText.="<input type=\"button\" class=\"but130lan intrgration_but\" value=\"确认支付\"  onclick=\"document.forms['alipaysubmit'].submit()\"/>";
 return $sHtmlText;
 }
-/**
- * 响应操作
-*/
 function respond()
 {
 	$payment= get_payment_info('alipay');	
@@ -113,12 +100,12 @@ function respond()
 }
 function pay_info()
 {
-$arr['p_introduction']="支付宝简短描述：";
-$arr['notes']="支付宝详细描述：";
-$arr['partnerid']="合作者身份(Partner ID)：";
-$arr['ytauthkey']="安全校验码(Key)：";
-$arr['fee']="支付宝交易手续费：";
-$arr['parameter1']="支付宝帐号：";
+$arr['p_introduction']="Alipay説明：";
+$arr['notes']="Alipay詳細情報：";
+$arr['partnerid']="パトナー(Partner ID)：";
+$arr['ytauthkey']="安全検証コード(Key)：";
+$arr['fee']="Alipay手続費：";
+$arr['parameter1']="Alipayアカウント：";
 return $arr;
 }
 //----------------------------------------------------
@@ -386,9 +373,9 @@ function sign($prestr,$sign_type) {
         $sign = md5($prestr);
     }elseif($sign_type =='DSA') {
         //DSA 签名方法待后续开发
-        die("DSA 签名方法待后续开发，请先使用MD5签名方式");
+        die("DSA サイン方法開発中，MD5サイン方式を利用してください");
     }else {
-        die("支付宝暂不支持".$sign_type."类型的签名方式");
+        die("Alipayまた使えない".$sign_type."タイプのサイン方式");
     }
     return $sign;
 }
@@ -400,7 +387,7 @@ function sign($prestr,$sign_type) {
 function  log_result($word) {
     $fp = fopen("log.txt","a");
     flock($fp, LOCK_EX) ;
-    fwrite($fp,"执行日期：".strftime("%Y%m%d%H%M%S",time())."\n".$word."\n");
+    fwrite($fp,"実行日付：".strftime("%Y%m%d%H%M%S",time())."\n".$word."\n");
     flock($fp, LOCK_UN);
     fclose($fp);
 }

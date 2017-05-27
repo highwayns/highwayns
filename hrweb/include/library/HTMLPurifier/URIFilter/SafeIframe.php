@@ -1,47 +1,22 @@
 ﻿<?php
 
-/**
- * Implements safety checks for safe iframes.
- *
- * @warning This filter is *critical* for ensuring that %HTML.SafeIframe
- * works safely.
- */
 class HTMLPurifier_URIFilter_SafeIframe extends HTMLPurifier_URIFilter
 {
-    /**
-     * @type string
-     */
     public $name = 'SafeIframe';
 
-    /**
-     * @type bool
-     */
     public $always_load = true;
 
-    /**
-     * @type string
-     */
     protected $regexp = null;
 
     // XXX: The not so good bit about how this is all set up now is we
     // can't check HTML.SafeIframe in the 'prepare' step: we have to
     // defer till the actual filtering.
-    /**
-     * @param HTMLPurifier_Config $config
-     * @return bool
-     */
     public function prepare($config)
     {
         $this->regexp = $config->get('URI.SafeIframeRegexp');
         return true;
     }
 
-    /**
-     * @param HTMLPurifier_URI $uri
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function filter(&$uri, $config, $context)
     {
         // check if filter not applicable

@@ -1,4 +1,4 @@
-//
+﻿//
 //  PushServConn.cpp
 //  im-server-TT
 //
@@ -71,7 +71,7 @@ void build_ios_push_flash(string& flash, uint32_t msg_type, uint32_t from_id)
     size_t pos_prefix = flash.find(pic_prefix);
     size_t pos_suffix = flash.find(pic_suffix);
     
-    string comm_flash = "您收到了一条消息";
+    string comm_flash = "メッセージ受信しました";
     //如果是带有图片链接的话，将消息体改变
     if (pos_prefix != string::npos && pos_suffix != string::npos && pos_prefix < pos_suffix) {
         flash = comm_flash;
@@ -86,12 +86,12 @@ void build_ios_push_flash(string& flash, uint32_t msg_type, uint32_t from_id)
             if (msg_type == IM::BaseDefine::MSG_TYPE_GROUP_AUDIO )
             {
                 msg_tmp.append(nick_name);
-                msg_tmp.append("在群聊中发送了一条语音消息");
+                msg_tmp.append("グループに音声メッセージを発信");
             }
             else if (msg_type == IM::BaseDefine::MSG_TYPE_SINGLE_AUDIO)
             {
                 msg_tmp.append(nick_name);
-                msg_tmp.append("给您发送了一条语音消息");
+                msg_tmp.append("音声メッセージ受信しました");
             }
             else
             {

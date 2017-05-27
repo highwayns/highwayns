@@ -1,60 +1,21 @@
 ﻿<?php
 
-/**
- * HTML Purifier's internal representation of a URI.
- * @note
- *      Internal data-structures are completely escaped. If the data needs
- *      to be used in a non-URI context (which is very unlikely), be sure
- *      to decode it first. The URI may not necessarily be well-formed until
- *      validate() is called.
- */
 class HTMLPurifier_URI
 {
-    /**
-     * @type string
-     */
     public $scheme;
 
-    /**
-     * @type string
-     */
     public $userinfo;
 
-    /**
-     * @type string
-     */
     public $host;
 
-    /**
-     * @type int
-     */
     public $port;
 
-    /**
-     * @type string
-     */
     public $path;
 
-    /**
-     * @type string
-     */
     public $query;
 
-    /**
-     * @type string
-     */
     public $fragment;
 
-    /**
-     * @param string $scheme
-     * @param string $userinfo
-     * @param string $host
-     * @param int $port
-     * @param string $path
-     * @param string $query
-     * @param string $fragment
-     * @note Automatically normalizes scheme and port
-     */
     public function __construct($scheme, $userinfo, $host, $port, $path, $query, $fragment)
     {
         $this->scheme = is_null($scheme) || ctype_lower($scheme) ? $scheme : strtolower($scheme);
@@ -66,12 +27,6 @@ class HTMLPurifier_URI
         $this->fragment = $fragment;
     }
 
-    /**
-     * Retrieves a scheme object corresponding to the URI's scheme/default
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return HTMLPurifier_URIScheme Scheme object appropriate for validating this URI
-     */
     public function getSchemeObj($config, $context)
     {
         $registry = HTMLPurifier_URISchemeRegistry::instance();
@@ -96,13 +51,6 @@ class HTMLPurifier_URI
         return $scheme_obj;
     }
 
-    /**
-     * Generic validation method applicable for all schemes. May modify
-     * this URI in order to get it into a compliant form.
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool True if validation/filtering succeeds, false if failure
-     */
     public function validate($config, $context)
     {
         // ABNF definitions from RFC 3986
@@ -210,10 +158,6 @@ class HTMLPurifier_URI
         return true;
     }
 
-    /**
-     * Convert URI back to string
-     * @return string URI appropriate for output
-     */
     public function toString()
     {
         // reconstruct authority
@@ -256,18 +200,6 @@ class HTMLPurifier_URI
         return $result;
     }
 
-    /**
-     * Returns true if this URL might be considered a 'local' URL given
-     * the current context.  This is true when the host is null, or
-     * when it matches the host supplied to the configuration.
-     *
-     * Note that this does not do any scheme checking, so it is mostly
-     * only appropriate for metadata that doesn't care about protocol
-     * security.  isBenign is probably what you actually want.
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function isLocal($config, $context)
     {
         if ($this->host === null) {
@@ -280,16 +212,6 @@ class HTMLPurifier_URI
         return false;
     }
 
-    /**
-     * Returns true if this URL should be considered a 'benign' URL,
-     * that is:
-     *
-     *      - It is a local URL (isLocal), and
-     *      - It has a equal or better level of security
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function isBenign($config, $context)
     {
         if (!$this->isLocal($config, $context)) {

@@ -1,7 +1,4 @@
 ﻿<?php
-/**
- * 利用GD库读写bmp格式图片
- */
  if(!defined('IN_HIGHWAY'))
 {
 die('Access Denied!');

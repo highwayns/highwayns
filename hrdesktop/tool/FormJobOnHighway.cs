@@ -87,7 +87,7 @@ namespace highwayns
                     string line = sr.ReadLine();
                     while (line != null)
                     {
-                        if(line.Trim() =="/*")
+                        if (line.Trim() == "/*" || line.Trim() == "/**")
                         {
                             isComment = true;
                         }

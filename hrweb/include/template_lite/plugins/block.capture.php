@@ -1,11 +1,4 @@
 ﻿<?php
-/**
- * template_lite {capture}{/capture} block plugin
- *
- * Type:     block function
- * Name:     capture
- * Purpose:  removes content and stores it in a variable
- */
 function tpl_block_capture($params, $content, &$tpl)
 {
 	extract($params);

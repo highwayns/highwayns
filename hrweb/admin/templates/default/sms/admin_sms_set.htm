@@ -6,55 +6,55 @@
   <div class="clear"></div>
 </div>
  <div class="toptip link_g">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 		<p>
-		短信模块属收费模块，需申请开通后才能使用，请点击 <a href="http://www.jp.highwayns.com/sms.php" target="_blank">这里</a> 申请开通。
+		短信模块属收费模块，需申请开通后才能使用，请点击 <a href="http://highwayns.com/sms.php" target="_blank">ここで</a> 申请开通。
 		<br />
-		资费标准请联系骑士销售获取，更多介绍请进入 <a href="http://www.jp.highwayns.com" target="_blank">骑士人才系统官方网站</a></p>
+		资费标准请联系骑士销售获取，更多介绍请进入 <a href="http://highwayns.com" target="_blank">公式サイトのHighwaynsの人材システム</a></p>
   </div>
-<div class="toptit">设置</div>
+<div class="toptit">設定</div>
 <form action="?act=set_save" method="post"   name="form1" id="form1">
 {#$inputtoken#}
 <table width="700" border="0" cellspacing="8" cellpadding="1" style=" margin-bottom:3px; " id="method_sendmail">
          <tr>
-            <td width="121" align="right">开启短信发送：</td>
+            <td width="121" align="right">SMS発送スタート：</td>
             <td width="560">
       <label><input name="open" type="radio" value="1"    {#if $sms.open=="1"#}checked="checked"{#/if#}/> 开启</label>
       &nbsp;&nbsp;&nbsp;
       <label><input name="open" type="radio" value="0"    {#if $sms.open=="0"#}checked="checked"{#/if#}/>关闭</label>            </td>
           </tr>
       </table>
- <div class="toptit">验证码类<span class="admin_note" style="color: rgb(153, 153, 153);">用于发送验证码类的短信接口</span></div>
+ <div class="toptit">クラスコード<span class="admin_note" style="color: rgb(153, 153, 153);">用于发送验证码类的短信接口</span></div>
 		<table width="700" border="0" cellspacing="8" cellpadding="1" style=" margin-bottom:3px; " id="method_sendmail">
           
           <tr>
-            <td width="121" align="right">帐户名：</td>
+            <td width="121" align="right">アカウント名：</td>
             <td width="560"><input name="captcha_sms_name" type="text"  class="input_text_200"  value="{#$sms.captcha_sms_name#}"  /></td>
           </tr>
           <tr>
-            <td align="right">密钥：</td>
+            <td align="right">キー：</td>
             <td><input name="captcha_sms_key" type="text"  class="input_text_200"  value="{#$sms.captcha_sms_key#}"  /></td>
           </tr>
       </table>
- <div class="toptit">通知类<span class="admin_note" style="color: rgb(153, 153, 153);">用于发送通知类的短信接口</span></div>
+ <div class="toptit">通知種類<span class="admin_note" style="color: rgb(153, 153, 153);">用于发送通知类的短信接口</span></div>
       <table width="700" border="0" cellspacing="8" cellpadding="1" style=" margin-bottom:3px; " id="method_sendmail">
           <tr>
-            <td width="121" align="right">帐户名：</td>
+            <td width="121" align="right">アカウント名：</td>
             <td width="560"><input name="notice_sms_name" type="text"  class="input_text_200"  value="{#$sms.notice_sms_name#}"  /></td>
           </tr>
           <tr>
-            <td align="right">密钥：</td>
+            <td align="right">キー：</td>
             <td><input name="notice_sms_key" type="text"  class="input_text_200"  value="{#$sms.notice_sms_key#}"  /></td>
           </tr>
       </table>
-      <div class="toptit">其他类<span class="admin_note" style="color: rgb(153, 153, 153);">其他类型的短信接口</span></div>
+      <div class="toptit">ほか<span class="admin_note" style="color: rgb(153, 153, 153);">其他类型的短信接口</span></div>
       <table width="700" border="0" cellspacing="8" cellpadding="1" style=" margin-bottom:3px; " id="method_sendmail">
           <tr>
-            <td width="121" align="right">帐户名：</td>
+            <td width="121" align="right">アカウント名：</td>
             <td width="560"><input name="free_sms_name" type="text"  class="input_text_200"  value="{#$sms.free_sms_name#}"  /></td>
           </tr>
           <tr>
-            <td align="right">密钥：</td>
+            <td align="right">キー：</td>
             <td><input name="free_sms_key" type="text"  class="input_text_200"  value="{#$sms.free_sms_key#}"  /></td>
           </tr>
       </table>

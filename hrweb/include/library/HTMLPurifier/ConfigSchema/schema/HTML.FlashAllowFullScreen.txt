@@ -1,4 +1,4 @@
-﻿HTML.FlashAllowFullScreen
+HTML.FlashAllowFullScreen
 TYPE: bool
 VERSION: 4.2.0
 DEFAULT: false

@@ -1,18 +1,9 @@
 ﻿<?php
 
-/**
- * XHTML 1.1 Tables Module, fully defines accessible table elements.
- */
 class HTMLPurifier_HTMLModule_Tables extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'Tables';
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $this->addElement('caption', false, 'Inline', 'Common');

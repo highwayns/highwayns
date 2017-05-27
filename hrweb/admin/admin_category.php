@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_category_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'district';
 check_permissions($_SESSION['admin_purview'],"site_category");
-$smarty->assign('pageheader',"分类管理");
+$smarty->assign('pageheader',"分類管理");
 if($act == 'grouplist')
 {
 	get_token();
@@ -22,29 +22,29 @@ elseif($act == 'add_group')
 elseif($act == 'add_group_save')
 {
 	check_token();
-	$setsqlarr['g_name']=!empty($_POST['g_name']) ?trim($_POST['g_name']) : adminmsg("请填写分组名",1);
-	$setsqlarr['g_alias']=!empty($_POST['g_alias']) ?trim($_POST['g_alias']) : adminmsg("请填写调用名",1);
+	$setsqlarr['g_name']=!empty($_POST['g_name']) ?trim($_POST['g_name']) : adminmsg("グループ名を入力してください",1);
+	$setsqlarr['g_alias']=!empty($_POST['g_alias']) ?trim($_POST['g_alias']) : adminmsg("Call名を入力してください",1);
 	$info=get_category_group_one($setsqlarr['g_alias']);
 	if (empty($info))
 	{
 		if (stripos($setsqlarr['g_alias'],"hw_")===0)
 		{
-			adminmsg("调用名不能用“hw_”开通",0);
+			adminmsg("CALL名“hw_”使えない",0);
 		}
 		else
 		{
-			$link[0]['text'] = "分类组列表";
+			$link[0]['text'] = "分類グループ一覧";
 			$link[0]['href'] = '?act=grouplist';
-			$link[1]['text'] = "继续添加分类组";
+			$link[1]['text'] = "続く分類グループ追加";
 			$link[1]['href'] = "?act=add_group";
 			//填写管理员日志
-			write_log("后台添加分类！", $_SESSION['admin_name'],3);
-			$db->inserttable(table('category_group'),$setsqlarr)?adminmsg("添加成功！",2,$link):adminmsg("添加失败！",0);			
+			write_log("分類を追加！", $_SESSION['admin_name'],3);
+			$db->inserttable(table('category_group'),$setsqlarr)?adminmsg("追加成功！",2,$link):adminmsg("追加失敗！",0);			
 		}
 	}
 	else
 	{
-	 adminmsg("添加失败,调用名有重复",0);
+	 adminmsg("追加失敗,Call名重複しました",0);
 	}
 }
 elseif($act == 'edit_group')
@@ -57,33 +57,33 @@ elseif($act == 'edit_group')
 elseif($act == 'edit_group_save')
 {
 	check_token();
-	$setsqlarr['g_name']=!empty($_POST['g_name']) ?trim($_POST['g_name']) : adminmsg("请填写分组名",1);
-	$setsqlarr['g_alias']=!empty($_POST['g_alias']) ?trim($_POST['g_alias']) : adminmsg("请填写调用名",1);
+	$setsqlarr['g_name']=!empty($_POST['g_name']) ?trim($_POST['g_name']) : adminmsg("グループ名を入力してください",1);
+	$setsqlarr['g_alias']=!empty($_POST['g_alias']) ?trim($_POST['g_alias']) : adminmsg("Call名を入力してください",1);
 	$info=get_category_group_one($setsqlarr['g_alias']);
 	if (empty($info) || $info['g_id']==intval($_POST['g_id']))
 	{
 		if (stripos($setsqlarr['g_alias'],"hw_")===0)
 		{
-			adminmsg("调用名不能用“hw_”开通",0);
+			adminmsg("CALL名“hw_”使えない",0);
 		}
 		else
 		{
-			$link[0]['text'] = "分类组列表";
+			$link[0]['text'] = "分類グループ一覧";
 			$link[0]['href'] = '?act=grouplist';
-			$link[1]['text'] = "查看修改结果";
+			$link[1]['text'] = "変更結果閲覧";
 			$link[1]['href'] = "?act=edit_group&alias=".$setsqlarr['g_alias'];
-			$db->updatetable(table('category_group'),$setsqlarr," g_id=".intval($_POST['g_id']))?'':adminmsg("修改失败！",0);
+			$db->updatetable(table('category_group'),$setsqlarr," g_id=".intval($_POST['g_id']))?'':adminmsg("変更失敗！",0);
 			//同时修改分类组下的分类别名
 			$catarr['c_alias']=$setsqlarr['g_alias'];
-			$db->updatetable(table('category'),$catarr," c_alias='".$_POST['old_g_alias']."'")?'':adminmsg("修改失败！",0);
+			$db->updatetable(table('category'),$catarr," c_alias='".$_POST['old_g_alias']."'")?'':adminmsg("変更失敗！",0);
 			//填写管理员日志
-			write_log("后台成功修改分类！", $_SESSION['admin_name'],3);
-			adminmsg("修改成功！",2,$link);						
+			write_log("分類変更成功！", $_SESSION['admin_name'],3);
+			adminmsg("変更成功！",2,$link);						
 		}
 	}
 	else
 	{
-	 adminmsg("添加失败,调用名有重复",0);
+	 adminmsg("追加失敗,Call名重複しました",0);
 	}
 }
 elseif($act == 'del_group')
@@ -92,11 +92,11 @@ elseif($act == 'del_group')
 	$alias=$_REQUEST['alias'];
 	if ($num=del_group($alias))
 	{
-	adminmsg("删除成功！共删除".$num."行",2);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'show_category')
@@ -118,7 +118,7 @@ elseif($act == 'category_save')
 				$setsqlarr['c_name']=trim($_POST['c_name'][$i]);
 				$setsqlarr['c_order']=intval($_POST['c_order'][$i]);
 				$setsqlarr['c_index']=getfirstchar($setsqlarr['c_name']);
-				!$db->updatetable(table('category'),$setsqlarr," c_id=".intval($_POST['c_id'][$i]))?adminmsg("添加失败！",0):"";
+				!$db->updatetable(table('category'),$setsqlarr," c_id=".intval($_POST['c_id'][$i]))?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -126,10 +126,10 @@ elseif($act == 'category_save')
 
 	}
 	//填写管理员日志
-	write_log("后台成功修改分类！", $_SESSION['admin_name'],3);
+	write_log("分類変更成功！", $_SESSION['admin_name'],3);
 	refresh_category_cache();
 	makejs_classify();
-	adminmsg("修改完成！",2);
+	adminmsg("変更完了！",2);
 }
 elseif($act == 'add_category')
 {
@@ -152,7 +152,7 @@ elseif($act == 'add_category_save')
 				$setsqlarr['c_order']=intval($_POST['c_order'][$i]);
 				$setsqlarr['c_index']=getfirstchar($setsqlarr['c_name']);
 				$setsqlarr['c_note']=trim($_POST['c_note'][$i]);				
-				!$db->inserttable(table('category'),$setsqlarr)?adminmsg("添加失败！",0):"";
+				!$db->inserttable(table('category'),$setsqlarr)?adminmsg("追加失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
@@ -161,19 +161,19 @@ elseif($act == 'add_category_save')
 	}
 	if ($num==0)
 	{
-	adminmsg("添加失败,数据不完整",1);
+	adminmsg("追加失敗,データ不完全",1);
 	}
 	else
 	{
-	$link[0]['text'] = "返回分类列表";
+	$link[0]['text'] = "分類一覧に戻る";
 	$link[0]['href'] = "?act=show_category&alias=".$setsqlarr['c_alias'];
-	$link[1]['text'] = "继续添加分类";
+	$link[1]['text'] = "続く分類追加";
 	$link[1]['href'] = "?act=add_category&alias=".$setsqlarr['c_alias'];
 	refresh_category_cache();
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功添加分类 , 共添加".$num."个！", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！共添加".$num."个分类",2,$link);
+	write_log("分類追加成功 , 追加件数".$num."件！", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！追加件数".$num."件分類",2,$link);
 	}
 }
 elseif($act == 'edit_category')
@@ -186,20 +186,20 @@ elseif($act == 'edit_category')
 elseif($act == 'edit_category_save')
 {
 	check_token();
-	$setsqlarr['c_name']=!empty($_POST['c_name']) ?trim($_POST['c_name']) : adminmsg("请填写名称",1);
+	$setsqlarr['c_name']=!empty($_POST['c_name']) ?trim($_POST['c_name']) : adminmsg("名称入力してください",1);
 	$setsqlarr['c_order']=intval($_POST['c_order']);
 	$setsqlarr['c_parentid']=intval($_POST['c_parentid']);
 	$setsqlarr['c_index']=getfirstchar($setsqlarr['c_name']);
 	$setsqlarr['c_note']=trim($_POST['c_note']);				
-	!$db->updatetable(table('category'),$setsqlarr," c_id=".intval($_POST['c_id']))?adminmsg("保存失败！",0):"";
-	$link[0]['text'] = "返回列表";
+	!$db->updatetable(table('category'),$setsqlarr," c_id=".intval($_POST['c_id']))?adminmsg("保存失敗！",0):"";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=show_category&alias='.$_POST['c_alias'];
-	$link[1]['text'] = "查看修改结果";
+	$link[1]['text'] = "変更結果閲覧";
 	$link[1]['href'] = "?act=edit_category&id=".intval($_POST['c_id']);
 	refresh_category_cache();
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功修改分类", $_SESSION['admin_name'],3);
+	write_log("分類変更成功", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
 elseif($act == 'del_category')
@@ -210,11 +210,11 @@ elseif($act == 'del_category')
 	{
 	refresh_category_cache();
 	makejs_classify();
-	adminmsg("删除成功！共删除".$num."行",2);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 //地区--------------
@@ -235,12 +235,12 @@ elseif($act == 'district_all_save')
 		 
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$k]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$k]);
-				!$db->updatetable(table('category_district'),$setsqlarr," id=".intval($_POST['save_id'][$k]))?adminmsg("保存失败！",0):"";
+				!$db->updatetable(table('category_district'),$setsqlarr," id=".intval($_POST['save_id'][$k]))?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
  
 		}
 		//填写管理员日志
-		write_log("后台成功更新地区分类 , 共更新".$num."个", $_SESSION['admin_name'],3);
+		write_log("地区分類更新成功 , 更新件数".$num."件", $_SESSION['admin_name'],3);
 	}
 	//新增的入库
 	if (is_array($_POST['add_pid']) && count($_POST['add_pid'])>0)
@@ -251,13 +251,13 @@ elseif($act == 'district_all_save')
 				$setsqlarr['categoryname']=trim($_POST['add_categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['add_category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['add_pid'][$i]);	
-				!$db->inserttable(table('category_district'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('category_district'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 		//填写管理员日志
-		write_log("后台成功添加地区分类 , 共添加".$num."个", $_SESSION['admin_name'],3);
+		write_log("地区分類追加成功 , 追加件数".$num."件", $_SESSION['admin_name'],3);
 	}
 	makejs_classify();
 	adminmsg("保存成功！",2);
@@ -270,12 +270,12 @@ elseif($act == 'del_district')
 	{
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功删除地区分类！共删除".$num."行", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！共删除".$num."行",2);
+	write_log("地区分類削除成功！削除件数".$num."行", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_district')
@@ -288,15 +288,15 @@ elseif($act == 'edit_district')
 elseif($act == 'edit_district_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("请填写名称",1);
+	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("名称入力してください",1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
 	$setsqlarr['parentid']=intval($_POST['parentid']);				
-	!$db->updatetable(table('category_district'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("修改失败！",0):"";
-	$link[0]['text'] = "返回列表";
+	!$db->updatetable(table('category_district'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("変更失敗！",0):"";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=district';
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功修改地区分类！", $_SESSION['admin_name'],3);
+	write_log("地区分類変更成功！", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
 elseif($act == 'add_district')
@@ -317,18 +317,18 @@ elseif($act == 'add_district_save')
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['parentid'][$i]);	
-				!$db->inserttable(table('category_district'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('category_district'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 	}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=district';
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功添加地区分类！本次添加了{$num}个分类", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！本次添加了{$num}个分类",2,$link);	
+	write_log("地区分類追加成功！今回{$num}件分類を追加しました", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！今回{$num}件分類を追加しました",2,$link);	
 }
 ///////---------------职位分类
 elseif($act == 'jobs')
@@ -349,12 +349,12 @@ elseif($act == 'jobs_all_save')
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
 				$setsqlarr['content']=trim($_POST['content'][$i]);				
-				!$db->updatetable(table('category_jobs'),$setsqlarr," id=".intval($_POST['save_id'][$i]))?adminmsg("保存失败！",0):"";
+				!$db->updatetable(table('category_jobs'),$setsqlarr," id=".intval($_POST['save_id'][$i]))?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 		}
 		//填写管理员日志
-		write_log("后台成功更新职位分类！本次更新了{$num}个分类", $_SESSION['admin_name'],3);
+		write_log("職位分類更新成功！今回更新された分類の数は{$num}件", $_SESSION['admin_name'],3);
 	}
 	//新增的入库
 	if (is_array($_POST['add_pid']) && count($_POST['add_pid'])>0)
@@ -366,13 +366,13 @@ elseif($act == 'jobs_all_save')
 				$setsqlarr['category_order']=intval($_POST['add_category_order'][$i]);
 				$setsqlarr['content']=trim($_POST['content'][$i]);	
 				$setsqlarr['parentid']=intval($_POST['add_pid'][$i]);	
-				!$db->inserttable(table('category_jobs'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('category_jobs'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 		//填写管理员日志
-		write_log("后台成功添加职位分类！本次添加了{$num}个分类", $_SESSION['admin_name'],3);
+		write_log("職位分類追加成功！今回{$num}件分類を追加しました", $_SESSION['admin_name'],3);
 	}
 	makejs_classify();
 	adminmsg("保存成功！",2);
@@ -384,12 +384,12 @@ elseif($act == 'del_jobs_category')
 	if ($num=del_jobs_category($id))
 	{
 		//填写管理员日志
-		write_log("后台成功删除职位分类！共删除".$num."行", $_SESSION['admin_name'],3);
-		adminmsg("删除成功！共删除".$num."行",2);
+		write_log("職位分類削除成功！削除件素".$num."行", $_SESSION['admin_name'],3);
+		adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_jobs_category')
@@ -402,16 +402,16 @@ elseif($act == 'edit_jobs_category')
 elseif($act == 'edit_jobs_category_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("请填写名称",1);
+	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("名称入力してください",1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
 	$setsqlarr['content']=trim($_POST['content']);
 	$setsqlarr['parentid']=intval($_POST['parentid']);				
-	!$db->updatetable(table('category_jobs'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("修改失败！",0):"";
-	$link[0]['text'] = "返回列表";
+	!$db->updatetable(table('category_jobs'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("変更失敗！",0):"";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=jobs';
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功修改职位分类！", $_SESSION['admin_name'],3);
+	write_log("職位分類変更成功！", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
 elseif($act == 'add_category_jobs')
@@ -433,18 +433,18 @@ elseif($act == 'add_category_jobs_save')
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
 				$setsqlarr['content']=trim($_POST['content'][$i]);	
 				$setsqlarr['parentid']=intval($_POST['parentid'][$i]);	
-				!$db->inserttable(table('category_jobs'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('category_jobs'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 	}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=jobs';
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功添加职位分类！本次添加了".$num."个分类", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！本次添加了".$num."个分类",2,$link);	
+	write_log("職位分類追加成功！今回追加件数".$num."件分類", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！今回追加のは".$num."件分類",2,$link);	
 }
 elseif($act == 'colorlist')
 {
@@ -462,14 +462,14 @@ elseif($act == 'add_color')
 elseif($act == 'add_color_save')
 {
 	check_token();
-	$setsqlarr['value']=!empty($_POST['val']) ?trim($_POST['val']) : adminmsg("请选择颜色",1);
-	$link[0]['text'] = "颜色列表";
+	$setsqlarr['value']=!empty($_POST['val']) ?trim($_POST['val']) : adminmsg("色を選択してください",1);
+	$link[0]['text'] = "色一覧";
 	$link[0]['href'] = '?act=colorlist';
-	$link[1]['text'] = "继续添加颜色";
+	$link[1]['text'] = "続く色追加";
 	$link[1]['href'] = "?act=add_color";
 	//填写管理员日志
-	write_log("后台添加颜色分类！", $_SESSION['admin_name'],3);
-	$db->inserttable(table('color'),$setsqlarr)?adminmsg("添加成功！",2,$link):adminmsg("添加失败！",0);			
+	write_log("色分類追加！", $_SESSION['admin_name'],3);
+	$db->inserttable(table('color'),$setsqlarr)?adminmsg("追加成功！",2,$link):adminmsg("追加失敗！",0);			
 
 }
 elseif($act == 'edit_color')
@@ -482,17 +482,17 @@ elseif($act == 'edit_color')
 elseif($act == 'edit_color_save')
 {
 	check_token();
-	$setsqlarr['value']=!empty($_POST['val']) ?trim($_POST['val']) : adminmsg("请选择颜色",1);
+	$setsqlarr['value']=!empty($_POST['val']) ?trim($_POST['val']) : adminmsg("色を選択してください",1);
 	$info=get_color_one($_POST['id']);
 	
-	$link[0]['text'] = "颜色列表";
+	$link[0]['text'] = "色一覧";
 	$link[0]['href'] = '?act=colorlist';
-	$link[1]['text'] = "查看修改结果";
+	$link[1]['text'] = "変更結果閲覧";
 	$link[1]['href'] = "?act=edit_color&id=".$_POST['id'];
-	$db->updatetable(table('color'),$setsqlarr," id=".intval($_POST['id']))?'':adminmsg("修改失败！",0);
+	$db->updatetable(table('color'),$setsqlarr," id=".intval($_POST['id']))?'':adminmsg("変更失敗！",0);
 	//填写管理员日志
-	write_log("后台成功修改颜色分类！", $_SESSION['admin_name'],3);
-	adminmsg("修改成功！",2,$link);						
+	write_log("色分類変更成功！", $_SESSION['admin_name'],3);
+	adminmsg("変更成功！",2,$link);						
 	
 }
 elseif($act == 'del_color')
@@ -502,12 +502,12 @@ elseif($act == 'del_color')
 	if ($num=del_color($id))
 	{
 		//填写管理员日志
-		write_log("后台成功删除颜色分类！共删除".$num."行", $_SESSION['admin_name'],3);
-		adminmsg("删除成功！共删除".$num."行",2);
+		write_log("色分類削除成功！削除件数".$num."行", $_SESSION['admin_name'],3);
+		adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 ///////---------------专业分类
@@ -528,12 +528,12 @@ elseif($act == 'major_all_save')
 			{	
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);			
-				!$db->updatetable(table('category_major'),$setsqlarr," id=".intval($_POST['save_id'][$i]))?adminmsg("保存失败！",0):"";
+				!$db->updatetable(table('category_major'),$setsqlarr," id=".intval($_POST['save_id'][$i]))?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 		}
 		//填写管理员日志
-		write_log("后台成功更新专业分类！本次更新了{$num}个分类", $_SESSION['admin_name'],3);
+		write_log("専門分類更新成功！今回{$num}件分類を更新しました", $_SESSION['admin_name'],3);
 	}
 	//新增的入库
 	if (is_array($_POST['add_pid']) && count($_POST['add_pid'])>0)
@@ -544,13 +544,13 @@ elseif($act == 'major_all_save')
 				$setsqlarr['categoryname']=trim($_POST['add_categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['add_category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['add_pid'][$i]);	
-				!$db->inserttable(table('category_major'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('category_major'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 		//填写管理员日志
-		write_log("后台成功添加专业分类！本次添加了{$num}个分类", $_SESSION['admin_name'],3);
+		write_log("専門分類追加成功！今回{$num}件分類を追加しました", $_SESSION['admin_name'],3);
 	}
 	makejs_classify();
 	adminmsg("保存成功！",2);
@@ -562,12 +562,12 @@ elseif($act == 'del_major_category')
 	if ($num=del_major_category($id))
 	{
 		//填写管理员日志
-		write_log("后台成功删除专业分类！共删除".$num."行", $_SESSION['admin_name'],3);
-		adminmsg("删除成功！共删除".$num."行",2);
+		write_log("専門分類削除成功！削除件数".$num."行", $_SESSION['admin_name'],3);
+		adminmsg("削除成功！削除件数".$num."行",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",1);
+	adminmsg("削除失敗！",1);
 	}
 }
 elseif($act == 'edit_major_category')
@@ -580,15 +580,15 @@ elseif($act == 'edit_major_category')
 elseif($act == 'edit_major_category_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("请填写名称",1);
+	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("名称入力してください",1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
 	$setsqlarr['parentid']=intval($_POST['parentid']);				
-	!$db->updatetable(table('category_major'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("修改失败！",0):"";
-	$link[0]['text'] = "返回列表";
+	!$db->updatetable(table('category_major'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("変更失敗！",0):"";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=major';
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功修改专业分类！", $_SESSION['admin_name'],3);
+	write_log("専門分類変更成功！", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2,$link);
 }
 elseif($act == 'add_category_major')
@@ -609,17 +609,17 @@ elseif($act == 'add_category_major_save')
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['parentid'][$i]);	
-				!$db->inserttable(table('category_major'),$setsqlarr)?adminmsg("保存失败！",0):"";
+				!$db->inserttable(table('category_major'),$setsqlarr)?adminmsg("保存失敗！",0):"";
 				$num=$num+$db->affected_rows();
 			}
 
 		}
 	}
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = '?act=major';
 	makejs_classify();
 	//填写管理员日志
-	write_log("后台成功添加专业分类！本次添加了".$num."个分类", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！本次添加了".$num."个分类",2,$link);	
+	write_log("専門分類追加成功！今回追加された件数".$num."件分類", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！今回追加のは".$num."件分類",2,$link);	
 }
 ?>

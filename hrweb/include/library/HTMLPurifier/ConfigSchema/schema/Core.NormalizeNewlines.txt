@@ -1,4 +1,4 @@
-﻿Core.NormalizeNewlines
+Core.NormalizeNewlines
 TYPE: bool
 VERSION: 4.2.0
 DEFAULT: true

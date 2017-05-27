@@ -3,17 +3,17 @@
 	<div class="footer_box">
 		<div class="box link_bk">
 				<div class="list">
-					<h4>关于我们</h4>
+					<h4>会社概要</h4>
 					<div class="foot_list">
 						<ul>
-						{#highway_explain_list set="列表名:explain,显示数目:3,标题长度:6,分类ID:1"#}
+						{#highway_explain_list set="リスト名:explain,表示件数:3,タイトル長さ:6,分類ID:1"#}
 						{#foreach from=$explain item=list#}
 							<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
 						{#/foreach#}
 							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}suggest">意见反馈</a></li>
 						</ul>
 						<ul>
-							{#highway_explain_list set="列表名:explain,显示数目:3,开始位置:3,标题长度:6,分类ID:1"#}
+							{#highway_explain_list set="リスト名:explain,表示件数:3,開始ポジション:3,タイトル長さ:6,分類ID:1"#}
 							{#foreach from=$explain item=list#}
 								<li><a target="_blank" href="{#$list.url#}">{#$list.title#}</a></li>
 							{#/foreach#}
@@ -21,39 +21,39 @@
 					</div>
 				</div>
 				<div class="list">
-					<h4>帮助中心</h4>
+					<h4>ヘルプセンター</h4>
 					<div class="foot_list">
 						<ul>
-							<li><a target="_blank" href="{#"HW_helplist,id:4"|highway_url#}">注册与登录</a></li>
-							<li><a target="_blank" href="{#"HW_helplist,id:5"|highway_url#}">密码找回</a></li>
-							<li><a target="_blank" href="{#"HW_helplist,id:8"|highway_url#}">认证管理</a></li>
-							<li><a target="_blank" href="{#"HW_helplist,id:10"|highway_url#}">招聘管理 </a></li>
+							<li><a target="_blank" href="{#"HW_helplist,id:4"|highway_url#}">登録</a></li>
+							<li><a target="_blank" href="{#"HW_helplist,id:5"|highway_url#}">パスワード送信</a></li>
+							<li><a target="_blank" href="{#"HW_helplist,id:8"|highway_url#}">認定管理</a></li>
+							<li><a target="_blank" href="{#"HW_helplist,id:10"|highway_url#}">募集管理 </a></li>
 						</ul>
 						<ul>
-							<li><a target="_blank" href="{#"HW_helplist,id:17"|highway_url#}">求职管理</a></li>
-							<li><a target="_blank" href="{#"HW_helplist,id:13"|highway_url#}">充值消费 </a></li>
+							<li><a target="_blank" href="{#"HW_helplist,id:17"|highway_url#}">求職管理</a></li>
+							<li><a target="_blank" href="{#"HW_helplist,id:13"|highway_url#}">サービス支払 </a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="list">
-					<h4>个人求职</h4>
+					<h4>仕事検索</h4>
 					<div class="foot_list">
 						<ul>
-							<li><a target="_blank" href="{#"HW_jobslist"|highway_url#}">职位搜索</a></li>
-							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}explain/explain-show.php?id=6">职场指南</a></li>
+							<li><a target="_blank" href="{#"HW_jobslist"|highway_url#}">職位検索</a></li>
+							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}explain/explain-show.php?id=6">職場ガイド</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="list">
-					<h4>企业服务</h4>
+					<h4>企業サービス</h4>
 					<div class="foot_list">
 						<ul>
-							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}user/company/company_jobs.php?act=addjobs">发布职位</a></li>
-							<li><a target="_blank" href="{#"HW_resumelist"|highway_url#}">简历搜索</a></li>
-							<li><a target="_blank" href="{#"HW_hrtoolslist"|highway_url#}">HR工具箱</a></li>
+							<li><a target="_blank" href="{#$HIGHWAY.site_dir#}user/company/company_jobs.php?act=addjobs">職位配布</a></li>
+							<li><a target="_blank" href="{#"HW_resumelist"|highway_url#}">履歴書検索</a></li>
+							<li><a target="_blank" href="{#"HW_hrtoolslist"|highway_url#}">HRツール</a></li>
 						</ul>
 						<ul>
-							<li><a target="_blank" href="{#"HW_login"|highway_url#}">企业注册</a></li>
+							<li><a target="_blank" href="{#"HW_login"|highway_url#}">企業登録</a></li>
 						</ul>
 					</div>
 				</div>
@@ -63,18 +63,18 @@
 		        <div class="weixin">
 		        	<div class="weixin_con">
 		        		<div class="weixin_img">
-		        			<span>官方微信</span><br />
+		        			<span>公式マイクロチャネル</span><br />
 		        			<img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" width="64" height="65">
 		        		</div>
 		        		<div class="clear"></div>
 		        	</div>
 		        	<div class="weixin_cons" style="display:none;">
-		        		<div class="w_txt">官方微信</div>
+		        		<div class="w_txt">公式マイクロチャネル</div>
 		        		<img src="{#$HIGHWAY.upfiles_dir#}{#$HIGHWAY.weixin_img#}" alt="" width="64" height="65">
 		        		<div class="clear"></div>
 		        	</div>
 		        	<div class="comment">
-		        		<p>服务热线</p>
+		        		<p>お問い合わせ</P>
 		        		<p class="phone_number">{#$HIGHWAY.bootom_tel#}</p>
 		        	</div>
 			</div>
@@ -83,18 +83,18 @@
 		
   
   <div class="copyright">
-联系地址：{#$HIGHWAY.address#} 联系电话：{#$HIGHWAY.bootom_tel#} 网站备案：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}<br />
+会社住所：{#$HIGHWAY.address#} 電話番号：{#$HIGHWAY.bootom_tel#} ウェブ番号：{#$HIGHWAY.icp#}{#$HIGHWAY.statistics#}<br />
 {#$HIGHWAY.bottom_other#}<br />
-Powered by <a href="http://www.jp.highwayns.com/" target="_blank" style="color:#009900"><em> 74cms v{#$HIGHWAY.version#} 迅易科技版权所有</em></a><br />
+Powered by <a href="http://highwayns.com/" target="_blank" style="color:#009900"><em> highwayns v{#$HIGHWAY.version#} 海威人材＠所有権</em></a><br />
 </div>
 </div>
 <!-- 回到顶部组件 -->
 <div class="back_to_top" id="back_to_top">
 	<div class="back" style="display:none;">
-		<div>回到顶部</div>
+		<div>トップに戻る</div>
 	</div>
 	<div class="steer">
-		<div onclick="javascript:location.href='{#$HIGHWAY.site_dir#}suggest'">我要建议</div>
+		<div onclick="javascript:location.href='{#$HIGHWAY.site_dir#}suggest'">私のお勧め</div>
 	</div>
 </div>
 <script>

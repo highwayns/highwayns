@@ -5,10 +5,10 @@ if($act=="company_profile_save_succeed"){
 	$tpl='../../templates/'.$_CFG['template_dir']."member_company/ajax_companyprofile_save_succeed_box.htm";
 	$contents=file_get_contents($tpl);
 	if($company_profile['map_open'] == '1'){
-		$save_msg = '您接下来就可以发布职位啦！ <br />';
-		$opt_button = '<div class="but130cheng " onclick="javascript:location.href=\'company_jobs.php?act=addjobs\'">发布职位</div>';
+		$save_msg = '職位配布できました！ <br />';
+		$opt_button = '<div class="but130cheng " onclick="javascript:location.href=\'company_jobs.php?act=addjobs\'">職位配布</div>';
 	}else{ 
-		$save_msg = '为了让求职者更直观的了解公司所在位置，合理计划 <br />面试出行路线，98%的企业已开通了电子地图。';
+		$save_msg = '会社の住所がわかりやすくため， 面接ルートを<br />設定しましょう，98%の会社は電子地図を利用しています。';
 		$opt_button = '<div class="but130cheng" onclick="javascript:location.href=\'company_info.php?act=company_map_open\'">立即开通</div>
 		<div class="but130hui but_right" onclick="javascript:location.href=\'company_jobs.php?act=addjobs\'">发布职位</div>';
 	}
@@ -23,7 +23,7 @@ elseif($act=="user_email"){
 	$contents=str_replace('{#$email#}',$user["email"],$contents);
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_email_key#}',$_SESSION['send_email_key'],$contents);
-	$contents=str_replace('{#$notice#}','接收职位申请邮件',$contents);
+	$contents=str_replace('{#$notice#}','職位申し込めメール受信',$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 	exit($contents);
 }	
@@ -34,7 +34,7 @@ elseif($act=="user_mobile"){
 	$contents=str_replace('{#$mobile#}',$user["mobile"],$contents);
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
-	$contents=str_replace('{#$notice#}','接收职位申请通知',$contents);
+	$contents=str_replace('{#$notice#}','職位申し込み受信',$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 	exit($contents);
 }
@@ -54,14 +54,14 @@ elseif($act=="edit_mobile"){
 	$contents=file_get_contents($tpl);
 	$_SESSION['send_mobile_key']=mt_rand(100000, 999999);
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
-	$contents=str_replace('{#$notice#}','接收职位申请通知',$contents);
+	$contents=str_replace('{#$notice#}','職位申し込み受信',$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 	exit($contents);
 }
 elseif($act=="set_promotion"){
-	$catid = intval($_GET['catid'])?intval($_GET['catid']):exit("参数错误！");
-	$jobid = intval($_GET['jobid'])?intval($_GET['jobid']):exit("参数错误！");
-	$uid = intval($_SESSION['uid'])?intval($_SESSION['uid']):exit("参数错误！");
+	$catid = intval($_GET['catid'])?intval($_GET['catid']):exit("パラメータエラー！");
+	$jobid = intval($_GET['jobid'])?intval($_GET['jobid']):exit("パラメータエラー！");
+	$uid = intval($_SESSION['uid'])?intval($_SESSION['uid']):exit("パラメータエラー！");
 	$jobinfo = get_jobs_one($jobid);
 	$promotion = get_promotion_category_one($catid);
 	if ($_CFG['operation_mode']=='2')
@@ -143,13 +143,13 @@ elseif($act=="set_promotion"){
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 		if($operation_mode==1){
 			if($promotion['cat_minday']=="0"){
-				$promotion['cat_minday'] = "不限制";
+				$promotion['cat_minday'] = "制限なし";
 			}
 			if($promotion['cat_maxday']=="0"){
-				$promotion['cat_maxday'] = "不限制";
+				$promotion['cat_maxday'] = "制限なし";
 			}
 			if($promotion['cat_points']=="0"){
-				$promotion['cat_points'] = "免费";
+				$promotion['cat_points'] = "フリー";
 			}
 			$contents=str_replace('{#$user_points#}',$points,$contents);
 			$contents=str_replace('{#$points_perday#}',$promotion['cat_points'],$contents);
@@ -169,13 +169,13 @@ elseif($act=="set_promotion"){
 	exit($contents);
 }
 elseif($act=="promotion_add_save"){
-	$catid = intval($_POST['catid'])?intval($_POST['catid']):exit("请选择推广类型！");
-	$jobid = intval($_POST['jobid'])?intval($_POST['jobid']):exit("职位id丢失！");
-	$days = intval($_POST['days'])?intval($_POST['days']):exit("请填写推广天数！");
-	$uid = intval($_SESSION['uid'])?intval($_SESSION['uid']):exit("UID丢失！");
+	$catid = intval($_POST['catid'])?intval($_POST['catid']):exit("広告タイプを選択してください！");
+	$jobid = intval($_POST['jobid'])?intval($_POST['jobid']):exit("職位id失った！");
+	$days = intval($_POST['days'])?intval($_POST['days']):exit("広告日数を入力してください！");
+	$uid = intval($_SESSION['uid'])?intval($_SESSION['uid']):exit("UID失った！");
 
 	if($catid==4){
-		$val = intval($_POST['val'])?intval($_POST['val']):exit("请选择颜色！");
+		$val = intval($_POST['val'])?intval($_POST['val']):exit("色を選択してください！");
 		$color = get_color_one($val);
 		$val_code = $color['value'];
 	}else{
@@ -184,7 +184,7 @@ elseif($act=="promotion_add_save"){
 	$jobs=get_jobs_one($jobid,$uid);
 	$jobs = array_map("addslashes", $jobs);
 	if($jobs['deadline']<time()){
-		exit("该职位已到期，请先延期！");
+		exit("该職位期限切れた，延期してください！");
 	}
 	if ($jobid>0 && $days>0)
 	{
@@ -200,7 +200,7 @@ elseif($act=="promotion_add_save"){
 						$user_points=get_user_points($uid);
 						if ($points>$user_points)
 						{
-							exit("你的".$_CFG['points_byname']."不够进行此次操作，请先充值！");
+							exit("貴方の".$_CFG['points_byname']."ポイント足りない，振込してください！");
 						}else{
 							$_CFG['operation_mode']=1;
 						}
@@ -208,7 +208,7 @@ elseif($act=="promotion_add_save"){
 						$_CFG['operation_mode']=2;
 					}
 				}else{
-					exit("你的套餐已到期或套餐内剩余{$pro_cat['cat_name']}不够，请尽快开通新套餐");
+					exit("コース期限切れたまたはコース内残る{$pro_cat['cat_name']}足りない，新コースを申し込みしてください");
 				}
 			}else{
 				$_CFG['operation_mode']=2;
@@ -220,20 +220,20 @@ elseif($act=="promotion_add_save"){
 				$user_points=get_user_points($uid);
 				if ($points>$user_points)
 				{
-				exit("你的".$_CFG['points_byname']."不够进行此次操作，请先充值！");
+				exit("貴方の".$_CFG['points_byname']."ポイント足りない，振込してください！");
 				}
 			}
 		}elseif($_CFG['operation_mode']=='2'){
 			$setmeal=get_setmeal_promotion($uid,$catid);//获取会员套餐
 			$num=$setmeal['num'];
 			if(($setmeal['endtime']<time() && $setmeal['endtime']<>'0') || $num<=0){
-				exit("你的套餐已到期或套餐内剩余{$pro_cat['cat_name']}不够，请尽快开通新套餐");
+				exit("コース期限切れたまたはコース内残る{$pro_cat['cat_name']}足りない，新コースを申し込みしてください");
 			}
 		}
 		$info=get_promotion_one($jobid,$uid,$catid);
 		if (!empty($info))
 		{
-		exit("此职位正在推广中，请选择其他职位或其他方案");
+		exit("この職位は広告中，その他職位或その他ケースを選択してください");
 		}
 		$setsqlarr['cp_available']=1;
 		$setsqlarr['cp_promotionid']=$catid;
@@ -245,7 +245,7 @@ elseif($act=="promotion_add_save"){
 		$setsqlarr['cp_val']=$val_code;
 		if ($setsqlarr['cp_promotionid']=="4" && empty($setsqlarr['cp_val']))
 		{
-		exit("请选择颜色！");
+		exit("色を選択してください！");
 		}
 			if ($db->inserttable(table('promotion'),$setsqlarr))
 			{
@@ -254,27 +254,27 @@ elseif($act=="promotion_add_save"){
 				{
 					report_deal($uid,2,$points);
 					$user_points=get_user_points($uid);
-					write_memberslog($uid,1,9001,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天，(-{$points})，(剩余:{$user_points})",1,1018,"{$pro_cat['cat_name']}","-{$points}","{$user_points}");
+					write_memberslog($uid,1,9001,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，広告 {$days} 日，(-{$points})，(残る:{$user_points})",1,1018,"{$pro_cat['cat_name']}","-{$points}","{$user_points}");
 				}elseif($_CFG['operation_mode']=='2'){
 					$user_pname=trim($_POST['pro_name']);
 					action_user_setmeal($uid,$user_pname); //更新套餐中相应推广方式的条数
 					$setmeal=get_user_setmeal($uid);//获取会员套餐
-					write_memberslog($uid,1,9002,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天，套餐内剩余{$pro_cat['cat_name']}条数：{$setmeal[$user_pname]}条。",2,1018,"{$pro_cat['cat_name']}","-{$days}","{$setmeal[$user_pname]}");//9002是套餐操作
+					write_memberslog($uid,1,9002,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，広告 {$days} 日，コース内残る{$pro_cat['cat_name']}件数：{$setmeal[$user_pname]}件。",2,1018,"{$pro_cat['cat_name']}","-{$days}","{$setmeal[$user_pname]}");//9002是套餐操作
 				}
-				write_memberslog($uid,1,3004,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，推广 {$days} 天。");
-				exit('推广成功！');
+				write_memberslog($uid,1,3004,$_SESSION['username'],"{$pro_cat['cat_name']}：<strong>{$jobs['jobs_name']}</strong>，広告 {$days} 日。");
+				exit('お勧め成功！');
 			}
 	}
 	else
 	{
-	exit("推广失败！");
+	exit("広告失敗！");
 	}
 }
 //订单详情
 elseif($act=='order_detail')
 {
 	$uid = intval($_SESSION['uid']);
-	$order_id = intval($_GET['order_id'])?intval($_GET['order_id']):exit("订单编号丢失！");
+	$order_id = intval($_GET['order_id'])?intval($_GET['order_id']):exit("オーダー番号失った！");
 	$order =  $db->getone("SELECT * FROM ".table('order')." WHERE uid ='{$uid}' AND id='{$order_id}' LIMIT 1");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_company/ajax_order_detail.htm";
 	$contents=file_get_contents($tpl);
@@ -282,14 +282,14 @@ elseif($act=='order_detail')
 	$contents=str_replace('{#$order_addtime#}',date('Y-m-d',$order['addtime']),$contents);
 	if($order['is_paid']=='1')
 	{
-		$contents=str_replace('{#$order_is_paid#}','未完成',$contents);
-		$button = '<a href="?act=payment&order_id={#$order_id#}"><input type="button" value="支付" class="btn-65-30blue btn-big-font" /></a>';
+		$contents=str_replace('{#$order_is_paid#}','未完了',$contents);
+		$button = '<a href="?act=payment&order_id={#$order_id#}"><input type="button" value="支払" class="btn-65-30blue btn-big-font" /></a>';
 		$contents=str_replace('{#$button#}',$button,$contents);
 	}
 	else
 	{
-		$contents=str_replace('{#$order_is_paid#}','已支付',$contents);
-		$button = '<input type="button" value="已支付" class="btn-65-30blue btn-big-font" />';
+		$contents=str_replace('{#$order_is_paid#}','支払い済み',$contents);
+		$button = '<input type="button" value="支払いました" class="btn-65-30blue btn-big-font" />';
 		$contents=str_replace('{#$button#}',$button,$contents);
 	}
 	$contents=str_replace('{#$order_des#}',$order['description'],$contents);
@@ -299,7 +299,7 @@ elseif($act=='order_detail')
 	}
 	else
 	{
-		$contents=str_replace('{#$order_amount#}','兑换'.$order['amount'].'积分',$contents);
+		$contents=str_replace('{#$order_amount#}','チャージ'.$order['amount'].'ポイント',$contents);
 	}
 	$contents=str_replace('{#$order_payname#}',get_payment_info($order['payment_name'],ture),$contents);
 	if($order['notes'])
@@ -308,7 +308,7 @@ elseif($act=='order_detail')
 	}
 	else
 	{
-		$contents=str_replace('{#$order_note#}',"无",$contents);
+		$contents=str_replace('{#$order_note#}',"なし",$contents);
 	}
 	$contents=str_replace('{#$order_id#}',$order['id'],$contents);
 	exit($contents);
@@ -335,11 +335,11 @@ elseif($act == "sendtoemail")
 	$show_contact = false;
 	if($_CFG['showapplycontact']=='1' || $_CFG['showresumecontact']=='0')
 	{
-		$show_contact = '<p>手机号码：'.$resume_basic["telephone"].' 电子邮箱：'.$resume_basic["email"].'</p>';
+		$show_contact = '<p>携帯番号：'.$resume_basic["telephone"].' 電子メール：'.$resume_basic["email"].'</p>';
 	}
 	else
 	{
-		$show_contact = '<p>联系方式：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>点击查看</a></p>';
+		$show_contact = '<p>ご連絡：<a href='.url_rewrite('HW_resumeshow',array('id'=>$resume_id)).'>クリック</a></p>';
 	}	
 	$htm='<div style="width: 900px;margin: 0 auto;font-size: 14px;">
 		<div style="margin-bottom:10px">
@@ -394,7 +394,7 @@ elseif($act == "sendtoemail")
 				该简历来自<a href="'.$_CFG["site_domain"].$_CFG["site_dir"].'">'.$_CFG["site_name"].'</a>
 			</div>
 		</div>';
-		$rst=smtp_mail($_GET['email'],"{$resume_basic['fullname']}的简历",$htm);
+		$rst=smtp_mail($_GET['email'],"{$resume_basic['fullname']}の履歴書",$htm);
 		exit($rst);
 }
 unset($smarty);

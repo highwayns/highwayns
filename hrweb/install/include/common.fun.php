@@ -48,21 +48,21 @@ function table($table)
 	$checked_dirs[$k]['dir'] = $dir;
         if (!file_exists(HIGHWAY_ROOT_PATH .'/'. $dir))
         {
-            $checked_dirs[$k]['read'] = '<span style="color:red;">目录不存在</span>';
-			$checked_dirs[$k]['write'] = '<span style="color:red;">目录不存在</span>';
+            $checked_dirs[$k]['read'] = '<span style="color:red;">フォルダー存在しない</span>';
+			$checked_dirs[$k]['write'] = '<span style="color:red;">フォルダー存在しない</span>';
         }
 		else
 		{		
         if (is_readable(HIGHWAY_ROOT_PATH.'/'.$dir))
         {
-            $checked_dirs[$k]['read'] = '<span style="color:green;">√可读</span>';
+            $checked_dirs[$k]['read'] = '<span style="color:green;">√読める</span>';
         }else{
-            $checked_dirs[$k]['read'] = '<span sylt="color:red;">×不可读</span>';
+            $checked_dirs[$k]['read'] = '<span sylt="color:red;">×読めない</span>';
         }
         if(is_writable(HIGHWAY_ROOT_PATH.'/'.$dir)){
-        	$checked_dirs[$k]['write'] = '<span style="color:green;">√可写</span>';
+        	$checked_dirs[$k]['write'] = '<span style="color:green;">√書ける</span>';
         }else{
-        	$checked_dirs[$k]['write'] = '<span style="color:red;">×不可写</span>';
+        	$checked_dirs[$k]['write'] = '<span style="color:red;">×書けない</span>';
         }
 		}
     }
@@ -89,7 +89,7 @@ function get_cache($cachename)
 	}
 	else
 	{
-	exit("缓存文件意外丢失，请到进入后台更新缓存！");
+	exit("Cacheファイル意外失った，Cache更新をしてください！");
 	}
 }
 //更新缓存
@@ -185,11 +185,11 @@ function write_static_cache($cache_file_path, $config_arr)
 		$fp = @fopen($cache_file_path, 'wb+');
 		if (!$fp)
 		{
-			exit('生成缓存文件失败');
+			exit('Ｃａｃｈｅファイル作成失敗');
 		}
 		if (!@fwrite($fp, trim($content)))
 		{
-			exit('生成缓存文件失败');
+			exit('Ｃａｃｈｅファイル作成失敗');
 		}
 		@fclose($fp);
 	}
@@ -197,7 +197,7 @@ function write_static_cache($cache_file_path, $config_arr)
 function makejs_classify()
 {
 	global $db;
-	$content = "//JavaScript Document 生成时间：".date("Y-m-d  H:i:s")."\n\n";
+	$content = "//JavaScript Document 生成時間：".date("Y-m-d  H:i:s")."\n\n";
 	$sql = "select * from ".table('category_district')." where parentid=0 order BY category_order desc,id asc";
 	$list=$db->getall($sql);
 	foreach($list as $parent)
@@ -401,14 +401,14 @@ function makejs_classify()
 	}
 	$fp = @fopen(HIGHWAY_ROOT_PATH . 'data/cache_classify.js', 'wb+');
 	if (!$fp){
-			exit('生成JS文件失败');
+			exit('JSファイル作成失敗');
 		}
 	if (strcasecmp(HIGHWAY_DBCHARSET,"utf8")!=0)
 	{
 	$content=iconv(HIGHWAY_DBCHARSET,"utf-8//IGNORE",$content);
 	}
 	 if (!@fwrite($fp, trim($content))){
-			exit('写入JS文件失败');
+			exit('JSファイル書き込む失敗');
 		}
 	@fclose($fp);
 }

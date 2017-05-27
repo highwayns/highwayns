@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
@@ -19,7 +19,7 @@ $(document).ready(function(){
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 创建简历</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> >プロフィールを作成 </div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -28,30 +28,30 @@ $(document).ready(function(){
   <div class="rightmain">
 	<div class="bbox1">
 		<div class="make-success">
-			<h1>创建简历</h1>
+			<h1>プロフィール作成</h1>
 			<div class="success-tip-block">
 				<div class="tip-wrap clearfix">
 					<div class="success-icon f-left"><img src="{#$HIGHWAY.site_template#}images/big-yes-2.png" alt="" width="120" /></div>
 					<div class="success-ctrl f-left">
-						<h2>简历发布成功</h2>
+						<h2>履歴書公開成功</h2>
 						<div class="resume-bar clearfix">
-							<div class="f-left">简历完整度：</div>
+							<div class="f-left">履歴書完成度</div>
 							<div class="resume-progress f-left">
-								<span class="progress-box"><span class="progress-bar" style="width:{#$resume_basic.complete_percent#}%;background-color:{#if $resume_basic.complete_percent<=40#}#fb1238;{#elseif $resume_basic.complete_percent>40 && $resume_basic.complete_percent<=80#}#ff9900{#else#}#2db228{#/if#}"></span></span><!-- 40%以下背景颜色为#fb1238。80%以下为#ff9900。80%以上为#2db228 -->
+								<span class="progress-box"><span class="progress-bar" style="width:{#$resume_basic.complete_percent#}%;background-color:{#if $resume_basic.complete_percent<=40#}#fb1238;{#elseif $resume_basic.complete_percent>40 && $resume_basic.complete_percent<=80#}#ff9900{#else#}#2db228{#/if#}"></span></span><！ — 40％以下背景色#fb1238.80％以下にff9900.80％以上#2db228です — >
 							</div>
 							<span class="f-left {#if $resume_basic.complete_percent<=40#}low-progress{#elseif $resume_basic.complete_percent>40 && $resume_basic.complete_percent<=80#}mid-progress{#else#}high-progress{#/if#}">{#$resume_basic.complete_percent#}%</span>
 							<!-- 40%以下class为low-progress。80%以下为mid-progress。80%以上为high-progress -->
 						</div>
 						{#if $user.mobile_audit!=1#}
-						<p>完成手机认证可以提高简历可信度，获得更多企业青睐！ <a href="personal_user.php?act=authenticate" class="underline">手机认证</a></p>
+						<p>完全な電話認証は、あなたの履歴書の信頼性を高めることができます,多くの企業に推薦されます、！<a href="personal_user.php?act=authenticate" class="underline">手机认证</a></p>
 						{#/if#}
 						{#if $user.email_audit!=1#}
-						<p>完成邮箱认证可以即时邮件接收简历动态，让你不错过每次工作机会！ <a href="personal/personal_user.php?act=authenticate" class="underline">邮箱认证</a></p>
+						<p>認定は、あなたがするたびに仕事をする機会を逃さないように、ダイナミック再開瞬時にメッセージを受信するメールボックスを完了することができます！<a href="personal/personal_user.php?act=authenticate" class="underline">邮箱认证</a></p>
 						{#/if#}
 						<div class="success-btn-group">
-							<input type="button" name="submitsave" id="submitsave" value="匹配职位"  class="but100_30lan btn-big-font" onclick="javascript:window.open('{#"HW_jobslist"|highway_url#}')"/>
-							<input type="button" value="预览简历" class="but100_30hui btn-big-font" onclick="javascript:window.open('{#$HIGHWAY.site_dir#}resume/resume-show.php?id={#$pid#}')"/>
-							<input type="button" name="submitsave" id="submitsave" value="管理简历"  class="but100_30hui btn-big-font" onclick="javascript:location.href='?act=resume_list'"/>
+							<input type="button" name="submitsave" id="submitsave" value="匹配職位"  class="but100_30lan btn-big-font" onclick="javascript:window.open('{#"HW_jobslist"|highway_url#}')"/>
+							<input type="button" value="履歴書閲覧" class="but100_30hui btn-big-font" onclick="javascript:window.open('{#$HIGHWAY.site_dir#}resume/resume-show.php?id={#$pid#}')"/>
+							<input type="button" name="submitsave" id="submitsave" value="履歴書管理"  class="but100_30hui btn-big-font" onclick="javascript:location.href='?act=resume_list'"/>
 							
 						</div>
 					</div>
@@ -60,8 +60,8 @@ $(document).ready(function(){
 			
 			<div class="personal-rec-jobs">
 				<div class="p-rec-job-top clearfix">
-					<h2 class="f-left">为您推荐职位</h2>
-					<a href="{#$HIGHWAY.site_dir#}jobs/jobs-list.php" class="underline f-right">查看更多>></a>
+					<h2 class="f-left">おすすめジョブ</h2>
+					<a href="{#$HIGHWAY.site_dir#}jobs/jobs-list.php" class="underline f-right">もっと見ます>></a>
 				</div>
 				<div class="p-rec-data" pid="{#$pid#}">
 					<table id="interest_jobs_list"></table>

@@ -1,4 +1,4 @@
-
+﻿
 #ifndef __TIMER_HPP
 #define __TIMER_HPP
 

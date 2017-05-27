@@ -1,4 +1,4 @@
-﻿Filter.ExtractStyleBlocks.Escaping
+Filter.ExtractStyleBlocks.Escaping
 TYPE: bool
 VERSION: 3.0.0
 DEFAULT: true

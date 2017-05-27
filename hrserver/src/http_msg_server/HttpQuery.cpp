@@ -1,4 +1,4 @@
-/*
+﻿/*
  * HttpQuery.cpp
  *
  *  Created on: 2013-10-22
@@ -103,7 +103,7 @@ void CHttpQuery::DispatchQuery(std::string& url, std::string& post_data, CHttpCo
         else
         {
             root["error_code"] = -1;
-            root["error_msg"] = "未知错误";
+            root["error_msg"] = "未知エラー";
         }
         string strResponse = root.toStyledString();
         pHttpConn->Send((void*)strResponse.c_str(), strResponse.length());

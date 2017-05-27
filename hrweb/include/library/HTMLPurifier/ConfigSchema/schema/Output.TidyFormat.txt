@@ -1,4 +1,4 @@
-﻿Output.TidyFormat
+Output.TidyFormat
 TYPE: bool
 VERSION: 1.1.1
 DEFAULT: false

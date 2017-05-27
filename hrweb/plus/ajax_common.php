@@ -12,7 +12,7 @@ if ($act=="countinfo")
 	$total_resume=$db->get_total($total);
 	$total="SELECT COUNT(*) AS num FROM ".table('members');
 	$total_members=$db->get_total($total);
-		$contents = "企业总数：<span>{$total_company}</span>&nbsp;&nbsp;&nbsp;&nbsp;有效职位：<span>{$total_jobs}</span>&nbsp;&nbsp;&nbsp;&nbsp;有效简历：<span>{$total_resume}</span>&nbsp;&nbsp;&nbsp;&nbsp;会员总数：<span>{$total_members}</span>";
+		$contents = "企業数：<span>{$total_company}</span>&nbsp;&nbsp;&nbsp;&nbsp;有效職位：<span>{$total_jobs}</span>&nbsp;&nbsp;&nbsp;&nbsp;有效履歴書：<span>{$total_resume}</span>&nbsp;&nbsp;&nbsp;&nbsp;会員数：<span>{$total_members}</span>";
 		$contents = ereg_replace("\t","",$contents); 
 		$contents = ereg_replace("\r\n","",$contents); 
 		$contents = ereg_replace("\r","",$contents); 
@@ -37,17 +37,17 @@ elseif ($act=="company_down_resume")
 		{
 			if($row['sex']==1)
 			{
-				$row['fullname']=cut_str($row['fullname'],1,0,"先生");
+				$row['fullname']=cut_str($row['fullname'],1,0,"男");
 			}
 			elseif($row['sex']==2)
 			{
-				$row['fullname']=cut_str($row['fullname'],1,0,"女士");
+				$row['fullname']=cut_str($row['fullname'],1,0,"女");
 			}
 		}
 		if($_CFG['closetime']==1){
-			$html[$row['bid']]="<li><a href=".url_rewrite('HW_companyshow',array('id'=>$row['bid']))." target=\"_blank\">".$row['companyname']." </a> 下载了 <a href=".url_rewrite('HW_resumeshow',array('id'=>$row['cid']))." target=\"_blank\">".$row['fullname']." </a>的个人简历</li>";
+			$html[$row['bid']]="<li><a href=".url_rewrite('HW_companyshow',array('id'=>$row['bid']))." target=\"_blank\">".$row['companyname']." </a> ダウンロード了 <a href=".url_rewrite('HW_resumeshow',array('id'=>$row['cid']))." target=\"_blank\">".$row['fullname']." </a>の個人履歴書</li>";
 		}else{
-			$html[$row['bid']]="<li><a href=".url_rewrite('HW_companyshow',array('id'=>$row['bid']))." target=\"_blank\">".$row['companyname']." </a> 下载了 <a href=".url_rewrite('HW_resumeshow',array('id'=>$row['cid']))." target=\"_blank\">".$row['fullname']." </a>的个人简历<span>{$row['time']}</span></li>";
+			$html[$row['bid']]="<li><a href=".url_rewrite('HW_companyshow',array('id'=>$row['bid']))." target=\"_blank\">".$row['companyname']." </a> ダウンロード了 <a href=".url_rewrite('HW_resumeshow',array('id'=>$row['cid']))." target=\"_blank\">".$row['fullname']." </a>の個人履歴書<span>{$row['time']}</span></li>";
 		}
 		}
 	}
@@ -137,7 +137,7 @@ elseif($act=="joblisttip")
 				$row['company_url']=url_rewrite('HW_companyshow',array('id'=>$row['company_id']));
 				if ($i>5)
 				{
-				$html.="<li class=\"more\"><a href=\"{$row['company_url']}\" target=\"_blank\">更多...</span></li>";
+				$html.="<li class=\"more\"><a href=\"{$row['company_url']}\" target=\"_blank\">More...</span></li>";
 				break;
 				}
 				if($_CFG['closetime']==1){
@@ -244,7 +244,7 @@ elseif($act=="ajaxcomlist")
 				}
 		 		
 		 		if (!empty($li['jobs'])){
-		 			$html.="<p>聘：";
+		 			$html.="<p>募集：";
 		 			foreach($li['jobs'] as $jobsli){
 			 			$html.="<a href=\"{$jobsli['jobs_url']}\" target=\"_blank\">{$jobsli['jobs_name']}</a>";
 			 		}
@@ -297,7 +297,7 @@ elseif($act == "bind_wx_jc")
 		$db->query("update ".table('members')." set weixin_openid=null,bindingtime='' where uid=$uid ");
 
 		$html.="<div style='padding:10px 20px 20px 20px;'>";
-		$html.="<div style='font-size: 14px;line-height: 1.8;'>解除微信绑定成功</div>";
+		$html.="<div style='font-size: 14px;line-height: 1.8;'>Wechat設定解除成功</div>";
 		$html.="</div>";
 	}
 	else
@@ -305,15 +305,15 @@ elseif($act == "bind_wx_jc")
 		if($user['email_audit']!=1 && $user['mobile_audit']!=1)
 		{
 			$html.="<div class='unbindBox unbindBoxs'>";
-			$html.="<div class='con'><div class='f-left'><img src='$_CFG[site_template]images/wx_showmsg.jpg'></div><div class='f-right tex'>检测到您的账号没有绑定手机和邮箱，关闭微信安全登录后如果密码丢失后<span class='class'>将无法找回密码</span>，确定要关闭微信安全登录吗？</div><div class='clear'></div></div>";
-			$html.="<div class='sclosePd'><a class='sclose f-left' href='javascript:;' id='bind_wx_true' uid='".$user['uid']."'>确认</a><a class='sclose f-left sclosem' href='javascript:;'>取消</a></div>";
+			$html.="<div class='con'><div class='f-left'><img src='$_CFG[site_template]images/wx_showmsg.jpg'></div><div class='f-right tex'>携帯とメールボックスを設定しません，Wechat安全登録を閉じると、パスワード失った場合<span class='class'>パスワード送信できません</span>，Wechat安全登録を閉じますか？</div><div class='clear'></div></div>";
+			$html.="<div class='sclosePd'><a class='sclose f-left' href='javascript:;' id='bind_wx_true' uid='".$user['uid']."'>確認</a><a class='sclose f-left sclosem' href='javascript:;'>取り消し</a></div>";
 			$html.="</div>";
 		}
 		else
 		{
 			$html.="<div class='unbindBox unbindBoxs'>";
-			$html.="<div class='con'><div class='f-left'><img src='$_CFG[site_template]images/wx_showmsg.jpg'></div><div class='f-right tex'>微信登录更简单安全，且可防止木马、键盘录制窃取密码，确定要关闭微信安全登录吗？</div><div class='clear'></div></div>";
-			$html.="<div class='sclosePd'><a class='sclose f-left' href='javascript:;' id='bind_wx_true' uid='".$user['uid']."'>确认</a><a class='sclose f-left sclosem' href='javascript:;'>取消</a></div>";
+			$html.="<div class='con'><div class='f-left'><img src='$_CFG[site_template]images/wx_showmsg.jpg'></div><div class='f-right tex'>Wechat登録は簡単かつ安全，パスワード盗聴を防止する，Wechat安全登録を閉じますか？</div><div class='clear'></div></div>";
+			$html.="<div class='sclosePd'><a class='sclose f-left' href='javascript:;' id='bind_wx_true' uid='".$user['uid']."'>確認</a><a class='sclose f-left sclosem' href='javascript:;'>取り消し</a></div>";
 			$html.="</div>";
 		}
 	}
@@ -348,7 +348,7 @@ elseif($act == 'waiting_weixin_scan'){
 				$user_points=get_user_points($_SESSION['uid']);
 				$operator=$rule['company_wx_points']['type']=="1"?"+":"-";
 				$_SESSION['handsel_company_wx_points']=$_CFG['points_byname'].$operator.$rule['company_wx_points']['value'];
-				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 绑定微信，{$_CFG['points_byname']}({$operator}{$rule['company_wx_points']['value']})，(剩余:{$user_points})",1,1016,"绑定微信","{$operator}{$rule['company_wx_points']['value']}","{$user_points}");
+				write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 設定Wechat，{$_CFG['points_byname']}({$operator}{$rule['company_wx_points']['value']})，(残る:{$user_points})",1,1016,"Wechat設定","{$operator}{$rule['company_wx_points']['value']}","{$user_points}");
 				}
 			}
 			unlink(HIGHWAY_ROOT_PATH."data/weixin/".($event_key%10).'/'.$event_key.".txt");

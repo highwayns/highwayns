@@ -1,13 +1,7 @@
 ﻿<?php
 
-/**
- * XHTML 1.1 List Module, defines list-oriented elements. Core Module.
- */
 class HTMLPurifier_HTMLModule_List extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'List';
 
     // According to the abstract schema, the List content set is a fully formed
@@ -19,14 +13,8 @@ class HTMLPurifier_HTMLModule_List extends HTMLPurifier_HTMLModule
     // we don't have support for such nested expressions without using
     // the incredibly inefficient and draconic Custom ChildDef.
 
-    /**
-     * @type array
-     */
     public $content_sets = array('Flow' => 'List');
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $ol = $this->addElement('ol', 'List', new HTMLPurifier_ChildDef_List(), 'Common');

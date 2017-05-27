@@ -1,31 +1,16 @@
 ﻿<?php
 
-/**
- * XHTML 1.1 Forms module, defines all form-related elements found in HTML 4.
- */
 class HTMLPurifier_HTMLModule_Forms extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'Forms';
 
-    /**
-     * @type bool
-     */
     public $safe = false;
 
-    /**
-     * @type array
-     */
     public $content_sets = array(
         'Block' => 'Form',
         'Inline' => 'Formctrl',
     );
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $form = $this->addElement(

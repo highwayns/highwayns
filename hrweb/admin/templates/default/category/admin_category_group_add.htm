@@ -6,22 +6,22 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
-调用名不能以“HW_”开头。
+调用名不能以“HW_"开头。
 </p>
 </div>
-<div class="toptit">新增分类组</div>
+<div class="toptit">新しい分類グループ</div>
 <form id="form1" name="form1" method="post" action="?act=add_group_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" >
   <tr>
-    <td width="120" align="right">分类组名称:</td>
+    <td width="120" align="right">カテゴリーグループ名：</td>
     <td><input name="g_name" type="text" class="input_text_200"  value=""/></td>
   </tr>
    <tr>
-    <td width="120" align="right">调用名:</td>
+    <td width="120" align="right">コール名：</td>
     <td><input name="g_alias" type="text" class="input_text_200"  value=" "/></td>
   </tr>
 </table>
@@ -32,7 +32,7 @@
     <td width="120"> </td>
     <td>
 	<input type="submit" name="addsave" value="保存" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location='?act=grouplist'"/>
+		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location='?act=grouplist'"/>
 	
 	</td>
   </tr>

@@ -1,12 +1,12 @@
-﻿{#highway_company_show set="列表名:company,企业ID:GET[id],企业介绍长度:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_company_show set="リスト名:company,企業ID:GET[id],企業介绍長さ:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>{#$company.companyname#} - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$company.description#}},公司简介">
-<meta name="keywords" content="{#$company.companyname#},公司简介">
+<meta name="description" content="{#$company.description#}},会社紹介">
+<meta name="keywords" content="{#$company.companyname#},会社紹介">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$user_tpl#}css/css.css" rel="stylesheet" type="text/css" />
@@ -43,7 +43,7 @@
 			    success: function (data) {
 			    	myDialog.width(475);
 			       myDialog.content(data);// 填充对话框内容
-			       myDialog.title('用户登录');// 填充对话框内容
+			       myDialog.title('ユーザログイン');// 填充对话框内容
 			    	myDialog.showModal();
 			    }
 			});
@@ -55,7 +55,7 @@
 	{#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>><a href="{#"HW_jobs"|highway_url#}">招聘信息</a>>{#$company.companyname#}
+		海威人材：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>><a href="{#"HW_jobs"|highway_url#}">募集情報</a>>{#$company.companyname#}
 	</div>
 	<div class="container">
 		<div class="company-wrap clearfix">
@@ -63,13 +63,13 @@
 			<div class="com-left">
 				<div class="compnay-main">
 					<div class="c-top-wrap clearfix">
-						<div class="c-logo f-left"><img src="{#$company.logo#}" alt="公司logo" width="198" height="68" /></div>
+						<div class="c-logo f-left"><img src="{#$company.logo#}" alt="会社logo" width="198" height="68" /></div>
 						<div class="c-name f-left">
 							<h2>{#$company.companyname#}
 								{#if $company.audit=="1"#}
-									<img title="企业已认证" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
+									<img title="企業認定済み" src="{#$HIGHWAY.site_template#}images/yesyan.jpg" border="0" />
 								{#else#}
-									<img title="企业未认证" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
+									<img title="未認定企業" src="{#$HIGHWAY.site_template#}images/noyan.jpg" border="0" />
 								{#/if#}
 								{#if $company.pay_user>1#}
 									<img title="" src="{#$HIGHWAY.site_dir#}data/setmealimg/{#$company.pay_user#}.gif" border="0" />
@@ -79,20 +79,20 @@
 						</div>
 					</div>
 					<div class="company-control clearfix">
-						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">企业主页</a>
-						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">公司介绍</a>
-						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">招聘职位</a>
+						<a href="{#"HW_companyshow,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left active">企業ホームページ</a>
+						<a href="{#"HW_companyinfo,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">会社紹介</a>
+						<a href="{#"HW_companyjobs,id:"|cat:$company.id|highway_url#}" class="c-control-item f-left">職位募集</a>
 					</div>
 					<div class="company-info-wrap">
 						<div>
 						{#$company.company_profile|nl2br#}
 						</div>
-						<a href="javascript:;" class="c-info-more" title="查看全部"></a>
+						<a href="javascript:;" class="c-info-more" title="すべて閲覧"></a>
 					</div>
-					{#highway_jobs_list set="列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:8,列表页:HW_companyjobs,描述长度:68,会员UID:"|cat:$company.uid#}
+					{#highway_jobs_list set="リスト名:jobs,文字:...,職位名長さ:10,ページング:1,表示件数:8,リスト頁:HW_companyjobs,コメント長さ:68,会員UID:"|cat:$company.uid#}
 					{#if $jobs#}
 					<div class="com-left-block">
-						<h3 class="c-left-title">职位列表</h3>
+						<h3 class="c-left-title">求人の掲載</h3>
 						<div class="company-jobs-list clearfix">
 							{#foreach from=$jobs item=list#}
 							<div class="c-jobs-item f-left">
@@ -107,7 +107,7 @@
 					</div>
 					{#/if#}
 					<div class="com-left-block">
-						<h3 class="c-left-title">联系方式</h3>
+						<h3 class="c-left-title">連絡先</h3>
 						<div class="com-contact">
 							<div id="company_contact"></div>
 							{#if $company.map_open=="1" && $company.map_x && $company.map_y#}
@@ -125,41 +125,41 @@
 								</style>
 								<div class="company_map">
 									<div class="map_l">
-										<a target="_blank" href="http://api.map.baidu.com/marker?location={#$company.map_y#},{#$company.map_x#}&title={#$company.companyname#}&content={#$company.address#}&output=html" class="goToBdMap BMap_noprint anchorTR" style="position: absolute; z-index: 10;margin:10px;background-color: #fff;padding:2px;">查看完整地图（含公交查询）</a>
+										<a target="_blank" href="http://api.map.baidu.com/marker?location={#$company.map_y#},{#$company.map_x#}&title={#$company.companyname#}&content={#$company.address#}&output=html" class="goToBdMap BMap_noprint anchorTR" style="position: absolute; z-index: 10;margin:10px;background-color: #fff;padding:2px;">（交通機関検索を含む）の地図を参照してください</a>
 										<div style="width:100%;height:300px;border:1px #CCCCCC solid; margin:0 auto;" id="map"></div>
 									</div>
 									<div class="map_r">
-										<b>周边查询</b>
+										<b>周囲リサーチ</B>
 										<ul>
 											<li>
-												<label for="hotel"><input type="checkbox" value="酒店" id="hotel"  class="serch"/>&nbsp;酒店</label>
+												<label for="hotel"><input type=“checkbox" value=“ホテル" id=“hotel"  class=“serch"/>&nbsp;酒店</label>
 											</li>
 											<li>
-												<label for="catering"><input type="checkbox" value="餐饮" id="catering"  class="serch"/>&nbsp;餐饮</label>
+												<label for="catering"><input type=“checkbox" value=“飲食" id=“catering"  class=“serch"/>&nbsp;餐饮</label>
 											</li>
 											<li>
-												<label for="supermarket"><input type="checkbox" value="超市" id="supermarket" class="serch"/>&nbsp;超市</label>
+												<label for="supermarket"><input type="checkbox" value=“スーパー" id="supermarket" class="serch"/>&nbsp;超市</label>
 											</li>
 											<li>
-												<label for="bank"><input type="checkbox" value="银行" id="bank" class="serch"/>&nbsp;银行</label>
+												<label for="bank"><input type=“checkbox" value=“銀行" id=“bank" class=“serch"/>&nbsp;银行</label>
 											</li>
 											<li>
-												<label for="hospital"><input type="checkbox" value="医院" id="hospital" class="serch"/>&nbsp;医院</label>
+												<label for="hospital"><input type="checkbox" value=“病院" id="hospital" class="serch"/>&nbsp;医院</label>
 											</li>
 											<li>
 												<label for="scholl"><input type="checkbox" value="学校" id="scholl" class="serch"/>&nbsp;学校</label>
 											</li>
 											<li>
-												<label for="bus"><input type="checkbox" value="公交" id="bus" class="serch"/>&nbsp;公交</label>
+												<label for="bus"><input type=“checkbox" value=“バス" id=“bus" class=“serch"/>&nbsp;公交</label>
 											</li>
 										</ul>
 									</div>
 									<div class="clear"></div>
 									<div class="map_bottom">
-										<h4>线路查询</h4>
-										<span>起点：<input type="text" name="start" value="" class="addr_inpt"/></span>
-										<span>终点：<input type="text" name="end" value="{#$company.address#}" class="addr_inpt" readonly/></span>
-										<span><input type="button" value="公交查询" class="bus_submit"/></span>
+										<h4>線路を調べる</h4>
+										<span>スタート：<input type="text" name="start" value="" class="addr_inpt"/></span>
+										<span>終点：<input type=“text" name=“end" value=“{#$company.address#}" class=“addr_inpt" readonly/></span>
+										<span><input type=“button"value="バス検索"class=“bus_submit"/></span>
 									</div>
 									<div id="r-result" style="margin-bottom: 10px;"></div>
 								</div>
@@ -206,7 +206,7 @@
 										});
 										transit.search(""+start+"", ""+end+"");
 										}else{
-										alert("输入起点！");
+										alert("起点入力して！");
 										}
 									});
 								</script>
@@ -221,33 +221,33 @@
 				<div class="ring-group clearfix">
 					<div class="ring-item f-left">
 						<h4 class="resumes">{#$company.resume_processing#}%</h4>
-						<p>简历处理率</p>
+						<p>履歴書処理率</p>
 					</div>
 					<div class="ring-item f-left">
 						<h4 class="jobs">{#$company.jobs_num#}</h4>
-						<p>在招职位</p>
+						<p>求人仕事</P>
 					</div>
 					<div class="ring-item f-left">
 						<h4 class="interest">{#$company.resume_num#}</h4>
-						<p>感兴趣简历</p>
+						<p>気にいる履歴書</p>
 					</div>
 				</div>
 				<div class="c-right-block">
-					<h3 class="c-right-title">公司名片</h3>
+					<h3 class="c-right-title">名刺</h3>
 					<ul class="company-info-list">
-						<li>性质：{#$company.nature_cn#}</li>
-						<li>行业：{#$company.trade_cn#}</li>
-						<li>规模：{#$company.scale_cn#}</li>
+						<li>プロパティ：{#$company.nature_cn#} </li>
+						<li>業界：{#$company.trade_cn#} </li>
+						<li>規模：{#$company.scale_cn#}</li>
 						<li>地区：{#$company.district_cn#}</li>
 						{#if $company.website#}
-						<li>网址：<a target="_blank" href="{#$company.website#}" rel="nofollow">{#$company.website#}</a></li>
+						<li>URL：<a target=“_blank" href=“{#$company.website#}" rel=“nofollow">{#$company.website#}</a></li>
 						{#/if#}
 					</ul>
 				</div>
 				<div class="c-right-block">
-					<h3 class="c-right-title">手机浏览</h3>
+					<h3 class="c-right-title">モバイルブラウザ</h3>
 					<div class="com-code">
-						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="扫描二维码" width="100" height="100" />
+						<img src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}m/wap-company-show.php?id={#$company.id#}" alt="バーコードスキャン" width="100" height="100" />
 					</div>
 				</div>
 			</div>

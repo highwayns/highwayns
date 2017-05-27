@@ -7,7 +7,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_common.css" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_company.css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js"></script>
@@ -19,7 +19,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > チャージ注文</div>
 	<div class="usermain">
 		<div class="leftmenu com link_bk">
 			{#include file="member_company/left.htm"#}
@@ -30,12 +30,12 @@
 					<div class="titleH1"><div class="h1-title">充值/订单</div></div>
 					<div class="navs link_bk">
 						{#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
-						<a href="?act=order_add">积分充值</a>
+						<a href="?act=order_add">ポイントチャージ</a>
 						{#/if#}
 						{#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
-				        <a href="?act=setmeal_list" class="se">申请VIP套餐</a>
+				        <a href="?act=setmeal_list" class="se">アプリケーションパッケージVIP </a>
 						{#/if#}
-						<a href="?act=order_list">我的订单</a>
+						<a href="?act=order_list">マイオーダー</a>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -46,8 +46,8 @@
 							<tr>
 								<th class="align-left" width="167">
 									<div class="vip-head">
-										<h3>VIP特权介绍</h3>
-										<div class="vip-contact">电话咨询：<br /><span>{#$HIGHWAY.top_tel#}</span></div>
+										<h3>VIPの特権紹介</h3>
+										<div class="vip-contact">電話問い合わせ：<BR /><span>{#$HIGHWAY.top_tel#}</span></div>
 									</div>
 								</th>
 	  		 					{#section name=key loop=$setmeal#}
@@ -55,9 +55,9 @@
 									<div class="vip-head">
 										<h3>{#$setmeal[key].setmeal_name#}</h3>
 										{#if $setmeal[key].apply=='1'#}
-										<del>原价：{#$setmeal[key].original_price#}元</del>
-										<p>现价：{#$setmeal[key].expense#}元</p>
-										<input type="button" value="申请套餐" class="vip-btn" onclick="window.location='?act=setmeal_order_add&setmealid={#$setmeal[key].id#}'"/>
+										<del>価格：：{#$setmeal[key].original_price#}元</del>
+										<p>現在の価格：{#$setmeal[key].expense#}元</p>
+										<input type="button" value="コース申込" class="vip-btn" onclick="window.location='?act=setmeal_order_add&setmealid={#$setmeal[key].id#}'"/>
 										{#/if#}
 									</div>
 								</th>
@@ -66,118 +66,118 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td class="align-left">专属标识</td>
+								<td class="align-left">独占識別</td>
 								{#section name=key loop=$setmeal#}
 									{#if $setmeal[key].id=='1'#}
-									<td>无</td>
+									<td>無</td>
 									{#else#}
 									<td><i class="vip-icon level{#$setmeal[key].id#}"></i></td>
 									{#/if#}
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">发布招聘职位数</td>
+								<td class="align-left">募集数の公開</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].jobs_ordinary#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">下载普通简历</td>
+								<td class="align-left">普通履歴書のダウンロード</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].download_resume_ordinary#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">下载高级简历</td>
+								<td class="align-left">高級な履歴書をダウンロード</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].download_resume_senior#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">邀请普通人才面试</td>
+								<td class="align-left">普通人材面接の招待</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].interview_ordinary#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">邀请高级人才面试</td>
+								<td class="align-left">高級人材の面接を招待する</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].interview_senior#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">简历收藏夹容量</td>
+								<td class="align-left">履歴書の気に入り容量</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].talent_pool#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">职位推广-推荐</td>
+								<td class="align-left">ジョブの推進 - 推奨</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].recommend_num#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">职位推广-置顶</td>
+								<td class="align-left">ジョブの推進 - トップ設置</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].stick_num#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">职位推广-紧急</td>
+								<td class="align-left">ジョブの推進 - 緊急</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].emergency_num#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">职位推广-变色</td>
+								<td class="align-left">ジョブの推進 - 色</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].highlight_num#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">参加招聘会场次</td>
+								<td class="align-left">就職説明会の参加回数</td>
 								{#section name=key loop=$setmeal#}
 								<td>{#$setmeal[key].jobsfair_num#}</td>
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">开通电子地图</td>
+								<td class="align-left">電子地図の開通</td>
 								{#section name=key loop=$setmeal#}
 									{#if $setmeal[key].map_open=="1"#}
-									<td>允许</td>
+									<td>許可</td>
 									{#else#}
-									<td>不允许</td>
+									<td>許可なし</td>
 									{#/if#}
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">自由切换模板</td>
+								<td class="align-left">テンプレートの自動変更</td>
 								{#section name=key loop=$setmeal#}
 									{#if $setmeal[key].change_templates=="1"#}
-									<td>允许</td>
+									<td>許可</td>
 									{#else#}
-									<td>不允许</td>
+									<td>許可なし</td>
 									{#/if#}
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">其他</td>
+								<td class="align-left">その他</td>
 								{#section name=key loop=$setmeal#}
 									{#if $setmeal[key].added!=""#}
 									<td>{#$setmeal[key].added#}</td>
 									{#else#}
-									<td>无</td>
+									<td>無</td>
 									{#/if#}
 								{#/section#}
 							</tr>
 							<tr>
-								<td class="align-left">服务期</td>
+								<td class="align-left">サービス期間</td>
 								{#section name=key loop=$setmeal#}
 									{#if $setmeal[key].days=="0"#}
-									<td>不限</td>
+									<td>制限なし</td>
 									{#else#}
-									<td>{#$setmeal[key].days#}天</td>
+									<td>{#$Setmeal [キー]#.days}日 </td>
 									{#/if#}
 								{#/section#}
 							</tr>
@@ -185,7 +185,7 @@
 					</table>
 				</div>
 				{#else#}
-				<div class="emptytip">没有可申请的套餐！</div>
+				<div class="emptytip">パッケージには適用できません！</div>
 				{#/if#}
 			</div>
 		</div>

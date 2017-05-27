@@ -1,94 +1,94 @@
-/* Ç°ºó¶ËÍ¨ĞÅÏà¹ØµÄÅäÖÃ,×¢ÊÍÖ»ÔÊĞíÊ¹ÓÃ¶àĞĞ·½Ê½ */
+/* å‰åç«¯é€šä¿¡ç›¸å…³çš„é…ç½®,æ³¨é‡Šåªå…è®¸ä½¿ç”¨å¤šè¡Œæ–¹å¼ */
 {
-    /* ÉÏ´«Í¼Æ¬ÅäÖÃÏî */
-    "imageActionName": "uploadimage", /* Ö´ĞĞÉÏ´«Í¼Æ¬µÄactionÃû³Æ */
-    "imageFieldName": "upfile", /* Ìá½»µÄÍ¼Æ¬±íµ¥Ãû³Æ */
-    "imageMaxSize": 2048000, /* ÉÏ´«´óĞ¡ÏŞÖÆ£¬µ¥Î»B */
-    "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* ÉÏ´«Í¼Æ¬¸ñÊ½ÏÔÊ¾ */
-    "imageCompressEnable": true, /* ÊÇ·ñÑ¹ËõÍ¼Æ¬,Ä¬ÈÏÊÇtrue */
-    "imageCompressBorder": 1600, /* Í¼Æ¬Ñ¹Ëõ×î³¤±ßÏŞÖÆ */
-    "imageInsertAlign": "none", /* ²åÈëµÄÍ¼Æ¬¸¡¶¯·½Ê½ */
-    "imageUrlPrefix": "", /* Í¼Æ¬·ÃÎÊÂ·¾¶Ç°×º */
-    "imagePathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ÉÏ´«±£´æÂ·¾¶,¿ÉÒÔ×Ô¶¨Òå±£´æÂ·¾¶ºÍÎÄ¼şÃû¸ñÊ½ */
-                                /* {filename} »áÌæ»»³ÉÔ­ÎÄ¼şÃû,ÅäÖÃÕâÏîĞèÒª×¢ÒâÖĞÎÄÂÒÂëÎÊÌâ */
-                                /* {rand:6} »áÌæ»»³ÉËæ»úÊı,ºóÃæµÄÊı×ÖÊÇËæ»úÊıµÄÎ»Êı */
-                                /* {time} »áÌæ»»³ÉÊ±¼ä´Á */
-                                /* {yyyy} »áÌæ»»³ÉËÄÎ»Äê·İ */
-                                /* {yy} »áÌæ»»³ÉÁ½Î»Äê·İ */
-                                /* {mm} »áÌæ»»³ÉÁ½Î»ÔÂ·İ */
-                                /* {dd} »áÌæ»»³ÉÁ½Î»ÈÕÆÚ */
-                                /* {hh} »áÌæ»»³ÉÁ½Î»Ğ¡Ê± */
-                                /* {ii} »áÌæ»»³ÉÁ½Î»·ÖÖÓ */
-                                /* {ss} »áÌæ»»³ÉÁ½Î»Ãë */
-                                /* ·Ç·¨×Ö·û \ : * ? " < > | */
-                                /* ¾ßÇëÌå¿´ÏßÉÏÎÄµµ: fex.baidu.com/ueditor/#use-format_upload_filename */
+    /* ä¸Šä¼ å›¾ç‰‡é…ç½®é¡¹ */
+    "imageActionName": "uploadimage", /* æ‰§è¡Œä¸Šä¼ å›¾ç‰‡çš„actionåç§° */
+    "imageFieldName": "upfile", /* æäº¤çš„å›¾ç‰‡è¡¨å•åç§° */
+    "imageMaxSize": 2048000, /* ä¸Šä¼ å¤§å°é™åˆ¶ï¼Œå•ä½B */
+    "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* ä¸Šä¼ å›¾ç‰‡æ ¼å¼æ˜¾ç¤º */
+    "imageCompressEnable": true, /* æ˜¯å¦å‹ç¼©å›¾ç‰‡,é»˜è®¤æ˜¯true */
+    "imageCompressBorder": 1600, /* å›¾ç‰‡å‹ç¼©æœ€é•¿è¾¹é™åˆ¶ */
+    "imageInsertAlign": "none", /* æ’å…¥çš„å›¾ç‰‡æµ®åŠ¨æ–¹å¼ */
+    "imageUrlPrefix": "", /* å›¾ç‰‡è®¿é—®è·¯å¾„å‰ç¼€ */
+    "imagePathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ä¸Šä¼ ä¿å­˜è·¯å¾„,å¯ä»¥è‡ªå®šä¹‰ä¿å­˜è·¯å¾„å’Œæ–‡ä»¶åæ ¼å¼ */
+                                /* {filename} ä¼šæ›¿æ¢æˆåŸæ–‡ä»¶å,é…ç½®è¿™é¡¹éœ€è¦æ³¨æ„ä¸­æ–‡ä¹±ç é—®é¢˜ */
+                                /* {rand:6} ä¼šæ›¿æ¢æˆéšæœºæ•°,åé¢çš„æ•°å­—æ˜¯éšæœºæ•°çš„ä½æ•° */
+                                /* {time} ä¼šæ›¿æ¢æˆæ—¶é—´æˆ³ */
+                                /* {yyyy} ä¼šæ›¿æ¢æˆå››ä½å¹´ä»½ */
+                                /* {yy} ä¼šæ›¿æ¢æˆä¸¤ä½å¹´ä»½ */
+                                /* {mm} ä¼šæ›¿æ¢æˆä¸¤ä½æœˆä»½ */
+                                /* {dd} ä¼šæ›¿æ¢æˆä¸¤ä½æ—¥æœŸ */
+                                /* {hh} ä¼šæ›¿æ¢æˆä¸¤ä½å°æ—¶ */
+                                /* {ii} ä¼šæ›¿æ¢æˆä¸¤ä½åˆ†é’Ÿ */
+                                /* {ss} ä¼šæ›¿æ¢æˆä¸¤ä½ç§’ */
+                                /* éæ³•å­—ç¬¦ \ : * ? " < > | */
+                                /* å…·è¯·ä½“çœ‹çº¿ä¸Šæ–‡æ¡£: fex.baidu.com/ueditor/#use-format_upload_filename */
 
-    /* Í¿Ñ»Í¼Æ¬ÉÏ´«ÅäÖÃÏî */
-    "scrawlActionName": "uploadscrawl", /* Ö´ĞĞÉÏ´«Í¿Ñ»µÄactionÃû³Æ */
-    "scrawlFieldName": "upfile", /* Ìá½»µÄÍ¼Æ¬±íµ¥Ãû³Æ */
-    "scrawlPathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ÉÏ´«±£´æÂ·¾¶,¿ÉÒÔ×Ô¶¨Òå±£´æÂ·¾¶ºÍÎÄ¼şÃû¸ñÊ½ */
-    "scrawlMaxSize": 2048000, /* ÉÏ´«´óĞ¡ÏŞÖÆ£¬µ¥Î»B */
-    "scrawlUrlPrefix": "", /* Í¼Æ¬·ÃÎÊÂ·¾¶Ç°×º */
+    /* æ¶‚é¸¦å›¾ç‰‡ä¸Šä¼ é…ç½®é¡¹ */
+    "scrawlActionName": "uploadscrawl", /* æ‰§è¡Œä¸Šä¼ æ¶‚é¸¦çš„actionåç§° */
+    "scrawlFieldName": "upfile", /* æäº¤çš„å›¾ç‰‡è¡¨å•åç§° */
+    "scrawlPathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ä¸Šä¼ ä¿å­˜è·¯å¾„,å¯ä»¥è‡ªå®šä¹‰ä¿å­˜è·¯å¾„å’Œæ–‡ä»¶åæ ¼å¼ */
+    "scrawlMaxSize": 2048000, /* ä¸Šä¼ å¤§å°é™åˆ¶ï¼Œå•ä½B */
+    "scrawlUrlPrefix": "", /* å›¾ç‰‡è®¿é—®è·¯å¾„å‰ç¼€ */
     "scrawlInsertAlign": "none",
 
-    /* ½ØÍ¼¹¤¾ßÉÏ´« */
-    "snapscreenActionName": "uploadimage", /* Ö´ĞĞÉÏ´«½ØÍ¼µÄactionÃû³Æ */
-    "snapscreenPathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ÉÏ´«±£´æÂ·¾¶,¿ÉÒÔ×Ô¶¨Òå±£´æÂ·¾¶ºÍÎÄ¼şÃû¸ñÊ½ */
-    "snapscreenUrlPrefix": "", /* Í¼Æ¬·ÃÎÊÂ·¾¶Ç°×º */
-    "snapscreenInsertAlign": "none", /* ²åÈëµÄÍ¼Æ¬¸¡¶¯·½Ê½ */
+    /* æˆªå›¾å·¥å…·ä¸Šä¼  */
+    "snapscreenActionName": "uploadimage", /* æ‰§è¡Œä¸Šä¼ æˆªå›¾çš„actionåç§° */
+    "snapscreenPathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ä¸Šä¼ ä¿å­˜è·¯å¾„,å¯ä»¥è‡ªå®šä¹‰ä¿å­˜è·¯å¾„å’Œæ–‡ä»¶åæ ¼å¼ */
+    "snapscreenUrlPrefix": "", /* å›¾ç‰‡è®¿é—®è·¯å¾„å‰ç¼€ */
+    "snapscreenInsertAlign": "none", /* æ’å…¥çš„å›¾ç‰‡æµ®åŠ¨æ–¹å¼ */
 
-    /* ×¥È¡Ô¶³ÌÍ¼Æ¬ÅäÖÃ */
+    /* æŠ“å–è¿œç¨‹å›¾ç‰‡é…ç½® */
     "catcherLocalDomain": ["127.0.0.1", "localhost", "img.baidu.com"],
-    "catcherActionName": "catchimage", /* Ö´ĞĞ×¥È¡Ô¶³ÌÍ¼Æ¬µÄactionÃû³Æ */
-    "catcherFieldName": "source", /* Ìá½»µÄÍ¼Æ¬ÁĞ±í±íµ¥Ãû³Æ */
-    "catcherPathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ÉÏ´«±£´æÂ·¾¶,¿ÉÒÔ×Ô¶¨Òå±£´æÂ·¾¶ºÍÎÄ¼şÃû¸ñÊ½ */
-    "catcherUrlPrefix": "", /* Í¼Æ¬·ÃÎÊÂ·¾¶Ç°×º */
-    "catcherMaxSize": 2048000, /* ÉÏ´«´óĞ¡ÏŞÖÆ£¬µ¥Î»B */
-    "catcherAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* ×¥È¡Í¼Æ¬¸ñÊ½ÏÔÊ¾ */
+    "catcherActionName": "catchimage", /* æ‰§è¡ŒæŠ“å–è¿œç¨‹å›¾ç‰‡çš„actionåç§° */
+    "catcherFieldName": "source", /* æäº¤çš„å›¾ç‰‡åˆ—è¡¨è¡¨å•åç§° */
+    "catcherPathFormat": "data/images/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ä¸Šä¼ ä¿å­˜è·¯å¾„,å¯ä»¥è‡ªå®šä¹‰ä¿å­˜è·¯å¾„å’Œæ–‡ä»¶åæ ¼å¼ */
+    "catcherUrlPrefix": "", /* å›¾ç‰‡è®¿é—®è·¯å¾„å‰ç¼€ */
+    "catcherMaxSize": 2048000, /* ä¸Šä¼ å¤§å°é™åˆ¶ï¼Œå•ä½B */
+    "catcherAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* æŠ“å–å›¾ç‰‡æ ¼å¼æ˜¾ç¤º */
 
-    /* ÉÏ´«ÊÓÆµÅäÖÃ */
-    "videoActionName": "uploadvideo", /* Ö´ĞĞÉÏ´«ÊÓÆµµÄactionÃû³Æ */
-    "videoFieldName": "upfile", /* Ìá½»µÄÊÓÆµ±íµ¥Ãû³Æ */
-    "videoPathFormat": "data/ueditor_video/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ÉÏ´«±£´æÂ·¾¶,¿ÉÒÔ×Ô¶¨Òå±£´æÂ·¾¶ºÍÎÄ¼şÃû¸ñÊ½ */
-    "videoUrlPrefix": "", /* ÊÓÆµ·ÃÎÊÂ·¾¶Ç°×º */
-    "videoMaxSize": 102400000, /* ÉÏ´«´óĞ¡ÏŞÖÆ£¬µ¥Î»B£¬Ä¬ÈÏ100MB */
+    /* ä¸Šä¼ è§†é¢‘é…ç½® */
+    "videoActionName": "uploadvideo", /* æ‰§è¡Œä¸Šä¼ è§†é¢‘çš„actionåç§° */
+    "videoFieldName": "upfile", /* æäº¤çš„è§†é¢‘è¡¨å•åç§° */
+    "videoPathFormat": "data/ueditor_video/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ä¸Šä¼ ä¿å­˜è·¯å¾„,å¯ä»¥è‡ªå®šä¹‰ä¿å­˜è·¯å¾„å’Œæ–‡ä»¶åæ ¼å¼ */
+    "videoUrlPrefix": "", /* è§†é¢‘è®¿é—®è·¯å¾„å‰ç¼€ */
+    "videoMaxSize": 102400000, /* ä¸Šä¼ å¤§å°é™åˆ¶ï¼Œå•ä½Bï¼Œé»˜è®¤100MB */
     "videoAllowFiles": [
         ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
-        ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid"], /* ÉÏ´«ÊÓÆµ¸ñÊ½ÏÔÊ¾ */
+        ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid"], /* ä¸Šä¼ è§†é¢‘æ ¼å¼æ˜¾ç¤º */
 
-    /* ÉÏ´«ÎÄ¼şÅäÖÃ */
-    "fileActionName": "uploadfile", /* controllerÀï,Ö´ĞĞÉÏ´«ÊÓÆµµÄactionÃû³Æ */
-    "fileFieldName": "upfile", /* Ìá½»µÄÎÄ¼ş±íµ¥Ãû³Æ */
-    "filePathFormat": "data/ueditor_file/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ÉÏ´«±£´æÂ·¾¶,¿ÉÒÔ×Ô¶¨Òå±£´æÂ·¾¶ºÍÎÄ¼şÃû¸ñÊ½ */
-    "fileUrlPrefix": "", /* ÎÄ¼ş·ÃÎÊÂ·¾¶Ç°×º */
-    "fileMaxSize": 51200000, /* ÉÏ´«´óĞ¡ÏŞÖÆ£¬µ¥Î»B£¬Ä¬ÈÏ50MB */
+    /* ä¸Šä¼ æ–‡ä»¶é…ç½® */
+    "fileActionName": "uploadfile", /* controlleré‡Œ,æ‰§è¡Œä¸Šä¼ è§†é¢‘çš„actionåç§° */
+    "fileFieldName": "upfile", /* æäº¤çš„æ–‡ä»¶è¡¨å•åç§° */
+    "filePathFormat": "data/ueditor_file/{yyyy}/{mm}{dd}/{time}{rand:6}", /* ä¸Šä¼ ä¿å­˜è·¯å¾„,å¯ä»¥è‡ªå®šä¹‰ä¿å­˜è·¯å¾„å’Œæ–‡ä»¶åæ ¼å¼ */
+    "fileUrlPrefix": "", /* æ–‡ä»¶è®¿é—®è·¯å¾„å‰ç¼€ */
+    "fileMaxSize": 51200000, /* ä¸Šä¼ å¤§å°é™åˆ¶ï¼Œå•ä½Bï¼Œé»˜è®¤50MB */
     "fileAllowFiles": [
         ".png", ".jpg", ".jpeg", ".gif", ".bmp",
         ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
         ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid",
         ".rar", ".zip", ".tar", ".gz", ".7z", ".bz2", ".cab", ".iso",
         ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"
-    ], /* ÉÏ´«ÎÄ¼ş¸ñÊ½ÏÔÊ¾ */
+    ], /* ä¸Šä¼ æ–‡ä»¶æ ¼å¼æ˜¾ç¤º */
 
-    /* ÁĞ³öÖ¸¶¨Ä¿Â¼ÏÂµÄÍ¼Æ¬ */
-    "imageManagerActionName": "listimage", /* Ö´ĞĞÍ¼Æ¬¹ÜÀíµÄactionÃû³Æ */
-    "imageManagerListPath": "data/images/", /* Ö¸¶¨ÒªÁĞ³öÍ¼Æ¬µÄÄ¿Â¼ */
-    "imageManagerListSize": 20, /* Ã¿´ÎÁĞ³öÎÄ¼şÊıÁ¿ */
-    "imageManagerUrlPrefix": "", /* Í¼Æ¬·ÃÎÊÂ·¾¶Ç°×º */
-    "imageManagerInsertAlign": "none", /* ²åÈëµÄÍ¼Æ¬¸¡¶¯·½Ê½ */
-    "imageManagerAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* ÁĞ³öµÄÎÄ¼şÀàĞÍ */
+    /* åˆ—å‡ºæŒ‡å®šç›®å½•ä¸‹çš„å›¾ç‰‡ */
+    "imageManagerActionName": "listimage", /* æ‰§è¡Œå›¾ç‰‡ç®¡ç†çš„actionåç§° */
+    "imageManagerListPath": "data/images/", /* æŒ‡å®šè¦åˆ—å‡ºå›¾ç‰‡çš„ç›®å½• */
+    "imageManagerListSize": 20, /* æ¯æ¬¡åˆ—å‡ºæ–‡ä»¶æ•°é‡ */
+    "imageManagerUrlPrefix": "", /* å›¾ç‰‡è®¿é—®è·¯å¾„å‰ç¼€ */
+    "imageManagerInsertAlign": "none", /* æ’å…¥çš„å›¾ç‰‡æµ®åŠ¨æ–¹å¼ */
+    "imageManagerAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* åˆ—å‡ºçš„æ–‡ä»¶ç±»å‹ */
 
-    /* ÁĞ³öÖ¸¶¨Ä¿Â¼ÏÂµÄÎÄ¼ş */
-    "fileManagerActionName": "listfile", /* Ö´ĞĞÎÄ¼ş¹ÜÀíµÄactionÃû³Æ */
-    "fileManagerListPath": "data/ueditor_file/", /* Ö¸¶¨ÒªÁĞ³öÎÄ¼şµÄÄ¿Â¼ */
-    "fileManagerUrlPrefix": "", /* ÎÄ¼ş·ÃÎÊÂ·¾¶Ç°×º */
-    "fileManagerListSize": 20, /* Ã¿´ÎÁĞ³öÎÄ¼şÊıÁ¿ */
+    /* åˆ—å‡ºæŒ‡å®šç›®å½•ä¸‹çš„æ–‡ä»¶ */
+    "fileManagerActionName": "listfile", /* æ‰§è¡Œæ–‡ä»¶ç®¡ç†çš„actionåç§° */
+    "fileManagerListPath": "data/ueditor_file/", /* æŒ‡å®šè¦åˆ—å‡ºæ–‡ä»¶çš„ç›®å½• */
+    "fileManagerUrlPrefix": "", /* æ–‡ä»¶è®¿é—®è·¯å¾„å‰ç¼€ */
+    "fileManagerListSize": 20, /* æ¯æ¬¡åˆ—å‡ºæ–‡ä»¶æ•°é‡ */
     "fileManagerAllowFiles": [
         ".png", ".jpg", ".jpeg", ".gif", ".bmp",
         ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
         ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid",
         ".rar", ".zip", ".tar", ".gz", ".7z", ".bz2", ".cab", ".iso",
         ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"
-    ] /* ÁĞ³öµÄÎÄ¼şÀàĞÍ */
+    ] /* åˆ—å‡ºçš„æ–‡ä»¶ç±»å‹ */
 
 }

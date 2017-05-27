@@ -106,16 +106,6 @@ class PHPZip
     var $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
     var $old_offset   = 0;
 
-    /**
-     * Converts an Unix timestamp to a four byte DOS date and time format (date
-     * in high two bytes, time in low two bytes allowing magnitude comparison).
-     *
-     * @param  integer  the current Unix timestamp
-     *
-     * @return integer  the current date in a four byte DOS format
-     *
-     * @access private
-     */
     function unix2DosTime($unixtime = 0)
     {
         $timearray = ($unixtime == 0) ? getdate() : getdate($unixtime);
@@ -133,15 +123,6 @@ class PHPZip
                 ($timearray['hours'] << 11) | ($timearray['minutes'] << 5) | ($timearray['seconds'] >> 1);
     } // end of the 'unix2DosTime()' method
 
-    /**
-     * Adds "file" to archive
-     *
-     * @param  string   file contents
-     * @param  string   name of the file in the archive (may contains the path)
-     * @param  integer  the current timestamp
-     *
-     * @access public
-     */
     function add_file($data, $name, $time = 0)
     {
         $name     = str_replace('\\', '/', $name);
@@ -212,13 +193,6 @@ class PHPZip
         $this -> ctrl_dir[] = $cdrec;
     } // end of the 'add_file()' method
 
-    /**
-     * Dumps out file
-     *
-     * @return  string  the zipped file
-     *
-     * @access public
-     */
     function file()
     {
         $data    = implode('', $this -> datasec);

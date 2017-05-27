@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
@@ -82,7 +82,7 @@ $(".resume_privacy").click(function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=privacy&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('隐私设置');
     myDialog.width('550');
     myDialog.showModal();
@@ -98,7 +98,7 @@ $(".del_resume").click(function(){
 	var pid = $(this).attr("pid");
 	var url = "personal_ajax.php?act=del_resume&pid="+pid;
 	var myDialog = dialog();
-	myDialog.content("加载中...");
+	myDialog.content("ロード中...");
     myDialog.title('删除简历');
     myDialog.width('350');
     myDialog.showModal();
@@ -116,7 +116,7 @@ $(".refresh_resume").click(function(){
 		if(result=="1"){
 			dialog({
 			  title: '温馨提示',
-			  content: "刷新成功",
+			  content: "更新成功",
 			  width:'300px'
 			}).showModal();
 			location.reload();
@@ -158,12 +158,12 @@ $(".refresh_resume").click(function(){
 <!-- 引导 -->
 <div id="mask"></div>
 <div id="searchTip">
-	<div class="stepD"><a>下一步</a><span title="关闭">关闭</span></div>
-    <div class="stepE"><a class="p">上一步</a><a>下一步</a><span title="关闭">关闭</span></div>
-    <div class="stepF"><a class="p">上一步</a><a>下一步</a><span title="关闭">关闭</span></div>
+	<div class="stepD"><a>下一步</a><span title=“閉じる">关闭</span></div>
+    <div class="stepE"><a class="p">上一步</a><a>下一步</a><span title=“閉じる">关闭</span></div>
+    <div class="stepF"><a class="p">上一步</a><a>下一步</a><span title=“閉じる">关闭</span></div>
 </div>
 <!-- 引导 end-->
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a></div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a></div>
 <div class="usermain">
   <div class="leftmenu link_bk">
   	 {#include file="member_personal/left.htm"#}
@@ -189,36 +189,36 @@ $(".refresh_resume").click(function(){
 				  	<img name="" src="{#$HIGHWAY.site_dir#}data/avatar/100/{#$user.avatars#}?rand={#$rand#}" width="100" height="100" alt="" />
 				  	{#/if#}
 				  </div>
-				  <a href="personal_user.php?act=avatars"  class="edit">修改头像</a>
+				  <a href="personal_user.php?act=avatars"  class="edit">写真変更</a>
 		  		</div>
 				<div class="cbox">
 				  	<div class="name  h1-title">{#$user.username#}<span>(uid:{#$user.uid#})</span><a href="personal_user.php?act=userprofile" class="personal-edit">编辑</a></div>
 					<div class="txt">
 					{#if $sms.open=="1"#}
 						{#if $user.mobile_audit=="1"#}
-						<span class="m">手机认证：</span>&nbsp;<span style="color:#009900">已认证</span>&nbsp;{#else#}<span class="m n">手机认证：</span>&nbsp;<a href="personal_user.php?act=authenticate"><span style="color:#FF0000">未认证</span></a>&nbsp;
+						<span class="m">携帯電話認証：</span>&nbsp;<span style="color:#009900">認定済み</span>&nbsp;{#else#}<span class="m n">携帯電話認証：</span>&nbsp;<a href="personal_user.php?act=authenticate"><span style="color:#FF0000">未认证</span></a>&nbsp;
 						{#/if#}{#$user.mobile#}<br />
 					{#/if#}
 					{#if $user.email_audit=="1"#}
-					<span class="e">邮箱认证：</span>&nbsp;<span style="color:#009900">已认证</span>&nbsp;{#else#}<span class="e n">邮箱认证：</span>&nbsp;<a href="personal_user.php?act=authenticate"><span style="color:#FF0000">未认证</span></a>&nbsp;{#/if#}{#$user.email#}<br />
+					<span class="e">Eメールの認証：</span>&nbsp;<span style="color:#009900">認定済み</span>&nbsp;{#else#}<span class="e n">Eメールの認証：</span>&nbsp;<a href="personal_user.php?act=authenticate"><span style="color:#FF0000">未认证</span></a>&nbsp;{#/if#}{#$user.email#}<br />
 					
 					{#if $user.weixin_openid#}
-					<span class="w">微信邦定：</span>&nbsp;<span style="color:#009900">已绑定</span>&nbsp;{#else#}<span class="w n">微信绑定：</span>&nbsp;<a href="personal_user.php?act=authenticate"><span style="color:#FF0000">未绑定</span></a>&nbsp;{#/if#}<br />
+					<span class="w">マイクロチャネルボンディング：</span>&nbsp;<span style="color:#009900">バウンド</span>&nbsp;{#else#}<span class="w n">マイクロチャネル結合：</span>&nbsp;<a href="personal_user.php?act=authenticate"><span style="color:#FF0000">未绑定</span></a>&nbsp;{#/if#}<br />
 
- 					系统消息：未读{#if $msg_total1>0#}<span><a style="color:#FF0000" href="personal_user.php?act=pm&msgtype=1">({#$msg_total1#})</a></span>{#else#}<a style="color:#FF0000" href="personal_user.php?act=pm&msgtype=1">(0)</a>{#/if#}&nbsp;已读{#if $msg_total2>0#}<span><a style="color:#666666" href="personal_user.php?act=pm&msgtype=1">({#$msg_total2#})</a></span>{#else#}<a style="color:#666666" href="personal_user.php?act=pm&msgtype=1">(0)</a>{#/if#}<br />
+ 					系统消息：未读{#if $msg_total1>0#}<span><a style="color:#FF0000" href="personal_user.php?act=pm&msgtype=1">({#$msg_total1#})</a></span>{#else#}<a style="color:#FF0000" href="personal_user.php?act=pm&msgtype=1">(0)</a>{#/if#}&nbsp;既読{#if $msg_total2>0#}<span><a style="color:#666666" href="personal_user.php?act=pm&msgtype=1">({#$msg_total2#})</a></span>{#else#}<a style="color:#666666" href="personal_user.php?act=pm&msgtype=1">(0)</a>{#/if#}<br />
 					</div>
 				</div>
 				<div class="rbox">
 				  <div class="mli">
 				  	<div class="imgbox" mark="apply_jobs">
 					  <div class="count">{#$count_apply#}</div>
-					  <div class="txt">已申请职位</div>
+					  <div class="txt">ジョブを申請した。</div>
 					</div>
 				  </div>
 				  <div class="mli">
 				  	<div class="imgbox" mark="interview">
 					  <div class="count">{#$count_interview#}</div>
-					  <div class="txt">面试邀请</div>
+					  <div class="txt">面接の招待</div>
 					</div>
 				  </div>
 				  <div class="clear"></div>
@@ -243,22 +243,22 @@ $(".refresh_resume").click(function(){
 		公开状态：{#if $my_resume[list].display=="1"#}公开{#else#}保密{#/if#}<br>
 		真实姓名：{#$my_resume[list].fullname#}<br />
 		更新时间：{#$my_resume[list].refreshtime|date_format:"%Y-%m-%d %H:%M"#}<br />
-	  	审核状态：{#if $my_resume[list].audit=="1"#}<span style="color:#009900">审核通过</span>{#elseif $my_resume[list].audit=="2"#}<span style="color:#FF0000">审核中</span>{#else#}<span style="color:#FF0000">审核未通过</span>{#/if#}<br />
+	  	审核状态：{#if $my_resume[list].audit=="1"#}<span style="color:#009900">承認</span>{#elseif $my_resume[list].audit=="2"#}<span style="color:#FF0000">審査中</span>{#else#}<span style="color:#FF0000">承認されていません</span>{#/if#}<br />
 	  </div>
 	</div>
 	<div class="cbox">
 		<div class="imgbox1-{#$my_resume[list].complete_percent#}"></div><!--imgbox1-40 是40%   imgbox1-55是55%-->	
-	    <div class="imgboxtit">简历完整度：{#$my_resume[list].complete_percent#}%</div>
+	    <div class="imgboxtit">履歴書完成度：{#$my_resume[list].complete_percent#}%</div>
 	</div>
 	<div class="cbox">
 		<div class="imgbox2-{#$my_resume[list].level#}"></div><!--imgbox2-1 是差   imgbox2-2 良  imgbox2-3 优-->		
-	    <div class="imgboxtit">简历质量</div>
+	    <div class="imgboxtit">履歴書レベル</div>
 	</div>
 	<div class="rbox">
 		<div class="but">
-			<a class="refresh_resume" pid="{#$my_resume[list].id#}" href="javascript:void(0);">刷新简历</a>
-			<a href="personal_resume.php?act=edit_resume&pid={#$my_resume[list].id#}">修改简历</a>
-			<a target="_blank" href="{#"HW_jobslist,jobcategory:$my_resume[list].interestjobs"|highway_url#}" class="o">匹配职位</a>
+			<a class="refresh_resume" pid="{#$my_resume[list].id#}" href="javascript:void(0);">履歴書の更新</a>
+			<a href="personal_resume.php?act=edit_resume&pid={#$my_resume[list].id#}">履歴書修正</a>
+			<a target="_blank" href="{#"HW_jobslist,jobcategory:$my_resume[list].interestjobs"|highway_url#}" class="o">位置合わせ</a>
 		</div>	
 	    <div class="bottomlink link_lan"><a target="_blank" href="{#$my_resume[list].resume_url#}">预览简历</a><a class="resume_privacy" pid="{#$my_resume[list].id#}" href="javascript:void(0);">隐私设置</a><a url="personal_ajax.php?act=del_resume&pid={#$my_resume[list].id#}" href="javascript:void(0);" class="del_resume" pid="{#$my_resume[list].id#}">删除简历</a></div>
 	</div>
@@ -271,13 +271,13 @@ $(".refresh_resume").click(function(){
 		简历是求职的利器，填写简历才能更快找到好工作！<br />
 		去填写一份优质的简历吧，认真的人，才能让认真的企业找上你！
 	</p>
-	<input type="button" value="创建简历" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/>
+	<input type="button" value="履歴書作成" class="creat-resume" onclick="window.location.href='personal_resume.php?act=make1'"/>
 </div>
 {#/if#}
 	<div class="personal-rec-jobs">
 		<div class="p-rec-job-top clearfix">
-			<h2 class="f-left">推荐职位</h2>
-			<a target="_blank" href="{#"HW_jobslist"|highway_url#}" class="underline f-right">查看更多>></a>
+			<h2 class="f-left">注目のジョブズ</h2>
+			<a target="_blank" href="{#"HW_jobslist"|highway_url#}" class="underline f-right">もっと見ます>></a>
 		</div>
 		<div class="p-rec-data">
 			<div id="interest_jobs_list"></div>

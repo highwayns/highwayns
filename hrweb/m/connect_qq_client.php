@@ -28,7 +28,7 @@ elseif ($act=='login_go')
 	$_SESSION["accessToken"] = trim($_GET['accessToken']);
 	if (empty($_SESSION["openid"]))
 	{
-		exit('登录失败！openid获取不到');
+		exit('登録失敗！openid取得できません');
 	}
 	else
 	{
@@ -54,7 +54,7 @@ elseif ($act=='login_go')
 					require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}'  WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					exit('绑定QQ帐号成功！');
+					exit('QQアカウント設定成功！');
 				}
 				else
 				{
@@ -82,7 +82,7 @@ elseif ($act=='reg')
 		$jsoninfo = json_decode($output, true);
 		$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$smarty->assign('title','补充信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','補完情報 - '.$_CFG['site_name']);
 		$smarty->assign('qqurl',"?act=");
 		$smarty->assign('nickname',$nickname);
 		$smarty->display('wap/wap-bind.html');
@@ -94,12 +94,12 @@ elseif ($act=='reg_save')
 	{
 		exit("openid is empty");
 	}
-	$val['username']=!empty($_POST['username'])?trim(utf8_to_gbk($_POST['username'])):exit("输入用户名");
-	$val['email']=!empty($_POST['email'])?trim($_POST['email']):exit("输入邮箱");
+	$val['username']=!empty($_POST['username'])?trim(utf8_to_gbk($_POST['username'])):exit("ユーザ名を入力してください");
+	$val['email']=!empty($_POST['email'])?trim($_POST['email']):exit("メールボックス入力してください");
 	$val['member_type']=intval($_POST['member_type']);
-	$val['password']=!empty($_POST['password'])?trim($_POST['password']):exit("输入密码");
+	$val['password']=!empty($_POST['password'])?trim($_POST['password']):exit("パスワード入力");
 	if($val['password']!=trim($_POST['rpassword'])){
-		exit("密码不一致");
+		exit("パスワード不一致");
 	}
 	require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
@@ -108,7 +108,7 @@ elseif ($act=='reg_save')
 	$sql="select * from ".table("members")." where username='$val[username]' or email='$val[email]'";
 	$row = $db->getall($sql);
 	if(!empty($row)){
-		exit("用户名或邮箱已经存在！");
+		exit("ユーザ名或メールボックス既に存在します！");
 	}
 	$userid=user_register($val['username'],$val['password'],$val['member_type'],$val['email']);
 	if ($userid)
@@ -162,13 +162,13 @@ elseif ($act=='binding_callback')
 			require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 			if (!empty($user))
 			{
-					exit('此QQ帐号已经绑定了其他会员,请换一个QQ帐号！');
+					exit('このQQアカウントがすでに使っています！');
 			}
 			else
 			{
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}'  WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					exit('绑定QQ帐号成功！');
+					exit('QQアカウント設定成功！');
 			}
 }
 ?>

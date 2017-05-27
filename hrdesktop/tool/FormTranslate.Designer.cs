@@ -38,6 +38,11 @@
             this.btnSelectMiddleFile = new System.Windows.Forms.Button();
             this.txtMiddleFile = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnCombineKey = new System.Windows.Forms.Button();
+            this.listHis = new System.Windows.Forms.ListBox();
+            this.rdbQuota = new System.Windows.Forms.RadioButton();
+            this.rdbKako = new System.Windows.Forms.RadioButton();
+            this.rdoSingle = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -129,11 +134,67 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Middle File";
             // 
+            // btnCombineKey
+            // 
+            this.btnCombineKey.Location = new System.Drawing.Point(232, 166);
+            this.btnCombineKey.Name = "btnCombineKey";
+            this.btnCombineKey.Size = new System.Drawing.Size(84, 23);
+            this.btnCombineKey.TabIndex = 14;
+            this.btnCombineKey.Text = "CombineKey";
+            this.btnCombineKey.UseVisualStyleBackColor = true;
+            this.btnCombineKey.Click += new System.EventHandler(this.btnCombineKey_Click);
+            // 
+            // listHis
+            // 
+            this.listHis.FormattingEnabled = true;
+            this.listHis.ItemHeight = 12;
+            this.listHis.Location = new System.Drawing.Point(50, 211);
+            this.listHis.Name = "listHis";
+            this.listHis.Size = new System.Drawing.Size(444, 232);
+            this.listHis.TabIndex = 15;
+            // 
+            // rdbQuota
+            // 
+            this.rdbQuota.AutoSize = true;
+            this.rdbQuota.Checked = true;
+            this.rdbQuota.Location = new System.Drawing.Point(50, 24);
+            this.rdbQuota.Name = "rdbQuota";
+            this.rdbQuota.Size = new System.Drawing.Size(29, 16);
+            this.rdbQuota.TabIndex = 16;
+            this.rdbQuota.TabStop = true;
+            this.rdbQuota.Text = "\"";
+            this.rdbQuota.UseVisualStyleBackColor = true;
+            // 
+            // rdbKako
+            // 
+            this.rdbKako.AutoSize = true;
+            this.rdbKako.Location = new System.Drawing.Point(165, 24);
+            this.rdbKako.Name = "rdbKako";
+            this.rdbKako.Size = new System.Drawing.Size(29, 16);
+            this.rdbKako.TabIndex = 17;
+            this.rdbKako.Text = ">";
+            this.rdbKako.UseVisualStyleBackColor = true;
+            // 
+            // rdoSingle
+            // 
+            this.rdoSingle.AutoSize = true;
+            this.rdoSingle.Location = new System.Drawing.Point(242, 24);
+            this.rdoSingle.Name = "rdoSingle";
+            this.rdoSingle.Size = new System.Drawing.Size(25, 16);
+            this.rdoSingle.TabIndex = 18;
+            this.rdoSingle.Text = "\'";
+            this.rdoSingle.UseVisualStyleBackColor = true;
+            // 
             // FormTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 218);
+            this.ClientSize = new System.Drawing.Size(555, 467);
+            this.Controls.Add(this.rdoSingle);
+            this.Controls.Add(this.rdbKako);
+            this.Controls.Add(this.rdbQuota);
+            this.Controls.Add(this.listHis);
+            this.Controls.Add(this.btnCombineKey);
             this.Controls.Add(this.btnSelectMiddleFile);
             this.Controls.Add(this.txtMiddleFile);
             this.Controls.Add(this.label3);
@@ -163,5 +224,10 @@
         private System.Windows.Forms.Button btnSelectMiddleFile;
         private System.Windows.Forms.TextBox txtMiddleFile;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCombineKey;
+        private System.Windows.Forms.ListBox listHis;
+        private System.Windows.Forms.RadioButton rdbQuota;
+        private System.Windows.Forms.RadioButton rdbKako;
+        private System.Windows.Forms.RadioButton rdoSingle;
     }
 }

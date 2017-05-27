@@ -4,12 +4,12 @@ require_once(dirname(__FILE__).'/../include/common.inc.php');
 $act = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'app';
 require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
-if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_COOKIE['QS']['uid'])
+if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] && $_COOKIE['HW']['uid'])
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
-	if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['uid'],$_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['uid'],false,false);
+	update_user_info($_COOKIE['HW']['uid'],false,false);
 	header("Location:".get_member_url($_SESSION['utype']));
 	}
 	else
@@ -55,7 +55,7 @@ if ($user['status']=="2")
 }
 if ($act=="app")
 {		
-		$id=isset($_GET['id'])?$_GET['id']:exit("id 丢失");
+		$id=isset($_GET['id'])?$_GET['id']:exit("id 失った");
 		$jobs=app_get_jobs($id);
 		if (empty($jobs))
 		{
@@ -71,7 +71,7 @@ if ($act=="app")
 		$resume_list=get_auditresume_list($_SESSION['uid']);
 		if (empty($resume_list))
 		{
-		$str="<a href=\"".get_member_url(2,true)."personal_resume.php?act=resume_list\">[查看我的简历]</a>";		
+		$str="<a href=\"".get_member_url(2,true)."personal_resume.php?act=resume_list\">[私の履歴書閲覧]</a>";		
 		exit('<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 			    <tr>
 					<td width="20" align="right"></td>
@@ -103,19 +103,19 @@ $(".ajax_app_tip > span:eq(2)").html(app_max-app_today);
 $("#ajax_app").click(function() {
 	if (app_max-app_today==0 || app_max-app_today<0 )
 	{
-	alert("您今天投简历数量已经超出最大限制！");
+	alert("今日履歴書送信数は最大数を超えました！");
 	}
 	else if ($(".ajax_app :checkbox[checked]").length>(app_max-app_today))
 	{
-	alert("您今天还可以投递"+(app_max-app_today)+"个简历，已选职位超出了最大限制！");
+	alert("送信可能件数"+(app_max-app_today)+"件履歴書，選択された職位は最大制限を超えました！");
 	}
 	else if ($(".ajax_app :checkbox[checked]").length==0)
 	{
-	alert("请选择投递的职位！");
+	alert("希望職位を選択してください！");
 	}
 	else if ($("#resumeid").val()=="")
 	{
-	alert("请选择你的简历！");
+	alert("履歴書を選択してください！");
 	}
 	else
 	{
@@ -146,7 +146,7 @@ $("#ajax_app").click(function() {
 				$("#notice").hide();
 				$("#waiting").hide();
 				$("#app_ok").hide();
-				$("#error_msg").html("您投递过此职位，不能重复投递");
+				$("#error_msg").html("この職位すでに申し込みしました");
 				$("#error").show();
 			}
 			else
@@ -155,7 +155,7 @@ $("#ajax_app").click(function() {
 				$("#notice").hide();
 				$("#waiting").hide();
 				$("#app_ok").hide();
-				$("#error_msg").html("投递失败！"+data);
+				$("#error_msg").html("送信失敗！"+data);
 				$("#error").show();
 			}
 	 	 })
@@ -213,7 +213,7 @@ $("#ajax_app").click(function() {
     <tr>
 		<td></td>
 		<td>
-			<input type="button" name="Submit"  id="ajax_app" class="but130lan" value="投递" />
+			<input type="button" name="Submit"  id="ajax_app" class="but130lan" value="送信" />
 		</td>
     </tr>
 </table>
@@ -258,20 +258,20 @@ $("#ajax_app").click(function() {
 
 elseif ($act=="app_save")
 {
-	$jobsid=isset($_POST['jobsid'])?$_POST['jobsid']:exit("出错了");
-	$resumeid=isset($_POST['resumeid'])?intval($_POST['resumeid']):exit("出错了");
+	$jobsid=isset($_POST['jobsid'])?$_POST['jobsid']:exit("エラー発生");
+	$resumeid=isset($_POST['resumeid'])?intval($_POST['resumeid']):exit("エラー発生");
 	$notes=isset($_POST['notes'])?trim($_POST['notes']):"";
 	$pms_notice=intval($_POST['pms_notice']);
 	$jobsarr=app_get_jobs($jobsid);
 	if (empty($jobsarr))
 	{
-	exit("职位丢失");
+	exit("職位失った");
 	}
 	$resume_basic=get_resume_basic($_SESSION['uid'],$resumeid);
 	$resume_basic = array_map("addslashes", $resume_basic);
 	if (empty($resume_basic))
 	{
-	exit("简历丢失");
+	exit("履歴書失った");
 	}
 	$i=0;
 	foreach($jobsarr as $jobs)
@@ -316,10 +316,10 @@ elseif ($act=="app_save")
 						$user=$db->getone("select username from ".table('members')." where uid ={$jobs['uid']} limit 1");
 						$jobs_url=url_rewrite('HW_jobsshow',array('id'=>$jobs['id']));
 						$resume_url=url_rewrite('HW_resumeshow',array('id'=>$resumeid));
-						$message=$resume_basic['fullname'].'申请了您发布的职位：<a href="'.$jobs_url.'" target="_blank">'.$jobs['jobs_name'].'</a>,<a href="'.$resume_url.'" target="_blank">点击查看</a>';
+						$message=$resume_basic['fullname'].'ご配布された職位を申し込みました：<a href="'.$jobs_url.'" target="_blank">'.$jobs['jobs_name'].'</a>,<a href="'.$resume_url.'" target="_blank">閲覧</a>';
 						write_pmsnotice($jobs['uid'],$user['username'],$message);
 					}
-					write_memberslog($_SESSION['uid'],2,1301,$_SESSION['username'],"投递了简历，职位:{$jobs['jobs_name']}");
+					write_memberslog($_SESSION['uid'],2,1301,$_SESSION['username'],"投递了履歴書，職位:{$jobs['jobs_name']}");
 			}
 			$i=$i+1;
 	 }

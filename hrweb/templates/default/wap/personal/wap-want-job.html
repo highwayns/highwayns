@@ -1,19 +1,19 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>个人会员中心 - {#$QISHI.site_name#}</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>個人会員センター - {#$HIGHWAY.site_name#}</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="highwayns.com" />
 <link href="../css/common.css" rel="stylesheet" type="text/css" />
 <link href="../css/user.css" rel="stylesheet" type="text/css" />
 <link href="../css/user_personal.css" rel="stylesheet" type="text/css" />
 <script src="../js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="../js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -98,10 +98,10 @@ $(document).ready(function() {
     $.post('?act=resume_jobs_save', {"intention_jobs":intention_jobs,"intention_jobs_id":intention_jobs_id,"pid":pid,"trade":trade,"trade_cn":trade_cn,"district_cn":district_cn,"district":district,"sdistrict":sdistrict,"wage_cn":wage_cn,"wage":wage,"nature":nature,"nature_cn":nature_cn}, 
       function(data) {
         if (data == "ok") {
-          alert("修改成功！");
+          alert("修正成功！");
           window.location.reload();
         } else if(data == "err") {
-          alert("修改失败！");
+          alert("修正失敗！");
           // window.location.reload();
         } else {
           alert(data);
@@ -114,7 +114,7 @@ $(document).ready(function() {
 <body>
 <div class=""></div>
 <div class="sub_head_top">
-	<div class="title">期望职位</div>
+	<div class="title">希望職位</div>
 	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
 	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
 </div>
@@ -123,29 +123,29 @@ $(document).ready(function() {
 <!--快捷按钮 -->
 <div class="topnav" id="topmenu">
   <div class="list" onclick='window.location.href="../index.php";'>
-    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />トップ</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
-    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />職位探す</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
-    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />履歴書探す</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-news-list.php";'>
-    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />ニュース</div>
   </div>
   <div class="clear"></div>
 </div>
 <!--快捷按钮 -->
 
 <div class="make_resume_top">
-  <p>期望职位</p>
+  <p>希望職位</p>
 </div>
 
 <form method="post" action="?act=make_resume_save" style="width:92%;margin:0 auto;" id="Form1">
     <table style="width:100%;border-collapse:collapse;">
         <tr>
-          <td class="make_resume_td_L">期望职位</td>
+          <td class="make_resume_td_L">希望職位</td>
           <td class="make_resume_td_R" id="jobs_menu">
               <div class="input_text_200_bg" id="jobs_text">{#$resume_one.intention_jobs#}</div>
               <img src="../images/35.gif" alt="" />
@@ -153,7 +153,7 @@ $(document).ready(function() {
               <input name="intention_jobs_id" id="intention_jobs_id" type="hidden" value="{#$resume_jobs.topclass#}.{#$resume_jobs.category#}.{#$resume_jobs.subclass#}" />
           </td>  
           <div class="menu choose_menu" id="menuJobs" style="display:none;position:absolute;z-index:1;">
-            <div class="menu_title">期望职位</div>
+            <div class="menu_title">希望職位</div>
             <div class="choose_close"></div>
             <div class="area_choose">
               <ul class="area_left" id="jobs_left_list"></ul>
@@ -164,10 +164,10 @@ $(document).ready(function() {
         </tr>
         <script type="text/javascript">
           var jobstr = '';
-          $.each(QS_jobs_parent, function(pindex, pval) {
+          $.each(HW_jobs_parent, function(pindex, pval) {
             if(pval) {
               var jobs = pval.split(",");
-              var sjobsArray = QS_jobs[jobs[0]].split("|");
+              var sjobsArray = HW_jobs[jobs[0]].split("|");
               $.each(sjobsArray, function(sindex, sval) {
                 if(sval) {
                   var sjobs = sval.split(",");
@@ -182,9 +182,9 @@ $(document).ready(function() {
             var rpid = $(this).attr("pid");
             var rtitle = $(this).attr("title");
             var sjobstr = "";
-            if(QS_jobs[rid]) {
-              var cjobsArray = QS_jobs[rid].split("|");
-              sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">不限</li>';
+            if(HW_jobs[rid]) {
+              var cjobsArray = HW_jobs[rid].split("|");
+              sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/制限なし" pid="'+rpid+'.0">限定なし</li>';
               $.each(cjobsArray, function(cindex, cval) {
                 if(cval) {
                   var cjobs = cval.split(",");
@@ -215,7 +215,7 @@ $(document).ready(function() {
           });
         </script>
         <tr>
-          <td class="make_resume_td_L">期望薪资</td>
+          <td class="make_resume_td_L">希望給料</td>
           <td class="make_resume_td_R" id="wage_menu">
             <div class="input_text_200_bg" id="wage_text">{#$resume_one.wage_cn#}</div> 
             <img src="../images/35.gif" alt="" />
@@ -223,10 +223,10 @@ $(document).ready(function() {
             <input name="wage_cn" type="hidden" id="wage_cn" value="{#$resume_one.wage_cn#}" />
           </td>
           <div class="menu choose_menu" id="menuWage" style="display:none;position:absolute;z-index:1;">
-            <div class="menu_title">期望薪资</div>
+            <div class="menu_title">希望給料</div>
             <div class="choose_close"></div>
             <ul>
-              {#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+              {#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
               {#foreach from=$c_wage item=list#}
               <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
               {#/foreach#}
@@ -234,7 +234,7 @@ $(document).ready(function() {
           </div> 
         </tr>
         <tr>
-          <td class="make_resume_td_L">工作性质</td>
+          <td class="make_resume_td_L">仕事性質</td>
           <td class="make_resume_td_R" id="nature_menu">
               <div class="input_text_200_bg" id="nature_text">{#$resume_one.nature_cn#} </div>
               <img src="../images/35.gif" alt="" />
@@ -242,10 +242,10 @@ $(document).ready(function() {
               <input name="nature_cn" id="nature_cn" type="hidden" value="{#$resume_one.nature_cn#}" />
           </td>
           <div class="menu choose_menu" id="menuNature" style="display:none;position:absolute;z-index:1;">
-            <div class="menu_title">工作性质</div>
+            <div class="menu_title">仕事性質</div>
             <div class="choose_close"></div>
             <ul>
-              {#qishi_get_classify  set="类型:QS_jobs_nature,列表名:c_nature"#}
+              {#highway_get_classify  set="タイプ:HW_jobs_nature,リスト名:c_nature"#}
               {#section name=list loop=$c_nature#}
               <li id="{#$c_nature[list].id#}" title="{#$c_nature[list].categoryname#}">{#$c_nature[list].categoryname#}</li>
               {#/section#}
@@ -254,7 +254,7 @@ $(document).ready(function() {
         </tr>
         <!-- 期望行业 -->
         <tr>
-          <td class="make_resume_td_L">期望行业</td>
+          <td class="make_resume_td_L">希望業界</td>
           <td class="make_resume_td_R" id="trad_menu">
               <div class="input_text_200_bg" id="trad_text">{#$resume_one.trade_cn#}</div>
               <img src="../images/35.gif" alt="" />
@@ -262,14 +262,14 @@ $(document).ready(function() {
             <input type="hidden" id="trade_cn" name="trade_cn" value="{#$resume_one.trade_cn#}" />
           </td>
           <div class="menu choose_menu" id="menuTrad" style="display:none;position:absolute;z-index:1;">
-              <div class="menu_title">期望行业</div>
+              <div class="menu_title">希望業界</div>
               <div class="choose_close"></div>
               <ul id="trad_list"></ul>
           </div> 
         </tr>
         <script type="text/javascript">
               var tradli = '';
-              $.each(QS_trade, function(index, val) {
+              $.each(HW_trade, function(index, val) {
                 if(val) {
                   var trads = val.split(",");
                   tradli += '<li id="'+trads[0]+'" title="'+trads[1]+'">'+trads[1]+'</li>';
@@ -288,7 +288,7 @@ $(document).ready(function() {
         </script>
         <!-- 期望地区 -->
         <tr>
-          <td class="make_resume_td_L">期望地区</td>
+          <td class="make_resume_td_L">希望地区</td>
           <td class="make_resume_td_R" id="district_menu">
               <div class="input_text_200_bg" id="district_text">{#$resume_one.district_cn#}</div>
               <img src="../images/35.gif" alt="" />
@@ -297,7 +297,7 @@ $(document).ready(function() {
               <input type="hidden" id="district_cn" name="district_cn" value="{#$resume_one.district_cn#}" />
           </td>  
           <div class="menu choose_menu" id="menuDistrict" style="display:none;position:absolute;z-index:1;">
-              <div class="menu_title">期望地区</div>
+              <div class="menu_title">希望地区</div>
               <div class="choose_close"></div>
               <div class="area_choose">
                 <ul class="area_left" id="int_area_left"></ul>
@@ -307,10 +307,10 @@ $(document).ready(function() {
           </div>
           <script type="text/javascript">
             var citystr = '';
-            $.each(QS_city_parent, function(pindex, pval) {
+            $.each(HW_city_parent, function(pindex, pval) {
               if(pval) {
                 var citys = pval.split(",");
-                if(QS_city[citys[0]]) {
+                if(HW_city[citys[0]]) {
                   citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
                 }
               }
@@ -321,9 +321,9 @@ $(document).ready(function() {
               var cid = $(this).attr("pid");
               var ctitle = $(this).attr("title");
               var scitystr = "";
-              if(QS_city[cid]) {
-                var ccitysArray = QS_city[cid].split("|");
-                scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+              if(HW_city[cid]) {
+                var ccitysArray = HW_city[cid].split("|");
+                scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/制限なし" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
                 $.each(ccitysArray, function(cindex, cval) {
                   if(cval) {
                     var ccitys = cval.split(",");

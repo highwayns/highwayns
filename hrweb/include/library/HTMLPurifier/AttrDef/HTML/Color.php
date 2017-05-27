@@ -1,17 +1,8 @@
 ﻿<?php
 
-/**
- * Validates a color according to the HTML spec.
- */
 class HTMLPurifier_AttrDef_HTML_Color extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         static $colors = null;

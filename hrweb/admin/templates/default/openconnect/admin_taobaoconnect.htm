@@ -6,27 +6,27 @@
   <div class="clear"></div>
 </div>
 <div class="toptip link_lan"  >
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 网站接入淘宝帐号登录后，用户只需要使用淘宝账号密码就可登录，简化用户注册流程，更有效率的提高转化用户流量；
 <br />
 接入淘宝登录前，网站需首先进行申请，获得对应的AppKey与AppSecret，以保证后续流程中可正确对网站与用户进行验证与授权。 
-现在就去<a href="http://open.taobao.com/" target="_blank">申请</a></p>
+现在就去<a href="http://open.taobao.com/" target="_blank">アプリケーション</a></p>
 </div>
 
-<div class="toptit">淘宝帐号登录设置</div>
+<div class="toptit">taobao網のアカウントのログイン設定</div>
  
     <form action="?act=set_taobao_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="700" border="0" cellspacing="6" cellpadding="1" style=" margin-bottom:3px;">
 	<tr>
-      <td width="150" align="right">开启淘宝帐号登录：</td>
+      <td width="150" align="right">淘宝網のアカウントのログインを開きます。</td>
       <td  >
 	  <label>
-        <input name="taobao_apiopen" type="radio"  value="1"  {#if $config.taobao_apiopen=="1"#}checked=checked {#/if#}/>开启</label>
+        <input name="taobao_apiopen" type="radio"  value="1"  {#if $config.taobao_apiopen=="1"#}checked=checked {#/if#}/>開く</label>
 &nbsp;&nbsp;
 <label>
-        <input name="taobao_apiopen" type="radio"  value="0"  {#if $config.taobao_apiopen=="0"#}checked=checked {#/if#}/>关闭</label>
+        <input name="taobao_apiopen" type="radio"  value="0"  {#if $config.taobao_apiopen=="0"#}checked=checked {#/if#}/>閉じる</label>
 		&nbsp;&nbsp;
 </td>
     </tr>

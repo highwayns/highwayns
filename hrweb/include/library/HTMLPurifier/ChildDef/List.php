@@ -1,33 +1,12 @@
 ﻿<?php
 
-/**
- * Definition for list containers ul and ol.
- *
- * What does this do?  The big thing is to handle ol/ul at the top
- * level of list nodes, which should be handled specially by /folding/
- * them into the previous list node.  We generally shouldn't ever
- * see other disallowed elements, because the autoclose behavior
- * in MakeWellFormed handles it.
- */
 class HTMLPurifier_ChildDef_List extends HTMLPurifier_ChildDef
 {
-    /**
-     * @type string
-     */
     public $type = 'list';
-    /**
-     * @type array
-     */
     // lying a little bit, so that we can handle ul and ol ourselves
     // XXX: This whole business with 'wrap' is all a bit unsatisfactory
     public $elements = array('li' => true, 'ul' => true, 'ol' => true);
 
-    /**
-     * @param array $children
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array
-     */
     public function validateChildren($children, $config, $context)
     {
         // Flag for subclasses

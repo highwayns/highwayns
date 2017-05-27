@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite compile IS exprenssion in IF tag - template internal module
- *
- * Type:	 template
- * Name:	 compile_parse_is_expr
- */
 
 function compile_parse_is_expr($is_arg, $_args, &$object)
 {

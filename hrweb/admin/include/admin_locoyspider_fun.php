@@ -41,20 +41,20 @@ function locoyspider_company_nature($str=NULL)
 	}
 	else
 	{
-		if($str=='外资（欧美）' || $str=='外资（非欧美）'){
-			$default=array("id"=>49,"cn"=>'外商独资');
-		}elseif($str=='合资'){
-			$default=array("id"=>48,"cn"=>'合资');
-		}elseif($str=='国企'){
-			$default=array("id"=>46,"cn"=>'国企');
-		}elseif($str=='民营公司'){
-			$default=array("id"=>47,"cn"=>'民营');
-		}elseif($str=='国内上市公司'){
-			$default=array("id"=>51,"cn"=>'上市公司');
-		}elseif($str=='事业单位'){
-			$default=array("id"=>53,"cn"=>'事业单位');
+		if($str=='外資（欧米）' || $str=='外資（欧米以外）'){
+			$default=array("id"=>49,"cn"=>'海外独資');
+		}elseif($str=='合資'){
+			$default=array("id"=>48,"cn"=>'合資');
+		}elseif($str=='国営企業'){
+			$default=array("id"=>46,"cn"=>'国営企業');
+		}elseif($str=='民間企業'){
+			$default=array("id"=>47,"cn"=>'民間');
+		}elseif($str=='日本上場会社'){
+			$default=array("id"=>51,"cn"=>'上場会社');
+		}elseif($str=='会社'){
+			$default=array("id"=>53,"cn"=>'会社');
 		}else{
-			$default=array("id"=>54,"cn"=>'其它');
+			$default=array("id"=>54,"cn"=>'その他');
 		}
 		return $default;
 
@@ -197,7 +197,7 @@ function locoyspider_company_scale($str=NULL)
 	{
 		return $default;
 	}
-	elseif(trim($str)=='少于50人'){
+	elseif(trim($str)=='50人以下'){
 		return array("id"=>'80',"cn"=>'20人以下');
 	}
 	elseif(trim($str)=='50-150人'){
@@ -276,9 +276,9 @@ function get_locoyspider_jobs_sex($sex_cn=NULL,$sex=NULL)
 		{
 		return array("id"=>2,"cn"=>"女");
 		}
-		elseif ($sex_cn=="不限"  ||  $sex=="3")
+		elseif ($sex_cn=="制限なし"  ||  $sex=="3")
 		{
-		return array("id"=>3,"cn"=>"不限");
+		return array("id"=>3,"cn"=>"制限なし");
 		}
 		else
 		{
@@ -371,7 +371,7 @@ function get_experience($str=NULL){
 	}elseif($str=="10年以上"){
 		$arr=array('id'=>79,'cn'=>'10年以上');
 	}else{
-		$arr=array('id'=>74,'cn'=>'无经验');
+		$arr=array('id'=>74,'cn'=>'経験なし');
 	}
 	return $arr;
 }
@@ -414,20 +414,20 @@ function locoyspider_jobs_wage($str=NULL)
 	}
 	else
 	{
-		if($str=='面议'){
-			return array('id'=>55,'cn'=>'面议');
+		if($str=='交渉可'){
+			return array('id'=>55,'cn'=>'交渉可');
 		}elseif($str=="1500以下"){
-			return array('id'=>56,'cn'=>'1000~1500元/月');
+			return array('id'=>56,'cn'=>'40000~60000円/月');
 		}elseif($str=="1500-1999"){
-			return array('id'=>57,'cn'=>'1500~2000元/月');
+			return array('id'=>57,'cn'=>'60000~80000円/月');
 		}elseif($str=="2000-2999"){
-			return array('id'=>58,'cn'=>'2000~3000元/月');
+			return array('id'=>58,'cn'=>'80000~120000円/月');
 		}elseif($str=="3000-4499"){
-			return array('id'=>59,'cn'=>'3000~5000元/月');
+			return array('id'=>59,'cn'=>'120000~20000円/月');
 		}elseif($str=="4500-5999" || $str=="6000-7999" || $str=="8000-9999"){
-			return array('id'=>60,'cn'=>'5000~10000元/月');
+			return array('id'=>60,'cn'=>'20000~400000円/月');
 		}else{
-			return array('id'=>61,'cn'=>'1万以上/月');
+			return array('id'=>61,'cn'=>'40万円以上/月');
 		}
 	}
 }
@@ -492,8 +492,8 @@ function locoyspider_addjobs($companyinfo)
 		$jobssetsqlarr['company_id']=$companyinfo['id'];		
 		$jobssetsqlarr['company_addtime']=$companyinfo['addtime'];
 		$jobssetsqlarr['jobs_name']=trim($_POST['jobs_name']);
-		if (empty($jobssetsqlarr['jobs_name']))  exit("职位名称丢失");
-		if (ck_jobs_name($jobssetsqlarr['jobs_name'],$jobssetsqlarr['uid'])) exit("职位名称有重复");
+		if (empty($jobssetsqlarr['jobs_name']))  exit("職位名称を失った");
+		if (ck_jobs_name($jobssetsqlarr['jobs_name'],$jobssetsqlarr['uid'])) exit("職位名称重複");
 		$jobssetsqlarr['contents']=html2text($_POST['jobs_contents']);
 			$nature=locoyspider_jobs_nature(trim($_POST['jobs_nature']));
 		$jobssetsqlarr['nature']=$nature['id'];
@@ -543,7 +543,7 @@ function locoyspider_addjobs($companyinfo)
 		$jobssetsqlarr['display']=$locoyspider['jobs_display'];
 		$jobssetsqlarr['robot']=1;
 		$pid=$db->inserttable(table('jobs'),$jobssetsqlarr,true);
-		if (!$pid) exit("添加招聘信息失败");
+		if (!$pid) exit("募集情報追加失敗");
 		//职位联系方式
 		$setsqlarr_contact['contact']=trim($_POST['contact']);
 		//QQ
@@ -560,7 +560,7 @@ function locoyspider_addjobs($companyinfo)
 
 		$setsqlarr_contact['notify']=$locoyspider['jobs_notify'];
 		$setsqlarr_contact['pid']=$pid;
-		if (!$db->inserttable(table('jobs_contact'),$setsqlarr_contact)) exit("添加招聘联系方式失败");
+		if (!$db->inserttable(table('jobs_contact'),$setsqlarr_contact)) exit("募集連絡先追加失敗");
 		//------
 		$searchtab['id']=$pid;
 		$searchtab['uid']=$jobssetsqlarr['uid'];
@@ -598,14 +598,14 @@ function locoyspider_addjobs($companyinfo)
 		$db->inserttable(table('jobs_search_key'),$searchtab);
 		require_once(ADMIN_ROOT_PATH.'include/admin_company_fun.php');
 		distribution_jobs($pid);
-		exit("添加成功");	
+		exit("追加成功");	
 }
 //添加企业
 function locoyspider_addcompany($companyname)
 {
 	global $locoyspider,$db;
 		$setsqlarr['uid']=locoyspider_user_register(check_email(trim($_POST['email'])));
-		if ($setsqlarr['uid']=="") exit("添加会员出错");
+		if ($setsqlarr['uid']=="") exit("会員追加エラー");
 		$setsqlarr['companyname']=$companyname;
 			$nature=locoyspider_company_nature(trim($_POST['nature']));
 		$setsqlarr['nature']=$nature['id'];
@@ -638,7 +638,7 @@ function locoyspider_addcompany($companyname)
 		$setsqlarr['telephone_show']=1;
 		$setsqlarr['email_show']=1;
 		$setsqlarr['address_show']=1;
-		if (!$db->inserttable(table('company_profile'),$setsqlarr)) exit("添加企业出错");
+		if (!$db->inserttable(table('company_profile'),$setsqlarr)) exit("企業追加エラー");
 		return true;
 }
 //获取随机字符串

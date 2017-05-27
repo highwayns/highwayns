@@ -1,18 +1,9 @@
 ﻿<?php
 
-/**
- * A "safe" embed module. See SafeObject. This is a proprietary element.
- */
 class HTMLPurifier_HTMLModule_SafeEmbed extends HTMLPurifier_HTMLModule
 {
-    /**
-     * @type string
-     */
     public $name = 'SafeEmbed';
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $max = $config->get('HTML.MaxImgLength');

@@ -1,4 +1,4 @@
-#ifndef _IO_LOOP_H
+﻿#ifndef _IO_LOOP_H
 #define _IO_LOOP_H
 #include "socket_io.h"
 #include "base_socket.hpp"

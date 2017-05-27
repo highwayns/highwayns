@@ -1,16 +1,7 @@
 ﻿<?php
 
-/**
- * Implements special behavior for class attribute (normally NMTOKENS)
- */
 class HTMLPurifier_AttrDef_HTML_Class extends HTMLPurifier_AttrDef_HTML_Nmtokens
 {
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     protected function split($string, $config, $context)
     {
         // really, this twiddle should be lazy loaded
@@ -22,12 +13,6 @@ class HTMLPurifier_AttrDef_HTML_Class extends HTMLPurifier_AttrDef_HTML_Nmtokens
         }
     }
 
-    /**
-     * @param array $tokens
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array
-     */
     protected function filter($tokens, $config, $context)
     {
         $allowed = $config->get('Attr.AllowedClasses');

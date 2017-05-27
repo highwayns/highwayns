@@ -1,4 +1,4 @@
-/*
+﻿/*
  * HttpConn.cpp
  *
  *  Created on: 2013-9-29
@@ -286,7 +286,7 @@ void CHttpConn::_HandleMsgServRequest(string& url, string& post_data)
     {
         Json::Value value;
         value["code"] = 1;
-        value["msg"] = "没有msg_server";
+        value["msg"] = "msg_server存在しない";
         string strContent = value.toStyledString();
         char* szContent = new char[HTTP_RESPONSE_HTML_MAX];
         snprintf(szContent, HTTP_RESPONSE_HTML_MAX, HTTP_RESPONSE_HTML, strContent.length(), strContent.c_str());
@@ -308,7 +308,7 @@ void CHttpConn::_HandleMsgServRequest(string& url, string& post_data)
         log("All TCP MsgServer are full ");
         Json::Value value;
         value["code"] = 2;
-        value["msg"] = "负载过高";
+        value["msg"] = "ロード超過";
         string strContent = value.toStyledString();
         char* szContent = new char[HTTP_RESPONSE_HTML_MAX];
         snprintf(szContent, HTTP_RESPONSE_HTML_MAX, HTTP_RESPONSE_HTML, strContent.length(), strContent.c_str());

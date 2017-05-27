@@ -6,7 +6,7 @@ function delete_dialog(className,form)
     var url=$(this).attr('url');
     var act=$(this).attr('act');
     var myDialog=dialog();
-    myDialog.title('系统提示');
+    myDialog.title('システム提示');
     myDialog.content('<div class="del-dialog"><div class="tip-block"><span class="del-tips-text">删除后无法恢复，您确定要删除吗？</span></div></div><div class="center-btn-wrap"><input type="button" value="确定" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value="取消" class="btn-65-30grey btn-big-font DialogClose" /></div>');
     myDialog.width('300');
     myDialog.showModal();
@@ -53,7 +53,7 @@ function inviteJob_dialog(className,url)
               if(jobsid=="")
               {
                 dialog({
-                    title: '系统提示',
+                    title: 'システム提示',
                     content: "未选择职位！",
                     width:300
                 }).show();
@@ -67,7 +67,7 @@ function inviteJob_dialog(className,url)
               if(interview_time=="")
               {
                 dialog({
-                    title: '系统提示',
+                    title: 'システム提示',
                     content: "面试时间不能为空！",
                     width:300
                 }).show();
@@ -77,7 +77,7 @@ function inviteJob_dialog(className,url)
               if(in_time<current_time)
               {
                 dialog({
-                    title: '系统提示',
+                    title: 'システム提示',
                     content: "面试时间不能小于当前时间！",
                     width:300
                 }).show();
@@ -132,7 +132,7 @@ function companySendToEmail_dialog(className,url)
         else
         {
           dialog({
-                    title: '系统提示',
+                    title: 'システム提示',
                     content: "请输入正确的邮箱！",
                     width:300
                 }).show();
@@ -354,7 +354,7 @@ function editMobile_dialog(className,url)
           if($("#mobile_verifycode").val()=='')
           {
             dialog({
-              title: '系统提示',
+              title: 'システム提示',
               content: '请填写效验码',
               width:'300px'
             }).showModal();
@@ -380,7 +380,7 @@ function editMobile_dialog(className,url)
               else
               {
                 dialog({
-                title: '系统提示',
+                title: 'システム提示',
                 content: '验证码填写错误',
                 width:'300px'
                 }).showModal();

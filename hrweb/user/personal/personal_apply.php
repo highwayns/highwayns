@@ -21,7 +21,7 @@ if ($act=='down')
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('title',"谁下载的我的简历 - 个人会员中心 - {$_CFG['site_name']}");
+	$smarty->assign('title',"履歴書ダウンロード記録 - 個人会員センター - {$_CFG['site_name']}");
 	$smarty->assign('mylist',get_com_downresume($offset,$perpage,$joinsql.$wheresql));
 	$smarty->assign('page',$page->show(3));
 	$smarty->assign('count',$total_val);
@@ -64,7 +64,7 @@ elseif ($act=='interview')
 	{
 		$smarty->assign('page',$page->show(3));
 	}
-	$smarty->assign('title','收到的面试邀请 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','面接誘い一覧 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$count[0]=count_interview($_SESSION['uid'],$jobs_type,1);  //未看
 	$count[1]=count_interview($_SESSION['uid'],$jobs_type,2);  //已看
@@ -75,30 +75,30 @@ elseif ($act=='interview')
 }
 elseif ($act=='set_interview')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	$jobs_type=intval($_GET['jobs_type']);
 	$n=set_invitation($yid,$_SESSION['uid'],2);
 	if($n)
 	{
-		showmsg("设置成功！",2);
+		showmsg("設定成功！",2);
 	}
 	else
 	{
-		showmsg("设置失败！",0);
+		showmsg("設定失敗！",0);
 	}
 }
 elseif ($act=='interview_del')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	$jobs_type=intval($_GET['jobs_type']);
 	$n=del_interview($yid,$_SESSION['uid']);
 	if(intval($n) > 0)
 	{
-	showmsg("删除成功！共删除 {$n} 行",2);
+	showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-	showmsg("失败！",0);
+	showmsg("失敗！",0);
 	}
 }
 //职位收藏夹列表
@@ -118,7 +118,7 @@ elseif ($act=='favorites')
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage,'getarray'=>$_GET));
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('title','职位收藏夹 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','職位お気に入り - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$joinsql=" LEFT JOIN ".table('jobs')." as  j  ON f.jobs_id=j.id ";
 	$smarty->assign('favorites',get_favorites($offset,$perpage,$joinsql.$wheresql));
@@ -130,14 +130,14 @@ elseif ($act=='favorites')
 }
 elseif ($act=='del_favorites')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	if($n=del_favorites($yid,$_SESSION['uid']))
 	{
-		showmsg("删除成功！共删除 {$n} 行",2);
+		showmsg("削除成功！削除行数 {$n} ",2);
 	}
 	else
 	{
-		showmsg("删除失败！",0);
+		showmsg("削除失敗！",0);
 	}
 }
 //申请的职位列表
@@ -201,7 +201,7 @@ elseif ($act=='apply_jobs')
 	$offset=($currenpage-1)*$perpage;
 	$joinsql.=" LEFT JOIN ".table('jobs')." AS j ON a.jobs_id=j.id ";
 	$smarty->assign('jobs_apply',get_apply_jobs($offset,$perpage,$joinsql,$wheresql));
-	$smarty->assign('title','已申请的职位 - 个人会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('title','申し込み職位 - 個人会員センター - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	if($total_val > $perpage)
 	{
@@ -217,16 +217,16 @@ elseif ($act=='apply_jobs')
 //删除-申请的职位列表
 elseif ($act=='del_jobs_apply')
 {
-	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("你没有选择项目！",1);
+	$yid =!empty($_REQUEST['y_id'])?$_REQUEST['y_id']:showmsg("项目を選択してください！",1);
 	$jobs_type=intval($_GET['jobs_type']);
 	$n=del_jobs_apply($yid,$_SESSION['uid']);
 	if(intval($n) > 0)
 	{
-		showmsg("删除成功！",2);
+		showmsg("削除成功！",2);
 	}
 	else
 	{
-		showmsg("删除失败！",0);
+		showmsg("削除失敗！",0);
 	}
 }
 unset($smarty);

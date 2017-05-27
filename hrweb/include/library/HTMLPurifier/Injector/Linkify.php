@@ -1,23 +1,11 @@
 ﻿<?php
 
-/**
- * Injector that converts http, https and ftp text URLs to actual links.
- */
 class HTMLPurifier_Injector_Linkify extends HTMLPurifier_Injector
 {
-    /**
-     * @type string
-     */
     public $name = 'Linkify';
 
-    /**
-     * @type array
-     */
     public $needed = array('a' => array('href'));
 
-    /**
-     * @param HTMLPurifier_Token $token
-     */
     public function handleText(&$token)
     {
         if (!$this->allowsElement('a')) {

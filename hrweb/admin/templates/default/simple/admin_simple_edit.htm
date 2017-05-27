@@ -36,31 +36,31 @@ $("#FormData").validate({
 	},
     messages: {
     jobname: {
-    required: "请输入职位名称",
-    minlength: jQuery.format("职位名称不能小于{0}个字符"),
-	maxlength: jQuery.format("职位名称不能大于{0}个字符")
+    required: "職位名称入力",
+    minlength: jQuery.format("職位名称の長さ{0}文字から"),
+	maxlength: jQuery.format("職位名長さ{0}だけ")
    },
    amount: {
-    range: jQuery.format("请输入一个介于 {0} 和 {1} 之间的值")
+    range: jQuery.format(" {0} から {1} までの値を入力してください")
    },
    comname: {
-    required: "请输入公司名称"
+    required: "会社名称"
    },
    contact: {
-    required: "请输入联系人"
+    required: "連絡先入力"
    },
    tel: {
-    required: "请输入联系电话",
-	digits: "联系电话必须是数字",
-    minlength: jQuery.format("电话不能<{0}位数")
+    required: "電話番号入力",
+	digits: "電話番号数字だけ",
+    minlength: jQuery.format("電話{0}桁以上必要")
    },
     pwd: {
-	minlength: jQuery.format("密码不能小于{0}个字符")
+	minlength: jQuery.format("パスワードは{0}文字以上")
    }
    ,
     detailed: {
-    required: jQuery.format("请输入具体要求"),
-	maxlength: jQuery.format("具体要求不能大于{0}个字符")
+    required: jQuery.format("詳細要求を入力してください"),
+	maxlength: jQuery.format("{0}文字まで入力してください")
    }
   },
   errorPlacement: function(error, element) {
@@ -76,14 +76,14 @@ $("#FormData").validate({
     });
 	 //具体要求
 	jQuery.validator.addMethod("ISdetailed", function(value, element) {
-	var str="请填写招聘的具体要求，如：性别，学历，年龄，工作经验，工资待遇等相关信息";
+	var str="募集の詳細要求入力，例えば：性别，学歴，年齢，仕事経験，給料など情報";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写具体要求");
+	}, "詳細要求入力");
 	/////验证码部分
 });
 </script>
@@ -94,33 +94,33 @@ $("#FormData").validate({
   <div class="clear"></div>
 </div>
 <form action="?act=simple_edit_save" method="post"   name="FormData" id="FormData" >
-<div class="toptit">修改微招聘</div>
+<div class="toptit">wechat募集の修正</div>
 
   {#$inputtoken#}
 <table width="100%" border="0" cellspacing="8" cellpadding="0">
   <tr>
-    <td width="100" align="right"><strong  style="color:#FF0000">*</strong>招聘职位：</td>
+    <td width="100" align="right"><strong  style="color:#FF0000">*</strong>求人仕事：</td>
     <td><input name="jobname" type="text" class="input_text_200" id="jobname" maxlength="20"  value="{#$show.jobname#}"></td>
   </tr>
   <tr>
-    <td align="right">招聘人数：</td>
+    <td align="right">雇用人数：</td>
     <td><input name="amount" type="text" id="amount" class="input_text_200" style="width:60px;" value="{#$show.amount#}" maxlength="3">
-	<span class="admin_note">填写数字，"0"为若干</span>	</td>
+	<span class="admin_note">数字記入，"0"为若干</span>	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>公司名称：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>会社名：</td>
     <td><input name="comname" type="text" class="input_text_200" id="comname" maxlength="20"  value="{#$show.comname#}"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系人：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>連絡先：</td>
     <td><input name="contact" type="text" class="input_text_200" id="contact" maxlength="15" value="{#$show.contact#}"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系电话：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>電話：</td>
     <td><input name="tel" type="text" class="input_text_200" id="tel" maxlength="25" value="{#$show.tel#}"></td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>联系地址：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>住所：</td>
     <td>
 		<div>
 		<input type="text" value="{#$show.district_cn#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
@@ -128,7 +128,7 @@ $("#FormData").validate({
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$show.sdistrict#}" />
 		<div id="menu2" class="dmenu shadow">
 			<ul>
-			{#highway_get_classify set="列表名:c_province,类型:HW_district,id:0"#}
+			{#highway_get_classify set="リスト名:c_province,タイプ:HW_district,id:0"#}
 			{#foreach from=$c_province item=list#}
 			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 			{#/foreach#}
@@ -139,7 +139,7 @@ $("#FormData").validate({
 	</td>
   </tr>
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>具体要求：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>具体的な要件：</td>
     <td><textarea name="detailed" id="detailed" class="input_text_400" style="height:60px;">{#$show.detailed#}</textarea></td>
   </tr>
     <tr>
@@ -149,38 +149,38 @@ $("#FormData").validate({
 	</td>
   </tr>
    <tr>
-    <td align="right">有效期截至：</td>
+    <td align="right">有効になるまで：</td>
     <td>
 	{#if $show.deadline=="0"#}
 	长期有效
 	{#else#}
 	{#$show.deadline|date_format:"%Y-%m-%d"#}	
-	<span class="admin_note">到期后系统将自动删除</span>
+	<span class="admin_note">システムの満了後は自動的に削除します</span>
 	{#/if#}
 	</td>
   </tr>
   {#if $show.deadline!="0"#}
   <tr>
-    <td align="right">延长有效期：</td>
+    <td align="right">有効期限の延長：</td>
     <td>
 	<input name="days" type="text" class="input_text_200" id="days" style="width:100px;" maxlength="3" value="0">
 	天
-	<span class="admin_note">0为不延长</span>
+	<span class="admin_note">0 延長されません</span>
 	<input name="olddeadline" type="hidden" value="{#$show.deadline#}" />
 	</td>
   </tr>
   {#/if#}
   <tr>
-    <td align="right"><strong  style="color:#FF0000">*</strong>管理密码：</td>
+    <td align="right"><strong  style="color:#FF0000">*</strong>管理者パスワード：</td>
     <td><input name="pwd" type="text" class="input_text_200" id="pwd" style="width:100px;" maxlength="25">
-	<span class="admin_note">留空为不修改管理密码</span>	</td>
+	<span class="admin_note">管理者のパスワードを変更しないように空白のままに</span>	</td>
   </tr>
   <tr>
     <td align="right">&nbsp;</td>
     <td height="60"  >
 	<input name="id" type="hidden" value="{#$show.id#}" />
-	 <input type="submit" name="Submit3" value="提交" class="admin_submit"   />
- <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+	 <input type="submit" name="Submit3" value="提出" class="admin_submit"   />
+ <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 	</td>
   </tr>
 </table>

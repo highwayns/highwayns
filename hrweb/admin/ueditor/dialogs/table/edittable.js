@@ -1,11 +1,4 @@
-﻿/**
- * Created with JetBrains PhpStorm.
- * User: xuheng
- * Date: 12-12-19
- * Time: 下午4:55
- * To change this template use File | Settings | File Templates.
- */
-(function () {
+﻿(function () {
     var title = $G("J_title"),
         titleCol = $G("J_titleCol"),
         caption = $G("J_caption"),

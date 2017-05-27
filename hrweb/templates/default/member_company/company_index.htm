@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_common.css" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_company.css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js"></script>
@@ -84,13 +84,13 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 	{#include file="user/header.htm"#}
-	<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a></div>
+	<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a></div>
 	<!-- 引导 -->
 	<div id="mask"></div>
 	<div id="searchTip">
-		<div class="stepA"><a>下一步</a><span title="关闭">关闭</span></div>
-	    <div class="stepB"><a class="p">上一步</a><a>下一步</a><span title="关闭">关闭</span></div>
-	    <div class="stepC"><a class="p">上一步</a><a>下一步</a><span title="关闭">关闭</span></div>
+		<div class="stepA"><a>下一步</a><span title=“閉じる">关闭</span></div>
+	    <div class="stepB"><a class="p">上一步</a><a>下一步</a><span title=“閉じる">关闭</span></div>
+	    <div class="stepC"><a class="p">上一步</a><a>下一步</a><span title=“閉じる">关闭</span></div>
 	</div>
 	<!-- 引导 end-->
 	<div class="usermain">
@@ -112,8 +112,8 @@
 				{#/if#}
 				<div class="index-company-wrap">
 					<div class="top-welcome clearfix top-welcome-mt5">
-						<h1 class="f-left">欢迎您，{#$user.username#}</h1>
-						<div class="f-right short-message">消息提醒：<a href="company_user.php?act=pm" class="underline">已读({#$msg_total1#})</a>&nbsp;<a href="company_user.php?act=pm" class="underline">未读<span>({#$msg_total2#})</span></a></div>
+						<h1 class="f-left">ようこそ、{#$user.username#} </h1>
+						<div class="f-right short-message">メッセージアラート：<a href = “company_user.php?act=pm" class="underline">読んだ({#$msg_total1#})</a>&nbsp;<a href="company_user.php?act=pm" class="underline">未读<span>({#$msg_total2#})</span></a></div>
 					</div>
 					<div class="company-log-auth clearfix">
 						<div class="index-logo f-left">
@@ -125,37 +125,37 @@
 						</div>
 						<div class="name-auth-info f-left">
 							<div class="company-name clearfix">
-								<h2 class="f-left">{#if $cominfo_flge#}{#$company.companyname#}{#else#}未完善企业资料{#/if#}</h2>
+								<h2 class="f-left">{#if $cominfo_flge#}{#$company.companyname#}{#else#}企業資料未完成#/if#}</h2>
 								<div class="c-name-edit-text f-left"><input type="text" /></div>
-								<a href="company_info.php?act=company_profile" class="name-edit f-left">编辑</a>
+								<a href="company_info.php?act=company_profile" class="name-edit f-left">編集</a>
 							</div>
-							<div class="last-login">{#if $loginlog#}上次登录：{#$loginlog.log_addtime|date_format:"%Y-%m-%d %H:%M"#}{#else#}首次登录： {#$user.reg_time|date_format:"%Y-%m-%d %H:%M"#}{#/if#} <a href="company_user.php?act=login_log" class="underline">[登录日志]</a></div>
+							<div class="last-login">{#if $loginlog#}最終ログイン：{#$loginlog.log_addtime | DaTE_FORMaT： “％Y-％M-％D％h：％M" #} {#の他の#}最初ログイン： {#$user.reg_time|date_format:"%Y-%m-%d %h:%M"#}{#/if#} <a href=“company_user.php?act=login_log" class=“underline">[登录日志]</a></div>
 							<div class="auth-wrap clearfix">
 								<div class="i-auth-item f-left">
-									<a href="company_info.php?act=company_auth" class="auth-block com {#if $company.audit=="1"#}done{#/if#}">企业{#if $company.audit=="1"#}已{#else#}未{#/if#}认证</a>
+									<a href="company_info.php?act=company_auth" class="auth-block com {#if $company.audit=="1"#}done{#/if#}">エンタープライズ{#if $company.audit==“1"#}もう{#else#}未{#/if#}認証</a>
 									{#if $company.audit!='1'#}
-									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>企业认证后可以提升企业形象和品牌，使企业招聘更真实，让求职者更信任。<a href="company_info.php?act=company_auth" class="underline">立即上传营业执照</a></div>
+									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>エンタープライズ証明した後、よりリアル、多くの求職者の信頼を募集する企業を可能にするために、企業イメージやブランドを高めることができます。<a href=“company_info.php?act=company_auth" class=“underline">立即上传营业执照</a></div>
 									{#/if#}
 								</div>
 								{#if $HIGHWAY.weixin_scan_bind=='1' && $HIGHWAY.weixin_apiopen=='1'#}
 								<div class="i-auth-item f-left">
-									<a href="company_user.php?act=authenticate" class="auth-block weixin {#if $user.weixin_openid#}done{#/if#}">微信{#if $user.weixin_openid#}已{#else#}未{#/if#}认证</a>
+									<a href="company_user.php?act=authenticate" class="auth-block weixin {#if $user.weixin_openid#}done{#/if#}">マイクロチャネル{#if $user.weixin_openid#}済み{#else#}未{#/if#}認証</a>
 									{#if !$user.weixin_openid#}
-									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>微信认证后可以随时随地了解职位最新动态，提高招聘效率。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
+									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>マイクロチャネルの後の認証は、任意の時間位置での最新の動向について学ぶ募集の効率を向上させることができます。<a href=“company_user.php?act=authenticate" class=“underline">立即认证</a></div>
 									{#/if#}
 								</div>
 								{#/if#}
 								<div class="i-auth-item f-left">
-									<a href="company_user.php?act=authenticate" class="auth-block mail {#if $user.email_audit=="1"#}done{#/if#}">邮箱{#if $user.email_audit=="1"#}已{#else#}未{#/if#}认证</a>
+									<a href="company_user.php?act=authenticate" class="auth-block mail {#if $user.email_audit=="1"#}done{#/if#}">メールボックス{{#if $user.email_audit==“1"#}もう{#else#}未{#/if#}認証</a>
 									{#if $user.email_audit!="1"#}
-									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>邮箱认证后，可以通过邮箱取回账户密码，且接收简历。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
+									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>後にメールの認証は、メールによりアカウントのパスワードを取得することができ、および履歴書を受信します。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
 									{#/if#}
 								</div>
 								{#if $sms.open=="1"#}
 								<div class="i-auth-item f-left">
-									<a href="company_user.php?act=authenticate" class="auth-block phone {#if $user.mobile_audit=="1"#}done{#/if#}">手机{#if $user.mobile_audit=="1"#}已{#else#}未{#/if#}认证</a>
+									<a href="company_user.php?act=authenticate" class="auth-block phone {#if $user.mobile_audit=="1"#}done{#/if#}">モバイル{#if $user.mobile_audit == “1" #} {#の他の#}いない{#/if#}認証</a>
 									{#if $user.mobile_audit!="1"#}
-									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>手机认证后，可以通过手机随时取回账户密码，向个人发送面试邀请短信。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
+									<div class="not-auth-tip"><i class="ia-tip-arrow"></i>電話認証した後、個人面接の招待状にテキストメッセージを送信、アカウントのパスワードを取得するために、いつでも電話することができます。<a href="company_user.php?act=authenticate" class="underline">立即认证</a></div>
 									{#/if#}
 								</div>
 								{#/if#}
@@ -166,17 +166,17 @@
 						<!--套餐模式 -->
 						{#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
 						<span class="account-type">
-							<span>我的套餐：</span>{#$setmeal.setmeal_name#}<em> ({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em>
-							<a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a>
+							<span>私のパッケージ：</span>{#$setmeal.setmeal_name#}<em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} まで{#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em>
+							<a href="company_service.php?act=setmeal_list" class="underline">VIPパッケージのアップグレード</a>
 						</span>
 						{#/if#}
 						<!--套餐模式结束 -->
 						<!--积分模式  -->
 						{#if $HIGHWAY.operation_mode=="1"  || $HIGHWAY.operation_mode=="3"#}
 						<span class="account-type last">
-							<span>我的{#$HIGHWAY.points_byname#}：</span>
+							<span>マイ{#$HIGHWAY.points_byname#}：</span>
 							<span class="account-fen">{#$points#}</span>{#$HIGHWAY.points_quantifier#}
-							<a href="company_service.php?act=order_add" class="underline">积分充值</a>
+							<a href="company_service.php?act=order_add" class="underline">ポイントチャージ</a>
 						</span>
 						{#/if#}
 						<!--积分模式结束 -->
@@ -184,43 +184,43 @@
 				</div>
 				<div class="commanage clearfix">
 					<div class="list">
-		  				<div class="t">职位管理</div>
+		  				<div class="t">ポジション管理</div>
 						<div class="p">
 							<a href="company_jobs.php?act=jobs&jobtype=1">
-								<span class="s_a">发布中的职位：</span>{#$total_audit_jobs#}
+								<span class="s_a">掲載中の位置：</span>{#$total_audit_jobs#}
 							</a>
 			    			<a href="company_jobs.php?act=jobs&jobtype=3">
-			    				<span class="s_a">审核中的职位：</span>{#$total_noaudit_jobs#}
+			    				<span class="s_a">審査中の仕事：</span>{#$total_noaudit_jobs#}
 			    			</a>
 						</div>
-		    				<div class="but"><input name="" type="button" value="发布职位" class="but180lan" onclick="javascript:location.href='company_jobs.php?act=addjobs'"></div>
+		    				<div class="but"><input name=“" type=“button" value=“仕事掲載" class=“but180lan" onclick=“javascript:location.href=‘company_jobs.php?act=addjobs’"></div>
 		    			</div>
 		    			<div class="list" style="width:300px">
-		  				<div class="t">简历管理</div>
+		  				<div class="t">履歴書管理</div>
 						<div class="p">
 							<a href="company_recruitment.php?act=apply_jobs">
-								<span class="s_a">未查看的简历：</span>{#$total_nolook_resume#}
+								<span class="s_a">未審査履歴書：</span>{#$total_nolook_resume#}
 							</a>
 			    			<a href="company_recruitment.php?act=down_resume_list">
-			    				<span class="s_a">已下载的简历：</span>{#$total_down_resume#}
+			    				<span class="s_a">ダウンロードした履歴書：</span>{#$total_down_resume#}
 			    			</a>
 						</div>
-		    				<div class="but"><input name="" type="button" value="管理简历" class="but180lan" onclick="javascript:location.href='company_recruitment.php?act=apply_jobs'"></div>
+		    				<div class="but"><input name=“" type=“button" value=“履歴書管理" class=“but180lan" onclick=“javascript:location.href=‘company_recruitment.php?act=apply_jobs’"></div>
 		    			</div>
 					<div class="list last">
-		  				<div class="t">简历搜索</div>
+		  				<div class="t">履歴書検索</div>
 						<div class="p">
 			    			<a href="company_recruitment.php?act=favorites_list">
-			    				<span class="s_a">已收藏的简历：</span>{#$total_favorites_resume#}
+			    				<span class="s_a">ブックマークした履歴書：</span>{#$total_favorites_resume#}
 			    			</a>
 						</div>
-		    				<div class="but"><input name="" type="button" value="搜索简历" class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"></div>
+		    				<div class="but"><input name="" type="button" value=“履歴書検索" class="but180lan" onclick="javascript:window.open('{#"HW_resumelist"|highway_url#}')"></div>
 		    			</div>
 		    			<div class="clear"></div>
 				</div>
 				<div class="rec-resumes">
 					<!-- 企业会员中心中部广告 -->
-					{#highway_ad set="显示数目:1,调用名称:HW_company_index,列表名:list,文字长度:12"#}
+					{#highway_ad set="表示件数:1,Call名称:HW_company_index,リスト名:list,文字長さ:12"#}
 					{#if $list.0#}
 					<div class="user-company-ad">
 						<a href="{#$list.0.img_url#}" target="_blank"><img src="{#$list.0.img_path#}" alt="{#$list.0.img_explain#}" width="950" height="120" /></a>
@@ -228,12 +228,12 @@
 					{#/if#}
 					<!-- 企业会员中心中部广告 end-->
 					<div class="rec-re-top clearfix">
-						<h4 class="f-left">推荐简历</h4>
-						<a href="{#"HW_resumelist"|highway_url#}" class="f-right underline">查看更多>></a>
+						<h4 class="f-left">推奨履歴書</h4>
+						<a href="{#"HW_resumelist"|highway_url#}" class="f-right underline">もっと見ます>></a>
 					</div>
-					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc,职位大类:"|cat:$concern_id#}
+					{#highway_resume_list set="リスト名:resumelist,表示件数:6,意向職位長さ:30,文字:...,ソート:rtime>desc,職位大类:"|cat:$concern_id#}
 					{#if !$resumelist#}
-					{#highway_resume_list set="列表名:resumelist,显示数目:6,意向职位长度:30,填补字符:...,排序:rtime>desc"#}
+					{#highway_resume_list set="リスト名:resumelist,表示件数:6,意向職位長さ:30,文字:...,ソート:rtime>desc"#}
 					{#/if#}
 					<div class="rec-data">
 						<table>
@@ -242,7 +242,7 @@
 								{#foreach from=$resumelist item=list#}
 								<tr>
 									<td width="117" class="first"><a href="{#$list.resume_url#}" target="_blank" class="underline">{#$list.fullname#}</a></td>
-									<td width="74">{#$list.age#}岁</td>
+									<td width="74">{#$List.age#}年</td>
 									<td width="78">{#$list.education_cn#}</td>
 									<td width="87">{#$list.experience_cn#}</td>
 									<td width="325"><div title="{#$list.intention_jobs#}">意向职位：{#$list.intention_jobs#}</div></td>
@@ -253,7 +253,7 @@
 							{#else#}
 							<tbody>
 								<tr>
-									<td class="emptytip">对不起！没有找到您要的信息！</td>
+									<td class="emptytip">すみません！あなたが欲しい情報を見つけられませんでした！</td>
 								</tr>
 							</tbody>
 							{#/if#}

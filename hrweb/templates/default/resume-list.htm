@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|highway_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|highway_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"HW_resumetag,"|cat:$smarty.get.resumetag|highway_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|highway_categoryname#} - {#/if#}{#if $smarty.get.sex=="1"#}男 - {#/if#}{#if $smarty.get.sex=="2"#}女 - {#/if#}{#if $smarty.get.photo=="1"#}有照片 - {#/if#}{#if $smarty.get.photo=="0"#}无照片 - {#/if#}{#if $smarty.get.talent=="1"#}普通简历 - {#/if#}{#if $smarty.get.talent=="2"#}高级简历 - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}简历列表  - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$HIGHWAY.site_name#}人才信息,人才简历">
-<meta name="keywords" content="{#$HIGHWAY.site_name#}人才信息，高级人才，求职信息，推荐人才">
+<title>{#if $smarty.get.jobcategory#}{#"HW_jobs,jobcategory:"|cat:$smarty.get.jobcategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,trade:"|cat:$smarty.get.trade|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.experience#}{#"HW_experience,"|cat:$smarty.get.experience|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.resumetag#}{#"HW_resumetag,"|cat:$smarty.get.resumetag|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.education#}{#"HW_education,"|cat:$smarty.get.education|HIGHWAY_categoryname#} - {#/if#}{#if $smarty.get.sex==“1"#}男 - {#/if#}{#if $smarty.get.sex==“2"#}女 - {#/if#}{#if $smarty.get.photo==“1"#}写真あり - {#/if#}{#if $smarty.get.photo==“0"#}写真なし - {#/if#}{#if $smarty.get.talent==“1"#}普通履歴書 - {#/if#}{#if $smarty.get.talent==“2"#}高級履歴書- {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}日内 - {#/if#}履歴書リスト  - {#$HIGHWAY.site_name#}</title>
+<meta name="description" content="{#$HIGHWAY.site_name#}人才情報,人才履歴書">
+<meta name="keywords" content="{#$HIGHWAY.site_name#}人才情報，高級人才，求職情報，お勧め人才">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
@@ -41,7 +41,7 @@
 			var url_="{#$HIGHWAY.site_dir#}user/user_download_resume.php?id="+id+"&act=download&t="+tsTimeStamp;
 			var myDialog = dialog();
 			myDialog.title('下载联系方式');
-			myDialog.content("加载中...");
+			myDialog.content("ロード中...");
 			myDialog.width('500');
 			myDialog.showModal();
 			$.get(url_, function(data){
@@ -91,17 +91,17 @@
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="header.htm"#}
 <div class="page_location link_bk">
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_resume"|highway_url#}">求职信息</a>
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_resume"|highway_url#}">求职信息</a>
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="search-tab clearfix">
-			<a href="{#"HW_resumelist"|highway_url#}" class="s-tab-item f-left active">简历搜索</a>
+			<a href="{#"HW_resumelist"|highway_url#}" class="s-tab-item f-left active">履歴書検索</a>
 		</div>
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
 				<div class="type-input-box f-left" id="hidden_input_box">
-					<div class="key">{#$smarty.get.key|default:"请输入关键字"#}</div>
+					<div class="key">{#$Smarty.get.key | default:： “キーワードを入力してください" #} </div>
 					<input type="text" name="key" id="key" value="{#$smarty.get.key#}" style="display:none;"/>
 					<input name="jobcategory" id="jobcategory" type="hidden" value="{#$smarty.get.jobcategory#}" />
 					<input name="trade" id="trade" type="hidden" value="{#$smarty.get.trade#}" />
@@ -116,14 +116,14 @@
 					<input name="settr" id="settr" type="hidden" value="{#$smarty.get.settr#}"/>
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="HW_resumelist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type=“button" detype=“HW_resumelist" id=“searcnbtn" value=“搜&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="job_result_show">选择意向职位</span><i class="choose-icon"></i>
+							<span class="cc-default" id="job_result_show">意向ジョブを選択します</span><i class="choose-icon"></i>
 							<!-- 职位类别弹出框 -->
 							<div class="aui_outer" id="aui_outer_job">
 								<table class="aui_border">
@@ -139,7 +139,7 @@
 																		<div class="LocalDataMultiC">
 																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning">0</strong> 项</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars" class=“text-warning">0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="job_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -162,7 +162,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="trade_result_show">选择意向行业</span><i class="choose-icon"></i>
+							<span class="cc-default" id="trade_result_show">意向業界を選択する</span><i class="choose-icon"></i>
 							<!-- 所属行业弹出框 -->
 							<div class="aui_outer" id="aui_outer">
 								<table class="aui_border">
@@ -178,7 +178,7 @@
 																		<div class="items jquery-localdata">
 																			<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="item-table">
 																				<table class="options-table options-table-7">
 																					<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
@@ -206,7 +206,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="city_result_show">选择意向地区</span><i class="choose-icon"></i>
+							<span class="cc-default" id="city_result_show">意図地域を選択</span><i class="choose-icon"></i>
 							<!-- 工作地区弹出框 -->
 							<div class="aui_outer" style="left:-396px;" id="aui_outer_city">
 								<table class="aui_border">
@@ -222,7 +222,7 @@
 																		<div class="LocalDataMultiC" style="width:623px;">
 																			<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity" class= “text-warning"">0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="city_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -245,7 +245,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="major_result_show">选择专业类别</span><i class="choose-icon"></i>
+							<span class="cc-default" id="major_result_show">プロのカテゴリを選択します</span><i class="choose-icon"></i>
 							<!-- 专业类别弹出框 -->
 							<div class="aui_outer" style="left:-445px;" id="aui_outer_major">
 								<table class="aui_border">
@@ -261,7 +261,7 @@
 																		<div class="items jquery-localdata">
 																			<div class="selector-header"><span class="selector-title">专业类别</span><div></div><span id="mj-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arsmajor" class="text-warning">0</strong> 项</div><div id="result-list-major" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択の<strong id="arsmajor" class="text-warning">0</strong> 項目</div><div id="result-list-major" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<ul class="tabnav" id="major_tabnav"></ul>
 
 																			<div class="item-table majorbb">
@@ -288,29 +288,29 @@
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">工作经验：</div>
+				<div class="fl-type f-left">職歴：</div>
 				<div class="fl-content r-choice f-left">
-					{#highway_get_classify set="列表名:experience,类型:HW_experience,显示数目:100"#}
+					{#highway_get_classify set="リスト名:experience,タイプ:HW_experience,表示件数:100"#}
 					{#foreach from=$experience item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.experience#} select{#/if#}" type="experience" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">特长标签：</div>
+				<div class="fl-type f-left">専門タグ：</div>
 				<div class="fl-content f-left forShowMore" id="fliterMore">
-					{#highway_get_classify set="列表名:resumetag,类型:HW_resumetag,显示数目:100"#}
+					{#highway_get_classify set="リスト名:resumetag,タイプ:HW_resumetag,表示件数:100"#}
 					{#foreach from=$resumetag item=list#}
 					<div class="fl-content-li" type="resumetag" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
-					<a href="javascript:;" class="show-more">展开</a>
+					<a href="javascript:;" class="show-more">拡大</a>
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">更多筛选：</div>
+				<div class="fl-type f-left">その他のフィルタ：</div>
 				<div class="fl-content f-left">
 					<div class="saixuan{#if $smarty.get.education#} selected{#/if#}">
-						{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
+						{#highway_get_classify set="リスト名:c_education,タイプ:HW_education"#}
 						<div class="saixuans">
 							<div class="line"></div>
 							{#foreach from=$c_education item=list#}
@@ -322,7 +322,7 @@
 					<div class="saixuan{#if $smarty.get.sex#} selected{#/if#}">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="1"{#if $smarty.get.sex == 1#} class="select"{#/if#} type="sex" href="javascript:;">男</a>
+							<a defvalue="1"{#if $smarty.get.sex == 1#} class="select"{#/if#} type="sex" href="javascript:;">男性</a>
 							<a defvalue="2"{#if $smarty.get.sex == 2#} class="select"{#/if#} type="sex" href="javascript:;">女</a>
 						</div>
 						性别要求
@@ -330,26 +330,26 @@
 					<div class="saixuan{#if $smarty.get.photo#} selected{#/if#}">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="1"{#if $smarty.get.photo == 1#} class="select"{#/if#} type="photo" href="javascript:;">有</a>
-							<a defvalue="0"{#if $smarty.get.photo == 0#} class="select"{#/if#} type="photo" href="javascript:;">无</a>
+							<a defvalue="1"{#if $smarty.get.photo == 1#} class="select"{#/if#} type="photo" href="javascript:;">ある</a>
+							<a defvalue="0"{#if $smarty.get.photo == 0#} class="select"{#/if#} type="photo" href="javascript:;">無</a>
 						</div>
 						简历照片
 					</div>
 					<div class="saixuan{#if $smarty.get.talent#} selected{#/if#}">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="1"{#if $smarty.get.talent == 1#} class="select"{#/if#} type="talent" href="javascript:;">普通</a>
-							<a defvalue="2"{#if $smarty.get.talent == 2#} class="select"{#/if#} type="talent" href="javascript:;">高级</a>
+							<a defvalue="1"{#if $smarty.get.talent == 1#} class="select"{#/if#} type="talent" href="javascript:;">ノーマル</a>
+							<a defvalue="2"{#if $smarty.get.talent == 2#} class="select"{#/if#} type="talent" href="javascript:;">高級</a>
 						</div>
 						简历等级
 					</div>
 					<div class="saixuan{#if $smarty.get.settr#} selected{#/if#}">
 						<div class="saixuans">
 							<div class="line"></div>
-							<a defvalue="3"{#if $smarty.get.settr == 3#} class="select"{#/if#} type="settr" href="javascript:;">3天内</a>
-							<a defvalue="7"{#if $smarty.get.settr == 7#} class="select"{#/if#} type="settr" href="javascript:;">7天内</a>
-							<a defvalue="15"{#if $smarty.get.settr == 15#} class="select"{#/if#} type="settr" href="javascript:;">15天内</a>
-							<a defvalue="30"{#if $smarty.get.settr == 30#} class="select"{#/if#} type="settr" href="javascript:;">30天内</a>
+							<a defvalue="3"{#if $smarty.get.settr == 3#} class="select"{#/if#} type="settr" href="javascript:;">3日内</a>
+							<a defvalue="7"{#if $smarty.get.settr == 7#} class="select"{#/if#} type="settr" href="javascript:;">7日以内</a>
+							<a defvalue="15"{#if $smarty.get.settr == 15#} class="select"{#/if#} type="settr" href="javascript:;">15日以内に</a>
+							<a defvalue="30"{#if $smarty.get.settr == 30#} class="select"{#/if#} type="settr" href="javascript:;">30日</a>
 						</div>
 						更新时间
 					</div>
@@ -357,25 +357,25 @@
 			</div>
 		</div>
 		<div class="fliter-result clearfix" id="has_result">
-			<div class="fr-type f-left">已选条件：</div>
+			<div class="fr-type f-left">選択した条件：</div>
 			<div class="fr-content f-left rl">
 			{#if $smarty.get.key#}
 				<div class="has-select-item f-left" type="key">{#$smarty.get.key#}<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.jobcategory#}
-				<div class="has-select-item f-left" type="jobcategory">意向职位<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="jobcategory">意図位置<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.trade#}
-				<div class="has-select-item f-left" type="trade">意向行业<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="trade">意図業界<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.citycategory#}
-				<div class="has-select-item f-left" type="citycategory">意向地区<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="citycategory">意図地域<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.major#}
-				<div class="has-select-item f-left" type="major">专业类别<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="major">プロフェッショナルタイプ<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.experience#}
-				{#highway_get_classify set="列表名:c_experience,类型:HW_experience"#}
+				{#highway_get_classify set="リスト名:c_experience,タイプ:HW_experience"#}
 				{#foreach from=$c_experience item=list#}
 				{#if $list.id == $smarty.get.experience#}
 					<div class="has-select-item f-left" type="experience">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -383,10 +383,10 @@
 				{#/foreach#}
 			{#/if#}
 			{#if $smarty.get.resumetag#}
-				<div class="has-select-item f-left" type="resumetag">特长标签<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="resumetag">特殊なタグ<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.education#}
-				{#highway_get_classify set="列表名:c_education,类型:HW_education"#}
+				{#highway_get_classify set="リスト名:c_education,タイプ:HW_education"#}
 				{#foreach from=$c_education item=list#}
 				{#if $list.id == $smarty.get.education#}
 					<div class="has-select-item f-left" type="education">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -397,13 +397,13 @@
 				<div class="has-select-item f-left" type="sex">{#if $smarty.get.sex == 1#}男{#elseif $smarty.get.sex == 2#}女{#/if#}<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.photo#}
-				<div class="has-select-item f-left" type="photo">{#if $smarty.get.photo == 1#}有照片{#elseif $smarty.get.photo == 0#}无照片{#/if#}<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="photo">{#if $smarty.get.photo == 1#}写真あり{#elseif $smarty.get.photo == 0#}写真なし{#/if#}<i class=“fliter-></i></div>
 			{#/if#}
 			{#if $smarty.get.talent#}
-				<div class="has-select-item f-left" type="talent">{#if $smarty.get.talent == 1#}普通简历{#elseif $smarty.get.talent == 2#}高级简历{#/if#}<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="talent">{#if $smarty.get.talent == 1#}普通履歴書{#elseif $smarty.get.talent == 2#}高级履歴書{#/if#}<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.settr#}
-				<div class="has-select-item f-left" type="settr">{#if $smarty.get.settr == 3#}3天内{#elseif $smarty.get.settr == 7#}7天内{#elseif $smarty.get.settr == 15#}15天内{#elseif $smarty.get.settr == 30#}30天内{#/if#}<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="settr">{#if $smarty.get.settr == 3#}3日内{#elseif $smarty.get.settr == 7#}7日内{#elseif $smarty.get.settr == 15#}15日内{#elseif $smarty.get.settr == 30#}30日内{#/if#}<i class=“fliter-clear-icon"></i></div>
 			{#/if#}
 			</div>
 			<div class="fliter-clear f-right" id="clear_all_selected"><a href="javascript:;" class="clear-link">清空所选</a></div>
@@ -411,11 +411,11 @@
 	</div>
 </div>
 <!-- 人才列表 -->
-{#highway_resume_list set="列表名:resume,分页显示:1,显示数目:GET[inforow],特长描述长度:130,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],行业:GET[trade],地区分类:GET[citycategory],专业:GET[major],工作经验:GET[experience],标签:GET[resumetag],学历:GET[education],性别:GET[sex],照片:GET[photo],等级:GET[talent],日期范围:GET[settr],排序:rtime>desc"#}
+{#highway_resume_list set="リスト名:resume,ページング表示:1,表示件数:GET[inforow],特长描述長さ:130,文字:...,キーワード:GET[key],職位分類:GET[jobcategory],業界:GET[trade],地区分類:GET[citycategory],専門:GET[major],仕事経験:GET[experience],タグ:GET[resumetag],学历:GET[education],性别:GET[sex],写真:GET[photo],等級:GET[talent],日期範囲:GET[settr],ソート:rtime>desc"#}
 <div class="jobinfolists">
 	<div class="tit">
 		<div class="seq f-left"><span>排序</span>
-			<a href="{#"sort:rtime-page:1-key:"|highway_parse_url#}" class="seq-item {#if $smarty.get.sort=='' || $smarty.get.sort=='rtime-page'#}selected{#/if#} time">更新时间</a>
+			<a href="{#"sort:rtime-page:1-key:"|highway_parse_url#}" class="seq-item {#if $smarty.get.sort=='' || $smarty.get.sort=='rtime-page'#}selected{#/if#} time">更新しました</a>
 		</div>
 		<div class="pagerow">
 			<div class="pageminnav">{#$pagemin#}</div>
@@ -425,10 +425,10 @@
 	<div class="infolists" id="infolists">
 		<div class="infolists-head clearfix">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type="button" value="收藏简历" class="all-down-btn allfavorites" /></div>
+			<div class="all-ctrl f-left"><input type=“button" value=“履歴書気に入り" class=“all-down-btn allfavorites" /></div>
 			<div class="list-tab f-right">
-				<a href="javascript:;" class="tab-item tab-list select">列表</a>
-				<a href="javascript:;" class="tab-item tab-detail">详细</a>
+				<a href="javascript:;" class="tab-item tab-list select">一覧リスト</a>
+				<a href="javascript:;" class="tab-item tab-detail">詳細</a>
 			</div>
 		</div>
 		{#if $resume#}
@@ -438,11 +438,11 @@
 				<div class="info-list-block resume clearfix">
 					<div class="list-item item1 f-left">
 						<span><input type="checkbox" name="jid" value="{#$list.id#}" class="checkbox" /><a href="{#$list.resume_url#}" class="underline">{#if $list.checked#}<font color='#800080'>{#$list.fullname#}</font>{#else#}{#$list.fullname#}{#/if#}</a></span>
-						{#if $list.photo=="1"#}<i class="resume-auth pic" title="照片认证"></i>{#/if#}
-						{#if $list.is_audit_mobile=="1"#}<i class="resume-auth phone" title="手机认证"></i>{#/if#}
+						{#if $list.photo=="1"#}<i class="resume-auth pic" title="写真認定"></i>{#/if#}
+						{#if $list.is_audit_mobile=="1"#}<i class="resume-auth phone" title="携帯認定"></i>{#/if#}
 					</div>
 					<div class="list-item item2 f-left">{#$list.sex_cn#}</div>
-					<div class="list-item item3 f-left">{#$list.age#}岁</div>
+					<div class="list-item item3 f-left">{#$list.age#}歳</div>
 					<div class="list-item item4 f-left">{#$list.education_cn#}</div>
 					<div class="list-item item5 f-left">{#$list.experience_cn#}</div>
 					<div class="list-item item6 f-left">{#$list.district_cn#}</div>
@@ -452,11 +452,11 @@
 				</div>
 				<div class="info-list-detail clearfix">
 					<div class="info-text f-left">
-						<p>专业：{#$list.major_cn#} | 期望工作性质：{#$list.nature_cn#} | 目前求职状态：{#$list.current_cn#}</p>
-						<div>期望从事行业：{#$list.trade_cn_#} | 期望从事岗位：{#$list.intention_jobs_#}</div>
+						<p>プロフェッショナル：{#$#list.major_cn} |対象求人：{#$#list.nature_cn} |現在のジョブの状態：{#$list.current_cn#}</p>
+						<div>希望業種：{#$list.trade_cn_#} | 希望職種：{#$list.intention_jobs_#}</div>
 					</div>
 					<div class="info-control f-left">
-						<input resume_id="{#$list.id#}" type="button" value="下载简历" class="apply-job-btn collect" />	
+						<input resume_id="{#$list.id#}" type="button" value="履歴書ダウンロード" class="apply-job-btn collect" />	
 						<p><a href="javascript:;" resume_id="{#$list.id#}" class="collect-btn add_favoritesr"></a></p>
 					</div>
 				</div>
@@ -465,7 +465,7 @@
 		</div>
 		<div class="infolists-head clearfix" style="border-top:1px solid #cccccc;border-bottom:none;">
 			<label class="f-left"><input type="checkbox" name="selectall" id="selectall" class="checkbox" />全选</label>
-			<div class="all-ctrl f-left"><input type="button" value="收藏简历" class="all-down-btn allfavorites" /></div>
+			<div class="all-ctrl f-left"><input type=“button" value=“履歴書気に入り" class=“all-down-btn allfavorites" /></div>
 		</div>
 		{#if $page#}
 		<table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
@@ -475,7 +475,7 @@
 		</table>
 		{#/if#}
 		{#else#}
-		<div class="emptytip">抱歉，没有符合此条件的信息！</div>
+		<div class="emptytip">すいません、この条件に合う情報無し！</div>
 		{#/if#}
 	</div>
 </div>

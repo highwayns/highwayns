@@ -11,17 +11,17 @@ $(document).ready(function()
 	{#include file="hrtools/admin_hrtools_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">修改文档</div>
+<div class="toptit">ドキュメントの変更</div>
   <form action="?act=editsave" method="post" enctype="multipart/form-data" name="FormData" id="FormData" >
   {#$inputtoken#}
     <table width="100%" border="0" cellpadding="3" cellspacing="0" class="admin_table">
       <tr>
-        <td width="120" align="right" style="border:0px" >文档名称：</td>
+        <td width="120" align="right" style="border:0px" >文書名：</td>
         <td style="border:0px">
 		<input name="h_filename" type="text"  class="input_text_200" maxlength="45" value="{#$show.h_filename#}"/>		</td>
       </tr>
       <tr>
-        <td align="right" >所属分类：</td>
+        <td align="right" >カテゴリー：</td>
         <td >
 		
 		<div>		
@@ -45,30 +45,30 @@ $(document).ready(function()
         </td>
       </tr>
       <tr>
-        <td align="right" >加粗：</td>
+        <td align="right" >太字：</td>
         <td ><label>
           <input name="h_strong" type="checkbox" value="1" {#if $show.h_strong=="1"#}checked="checked"{#/if#} />
         </label></td>
       </tr>
       <tr>
-        <td align="right" >上传文件：</td>
-        <td ><input type="file" name="upfile"    onkeydown="alert('请点击右侧“浏览”选择您电脑上的文件！');return false"   style="height:21px; width:210px; border:1px #999999 solid" />
-		<span class="admin_note">只能上传doc/ppt/xls/rtf文件</span>
+        <td align="right" >ファイルをアップロード:</td>
+        <td ><input type="file" name="upfile"    onkeydown="alert(‘右側のビューをクリックしpcファイルを選択してください！');return false"   style="height:21px; width:210px; border:1px #999999 solid" />
+		<span class="admin_note">DOC / PPT / XLS / RTFファイルだけをアップロードすることができます</span>
 		</td>
       </tr>
       <tr>
-        <td align="right" >或填写文件路径：</td>
+        <td align="right" >またはファイルのパスを記入してください：</td>
         <td > 
           <input name="url" type="text"  class="input_text_200" maxlength="200" value="{#$show.h_fileurl#}"/>
-		  <span class="admin_note">如:http://www.123.com/abc/123.doc</span>
+		  <span class="admin_note">以下のような：http：//www.123.com/abc/123.doc </span>
          </td>
       </tr>
 	   <tr>
-        <td align="right" >排序：</td>
+        <td align="right" >並べ替え：</td>
         <td > 
           <input name="h_order" type="text"  class="input_text_200" maxlength="3" value="{#$show.h_order#}"/>
 		  
-		  <span class="admin_note">数字越大，排序越靠前</span>
+		  <span class="admin_note">数字は大きければ前に行けます</span>
          </td>
       </tr>
       <tr>

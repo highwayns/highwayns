@@ -1,18 +1,8 @@
 ﻿<?php
 
-/**
- * Primitive email validation class based on the regexp found at
- * http://www.regular-expressions.info/email.html
- */
 class HTMLPurifier_AttrDef_URI_Email_SimpleCheck extends HTMLPurifier_AttrDef_URI_Email
 {
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         // no support for named mailboxes i.e. "Bob <bob@example.com>"

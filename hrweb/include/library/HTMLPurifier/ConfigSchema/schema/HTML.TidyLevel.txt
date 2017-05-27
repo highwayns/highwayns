@@ -1,4 +1,4 @@
-﻿HTML.TidyLevel
+HTML.TidyLevel
 TYPE: string
 VERSION: 2.0.0
 DEFAULT: 'medium'

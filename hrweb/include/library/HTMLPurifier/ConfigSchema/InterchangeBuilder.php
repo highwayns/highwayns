@@ -3,24 +3,13 @@
 class HTMLPurifier_ConfigSchema_InterchangeBuilder
 {
 
-    /**
-     * Used for processing DEFAULT, nothing else.
-     * @type HTMLPurifier_VarParser
-     */
     protected $varParser;
 
-    /**
-     * @param HTMLPurifier_VarParser $varParser
-     */
     public function __construct($varParser = null)
     {
         $this->varParser = $varParser ? $varParser : new HTMLPurifier_VarParser_Native();
     }
 
-    /**
-     * @param string $dir
-     * @return HTMLPurifier_ConfigSchema_Interchange
-     */
     public static function buildFromDirectory($dir = null)
     {
         $builder = new HTMLPurifier_ConfigSchema_InterchangeBuilder();
@@ -28,11 +17,6 @@ class HTMLPurifier_ConfigSchema_InterchangeBuilder
         return $builder->buildDir($interchange, $dir);
     }
 
-    /**
-     * @param HTMLPurifier_ConfigSchema_Interchange $interchange
-     * @param string $dir
-     * @return HTMLPurifier_ConfigSchema_Interchange
-     */
     public function buildDir($interchange, $dir = null)
     {
         if (!$dir) {
@@ -60,10 +44,6 @@ class HTMLPurifier_ConfigSchema_InterchangeBuilder
         return $interchange;
     }
 
-    /**
-     * @param HTMLPurifier_ConfigSchema_Interchange $interchange
-     * @param string $file
-     */
     public function buildFile($interchange, $file)
     {
         $parser = new HTMLPurifier_StringHashParser();
@@ -73,12 +53,6 @@ class HTMLPurifier_ConfigSchema_InterchangeBuilder
         );
     }
 
-    /**
-     * Builds an interchange object based on a hash.
-     * @param HTMLPurifier_ConfigSchema_Interchange $interchange HTMLPurifier_ConfigSchema_Interchange object to build
-     * @param HTMLPurifier_StringHash $hash source data
-     * @throws HTMLPurifier_ConfigSchema_Exception
-     */
     public function build($interchange, $hash)
     {
         if (!$hash instanceof HTMLPurifier_StringHash) {
@@ -99,11 +73,6 @@ class HTMLPurifier_ConfigSchema_InterchangeBuilder
         $this->_findUnused($hash);
     }
 
-    /**
-     * @param HTMLPurifier_ConfigSchema_Interchange $interchange
-     * @param HTMLPurifier_StringHash $hash
-     * @throws HTMLPurifier_ConfigSchema_Exception
-     */
     public function buildDirective($interchange, $hash)
     {
         $directive = new HTMLPurifier_ConfigSchema_Interchange_Directive();
@@ -173,20 +142,11 @@ class HTMLPurifier_ConfigSchema_InterchangeBuilder
         $interchange->addDirective($directive);
     }
 
-    /**
-     * Evaluates an array PHP code string without array() wrapper
-     * @param string $contents
-     */
     protected function evalArray($contents)
     {
         return eval('return array(' . $contents . ');');
     }
 
-    /**
-     * Converts an array list into a lookup array.
-     * @param array $array
-     * @return array
-     */
     protected function lookup($array)
     {
         $ret = array();
@@ -196,22 +156,11 @@ class HTMLPurifier_ConfigSchema_InterchangeBuilder
         return $ret;
     }
 
-    /**
-     * Convenience function that creates an HTMLPurifier_ConfigSchema_Interchange_Id
-     * object based on a string Id.
-     * @param string $id
-     * @return HTMLPurifier_ConfigSchema_Interchange_Id
-     */
     protected function id($id)
     {
         return HTMLPurifier_ConfigSchema_Interchange_Id::make($id);
     }
 
-    /**
-     * Triggers errors for any unused keys passed in the hash; such keys
-     * may indicate typos, missing values, etc.
-     * @param HTMLPurifier_StringHash $hash Hash to check.
-     */
     protected function _findUnused($hash)
     {
         $accessed = $hash->getAccessed();

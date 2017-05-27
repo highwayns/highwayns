@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>会员注册 - {#$QISHI.site_name#}</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>会員登録 - {#$HIGHWAY.site_name#}</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="highwayns.com" />
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/user.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function()
@@ -58,7 +58,7 @@ $(document).ready(function()
 <body>
 <div class="sub_bodybg"></div>
 <div class="sub_head_top">
-	<div class="title">用户注册</div>
+	<div class="title">ユーザ登録</div>
 	<div class="back" id="pageback"><img src="images/18.jpg" alt="#"   border="0"/></div>  
 	<div class="menu" id="topmenu_sub"><a href="#"><img src="images/2.jpg"  border="0"/></a></div>
 </div>
@@ -67,25 +67,25 @@ $(document).ready(function()
 {#include file="top-menu.html"#}
 <!--快捷按钮 -->
 
-<form id="Form1" name="Form1" method="post" action="{#$QISHI.wap_domain#}/wap_user_reg.php?act=do_reg">
+<form id="Form1" name="Form1" method="post" action="{#$HIGHWAY.wap_domain#}/wap_user_reg.php?act=do_reg">
 <input type="hidden" name="utype" id="utype" value="{#$type#}">
 <div class="user_login_box">
-<input name="username" type="text" class="txtinput"  placeholder="请填写用户名" id="username"  maxlength="25"/>
+<input name="username" type="text" class="txtinput"  placeholder="ユーザ名を入力してください" id="username"  maxlength="25"/>
 </div>
 <div class="user_login_box">
-<input name="email" type="text" class="txtinput"  placeholder="请填写邮箱" id="email"  maxlength="60"/>
+<input name="email" type="text" class="txtinput"  placeholder="メールを入力してください" id="email"  maxlength="60"/>
 </div>
 <div class="user_login_box">
-<input name="password" type="password" class="txtinput"  placeholder="密码" id="password"  maxlength="18"/>
+<input name="password" type="password" class="txtinput"  placeholder="パスワード" id="password"  maxlength="18"/>
 </div>
 <div class="user_login_box">
-<input name="password1" type="password" class="txtinput"  placeholder="确认密码" id="password1"  maxlength="18"/>
+<input name="password1" type="password" class="txtinput"  placeholder="パスワード確認" id="password1"  maxlength="18"/>
 </div>
 <div class="user_reg_box error" {#if !$err#}style="display:none"{#/if#}>
 {#$err#}
 </div>
 <div class="user_reg_box">
-<input name="reg" type="submit" class="user_reg_but" id="reg" value="注册"/>
+<input name="reg" type="submit" class="user_reg_but" id="reg" value="登録"/>
 </div>
 </form>
 <div class="user_login_getpws link_blue">
@@ -93,22 +93,22 @@ $(document).ready(function()
   <div class="right"><a href="wap_login.php">已有账号直接登录</a></div>
   <div class="clear"></div>
 </div>
-{#if $QISHI.qq_apiopen=="1" || $QISHI.sina_apiopen=="1"  || $QISHI.taobao_apiopen=="1"#}
+{#if $HIGHWAY.qq_apiopen=="1" || $HIGHWAY.sina_apiopen=="1"  || $HIGHWAY.taobao_apiopen=="1"#}
 <div class="user_login_open">
   <div class="title">
-    <span >使用其他账号登录</span>
+    <span >その他アカウント登録</span>
   </div>
 </div>
 <div class="user_login_open_img">
-  {#if $QISHI.qq_apiopen=="1"#}
-  <div class="imglist"><div align="center"><a href="{#if $QISHI.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}" ><img src="images/25.png"  border="0"/></a></div>
+  {#if $HIGHWAY.qq_apiopen=="1"#}
+  <div class="imglist"><div align="center"><a href="{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}" ><img src="images/25.png"  border="0"/></a></div>
   </div>
   {#/if#}
-  {#if $QISHI.sina_apiopen=="1"#}
+  {#if $HIGHWAY.sina_apiopen=="1"#}
   <div class="imglist"><div align="center"><a href="connect_sina.php"><img src="images/26.png"  border="0"/></a></div>
   </div>
   {#/if#}
-  {#if $QISHI.taobao_apiopen=="1"#}
+  {#if $HIGHWAY.taobao_apiopen=="1"#}
   <div class="imglist"><div align="center"><a href="connect_taobao.php"><img src="images/27.png"  border="0"/></a></div>
   </div>
   {#/if#}

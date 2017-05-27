@@ -40,7 +40,7 @@ die('Access Denied!');
 			$db->query("UPDATE ".table('jobs')." SET highlight='' WHERE id='{$row['cp_jobid']}' LIMIT 1");
 			$db->query("UPDATE ".table('jobs_tmp')." SET highlight='' WHERE id='{$row['cp_jobid']}' LIMIT 1");
 		}
-		write_memberslog($row['cp_uid'],1,3006,$row['username'],"推广到期，自动删除，职位ID:{$row['cp_jobid']}，方案ID：{$row['cp_id']}");
+		write_memberslog($row['cp_uid'],1,3006,$row['username'],"広告期限切れた，自動削除，職位ID:{$row['cp_jobid']}，ケースID：{$row['cp_id']}");
 		$proid[] = $row['cp_id'];		
 	}
 	if (is_array($proid) && !empty($proid))

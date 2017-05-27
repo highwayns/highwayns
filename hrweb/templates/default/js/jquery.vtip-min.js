@@ -1,8 +1,4 @@
-﻿/**
-Vertigo Tip by www.vertigo-project.com
-Requires jQuery
-*/
-
+﻿
 this.vtip = function() {    
     this.xOffset = -10; // x distance from mouse
     this.yOffset = 15; // y distance from mouse       

@@ -1,4 +1,4 @@
-﻿Filter.Custom
+Filter.Custom
 TYPE: list
 VERSION: 3.1.0
 DEFAULT: array()

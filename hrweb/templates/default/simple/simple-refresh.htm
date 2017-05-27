@@ -18,9 +18,9 @@ $("#form_simple").validate({
 	},
     messages: {
     pwd: {
-    required: "请输入密码",
-    minlength: jQuery.format("密码不能<{0}个字符"),
-	remote: jQuery.format("管理密码错误")	
+    required: "パスワード入力",
+    minlength: jQuery.format("パスワード{0}文字より長い"),
+	remote: jQuery.format("パスワード管理エラー")	
    }
   },
   errorPlacement: function(error, element) {
@@ -40,7 +40,7 @@ $("#form_simple").validate({
         <table>
           <tbody>
             <tr>
-              <td>请输入管理密码：</td>
+              <td>管理者パスワードを入力してください:</td>
               <td><input type="text" class="input_text_155" name="pwd" id="pwd" maxlength="25"/>
               </td>
             </tr>
@@ -49,13 +49,13 @@ $("#form_simple").validate({
               <td>
                 <div>  
                 <input name="id" type="hidden"  id="id" value="{#$id#}" /> 
-                <input type="submit" value="确定" class="but95_35lan" id="ok" />
+                <input type="submit" value="確定" class="but95_35lan" id="ok" />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="wei_jobs_tip">
-        <p>刷新信息可提高信息排名！</p>
+        <p>最新の情報に更新しランキング向上させることができます！</P>
       </div>
 </form>

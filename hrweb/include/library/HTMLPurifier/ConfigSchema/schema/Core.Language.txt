@@ -1,4 +1,4 @@
-﻿Core.Language
+Core.Language
 TYPE: string
 VERSION: 2.0.0
 DEFAULT: 'en'

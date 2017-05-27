@@ -1,5 +1,0 @@
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\bin\CookComputing.XmlRpc.CF.dll
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\bin\CookComputing.XmlRpc.CF.pdb
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\xmlrpcCF\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\xmlrpcCF\obj\Debug\CookComputing.XmlRpc.CF.dll
-C:\Users\zjxd th\项目\长城咨询\受注开发\长城周刊发行系统\CJW\Driver\xml-rpc.net.2.5.0\xmlrpcCF\obj\Debug\CookComputing.XmlRpc.CF.pdb

@@ -40,30 +40,30 @@ elseif($act == 'do_login')
  	$remember = isset($_POST['rememberme']) ? intval($_POST['rememberme']) : 0;
  	if($admin_name == '')
 	{
-	header("Location:?act=login&err=".urlencode('用户名不能为空'));
+	header("Location:?act=login&err=".urlencode('ユーザ名を入力しません'));
 	exit();
  	}
  	elseif($admin_pwd == '')
 	{
-	header("Location:?act=login&err=".urlencode('密码不能为空'));
+	header("Location:?act=login&err=".urlencode('パスワードを入力してください'));
 	exit();
  	}
 	$captcha=get_cache('captcha');
 	if(empty($postcaptcha) && $captcha['verify_adminlogin']=='1')
 	{
-		header("Location:?act=login&err=".urlencode('验证码不能为空'));
+		header("Location:?act=login&err=".urlencode('検証コードを入力してください'));
 		exit();
  	}
 	if ($captcha['verify_adminlogin']=='1' && strcasecmp($_SESSION['imageCaptcha_content'],$postcaptcha)!=0)
 	{
-		write_log("<span style=\"color:#FF0000\">验证码填写错误</span>",$admin_name,2);
-		header("Location:?act=login&err=".urlencode('验证码填写错误'));
+		write_log("<span style=\"color:#FF0000\">検証コード入力エラー</span>",$admin_name,2);
+		header("Location:?act=login&err=".urlencode('検証コード入力エラー'));
 		exit();
 	}
  	elseif(check_admin($admin_name,$admin_pwd))
 	{
  		update_admin_info($admin_name);
-		write_log("成功登录",$admin_name);
+		write_log("登録成功",$admin_name);
  		if($remember == 1)
 		{
 			$admininfo=get_admin_one($admin_name);
@@ -74,8 +74,8 @@ elseif($act == 'do_login')
  	}
 	else
 	{
-		write_log("<span style=\"color:#FF0000\">用户名或密码错误</span>",$admin_name,2);
-		header("Location:?act=login&err=".urlencode('用户名或密码错误'));
+		write_log("<span style=\"color:#FF0000\">ユーザ名或パスワードエラー</span>",$admin_name,2);
+		header("Location:?act=login&err=".urlencode('ユーザ名又はパスワードエラー'));
 		exit();
  	}
 header("Location: admin_index.php"); 

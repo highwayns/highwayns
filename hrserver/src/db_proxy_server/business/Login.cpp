@@ -1,4 +1,4 @@
-/*================================================================
+﻿/*================================================================
  *   Copyright (C) 2014 All rights reserved.
  *
  *   文件名称：Login.cpp
@@ -78,7 +78,7 @@ void doLogin(CImPdu* pPdu, uint32_t conn_uuid)
                 if(tmNow - *itTime <= 30*60)
                 {
                     msgResp.set_result_code(6);
-                    msgResp.set_result_string("用户名/密码错误次数太多");
+                    msgResp.set_result_string("ユーザ・パスワード間違い回数超過");
                     pPduResp->SetPBMsg(&msgResp);
                     pPduResp->SetSeqNum(pPdu->GetSeqNum());
                     pPduResp->SetServiceId(IM::BaseDefine::SID_OTHER);
@@ -126,13 +126,13 @@ void doLogin(CImPdu* pPdu, uint32_t conn_uuid)
             
             log("get result false");
             msgResp.set_result_code(1);
-            msgResp.set_result_string("用户名/密码错误");
+            msgResp.set_result_string("ユーザ/パスワードエラー");
         }
     }
     else
     {
         msgResp.set_result_code(2);
-        msgResp.set_result_string("服务端内部错误");
+        msgResp.set_result_string("サーバ側内部エラー");
     }
     
     

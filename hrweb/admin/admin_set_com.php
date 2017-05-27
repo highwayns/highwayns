@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../data/config.php');
 require_once(dirname(__FILE__).'/include/admin_common.inc.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_company_fun.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'set';
-$smarty->assign('pageheader',"企业设置");
+$smarty->assign('pageheader',"企業設定");
 check_permissions($_SESSION['admin_purview'],"set_com");
 if($act == 'set')
 {	
@@ -19,16 +19,16 @@ elseif($act == 'set_save')
 	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('text')." SET value='$v' WHERE name='$k'")?adminmsg('更新设置失败', 1):"";
+	!$db->query("UPDATE ".table('text')." SET value='$v' WHERE name='$k'")?adminmsg('設定更新失敗', 1):"";
 	}
 	refresh_cache('config');
 	refresh_cache('text');	
 	//填写管理员日志
-	write_log("后台成功更新搜索设置", $_SESSION['admin_name'],3);
+	write_log("検索設定更新成功", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 elseif($act == 'modeselect')
@@ -42,11 +42,11 @@ elseif($act == 'modeselect_save')
  	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('config');
 	//填写管理员日志
-	write_log("后台成功更新配置", $_SESSION['admin_name'],3);
+	write_log("更新配置成功", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 elseif($act == 'set_points')
@@ -66,19 +66,19 @@ elseif($act == 'set_points_save')
 	foreach($ids as $k =>  $id)
 	{
 	$id=intval($id);
-	!$db->query("UPDATE ".table('members_points_rule')." SET value='{$value[$k]}', operation='{$operation[$k]}' WHERE id='{$id}' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('members_points_rule')." SET value='{$value[$k]}', operation='{$operation[$k]}' WHERE id='{$id}' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_points_rule_cache();
 	//填写管理员日志
-	write_log("后台成功更新积分规则", $_SESSION['admin_name'],3);
-	adminmsg("更新设置成功！",2);
+	write_log("ポイントルール更新成功", $_SESSION['admin_name'],3);
+	adminmsg("設定更新成功！",2);
 }
 elseif($act == 'set_points_config_save')
 {
 	check_token();
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('config');
 	adminmsg("保存成功！",2);
@@ -101,7 +101,7 @@ elseif($act == 'set_meal_add')
 elseif($act == 'set_meal_add_save')
 {
 	check_token();
-	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('套餐名称不能为空！',1);
+	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('コース名称を入力してください！',1);
 	$setsqlarr['days']=intval($_POST['days']);
 	$setsqlarr['original_price']=intval($_POST['original_price']);
 	$setsqlarr['expense']=intval($_POST['expense']);
@@ -128,9 +128,6 @@ elseif($act == 'set_meal_add_save')
 	$setsqlarr['display']=intval($_POST['display']);
 	$setsqlarr['apply']=intval($_POST['apply']);
 	$setsqlarr['added']=trim($_POST['added']);
-	/**
-	 * 2014-01-26新增start
-	 */
 	$setsqlarr['refresh_jobs_space']=intval($_POST['refresh_jobs_space']);
 	$setsqlarr['refresh_jobs_time']=intval($_POST['refresh_jobs_time']);
 	//2015-01-09薪资短信设置 set_sms 
@@ -138,16 +135,16 @@ elseif($act == 'set_meal_add_save')
 	if ($db->inserttable(table('setmeal'),$setsqlarr))
 		{
 			//填写管理员日志
-			write_log("后台成功添加套餐", $_SESSION['admin_name'],3);
-			$link[0]['text'] = "返回套餐设置";
+			write_log("コース追加成功", $_SESSION['admin_name'],3);
+			$link[0]['text'] = "コース設定に戻る";
 			$link[0]['href'] ="?act=set_meal";
-			adminmsg("添加成功！",2,$link);
+			adminmsg("追加成功！",2,$link);
 		}
 		else
 		{
 			//填写管理员日志
-			write_log("后台添加套餐失败", $_SESSION['admin_name'],3);
-			adminmsg("添加失败！",0);
+			write_log("コース追加失敗", $_SESSION['admin_name'],3);
+			adminmsg("追加失敗！",0);
 		}
 }
 elseif($act == 'set_meal_edit')
@@ -160,7 +157,7 @@ elseif($act == 'set_meal_edit')
 elseif($act == 'set_meal_edit_save')
 {
 	check_token();
-	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('套餐名称不能为空！',1);
+	$setsqlarr['setmeal_name']=trim($_POST['setmeal_name'])?trim($_POST['setmeal_name']):adminmsg('コース名称を入力してください！',1);
 	$setsqlarr['days']=intval($_POST['days']);
 	$setsqlarr['original_price']=intval($_POST['original_price']);
 	$setsqlarr['expense']=intval($_POST['expense']);
@@ -185,9 +182,6 @@ elseif($act == 'set_meal_edit_save')
 	$setsqlarr['display']=intval($_POST['display']);
 	$setsqlarr['apply']=intval($_POST['apply']);
 	$setsqlarr['added']=trim($_POST['added']);
-	/**
-	 * 2014-01-26新增start
-	 */
 	$setsqlarr['refresh_jobs_space']=intval($_POST['refresh_jobs_space']);
 	$setsqlarr['refresh_jobs_time']=intval($_POST['refresh_jobs_time']);
 	//2015-01-09薪资短信设置 set_sms 
@@ -195,16 +189,16 @@ elseif($act == 'set_meal_edit_save')
 	if ($db->updatetable(table('setmeal'),$setsqlarr," id=".intval($_POST['id'])))
 		{
 			//填写管理员日志
-			write_log("后台成功修改套餐", $_SESSION['admin_name'],3);
-			$link[0]['text'] = "返回套餐设置";
+			write_log("コース変更成功", $_SESSION['admin_name'],3);
+			$link[0]['text'] = "コース設定に戻る";
 			$link[0]['href'] ="?act=set_meal";
-			adminmsg("设置成功！",2,$link);
+			adminmsg("設定成功！",2,$link);
 		}
 		else
 		{
 			//填写管理员日志
-			write_log("后台修改套餐失败", $_SESSION['admin_name'],3);
-			adminmsg("设置失败！",0);
+			write_log("コース変更失敗", $_SESSION['admin_name'],3);
+			adminmsg("設定失敗！",0);
 		}
 }
 elseif($act == 'set_meal_del')
@@ -212,21 +206,21 @@ elseif($act == 'set_meal_del')
 	check_token();
 		if (del_setmeal_one(intval($_GET['id'])))
 		{
-		adminmsg("删除成功！",2);
+		adminmsg("削除成功！",2);
 		}
 		else
 		{
-		adminmsg("删除失败！",0);
+		adminmsg("削除失敗！",0);
 		}
 }
 elseif($act == 'reg_service_save')
 {
 	check_token();
 	//填写管理员日志
-	write_log("后台更新配置文件", $_SESSION['admin_name'],3);
+	write_log("配置ファイル更新", $_SESSION['admin_name'],3);
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失败', 1):"";
+	!$db->query("UPDATE ".table('config')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('保存失敗', 1):"";
 	}
 	refresh_cache('config');
 	adminmsg("保存成功！",2);

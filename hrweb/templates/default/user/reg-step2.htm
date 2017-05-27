@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/reg.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
@@ -36,13 +36,13 @@ $(document).ready(function($) {
 		messages: {
 			password: 
 			{
-				required: "请填写密码",
-				minlength: jQuery.format("填写不能小于{0}个字符"),
-				maxlength: jQuery.format("填写不能大于{0}个字符")
+				required: "パスワード入力",
+				minlength: jQuery.format("入力文字は少なくとも{0}"),
+				maxlength: jQuery.format("入力内容{0}文字以内")
 			},
 			rpassword: {
-				required: "请填写密码",
-				equalTo: "两次输入的密码不同"
+				required: "パスワード入力",
+				equalTo: "パスワード一致しません"
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -143,26 +143,26 @@ $(document).ready(function($) {
 	<div class="container">
 		<div class="step_wrap">
 			<div class="three-step-bar clearfix">
-				<div class="step tstep1 f-left"><i class="step-icon">1</i>设置登录名</div>
-				<div class="step tstep2 f-left active"><i class="step-icon">2</i>填写账户信息</div>
-				<div class="step tstep3 f-left"><i class="step-icon">3</i>注册成功</div>
+				<div class="step tstep1 f-left"><i class="step-icon">1</i>アカウント設定</div>
+				<div class="step tstep2 f-left active"><i class="step-icon">2</i>情報入力</div>
+				<div class="step tstep3 f-left"><i class="step-icon">3</i>登録成功</div>
 			</div>
 		</div>
 		<div class="reg-main clearfix">
 			<form action="?act=reg_step3" method="post" id="Form1">
 			<div class="reg-left-form f-left">
-				<h2 class="reg-title">账户信息</h2>
+				<h2 class="reg-title">アカウント情報</h2>
 				<div class="reg-form-item clearfix">
-					<div class="reg-form-type f-left">密码</div>
+					<div class="reg-form-type f-left">パスワード</div>
 					<div class="reg-form-content f-left">
-						<input type="password" name="password" id="password" class="text text-lg span350" placeholder="请输入用户密码" />
+						<input type="password" name="password" id="password" class="text text-lg span350" placeholder="パスワードを入力してください" />
 					</div>
 					<div class="verification f-left"></div>
 				</div>
 				<div class="reg-form-item clearfix">
-					<div class="reg-form-type f-left">重复密码</div>
+					<div class="reg-form-type f-left">再度パスワード</div>
 					<div class="reg-form-content f-left">
-						<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="重复输入用户密码" />
+						<input type="password" name="rpassword" id="rpassword" class="text text-lg span350" placeholder="ユーザパスワード入力重複" />
 					</div>
 					<div class="verification f-left"></div>
 				</div>
@@ -175,7 +175,7 @@ $(document).ready(function($) {
 						<input type="hidden" name="reg_type" value="{#$sqlarr.reg_type#}"/>
 						<input type="hidden" name="mobile" value="{#$sqlarr.mobile#}"/>
 						<input type="hidden" name="token" value="{#$token#}"/>
-						<input type="submit" value="下一步" class="btn btn-lg blue span1" />
+						<input type="submit" value="次へ" class="btn btn-lg blue span1" />
 					</div>
 				</div>
 			</div>

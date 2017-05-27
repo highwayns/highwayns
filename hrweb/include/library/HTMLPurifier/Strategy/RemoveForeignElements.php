@@ -1,22 +1,9 @@
 ﻿<?php
 
-/**
- * Removes all unrecognized tags from the list of tokens.
- *
- * This strategy iterates through all the tokens and removes unrecognized
- * tokens. If a token is not recognized but a TagTransform is defined for
- * that element, the element will be transformed accordingly.
- */
 
 class HTMLPurifier_Strategy_RemoveForeignElements extends HTMLPurifier_Strategy
 {
 
-    /**
-     * @param HTMLPurifier_Token[] $tokens
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array|HTMLPurifier_Token[]
-     */
     public function execute($tokens, $config, $context)
     {
         $definition = $config->getHTMLDefinition();

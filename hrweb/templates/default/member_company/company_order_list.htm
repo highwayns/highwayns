@@ -7,7 +7,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_common.css" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_company.css" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/ui-dialog.css" />
@@ -54,7 +54,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 充值订单</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > チャージ注文</div>
 	<div class="usermain">
 		<div class="leftmenu com link_bk">
 			{#include file="member_company/left.htm"#}	
@@ -65,21 +65,21 @@
 					<div class="titleH1"><div class="h1-title">充值/订单</div></div>
 					<div class="navs link_bk">
 						{#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
-						<a href="?act=order_add">积分充值</a>
+						<a href="?act=order_add">ポイントチャージ</a>
 						{#/if#}
 						{#if $HIGHWAY.operation_mode=="2" || $HIGHWAY.operation_mode=="3"#}
-				        <a href="?act=setmeal_list">申请VIP套餐</a>
+				        <a href="?act=setmeal_list">アプリケーションパッケージVIP </a>
 						{#/if#}
-						<a href="?act=order_list" class="se">我的订单</a>
+						<a href="?act=order_list" class="se">マイオーダー</a>
 						<div class="clear"></div>
 					</div>
 				</div>
 				<div class="company-data-list">
 					<div class="c-data-top order-list clearfix">
-						<div class="item f-left top-item1">订单号</div>
+						<div class="item f-left top-item1">注文番号</div>
 						<div class="item f-left top-item2">
 							<div class="data-filter span4">
-								<span class="filter-span">{#if $is_paid=='1'#}未完成{#elseif $is_paid=='2'#}已支付{#else#}订单状态{#/if#}<i class="filter-icon"></i></span>
+								<span class="filter-span">{#ifの$ is_paid == ‘1’ #}未完成{#他#}注文状況{$ is_paid == ‘2’ ##elseif} <i class="filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="company_service.php?act=order_list&pay_type={#$smarty.get.pay_type#}&is_paid=">全部</a></li>
 									<li><a href="company_service.php?act=order_list&pay_type={#$smarty.get.pay_type#}&is_paid=2">已支付</a></li>
@@ -89,7 +89,7 @@
 						</div>
 						<div class="item f-left top-item3">
 							<div class="data-filter span4">
-								<span class="filter-span">{#if $pay_type=='1'#}套餐订单{#elseif $pay_type=='2'#}广告订单{#elseif $pay_type=='3'#}短信订单{#elseif $pay_type=='4'#}积分订单{#else#}订单类别{#/if#}<i class="filter-icon"></i></span>
+								<span class="filter-span">{#if $pay_type=='1'#}パッケージ注文は{#elseif $pay_type=='2'#} 広告注文{#elseif $pay_type==‘3’#}sms注文{#elseif $pay_type==‘4’#}ポイント注文{#else#}注文種類{#/if#}<i class="filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="company_service.php?act=order_list&pay_type=0&is_paid={#$smarty.get.is_paid#}">全部订单</a></li>
 									<li><a href="company_service.php?act=order_list&pay_type=1&is_paid={#$smarty.get.is_paid#}">套餐订单</a></li>
@@ -99,7 +99,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="item f-left top-item4">金额</div>
+						<div class="item f-left top-item4">金額</div>
 						<div class="item f-left top-item5">操作</div>
 					</div>
 					{#if $payment#}
@@ -108,19 +108,19 @@
 							<div class="c-data-content order-list clearfix">
 								<div class="c-item f-left content1">
 									<div><a href="javascript:;" order_id="{#$payment[payment].id#}" class="name-link underline">{#$payment[payment].oid#}</a></div>
-									<p>创建时间:{#$payment[payment].addtime|date_format:"%Y-%m-%d %H:%M"#} | 支付方式:{#$payment[payment].payment_name#}</p>
+									<p>作る時間:{#$payment[payment].addtime|date_format:"%Y-%m-%d %h:%M"#} | 支払い方法:{#$payment[payment].payment_name#}</p>
 								</div>
 								<div class="c-item f-left content2">
 									<span class="order-not-done">{#if $payment[payment].is_paid==1#}未完成{#/if#}{#if $payment[payment].is_paid==2#}<span style="color:#4CA51F">已支付</span>{#/if#}</span>
 								</div>
-								<div class="c-item f-left content3">{#if $payment[payment].pay_type==1#}套餐订单{#elseif $payment[payment].pay_type==2#}广告订单{#elseif $payment[payment].pay_type==3#}短信订单{#elseif $payment[payment].pay_type==4#}积分订单{#/if#}</div>
+								<div class="c-item f-left content3">{#if $payment[payment].pay_type==1#}パッケージ注文{#elseif $payment[payment].pay_type==2#}広告注文{#elseif $payment[payment].pay_type==3#}sms注文{#elseif　$payment[payment].pay_type==4#}ポイント注文{#/if#}</div>
 								<div class="c-item f-left content4"><span class="order-money">￥{#$payment[payment].amount#}</span></div>
 								<div class="c-item f-left content5">
 									{#if $payment[payment].is_paid==1#}
-									<a href="?act=payment&order_id={#$payment[payment].id#}" class="data-ctrl underline order-info">支付</a>&nbsp;
-									<a url="?act=order_del&id={#$payment[payment].id#}" href="javascript:;" class="data-ctrl underline ctrl-del">取消</a>
+									<a href="?act=payment&order_id={#$payment[payment].id#}" class="data-ctrl underline order-info">支払い</a>&nbsp;
+									<a url="?act=order_del&id={#$payment[payment].id#}" href="javascript:;" class="data-ctrl underline ctrl-del">キャンセル</a>
 									{#else#}
-									<span class="order-done">支付</span>&nbsp;<span class="order-done">取消</span>
+									<span class="order-done">支払い</span>&nbsp;<span class="order-done">キャンセル</span>
 									{#/if#}
 								</div>
 							</div>
@@ -134,7 +134,7 @@
 						</table>
 						{#/if#}
 					{#else#}
-						<div class="emptytip">没有找到对应的订单信息！</div>
+						<div class="emptytip">対応する注文情報を見つけられませんでした！</div>
 					{#/if#}
 				</div>
 			</div>

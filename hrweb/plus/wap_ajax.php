@@ -129,8 +129,8 @@ elseif($act == 'jobs_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-  			$html.='个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+  			$html.='個人会員は<a href="wap_login.php">[登録]</a>後連絡先を見えます<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a>';
   			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -146,16 +146,16 @@ elseif($act == 'jobs_contact')
 				else
 				{
 				$show=false;
-				$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-				$html.="您没有发布简历或者简历无效，发布简历后才可以查看联系方式。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[查看我的简历]</a>";
+				$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+				$html.="配布履歴書なし或者履歴書无效，履歴書配布後に連絡先を閲覧できる。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[私の履歴書閲覧]</a>";
 				$html.='</div><div class="telimg"></div>';
 				}
 			}
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='個人会員は<a href="wap_login.php">[登録]</a>後連絡先を見えます<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -166,19 +166,19 @@ elseif($act == 'jobs_contact')
 			if ($_CFG['contact_img_job']=='2')
 			{
 			$token=md5($val['contact'].$id.$val['telephone']);
-			$contact=$val['contact_show']=='1'?"联系人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['address_show']=='1'?"联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系地址：企业设置不对外公开<br />";
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt telbox">';
+			$contact=$val['contact_show']=='1'?"連絡者：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['address_show']=='1'?"連絡先：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡先：企業設定公開しません<br />";
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt telbox">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="wtai://wp/mc;'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
 			else
 			{
-			$contact=$val['contact_show']=='1'?"联系人：{$val['contact']}<br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：{$val['telephone']}<br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['address_show']=='1'?"联系地址：{$val['address']}<br />":"联系地址：企业设置不对外公开<br />";
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+			$contact=$val['contact_show']=='1'?"連絡者：{$val['contact']}<br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：{$val['telephone']}<br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['address_show']=='1'?"連絡先：{$val['address']}<br />":"連絡先：企業設定公開しません<br />";
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="wtai://wp/mc;'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
@@ -210,8 +210,8 @@ elseif($act == 'company_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='個人会員は<a href="wap_login.php">[登録]</a>後連絡先を見えます<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -227,16 +227,16 @@ elseif($act == 'company_contact')
 				else
 				{
 				$show=false;
-				$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-				$html.="您没有发布简历或者简历无效，发布简历后才可以查看联系方式。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[查看我的简历]</a>";
+				$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+				$html.="配布履歴書なし或者履歴書无效，履歴書配布後に連絡先を閲覧できる。<a href=\"".get_member_url($_SESSION['utype'],true)."personal_resume.php?act=resume_list\">[私の履歴書閲覧]</a>";
 				$html.='</div><div class="telimg"></div>';
 				}
 			}
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='个人会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='個人会員は<a href="wap_login.php">[登録]</a>後連絡先を見えます<br />アカウントがない方？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -247,19 +247,19 @@ elseif($act == 'company_contact')
 			if ($_CFG['contact_img_com']=='2')
 			{
 			$token=md5($val['contact'].$id.$val['telephone']);
-			$contact=$val['contact_show']=='1'?"联系人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['address_show']=='1'?"联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"联系地址：企业设置不对外公开<br />";
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+			$contact=$val['contact_show']=='1'?"連絡者：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['address_show']=='1'?"連絡先：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=4&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />":"連絡先：企業設定公開しません<br />";
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="wtai://wp/mc;'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
 			else
 			{
-			$contact=$val['contact_show']=='1'?"联系人：{$val['contact']}<br />":"联系人：企业设置不对外公开<br />";
-			$telephone=$val['telephone_show']=='1'?"联系电话：{$val['telephone']}<br />":"联系电话：企业设置不对外公开<br />";
-			$address=$val['address_show']=='1'?"联系地址：{$val['address']}<br />":"联系地址：企业设置不对外公开<br />";
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+			$contact=$val['contact_show']=='1'?"連絡者：{$val['contact']}<br />":"連絡者：企業設定未公開<br />";
+			$telephone=$val['telephone_show']=='1'?"電話番号：{$val['telephone']}<br />":"電話番号：企業設定公開しません<br />";
+			$address=$val['address_show']=='1'?"連絡先：{$val['address']}<br />":"連絡先：企業設定公開しません<br />";
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 			$html.=$contact.$telephone.$address;
 			$html.='</div><div class="telimg"><a href="wtai://wp/mc;'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
@@ -289,8 +289,8 @@ elseif($act == 'resume_contact')
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='企业会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='企業会員は<a href="wap_login.php">[登録]</a>後連絡先を見える<br />アカウントない場合？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -307,17 +307,17 @@ elseif($act == 'resume_contact')
 				else
 				{
 				$show=false;
-				$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
+				$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
 				$html="<div align=\"center\"><img src=\"{$_CFG['site_template']}images/44.gif\"  border=\"0\" id=\"download\"/></div>";
-				$html.="<div align=\"center\"><span class=\"add_resume_pool\">[添加到人才库]</span><br/><br/></div>";
+				$html.="<div align=\"center\"><span class=\"add_resume_pool\">[人材庫に追加]</span><br/><br/></div>";
 				$html.='</div><div class="telimg"></div>';
 				}
 			}
 			else
 			{
 			$show=false;
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.='企业会员请<a href="wap_login.php">[登录]</a>后查看联系方式<br />没有帐号？<a href="wap_user_reg.php">[免费注册]</a>';
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.='企業会員は<a href="wap_login.php">[登録]</a>後連絡先を見える<br />アカウントない場合？<a href="wap_user_reg.php">[無料登録]</a>';
 			$html.='</div><div class="telimg"></div>';
 			}
 		}
@@ -329,22 +329,22 @@ elseif($act == 'resume_contact')
 			if ($_CFG['contact_img_resume']=='2')
 			{
 			$token=md5($val['fullname'].$id.$val['telephone']);
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.="联 系 人：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
-			$html.="联系电话：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
-			$html.="联系地址：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=5&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.="連　絡 者：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
+			$html.="電話番号：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
+			$html.="連絡先：<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=5&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><br />";
 			$html.="<div align=\"center\"><br/><img src=\"{$_CFG['site_template']}images/64.gif\"  border=\"0\" id=\"invited\"/></div>";
-			$html.="<div align=\"center\"><span class=\"add_resume_pool\">[添加到人才库]</span><br/><br/></div>";
+			$html.="<div align=\"center\"><span class=\"add_resume_pool\">[人材庫に追加]</span><br/><br/></div>";
 			$html.='</div><div class="telimg"><a href="wtai://wp/mc;'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
 			else
 			{
-			$html='<div class="title"><h2>联系方式</h2></div><div class="txt">';
-			$html.="联 系 人：".$val['fullname']."<br />";
-			$html.="联系电话：".$val['telephone']."<br />";
-			$html.="联系地址：".$val['address']."<br />";
+			$html='<div class="title"><h2>ご連絡</h2></div><div class="txt">';
+			$html.="連　絡　者：".$val['fullname']."<br />";
+			$html.="電話番号：".$val['telephone']."<br />";
+			$html.="連絡先：".$val['address']."<br />";
 			$html.="<div align=\"center\"><br/><img src=\"{$_CFG['site_template']}images/64.gif\"  border=\"0\" id=\"invited\"/></div>";
-			$html.="<div align=\"center\"><span class=\"add_resume_pool\">[添加到人才库]</span><br/><br/></div>";
+			$html.="<div align=\"center\"><span class=\"add_resume_pool\">[人材庫に追加]</span><br/><br/></div>";
 			$html.='</div><div class="telimg"><a href="wtai://wp/mc;'.$val["telephone"].'"><img src="images/23.jpg"  border="0"/></a></div>';
 			}
 			exit($html);

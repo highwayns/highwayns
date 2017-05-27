@@ -29,13 +29,13 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
-数据备份功能根据您的选择备份网站数据库的数据，导出的数据文件可用“数据恢复”功能或 phpMyAdmin 导入。<br />
-        全部备份均不包含模板文件和附件文件。模板、附件的备份只需通过 FTP 等下载 ./templates, ./data 目录即可，74cms 不提供单独备份。
+数据备份功能根据您的选择备份网站数据库的数据，导出的数据文件可用“数据恢复"功能或 phpMyAdmin 导入。<br />
+        全部备份均不包含模板文件和附件文件。模板、附件的备份只需通过 FTP 等下载 ./templates, ./data 目录即可，HIGHWAY 不提供单独备份。
 </p>
 </div>
-<div class="toptit">生成备份数据库</div>
+<div class="toptit">データベースのバックアップを作成する</div>
 	  <form id="form1" name="form1" method="post" action="">
 	  {#$inputtoken#}
 	<table width="100%" border="0" cellspacing="0" cellpadding="4" id="backupshow">
@@ -57,11 +57,11 @@ $(document).ready(function()
 	<tr>
       <td height="30" bgcolor="#F1F8FA" style=" line-height:180%; color:#666666; padding-left:20px;border-bottom:1px  #DFEDF7 solid;border-top:1px #DFEDF7 solid;">
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全选]</span>
+	  <span id="selectAll" style="color:#0066CC; cursor:pointer">[全部選択]</span>
 	  &nbsp;&nbsp;&nbsp;
-	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[全不选]</span>
+	  <span id="uncheckAll" style="color:#0066CC; cursor:pointer">[選択解除]</span>
 	  &nbsp;&nbsp;&nbsp;
- <span id="opposite" style="color:#0066CC; cursor:pointer">[反选]</span>
+ <span id="opposite" style="color:#0066CC; cursor:pointer">[逆選択]</span>
   &nbsp;&nbsp;&nbsp;
 	  分卷备份：
           <input name="limit_size" type="text" id="limit_size"   value="1024" maxlength="20" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" class="input_text_100"/> KB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -72,7 +72,7 @@ $(document).ready(function()
     </tr>
 	<tr>
 	  <td height="80" align="center"  ><input type="hidden" name="act" value="do_backup" />
-	   <input type="submit" name="Submit22" value="开始备份" class="admin_submit"    onclick="document.getElementById('backupshow').style.display='none';document.getElementById('hide').style.display='block';"/>	  </td>
+	   <input type="submit" name="Submit22" value="開始バックアップ" class="admin_submit"    onclick="document.getElementById('backupshow').style.display='none';document.getElementById('hide').style.display='block';"/>	  </td>
 	  </tr>
   </table>
    <table width="600" height="100" border="0" cellpadding="5" cellspacing="0" id="hide" style="display:none">
@@ -80,7 +80,7 @@ $(document).ready(function()
             <td align="center" valign="bottom"><img src="images/ajax_loader.gif"  border="0" /></td>
           </tr>
           <tr>
-            <td align="center" valign="top" style="color: #009900">正在备份，请稍候......</td>
+            <td align="center" valign="top" style="color: #009900">バックアップされる、お待ちください ……</td>
           </tr>
         </table>
   </form>

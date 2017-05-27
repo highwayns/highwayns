@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-{#highway_pageinfo set="列表名:page,调用:HW_simplelist"#}
+{#highway_pageinfo set="リスト名:page,Call:HW_simplelist"#}
 <title>{#$page.title#}</title>
 <meta name="description" content="{#$page.description#}">
 <meta name="keywords" content="{#$page.keywords#}">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('删除信息');
         myDialog.width('500');
-        myDialog.content("加载中..");
+        myDialog.content("ロード中..");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -45,7 +45,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('刷新信息');
         myDialog.width('500');
-        myDialog.content("加载中...");
+        myDialog.content("ロード中...");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -57,7 +57,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('编辑信息');
         myDialog.width('600');
-        myDialog.content("加载中...");
+        myDialog.content("ロード中...");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		var myDialog = dialog();
 		myDialog.title('发布微招聘');
         myDialog.width('600');
-        myDialog.content("加载中...");
+        myDialog.content("ロード中...");
         myDialog.showModal();
 	    $.get(url, function(data){
 	        myDialog.content(data);
@@ -108,13 +108,13 @@ $(function(){
 {#include file="header.htm"#}
 	<!-- 当前位置 -->
 	<div class="page_location link_bk">
-		当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>>微商圈
+		当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>>微商圈
 	</div>
 	<!-- 主体内容 -->
 	<div class="rec_banner" style="background:url({#$HIGHWAY.site_template#}images/simple.jpg) no-repeat top center #248ee6
 "></div>
 	<div class="container link_bk">
-		{#highway_ad set="显示数目:1,调用名称:HW_simpleallimg,列表名:ad"#}
+		{#highway_ad set="表示件数:1,Call名称:HW_simpleallimg,リスト名:ad"#}
 		{#if $ad#}
 		<div class="ad_1000" style="margin-bottom:15px;">
 			{#foreach from=$ad  item=list#}
@@ -124,7 +124,7 @@ $(function(){
 		{#/if#}
 		<div class="wei_left">
 			<div class="wei_tit">
-				<a href="{#"HW_simplelist"|highway_url#}" class="select">微招聘</a>
+				<a href="{#"HW_simplelist"|highway_url#}" class="select">マイクロ募集</a>
 				<div class="clear"></div>
 			</div>
 			<div class="sreach jobmain" id="simple_form_search">
@@ -133,7 +133,7 @@ $(function(){
 						<div class="filter-item f-left">
 							<div class="choose-item">
 								<div class="choose-control">
-									<span class="cc-default" id="city_result_show">选择地区类别</span><i class="choose-icon"></i>
+									<span class="cc-default" id="city_result_show">エリアタイプの選択</span><i class="choose-icon"></i>
 									<!-- 工作地区弹出框 -->
 									<div class="aui_outer" id="aui_outer_city">
 										<table class="aui_border">
@@ -149,7 +149,7 @@ $(function(){
 																				<div class="LocalDataMultiC" style="width:623px;">
 																					<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																					<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																					<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity" class= “text-warning"">0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																					<div class="data-row-list data-row-main" id="city_list">
 																						<!-- 列表内容 -->
 																					</div>
@@ -170,15 +170,15 @@ $(function(){
 							</div>
 						</div>
 						<div class="keybox">
-					 		<input type="text" id="searckey" name="key" value="{#$smarty.get.key|default:请输入关键字#}" />
+					 		<input type="text" id="searckey" name="key" value="{#$smarty.get.key|default:キーワード入力#}" />
 					 	</div>
-						<input type="button" id="searcnbtn" detype="HW_simplelist" value="搜索" class="but100lan simpleso" />
+						<input type="button" id="searcnbtn" detype="HW_simplelist" value="検索" class="but100lan simpleso" />
 					</div>
 				</div>
 				<input id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}" name="citycategory">
 			</div>
 			
-			{#highway_simple_list  set="分页显示:1,列表名:simplelist,显示数目:15,填补字符:...,职位名长度:12,企业名长度:18,描述长度:40,关键字:GET[key],关键字类型:GET[keytype],地区分类:GET[citycategory],排序:refreshtime>desc"#}
+			{#highway_simple_list  set="ページング表示:1,リスト名:simplelist,表示件数:15,文字:...,職位名長さ:12,企業名長さ:18,コメント長さ:40,キー:GET[key],キータイプ:GET[keytype],地区分類:GET[citycategory],ソート:refreshtime>desc"#}
 			{#if $simplelist#}
 			<div class="wei_list">
 				<ul>
@@ -188,14 +188,14 @@ $(function(){
 					<div class="date">{#$li.refreshtime_cn#}</div>
 					<ul>
 						<li>{#$li.comname#}</li>
-						<li>招聘人数：{#if $li.amount=="0"#}若干{#else#}{#$li.amount#}{#/if#}人</li>
-						<li>有效期截至：{#if $li.deadline=="0"#}长期有效{#else#}{#$li.deadline|date_format:"%Y-%m-%d"#}{#/if#}</li>
-						<li class="tel">联系方式：<a href="javascript:void(0);" class="show_tel" id="{#$li.id#}">[点击查看]</a></li>
+						<li>雇用人数：{#if $li.amount=="0"#}若干{#else#}{#$li.amount#}{#/if#}人</li>
+						<li>有効まで：{#if $li.deadline=="0"#}长期有效{#else#}{#$li.deadline|date_format:"%Y-%m-%d"#}{#/if#}</li>
+						<li class="tel">コンタクト：<hREF = “javascriptの：無効（0）;" クラス= “show_tel" ID = “{#$li.id#}">[点击查看]</a></li>
 						<div class="clear"></div>
 					</ul>
 					<div class="clear"></div>
-					<p>要求：{#$li.detailed#}{#if $li.show_detail#}<a href="javascript:void(0);" class="show_detailed" id="{#$li.id#}">[展开]</a>{#/if#}</p>
-					<div class="add">地址：{#$li.district_cn#}{#if $li.district_cn#}-{#$li.sdistrict_cn#}{#/if#}</div>
+					<p>要件：{#$li.detailed#}{#if $li.show_detail#}<a href=“javascript:void(0);" class=“show_detailed" id=“{#$li.id#}">[展开]</a>{#/if#}</p>
+					<div class="add">住所：{#$li.district_cn#}{#if $li.district_cn#}-{#$li.sdistrict_cn#}{#/if#}</div>
 					<div class="edit"><a href="javascript:void(0)" class="refreshsimple" id="{#$li.id#}">刷新</a>| <a href="javascript:void(0)" class="editsimple" id="{#$li.id#}">编辑</a> | <a href="javascript:void(0)" class="delsimple" id="{#$li.id#}">删除</a></div>
 					<div class="clear"></div>
 				</li>
@@ -212,19 +212,19 @@ $(function(){
 			{#else#}
 			<div class="wei_list" style="padding-top: 40px;">
 				<ul>
-					<div class="emptytip">抱歉，没有符合此条件的信息！</div>
+					<div class="emptytip">すいません、この条件に合う情報無し！</div>
 				</ul>
 			</div>
 			{#/if#}
 
 		</div>
 		<div class="wei_right">
-			<input type="button" value="发布微招聘" class="but218cheng" id="add"/>
+			<input type="button" value="サービス配布" class="but218cheng" id="add"/>
 			<p>
 				为方便一些普工类企业(如饭店,店面,个体户等)发布招聘信息，我们特增加了快速通道，无需注册即可发布简短招聘信息！
 			</p>
 			<p>
-				如果您不是普工类企业，我们建议您<a href="{#"HW_login"|highway_url#}">【注册】</a>成为企业会员，仅需几秒钟您就可以享受更加完善的网络招聘服务。
+				如果您不是普工类企业，我们建议您<a href="{#"HW_login"|highway_url#}">[登録]</a>成为企业会员，仅需几秒钟您就可以享受更加完善的网络招聘服务。
 			</p>
 		</div>
 		<div class="clear"></div>

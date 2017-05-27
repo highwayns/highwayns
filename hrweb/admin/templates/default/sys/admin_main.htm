@@ -1,7 +1,7 @@
 ﻿{#include file="sys/admin_header.htm"#}
 <div class="admin_main_nr_dbox">
 <div class="pagetit">
-	<div class="ptit">欢迎登录 {#$HIGHWAY.site_name#} 管理中心！</div>
+	<div class="ptit">{#$HIGHWAY.site_name#}管理センターようこそ！</div>
   <div class="clear"></div>
 </div>
 <span id="version"></span>
@@ -33,29 +33,29 @@
   </tr>
 </table>
 {#/if#}
-<div class="toptit">待处理事务</div>
+<div class="toptit">処理待ち仕事</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="link_lan" style="padding-left:15px; line-height:220%; margin-bottom:10px; color:#666666">
       <tr>
-        <td  >待审核职位：&nbsp;<a href="admin_company.php?jobtype=2&audit=2" id="t1">...</a></td>
-        <td  >待认证企业：&nbsp;<a href="admin_company.php?act=company_list&audit=2" id="t3">...</a></td>
+        <td  >職位審査待ち：&nbsp;<a href="admin_company.php?jobtype=2&audit=2" id="t1">...</a></td>
+        <td  >認定を保留：＆NBSP： &nbsp;<a href="admin_company.php?act=company_list&audit=2" id="t3">...</a></td>
         <td  >&nbsp;</td>
       </tr>
       <tr>
-        <td  >待审核简历：&nbsp;<a href="admin_personal.php?audit=2&tabletype=2" id="t2">...</a></td>
-        <td  >待开通高级人才：&nbsp;<a href="admin_personal.php?talent=3" id="t4">...</a></td>
+        <td  >履歴書審査待ち：&nbsp;<a href="admin_personal.php?audit=2&tabletype=2" id="t2">...</a></td>
+        <td  >高級人材開始待ち：&nbsp;<a href=“admin_personal.php?talent=3" id=“t4">...</a></td>
       </tr>
       <tr>
-        <td  >待审核照片 ：&nbsp;<a href="admin_personal.php?act=list&photo_audit=2" id="t6">...</a></td>
-        <td>待付款企业订单：&nbsp;<a href="admin_company.php?act=order_list&is_paid=1" id="t5">...</a>		  </td>
+        <td  >写真審査待ち：&nbsp;<a href="admin_personal.php?act=list&photo_audit=2" id="t6">...</a></td>
+        <td>支払い未完成の注文：&nbsp;<a href="admin_company.php?act=order_list&is_paid=1" id="t5">...</a>		  </td>
       </tr>
       <tr>
-        <td  >举报信息：&nbsp;<a href="admin_feedback.php?act=report_list" id="t7">...</a>		  </td>
-        <td  >意见/建议：&nbsp; <a href="admin_feedback.php?act=suggest_list&replyinfo=1" id="t8">...</a> </td>
+        <td  >情報をレポートします：&nbsp;<a href="admin_feedback.php?act=report_list" id="t7">...</a>		  </td>
+        <td  >コメント/提案：＆NBSP; <a href = "admin_feedback.php行為= suggest_list＆replyinfo = 1？" ID = “T8">...</a> </td>
       </tr>
   </table>
 
 
-<div class="toptit">最近30天会员注册趋势</div>
+<div class="toptit">最後の30日に登録した会員のトレンド</div>
 
 <script language="JavaScript" src="js/FusionCharts.js"></script>
 <div id="chartdiv"  > 
@@ -81,52 +81,52 @@
 			 }
 		);
 </script>
-<div class="toptit">骑士cms人才系统</div>
+<div class="toptit">Highwaynsの人事システム</div>
 <table width="100%" border="0" cellspacing="0" cellpadding="4">
   <tr>
     <td style=" line-height:220%; color:#666666; padding-left:15px;"><table border="0" cellpadding="0" cellspacing="0" class="link_lan">
       <tr>
-        <td width="400"  >系统当前版本：v{#$system_info.version#}.{#$system_info.release#}<span id="update_notice"></span></td>
-        <td  >认证授权：<span id="certification">载入中...</span>
+        <td width="400"  >現在システムバージョン：v{#$system_info.version#}.{#$system_info.release#}<span id=“update_notice"></span></td>
+        <td  >認証と承認：<span id="certification">载入中...</span>
         </td>
       </tr>
       <tr>
-        <td  >版权所有：骑士cms<br /></td>
-        <td  > 官方论坛：<a href="http://www.jp.highwayns.com" target="_blank">www.jp.highwayns.com</a></td>
+        <td  >著作権：Highwayns<br /></td>
+        <td  > 公式フォーラム：<a href="http://www.highwayns.com" target="_blank">highwayns.com</a></td>
       </tr>
       <tr>
-        <td  >程序开发：74cms程序开发组</td>
-        <td  >官方论坛：<a href="http://www.jp.highwayns.com/bbs" target="_blank">www.jp.highwayns.com/bbs/</a></td>
+        <td  >プログラム開発：highwaynsプログラム開発グループ</td>
+        <td  >公式フォーラム：<a href="https://github.com/highwayns/highwayns" target="_blank">https://github.com/highwayns/highwayns</a></td>
       </tr>
     </table></td>
   </tr>
 </table>
-<div class="toptit">系统信息</div>
+<div class="toptit">システム情報</div>
 <table width="100%" border="0" cellspacing="0" cellpadding="4">
   <tr>
     <td style="  color:#666666; padding-left:15px;line-height:220%;">
 	<table border="0" cellpadding="0" cellspacing="0" class="link_lan">
       <tr>
-        <td width="400"  >操作系统：{#$system_info.os#}</td>
-        <td  >PHP 版本：{#$system_info.php_ver#}</td>
+        <td width="400"  >システム操作：{#$system_info.os#} </td>
+        <td  >PhPのバージョン：{#$system_info.php_ver#} </td>
       </tr>
       <tr>
-        <td  >服务器软件：{#$system_info.web_server#}<br /></td>
-        <td  >MySQL 版本：{#$system_info.mysql_ver#}</td>
+        <td  >サーバーソフトウェア：{#$system_info.web_server#} <BR /></td>
+        <td  >MySQLバージョン：{#$system_info.mysql_ver#} </td>
       </tr>
     </table></td>
   </tr>
 </table>
-<div class="toptit">官方动态</div>
+<div class="toptit">公式ダイナミック</div>
 <table width="100%" border="0" cellspacing="0" cellpadding="4">
   <tr>
     <td style=" line-height:220%; color:#666666; padding-left:15px;">
-	<span id="announcement" class="link_lan">载入中...</span>
+	<span id="announcement" class="link_lan">読み込んでいます… </span>
 	</td>
   </tr>
 </table>
 </div>
 {#include file="sys/admin_footer.htm"#}
 </body>
-<script src="http://www.jp.highwayns.com/plus/external.php?version={#$system_info.version#}&release={#$system_info.release#}&certification={#$site_domain#}&announcement=1" language="javascript"></script>
+<script src="http://highwayns.com/plus/external.php?version={#$system_info.version#}&release={#$system_info.release#}&certification={#$site_domain#}&announcement=1" language="javascript"></script>
 </html>

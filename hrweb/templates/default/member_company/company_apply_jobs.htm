@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/ui-dialog.css" rel="stylesheet" type="text/css" />
@@ -73,7 +73,7 @@ $(document).ready(function(){
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 收到的简历</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > 受け取った履歴書</div>
 <div class="usermain">
   <div class="leftmenu  com link_bk">
   	 {#include file="member_company/left.htm"#}
@@ -83,42 +83,42 @@ $(document).ready(function(){
 		<div class="topnav get_resume">
 			<div class="titleH1"><div class="h1-title">收到的简历</div></div>
 			<div class="navs link_bk">
-				<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>所有简历<span class="check">({#$count#})</span></a>
-				<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>未查看<span class="no_check">({#$count1#})</span></a>
-				<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>已查看<span class="check">({#$count2#})</span></a>
+				<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>すべての履歴書 <span class="check">({#$count#})</span></a>
+				<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>未レビュー<span class=“no_check">({#$count1#})</span></a>
+				<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>閲覧済み<span class="check">({#$count2#})</span></a>
 				<div class="clear"></div>
 			</div>
 		</div>
 		<form id="form1" name="form1" method="post" action="?act=set_apply_jobs">
 		<div class="company-data-list">
 			<div class="c-data-top apply_jobs clearfix">
-				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" /></div>
+				<div class="item f-left check-item"><input type="checkbox" name="chkAll"  id="chk" title=“全部選択/逆選択" /></div>
 				<div class="item f-left top-item1">
 					<div class="data-filter span1">
-						<span class="filter-span">{#if $smarty.get.state_cn==''#}标签{#else#}{#$smarty.get.state_cn#}{#/if#}<i class="filter-icon"></i></span>
+						<span class="filter-span">{#if　$smarty.get.state_cn == ‘’ #} {#}の#elseタグ{#$smarty.get.state_cn#} {#/if#} <i class="filter-icon"></i></span>
 						<ul class="filter-down">
 							<li><a href="{#"state:,state_cn:全部"|highway_parse_url#}">全部</a></li>
-							<li><a href="{#"state:1,state_cn:合适"|highway_parse_url#}">合适</a></li>
-							<li><a href="{#"state:2,state_cn:不合适"|highway_parse_url#}">不合适</a></li>
-							<li><a href="{#"state:3,state_cn:待定"|highway_parse_url#}">待定</a></li>
-							<li><a href="{#"state:4,state_cn:未接通"|highway_parse_url#}">未接通</a></li>
+							<li><a href="{#"state:1,state_cn:適切""highway_parse_url#}">合适</a></li>
+							<li><a href="{#"state:2,state_cn:不適切"|highway_parse_url#}">不合适</a></li>
+							<li><a href="{#"state:3,state_cn:保留"|highway_parse_url#}">待定</a></li>
+							<li><a href="{#"state:4,state_cn:つながらない"|highway_parse_url#}">未接通</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="item f-left top-item2">姓名</div>
-				<div class="item f-left top-item3">基本信息</div>
+				<div class="item f-left top-item2">名前</div>
+				<div class="item f-left top-item3">基本情報</div>
 				<div class="item f-left top-item4">
 					<div class="data-filter span2">
-						<span class="filter-span">{#if $smarty.get.jobname==''#}应聘职位{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"></i></span>
+						<span class="filter-span">{#if $smarty.get.jobname==‘’#}仕事応募{#else#}{#$smarty.get.jobname#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">
-							<li><a href="{#"jobsid:,jobname:全部职位"|highway_parse_url#}">全部职位</a></li>
+							<li><a href=“{#"jobsid:,jobname:全部职位"|HIGHWAY_parse_url#}">全部职位</a></li>
 							{#foreach from=$jobs item=jos_li#}
 							<li><a href="{#"jobsid:$jos_li.id,jobname:$jos_li.jobs_name"|highway_parse_url#}">{#$jos_li.jobs_name#}</a></li>
 							{#/foreach#}
 						</ul>
 					</div>
 				</div>
-				<div class="item f-left top-item5">申请时间</div>
+				<div class="item f-left top-item5">アプリケーションの時間</div>
 				<div class="item f-left top-item7">操作</div>
 			</div>
 			{#if $jobs_apply#}
@@ -139,7 +139,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<div class="c-item f-left content2"><a href="javascript:;" class="name-link underline">{#$list.fullname#}</a></div>
-					<div class="c-item f-left content3">{#$list.age#}岁/{#$list.education_cn#}/{#$list.experience_cn#}</div>
+					<div class="c-item f-left content3">{#$List.age#}歳/{#$list.education_cn#}/{#$list.experience_cn#}</div>
 					<div class="c-item f-left content4">{#$list.jobs_name#}</div>
 					<div class="c-item f-left content5"><span class="data-time">{#$list.apply_addtime|date_format:"%Y-%m-%d"#}</span></div>					<div class="c-item f-left content7"><a href="javascript:;" class="data-ctrl underline inter-job" resume_id="{#$list.resume_id#}">邀请面试</a>&nbsp;<a href="javascript:;" class="data-ctrl underline ctrl-del" url="?act=apply_jobs_del&y_id={#$list.did#}">删除</a></div>
 				</div>
@@ -147,7 +147,7 @@ $(document).ready(function(){
 					<i class="arrow"></i>
 					{#if $list.resume_education_list#}
 					<div class="detail-block clearfix">
-						<div class="db-type f-left">教育经历：</div>
+						<div class="db-type f-left">教育経験：</div>
 						<div class="db-content f-left">
 							{#foreach from=$list.resume_education_list item=edu_list#}
 							<p class="db-info"><span>{#$edu_list.startyear#}年{#$edu_list.startmonth#}月-{#$edu_list.endyear#}年{#$edu_list.endmonth#}月</span><span>{#$edu_list.school#}</span><span>{#$edu_list.speciality#}</span><span>{#$edu_list.education_cn#}</span></p>
@@ -157,7 +157,7 @@ $(document).ready(function(){
 					{#/if#}
 					{#if $list.resume_work_list#}
 					<div class="detail-block clearfix">
-						<div class="db-type f-left">工作经历：</div>
+						<div class="db-type f-left">実務経験：</div>
 						<div class="db-content f-left">
 							{#foreach from=$list.resume_work_list item=w_list#}
 							<p class="db-info"><span>{#$w_list.startyear#}年{#$w_list.startmonth#}月-{#$w_list.endyear#}年{#$w_list.endmonth#}月</span><span>{#$w_list.companyname#}</span><span>{#$w_list.jobs#}</span></p>
@@ -167,7 +167,7 @@ $(document).ready(function(){
 					{#/if#}
 
 					<div class="detail-block clearfix">
-						<div class="db-type f-left">求职意向：</div>
+						<div class="db-type f-left">キャリア意向：</div>
 						<div class="db-content f-left">
 							<div class="job-flow"><span>期望工作性质 {#$list.nature_cn#}</span> | <span>期望工作地区 {#$list.district_cn#}</span> | <span>期望薪资 <em>{#$list.wage_cn#}</em></span> | <span>期望职位 {#$list.intention_jobs#}</span> | <span>期望行业 {#$list.trade_cn#}</span></div>
 						</div>
@@ -194,15 +194,15 @@ $(document).ready(function(){
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title="全选/反选" /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"  id="chk2" title=“全部選択/逆選択" /></div>
 					<div class="data-last-btn f-left">
-						<input type="submit" name="set" value="设为已查看" class="btn-80-30blue"/>
-						<input type="button" name="delete" value="删除" class="btn-65-30blue ctrl-del" act="?act=apply_jobs_del"/>
+						<input type="submit" name="set" value="閲覧済みに設定" class="btn-80-30blue"/>
+						<input type="button" name="delete" value="削除" class="btn-65-30blue ctrl-del" act="?act=apply_jobs_del"/>
 					</div>
 				</div>
 			</div>
 			{#else#}
-			<div class="emptytip">没有找到对应的信息！</div>
+			<div class="emptytip">該当する情報が見つかりません！</div>
 			{#/if#}
 		</div>
 		</form>

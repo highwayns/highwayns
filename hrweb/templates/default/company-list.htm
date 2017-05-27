@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"HW_company_type,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}黄页  - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄页">
-<meta name="keywords" content="{#$HIGHWAY.site_name#},黄页">
+<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#} - {#/if#}{#if $smarty.get.citycategory#}{#"HW_district,"|cat:$smarty.get.citycategory|highway_categoryname#} - {#/if#}{#if $smarty.get.nature#}{#"HW_company_type,"|cat:$smarty.get.nature|highway_categoryname#} - {#/if#}イェローページ  - {#$HIGHWAY.site_name#}</title>
+<meta name="description" content="{#if $smarty.get.trade#}{#"HW_trade,"|cat:$smarty.get.trade|highway_categoryname#}，{#/if#}{#$HIGHWAY.site_name#} - 黄頁">
+<meta name="keywords" content="{#$HIGHWAY.site_name#},イェローページ">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
@@ -31,14 +31,14 @@
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-	当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>>黄页
+	海威人材：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>>イェローページ
 </div>
 <div class="container">
 	<div id="filterSearch">
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
 				<div class="type-input-box f-left" id="hidden_input_box">
-					<div class="key">{#$smarty.get.key|default:"请输入关键字"#}</div>
+					<div class="key">{#$Smarty.get.key | default:： “キーワードを入力してください" #} </div>
 					<input type="text" name="key" id="key" value="{#$smarty.get.key#}" style="display:none;"/>
 					<input name="trade" id="trade" type="hidden" value="{#$smarty.get.trade#}" />
 					<input name="citycategory" id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}"/>
@@ -47,14 +47,14 @@
 					<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type="button" detype="HW_companylist" id="searcnbtn" value="搜&nbsp;索" /></div>
+			<div class="t-search-btn f-left"><input type = “button" detype = “HW_companylist" ID = “searcnbtn" value= “検&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="trade_result_show">选择行业类别</span><i class="choose-icon"></i>
+							<span class="cc-default" id="trade_result_show">業種選択</span><i class="choose-icon"></i>
 							<!-- 所属行业弹出框 -->
 							<div class="aui_outer" id="aui_outer">
 								<table class="aui_border">
@@ -68,9 +68,9 @@
 																<td class="aui_main">
 																	<div class="aui_content">
 																		<div class="items jquery-localdata">
-																			<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+																			<div class="selector-header"><span class="selector-title">業界選択</span><div></div><span id="tr-selector-save" class="selector-save">確定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong>件、 <strong id="arstrade" class="text-warning">0</strong> 件を選択しました</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="item-table">
 																				<table class="options-table options-table-7">
 																					<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
@@ -98,7 +98,7 @@
 				<div class="filter-item f-left">
 					<div class="choose-item">
 						<div class="choose-control">
-							<span class="cc-default" id="city_result_show">选择地区类别</span><i class="choose-icon"></i>
+							<span class="cc-default" id="city_result_show">地区選択</span><i class="choose-icon"></i>
 							<!-- 工作地区弹出框 -->
 							<div class="aui_outer" id="aui_outer_city">
 								<table class="aui_border">
@@ -112,9 +112,9 @@
 																<td class="aui_main">
 																	<div class="aui_content" style="padding: 0px;">
 																		<div class="LocalDataMultiC" style="width:623px;">
-																			<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
+																			<div class="selector-header"><span class="selector-title">地区選択</span><div></div><span id="ct-selector-save" class="selector-save">確定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> 件、<strong ID = “arscity" class= “text-warning"">0</strong> 件を選択しました</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="city_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -136,18 +136,18 @@
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">公司性质：</div>
+				<div class="fl-type f-left">会社のタイプ：</div>
 				<div class="fl-content r-choice f-left">
-					{#highway_get_classify set="列表名:nature,类型:HW_company_type,显示数目:100"#}
+					{#highway_get_classify set="リスト名:nature,タイプ:HW_company_type,表示件数:100"#}
 					{#foreach from=$nature item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.nature#} select{#/if#}" type="nature" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
 				</div>
 			</div>
 			<div class="filter-list-wrap clearfix">
-				<div class="fl-type f-left">公司规模：</div>
+				<div class="fl-type f-left">会社規模： </div>
 				<div class="fl-content f-left">
-					{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+					{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 					{#foreach from=$c_scale item=list#}
 					<div class="fl-content-li{#if $list.id == $smarty.get.scale#} select{#/if#}" type="scale" code="{#$list.id#}">{#$list.categoryname#}</div>
 					{#/foreach#}
@@ -155,19 +155,19 @@
 			</div>
 		</div>
 		<div class="fliter-result clearfix" id="has_result">
-			<div class="fr-type f-left">已选条件：</div>
+			<div class="fr-type f-left">選択した条件：</div>
 			<div class="fr-content f-left rl">
 			{#if $smarty.get.key#}
 				<div class="has-select-item f-left" type="key">{#$smarty.get.key#}<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.trade#}
-				<div class="has-select-item f-left" type="trade">行业类别<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="trade">産業カテゴリー<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.citycategory#}
-				<div class="has-select-item f-left" type="citycategory">地区类别<i class="fliter-clear-icon"></i></div>
+				<div class="has-select-item f-left" type="citycategory">エリアタイプ<i class=“fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.nature#}
-				{#highway_get_classify set="列表名:nature,类型:HW_company_type,显示数目:100"#}
+				{#highway_get_classify set="リスト名:nature,タイプ:HW_company_type,表示件数:100"#}
 				{#foreach from=$nature item=list#}
 				{#if $list.id == $smarty.get.nature#}
 					<div class="has-select-item f-left" type="nature">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -175,7 +175,7 @@
 				{#/foreach#}
 			{#/if#}
 			{#if $smarty.get.scale#}
-				{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+				{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 				{#foreach from=$c_scale item=list#}
 				{#if $list.id == $smarty.get.scale#}
 					<div class="has-select-item f-left" type="scale">{#$list.categoryname#}<i class="fliter-clear-icon"></i></div>
@@ -188,7 +188,7 @@
 	</div>
 	<div class="left_area link_bk">
 		<ul>
-			{#highway_company_list  set="分页显示:1,列表名:company,显示数目:GET[inforow],填补字符:...,企业名长度:30,地区分类:GET[citycategory],企业性质:GET[nature],描述长度:50,关键字:GET[key],行业:GET[trade],黄页:1,规模:GET[scale],排序:id>desc"#}
+			{#highway_company_list  set="ページング表示:1,リスト名:company,表示件数:GET[inforow],文字:...,企業名長さ:30,地区分類:GET[citycategory],企業性质:GET[nature],描述長さ:50,キーワード:GET[key],業界:GET[trade],黄頁:1,規模:GET[scale],ソート:id>desc"#}
 			{#if $company#}
 			{#foreach from=$company item=list#}
 			<li class="com_box active">
@@ -197,9 +197,9 @@
 					<h6><a href="{#$list.url#}" target="_blank">{#$list.companyname_#}</a></h6>
 					{#if $list.audit=="1"#}<span class="yan"></span>{#/if#}
 					<div class="clear"></div>
-					<p class="w150">行业：{#$list.trade_cn#}</p>
-					<p class="w150">地区：{#$list.district_cn#}</p>
-					<p class="com_i_last">性质：{#$list.nature_cn#}</p>
+					<p class="w150">業界：{#$list.trade_cn#} </P>
+					<p class="w150">地区：{#$list.district_cn#} </P>
+					<p class="com_i_last">プロパティ：{#$list.nature_cn#} </p>
 					<div class="clear"></div>
 					<ul>
 						<li>
@@ -221,7 +221,7 @@
 		      		</table>
 				{#/if#}
 			{#else#}
-				<div class="emptytip">抱歉，没有符合此条件的信息！</div>
+				<div class="emptytip">すみません、この条件に合う情報無し！</div>
 			{#/if#}
 		</ul>
 		<script type="text/javascript">
@@ -247,7 +247,7 @@
 	</div>
 	<div class="right_area">
 		<div class="com-logo-list">
-			{#highway_ad set="显示数目:8,调用名称:HW_yellowpage,列表名:ad,文字长度:12"#}
+			{#highway_ad set="表示件数:8,Call名称:HW_yellowpage,リスト名:ad,文字長さ:12"#}
 			{#foreach from=$ad item=list#}
 			<div class="com-logo-item"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain|default:"广告描述"#}" width="298" height="142" border="0"/></a></div>
 			{#/foreach#}

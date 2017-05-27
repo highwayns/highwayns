@@ -1,4 +1,4 @@
-﻿HTML.ForbiddenElements
+HTML.ForbiddenElements
 TYPE: lookup
 VERSION: 3.1.0
 DEFAULT: array()

@@ -1,18 +1,18 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>个人会员中心</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>個人会員センター</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="highwayns.com" />
 <link href="../css/common.css" rel="stylesheet" type="text/css" />
 <link href="../css/user.css" rel="stylesheet" type="text/css" />
 <link href="../css/user_personal.css" rel="stylesheet" type="text/css" />
 <script src="../js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="../js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function()
@@ -101,10 +101,10 @@ $(document).ready(function()
 		var achievements =$("textarea[name='achievements']").val();
 		$.post("?act=resume_work_save",{id:id,pid:pid,companyname:companyname,jobs:jobs,startyear:startyear,startmonth:startmonth,endyear:endyear,endmonth:endmonth,achievements:achievements},function(data){
 			if(data=="ok"){
-				alert("添加成功");
+				alert("追加成功");
 				window.location.href="?act=resume_work_list&pid="+pid+"";
 			}else if(data=="err"){
-				alert("添加失败");
+				alert("追加失敗");
 			}else{
 				alert(data);
 			}
@@ -120,7 +120,7 @@ $(document).ready(function()
 <body>
 <div class=""></div>
 <div class="sub_head_top">
-	<div class="title">工作经验</div>
+	<div class="title">仕事経験</div>
 	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
 	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
 </div>
@@ -129,16 +129,16 @@ $(document).ready(function()
 <!--快捷按钮 -->
 <div class="topnav" id="topmenu">
   <div class="list" onclick='window.location.href="../index.php";'>
-    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />トップ</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
-    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />職位探す</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
-    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />履歴書探す</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-news-list.php";'>
-    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />ニュース</div>
   </div>
   <div class="clear"></div>
 </div>
@@ -150,26 +150,26 @@ $(document).ready(function()
 	<table class="edit_work_exp">
 		<tbody>
 			<tr>
-				<td class="edit_work_exp_l">公司名称</td>
+				<td class="edit_work_exp_l">会社名称</td>
 				<td class="edit_work_exp_r"><input type="text" name="companyname" id="" class="edit_work_exp_input" value="{#$resume_work.companyname#}"/></td>
 			</tr>
 			<tr>
-				<td class="edit_work_exp_l">职位名称</td>
+				<td class="edit_work_exp_l">職位名称</td>
 				<td class="edit_work_exp_r"><input type="text" name="jobs" id="" class="edit_work_exp_input" value="{#$resume_work.jobs#}"/></td>
 			</tr>
 			<tr>
-				<td class="edit_work_exp_l">开始时间</td>
+				<td class="edit_work_exp_l">開始時間</td>
 				<td class="edit_work_exp_r">
 					<label id="startyear_menu"><div data="{#$resume_work.startyear#}" name="startyear" id="startyear" class="edit_work_exp_samll_input">{#$resume_work.startyear#}</div>年<img src="../images/35.gif" alt="" /></label> 
 					<label id="startmonth_menu"><div data="{#$resume_work.startmonth#}" name="startmonth" id="startmonth" class="edit_work_exp_samll_input">{#$resume_work.startmonth#}</div>月<img src="../images/35.gif" alt="" /></label>
 				</td>
 				<div class="menu choose_menu" id="menuStartYear" style="display:none;position:absolute;z-index:1;">
-		            <div class="menu_title">开始年份</div>
+		            <div class="menu_title">開始年</div>
             		<div class="choose_close"></div>
 		            <ul></ul>
 		        </div>  
 		        <div class="menu choose_menu" id="menuStartMonth" style="display:none;position:absolute;z-index:1;">
-		            <div class="menu_title">开始月份</div>
+		            <div class="menu_title">開始月</div>
             		<div class="choose_close"></div>
 		            <ul>
 		            	<li title="1">1</li>
@@ -188,18 +188,18 @@ $(document).ready(function()
 		        </div> 
 			</tr>
 			<tr>
-				<td class="edit_work_exp_l">结束时间</td>
+				<td class="edit_work_exp_l">終了時間</td>
 				<td class="edit_work_exp_r">
 					<label id="endyear_menu"><div data="{#$resume_work.endyear#}" name="endyear" id="endyear" class="edit_work_exp_samll_input">{#$resume_work.endyear#}</div>年<img src="../images/35.gif" alt="" /></label> 
 					<label id="endmonth_menu"><div data="{#$resume_work.endmonth#}" name="endmonth" id="endmonth" class="edit_work_exp_samll_input">{#$resume_work.endmonth#}</div>月<img src="../images/35.gif" alt="" /></label>
 				</td>
 		       	<div class="menu choose_menu" id="menuEndtYear" style="display:none;position:absolute;z-index:1;">
-		            <div class="menu_title">结束年份</div>
+		            <div class="menu_title">終了年</div>
             		<div class="choose_close"></div>
 		            <ul></ul>
 		        </div>
 		        <div class="menu choose_menu" id="menuEndMonth" style="display:none;position:absolute;z-index:1;">
-		            <div class="menu_title">结束月份</div>
+		            <div class="menu_title">終了月</div>
             		<div class="choose_close"></div>
 		            <ul>
 		            	<li title="1">1</li>
@@ -230,7 +230,7 @@ $(document).ready(function()
 				  $("#menuEndtYear ul").html(yearHtm);
 			</script>
 			<tr>
-				<td class="edit_work_exp_l">工作职责</td>
+				<td class="edit_work_exp_l">仕事責任</td>
 				<td class="edit_work_exp_r">
 					<textarea name="achievements" id="">{#$resume_work.achievements#}</textarea>
 				</td>

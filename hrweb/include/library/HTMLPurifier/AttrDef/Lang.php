@@ -1,18 +1,8 @@
 ﻿<?php
 
-/**
- * Validates the HTML attribute lang, effectively a language code.
- * @note Built according to RFC 3066, which obsoleted RFC 1766
- */
 class HTMLPurifier_AttrDef_Lang extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         $string = trim($string);

@@ -21,7 +21,7 @@ namespace highwayns
         /// Translate hashtable
         /// </summary>
         private Hashtable ht = new Hashtable();
-
+        private int FileCount = 0;
         /// <summary>
         /// GetTranslate information from path into a file
         /// Translate files use the tanslate information from a file
@@ -80,7 +80,7 @@ namespace highwayns
                 string line = sr.ReadLine();
                 while (line != null)
                 {
-                    string[] temp = line.Split("[:]".ToCharArray());
+                    string[] temp = split(line, "[:]");
                     if(temp.Length==2)
                     {
                         ht[temp[0]] = temp[1];
@@ -100,6 +100,14 @@ namespace highwayns
                 foreach (string key in ht.Keys)
                 {
                     sw.WriteLine(key + "[:]" + ht[key].ToString());
+                }
+            }
+            string filename2 = filename+".key";
+            using (StreamWriter sw = new StreamWriter(filename2, false, Encoding.UTF8))
+            {
+                foreach (string key in ht.Keys)
+                {
+                    sw.WriteLine(ht[key].ToString());
                 }
             }
         }
@@ -147,7 +155,11 @@ namespace highwayns
                     }
                     else
                     {
-                        getFileTranslate(file);
+                        if(getFileTranslate(file))
+                        {
+                            FileCount++;
+                            listHis.Items.Add(FileCount.ToString()+" "+ file);
+                        }
                     }
                 }
             }
@@ -161,8 +173,9 @@ namespace highwayns
         /// get Translate information from a file
         /// </summary>
         /// <param name="file"></param>
-        private void getFileTranslate(string file)
+        private bool getFileTranslate(string file)
         {
+            bool result = false;
             using (StreamReader sr = new StreamReader(file, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
@@ -172,10 +185,12 @@ namespace highwayns
                     foreach(string str in ret)
                     {
                         ht[str] = str;
+                        result = true;
                     }
                     line = sr.ReadLine();
                 }                
             }
+            return result;
         }
         /// <summary>
         /// get Translate information from chinese.ini file
@@ -274,18 +289,22 @@ namespace highwayns
         /// <returns></returns>
         private string TranslateLine(string line)
         {
-            string[] temps = line.Split('"');
+            char splitFlg = '"';
+            if (rdbKako.Checked) splitFlg = '>';
+            else if (rdoSingle.Checked) splitFlg = '\'';
+            string[] temps = line.Split(splitFlg);
             if (temps.Length > 2)
             {
                 for (int i = 0; i < (temps.Length - 1) / 2; i++)
                 {
                     if (IsKanji(temps[i * 2 + 1]))
                     {
-                        temps[i * 2 + 1] = ht[temps[i * 2 + 1]].ToString();
+                        if(ht[temps[i * 2 + 1]]!=null)
+                            temps[i * 2 + 1] = ht[temps[i * 2 + 1]].ToString();
                     }
                 }
             }
-            return string.Join("\"",temps);
+            return string.Join(splitFlg.ToString(), temps);
         }
         /// <summary>
         /// get translate information from one line
@@ -295,7 +314,10 @@ namespace highwayns
         private List<string> getTranslate(string line)
         {
             List<string> ret = new List<string>();
-            string[] temps = line.Split('"');
+            char splitFlg = '"';
+            if (rdbKako.Checked) splitFlg = '>';
+            else if (rdoSingle.Checked) splitFlg = '\'';
+            string[] temps = line.Split(splitFlg);
             if(temps.Length>2)
             {
                 for(int i=0;i<(temps.Length-1)/2;i++)
@@ -340,6 +362,7 @@ namespace highwayns
                 return;
             }
             exts = txtExt.Text.Split(',');
+            listHis.Items.Clear();
             GetTranslate(txtPath.Text);
             saveHashtable(txtMiddleFile.Text);
             MessageBox.Show("GetTranslate Over!");
@@ -359,5 +382,61 @@ namespace highwayns
             }
         }
 
+        private void btnCombineKey_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMiddleFile.Text))
+            {
+                MessageBox.Show("Please select a middle File");
+                return;
+            }
+            string filename = txtMiddleFile.Text;
+            loadCombineSource(filename);
+            using (StreamWriter sw = new StreamWriter(filename, false, Encoding.UTF8))
+            {
+                foreach (string key in ht.Keys)
+                {
+                    sw.WriteLine(key + "[:]" + ht[key].ToString());
+                }
+            }
+            MessageBox.Show("Combine Over!");
+        }
+        /// <summary>
+        /// Load Translate infor from middle file
+        /// </summary>
+        private void loadCombineSource(string filename)
+        {
+            string filename2 = filename + ".key";
+
+            using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+            {
+                using (StreamReader sr2 = new StreamReader(filename2, Encoding.UTF8))
+                {
+                    string line = sr.ReadLine();
+                    string line2 = sr2.ReadLine();
+                    while (line != null && line2 != null)
+                    {
+                        string[] temp = split(line,"[:]");
+                        if (temp.Length == 2)
+                        {
+                            ht[temp[0]] = line2;
+                        }
+                        line = sr.ReadLine();
+                        line2 = sr2.ReadLine();
+                    }
+                }
+            }
+
+        }
+
+        private string[] split(string line, string sep)
+        {
+            string[] ret = new string[2];
+            if (line.IndexOf(sep) > -1)
+            {
+                ret[0] = line.Substring(0, line.IndexOf(sep));
+                ret[1] = line.Substring(line.IndexOf(sep) + sep.Length);
+            }
+            return ret;
+        }
     }
 }

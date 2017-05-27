@@ -1,4 +1,4 @@
-﻿HTML.SafeIframe
+HTML.SafeIframe
 TYPE: bool
 VERSION: 4.4.0
 DEFAULT: false

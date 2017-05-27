@@ -1,4 +1,4 @@
-/*
+﻿/*
  * db_proxy_server.cpp
  *
  *  Created on: 2014年7月21日
@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
     }
     string strAesKey(str_aes_key, 32);
     CAes cAes = CAes(strAesKey);
-    string strAudio = "[语音]";
+    string strAudio = "[音声]";
     char* pAudioEnc;
     uint32_t nOutLen;
     if(cAes.Encrypt(strAudio.c_str(), strAudio.length(), &pAudioEnc, nOutLen) == 0)

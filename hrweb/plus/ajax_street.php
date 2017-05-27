@@ -24,7 +24,7 @@ if($act == 'alphabet')
 	}
 	if (empty($htm))
 	{
-	$htm="<div class=\"fl-content-li-nostreet\">没有找到首字母为：<span class=\"le\">{$alphabet}</span> 的道路！</div>";
+	$htm="<div class=\"fl-content-li-nostreet\">頭アルファベット見つかりません：<span class=\"le\">{$alphabet}</span> の道路！</div>";
 	}
 	exit($htm);
 	}
@@ -51,7 +51,7 @@ elseif($act == 'key')
 	}
 	if (empty($htm))
 	{
-	$htm="<div class=\"fl-content-li-nostreet\">没有找到关键字为：<span class=\"le\">{$key}</span> 相关道路！</div>";
+	$htm="<div class=\"fl-content-li-nostreet\">見つかりません、キーワード：<span class=\"le\">{$key}</span> 関連道路！</div>";
 	}
 	exit($htm);
 	}

@@ -1,4 +1,4 @@
-﻿URI.SafeIframeRegexp
+URI.SafeIframeRegexp
 TYPE: string/null
 VERSION: 4.4.0
 DEFAULT: NULL

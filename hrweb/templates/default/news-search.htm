@@ -3,11 +3,11 @@
 <head>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{#$smarty.get.key#} - 资讯中心 - {#$HIGHWAY.site_name#}</title>
-<meta name="description" content="{#$smarty.get.key#} 资讯中心">
-<meta name="keywords" content="{#$smarty.get.key#} 资讯中心">
+<title>{#$Smarty.get.key#}  - ニュース -  {#$HIGHWAY.site_name#} </title>
+<meta name="description" content="{#$smarty.get.key#} ニュースセンター">
+<meta name="keywords" content="{#$smarty.get.key#} ニュースセンター">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
@@ -21,7 +21,7 @@ $(document).ready(function(){
 	});
 	function news_search_location(key)
 	{
-		$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+		$("body").append('<div id="pageloadingbox">ロードページ…. </div><div id="pageloadingbg"></div>');
 		$("#pageloadingbg").css("opacity", 0.5);
 		$.get("{#$HIGHWAY.site_dir#}plus/ajax_search_location.php", {"act":"HW_newssearch","key":key},
 				function (data,textStatus)
@@ -37,7 +37,7 @@ $(document).ready(function(){
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;搜索结果
+当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>&nbsp;<a href="{#"HW_news"|highway_url#}">新闻资讯</a>&nbsp;>&nbsp;搜索结果
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
@@ -52,11 +52,11 @@ $(document).ready(function(){
 					<!-- 列表 -->
 					<div class="news">
 						<ul>
-							{#highway_news_list set="列表名:news,列表页:HW_newssearch,显示数目:10,标题长度:35,关键字:GET[key],分页显示:1,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc"#}
+							{#highway_news_list set="リスト名:news,列表頁:HW_newssearch,表示件数:10,タイトル長さ:35,キーワード:GET[key],ページング表示:1,タイトル長さ:35,摘要長さ:100,文字:...,ソート:article_order>desc"#}
 							{#foreach from=$news item=list#}
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
-								<p>发布时间：{#$list.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>浏览次数：{#$list.click#}</span></p>
+								<p>発行時間：{#$list.addtime | DaTE_FORMaT： “％Y-％M-％D" #}＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP; <span>浏览次数：{#$list.click#}</span></p>
 								<p>{#$list.briefly#}<a href="{#$list.url#}">[查看全文]</a></p>
 							</li>
 							{#/foreach#}
@@ -76,19 +76,19 @@ $(document).ready(function(){
 		<div class="right_area">
 			<div class="right_search">
 				<!-- <input type="text" class="input_text_180" name="key" id="key" value="{#$smarty.get.key#}"/>
-				<input type="button" value="搜索" class="but70lan search_news" /> -->
+				<input type="button" value="検索" class="but70lan search_news" /> -->
 				<div class="news_search"><input type="text" name="key" id="key" value="{#$smarty.get.key#}" /></div>
-				<button class="news_sreach_but search_news">搜索</button>
+				<button class="news_sreach_but search_news">検索</button>
 			</div>
 			
 			<div class="clear"></div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>资讯分类</h5>
+					<h5>情報分類</h5>
 				</div>
 				<div class="list">
 					<ul class="sort">
-						{#highway_news_category set="列表名:categorylist,名称长度:7,资讯大类:1"#}
+						{#highway_news_category set="リスト名:categorylist,名称長さ:7,ニュース大分類:1"#}
 						{#section loop=$categorylist name=list#}
 						<li {#if $smarty.section.list.index%2>0#}class="s"{#/if#}><a href="{#$categorylist[list].url#}" {#if $category.id==$categorylist[list].id#}class="select"{#/if#}>{#$categorylist[list].categoryname#}</a></li>
 						{#/section#}
@@ -98,11 +98,11 @@ $(document).ready(function(){
 			</div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>热点推荐</h5>
+					<h5>注目推奨</h5>
 				</div>
 				<div class="list">
 					<ol class="hot">
-						{#highway_news_list set="列表名:news,显示数目:7,属性:4,标题长度:16,排序:article_order>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,属性:4,タイトル長さ:16,ソート:article_order>desc"#}
 						{#section loop=$news name=list#}
 						<li class="hot{#$smarty.section.list.index#}"><a href="{#$news[list].url#}" target="_blank">{#$news[list].title#}</a></li>
 						{#/section#}
@@ -111,11 +111,11 @@ $(document).ready(function(){
 			</div>
 			<div class="right_box">
 				<div class="title_box">
-					<h5>最新资讯</h5>
+					<h5>最新ニュース</h5>
 				</div>
 				<div class="list">
 					<ul class="newest">
-						{#highway_news_list set="列表名:news,显示数目:7,标题长度:16,排序:id>desc"#}
+						{#highway_news_list set="リスト名:news,表示件数:7,タイトル長さ:16,ソート:id>desc"#}
 						{#foreach from=$news item=list#}
 						<li><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
 						{#/foreach#}

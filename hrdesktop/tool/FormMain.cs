@@ -65,5 +65,25 @@ namespace highwayns
         {
             (new FormJobOnHighway()).ShowDialog();
         }
+
+        private void btnGoogle_Click(object sender, EventArgs e)
+        {
+            (new FormGoogle()).ShowDialog();
+        }
+
+        private void btnMicrosoft_Click(object sender, EventArgs e)
+        {
+            (new FormMicrosoft()).ShowDialog();
+        }
+
+        private void btnDataClean_Click(object sender, EventArgs e)
+        {
+            (new FormDataClean()).ShowDialog();
+        }
+
+        private void btnCompany_Click(object sender, EventArgs e)
+        {
+            (new FormCompany()).ShowDialog();
+        }
     }
 }

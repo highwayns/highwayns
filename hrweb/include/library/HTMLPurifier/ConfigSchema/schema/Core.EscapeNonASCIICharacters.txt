@@ -1,4 +1,4 @@
-﻿Core.EscapeNonASCIICharacters
+Core.EscapeNonASCIICharacters
 TYPE: bool
 VERSION: 1.4.0
 DEFAULT: false

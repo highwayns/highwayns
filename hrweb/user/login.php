@@ -26,11 +26,11 @@ if($act == 'logout')
 	$logoutjs.="<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".url_rewrite('HW_login')."\";</script>";
 	exit($logoutjs); 
 }
-elseif((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_COOKIE['QS']['uid'])
+elseif((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] && $_COOKIE['HW']['uid'])
 {
-	if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['uid'],$_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['uid'],false,false);
+	update_user_info($_COOKIE['HW']['uid'],false,false);
 	header("Location:".get_member_url($_SESSION['utype']));
 	}
 	else
@@ -43,15 +43,12 @@ elseif((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSI
 	header("Location:".url_rewrite('HW_login'));
 	}
 }
-elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
+elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'])
 {
 	header("Location:".get_member_url($_SESSION['utype']));
 }
 elseif ($act=='login')
 {
-	/**
-	 * 微信扫描登录start
-	 */
     if(intval($_CFG['weixin_apiopen'])==1){
 		$access_token = get_access_token();
 	    $scene_id = rand(1,10000000);
@@ -67,10 +64,7 @@ elseif ($act=='login')
 	    $html = '<img width="120" height="120" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='.$ticket.'">';
 		$smarty->assign('qrcode_img',$html);
 	}
-    /**
-     * 微信扫描登录end
-     */
-	$smarty->assign('title','会员登录 - '.$_CFG['site_name']);
+	$smarty->assign('title','会員登録 - '.$_CFG['site_name']);
 	$smarty->assign('error',$_GET['error']);
 	$smarty->assign('url',$_GET['url']);
 	$captcha=get_cache('captcha');

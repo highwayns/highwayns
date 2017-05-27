@@ -1,24 +1,12 @@
 ﻿<?php
 
-/**
- * Defines allowed CSS attributes and what their values are.
- * @see HTMLPurifier_HTMLDefinition
- */
 class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
 {
 
     public $type = 'CSS';
 
-    /**
-     * Assoc array of attribute name to definition object.
-     * @type HTMLPurifier_AttrDef[]
-     */
     public $info = array();
 
-    /**
-     * Constructs the info array.  The meat of this class.
-     * @param HTMLPurifier_Config $config
-     */
     protected function doSetup($config)
     {
         $this->info['text-align'] = new HTMLPurifier_AttrDef_Enum(
@@ -337,9 +325,6 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         $this->setupConfigStuff($config);
     }
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     protected function doSetupProprietary($config)
     {
         // Internet Explorer only scrollbar colors
@@ -373,9 +358,6 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
 
     }
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     protected function doSetupTricky($config)
     {
         $this->info['display'] = new HTMLPurifier_AttrDef_Enum(
@@ -406,9 +388,6 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         $this->info['overflow'] = new HTMLPurifier_AttrDef_Enum(array('visible', 'hidden', 'auto', 'scroll'));
     }
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     protected function doSetupTrusted($config)
     {
         $this->info['position'] = new HTMLPurifier_AttrDef_Enum(
@@ -432,13 +411,6 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         );
     }
 
-    /**
-     * Performs extra config-based processing. Based off of
-     * HTMLPurifier_HTMLDefinition.
-     * @param HTMLPurifier_Config $config
-     * @todo Refactor duplicate elements into common class (probably using
-     *       composition, not inheritance).
-     */
     protected function setupConfigStuff($config)
     {
         // setup allowed elements

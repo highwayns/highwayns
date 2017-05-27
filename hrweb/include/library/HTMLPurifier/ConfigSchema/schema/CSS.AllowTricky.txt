@@ -1,4 +1,4 @@
-﻿CSS.AllowTricky
+CSS.AllowTricky
 TYPE: bool
 DEFAULT: false
 VERSION: 3.1.0

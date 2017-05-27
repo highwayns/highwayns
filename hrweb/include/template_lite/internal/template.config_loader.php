@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite config_load template internal module
- *
- * Type:	 template
- * Name:	 config_load
- */
 
 $this->_config_module_loaded = true;
 $this->template_dir = $this->_get_dir($this->template_dir);

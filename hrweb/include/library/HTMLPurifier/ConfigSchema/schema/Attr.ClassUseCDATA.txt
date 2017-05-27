@@ -1,4 +1,4 @@
-﻿Attr.ClassUseCDATA
+Attr.ClassUseCDATA
 TYPE: bool/null
 DEFAULT: null
 VERSION: 4.0.0

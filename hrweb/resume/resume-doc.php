@@ -17,7 +17,7 @@ if(($_SESSION['utype']=='2' && $_SESSION['uid']==$uid) || $_SESSION['utype']=='1
 }else{
 	$flag=false;
 }
-if(!$flag) {showmsg('您没有权限！只有个人用户和企业用户可以转换简历',1);exit();}
+if(!$flag) {showmsg('権限がない！個人ユーザと企業ユーザだけ履歴書変換が使える',1);exit();}
 $wheresql=" WHERE  id='{$id}'  AND uid='{$uid}' ";
 $sql = "select * from ".table('resume').$wheresql." LIMIT  1";
 $val=$db->getone($sql);
@@ -39,11 +39,11 @@ if ($val)
 	{
 		if($val['sex']==1)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"先生");
+			$val['fullname']=cut_str($val['fullname'],1,0,"男");
 		}
 		elseif($val['sex']==2)
 		{
-			$val['fullname']=cut_str($val['fullname'],1,0,"女士");
+			$val['fullname']=cut_str($val['fullname'],1,0,"女");
 		}
 		$val['fullname_']=$val['fullname'];	
 	}
@@ -114,8 +114,8 @@ elseif($_CFG['showresumecontact']=='2')//联系方式：会员下载后可见
 		else
 		{
 			$val['fullname']=$val['fullname'];
-			$val['telephone']="下载后可见";
-			$val['email']="下载后可见";
+			$val['telephone']="ダウンロード後ご覧ください";
+			$val['email']="ダウンロード後ご覧ください";
 		}
 	}elseif($_SESSION['utype']=='2' && $_SESSION['uid']==$uid){
 		$val['fullname']=$val['fullname'];
@@ -123,8 +123,8 @@ elseif($_CFG['showresumecontact']=='2')//联系方式：会员下载后可见
 		$val['email']=$val['email'];
 	}else{
 			$val['fullname']=$val['fullname'];
-			$val['telephone']="下载后可见";
-			$val['email']="下载后可见";
+			$val['telephone']="ダウンロード後ご覧ください";
+			$val['email']="ダウンロード後ご覧ください";
 	}
 }
 if ($val['photo']=="1")
@@ -236,7 +236,7 @@ if($val['work_list'])
 }
 else
 {
- $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size: 12px;padding-top: 20px;"><tr>没有填写工作经历</tr></table>';
+ $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0" style="font-size: 12px;padding-top: 20px;"><tr>仕事履歴を入力してください</tr></table>';
 }
 // 培训经历
 $htm.='<table width="700" border="0" align="center" cellpadding="10" cellspacing="0">
@@ -320,12 +320,12 @@ $htm.="<div align=\"center\"><br />
 header("Cache-Control: no-cache, must-revalidate"); 
 header("Pragma: no-cache");   
 header("Content-Type: application/doc"); 
-header("Content-Disposition:attachment; filename={$val['fullname']}的个人简历.doc"); 
+header("Content-Disposition:attachment; filename={$val['fullname']}の個人履歴書.doc"); 
 echo $htm;
 }
 else
 {
- showmsg('简历不存在！',1);
+ showmsg('履歴書存在しません！',1);
  exit();
 }
 function get_this_education($uid,$pid)

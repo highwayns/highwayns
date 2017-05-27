@@ -2,45 +2,20 @@
 
 class HTMLPurifier_URIFilter_Munge extends HTMLPurifier_URIFilter
 {
-    /**
-     * @type string
-     */
     public $name = 'Munge';
 
-    /**
-     * @type bool
-     */
     public $post = true;
 
-    /**
-     * @type string
-     */
     private $target;
 
-    /**
-     * @type HTMLPurifier_URIParser
-     */
     private $parser;
 
-    /**
-     * @type bool
-     */
     private $doEmbed;
 
-    /**
-     * @type string
-     */
     private $secretKey;
 
-    /**
-     * @type array
-     */
     protected $replace = array();
 
-    /**
-     * @param HTMLPurifier_Config $config
-     * @return bool
-     */
     public function prepare($config)
     {
         $this->target = $config->get('URI.' . $this->name);
@@ -53,12 +28,6 @@ class HTMLPurifier_URIFilter_Munge extends HTMLPurifier_URIFilter
         return true;
     }
 
-    /**
-     * @param HTMLPurifier_URI $uri
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool
-     */
     public function filter(&$uri, $config, $context)
     {
         if ($context->get('EmbeddedURI', true) && !$this->doEmbed) {
@@ -90,11 +59,6 @@ class HTMLPurifier_URIFilter_Munge extends HTMLPurifier_URIFilter
         return true;
     }
 
-    /**
-     * @param HTMLPurifier_URI $uri
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     */
     protected function makeReplace($uri, $config, $context)
     {
         $string = $uri->toString();

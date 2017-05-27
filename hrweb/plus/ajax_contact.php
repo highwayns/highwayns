@@ -86,9 +86,9 @@ if($act == 'jobs_contact')
 			{
 			$hashstr=$_GET['hashstr'];
 			$token=md5($val['contact'].$id.$val['telephone']);
-			$contact=$val['contact_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/></li>":"企业设置不对外公开";
-			$telephone=$val['telephone_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}&hashstr={$hashstr}\"  border=\"0\" align=\"absmiddle\"/><a style=\"color:#017fcf\" id=\"tel_show_pic\" href=\"javascript:;\" >[查看]</a> <span  id=\"show_detail\" style='color:#666;display:none'>[联系我时请说明是在&nbsp;".$_CFG['site_name']."&nbsp;上看到的]</span>":"企业设置不对外公开";
-			$email=$val['email_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>":"企业设置不对外公开";
+			$contact=$val['contact_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/></li>":"企業設定公開しません";
+			$telephone=$val['telephone_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=2&id={$id}&token={$token}&hashstr={$hashstr}\"  border=\"0\" align=\"absmiddle\"/><a style=\"color:#017fcf\" id=\"tel_show_pic\" href=\"javascript:;\" >[閲覧]</a> <span  id=\"show_detail\" style='color:#666;display:none'>[ご連絡する時下記情報を付け&nbsp;".$_CFG['site_name']."&nbsp;で見たの]</span>":"企業設定公開しません";
+			$email=$val['email_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=jobs_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>":"企業設定公開しません";
 
 			$html='<div class="c-contact">
 									<div class="contact-item clearfix">
@@ -111,9 +111,9 @@ if($act == 'jobs_contact')
 			}
 			else
 			{
-			$contact=$val['contact_show']=='1'?"{$val['contact']}":"企业设置不对外公开";
-			$telephone=$val['telephone_show']=='1'?"{$val['telephone']}":"企业设置不对外公开</li>";
-			$email=$val['email_show']=='1'?"{$val['email']}":"企业设置不对外公开</li>";
+			$contact=$val['contact_show']=='1'?"{$val['contact']}":"企業設定公開しません";
+			$telephone=$val['telephone_show']=='1'?"{$val['telephone']}":"企業設定公開しません</li>";
+			$email=$val['email_show']=='1'?"{$val['email']}":"企業設定公開しません</li>";
 						$html='<div class="c-contact">
 									<div class="contact-item clearfix">
 										<div class="contact-type f-left">联 系 人：</div>
@@ -222,9 +222,9 @@ elseif($act == 'company_contact')
 			if ($_CFG['contact_img_com']=='2')
 			{
 			$token=md5($val['contact'].$id.$val['telephone']);
-			$contact=$val['contact_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/></li>":"企业设置不对外公开";
-			$telephone=$val['telephone_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>":"企业设置不对外公开";
-			$email=$val['email_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>":"企业设置不对外公开";
+			$contact=$val['contact_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=1&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/></li>":"企業設定公開しません";
+			$telephone=$val['telephone_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>":"企業設定公開しません";
+			$email=$val['email_show']=='1'?"<img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=company_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>":"企業設定公開しません";
 
 			$html='<div class="c-contact">
 									<div class="contact-item clearfix">
@@ -247,9 +247,9 @@ elseif($act == 'company_contact')
 			}
 			else
 			{
-			$contact=$val['contact_show']=='1'?"{$val['contact']}":"企业设置不对外公开";
-			$telephone=$val['telephone_show']=='1'?"{$val['telephone']}":"企业设置不对外公开</li>";
-			$email=$val['email_show']=='1'?"{$val['email']}":"企业设置不对外公开</li>";
+			$contact=$val['contact_show']=='1'?"{$val['contact']}":"企業設定公開しません";
+			$telephone=$val['telephone_show']=='1'?"{$val['telephone']}":"企業設定公開しません</li>";
+			$email=$val['email_show']=='1'?"{$val['email']}":"企業設定公開しません</li>";
 						$html='<div class="c-contact">
 									<div class="contact-item clearfix">
 										<div class="contact-type f-left">联 系 人：</div>
@@ -363,13 +363,13 @@ elseif($act == 'resume_contact')
 			// word 简历
 			if($val['word_resume'])
 			{
-				$word_resume="<a class=\"word_resume\" href=\"".$_CFG['site_dir']."data/word/".$val['word_resume']."\"><img src=\"".$_CFG['site_template']."/images/word_resume.png\"> word简历</a>";
+				$word_resume="<a class=\"word_resume\" href=\"".$_CFG['site_dir']."data/word/".$val['word_resume']."\"><img src=\"".$_CFG['site_template']."/images/word_resume.png\"> word履歴書</a>";
 			}
 			if ($_CFG['contact_img_resume']=='2')
 			{
 			$token=md5($val['fullname'].$id.$val['telephone']);
 			$html="<div class=\"contact-interview\">";
-			$html.="<div class=\"contact-text\">联系方式：<span><img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><em>|</em><img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>".$word_resume."</span></div>";
+			$html.="<div class=\"contact-text\">連絡先：<span><img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=2&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/><em>|</em><img src=\"{$_CFG['site_dir']}plus/contact_img.php?act=resume_contact&type=3&id={$id}&token={$token}\"  border=\"0\" align=\"absmiddle\"/>".$word_resume."</span></div>";
 			$html.="<div class=\"interview-block\">";
 			$html.="<input id=\"invited\" type=\"button\" value=\"发送面试邀请\" class=\"contact-btn\" resume_id=\"{$id}\" />".$state_htm;
 			$html.="</div>"; 
@@ -378,7 +378,7 @@ elseif($act == 'resume_contact')
 			else
 			{
 			$html="<div class=\"contact-interview\">";
-			$html.="<div class=\"contact-text\">联系方式：<span>".$val['telephone']."<em>|</em>".$val['email'].$word_resume."</span></div>";
+			$html.="<div class=\"contact-text\">連絡先：<span>".$val['telephone']."<em>|</em>".$val['email'].$word_resume."</span></div>";
 			$html.="<div class=\"interview-block\">";
 			$html.="<input id=\"invited\" type=\"button\" value=\"发送面试邀请\" class=\"contact-btn\" resume_id=\"{$id}\" />".$state_htm;
 			$html.="</div>"; 

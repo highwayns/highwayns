@@ -40,6 +40,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,17 +61,35 @@
     <Compile Include="FormAddress.Designer.cs">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompany.Designer.cs">
+      <DependentUpon>FormCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDataBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDataBase.Designer.cs">
       <DependentUpon>FormDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDataClean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataClean.Designer.cs">
+      <DependentUpon>FormDataClean.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDBData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDBData.Designer.cs">
       <DependentUpon>FormDBData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGoogle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGoogle.Designer.cs">
+      <DependentUpon>FormGoogle.cs</DependentUpon>
     </Compile>
     <Compile Include="FormJobOnHighway.cs">
       <SubType>Form</SubType>
@@ -107,6 +127,12 @@
     <Compile Include="FormHighwayTalk.Designer.cs">
       <DependentUpon>FormHighwayTalk.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMicrosoft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMicrosoft.Designer.cs">
+      <DependentUpon>FormMicrosoft.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTranslate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +153,20 @@
     <EmbeddedResource Include="FormAddress.resx">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCompany.resx">
+      <DependentUpon>FormCompany.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDataBase.resx">
       <DependentUpon>FormDataBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDataClean.resx">
+      <DependentUpon>FormDataClean.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDBData.resx">
       <DependentUpon>FormDBData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGoogle.resx">
+      <DependentUpon>FormGoogle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormJobOnHighway.resx">
       <DependentUpon>FormJobOnHighway.cs</DependentUpon>
@@ -151,6 +186,9 @@
     <EmbeddedResource Include="FormHighwayTalk.resx">
       <DependentUpon>FormHighwayTalk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMicrosoft.resx">
+      <DependentUpon>FormMicrosoft.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTranslate.resx">
       <DependentUpon>FormTranslate.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +205,9 @@
       <DependentUpon>FormAndroid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <Content Include="JobList.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="KEN_ALL_ROME.CSV">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -179,9 +220,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="お客様テンプレート.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="テーブル定義書.xls">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="派遣会社一覧.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="jobs.txt">

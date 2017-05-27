@@ -24,7 +24,7 @@ elseif($act=="user_email"){
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_email_key#}',$_SESSION['send_email_key'],$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-	$contents=str_replace('{#$notice#}','接收HR面试邀请',$contents);
+	$contents=str_replace('{#$notice#}','面接誘いをアクセプト',$contents);
 	exit($contents);
 }	
 elseif($act=="user_mobile"){
@@ -35,7 +35,7 @@ elseif($act=="user_mobile"){
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-	$contents=str_replace('{#$notice#}','接收HR来电',$contents);
+	$contents=str_replace('{#$notice#}','HR電話許可',$contents);
 	exit($contents);
 }
 elseif($act=="old_mobile"){
@@ -56,7 +56,7 @@ elseif($act=="edit_mobile"){
 	$contents=str_replace('{#$send_mobile_key#}',$_SESSION['send_mobile_key'],$contents);
 	$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 	$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-	$contents=str_replace('{#$notice#}','接收HR来电',$contents);
+	$contents=str_replace('{#$notice#}','HR電話許可',$contents);
 	exit($contents);
 }
 elseif($act=="tpl"){
@@ -73,7 +73,7 @@ elseif($act=="tpl"){
 	$html = "";
 	if(!empty($resumetpl)){
 		foreach ($resumetpl as $key => $value) {
-			$html_l.='<label><input type="radio" id="tpl_pid" name="resume_tpl" value="'.$value["tpl_dir"].'" class="radio set_tpl" '.($resume_basic['tpl']==$value['tpl_dir']?'checked':'').'>'.$value["tpl_name"].($resume_basic['tpl']==$value['tpl_dir']?'<span>[当前]</span>':'').'</label>';
+			$html_l.='<label><input type="radio" id="tpl_pid" name="resume_tpl" value="'.$value["tpl_dir"].'" class="radio set_tpl" '.($resume_basic['tpl']==$value['tpl_dir']?'checked':'').'>'.$value["tpl_name"].($resume_basic['tpl']==$value['tpl_dir']?'<span>[現在]</span>':'').'</label>';
 			$html.='<div class="resume_box tpl_img'.$value["tpl_dir"].'" '.($resume_basic['tpl']==$value['tpl_dir']?'style="display:block"':'style="display:none"').'>
 					<div class="img"><img src="'.$_CFG["site_dir"].'templates/tpl_resume/'.$value["tpl_dir"].'/thumbnail.jpg" alt="" /></div>
 					<p style="margin-top:10px;"><a target="_blank" href="'.$resume_url.'&style='.$value["tpl_dir"].'">[预览]</a></p>
@@ -100,33 +100,33 @@ elseif($act == "save_tpl"){
 	exit("1");
 }
 elseif($act == "del_resume"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
 	exit($contents);
 }
 elseif($act == "refresh_resume"){
-	$resumeid = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择简历！");
+	$resumeid = intval($_GET['id'])?intval($_GET['id']):exit("履歴書されていません！");
 	$refrestime=get_last_refresh_date($_SESSION['uid'],"2001");
 	$duringtime=time()-$refrestime['max(addtime)'];
 	$space = $_CFG['per_refresh_resume_space']*60;
 	$refresh_time = get_today_refresh_times($_SESSION['uid'],"2001");
 	if($_CFG['per_refresh_resume_time']!=0&&($refresh_time['count(*)']>=$_CFG['per_refresh_resume_time']))
 	{
-	exit("每天最多只能刷新".$_CFG['per_refresh_resume_time']."次,您今天已超过最大刷新次数限制！");	
+	exit("毎日最大更新件数".$_CFG['per_refresh_resume_time']."回,今日最大更新回数を超えた！");	
 	}
 	elseif($duringtime<=$space){
-	exit($_CFG['per_refresh_resume_space']."分钟内不能重复刷新简历！");
+	exit($_CFG['per_refresh_resume_space']."分内履歴書重複更新できません！");
 	}
 	else 
 	{
-	refresh_resume($resumeid,$_SESSION['uid'])?exit("1"):exit('操作失败！');
+	refresh_resume($resumeid,$_SESSION['uid'])?exit("1"):exit('操作失敗！');
 	}
 }
 elseif($act == "del_resume_edu"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择教育经历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("教育職歴選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_edu_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -135,8 +135,8 @@ elseif($act == "del_resume_edu"){
 	exit($contents);
 }
 elseif($act == "del_resume_work"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择工作经历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("仕事職歴選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_work_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -145,8 +145,8 @@ elseif($act == "del_resume_work"){
 	exit($contents);
 }
 elseif($act == "del_resume_training"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择培训经历！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("訓練職歴を選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_training_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -155,8 +155,8 @@ elseif($act == "del_resume_training"){
 	exit($contents);
 }
 elseif($act == "del_resume_language"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择语言能力！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("言語能力を選択してください！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_language_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);
@@ -165,8 +165,8 @@ elseif($act == "del_resume_language"){
 	exit($contents);
 }
 elseif($act == "del_resume_credent"){
-	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("您没有选择简历！");
-	$id = intval($_GET['id'])?intval($_GET['id']):exit("您没有选择证书！");
+	$pid = intval($_GET['pid'])?intval($_GET['pid']):exit("履歴書されていません！");
+	$id = intval($_GET['id'])?intval($_GET['id']):exit("証明書を選択しません！");
 	$tpl='../../templates/'.$_CFG['template_dir']."member_personal/ajax_delete_resume_credent_box.htm";
 	$contents=file_get_contents($tpl);
 	$contents=str_replace('{#$resumeid#}',$pid,$contents);

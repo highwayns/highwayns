@@ -8,37 +8,37 @@ $mobile=trim($_POST['mobile']);
 $send_key=trim($_POST['send_key']);
 if (empty($send_key) || $send_key<>$_SESSION['send_mobile_key'])
 {
-exit("效验码错误");
+exit("検証コードエラー");
 }
 $SMSconfig=get_cache('sms_config');
 if ($SMSconfig['open']!="1")
 {
-exit("短信模块处于关闭状态");
+exit("ショートメッセージモジュール無効");
 }
 if ($act=="send_code")
 {
 		if (empty($mobile) || !preg_match("/^(13|15|14|17|18)\d{9}$/",$mobile))
 		{
-		exit("手机号错误");
+		exit("携帯番号エラー");
 		}
 		$sql = "select * from ".table('members')." where mobile = '{$mobile}' LIMIT 1";
 		$userinfo=$db->getone($sql);
 		if ($userinfo && $userinfo['uid']<>$_SESSION['uid'])
 		{
-		exit("手机号已经存在！请填写其他手机号码");
+		exit("携帯番号既に存在します！その他携帯番号を入力してください");
 		}
 		elseif(!empty($userinfo['mobile']) && $userinfo['mobile_audit']=="1" && $userinfo['mobile']==$mobile)
 		{
-		exit("你的手机号 {$mobile} 已经通过验证！");
+		exit("携帯番号 {$mobile} 検証済み！");
 		}
 		else
 		{
 			if ($_SESSION['send_time'] && (time()-$_SESSION['send_time'])<180)
 			{
-			exit("请180秒后再进行验证！");
+			exit("180秒後再検証してください！");
 			}
 			$rand=mt_rand(100000, 999999);	
-			$r=captcha_send_sms($mobile,"感谢您使用{$_CFG['site_name']}手机认证,验证码为:{$rand}");
+			$r=captcha_send_sms($mobile,"{$_CFG['site_name']}携帯認定有難うございます,検証コードは:{$rand}");
 			if ($r=="success")
 			{
 			$_SESSION['mobile_rand']=$rand;
@@ -48,7 +48,7 @@ if ($act=="send_code")
 			}
 			else
 			{
-			exit("SMS配置出错，请联系网站管理员");
+			exit("SMS配置エラー，ウェブ管理者に連絡");
 			}
 		} 
 }
@@ -57,14 +57,14 @@ elseif ($act=="verify_code")
 	$verifycode=trim($_POST['verifycode']);
 	if (empty($verifycode) || empty($_SESSION['mobile_rand']) || $verifycode<>$_SESSION['mobile_rand'])
 	{
-		exit("验证码错误");
+		exit("確認コードエラー");
 	}
 	else
 	{
 			$uid=intval($_SESSION['uid']);
 			if (empty($uid))
 			{
-				exit("系统错误，UID丢失！");
+				exit("システムエラー，UID失った！");
 			}
 			else
 			{
@@ -95,7 +95,7 @@ elseif ($act=="verify_code")
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['verifymobile']['type']=="1"?"+":"-";
 							$_SESSION['handsel_verifymobile']=$_CFG['points_byname'].$operator.$rule['verifymobile']['value'];
-							write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 手机通过验证，{$_CFG['points_byname']}({$operator}{$rule['verifymobile']['value']})，(剩余:{$user_points})",1,1016,"手机认证通过","{$operator}{$rule['verifymobile']['value']}","{$user_points}");
+							write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username']," 携帯番号検証済み，{$_CFG['points_byname']}({$operator}{$rule['verifymobile']['value']})，(残る:{$user_points})",1,1016,"携帯認定済み","{$operator}{$rule['verifymobile']['value']}","{$user_points}");
 							}
 						}
 					}elseif ($_SESSION['utype']=='4' && $_CFG['operation_train_mode']=='1')
@@ -113,7 +113,7 @@ elseif ($act=="verify_code")
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['train_verifymobile']['type']=="1"?"+":"-";
 							$_SESSION['handsel_verifymobile']=$_CFG['train_points_byname'].$operator.$rule['train_verifymobile']['value'];
-							write_memberslog($_SESSION['uid'],4,9101,$_SESSION['username']," 手机通过验证，{$_CFG['train_points_byname']}({$operator}{$rule['train_verifymobile']['value']})，(剩余:{$user_points})");
+							write_memberslog($_SESSION['uid'],4,9101,$_SESSION['username']," 携帯検証済み，{$_CFG['train_points_byname']}({$operator}{$rule['train_verifymobile']['value']})，(残る:{$user_points})");
 							}
 						}
 					}elseif ($_SESSION['utype']=='3' && $_CFG['operation_hunter_mode']=='1')
@@ -131,7 +131,7 @@ elseif ($act=="verify_code")
 							$user_points=get_user_points($_SESSION['uid']);
 							$operator=$rule['hunter_verifymobile']['type']=="1"?"+":"-";
 							$_SESSION['handsel_verifymobile']=$_CFG['hunter_points_byname'].$operator.$rule['hunter_verifymobile']['value'];
-							write_memberslog($_SESSION['uid'],3,9201,$_SESSION['username']," 手机通过验证，{$_CFG['hunter_points_byname']}({$operator}{$rule['hunter_verifymobile']['value']})，(剩余:{$user_points})");
+							write_memberslog($_SESSION['uid'],3,9201,$_SESSION['username'],"携帯番号確認済み，{$_CFG['hunter_points_byname']}({$operator}{$rule['hunter_verifymobile']['value']})，(残る:{$user_points})");
 							}
 						}
 					}

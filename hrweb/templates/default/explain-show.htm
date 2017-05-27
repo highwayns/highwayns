@@ -1,4 +1,4 @@
-﻿{#highway_explain_show set="说明页ID:GET[id],列表名:show"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿{#highway_explain_show set="説明頁ID:GET[id],リスト名:show"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,7 +6,7 @@
 <meta name="description" content="{#$show.description#}">
 <meta name="keywords" content="{#$show.keywords#}">
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/explain.css" rel="stylesheet" type="text/css" />
@@ -16,18 +16,18 @@
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-  当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>&nbsp;>>&nbsp;{#$show.title#}
+  海威人材：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>&nbsp;>>&nbsp;{#$show.title#}
 </div>
   <!-- 主体内容 -->
   <div class="container link_bk">
     <div class="about_left">
-      {#highway_explain_list set="列表名:explain,分类ID:1"#}
-      <h2 class="about_tit">关于我们</h2>
+      {#highway_explain_list set="リスト名:explain,分類ID:1"#}
+      <h2 class="about_tit">会社概要</h2>
       <ul>
         {#foreach from=$explain item=list#}
         <li {#if $smarty.get.id==$list.id#}class="active"{#/if#}><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
         {#/foreach#}
-        <li><a href="{#$HIGHWAY.site_dir#}suggest">意见反馈</a></li>
+        <li><a href="{#$HIGHWAY.site_dir#}suggest">お問合せ</a></li>
       </ul>
     </div>
     <div class="about_right">

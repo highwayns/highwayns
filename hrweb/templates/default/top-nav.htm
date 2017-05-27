@@ -1,6 +1,6 @@
-﻿<a href="{#$HIGHWAY.site_dir#}mobile/" class="mphone">手机频道</a>
-<a href="{#$HIGHWAY.site_dir#}">网站首页</a>
-<a href="{#$HIGHWAY.site_dir#}plus/shortcut.php">保存到桌面</a>
+﻿<a href="{#$HIGHWAY.site_dir#}mobile/" class="mphone">モバイルチャンネル</a>
+<a href="{#$HIGHWAY.site_dir#}">ホームページ</a>
+<a href="{#$HIGHWAY.site_dir#}plus/shortcut.php">デスクトップに保存します</a>
 <script type="text/javascript">
 //顶部部登录
 $.get("{#$HIGHWAY.site_dir#}plus/ajax_user.php", {"act":"top_loginform"},
@@ -33,7 +33,7 @@ $("#t_so").css("position","");
 );
 $(".top-search-button").click(function()
 {
-	$("body").append('<div id="pageloadingbox">页面加载中....</div><div id="pageloadingbg"></div>');
+	$("body").append('<div id="pageloadingbox">ロードページ…. </div><div id="pageloadingbg"></div>');
 	$("#pageloadingbg").css("opacity", 0.5);
 	$.get("{#$HIGHWAY.site_dir#}plus/ajax_search_location.php", {"act":$(this).attr('id'),"key":$("#top-search-key").val()},
 			function (data,textStatus)

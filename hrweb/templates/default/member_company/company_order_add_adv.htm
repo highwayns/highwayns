@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/user_company.css" rel="stylesheet" type="text/css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
@@ -42,12 +42,12 @@ $(document).ready(function()
   },
     messages: {
     week: {
-    required: "请输入展示期限",
+    required: "展示期限入力",
   digits: "展示期限必须是整数",
-    min: jQuery.format("展示期限不能低于1周")
+    min: jQuery.format("展示期限1週間以上")
    },
    payment_name:{
-    required: "请选择支付方式"
+    required: "支払い方式選択"
    }
   },
   errorPlacement: function(error, element) {
@@ -65,7 +65,7 @@ $(document).ready(function()
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 增值服务</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > 付加価値サービス</div>
 
 <div class="usermain">
   <div class="leftmenu  com link_bk">
@@ -78,20 +78,20 @@ $(document).ready(function()
 		<div class="topnav">
       <div class="titleH1"><div class="h1-title">增值服务</div></div>
       <div class="navs link_bk clearfix">
-        <a href="company_service.php?act=adv_list" class="se">申请广告位</a>
+        <a href="company_service.php?act=adv_list" class="se">アプリケーション広告</a>
       </div>
     </div>
 
 	 	<div style="height:30px;"></div>
   		<div class="bar">
   			<div class="bar_step1">
-  				<p>填写订单</p>
+  				<p>注文の入力</P>
   			</div>
   			<div class="bar_step2 hui">
-  				<p>确认订单</p>
+  				<p>ご注文の確認</P>
   			</div>
   			<div class="bar_step3 hui">
-  				<p>提交订单</p>
+  				<p>オーダーの提出</P>
   			</div>
   		</div>
       <form id="Form1" name="Form1" method="post" action="?act=order_adv_add_save" enctype="multipart/form-data" >
@@ -99,18 +99,18 @@ $(document).ready(function()
   			<table>
   				<tbody>
   					<tr>
-  						<td height="30" width="100">广告位名称：</td>
+  						<td height="30" width="100">スロット名：</td>
   						<td><strong>{#$advinfo.categoryname#}</strong>
                <input type="hidden" name="advid" id="advid" value="{#$advinfo.id#}">
               </td>
   					</tr>
   					<tr>
-  						<td height="30" width="100">展示期限：</td>
+  						<td height="30" width="100">展示期間：</td>
   						<td><input type="text" name="week" id="week" class="input_text_100"/>&nbsp;&nbsp;周</td>
   					</tr>
             <tr id="count">
-              <td height="30" width="100">应付金额：</td>
-              <td><span id="show_val">0</span> 元 <span style="display:none" id="points_expense">(<span id="show_points_val">0</span> 积分)</span></td>
+              <td height="30" width="100">支払い額：</td>
+              <td><span id="show_val">0</span>元 <span style="display:none" id="points_expense">(<span id="show_points_val">0</span> 积分)</span></td>
               <input type="hidden" name="expense_input" id="expense_input">
               <input type="hidden" name="points_expense_input" id="points_expense_input">
             </tr>
@@ -120,7 +120,7 @@ $(document).ready(function()
   				<tbody>
             {#if $HIGHWAY.operation_mode=="1" || $HIGHWAY.operation_mode=="3"#}
   					<tr>
-  						<td height="30" width="100">支付方式：</td>
+  						<td height="30" width="100">お支払い方法：</td>
   						<td width="150"><input type="radio" name="payment_name" value="points" checked/>&nbsp;&nbsp;账户积分</td>
   						<td><p>(您的账户剩余<span>{#$points#}</span>点积分)</p></td>
   					</tr>
@@ -134,7 +134,7 @@ $(document).ready(function()
             {#else#}
             {#section name=payment loop=$payment#}
             <tr>
-              <td height="30" width="100">{#if $smarty.section.payment.index==0#}充值方式：{#/if#}</td>
+              <td height="30" width="100">{#if $smarty.section.payment.index==0#}チャージ方法：{#/if#}</td>
               <td width="150"><input {#if $smarty.section.payment.index==0#}checked{#/if#} type="radio" name="payment_name" value="{#$payment[payment].typename#}" id="payment_name" />&nbsp;&nbsp;<img src="{#$HIGHWAY.site_dir#}include/payment/logo/{#$payment[payment].typename#}.gif" alt=""/></td>
               <td> <p>({#$payment[payment].p_introduction#})</p></td>
             </tr>
@@ -143,7 +143,7 @@ $(document).ready(function()
 
   				</tbody>
   			</table>
-  			<input class="but130lan intrgration_but" type="submit" name="submit" value="充值">
+  			<input class="but130lan intrgration_but" type="submit" name="submit" value="振込">
   		</div> 
       </form>
   	</div>

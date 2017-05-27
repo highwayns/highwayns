@@ -1,36 +1,13 @@
 ﻿<?php
 
-/**
- * Generic pre-transform that converts an attribute with a fixed number of
- * values (enumerated) to CSS.
- */
 class HTMLPurifier_AttrTransform_EnumToCSS extends HTMLPurifier_AttrTransform
 {
-    /**
-     * Name of attribute to transform from.
-     * @type string
-     */
     protected $attr;
 
-    /**
-     * Lookup array of attribute values to CSS.
-     * @type array
-     */
     protected $enumToCSS = array();
 
-    /**
-     * Case sensitivity of the matching.
-     * @type bool
-     * @warning Currently can only be guaranteed to work with ASCII
-     *          values.
-     */
     protected $caseSensitive = false;
 
-    /**
-     * @param string $attr Attribute name to transform from
-     * @param array $enum_to_css Lookup array of attribute values to CSS
-     * @param bool $case_sensitive Case sensitivity indicator, default false
-     */
     public function __construct($attr, $enum_to_css, $case_sensitive = false)
     {
         $this->attr = $attr;
@@ -38,12 +15,6 @@ class HTMLPurifier_AttrTransform_EnumToCSS extends HTMLPurifier_AttrTransform
         $this->caseSensitive = (bool)$case_sensitive;
     }
 
-    /**
-     * @param array $attr
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return array
-     */
     public function transform($attr, $config, $context)
     {
         if (!isset($attr[$this->attr])) {

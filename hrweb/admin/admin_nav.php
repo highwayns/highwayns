@@ -6,7 +6,7 @@ require_once(ADMIN_ROOT_PATH.'include/admin_nav_fun.php');
 require_once(ADMIN_ROOT_PATH.'include/admin_page_fun.php');
 check_permissions($_SESSION['admin_purview'],"site_navigation");
 $act = !empty($_GET['act']) ? trim($_GET['act']) : 'list';
-$smarty->assign('pageheader',"导航栏设置");
+$smarty->assign('pageheader',"ナビ欄設定");
 if($act == 'list')
 {
 	get_token();
@@ -30,8 +30,8 @@ elseif($act == 'site_navigation_all_save')
 		}
 	refresh_nav_cache();
 	$smarty->clear_all_cache();
-	write_log("修改导航成功", $_SESSION['admin_name'],3);
-	adminmsg("修改成功！",2);
+	write_log("ナビ変更成功", $_SESSION['admin_name'],3);
+	adminmsg("変更成功！",2);
 }
 elseif($act == 'site_navigation_add')
 {
@@ -44,18 +44,18 @@ elseif($act == 'site_navigation_add')
 elseif($act == 'site_navigation_add_save')
 {
 	check_token();
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写栏目名称！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('コラム名称を入力してください！',1);
 	$setsqlarr['urltype']=intval($_POST['urltype']);
 		if ($setsqlarr['urltype']=="1")
 		{
-		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('您没有填写链接地址！',1);
+		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('リンクアドレスを入力してください！',1);
 		}
 		else
 		{
-		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('页面调用名丢失！',1);
+		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('ページCall名称をロストしました！',1);
 		}
 	$setsqlarr['list_id']=trim($_POST['list_id']);
-	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('您没有填写打开方式！',1);
+	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('開く方式を入力してください！',1);
 	$setsqlarr['navigationorder']=intval($_POST['navigationorder']);
 	$setsqlarr['display']=$_POST['display'];
 	$setsqlarr['color']=$_POST['tit_color'];
@@ -63,16 +63,16 @@ elseif($act == 'site_navigation_add_save')
 	$setsqlarr['tag']=trim($_POST['tag']);
 	if($db->inserttable(table('navigation'),$setsqlarr))
 	{
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] ="?act=list";
 	refresh_nav_cache();
 	$smarty->clear_all_cache();
-	write_log("添加导航", $_SESSION['admin_name'],3);
-	adminmsg("添加成功！",2,$link);
+	write_log("ナビ追加", $_SESSION['admin_name'],3);
+	adminmsg("追加成功！",2,$link);
 	}
 	else
 	{
-	adminmsg("添加失败！",0);
+	adminmsg("追加失敗！",0);
 	}
 }
 elseif($act == 'del_navigation')
@@ -83,14 +83,14 @@ elseif($act == 'del_navigation')
 	{
 	refresh_nav_cache();
 	$smarty->clear_all_cache();
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] ="?act=";
-	write_log("删除导航", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！",2,$link);
+	write_log("ナビ削除", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！",2,$link);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'site_navigation_edit')
@@ -105,19 +105,19 @@ elseif($act == 'site_navigation_edit')
 elseif($act == 'site_navigation_edit_save')
 {
 	check_token();
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('您没有填写栏目名称！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('コラム名称を入力してください！',1);
 	$setsqlarr['urltype']=intval($_POST['urltype']);
 		if ($setsqlarr['urltype']=="1")
 		{
-		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('您没有填写链接地址！',1);
+		$setsqlarr['url']=trim($_POST['url'])?trim($_POST['url']):adminmsg('リンクアドレスを入力してください！',1);
 		}
 		else
 		{
-		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('页面调用名丢失！',1);
+		$setsqlarr['pagealias']=trim($_POST['pagealias'])?trim($_POST['pagealias']):adminmsg('ページCall名称をロストしました！',1);
 		}
 		//exit($setsqlarr['pagealias']);
 	$setsqlarr['list_id']=trim($_POST['list_id']);
-	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('您没有填写打开方式！',1);
+	$setsqlarr['target']=trim($_POST['target'])?trim($_POST['target']):adminmsg('開く方式を入力してください！',1);
 	$setsqlarr['navigationorder']=intval($_POST['navigationorder']);
 	$setsqlarr['display']=$_POST['display'];
 	$setsqlarr['color']=$_POST['tit_color'];
@@ -128,14 +128,14 @@ elseif($act == 'site_navigation_edit_save')
 	{
 	refresh_nav_cache();
 	$smarty->clear_all_cache();
-	$link[0]['text'] = "返回列表";
+	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] ="?act=list";
-	write_log("修改导航栏目", $_SESSION['admin_name'],3);
-	adminmsg("修改成功！",2,$link);
+	write_log("ナビ欄変更", $_SESSION['admin_name'],3);
+	adminmsg("変更成功！",2,$link);
 	}
 	else
 	{
-	adminmsg("修改失败！",0);
+	adminmsg("変更失敗！",0);
 	}
 }
 elseif($act == 'site_navigation_category')
@@ -154,25 +154,25 @@ elseif($act == 'site_navigation_category_add')
 elseif($act == 'site_navigation_category_add_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有填写名称！',1);
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('名称を入力してください！',1);
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Ｃａｌｌ名を入力してください！',1);
 		if (stripos($setsqlarr['alias'],"hw_")===0)
 		{
-			adminmsg("调用名不能用“hw_”开通",0);
+			adminmsg("CALL名“hw_”使えない",0);
 		}
 		else
 		{
 			$info=get_nav_cat_one($setsqlarr['alias']);
 			if (empty($info))
 			{
-			$link[0]['text'] = "返回列表";
+			$link[0]['text'] = "一覧に戻る";
 			$link[0]['href'] ="?act=site_navigation_category";
-			write_log("添加导航分类", $_SESSION['admin_name'],3);
-			$db->inserttable(table('navigation_category'),$setsqlarr)?adminmsg("添加成功！",2,$link):adminmsg("添加失败！",0);	
+			write_log("ナビ分類追加", $_SESSION['admin_name'],3);
+			$db->inserttable(table('navigation_category'),$setsqlarr)?adminmsg("追加成功！",2,$link):adminmsg("追加失敗！",0);	
 			}
 			else
 			{
-			adminmsg("调用名".$setsqlarr['alias']."已经存在！",0);
+			adminmsg("Call名".$setsqlarr['alias']."既に存在します！",0);
 			}					
 		}
 		
@@ -182,12 +182,12 @@ elseif($act == 'site_navigation_category_del')
 	check_token();
 	if (del_nav_cat(intval($_GET['id'])))
 	{
-	write_log("删除导航分类", $_SESSION['admin_name'],3);
-	adminmsg("删除成功！",2);
+	write_log("ナビ分類削除", $_SESSION['admin_name'],3);
+	adminmsg("削除成功！",2);
 	}
 	else
 	{
-	adminmsg("删除失败！",0);
+	adminmsg("削除失敗！",0);
 	}
 }
 elseif($act == 'site_navigation_category_edit')
@@ -201,26 +201,26 @@ elseif($act == 'site_navigation_category_edit')
 elseif($act == 'site_navigation_category_edit_save')
 {
 	check_token();
-	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('您没有填写名称！',1);
-	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('您没有填写调用名！',1);
+	$setsqlarr['categoryname']=trim($_POST['categoryname'])?trim($_POST['categoryname']):adminmsg('名称を入力してください！',1);
+	$setsqlarr['alias']=trim($_POST['alias'])?trim($_POST['alias']):adminmsg('Ｃａｌｌ名を入力してください！',1);
 	if (stripos($setsqlarr['alias'],"hw_")===0)
 		{
-			adminmsg("调用名不能用“hw_”开通",0);
+			adminmsg("CALL名“hw_”使えない",0);
 		}
 		else
 		{
 			$info=get_nav_cat_one($setsqlarr['alias']);
 			if (empty($info) || $info['alias']==$setsqlarr['alias'])
 			{
-			$link[0]['text'] = "返回列表";
+			$link[0]['text'] = "一覧に戻る";
 			$link[0]['href'] ="?act=site_navigation_category";
 			$wheresql=" id='".intval($_POST['id'])."'";
-			write_log("修改导航分类", $_SESSION['admin_name'],3);
-			!$db->updatetable(table('navigation_category'),$setsqlarr,$wheresql)?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);
+			write_log("ナビ分類変更", $_SESSION['admin_name'],3);
+			!$db->updatetable(table('navigation_category'),$setsqlarr,$wheresql)?adminmsg("変更失敗！",0):adminmsg("変更成功！",2,$link);
 			}
 			else
 			{
-			adminmsg("调用名".$setsqlarr['alias']."已经存在！",0);
+			adminmsg("Call名".$setsqlarr['alias']."既に存在します！",0);
 			}					
 		}
 }

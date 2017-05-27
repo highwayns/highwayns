@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
@@ -15,7 +15,7 @@
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 安全助手</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > セキュリティアシスタント</div>
 
 <div class="usermain">
   <div class="leftmenu personal link_bk">
@@ -30,16 +30,16 @@
  	    <div class="topnav">
 			  
 		 	<div class="titleH1">
-			  <div class="h1-title">安全助手</div>
+			  <div class="h1-title">セキュリティアシスタント</div>
 			</div>
 			<div class="navs">
-				<a href="?act=userprofile">基本资料</a>
-				  <a href="?act=password_edit">密码修改</a>
-				  <a href="?act=authenticate">安全认证</a>
-				  <a href="?act=avatars">头像</a>
-				  <a href="?act=pm">消息{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
-				   <a href="?act=login_log">登录日志</a>
-				   <a href="?act=binding" class="se">账号绑定</a>
+				<a href="?act=userprofile">基本情報</a>
+				  <a href="?act=password_edit">パスワードの変更</a>
+				  <a href="?act=authenticate">安全認証</a>
+				  <a href="?act=avatars">写真</a>
+				  <a href="?act=pm">メッセージ{#if $total#}<span class="h">({#$total#})</span>{#/if#}</a>
+				   <a href="?act=login_log">登録日誌</あ>
+				   <a href="?act=binding" class="se">アカウント結合します</a>
 				<div class="clear"></div>
 			</div>		
 	  	</div>
@@ -50,10 +50,10 @@
 			<table class="new_bindding_table" border="0" cellspacing="0" cellpadding="0">
 				<tbody>
 					<tr bgcolor="#F5F5F5">
-						<th class="bindding_first" align="left" width="250">类别</th>
-						<th align="center" width="200">绑定昵称</th>
-						<th align="center" width="200">绑定时间</th>
-						<th align="center" width="180">状态</th>
+						<th class="bindding_first" align="left" width="250">タイプ</th>
+						<th align="center" width="200">ニックネーム種類</th>
+						<th align="center" width="200">結合時間</th >
+						<th align="center" width="180">ステータス</th>
 					</tr>
 					{#if $HIGHWAY.qq_apiopen=="1"#}
 					<tr>
@@ -74,9 +74,9 @@
 						</td>
 						<td align="center">
 							{#if $user.qq_openid#}
-							已绑定 <a href="?act=del_qq_binding" onclick="return confirm('您确定取消绑定吗?')">[取消绑定]</a>
+							已绑定 <a href="?act=del_qq_binding" onclick="return confirm('設定を取消よろしいでしょうか?')">[アンバインド]</a>
 							{#else#}
-							未绑定 <a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding">[立即绑定]</a>
+							未绑定 <a href="{#$HIGHWAY.site_dir#}user/{#if $HIGHWAY.qq_logintype=='1'#}connect_qq_client.php{#else#}connect_qq_server.php{#/if#}?act=binding">[すぐセットする]</a>
 							{#/if#}
 						</td>
 					</tr>
@@ -100,9 +100,9 @@
 						</td>
 						<td align="center">
 							{#if $user.taobao_access_token#}
-							已绑定 <a href="?act=del_taobao_binding" onclick="return confirm('您确定取消绑定吗?')">[取消绑定]</a>
+							已绑定 <a href="?act=del_taobao_binding" onclick="return confirm('設定を取消よろしいでしょうか?')">[アンバインド]</a>
 							{#else#}
-							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php">[立即绑定]</a>
+							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_taobao.php">[すぐセットする]</a>
 							{#/if#}
 						</td>
 					</tr>
@@ -126,9 +126,9 @@
 						</td>
 						<td align="center">
 							{#if $user.sina_access_token#}
-							已绑定 <a href="?act=del_sina_binding" onclick="return confirm('您确定取消绑定吗?')">[取消绑定]</a>
+							已绑定 <a href="?act=del_sina_binding" onclick="return confirm('設定を取消よろしいでしょうか?')">[アンバインド]</a>
 							{#else#}
-							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_sina.php">[立即绑定]</a>
+							未绑定 <a href="{#$HIGHWAY.site_dir#}user/connect_sina.php">[すぐセットする]</a>
 							{#/if#}
 						</td>
 					</tr>

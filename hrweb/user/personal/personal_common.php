@@ -6,12 +6,12 @@ $smarty->cache = false;
 require_once(HIGHWAY_ROOT_PATH.'include/mysql.class.php');
 require_once(HIGHWAY_ROOT_PATH.'include/fun_personal.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
-if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_COOKIE['QS']['uid'])
+if((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSION['utype'])) &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] && $_COOKIE['HW']['uid'])
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_user.php');
-	if(check_cookie($_COOKIE['QS']['uid'],$_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['uid'],$_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['uid'],false,false);
+	update_user_info($_COOKIE['HW']['uid'],false,false);
 	header("Location:".get_member_url($_SESSION['utype']));
 	}
 	else
@@ -30,9 +30,9 @@ if ($_SESSION['uid']=='' || $_SESSION['username']=='' || intval($_SESSION['uid']
 }
 elseif ($_SESSION['utype']!='2')
 {
-	$link[0]['text'] = "会员中心";
+	$link[0]['text'] = "会員中心";
 	$link[0]['href'] = url_rewrite('HW_login');
-	showmsg('您访问的页面需要 个人会员 登录！',1,$link);
+	showmsg('このページアクセスには個人会員登録が必要です！',1,$link);
 }
 	$act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'index';
 	$user=get_user_info($_SESSION['uid']);	
@@ -44,27 +44,27 @@ elseif ($_SESSION['utype']!='2')
 	}
 	elseif ($user['status']=="2" && $act!='index' && $act!='user_status'  && $act!='user_status_save') 
 	{
-		$link[0]['text'] = "返回会员中心首页";
+		$link[0]['text'] = "会員中心トップに戻る";
 		$link[0]['href'] = 'personal_index.php?act=';
-		exit(showmsg('您的账号处于暂停状态，请联系管理员设为正常后进行操作！',1,$link));	
+		exit(showmsg('アカウントが停止されました，管理者に連絡してください！',1,$link));	
 	}
 	if ($_CFG['login_per_audit_email'] && $user['email_audit']=="0" && $act!='authenticate' && $act!='user_email' && $act!='user_mobile')
 	{
-		$link[0]['text'] = "认证邮箱";
+		$link[0]['text'] = "認定メールボックス";
 		$link[0]['href'] = 'personal_user.php?act=authenticate';
-		$link[1]['text'] = "网站首页";
+		$link[1]['text'] = "ウェブ首页";
 		$link[1]['href'] = $_CFG['site_dir'];
-		showmsg('您的邮箱未认证，认证后才能进行其他操作！',1,$link,true,6);
+		showmsg('メールアドレスが認定しません，認定してください！',1,$link,true,6);
 		exit();
 	}
 	$sms=get_cache('sms_config');
 	if ($_CFG['login_per_audit_mobile'] && $user['mobile_audit']=="0" && $act!='authenticate' && $act!='user_mobile' && $act!='user_email' && $sms['open']=="1")
 	{
-		$link[0]['text'] = "认证手机";
+		$link[0]['text'] = "携帯番号認定";
 		$link[0]['href'] = 'personal_user.php?act=authenticate';
-		$link[1]['text'] = "网站首页";
+		$link[1]['text'] = "ウェブ首页";
 		$link[1]['href'] = $_CFG['site_dir'];
-		showmsg('您的手机未认证，认证后才能进行其他操作！',1,$link,true,6);
+		showmsg('携帯番号認定しません！',1,$link,true,6);
 		exit();
 	}
 	$smarty->assign('user',$user);

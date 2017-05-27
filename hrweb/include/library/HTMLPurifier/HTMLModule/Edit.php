@@ -1,20 +1,10 @@
 ﻿<?php
 
-/**
- * XHTML 1.1 Edit Module, defines editing-related elements. Text Extension
- * Module.
- */
 class HTMLPurifier_HTMLModule_Edit extends HTMLPurifier_HTMLModule
 {
 
-    /**
-     * @type string
-     */
     public $name = 'Edit';
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function setup($config)
     {
         $contents = 'Chameleon: #PCDATA | Inline ! #PCDATA | Flow';
@@ -33,15 +23,8 @@ class HTMLPurifier_HTMLModule_Edit extends HTMLPurifier_HTMLModule
     // Inline context ! Block context (exclamation mark is
     // separator, see getChildDef for parsing)
 
-    /**
-     * @type bool
-     */
     public $defines_child_def = true;
 
-    /**
-     * @param HTMLPurifier_ElementDef $def
-     * @return HTMLPurifier_ChildDef_Chameleon
-     */
     public function getChildDef($def)
     {
         if ($def->content_model_type != 'chameleon') {

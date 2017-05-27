@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite generate_debug_output template internal module
- *
- * Type:	 template
- * Name:	 generate_debug_output
- */
 
 function generate_compiler_debug_output(&$object)
 {

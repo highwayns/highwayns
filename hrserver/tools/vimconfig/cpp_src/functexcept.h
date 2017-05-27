@@ -1,4 +1,4 @@
-// Function-Based Exception Support -*- C++ -*-
+﻿// Function-Based Exception Support -*- C++ -*-
 
 // Copyright (C) 2001, 2004, 2005 Free Software Foundation, Inc.
 //

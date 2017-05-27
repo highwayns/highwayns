@@ -1,11 +1,8 @@
-﻿/**
-***姝ゆ牱寮忔枃浠朵负3.6鐗堟湰棣栭〉鏍峰紡
-**/
 a{text-decoration: none;}
 a.underline:hover{text-decoration: underline;}
-/*棣栧睆鍐呭*/
+/*首屏内容*/
 .complex-main{margin-top: 15px;}
-/*宸﹁竟*/
+/*左边*/
 .complex-main .complex-left{height: 655px;width: 265px;}
 .complex-main .complex-left .job-sort-wrap{position: relative;z-index:60;}
 .complex-main .complex-left .job-sort-wrap .job-sort-control{height: 45px;line-height: 45px;font-size: 16px;color:#fff;padding-left: 16px;position: relative;background-color: #006fcb;cursor: pointer;margin-bottom: 15px;-webkit-transition: all .3s;-moz-transition: all .3s;transition: all .3s;}
@@ -91,7 +88,7 @@ a.underline:hover{text-decoration: underline;}
 .complex-main .complex-left .news-tab .news-tab-box ul li{padding-left: 11px;position: relative;color:#757575;font-size: 14px;width: 225px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;line-height: 18px;margin-top: 10px;*margin-top: 6px;}
 .complex-main .complex-left .news-tab .news-tab-box ul li .tab-icon{position: absolute;top:9px;left:0;width: 3px;height: 3px;background-color: #757575;}
 .complex-main .complex-left .news-tab .news-tab-box ul li a{color:#757575;}
-/*涓棿*/
+/*中间*/
 .complex-main .complex-center{height: 655px;width: 610px;padding-left: 15px;}
 .complex-main .complex-center .search-wrap{height: 45px;margin-bottom: 15px;position:relative;*z-index:62;}
 .complex-main .complex-center .search-wrap .aui_outer{left:0px;top:46px;}
@@ -131,7 +128,7 @@ a.underline:hover{text-decoration: underline;}
 .complex-main .complex-center .block-ad-wrap .block-ad-item .block-ad-info p a{color:#666;}
 .complex-main .complex-center .block-ad-wrap .block-ad-item .block-ad-info p a:hover{color:#0180cf;text-decoration: underline} 
 
-/*鍙宠竟*/
+/*右边*/
 .complex-main .complex-right{height: 655px;width: 295px;padding-left: 15px;overflow:hidden;}
 .complex-main .complex-right .login-block{border:1px solid #e0e0e0;border-top:2px solid #006fcb;height: 327px;overflow: hidden;margin-bottom: 15px;position: relative;}
 .complex-main .complex-right .login-block h4{margin:15px 0 16px 10px;padding-left: 10px;border-left:6px solid #0180cf;font-size: 16px;color:#333;line-height: 18px;height:18px;font-weight: normal;}
@@ -192,7 +189,7 @@ a.underline:hover{text-decoration: underline;}
 .complex-main .complex-right .urgent-block .urgent-list li .u-com{width: 157px;overflow: hidden;white-space: nowrap;color:#666;margin-right: 14px;text-overflow:ellipsis;}
 .complex-main .complex-right .urgent-block .urgent-list li .u-job{width: 70px;overflow: hidden;white-space: nowrap;color:#0180cf;text-overflow:ellipsis;}
 
-/*骞垮憡浣嶉泦涓尯鍩?/
+/*广告位集中区域*/
 .ad-area{}
 .ad-area .ad-row{margin-top: 10px;}
 .ad-area .ad-job-list-i7{margin-top:0px;*margin-top:10px;}
@@ -222,7 +219,7 @@ a.underline:hover{text-decoration: underline;}
 .ad-area .ad-row .ad-item .ad-more-info.info51 .ad-placeholder{width: 228px;height: 58px;}
 .ad-area .ad-row .ad-item .ad-more-info.info51 .ad-job-list li .jobname{width: 100px;}
 .ad-area .ad-row .ad-item .ad-more-info.info51 .ad-job-list li .jobpay{width: 110px;}
-/*鏁版嵁鍒楄〃妗?/
+/*数据列表框*/
 .index-data-wrap{border:1px solid #e0e0e0;background-color: #fff;border-top: 2px solid #ff9900;position: relative;padding:15px;padding-bottom: 0;margin-top: 10px;}
 .index-data-wrap .blue-line{position: absolute;width: 95px;height: 2px;background-color: #0180cf;top:-2px;left:0;}
 .index-data-wrap .data-title-box h4{margin-left:-5px;padding-left: 10px;border-left: 6px solid #0180cf;line-height: 18px;height:18px;font-size: 16px;font-weight: normal;color:#333;}
@@ -230,7 +227,7 @@ a.underline:hover{text-decoration: underline;}
 .index-data-wrap .data-title-box a{color:#999;font-family: "SimSun";}
 .index-data-wrap-i7{*z-index: 1;}
 .index-data-wrap-nmt{margin-top: 0px;*margin-top:10px;}
-/*鍚嶄紒鎷涜仒*/
+/*名企招聘*/
 .famous-list{padding-bottom: 15px;padding-top:10px;}
 .famous-list .famous-items{margin:10px 8px 0 0;width: 265px;padding:0 0 10px 20px;border-bottom: 1px dotted #e0e0e0;position: relative;*z-index:64;}
 .famous-list .famous-items .fc-icon{position: absolute;width: 0;height: 0;border-width:3px;border-color:transparent transparent transparent #656565;border-style:dashed dashed dashed solid;top:6px;left:11px;}
@@ -253,7 +250,7 @@ a.underline:hover{text-decoration: underline;}
 .famous-list .famous-items .famous-more-info p{color:#999;margin-top: 10px;line-height: 14px;margin-bottom: 7px;padding-left: 10px;}
 .famous-list .famous-items .famous-more-info p a{color:#0180cf;}
 
-/*鏈€鏂拌亴浣?/
+/*最新职位*/
 .newest-list{padding-bottom: 15px;}
 .newest-list .newest-items{padding-left: 14px;width: 278px;white-space: nowrap;text-overflow:ellipsis;margin-top:18px;line-height: 18px;position: relative;height:18px;}
 .newest-list .newest-items .nc-icon{position: absolute;width: 0;height: 0;border-width:3px;border-color:transparent transparent transparent #656565;border-style:dashed dashed dashed solid;top:6px;left:4px;}
@@ -261,7 +258,7 @@ a.underline:hover{text-decoration: underline;}
 .newest-list .newest-items .newest-com img{vertical-align: middle;}
 .newest-list .newest-items .newest-job{font-size: 12px;color:#0180cf;margin-left: 12px;display: inline-block;width: 116px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
 
-/*鐓х墖绠€鍘?/
+/*照片简历*/
 .photo-list{padding-bottom: 20px;}
 .photo-list .photo-items{width: 154px;height: 178px;margin:20px 11px 0 0;border:1px solid #e0e0e0;background-color: #f2f2f2;-webkit-transition: border .3s;-moz-transition: border .3s;transition: border .3s;}
 .photo-list .photo-items:hover{border-color:#0180cf;}
@@ -272,7 +269,7 @@ a.underline:hover{text-decoration: underline;}
 .photo-list .photo-items .photo-info{font-size: 12px;color:#666;padding-left: 10px;}
 .photo-list .photo-items .photo-info p{margin-top: 10px;width: 135px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
 
-/*鑱屼綅瀵艰埅*/
+/*职位导航*/
 .job-build{padding-bottom: 15px;}
 .job-build .floor-item{}
 .job-build .floor-item .floor-title{color:#333;line-height: 48px;height:48px;}
@@ -289,7 +286,7 @@ a.underline:hover{text-decoration: underline;}
 .job-build .floor-item .floor-box .floor-ad-box{width: 380px;padding:10px;border-left: 1px solid #e0e0e0;height: 288px;padding-bottom: 0;overflow: hidden;}
 .job-build .floor-item .floor-box .floor-ad-box .floor-ad{width: 378px;height: 60px;margin-bottom: 10px;border:1px solid #e0e0e0;overflow: hidden;}
 
-/*鑱屽満璧勮*/
+/*职场资讯*/
 .job-news-block{padding-top:18px;*padding-bottom: 28px;}
 .job-news-block .jn-left{width: 850px;}
 .job-news-block .jn-left .jn-box{width: 420px;margin-bottom: 28px;height: 100px;overflow: hidden;}
@@ -303,15 +300,15 @@ a.underline:hover{text-decoration: underline;}
 .job-news-block .jn-right li span{font-size: 12px;color:#ff9900;margin-right: 9px;}
 .job-news-block .jn-right li a{color:#666;}
 
-/*鍙嬫儏閾炬帴*/
+/*友情链接*/
 .friendly-link{padding:18px 0 20px 0;}
 .friendly-link a{color:#666;font-size: 12px;margin-right:28px;line-height: 26px;white-space: nowrap;}
 .link_img{}
 .link_img .l_img{float: left;margin:0 16px 20px 0;}
 .link_img .l_img img{width: 150px;height: 50px;}
-/*骞垮憡浣?/
+/*广告位*/
 .ad-1200{width: 1198px;height: 63px;border:1px solid #e0e0e0;overflow: hidden;margin-top: 15px;}
-/*棣栭〉 鐒︾偣鍥?*/
+/*首页 焦点图 */
 #divSmallBox{overflow:hidden;*display:inline;*zoom:1;width:10px;height:10px;margin:0 5px;border-radius:10px;background:#ffffff;}
 #playBox{ width:610px; height:270px;background:#333; position:relative; overflow:hidden;}
 #playBox .oUlplay { width:99999px; position:absolute; left:0; top:0;}

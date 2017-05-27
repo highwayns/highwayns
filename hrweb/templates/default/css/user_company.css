@@ -20,8 +20,8 @@
 .cominfo .lbox .certification a.c.no{background:url(../images/07.jpg) no-repeat 5px -211px;}
 .cominfo .lbox .certification a.w{ padding-right:20px; background:url(../images/07.jpg) no-repeat 5px -320px; padding-bottom:5px; padding-top:2px;}
 .cominfo .lbox .certification a.w.no{background:url(../images/07.jpg) no-repeat 5px -261px;}
-.qshowa {float:left;color:#666666;text-decoration:none;height:20px;line-height:20px;display:block;margin-left:15px;}
-.qshowaBoxD {width:200px;height:20px;line-height:20px;float:left;}
+.hwhowa {float:left;color:#666666;text-decoration:none;height:20px;line-height:20px;display:block;margin-left:15px;}
+.hwhowaBoxD {width:200px;height:20px;line-height:20px;float:left;}
 .cominfo .rbox{width:295px; padding-top:8px; float: left; padding-top:40px; padding-left:25px;}
 /*企业会员中 首页 积分模式*/
 .cominfo .rbox .mode1{}

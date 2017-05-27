@@ -7,19 +7,19 @@ $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'set';
 $locoyspider=get_cache('locoyspider');
 if ($locoyspider['open']<>"1")
 {
-exit("请在网站后台开启火车头采集");
+exit("火車頭を有効にしてください");
 }
 elseif($act=="news")
 {
 	require_once(ADMIN_ROOT_PATH.'include/admin_article_fun.php');
-	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('文章标题不能为空！',1);
+	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):adminmsg('文書タイトルを入力してください！',1);
 	if (ck_article_title($setsqlarr['title']))
 	{
-	exit("添加失败，新闻标题有重复");
+	exit("追加失敗，ニュースタイトル重複");
 	}
-	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):exit('文章所属分类不能为空！');
+	$setsqlarr['type_id']=trim($_POST['type_id'])?trim($_POST['type_id']):exit('文書所属分類が必須！');
 	$setsqlarr['parentid']=get_article_parentid($setsqlarr['type_id']);
-	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):exit('文章内容不能为空！');
+	$setsqlarr['content']=trim($_POST['content'])?trim($_POST['content']):exit('文書の内容を入力してください！');
 	$setsqlarr['tit_color']=intval($_POST['tit_color']);
 	$setsqlarr['tit_b']=intval($_POST['tit_b']);
 	$setsqlarr['author']=trim($_POST['author']);
@@ -52,17 +52,17 @@ elseif($act=="news")
 	$setsqlarr['robot']=1;
 		if ($db->inserttable(table('article'),$setsqlarr))
 		{
-		exit("添加成功");
+		exit("追加成功");
 		}
 		else
 		{
-		exit("添加失败");
+		exit("追加失敗");
 		}
 		exit();
 }
 elseif($act=="jobs")
 {
-$companyname=isset($_POST['companyname'])?trim($_POST['companyname']):exit('公司名称不能为空！');
+$companyname=isset($_POST['companyname'])?trim($_POST['companyname']):exit('会社名が必須！');
 $companyinfo=get_companyinfo($companyname);
 	if ($companyinfo)
 	{
@@ -77,7 +77,7 @@ $companyinfo=get_companyinfo($companyname);
 		}
 		else
 		{
-		exit("添加失败");
+		exit("追加失敗");
 		}
 	} 
 }

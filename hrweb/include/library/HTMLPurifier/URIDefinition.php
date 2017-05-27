@@ -8,19 +8,10 @@ class HTMLPurifier_URIDefinition extends HTMLPurifier_Definition
     protected $postFilters = array();
     protected $registeredFilters = array();
 
-    /**
-     * HTMLPurifier_URI object of the base specified at %URI.Base
-     */
     public $base;
 
-    /**
-     * String host to consider "home" base, derived off of $base
-     */
     public $host;
 
-    /**
-     * Name of default scheme based on %URI.DefaultScheme and %URI.Base
-     */
     public $defaultScheme;
 
     public function __construct()

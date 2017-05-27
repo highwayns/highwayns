@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite compile IF tag - template internal module
- *
- * Type:	 template
- * Name:	 compile_parse_is_expr
- */
 
 function compile_compile_if($arguments, $elseif, $while, &$object)
 {

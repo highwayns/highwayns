@@ -1,4 +1,4 @@
-/*
+﻿/*
  * FileConn.cpp
  *
  *  Created on: 2013-12-9

@@ -7,7 +7,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_common.css" />
 <link rel="stylesheet" href="{#$HIGHWAY.site_template#}css/user_company.css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js"></script>
@@ -34,7 +34,7 @@
 </head>
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 会员服务</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > 会員サービス</div>
 	<div class="usermain">
 		<div class="leftmenu com link_bk">
 			{#include file="member_company/left.htm"#}
@@ -45,29 +45,29 @@
 					<div class="titleH1"><div class="h1-title">我的账户</div></div>
 					<div class="navs link_bk">
 						{#if $HIGHWAY.operation_mode == '1' || $HIGHWAY.operation_mode == '3'#}
-						<a href="company_service.php?act=j_account" {#if $act=='j_account'#}class="se"{#/if#}>我的积分</a>
+						<a href="company_service.php?act=j_account" {#if $act=='j_account'#}class="se"{#/if#}>マイポイント</a>
 						{#/if#}
 						{#if $HIGHWAY.operation_mode == '2' || $HIGHWAY.operation_mode == '3'#}
-						<a href="company_service.php?act=t_account" {#if $act=='t_account'#}class="se"{#/if#}>我的套餐</a>
+						<a href="company_service.php?act=t_account" {#if $act=='t_account'#}class="se"{#/if#}>私のパッケージ</a>
 						{#/if#}
 						<div class="clear"></div>
 					</div>
 				</div>
 				<div class="account-wrap">
 					<div class="account-top-block clearfix">
-						<div class="account-state f-left">账户状态</div>
+						<div class="account-state f-left">アカウントの状態</div>
 						<div class="a-state-content f-left">
 							{#if $HIGHWAY.operation_mode == '2' || $HIGHWAY.operation_mode == '3'#}
-							<span class="account-type">当前套餐：<span>{#$setmeal.setmeal_name#}</span><em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em><a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a></span>
+							<span class="account-type">現在のパッケージ：<span>{#$setmeal.setmeal_name#}</span><em>({#$setmeal.starttime|date_format:"%Y-%m-%d"#} 至 {#if $setmeal.endtime=='0'#}--{#else#}{#$setmeal.endtime|date_format:"%Y-%m-%d"#}{#/if#})</em><a href="company_service.php?act=setmeal_list" class="underline">升级VIP套餐</a></span>
 							{#/if#}
 							{#if $HIGHWAY.operation_mode == '1' || $HIGHWAY.operation_mode == '3'#}
-							<span class="account-type last">当前{#$HIGHWAY.points_byname#}：<span>{#$points#}</span>{#$HIGHWAY.points_quantifier#}<a href="company_service.php?act=order_add" class="underline">积分充值</a></span>
+							<span class="account-type last">目前{#$HIGHWAY.points_byname#}：<span>{#$points#}</span>{#$HIGHWAY.points_quantifier#}<a href="company_service.php?act=order_add" class="underline">积分充值</a></span>
 							{#/if#}
 						</div>
 					</div>
 					<div class="account-ctrl-bar clearfix">
-						<h3 class="f-left">积分规则</h3>
-						<a href="company_service.php?act=j_account&detail=1" class="f-right underline">积分消费明细</a>
+						<h3 class="f-left">ルールポイント</h3>
+						<a href="company_service.php?act=j_account&detail=1" class="f-right underline">ポイント消費明細</a>
 					</div>
 					<div class="account-lost clearfix">
 						{#section name=list loop=$points_rule#}

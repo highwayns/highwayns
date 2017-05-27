@@ -9,13 +9,13 @@ function write_head($table){
 }
 function write_file($file, $sql){
 	/*if(!$fp=@fopen($file, "w+")){
-		adminmsg('打开目标文件出错');
+		adminmsg('目標ファイル開くエラー');
 	}
 	if(!@fwrite($fp, $sql)){
-		adminmsg('写入数据出错');
+		adminmsg('データ書き失敗しました');
 	}
 	if(!@fclose($fp)){
-		adminmsg('关闭目标文件出错');
+		adminmsg('目標ファイル閉じる失敗');
 	}*/
     @file_put_contents($file, $sql);
 	return true;
@@ -28,10 +28,10 @@ function escape_str($str){
 	return $str;
 }
 function get_sqlfile_info($file){
-	$file_info = array('74cms_ver'=>'', 'mysql_ver'=> '', 'add_time'=>'');
+	$file_info = array('highwayns_ver'=>'', 'mysql_ver'=> '', 'add_time'=>'');
     if (!$fp = @fopen($file,'rb'))
 	{
-		adminmsg("打开文件{$file}失败",0);
+		adminmsg("ファイル{$file}開く失敗",0);
 	}
     $str = fread($fp, 200);
     @fclose($fp);
@@ -41,8 +41,8 @@ function get_sqlfile_info($file){
         if ($pos > 0){
             $type = trim(substr($val, 0, $pos), "-\n\r\t ");
             $value = trim(substr($val, $pos+1), "/\n\r\t ");
-            if ($type == '74CMS VERSION'){
-                $file_info['74cms_ver'] = $value;
+            if ($type == 'HIGHWAY VERSION'){
+                $file_info['highwayns_ver'] = $value;
             }
             elseif ($type == 'Mysql VERSION'){
                 $file_info['mysql_ver'] = substr($value,0,3);

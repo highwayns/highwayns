@@ -1,7 +1,4 @@
 ﻿jQuery.extend({   
-    /** 
-      * 清除当前选择内容 
-      */   
      unselectContents: function(){   
         if(window.getSelection)   
              window.getSelection().removeAllRanges();   
@@ -10,9 +7,6 @@
      }   
 });   
 jQuery.fn.extend({   
-    /** 
-      * 选中内容 
-      */   
      selectContents: function(){   
          $(this).each(function(i){   
             var node = this;   
@@ -40,9 +34,6 @@ jQuery.fn.extend({
              }   
          });   
      },   
-    /** 
-      * 初始化对象以支持光标处插入内容 
-      */   
      setCaret: function(){   
         if(!$.browser.msie) return;   
         var initSetCaret = function(){   
@@ -54,9 +45,6 @@ jQuery.fn.extend({
          .select(initSetCaret)   
          .keyup(initSetCaret);   
      },   
-    /** 
-      * 在当前对象光标处插入指定的内容 
-      */   
      insertAtCaret: function(textFeildValue){   
        var textObj = $(this).get(0);   
        if(document.all && textObj.createTextRange && textObj.caretPos){   

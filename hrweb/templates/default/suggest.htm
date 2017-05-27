@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>意见反馈</title>
+<title>フィードバック</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/suggest.css" rel="stylesheet" type="text/css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
@@ -36,14 +36,14 @@ $("#Form1").validate({
   },
     messages: {
       feedback: {
-    required: "请输入内容"
+    required: "内容を入力してください"
    },
    tel: {
-    required: "请输入联系方式"
+    required: "連絡方式を入力してください"
    },
    postcaptcha: {
-    required: "请填写验证码",
-  remote: jQuery.format("验证码错误")  
+    required: "検証コード入力",
+  remote: jQuery.format("検証コードエラー")  
    }
   },
   errorPlacement: function(error, element) {
@@ -56,18 +56,18 @@ $("#Form1").validate({
   }
     });
 jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-  var str="点击获取验证码";
+  var str="点击取得検証コード";
   var flag=true;
   if (str==value)
   {
   flag=false;
   }
   return  flag || this.optional(element) ;
-  }, "请填写验证码");
+  }, "検証コード入力");
 function imgcaptcha(inputID,imgdiv)
 {
   $(inputID).focus(function(){
-    if ($(inputID).val()=="点击获取验证码")
+    if ($(inputID).val()=="点击取得検証コード")
     {
     $(inputID).val("");
     $(inputID).css("color","#333333");
@@ -107,13 +107,13 @@ imgcaptcha("#postcaptcha","#imgdiv");
 {#include file="header.htm"#}
 <!-- 当前位置 -->
 <div class="page_location link_bk">
-	当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a>>意见反馈
+	当前位置：<a href="{#$HIGHWAY.site_dir#}">トップページ</a>>意见反馈
 </div>
 	<!-- 主体内容 -->
 	<div class="container link_bk">
 		<div class="about_left">
-			{#highway_explain_list set="列表名:explain,分类ID:1"#}
-		      <h2 class="about_tit">关于我们</h2>
+			{#highway_explain_list set="リスト名:explain,分類ID:1"#}
+		      <h2 class="about_tit">会社概要</h2>
 		      <ul>
 		        {#foreach from=$explain item=list#}
 		        <li><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
@@ -131,7 +131,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 				<table>
 					<tbody>
 						<tr height="50">
-							<td>意见类型：</td>
+							<td>意見タイプ：</td>
 							<td>
 								<input type="radio" name="infotype" value="1"  checked="checked"/>&nbsp;<span>建议</span>
 								<input type="radio" name="infotype" value="2" />&nbsp;<span>意见</span>
@@ -140,25 +140,25 @@ imgcaptcha("#postcaptcha","#imgdiv");
 							</td>
 						</tr>
 						<tr>
-							<td valign="top">反馈内容：</td>
-							<td><textarea name="feedback" id="feedback" placeholder="所提交的错误、建议信息，尽量描述详细，以便我们更好的修改！"></textarea></td>
+							<td valign="top">フィードバック内容：</td>
+							<td><textarea name="feedback" id="feedback" placeholder="エラー提出し、提案されている情報は、詳細に記述しようとするので、私たちはより良い変更することができます！"></textarea></td>
 						</tr>
 						<tr height="50">
-							<td>联系方式：</td>
-							<td><input type="text" name="tel" id="tel" class="input_text_500" placeholder="您的QQ、邮箱或者电话以便和您沟通，您的信息仅工作人员可见！" /></td>
+							<td>連絡先：</td>
+							<td><input type="text" name="tel" id="tel" class="input_text_500" placeholder="「あなたと通信するために、あなたのQQ、Eメールまたは電話、あなたの情報はスタッフにのみ表示されます！」/></td>
 						</tr>
 						<tr height="50">
-							<td>验证码：</td>
+							<td>コード：</td>
 							<td>
 								<div>
 								  <div id="imgdiv"></div>
-								  <input  class="input_text_300" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+								  <input  class="input_text_300" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
 								</div>
 							</td>
 						</tr>
 						<tr height="50">
 							<td>&nbsp;</td>
-							<td><input type="submit" name="Submit" value="提交" class="but150cheng" /></td>
+							<td><input type="submit" name="Submit" value=“提出" class="but150cheng" /></td>
 						</tr>
 
 					</tbody>

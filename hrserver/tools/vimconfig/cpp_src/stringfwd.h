@@ -1,4 +1,4 @@
-// String support -*- C++ -*-
+﻿// String support -*- C++ -*-
 
 // Copyright (C) 2001, 2002, 2005 Free Software Foundation, Inc.
 //

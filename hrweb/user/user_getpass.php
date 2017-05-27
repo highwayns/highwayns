@@ -11,7 +11,7 @@ $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'enter';
 $smarty->assign('header_nav',"getpass");
 if ($act=='enter')
 {
-	$smarty->assign('title','找回密码 - '.$_CFG['site_name']);
+	$smarty->assign('title','パスワード取得 - '.$_CFG['site_name']);
 	$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
@@ -22,11 +22,11 @@ elseif ($act=='get_pass_step2')
 {
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['getpass_token'])
 	{
-		$link[0]['text'] = "找回密码失败";
+		$link[0]['text'] = "パスワード送信失敗";
 		$link[0]['href'] = "?act=enter";
-		showmsg("找回密码失败，非正常链接",0,$link);
+		showmsg("パスワード再送信失敗，リンク正しくない",0,$link);
 	}
-	$username=$_POST['username']?trim($_POST['username']):showmsg("请输入用户名/邮箱/已验证手机");
+	$username=$_POST['username']?trim($_POST['username']):showmsg("ユーザ名/メールボックス/已検証携帯番号を入力してください");
 	if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$username))
 	{
 		$usinfo=get_user_inemail($username);
@@ -51,7 +51,7 @@ elseif ($act=='get_pass_step2')
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
 	$smarty->assign('usinfo',$usinfo);
-	$smarty->assign('title','找回密码 - 验证身份-'.$_CFG['site_name']);
+	$smarty->assign('title','找回パスワード - 验证身份-'.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step2.htm');
 }
 // 找回密码 第三步
@@ -59,9 +59,9 @@ elseif($act == 'get_pass_step3')
 {
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['getpass_token'])
 	{
-		$link[0]['text'] = "找回密码失败";
+		$link[0]['text'] = "パスワード送信失敗";
 		$link[0]['href'] = "?act=enter";
-		showmsg("找回密码失败，非正常链接",0,$link);
+		showmsg("パスワード再送信失敗，リンク正しくない",0,$link);
 	}
 	$uid=intval($_POST['uid']);
 	$userinfo=get_user_inid($uid);
@@ -69,7 +69,7 @@ elseif($act == 'get_pass_step3')
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
 	$smarty->assign('userinfo',$userinfo);
-	$smarty->assign('title','找回密码 - 设置新密码-'.$_CFG['site_name']);
+	$smarty->assign('title','パスワード送信 - 新パスワード設定-'.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step3.htm');
 }
 elseif($act=="get_pass_step3_email")
@@ -81,29 +81,29 @@ elseif($act=="get_pass_step3_email")
 	$userinfo=get_user_inid($uid);
 	if(empty($userinfo))
 	{
-		$link[0]['text'] = "重新找回密码";
+		$link[0]['text'] = "パスワード再送信";
 		$link[0]['href'] = "?act=enter";
-		showmsg("找回密码失败,用户信息错误",0,$link);
+		showmsg("パスワード再送信失敗,ユーザ情報エラー",0,$link);
 	}
 	$end_time=$time+24*3600;
 	if($end_time<time())
 	{
-		$link[0]['text'] = "重新找回密码";
+		$link[0]['text'] = "パスワード再送信";
 		$link[0]['href'] = "?act=enter";
-		showmsg("找回密码失败,链接过期",0,$link);
+		showmsg("パスワード送信失敗,リンク期限切れ",0,$link);
 	}
 	$key_str=substr(md5($userinfo['username'].$HW_pwdhash),8,16);
 	if($key_str!=$key)
 	{
-		$link[0]['text'] = "重新找回密码";
+		$link[0]['text'] = "パスワード再送信";
 		$link[0]['href'] = "?act=enter";
-		showmsg("找回密码失败,key错误",0,$link);
+		showmsg("パスワード送信失敗,keyエラー",0,$link);
 	}
 	$token=substr(md5(mt_rand(100000, 999999)), 8,16);
 	$_SESSION['getpass_token']=$token;
 	$smarty->assign('token',$token);
 	$smarty->assign('userinfo',$userinfo);
-	$smarty->assign('title','找回密码 - 设置新密码-'.$_CFG['site_name']);
+	$smarty->assign('title','パスワード送信 - 新パスワード設定-'.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step3.htm');
 }
 // 保存 密码
@@ -112,18 +112,18 @@ elseif($act == "get_pass_save")
 	global $HW_pwdhash;
 	if(empty($_POST['token']) || $_POST['token']!=$_SESSION['getpass_token'])
 	{
-		$link[0]['text'] = "重新找回密码";
+		$link[0]['text'] = "パスワード再送信";
 		$link[0]['href'] = "?act=enter";
-		showmsg("找回密码失败，非正常链接",0,$link);
+		showmsg("パスワード再送信失敗，リンク正しくない",0,$link);
 	}
 	$uid=intval($_POST['uid']);
-	$password=$_POST['password']?trim($_POST['password']):showmsg("请输入密码！",1);
+	$password=$_POST['password']?trim($_POST['password']):showmsg("パスワードを入力してください！",1);
 	$userinfo=get_user_inid($uid);
 	if(empty($userinfo))
 	{
-		$link[0]['text'] = "重新找回密码";
+		$link[0]['text'] = "パスワード再送信";
 		$link[0]['href'] = "?act=enter";
-		showmsg("修改密码失败",0,$link);
+		showmsg("変更パスワード失敗",0,$link);
 	}
 	$password_hash=md5(md5($password).$userinfo['pwd_hash'].$HW_pwdhash);
 	$setsqlarr['password']=$password_hash;
@@ -134,13 +134,13 @@ elseif($act == "get_pass_save")
 	}	
 	else
 	{
-		showmsg("设置新密码失败！",1);
+		showmsg("新パスワード設定失敗！",1);
 	}
 }
 // 找回密码 第四步
 elseif($act == "get_pass_sucess")
 {
-	$smarty->assign('title','找回密码 - 找回成功 - '.$_CFG['site_name']);
+	$smarty->assign('title','パスワード忘れた - 送信成功 - '.$_CFG['site_name']);
 	$smarty->display('user/get-pass-step4.htm');
 }
 unset($smarty);

@@ -1,11 +1,4 @@
-﻿/**
- * Created by JetBrains PhpStorm.
- * User: taoqili
- * Date: 12-1-30
- * Time: 下午12:50
- * To change this template use File | Settings | File Templates.
- */
-
+﻿
 
 
 var wordImage = {};
@@ -53,9 +46,6 @@ function addOkListener() {
     }
 }
 
-/**
- * 绑定开始上传事件
- */
 function addUploadListener() {
 	g("upload").onclick = function () {
 		flashObj.upload();

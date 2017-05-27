@@ -1,4 +1,4 @@
-#include "StringUtils.h"
+﻿#include "StringUtils.h"
 #include <string.h>
 
 namespace msfs {

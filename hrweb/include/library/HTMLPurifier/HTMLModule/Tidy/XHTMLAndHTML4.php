@@ -3,9 +3,6 @@
 class HTMLPurifier_HTMLModule_Tidy_XHTMLAndHTML4 extends HTMLPurifier_HTMLModule_Tidy
 {
 
-    /**
-     * @return array
-     */
     public function makeFixes()
     {
         $r = array();

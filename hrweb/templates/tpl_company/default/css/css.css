@@ -1,6 +1,3 @@
-﻿/**
-**姝ゆ牱寮忔枃浠朵负3.6鐗堟湰鐨勪紒涓氫富椤甸粯璁ゆā鏉跨浉鍏虫牱寮忥紝涓嶄笌鍏朵粬鏍峰紡鏂囦欢鍐茬獊锛屽彧鐢ㄤ簬鍏徃涓婚〉鐩稿叧椤甸潰
-**/
 li{line-height: 100%;}
 a{text-decoration: none;color:#0180cf;}
 .f-left{float: left;}
@@ -8,7 +5,7 @@ a{text-decoration: none;color:#0180cf;}
 .company-wrap{border:1px solid #ccc;background-color: #fff;font-family: "SimSun"}
 .company-wrap .com-left{float:left;width: 875px;border-right:1px solid #ccc;min-height: 720px;}
 .company-wrap .com-right{float:right;width: 322px;}
-/*宸﹁竟*/
+/*左边*/
 .compnay-main{padding:17px 20px;}
 .compnay-main .c-top-wrap{height: 70px;overflow: hidden;margin-bottom: 20px;}
 .compnay-main .c-top-wrap .c-logo{width: 198px;height: 68px;overflow: hidden;border:1px solid #dfdfdf;}
@@ -20,7 +17,7 @@ a{text-decoration: none;color:#0180cf;}
 .compnay-main .company-control .c-control-item{text-decoration: none;font-size: 14px;padding:0 22px 15px 22px;color:#666;margin-bottom: -3px;}
 .compnay-main .company-control .c-control-item.active,
 .compnay-main .company-control .c-control-item:hover{border-bottom: 3px solid #0180cf;color:#0180cf;}
-/*鍙宠竟*/
+/*右边*/
 .com-right .ring-group{width: 236px;background: url(../images/com-ring.png) no-repeat top left;margin:38px auto 15px auto;padding-left:16px;}
 .com-right .ring-group .ring-item{text-align: center;}
 .com-right .ring-group .ring-item h4{font-family: Verdana;width: 62px;height: 62px;line-height: 62px;margin:20px 5px;font-size: 14px;font-weight: bold;}
@@ -38,7 +35,7 @@ a{text-decoration: none;color:#0180cf;}
 .com-right .c-right-block .company-img p a{color:#0180cf;margin-left: 5px;}
 .com-right .c-right-block .company-img p a:hover{text-decoration: underline;}
 .com-right .c-right-block .com-code{width: 100px;margin:0 auto;}
-/*鍏徃浠嬬粛*/
+/*公司介绍*/
 .company-info-wrap{font-size: 14px;color:#666;position: relative;margin-bottom: 25px;}
 .company-info-wrap div{max-height: 187px;overflow: hidden;}
 .company-info-wrap div p{line-height: 26px;}
@@ -46,7 +43,7 @@ a{text-decoration: none;color:#0180cf;}
 .company-info-wrap .c-info-more.upup{background: url(../images/com-more-up.png) no-repeat center center;}
 
 .c-left-title{padding-left: 6px;font-size: 14px;color:#333;font-family: "Microsoft Yahei";border-left: 3px solid #0180cf;line-height: 16px;height:16px;margin-bottom: 10px;font-weight: normal;}
-/*鑱屼綅鍒楄〃*/
+/*职位列表*/
 .company-jobs-list{padding-top: 10px;}
 .company-jobs-list .c-jobs-item{width: 208px;margin-bottom: 15px;}
 .company-jobs-list .c-jobs-item .job-name{margin-bottom: 10px;font-size: 14px;width: 198px;padding-right: 10px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
@@ -61,7 +58,7 @@ a{text-decoration: none;color:#0180cf;}
 .job-all{margin-bottom: 20px;font-size: 12px;}
 .job-all a{text-align: right;color:#0180cf;}
 .job-all a:hover{text-decoration: underline;}
-/*鑱旂郴鏂瑰紡*/
+/*联系方式*/
 .com-contact{}
 .com-contact .c-contact{padding-top: 2px;color:#666;}
 .com-contact .c-contact .contact-item{line-height: 20px;font-size: 14px;margin-top: 8px;}
@@ -79,7 +76,7 @@ a{text-decoration: none;color:#0180cf;}
 .no-login p a{color:#666;}
 .no-login p a.login{color:#0180cf;}
 .no-login p a:hover{text-decoration: underline;}
-/*鑱屼綅璇︽儏*/
+/*职位详情*/
 .job-main{}
 .job-main .job-top{border-bottom: 1px dotted #ccc;padding-bottom: 20px;position: relative;margin-bottom: 20px;}
 .job-main .job-top .job-name{font-family: "Microsoft Yahei";font-size: 22px;color:#333;margin-bottom: 10px;font-weight: normal;padding-top: 10px;}
@@ -117,7 +114,7 @@ a{text-decoration: none;color:#0180cf;}
 .job-bottom-share .jubao a:hover{text-decoration: underline;}
 .share-item{line-height: 28px;}
 .share-item span{color:#666;margin-right: 5px;}
-/*鑱屼綅鍒楄〃*/
+/*职位列表*/
 .jobs-list-block{}
 .jobs-list-block .list-title{font-size: 12px;color:#999;}
 .jobs-list-block .list-title span{color:#ff9900;}
@@ -135,7 +132,7 @@ a{text-decoration: none;color:#0180cf;}
 .jobs-list-block .jobs-item .jitem-content a:hover{text-decoration: underline;}
 .list-job-btn{width: 92px;height: 30px;color:#fff;font-size: 12px;background: url(../images/apply-job-btn.png) no-repeat 0px 0px;border:0;cursor: pointer;}
 .list-job-btn:hover{background-position: 0px -40px;}
-/*鏂伴椈鍒楄〃*/
+/*新闻列表*/
 .company-news-list{}
 .company-news-list .company-news-caption{font-size: 12px;color:#999;}
 .company-news-list .news-item{padding:13px 0 10px 0;border-bottom: 1px dotted #ccc;}
@@ -147,7 +144,7 @@ a{text-decoration: none;color:#0180cf;}
 .company-news-list .news-item div{color:#666;}
 .company-news-list .news-item div a{color: #0180cf;white-space: nowrap;margin-left: 3px;}
 .company-news-list .news-item div a:hover{text-decoration: underline;}
-/*鍒嗛〉*/
+/*分页*/
 .page-wrap{float: left;position: relative;left:50%;}
 .page-wrap .page{position: relative;left:-50%;height:26px;font-family: "SimSun";}
 .page-wrap .page .page-content{font-size: 0;}
@@ -158,7 +155,7 @@ a{text-decoration: none;color:#0180cf;}
 .page-wrap .page .page-jump{color:#666;line-height: 26px;padding:0 11px;}
 .page-wrap .page .page-jump input{border:1px solid #cccccc;width: 33px;text-align: center;font-size: 12px;line-height: 14px;height:14px;padding:5px 0;*vertical-align: middle;*padding:4px 0;}
 .page-wrap .page .jump-btn{font-size: 12px;color:#666;border:1px solid #ccc;width: 33px;height:26px;background-color: #f0f0f0;cursor: pointer;font-family: "SimSun";}
-/*璇勮*/
+/*评论*/
 .comment-wrap{}
 .comment-wrap .logoimg{float:left;width:40px;padding:0px 19px;}
 .comment-wrap .logoimg img{width:40px;height:40px;border:none;border-radius:20px;}
@@ -192,7 +189,7 @@ a{text-decoration: none;color:#0180cf;}
 .talk-again .talk-again-item .talk-man a{color:#0180cf;}
 .talk-again .talk-again-item .talk-man .talk-time{color:#999;}
 .talk-again .talk-again-item .talk-content{font-size: 14px;color: #666;line-height: 26px;margin:5px 0;}
-/*鏂伴椈璇︽儏*/
+/*新闻详情*/
 .news-content-wrap{}
 .news-content-wrap .news-title{margin-bottom: 10px;padding-top: 15px;}
 .news-content-wrap .news-title h2{font-size: 18px;color:#333;font-weight: normal;text-align: center;font-family: "Microsoft Yahei";margin-bottom: 15px;}
@@ -208,7 +205,7 @@ a{text-decoration: none;color:#0180cf;}
 .news-next-prev a{color:#0180cf;}
 .news-next-prev a:hover{text-decoration: underline;}
 
-/* 鐒︾偣鍥?*/
+/* 焦点图 */
 #focus { width: 600px; height: 400px; clear: both; overflow: hidden; position: relative; float: left; }
 #focus ul { width: 600px; height: 400px; float: left; position: absolute; clear: both; padding: 0px; margin: 0px; }
 #focus ul li { float: left; width: 600px; height: 400px; overflow: hidden; position: relative; padding: 0px; margin: 0px; }
@@ -216,7 +213,7 @@ a{text-decoration: none;color:#0180cf;}
 #focus .pre { left: 0; background: url(../images/sprite.png) no-repeat left center; }
 #focus .next { right: 0; background: url(../images/sprite1.png) no-repeat right center; }
 
-/*钖叕缁熻鏍峰紡*/
+/*薪酬统计样式*/
 .salary{width:696px;height:248px;background-color:#F5F5F5;border:1px solid #ccc;border-radius:3px;margin:0 auto;margin-bottom:20px;}
 .salary .salary_box{padding:15px;}
 .salary .salary_box h3{font-size:14px;color:#333333;font-weight:normal;margin-bottom:10px;font-family:"microsoft yahei";}

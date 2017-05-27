@@ -81,7 +81,7 @@ function report_audit($id,$audit,$type,$rid)
 			$user_info=get_user($list['uid']);
 			if($type==1) {
 				$jobsurl=url_rewrite('HW_jobsshow',array('id'=>$list['jobs_id']));
-				$setsqlarr['message']="您举报的职位：<a href=\"{$jobsurl}\" target=\"_blank\">{$list['jobs_name']}</a>,经平台核实情况".($audit==2?"属实":"不属实");
+				$setsqlarr['message']="報告された職位：<a href=\"{$jobsurl}\" target=\"_blank\">{$list['jobs_name']}</a>,管理者検証済み".($audit==2?"確実":"不真実");
 			} else {
 				// 企业举报简历 获得积分
 				if ($audit==2 && $rule['company_report_resume_points']['value']>0)
@@ -90,10 +90,10 @@ function report_audit($id,$audit,$type,$rid)
 					report_deal($_SESSION['uid'],$rule['company_report_resume_points']['type'],$rule['company_report_resume_points']['value']);
 					$user_points=get_user_points($_SESSION['uid']);
 					$operator=$rule['company_report_resume_points']['type']=="1"?"+":"-";
-					write_memberslog($user_info['uid'],1,9001,$user_info['username']," 企业举报简历，{$_CFG['points_byname']}({$operator}{$rule['company_report_resume_points']['value']})，(剩余:{$user_points})",1,1016,"企业举报简历","{$operator}{$rule['company_report_resume_points']['value']}","{$user_points}");
+					write_memberslog($user_info['uid'],1,9001,$user_info['username']," 企業履歴書報告，{$_CFG['points_byname']}({$operator}{$rule['company_report_resume_points']['value']})，(残る:{$user_points})",1,1016,"企業報告履歴書","{$operator}{$rule['company_report_resume_points']['value']}","{$user_points}");
 				}
 				$resumeurl=url_rewrite('HW_resumeshow',array('id'=>$list['resume_id']));
-				$setsqlarr['message']="您举报的简历：<a href=\"{$resumeurl}\" target=\"_blank\">{$list['title']}</a>,真实姓名：{$list['fullname']},经平台核实情况".($audit==2?"属实":"不属实");
+				$setsqlarr['message']="履歴書報告：<a href=\"{$resumeurl}\" target=\"_blank\">{$list['title']}</a>,名前：{$list['fullname']},審査合格しました".($audit==2?"確実":"不真実");
 			}
 			$setsqlarr['msgtype']=1;
 			$setsqlarr['msgtouid']=$user_info['uid'];

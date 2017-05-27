@@ -160,57 +160,57 @@ elseif ($act=="top_loginform")
 {
 	$block = isset($_GET['block'])?iconv('utf-8',HIGHWAY_CHARSET,$_GET['block']):'';
 	$contents='';
-	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
+	if ($_COOKIE['HW']['username'] && $_COOKIE['HW']['password'])
 	{
-		$contents='欢迎&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登录！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#0066cc">[会员中心]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" style="color:#0066cc">[退出]</a>';
+		$contents='ようこそ&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#339900">{#$username#}</a> 登録！&nbsp;&nbsp;{#$pmscount_a#}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$user_url#}" style="color:#0066cc">[会員センター]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$logout_url#}" style="color:#0066cc">[終了]</a>';
 	}
 	elseif ($_SESSION['activate_username'] && defined('UC_API'))
 	{
-		$contents=' &nbsp;&nbsp;您的帐号 {#$activate_username#} 需激活后才可以使用！ <a href="{#$activate_url#}" style="color:#339900">立即激活</a>';
+		$contents=' &nbsp;&nbsp;アカウント {#$activate_username#} はＡｃｉｔｖｅしません！ <a href="{#$activate_url#}" style="color:#339900">Ａｃｔｉｖｅ</a>';
 	}
 	else
 	{	
 		if (isset($_GET['block'])) {
-			$contents='您好，欢迎访问{#$site_name#}'.$block.'！';
+			$contents='こんにちは，{#$site_name#}へいらっしゃいませ'.$block.'！';
 		} else {
-			$contents='欢迎来到{#$site_name#}！&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$login_url#}" style="color:#0066cc" >[登录]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$reg_url#}" style="color:#0066cc">[免费注册]</a>';
+			$contents='ようこそ{#$site_name#}！&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$login_url#}" style="color:#0066cc" >[登録]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{#$reg_url#}" style="color:#0066cc">[無料登録]</a>';
 		}
 	}
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
-		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
-		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
+		$contents=str_replace('{#$username#}',$_COOKIE['HW']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['HW']['pmscount'],$contents);
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-		if ($_COOKIE['QS']['utype']=='1')
+		if ($_COOKIE['HW']['utype']=='1')
 		{
 		$user_url=$_CFG['site_dir']."user/company/company_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='2')
+		if ($_COOKIE['HW']['utype']=='2')
 		{
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='4')
+		if ($_COOKIE['HW']['utype']=='4')
 		{
 			$user_url=$_CFG['site_dir']."user/train/train_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/train/train_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ'.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
-		if ($_COOKIE['QS']['utype']=='3')
+		if ($_COOKIE['HW']['utype']=='3')
 		{
 			$user_url=$_CFG['site_dir']."user/hunter/hunter_index.php";
-			if($_COOKIE['QS']['pmscount']>0)
+			if($_COOKIE['HW']['pmscount']>0)
 			 {
-			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/hunter/hunter_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="ショートメッセージ">メッセージ '.$_COOKIE['HW']['pmscount'].'</a>';
 			 }
 		}
 		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
@@ -224,7 +224,7 @@ elseif ($act=="top_loginform")
 elseif ($act=="loginform")
 {		
 		$contents='';
-		if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] && $_SESSION['uid'])
+		if ($_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] && $_SESSION['uid'])
 		{
 			$tpl='../templates/'.$_CFG['template_dir']."plus/login_success.htm";
 		}
@@ -273,15 +273,15 @@ elseif ($act=="loginform")
 		if ($_CFG['qq_apiopen']==1 || $_CFG['sina_apiopen']==1 || $_CFG['taobao_apiopen']==1)
 		{
 			
-			$contents=str_replace('{#$third_tit#}',"其他账户登录：",$contents);
+			$contents=str_replace('{#$third_tit#}',"その他アカウント登録：",$contents);
 		}
 		else
 		{
 			$contents=str_replace('{#$third_tit#}',"",$contents);
 		}
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
-		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
-		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
+		$contents=str_replace('{#$username#}',$_COOKIE['HW']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['HW']['pmscount'],$contents);
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
 		$contents=str_replace('{#$site_dir#}',$_CFG['site_dir'],$contents);
 		$contents=str_replace('{#$site_tel#}',$_CFG['top_tel'],$contents);
@@ -298,7 +298,7 @@ elseif ($act=="loginform")
 		    $result_arr = json_decode($result,true);
 		    $ticket = urlencode($result_arr["ticket"]);
 		    $img_html = '<img width="120" height="120" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='.$ticket.'">';
-			$weixin_html = '<div id="codeLogin"><div class="code-login" id="login_container">'.$img_html.'</div><p>打开微信扫描二维码</p></div>';
+			$weixin_html = '<div id="codeLogin"><div class="code-login" id="login_container">'.$img_html.'</div><p>Wechatでバーコードを読む</p></div>';
 			$weixin_html_header='<div class="wechat-login"><a href="javascript:;" class="loginicon wx"></a></div>';
 		}else{
 			$weixin_html_header='';
@@ -314,12 +314,12 @@ elseif ($act=="loginform")
 				$log=$db->getone("SELECT * FROM ".table('members_log')." WHERE log_uid=$_SESSION[uid] AND log_type='1001' ORDER BY log_id DESC LIMIT 0,1");
 				if(!empty($log))
 				{
-					$last_login_time='上次登录：'.date("Y-m-d H:i",$log['log_addtime']);
+					$last_login_time='前回登録：'.date("Y-m-d H:i",$log['log_addtime']);
 				}
 				else
 				{
 					$log=$db->getone("SELECT reg_time from ".table("members")." where uid=$_SESSION[uid]");
-					$last_login_time='注册时间：'.date("Y-m-d H:i",$log['reg_time']);
+					$last_login_time='登録時間：'.date("Y-m-d H:i",$log['reg_time']);
 				}
 				
 			}
@@ -328,18 +328,18 @@ elseif ($act=="loginform")
 				$log=$db->getone("SELECT * FROM ".table('members_log')." WHERE log_uid=$_SESSION[uid] AND log_type='1001' ORDER BY log_id DESC LIMIT 1,1");
 				if(!empty($log))
 				{
-					$last_login_time='上次登录：'.date("Y-m-d H:i",$log['log_addtime']);
+					$last_login_time='前回登録：'.date("Y-m-d H:i",$log['log_addtime']);
 				}
 				else
 				{
 					$log=$db->getone("SELECT reg_time from ".table("members")." where uid=$_SESSION[uid]");
-					$last_login_time='注册时间：'.date("Y-m-d H:i",$log['reg_time']);
+					$last_login_time='登録時間：'.date("Y-m-d H:i",$log['reg_time']);
 				}
 			}
 		}
 
 		$contents=str_replace('{#$last_login_time#}',$last_login_time,$contents);
-		if ($_COOKIE['QS']['utype']=='1' && $_SESSION['utype']=='1')
+		if ($_COOKIE['HW']['utype']=='1' && $_SESSION['utype']=='1')
 		{
 			$user_url=$_CFG['site_dir']."user/company/company_index.php";
 			$interview=$db->get_total("SELECT COUNT(*) AS num FROM ".table('company_interview')." as i  INNER JOIN ".table('resume')." as r ON i.resume_id=r.id   WHERE i.company_uid='{$_SESSION['uid']}'");
@@ -361,7 +361,7 @@ elseif ($act=="loginform")
 			$contents=str_replace('{#$count#}',$count_htm,$contents);
 
 		}
-		if ($_COOKIE['QS']['utype']=='2' && $_SESSION['utype']=='2')
+		if ($_COOKIE['HW']['utype']=='2' && $_SESSION['utype']=='2')
 		{
 			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
 			$interview=$db->get_total("SELECT COUNT(*) AS num FROM ".table('company_interview')." as i WHERE i.resume_uid='{$_SESSION['uid']}'");
@@ -398,20 +398,20 @@ elseif($act == "reg_send_sms")
 	$sms_type=$_POST['sms_type']?$_POST['sms_type']:"reg";
 	if (empty($mobile) || !preg_match("/^(13|15|14|17|18)\d{9}$/",$mobile))
 	{
-		exit("手机号错误");
+		exit("携帯番号エラー");
 	}
 	$rand=mt_rand(100000, 999999);	
 	switch ($sms_type) {
 		case 'reg':
-			$sms_str="您正在注册{$_CFG['site_name']}的会员,手机验证码为:{$rand},此验证码有效期为10分钟";
+			$sms_str="{$_CFG['site_name']}の会員に登録しています,携帯検証コードは:{$rand},有効期間10分です";
 			break;
 		case 'getpass':
-			$sms_str="您正在找回{$_CFG['site_name']}的会员密码,手机验证码为:{$rand},此验证码有效期为10分钟";
+			$sms_str="{$_CFG['site_name']}の会員パスワードを送信しています,携帯確認コードは:{$rand},このコード有效期間は10分です";
 			break;
 	}
 	if($_SESSION['verify_mobile']==$mobile && time()<$_SESSION['send_time']+180)
 	{
-		exit("180秒内仅能获取一次短信验证码,请稍后重试");
+		exit("180秒内ショートメッセージ検証コード一回だけ,後で試してみてください");
 	}
 	else
 	{
@@ -426,7 +426,7 @@ elseif($act == "reg_send_sms")
 	}
 	else
 	{
-	exit("SMS配置出错，请联系网站管理员");
+	exit("SMS配置エラー，ウェブ管理者に連絡");
 	}
 }
 // 验证注册短信
@@ -504,55 +504,55 @@ elseif($act == "get_pass_check_buding")
 elseif($act == "getpass_sendemail")
 {
 	global $HW_pwdhash;
-	$email=$_POST['email']?trim($_POST['email']):exit("邮箱出错");
-	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("没有用户名");
-	$uid=$_POST['uid']?intval($_POST['uid']):exit("没有用户名");
+	$email=$_POST['email']?trim($_POST['email']):exit("メールボックスエラー");
+	$username=$_POST['username']?iconv("utf-8", "gbk", trim($_POST['username'])):exit("ユーザ名なし");
+	$uid=$_POST['uid']?intval($_POST['uid']):exit("ユーザ名なし");
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$email))
 	{
-		exit("邮箱出错");
+		exit("メールボックスエラー");
 	}
 	$time=time();
 	$key=substr(md5($username.$HW_pwdhash),8,16);
-	$email_str.=$username."您好：<br>";
-	$email_str.="请在24小时内点击以下链接重新设置您的密码：<br>";
+	$email_str.=$username."こんにちは：<br>";
+	$email_str.="24時間内下記リンクをクリックして、パスワード再設定してください：<br>";
 	$email_str.="<a href='".$_CFG['site_domain'].$_CFG['site_dir']."user/user_getpass.php?act=get_pass_step3_email&uid=$uid&key=$key&time=$time' target='_blank'>".$_CFG['site_domain'].$_CFG['site_dir']."user/user_getpass.php?act=get_pass_step3_email&uid=$uid&key=$key&time=$time</a><br>";
-	$email_str.="如果链接无法点击,请复制粘贴到浏览器访问！<br>";
-	$email_str.="本邮件由系统发出,请勿回复！<br>";
-	$email_str.="如有任何疑问请联系网站官方：".$_CFG['top_tel']."";
+	$email_str.="リンククリックできない場合,ブラウザにコピーしてください！<br>";
+	$email_str.="本メールはシステムから送信です,回答しないでください！<br>";
+	$email_str.="質問があたら、ウェブ管理者に連絡してください：".$_CFG['top_tel']."";
 
-	if (smtp_mail($email,"{$_CFG['site_name']}-找回密码",$email_str))
+	if (smtp_mail($email,"{$_CFG['site_name']}-パスワード再送信",$email_str))
 	{
 		exit("success");
 	}
 	else
 	{
-		exit("邮箱配置出错，请联系网站管理员");
+		exit("メールボックス配置エラー，系ウェブ管理者に連絡してください");
 	}
 }
 //注册发送邮件
 elseif($act == "reg_sendemail")
 {
-	$email=$_POST['email']?trim($_POST['email']):exit("邮箱出错1");
-	$utype=$_POST['utype']?intval($_POST['utype']):exit("邮箱出错2");
+	$email=$_POST['email']?trim($_POST['email']):exit("メールボックスエラー");
+	$utype=$_POST['utype']?intval($_POST['utype']):exit("メールボックスエラー2");
 	if (!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$email))
 	{
-		exit("邮箱出错3");
+		exit("メールボックスエラー3");
 	}
 	$time=time();
 	$key=substr(md5($email.$time),8,16);
-	$email_str.="您好,请在24小时内点击以下链接完成注册：<br>";
+	$email_str.="こんにちは,24時間内以下リンクをクリックして、登録完了させてください：<br>";
 	$email_str.="<a href='".$_CFG['site_domain'].$_CFG['site_dir']."user/user_reg.php?act=reg_step2_email&email=$email&utype=$utype&key=$key&time=$time' target='_blank'>".$_CFG['site_domain'].$_CFG['site_dir']."user/user_reg.php?act=reg_step2_email&email=$email&utype=$utype&key=$key&time=$time</a><br>";
-	$email_str.="如果链接无法点击,请复制粘贴到浏览器访问！<br>";
-	$email_str.="本邮件由系统发出,请勿回复！<br>";
-	$email_str.="如有任何疑问请联系网站官方：".$_CFG['top_tel']."";
+	$email_str.="リンククリックできない場合,ブラウザにコピーしてください！<br>";
+	$email_str.="本メールはシステムから送信です,回答しないでください！<br>";
+	$email_str.="質問があたら、ウェブ管理者に連絡してください：".$_CFG['top_tel']."";
 
-	if (smtp_mail($email,"{$_CFG['site_name']} - 会员注册",$email_str))
+	if (smtp_mail($email,"{$_CFG['site_name']} - 会員登録",$email_str))
 	{
 		exit("success");
 	}
 	else
 	{
-		exit("邮箱配置出错，请联系网站管理员");
+		exit("メールボックス配置エラー，系ウェブ管理者に連絡してください");
 	}
 }
 ?>

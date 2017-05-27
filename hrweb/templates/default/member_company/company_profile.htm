@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="{#$HIGHWAY.site_template#}css/user_common.css" rel="stylesheet" type="text/css" />
@@ -52,13 +52,13 @@ $(document).ready(function()
 	}
 	if ($.browser.msie){
 	    window.onunload = function(){
-	        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+	        return "編集している内容が保存されていません，この頁から移動しますか？";
 	    }
 	}
 	else{
 	    window.onbeforeunload = function(){
 	        if (is_form_changed()) {
-				return '您正在编辑的内容尚未保存，确定要离开此页吗？';
+				return '編集している内容が保存されていません，この頁から移動しますか？';
 			}
 	    }
 	}
@@ -103,9 +103,9 @@ $(document).ready(function()
 	
 	// 手机号码验证   
 	jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
-	    var tel = /^((0\d{2,3}-[2-9][0-9]{6,7})|(0\d{2,3}[2-9][0-9]{6,7})|([2-9][0-9]{6,7})|(1[35847]\d{9}))$/;
+	    var tel = /^((0\d{1}-{4}-{4}))$/;
 	    return this.optional(element) || (tel.test(value));
-	}, "请正确填写联系电话");
+	}, "電話番号正しく入力してください");
 	$("#Form1").validate({
  //debug: true,
 // onsubmit:false,
@@ -139,39 +139,39 @@ $(document).ready(function()
 	},
     messages: {
     companyname: {
-    required: "请输入企业名称",
-    minlength: jQuery.format("企业名称不能小于{0}个字符"),
-	maxlength: jQuery.format("企业名称不能大于{0}个字符")
+    required: "企業名称入力",
+    minlength: jQuery.format("企業名の長さ{0}まで"),
+	maxlength: jQuery.format("企業名称{0}文字以内")
    },
    nature: {
-    required: jQuery.format("请选择企业性质")
+    required: jQuery.format("企業性质選択")
    },
     trade: {
-    required: jQuery.format("请选择所属行业")
+    required: jQuery.format("所属業界選択")
    },
     district: {
-    required: jQuery.format("请选择所在地区")
+    required: jQuery.format("所在地区選択")
    },
    scale: {
-    required: jQuery.format("请选择企业规模")
+    required: jQuery.format("企業規模選択")
    },
    contents: {
-	required: jQuery.format("请填写公司简介"),
-	minlength: jQuery.format("公司简介内容不能小于{0}个字符")
+	required: jQuery.format("会社简介入力"),
+	minlength: jQuery.format("会社紹介{0}文字以上")
    },
    contact: {
-    required: jQuery.format("请填写联系人")
+    required: jQuery.format("連絡先入力")
    },
     telephone: {
-    required: jQuery.format("请填写联系电话"),
-	isPhoneNumber: jQuery.format("请正确填写联系电话")
+    required: jQuery.format("電話番号入力"),
+	isPhoneNumber: jQuery.format("電話番号正しく入力してください")
    },
    address: {
-    required: jQuery.format("请填写联系地址")
+    required: jQuery.format("住所を入力してください")
    },
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    } 
   },
   errorPlacement: function(error, element) {
@@ -194,7 +194,7 @@ $(document).ready(function()
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 企业资料</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> > 会社情報</div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -205,12 +205,12 @@ $(document).ready(function()
 	  <div class="addjob link_bk">
 	    <div class="topnav">
 			<div class="titleH1" style="+padding-top:0;margin-top:0;">
-				<div class="h1-title">企业资料</div>
+				<div class="h1-title">会社情報</div>
 			</div>
 			<div class="navs">
-				<a href="?act=company_profile" class="se">基本资料</a>
-				<a href="?act=company_logo">企业Logo</a>
-				<a href="?act=company_map_open">地图标注</a>
+				<a href="?act=company_profile" class="se">基本情報</a>
+				<a href="?act=company_logo">企業ロゴ</a>
+				<a href="?act=company_map_open">地図のlabel</a>
 				<div class="clear"></div>
 			</div>
 		</div>
@@ -218,17 +218,17 @@ $(document).ready(function()
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" style="margin-top:20px;">
 		  <tr>
 			<td width="125" align="right"><span class="nec">企业名称</span>：</td>
-			<td width="230">{#if $company_profile.audit==1#}{#$company_profile.companyname#}<span class="vtip c" title="您已经通过营业执照认证，要修改企业名请联系管理员！"></span>{#else#}<input name="companyname" type="text" class="input_text_200" id="companyname" maxlength="80"   value="{#$company_profile.companyname#}"/>{#/if#}</td>
+			<td width="230">{#if $company_profile.audit==1#}{#$company_profile.companyname#}<span class=“vtip c" title=“あなだは営業許可の認証を通過し、企業名を修正するとき管理員に連絡してください！"></span>{#else#}<input name="companyname" type="text" class="input_text_200" id="companyname" maxlength="80"   value="{#$company_profile.companyname#}"/>{#/if#}</td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr>
 			<td width="125" align="right"><span class="nec">企业性质</span>：</td>
 			<td width="230">
 				<div style="position:relateve;">
-             	 	<div id="nature_menu" class="input_text_200_bg">{#$company_profile.nature_cn|default:"请选择"#}</div>	
+             	 	<div id="nature_menu" class="input_text_200_bg">{#$Company_profile.nature_cn |default：# “を選択してください"} </div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify set="列表名:c_nature,类型:HW_company_type"#}
+	              			{#highway_get_classify set="リスト名:c_nature,タイプ:HW_company_type"#}
 	              			{#foreach from=$c_nature item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -243,7 +243,7 @@ $(document).ready(function()
 		  <tr class="jobmain">
 			<td align="right"><span class="nec">所属行业</span>：</td>
 			<td id="jobsTrad" style="position:relative;z-index:1;">
-				<div class="input_text_200_bg ucc-default" id="tradText">{#$company_profile.trade_cn|default:"请选择"#}</div>
+				<div class="input_text_200_bg ucc-default" id="tradText">{#$Company_profile.trade_cn |default： “選択してください"#} </div>
 				<!-- 所属行业弹出框 -->
 				<div class="aui_outer" id="aui_outer">
 					<table class="aui_border">
@@ -289,10 +289,10 @@ $(document).ready(function()
 			<td align="right"><span class="nec">企业规模</span>：</td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="scale_menu" class="input_text_200_bg">{#$company_profile.scale_cn|default:"请选择"#}</div>	
+             	 	<div id="scale_menu" class="input_text_200_bg">{#$Company_profile.scale_cn | default:：# “を選択してください"} </div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify set="列表名:c_scale,类型:HW_scale"#}
+	              			{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
 	              			{#foreach from=$c_scale item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -305,19 +305,19 @@ $(document).ready(function()
 			<td>&nbsp;</td>
 		  </tr>
 		   <tr>
-			<td align="right">注册资金：</td>
+			<td align="right">登録資本金：</td>
 			<td colspan="2">
 			  <table border="0" cellpadding="0" cellspacing="0" >
 	              <tr>
 	                <td width="80" style="padding:0px"><input name="registered" type="text" class="input_text_100" id="registered" maxlength="20"   value="{#$company_profile.registered#}"/></td>
-	                <td width="20" align="center" style="padding:0px">万</td>
+	                <td width="20" align="center" style="padding:0px">ワン</td>
 	                <td width="80"  style="padding:0px">
 	                	<div style="position:relateve;">
-		             	 	<div id="currency_menu" class="input_text_60_bg">{#$company_profile.currency|default:"人民币"#}</div>	
+		             	 	<div id="currency_menu" class="input_text_60_bg">{#$Company_profile.currency | default： “人民元" #} </div>	
 		             	 	<div class="menu" id="menu3">
 			              		<ul>
-			              			<li title="人民币">人民币</li>
-			              			<li title="美元">美元</li>
+			              			<li title="円">人民元</li>
+			              			<li title="美元">ドル</li>
 			              		</ul>
 			              	</div>
 			            </div>				
@@ -370,9 +370,9 @@ $(document).ready(function()
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr>
-			<td width="125" align="right">所在街道：</td>
+			<td width="125" align="right">所在街：</td>
 			<td width="230" style="position:relative;">
-				<div class="input_text_200_bg ucc-default" id="streetText">{#$company_profile.street_cn|default:"未标注街道"#}</div>
+				<div class="input_text_200_bg ucc-default" id="streetText">{#$company_profile.street_cn|default:"未注記道路"#}</div>
 				<!-- 所在街道弹出框 -->
 				<div class="aui_outer" id="aui_outer_street">
 					<table class="aui_border">
@@ -392,7 +392,7 @@ $(document).ready(function()
 																	<table class="options-table options-table-7">
 																		<tbody class="item-list"><tr><td class="bno"><table><tbody id="street_list"><tr>
 																			<!-- 列表内容 -->
-																			{#highway_get_classify set="类型:HW_street,列表名:list"#}
+																			{#highway_get_classify set="タイプ:HW_street,リスト名:list"#}
 																			{#section name=lis loop=$list#}
 																			{#if $smarty.section.lis.index%6 == 0 && $smarty.section.lis.index != 0#}
 																				</tr><tr><td><label class="selectra" data="{#$list[lis].c_id#},{#$list[lis].categoryname#}">{#$list[lis].categoryname#}</label></td>
@@ -438,7 +438,7 @@ $(document).ready(function()
 			<td><label><input name="email_show" type="checkbox" value="1" {#if $company_profile.email_show<>"0"#}checked="checked"{#/if#}/>&nbsp;联系邮箱在企业介绍中显示</label></td>
 		  </tr>
 		   <tr>
-			<td width="125" align="right">公司网址：</td>
+			<td width="125" align="right">会社のWebサイト：</td>
 			<td width="230"><input name="website" type="text" class="input_text_200" id="website" maxlength="80" value="{#$company_profile.website#}"/></td>
 			<td>&nbsp;</td>
 		  </tr>
@@ -475,8 +475,8 @@ $(document).ready(function()
 	    </table>
 		  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall s" style="margin-top:5px;display:none" id="cp">
 		  <tr>
-			<td width="125" align="right" valign="top">公司简介范例：</td>
-			<td width="500" bgcolor="#F5F5F5" style="line-height:22px;padding-left:10px;padding-right:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXX技术有限公司成立于2000年,是XXX投资有限公司与美国XXX公司合资兴建的中外合资企业,引进美国海XXX专利技术,专业从事XX研究开发和生产应用.<br />
+			<td width="125" align="right" valign="top">会社概要例：</td>
+			<td width="500" bgcolor="#F5F5F5" style="line-height:22px;padding-left:10px;padding-right:10px;">＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP; XXX技術有限公司は2000年に設立された、XXX投資有限公司と米国XXX合弁会社に特化した、米海軍XXX特許技術の導入を合弁事業を構築することですXXの研究開発と生産のアプリケーション。<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司2002年被XX认定为高新技术企业,是目前国内唯一的一家既生产XXX又生产X的生产厂家,主要产品有各XX,XX列产品XXX等.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前,XX公司拥有总资产X亿元,生产加工基地占地XX余亩,具有一次性XX万余吨的XX储存能力,具有自营进出口权,是目前国内最具实力XX生产供应商之一.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用先进,成熟,适用的技术服务XX事业 ,是X公司的企业宗旨,公司在引进新技术的同时,不断根据XXX实际情况在应用方面进行研究与推广立足XXX,面向全国,走向世界是XX公司的发展目标,目前XXX公司的产品除在X大量使用外,已经打入了江苏,浙江,河南,安徽,湖南,江西,四川,湖北,广东等十余个省份,同时公司生产的XXX已经返销美国,并在俄罗斯,哈萨克斯坦开始应用,已成功进入国际市场.</td>
@@ -487,7 +487,7 @@ $(document).ready(function()
 		  {#if $company_jobs #}
 		  <tr>
 			<td align="right" width="125">&nbsp;</td>
-			<td width="230"><label style="color:#FF9900;"><input name="telephone_to_jobs" type="checkbox" value="1"/> &nbsp;修改联系方式同步到职位</label></td>
+			<td width="230"><label style="color:#FF9900;"><input name="telephone_to_jobs" type="checkbox" value="1"/>　&nbsp;連絡方法の修正は仕事と同時に</label></td>
 			<td>&nbsp;</td>
 		  </tr>
 		  {#/if#}
@@ -495,7 +495,7 @@ $(document).ready(function()
 		  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
 			<td align="right" width="125">&nbsp;</td>
-			<td width="130"><input type="submit" value="保存" id="save_profile" class="but100lan" onclick="$(window).unbind('beforeunload');"/></td>
+			<td width="130"><input type=“submit" value=“保存" id=“save_profile" class=“but100lan" onclick=“$(window).unbind(‘beforeunload’);"/></td>
 			<td>&nbsp;</td>
 		  </tr>
 		  </table>

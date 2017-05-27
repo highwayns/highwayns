@@ -8,7 +8,7 @@ check_permissions($_SESSION['admin_purview'],"locoyspider");
 	require_once(ADMIN_ROOT_PATH.'include/admin_article_fun.php');
 $show=get_cache('locoyspider');
 $smarty->assign('show',$show);
-$smarty->assign('pageheader',"火车头采集");
+$smarty->assign('pageheader',"火車頭収集");
 if($act=="set")
 {	
 	get_token();
@@ -45,10 +45,10 @@ elseif($act == 'set_save')
 	if (intval($_POST['search_threshold'])>100 || intval($_POST['search_threshold'])==0) unset($_POST['search_threshold']);
 	foreach($_POST as $k => $v)
 	{
-	!$db->query("UPDATE ".table('locoyspider')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('更新失败', 1):"";
+	!$db->query("UPDATE ".table('locoyspider')." SET value='$v' WHERE name='$k' LIMIT 1")?adminmsg('更新失敗', 1):"";
 	}
 	refresh_cache('locoyspider');
-	write_log("设置火车头配置", $_SESSION['admin_name'],3);
+	write_log("火車頭設定", $_SESSION['admin_name'],3);
 	adminmsg("保存成功！",2);
 }
 ?>

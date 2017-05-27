@@ -13,7 +13,7 @@ if($act == 'backup')
 	check_permissions($_SESSION['admin_purview'],"database");
 	$pre = str_replace('_', '\_', $pre);
 	$smarty->assign('list',$db->getall("SHOW TABLES LIKE '$pre%'", MYSQL_NUM));
-	$smarty->assign('pageheader',"数据库");
+	$smarty->assign('pageheader',"DB");
 	$smarty->assign('navlabel',"backup");
 	$smarty->display('database/admin_database_backup.htm');
 }
@@ -21,8 +21,8 @@ if($act == 'backup')
 elseif($act =='do_backup')
 {
 	check_permissions($_SESSION['admin_purview'],"database");
-	if (!file_exists("../data/".$backup_dir."/"))adminmsg("备份文件存放目录data/".$backup_dir."不存在！",0);
-	if (!is_writable("../data/".$backup_dir."/"))adminmsg("备份文件存放目录data/".$backup_dir."不可写！",0);
+	if (!file_exists("../data/".$backup_dir."/"))adminmsg("バックアップファイル保存フォルダーdata/".$backup_dir."が存在しません！",0);
+	if (!is_writable("../data/".$backup_dir."/"))adminmsg("バックアップファイル保存フォルダーdata/".$backup_dir."書けない！",0);
 	$limit_size = !empty($_REQUEST['limit_size']) ? intval($_REQUEST['limit_size']) : '2048'; 
 	$mysql_type = !empty($_REQUEST['mysql_type']) ? trim($_REQUEST['mysql_type']) : '';
 	$table_id = !empty($_REQUEST['table_id']) ? intval($_REQUEST['table_id']) : 0;
@@ -41,13 +41,13 @@ elseif($act =='do_backup')
 		}
 		else
 		{
-		adminmsg("您没有选择备份的表！",1);
+		adminmsg("バックアップテーブルを選択してください！",1);
 		}
 	$db_version = $db->dbversion();
 	$sql = '';
 	$version = HIGHWAY_VERSION;
 	$add_time = date("Y-m-d H:i:s");
-	$sql .= "-- 74CMS VERSION:{$version}\r\n".
+	$sql .= "-- HIGHWAY VERSION:{$version}\r\n".
 	"-- Mysql VERSION:{$db_version}\r\n".
 	"-- Create time:{$add_time}\r\n";
 	$count = count($tables);
@@ -61,12 +61,12 @@ elseif($act =='do_backup')
 		$table_sql1 = substr($table_sql, 0, strrpos($table_sql, ')', 25)+1);
 			if ($mysql_type == 'mysql40' && $db_version > 4.0)
 			{
-			$s = "TYPE=MyISAM;\r\n";
+			$s = "TYPE=InnoDB;\r\n";
 			$table_sql = $table_sql1 . $s;
 			}
 			elseif($mysql_type == 'mysql41' && $db_version < 4.1)
 			{
-			$s = "ENGINE=MyISAM DEFAULT CHARSET=".HIGHWAY_CHARSET.";\r\n";
+			$s = "ENGINE=InnoDB DEFAULT CHARSET=".HIGHWAY_CHARSET.";\r\n";
 			$table_sql = $table_sql1 . $s;
 			}
 			else
@@ -95,15 +95,15 @@ elseif($act =='do_backup')
 		{
 			if (!write_file("../data/{$backup_dir}/{$file}_{$num}.sql", $sql))
 			{
-			adminmsg('备份数据库卷-'.$num.'失败',0);
+			adminmsg('DBバックアップ-'.$num.'失敗',0);
 			}
 			if ($j == $row_count-1)
 			{
 			$i++;
 			}
-			$link[0]['text'] = "系统将自动继续...";
+			$link[0]['text'] = "システム自動続く...";
 			$link[0]['href'] = "admin_database.php?act=do_backup&limit_size={$limit_size}&mysql_type={$mysql_type}&file={$file}&num=".($num+1)."&table_id={$i}&pos=".$j;
-			adminmsg('文件'.$file.'_'.$num.'.sql 成功备份。系统将自动继续...',1,$link,true,1);
+			adminmsg('ファイル'.$file.'_'.$num.'.sql バックアップ成功。システム継続する...',1,$link,true,1);
 			exit();
 		}else{
 			$sql .= $table_sql;
@@ -116,24 +116,24 @@ elseif($act =='do_backup')
 	{
 		if (!write_file("../data/{$backup_dir}/{$file}_{$num}.sql", $sql))
 		{
-		adminmsg("备份数据库卷-{$num}失败",0);
+		adminmsg("DBバックアップ-{$num}失敗",0);
 		}
-		$link[0]['text'] = "程序将自动继续...";
+		$link[0]['text'] = "プログラム自動実行...";
 		$link[0]['href'] = "admin_database.php?act=do_backup&limit_size=".$limit_size."&mysql_type=".$mysql_type."&file=".$file."&num=".($num+1)."&table_id=".($i+1);
-		adminmsg('文件' . $file . '_' . $num.'.sql 成功备份。程序将自动继续...', 1,$link,true,2);
+		adminmsg('ファイル' . $file . '_' . $num.'.sql バックアップ成功。継続...', 1,$link,true,2);
 		exit();
 	}
 	elseif ($i == $count-1)
 	{
 		if (!write_file("../data/{$backup_dir}/{$file}_{$num}.sql", $sql))
 		{
-		adminmsg('备份数据库卷-{$num}失败');
+		adminmsg('ＤＢバックアップ-{$num}失敗');
 		}
 		@unlink("../data/{$backup_dir}/temp.txt");
-		$link[0]['text'] = "查看备份文件";
+		$link[0]['text'] = "バックアップファイル閲覧";
 		$link[0]['href'] = "?act=restore";
-		write_log("数据库备份成功", $_SESSION['admin_name'],3);
-		adminmsg('数据库备份成功',2,$link);
+		write_log("DBバックアップ成功", $_SESSION['admin_name'],3);
+		adminmsg('DBバックアップ成功',2,$link);
 		}
 		elseif ($j == 0)
 		{
@@ -145,7 +145,7 @@ elseif($act =='restore')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"database");
-	if (!file_exists("../data/{$backup_dir}/"))adminmsg("备份文件存放目录data/backup不存在！",0);
+	if (!file_exists("../data/{$backup_dir}/"))adminmsg("バックアップファイル保存フォルダーdata/backupが存在しません！",0);
 	$data_backup_list = $file_info = array();
 	$dir = opendir('../data/'.$backup_dir);
 		while($file = readdir($dir))
@@ -173,11 +173,11 @@ elseif($act =='restore')
 					}
 			}
 		$file_info[$key]['file_name'] = substr($file,0);
-		$file_info[$key]['74cms_ver'] = $sqlfile_info_arr['74cms_ver'];
+		$file_info[$key]['highwayns_ver'] = $sqlfile_info_arr['highwayns_ver'];
 		$file_info[$key]['mysql_ver'] = $sqlfile_info_arr['mysql_ver'];
 		$file_info[$key]['add_time'] = $sqlfile_info_arr['add_time'];
 	}
-	$smarty->assign('pageheader',"数据库");
+	$smarty->assign('pageheader',"DB");
 	$smarty->assign('navlabel',"restore");
 	$smarty->assign('list',array_reverse($file_info));
 	$smarty->display('database/admin_database_restore.htm');
@@ -186,7 +186,7 @@ elseif($act =='del')
 {
 	check_token();
 	check_permissions($_SESSION['admin_purview'],"database");
-	$file_name = !empty($_REQUEST['file_name']) ? $_REQUEST['file_name'] : adminmsg('请选择项目',0);
+	$file_name = !empty($_REQUEST['file_name']) ? $_REQUEST['file_name'] : adminmsg('項目を選択してください。',0);
 	if (!is_array($file_name)) $file_name=array($file_name);
 	foreach ($file_name as $fname)
 	{
@@ -207,8 +207,8 @@ elseif($act =='del')
 		}	
 		unset($sql_file,$file);
 	}
-	write_log("删除备份文件成功", $_SESSION['admin_name'],3);
-	adminmsg('删除备份文件成功',2);
+	write_log("バックアップファイル削除成功", $_SESSION['admin_name'],3);
+	adminmsg('バックアップファイル削除成功',2);
 }
 elseif($act =='import')
 {
@@ -236,25 +236,25 @@ elseif($act =='import')
 		}
 		else
 		{
-			adminmsg('该备份文件不存在!',0);
+			adminmsg('バックアップファイルが存在しません!',0);
 		}
 		closedir("../data/".$backup_dir);
 		$file ="../data/{$backup_dir}/{$backup_file[0]}";
 		$file_info = get_sqlfile_info($file);
-		if($file_info['74cms_ver'] != HIGHWAY_VERSION)
+		if($file_info['highwayns_ver'] != HIGHWAY_VERSION)
 		{
-		adminmsg('海威人材当前程序与备份程序版本不一致');
+		adminmsg('海威人材プログラムとバックアップ一致しません');
 		}
 		$_SESSION['backup_file']=$backup_file;
 		$filekey=intval($_GET['filekey']);
 		$backup_file=$_SESSION['backup_file'][$filekey];
 		if (empty($backup_file))
 		{
-			$link[0]['text'] = "查看备份文件";
+			$link[0]['text'] = "バックアップファイル閲覧";
 			$link[0]['href'] = "?act=restore";
 			unset($_SESSION['backup_file']);
-			write_log("数据库还原成功", $_SESSION['admin_name'],3);
-			adminmsg('数据库还原成功',2,$link);
+			write_log("DB回復成功", $_SESSION['admin_name'],3);
+			adminmsg('DB回復成功',2,$link);
 		}
 		else
 		{
@@ -272,12 +272,12 @@ elseif($act =='import')
 						{
 						$arr[$i] = str_replace('DEFAULT CHARSET='. str_replace('-', '', HIGHWAY_CHARSET), '', $arr[$i]);
 						}
-					!$db->query($arr[$i])?adminmsg('还原失败',0):"";
+					!$db->query($arr[$i])?adminmsg('回復失敗',0):"";
 				}
 			}			
-			$link[0]['text'] = "系统将自动继续...";
+			$link[0]['text'] = "システム自動続く...";
 			$link[0]['href'] = "?act=import&file_name={$_GET['file_name']}&filekey=".($filekey+1);
-			adminmsg("还原分卷 ({$backup_file}) 成功，系统将自动还原下一个分卷...",1,$link,true,2);
+			adminmsg(" ファイル({$backup_file}) 回復成功，次ファイルシステム自動回復...",1,$link,true,2);
 		}
 }
 elseif($act == 'optimize')
@@ -285,7 +285,7 @@ elseif($act == 'optimize')
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"database");
 	$smarty->assign('list',get_optimize_list());
-	$smarty->assign('pageheader',"数据库");
+	$smarty->assign('pageheader',"DB");
 	$smarty->assign('navlabel',"optimize");
 	$smarty->display('database/admin_database_optimize.htm');
 }
@@ -296,15 +296,15 @@ elseif($act == 'optimize_table')
 	$tablename=$_POST['tablename'];
 	if (empty($tablename))
 	{
-	adminmsg('您没有选择项目',0);
+	adminmsg('項目を選択してください',0);
 	}
 	if (is_array($tablename))
 	{
 		$sqlstr=implode(",",$tablename);
 		if ($db->query("OPTIMIZE TABLE $sqlstr"))
 		{	
-			write_log("优化数据库成功", $_SESSION['admin_name'],3);
-			adminmsg('优化成功!',2);
+			write_log("DB最適切化成功", $_SESSION['admin_name'],3);
+			adminmsg('最適切化成功!',2);
 		}
 	}
 }

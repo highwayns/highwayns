@@ -6,7 +6,7 @@ $login_allback="{$_CFG['site_domain']}{$_CFG['site_dir']}user/connect_qq_server.
 $binding_callback="{$_CFG['site_domain']}{$_CFG['site_dir']}user/connect_qq_server.php?act=binding_callback" ;
 if (!function_exists('json_decode'))
 {
-exit('您的php不支持json_decode');
+exit('このphpはjson_decode使えない');
 }
 if ($_CFG['qq_appid']=="0" || empty($_CFG['qq_appid']) || empty($_CFG['qq_appkey']))
 {
@@ -89,10 +89,10 @@ elseif ($act=='login_allback')
 					require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 					$time=time();
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION['openid']}',bindingtime='{$time}' WHERE uid='{$_SESSION[uid]}' AND qq_openid='' LIMIT 1");
-					$link[0]['text'] = "进入会员中心";
+					$link[0]['text'] = "会員中心へ";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					showmsg('绑定QQ帐号成功！',2,$link);
+					showmsg('QQアカウント設定成功！',2,$link);
 				}
 				else
 				{
@@ -122,7 +122,7 @@ elseif ($act=='reg')
 		$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 		$smarty->assign('third_name',"QQ");
-		$smarty->assign('title','补充信息 - '.$_CFG['site_name']);
+		$smarty->assign('title','補完情報 - '.$_CFG['site_name']);
 		$smarty->assign('qqurl',"?act=");
 		$smarty->assign('nickname',$nickname);
 		$smarty->assign('openid',$_SESSION["openid"]);
@@ -158,9 +158,9 @@ elseif ($act=='reg_save')
 	else
 	{
 		require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
-		$link[0]['text'] = "返回首页";
+		$link[0]['text'] = "トップに戻る";
 		$link[0]['href'] = "{$_CFG['site_dir']}";
-		showmsg('注册失败！',0,$link);
+		showmsg('登録失敗！',0,$link);
 	}
 	
 }
@@ -240,11 +240,11 @@ elseif ($act=='binding_callback')
 			require_once(HIGHWAY_ROOT_PATH.'include/tpl.inc.php');
 			if (!empty($user))
 			{
-					$link[0]['text'] = "用别的QQ帐号绑定";
+					$link[0]['text'] = "その他QQアカウント設定";
 					$link[0]['href'] = "?act=binding";
-					$link[1]['text'] = "进入会员中心";
+					$link[1]['text'] = "会員中心へ";
 					$link[1]['href'] =get_member_url($_SESSION['utype']);
-					showmsg('此QQ帐号已经绑定了其他会员,请换一个QQ帐号！',2,$link);
+					showmsg('このQQアカウントがすでに使っています！',2,$link);
 			}
 			else
 			{
@@ -260,10 +260,10 @@ elseif ($act=='binding_callback')
 					$nickname = iconv("utf-8","gbk",$jsoninfo["nickname"]);
 					$time=time();
 					$db->query("UPDATE ".table('members')." SET qq_openid = '{$_SESSION[openid]}', qq_nick = '{$nickname}', qq_binding_time = '{$time}' WHERE uid='".$_SESSION['uid']."' AND qq_openid='' LIMIT 1");
-					$link[0]['text'] = "进入会员中心";
+					$link[0]['text'] = "会員中心へ";
 					$link[0]['href'] = get_member_url($_SESSION['utype']);
 					$_SESSION['uqqid']=$_SESSION['openid'];
-					showmsg('绑定QQ帐号成功！',2,$link);
+					showmsg('QQアカウント設定成功！',2,$link);
 			}
 }
 function get_url_contents($url)
@@ -283,7 +283,7 @@ function get_url_contents($url)
 	}
 	else
 	{
-		exit("请把allow_url_fopen设为On或打开CURL扩展");
+		exit("allow_url_fopenをOnに設定或CURLプラグインを有効に設定");
 	}  
 }
 ?>

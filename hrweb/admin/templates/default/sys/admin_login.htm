@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
-<title>网站后台管理中心- Powered by 74CMS</title>
+<meta name="copyright" content="highwayns.com" />
+<title>サイト管理センター- Powered by highwayns</title>
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 {#if $verify_adminlogin=="1"#}
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -16,7 +16,7 @@ $(document).ready(function()
 function imgcaptcha(inputID,imgdiv)
 {
 	$(inputID).focus(function(){
-		if ($(inputID).val()=="点击获取验证码")
+		if ($(inputID).val()=="クリックして検証コード取得する")
 		{
 		$(inputID).val("");
 		$(inputID).css("color","#333333");
@@ -27,7 +27,7 @@ function imgcaptcha(inputID,imgdiv)
 		$(imgdiv).show();
 		if ($(imgdiv).html()=='')
 		{
-		$(imgdiv).append("<img src=\"../include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+		$(imgdiv).append("<img src=\"../include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"検証コード見づらい？更新する\"  border=\"0\"/>");
 		}
 		$(imgdiv+" img").click(function()
 		{
@@ -64,19 +64,19 @@ imgcaptcha("#postcaptcha","#imgdiv");
         </table></td>
         <td width="300"><table width="100%" border="0" cellpadding="0" cellspacing="4">
           <tr>
-            <td width="75" height="26" align="right">用户名：</td>
+            <td width="75" height="26" align="right">ユーザー名：</td>
             <td ><input name="admin_name" type="text" maxlength="16" id="admin_name"  class="login_box_input"/></td>
           </tr>
           <tr>
-            <td height="26" align="right">密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+            <td height="26" align="right">パスワード：</td>
             <td ><input name="admin_pwd" type="password" id="admin_pwd" value="" class="login_box_input"/></td>
           </tr>
 		   {#if $verify_adminlogin=="1"#}
           <tr>
-            <td height="26" align="right">验证码：</td>
+            <td height="26" align="right">検証コード：</td>
             <td>
 			<div>
-			<input  class="login_box_input" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999" />
+			<input  class="login_box_input" name="postcaptcha" id="postcaptcha" type="text" value="クリックして検証コード取得" style="color:#999999" />
 			<div id="imgdiv"></div>
 			</div>
                
@@ -87,9 +87,9 @@ imgcaptcha("#postcaptcha","#imgdiv");
             <td height="30">&nbsp;</td>
             <td >
 			<div style="position:relative; padding-bottom:5px; padding-top:5px;">
-			<input class="login_box_rig_an" type="submit" name="Submit" value="登录" />&nbsp;&nbsp;&nbsp;&nbsp;<label>
+			<input class="login_box_rig_an" type="submit" name="Submit" value="ログイン" /><label>パスワード記録
               <input name="rememberme" class="login_box_rememberme"   type="checkbox" id="rememberme" value="1" />
-记住我</label></div>
+</label></div>
 <input type="hidden" name="act" value="do_login" />
 
 </td>
@@ -109,8 +109,8 @@ imgcaptcha("#postcaptcha","#imgdiv");
   <table width="530" border="0" align="center" cellpadding="0" cellspacing="0"  class="link_lan">
 
       <tr>
-        <td height="100" align="center"  style="color:#666666; line-height:180%; text-align:center">74cms是一个采用 PHP 和 MySQL 构建的高效人才系统解决方案 <a href="http://www.jp.highwayns.com/bbs" target="_blank">技术论坛</a><br />
-        Powered by <a href="http://www.jp.highwayns.com/" target="_blank"><em>74cms v {#$HIGHWAY_VERSION#}</em></a> Copyright &copy;2015 </td>
+        <td height="100" align="center"  style="color:#666666; line-height:180%; text-align:center">海威人材システムはPhPとMySQLで構築するの高効率の人材管理システム <a href="http://jp.highwayns.com/" target="_blank">海威コンサルティング株式会社</a><br />
+        Powered by <a href="http://highwayns.com/" target="_blank"><em>highwayns v {#$HIGHWAY_VERSION#}</em></a> Copyright &copy;2017 </td>
       </tr>
     </table>
 <script language ="javascript">    

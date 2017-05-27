@@ -1,20 +1,9 @@
 ﻿<?php
 
-/**
- * Provides lookup array of attribute types to HTMLPurifier_AttrDef objects
- */
 class HTMLPurifier_AttrTypes
 {
-    /**
-     * Lookup array of attribute string identifiers to concrete implementations.
-     * @type HTMLPurifier_AttrDef[]
-     */
     protected $info = array();
 
-    /**
-     * Constructs the info array, supplying default implementations for attribute
-     * types.
-     */
     public function __construct()
     {
         // XXX This is kind of poor, since we don't actually /clone/
@@ -61,11 +50,6 @@ class HTMLPurifier_AttrTypes
         return new HTMLPurifier_AttrDef_Clone(new HTMLPurifier_AttrDef_Enum(explode(',', $in)));
     }
 
-    /**
-     * Retrieves a type
-     * @param string $type String type name
-     * @return HTMLPurifier_AttrDef Object AttrDef for type
-     */
     public function get($type)
     {
         // determine if there is any extra info tacked on
@@ -82,11 +66,6 @@ class HTMLPurifier_AttrTypes
         return $this->info[$type]->make($string);
     }
 
-    /**
-     * Sets a new implementation for a type
-     * @param string $type String type name
-     * @param HTMLPurifier_AttrDef $impl Object AttrDef for type
-     */
     public function set($type, $impl)
     {
         $this->info[$type] = $impl;

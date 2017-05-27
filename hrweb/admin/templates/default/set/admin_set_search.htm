@@ -5,7 +5,7 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>提示：</h2>
+	<h2>ヒント：</h2>
 	<p>
 您可以根据网站的数据量来选择搜索方式。<br />
 全文搜索效率更高，like搜索更加精准。<br />
@@ -14,12 +14,12 @@ like只能搜索职位名称和公司名称。<br />
 搜索时间设置完成后将会根据您设置的时间范围经行搜索(仅用于职位搜索和简历搜索,默认不限时间)。
 </p>
 </div>
-<div class="toptit">搜索时间设置</div>
+<div class="toptit">検索時間の設定</div>
 <form action="?act=search_save" method="post"  name="form1" id="form1">
   {#$inputtoken#}
   <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="120" align="right">选择搜索时间范围：</td>
+      <td width="120" align="right">検索時間範囲を選択します：</td>
       <td>
         <label><input name="search_time" type="radio"  value="0"  {#if $config.search_time=="0" || $config.search_time==""#}checked="checked"{#/if#}/>不限时间</label>
         &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -37,19 +37,19 @@ like只能搜索职位名称和公司名称。<br />
     </tr>
   </table>
 </form>
-<div class="toptit">职位搜索</div>
+<div class="toptit">求人情報検索</div>
   <form action="?act=search_save" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="120" align="right">允许关键字搜索：</td>
+      <td width="120" align="right">キーワード検索ができます：</td>
       <td>
 	   <label><input name="jobsearch_purview" type="radio"  value="1"  {#if $config.jobsearch_purview=="1"#}checked="checked"{#/if#}/>任何用户</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
 	   <label ><input type="radio" name="jobsearch_purview" value="2"  {#if $config.jobsearch_purview=="2"#}checked="checked"{#/if#}/>仅已登录会员</label>	  </td>
     </tr>
 	 <tr>
-      <td width="120" align="right">搜索模式：</td>
+      <td width="120" align="right">検索モード：</td>
       <td>
 	   <label><input name="jobsearch_type" type="radio"  value="1"  {#if $config.jobsearch_type=="1"#}checked="checked"{#/if#}/>全文搜索</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -66,19 +66,19 @@ like只能搜索职位名称和公司名称。<br />
   </form>
 
 {#if $_PLUG.hunter.p_install==2#}
-<div class="toptit">高级职位搜索</div>
+<div class="toptit">高級求人情報検索</div>
   <form action="?act=search_save" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="120" align="right">允许关键字搜索：</td>
+      <td width="120" align="right">キーワード検索ができます：</td>
       <td>
 	   <label><input name="hunterjobsearch_purview" type="radio"  value="1"  {#if $config.hunterjobsearch_purview=="1"#}checked="checked"{#/if#}/>任何用户</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
 	   <label ><input type="radio" name="hunterjobsearch_purview" value="2"  {#if $config.hunterjobsearch_purview=="2"#}checked="checked"{#/if#}/>仅已登录会员</label>	  </td>
     </tr>
 	 <tr>
-      <td width="120" align="right">搜索模式：</td>
+      <td width="120" align="right">検索モード：</td>
       <td>
 	   <label><input name="hunterjobsearch_type" type="radio"  value="1"  {#if $config.hunterjobsearch_type=="1"#}checked="checked"{#/if#}/>全文搜索</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -94,19 +94,19 @@ like只能搜索职位名称和公司名称。<br />
   </table>
   </form>
   {#/if#}
-  <div class="toptit">简历搜索</div>
+  <div class="toptit">履歴書検索</div>
   <form action="?act=search_save" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="120" align="right">允许关键字搜索：</td>
+      <td width="120" align="right">キーワード検索ができます：</td>
       <td>
 	   <label><input name="resumesearch_purview" type="radio"  value="1"  {#if $config.resumesearch_purview=="1"#}checked="checked"{#/if#}/>任何用户</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
 	   <label ><input type="radio" name="resumesearch_purview" value="2"  {#if $config.resumesearch_purview=="2"#}checked="checked"{#/if#}/>仅已登录会员</label>	  </td>
     </tr>
 	 <tr>
-      <td width="120" align="right">搜索模式：</td>
+      <td width="120" align="right">検索モード：</td>
       <td>
 	   <label><input name="resumesearch_type" type="radio"  value="1"  {#if $config.resumesearch_type=="1"#}checked="checked"{#/if#}/>全文搜索</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -122,19 +122,19 @@ like只能搜索职位名称和公司名称。<br />
   </form>
 
 {#if $_PLUG.train.p_install==2#}
-  <div class="toptit">课程搜索</div>
+  <div class="toptit">コース検索</div>
   <form action="?act=search_save" method="post"  name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
-      <td width="120" align="right">允许关键字搜索：</td>
+      <td width="120" align="right">キーワード検索ができます：</td>
       <td>
 	   <label><input name="courseearch_purview" type="radio"  value="1"  {#if $config.courseearch_purview=="1"#}checked="checked"{#/if#}/>任何用户</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 
 	   <label ><input type="radio" name="courseearch_purview" value="2"  {#if $config.courseearch_purview=="2"#}checked="checked"{#/if#}/>仅已登录会员</label>	  </td>
     </tr>
 	 <tr>
-      <td width="120" align="right">搜索模式：</td>
+      <td width="120" align="right">検索モード：</td>
       <td>
 	   <label><input name="courseearch_type" type="radio"  value="1"  {#if $config.courseearch_type=="1"#}checked="checked"{#/if#}/>全文搜索</label>
        &nbsp;&nbsp;&nbsp;&nbsp; 

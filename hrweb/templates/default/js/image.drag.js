@@ -1,15 +1,6 @@
-﻿/**
- * Base class of Drag
- * @example:
- * Drag.init( header_element, element );
- */
-var Drag = {
+﻿var Drag = {
 	// 瀵硅繖涓猠lement鐨勫紩鐢紝涓€娆″彧鑳芥嫋鎷戒竴涓狤lement
 	obj: null , 
-	/**
-	 * @param: elementHeader	used to drag..
-	 * @param: element			used to follow..
-	 */
 	init: function(elementHeader, element) {
 		// 灏?start 缁戝畾鍒?onmousedown 浜嬩欢锛屾寜涓嬮紶鏍囪Е鍙?start
 		elementHeader.onmousedown = Drag.start;

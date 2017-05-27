@@ -1,10 +1,4 @@
 ﻿<?php
-/**
- * Template Lite section_start compile plugin converted from Smarty
- *
- * Type:	 compile
- * Name:	 section_start
- */
 
 function compile_section_start($arguments, &$object)
 {

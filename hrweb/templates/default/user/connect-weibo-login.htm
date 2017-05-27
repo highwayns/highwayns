@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="edge"><meta name="renderer" content="webkit">
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <link href="{#$HIGHWAY.site_template#}css/common.css" rel="stylesheet" type="text/css" />
 <link href="{#$HIGHWAY.site_template#}css/bind.css" rel="stylesheet" type="text/css" />
 <script src="{#$HIGHWAY.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
@@ -55,25 +55,25 @@ $(document).ready(function() {
   },
     messages: {
    member_type:{
-    required: "请选择您要成为哪种会员"
+    required: "会員タイプを選択してください"
    },
    username: {
-    required: "请填写用户名",
-  remote: jQuery.format("用户名已经存在或者不合法") 
+    required: "ユーザ名入力",
+  remote: jQuery.format("ユーザ名すでに存在または正しくない") 
    },
     email: {
-    required: "请填写电子邮箱",
-  email: jQuery.format("电子邮箱格式错误"),
-  remote: jQuery.format("email已经存在")  
+    required: "メールアドレス入力してください",
+  email: jQuery.format("电子メールフォーマットエラー"),
+  remote: jQuery.format("email")  
    },
    password: {
-    required: "请填写密码",
-    minlength: jQuery.format("填写不能小于{0}个字符"),
-  maxlength: jQuery.format("填写不能大于{0}个字符")
+    required: "パスワード入力",
+    minlength: jQuery.format("入力文字は少なくとも{0}"),
+  maxlength: jQuery.format("入力内容{0}文字以内")
    },
    password2: {
-   required: "请填写密码",
-    equalTo: "两次输入的密码不同"
+   required: "パスワード入力",
+    equalTo: "パスワード一致しません"
    }
   },
   errorPlacement: function(error, element) {
@@ -94,17 +94,17 @@ $(document).ready(function() {
       }
     }
   return this.optional(element) || (length >= param[0] && length <= param[1]);
-  }, "确保的值在3-18个字节之间");
+  }, "値が3-18文字");
   //字符验证
   jQuery.validator.addMethod("userName", function(value, element) {
   return this.optional(element) || /^[\u0391-\uFFE5\w]+$/.test(value);
-  }, "只能包含中英文、数字和下划线");
+  }, "英字、数字とアンドバーだけ");
   jQuery.validator.addMethod("nomobile", function(value, element) { 
     var tel = /^(13|15|18)\d{9}$/;
   var $cstr= true;
   if (tel.test(value)) $cstr= false;
   return $cstr || this.optional(element); 
-}, "用户名不能是手机号");
+}, "ユーザ名は携帯番号ではない");
 });
 </script>
 </head>
@@ -116,46 +116,46 @@ $(document).ready(function() {
         <!-- 绑定表单 -->
         <div class="sign_left bind">
           <div class="bind_top">
-            <h2>只差一步，即可完成登录设置</h2>
-            <p>欢迎使用QQ帐号登录{#$HIGHWAY.site_name#}</p>
-            <p>完成账号创建后，即可直接登录哦！</p>
+            <h2>ログイン設定完了するための唯一の一歩</h2>
+            <p>QQのアカウントのログインへようこそ{#$HIGHWAY.site_name#}</P >
+            <p>アカウントの作成が完了したら、ああ直接ログインすることができます！</P>
           </div>
           <form id="Form1" name="Form1" method="post" action="?act=reg_save">
           <div class="sign_form">
             <ul>
               <li>
-                <div class="w99"><span>&nbsp;&nbsp;</span>微信昵称：</div>
+                <div class="w99"><span>&nbsp;&nbsp;</span>マイクロチャネルニックネーム：</div>
                 <div class="input_box">{#$nickname#}<input type="hidden" name="qq_nick" id="qq_nick" value="{#$nickname#}" /></div>
                 <div class="clear"></div>
               </li>
               <li>
-                <div class="w99"><span>*</span>会员类型：</div>
+                <div class="w99"><span>*</span>メンバーの種類：</div>
                 <div class="input_box">
                   <input name="member_type" id="member_type" type="hidden" />
-                  <div class="bind_radio select" id="2">个人</div>
-                  <div class="bind_radio" id="1">企业</div>
+                  <div class="bind_radio select" id="2">個人</div>
+                  <div class="bind_radio" id="1">企業</div>
                   <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
               </li>
               <li>
-                <div class="w99"><span>*</span>用户名：</div>
-                <div class="input_box"><input type="text" class="sign_up_input_name" placeholder="请输入用户名" name="username" id="username" /></div>
+                <div class="w99"><span>*</span>ユーザー名：</div>
+                <div class="input_box"><input type = “text" class= “sign_up_input_name" placeholder= “ユーザー名入力してください" name= “username" ID = “username /></div>
                 <div class="clear"></div>
               </li>
               <li>
-                <div class="w99"><span>*</span>设置密码：</div>
-                <div class="input_box"><input type="password" class="sign_up_input_pwd" placeholder="请输入登录密码" name="password" id="password" /></div>
+                <div class="w99"><span>*</span>パスワード：</div>
+                <div class="input_box"><input type=“password" class=“sign_up_input_pwd" placeholder=“登録パスワードの入力" name=“password" id=“password" /></div>
                 <div class="clear"></div>
               </li>
               <li>
-                <div class="w99"><span>*</span>确认密码：</div>
-                <div class="input_box"><input type="password" class="sign_up_input_pwd" placeholder="请确认登录密码" name="password2" id="password2" /></div>
+                <div class="w99"><span>*</span>パスワードの確認：</div>
+                <div class="input_box"><input type=“password" class=“sign_up_input_pwd" placeholder=“登録パスワードの確認" name=“password2" id=“password2" /></div>
                 <div class="clear"></div>
               </li>
               <li>
-                <div class="w99"><span>*</span>电子邮箱：</div>
-                <div class="input_box"><input type="text" class="sign_up_input_mail" placeholder="请输入您的常用邮箱" name="email" id="email" /></div>
+                <div class="w99"><span>*</span>Eメール：</div>
+                <div class="input_box"><input type="text" class="sign_up_input_mail" placeholder="よく使うメールボックスを入力してください" name="email" id="email" /></div>
                 <div class="clear"></div>
               </li>
               <li>
@@ -172,15 +172,15 @@ $(document).ready(function() {
         <div class="sign_right">
           <div class="fast_login">
             <div class="content_box">
-              <p>已经有帐号，登录与QQ帐号关联登录</p>
-              <div><input type="button" value="立即登录" class="sign_up_but_login" onclick="window.location='{#"HW_login"|highway_url#}'"/></div>
+              <p>すでにのログインに関連付けられているQQのアカウントにログインし、アカウントを持っています</P>
+              <div><input type="button" value=“すぐ登録" class="sign_up_but_login" onclick="window.location='{#"HW_login"|highway_url#}'"/></div>
                 <div class="clear"></div> 
-                <p><strong><a href="{#$qqurl#}">[更换QQ帐号]</a></strong></p>
+                <p><strong><a href="{#$qqurl#}"> [QQのアカウントを変更します]</a></strong></p>
             </div>
           </div>
           <div class="other_sign">
-            <p>您是企业用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=1">注册<strong>企业会员</strong></a></p>
-            <p>您是个人用户？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=2">注册<strong>个人会员</strong></a></p>
+            <p>あなたは、企業ユーザーですか？<a href="{#$HIGHWAY.site_dir#}user/user_reg.php?type=1">注册<strong>会員企業</strong></a></p>
+            <p>あなたは、個人ユーザーですか？<hREF = “{#$HIGHWAY.site_dir#}ユーザー/ user_reg.php？type= 2">注册<strong>個人メンバー</strong></a></p>
           </div>
         </div>
         <div class="clear"></div>

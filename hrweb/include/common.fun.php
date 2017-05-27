@@ -10,10 +10,10 @@ function showmsg($msg_detail, $msg_type = 0, $links = array(), $auto_redirect = 
 	global $smarty;
     if (count($links) == 0)
     {
-        $links[0]['text'] = '返回上一页';
+        $links[0]['text'] = '前頁へ';
         $links[0]['href'] = 'javascript:history.go(-1)';
     }
-   $smarty->assign('ur_here',     '系统提示');
+   $smarty->assign('ur_here',     'システムからのお知らせ');
    $smarty->assign('msg_detail',  $msg_detail);
    $smarty->assign('msg_type',    $msg_type);
    $smarty->assign('links',       $links);
@@ -173,17 +173,17 @@ function sub_day($endday,$staday,$range='')
 	elseif($value >= 60 && $value < 3600)
 	{
 		$min = intval($value / 60);
-		return $min."分钟";
+		return $min."分";
 	}
 	elseif($value >=3600 && $value < 86400)
 	{
 		$h = intval($value / 3600);
-		return $h."小时";
+		return $h."時間";
 	}
 	elseif($value >= 86400 && $value < 86400*30)
 	{
 		$d = intval($value / 86400);
-		return intval($d)."天";
+		return intval($d)."日";
 	}
 	elseif($value >= 86400*30 && $value < 86400*30*12)
 	{
@@ -209,12 +209,12 @@ function daterange($endday,$staday,$format='Y-m-d',$color='',$range=3)
 	elseif($value >= 60 && $value < 3600)
 	{
 		$min = intval($value / 60);
-		$return=$min."分钟前";
+		$return=$min."分前";
 	}
 	elseif($value >=3600 && $value < 86400)
 	{
 		$h = intval($value / 3600);
-		$return=$h."小时前";
+		$return=$h."時間前";
 	}
 	elseif($value >= 86400)
 	{
@@ -225,7 +225,7 @@ function daterange($endday,$staday,$format='Y-m-d',$color='',$range=3)
 		}
 		else
 		{
-		$return=$d."天前";
+		$return=$d."日前";
 		}
 	}
 	if ($color)
@@ -276,7 +276,7 @@ function smtp_mail($sendto_email,$subject,$body,$From='',$FromName='')
 	{
 		if (empty($mailconfig['smtpservers']) || empty($mailconfig['smtpusername']) || empty($mailconfig['smtppassword']) || empty($mailconfig['smtpfrom']))
 		{
-		write_syslog(2,'MAIL',"邮件配置信息不完整");
+		write_syslog(2,'MAIL',"メール設定情報不完全");
 		return false;
 		}
 	$mail->IsSMTP();
@@ -407,7 +407,7 @@ function send_sms($mobile,$content)
 	}
 	else
 	{
-		return https_request("http://www.jp.highwayns.com/SMSsend.php?sms_name={$sms['notice_sms_name']}&sms_key={$sms['notice_sms_key']}&mobile={$mobile}&content={$content}");
+		return https_request("http://highwayns.com/SMSsend.php?sms_name={$sms['notice_sms_name']}&sms_key={$sms['notice_sms_key']}&mobile={$mobile}&content={$content}");
 	
 	}	
 }
@@ -422,7 +422,7 @@ function captcha_send_sms($mobile,$content)
 	}
 	else
 	{
-		return https_request("http://www.jp.highwayns.com/SMSsend.php?sms_name={$sms['captcha_sms_name']}&sms_key={$sms['captcha_sms_key']}&mobile={$mobile}&content={$content}");
+		return https_request("http://highwayns.com/SMSsend.php?sms_name={$sms['captcha_sms_name']}&sms_key={$sms['captcha_sms_key']}&mobile={$mobile}&content={$content}");
 	}	
 }
 //其他类短信接口
@@ -436,7 +436,7 @@ function free_send_sms($mobile,$content)
 	}
 	else
 	{
-	return https_request("http://www.jp.highwayns.com/SMSsend5.php?sms_name={$sms['free_sms_name']}&sms_key={$sms['free_sms_key']}&mobile={$mobile}&content={$content}");
+	return https_request("http://highwayns.com/SMSsend5.php?sms_name={$sms['free_sms_name']}&sms_key={$sms['free_sms_key']}&mobile={$mobile}&content={$content}");
 	}	
 }
 function execution_crons()
@@ -718,9 +718,6 @@ function write_refresh_log($uid,$mode=0,$type)
 	$db->inserttable(table('refresh_log'),$setsqlarr);
 }
 
-/**
- * 3.5更新内容
- */
 function filter_url($alias){
 	global $_PAGE,$smarty;
 	$pass = true;
@@ -750,10 +747,6 @@ function filter_url($alias){
 	    exit();
 	}
 }
-/**
- * utf8转gbk
- * @param $utfstr
- */
 function utf8_to_gbk($utfstr) {
 	if(is_numeric($utfstr)){
 		return $utfstr;
@@ -794,10 +787,6 @@ function utf8_to_gbk($utfstr) {
 	$okstr = trim($okstr);
 	return $okstr;
 }
-/**
- * gbk转utf8
- * @param $gbstr
- */
 function gbk_to_utf8($gbstr) {
 	if(is_numeric($gbstr)){
 		return $gbstr;
@@ -830,10 +819,6 @@ function gbk_to_utf8($gbstr) {
 	}
 	return $ret;
 }
-/**
- * utf8转unicode
- * @param  $c
- */
 function utf8_to_unicode($c) {
 	switch(strlen($c)) {
 		case 1:
@@ -855,10 +840,6 @@ function utf8_to_unicode($c) {
 		  return $n;
 	}
 }
-/**
- * unicode转utf8
- * @param  $c
- */
 function unicode_to_utf8($c) {
 	$str = '';
 	if($c < 0x80) {
@@ -960,7 +941,7 @@ function check_cache($cache,$dir,$days=1)
 	$cachename=HIGHWAY_ROOT_PATH.'data/'.$dir."/".$cache;
 	if (!is_writable(HIGHWAY_ROOT_PATH.'data/'.$dir.'/'))
 	{
-	exit("请先将“".$dir."”目录设置可读写！");
+	exit("さきに“".$dir."”フォルダー読み書きに設定！");
 	}
 	if (file_exists($cachename))
 	{
@@ -982,11 +963,11 @@ function write_cache($cache, $json, $dir)
 		$fp = @fopen($cachename, 'wb+');
 		if (!$fp)
 		{
-			exit('生cache文件失败，请设置“'.$dir.'”的读写权限');
+			exit('cacheファイル作成失敗，設定してください“'.$dir.'”の読みと書き権限');
 		}
 		if (!@fwrite($fp, trim($content)))
 		{
-			exit('生cache文件失败，请设置“'.$dir.'”的读写权限');
+			exit('cacheファイル作成失敗，設定してください“'.$dir.'”の読みと書き権限');
 		}
 		@fclose($fp);
 	}

@@ -1,4 +1,4 @@
-﻿AutoFormat.RemoveSpansWithoutAttributes
+AutoFormat.RemoveSpansWithoutAttributes
 TYPE: bool
 VERSION: 4.0.1
 DEFAULT: false

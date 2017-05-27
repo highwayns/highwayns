@@ -1,4 +1,4 @@
-// Heap implementation -*- C++ -*-
+﻿// Heap implementation -*- C++ -*-
 
 // Copyright (C) 2001, 2004, 2005, 2006 Free Software Foundation, Inc.
 //

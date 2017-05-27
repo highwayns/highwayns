@@ -126,11 +126,11 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 			{
 				if($value['sex']==1)
 				{
-					$value['fullname']=cut_str($value['fullname'],1,0,"先生");
+					$value['fullname']=cut_str($value['fullname'],1,0,"男");
 				}
 				elseif($value['sex']==2)
 				{
-					$value['fullname']=cut_str($value['fullname'],1,0,"女士");
+					$value['fullname']=cut_str($value['fullname'],1,0,"女");
 				}
 				$value['fullname_']=$value['fullname'];	
 			}

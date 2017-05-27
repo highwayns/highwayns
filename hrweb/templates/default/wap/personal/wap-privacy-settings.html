@@ -1,18 +1,18 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>个人会员中心</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>個人会員センター</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="highwayns.com" />
 <link href="../css/common.css" rel="stylesheet" type="text/css" />
 <link href="../css/user.css" rel="stylesheet" type="text/css" />
 <link href="../css/user_personal.css" rel="stylesheet" type="text/css" />
 <script src="../js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="../js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function()
@@ -29,10 +29,10 @@ $(document).ready(function()
  		var display_name=$("input[name='display_name']:checked").val();
  		$.post("?act=resume_privacy_save",{pid:pid,display:display,display_name:display_name},function(data){
 		    if(data=="ok"){
-		    	alert("隐私设置成功");
+		    	alert("プライバシー設定成功");
 		    	window.location.reload();
 		    }else if(data=="err"){
-		    	alert("隐私设置失败");
+		    	alert("プライバシー設定失敗");
 		    }
 		  });
  	});
@@ -42,7 +42,7 @@ $(document).ready(function()
 <body>
 <div class=""></div>
 <div class="sub_head_top">
-	<div class="title">隐私设置</div>
+	<div class="title">プライバシー設定</div>
 	<div class="back" id="pageback"><img src="../images/18.jpg" alt="#"   border="0"/></div>  
 	<div class="menu" id="topmenu_sub"><a href="#"><img src="../images/2.jpg"  border="0"/></a></div>
 </div>
@@ -51,16 +51,16 @@ $(document).ready(function()
 <!--快捷按钮 -->
 <div class="topnav" id="topmenu">
   <div class="list" onclick='window.location.href="../index.php";'>
-    <div class="box"><img src="../images/9.jpg"  border="0"/><br />首页</div>
+    <div class="box"><img src="../images/9.jpg"  border="0"/><br />トップ</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-jobs-list.php";'>
-    <div class="box"><img src="../images/11.jpg"  border="0"/><br />搜职位</div>
+    <div class="box"><img src="../images/11.jpg"  border="0"/><br />職位探す</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-resume-list.php";'>
-    <div class="box"><img src="../images/12.jpg"  border="0"/><br />搜简历</div>
+    <div class="box"><img src="../images/12.jpg"  border="0"/><br />履歴書探す</div>
   </div>
   <div class="list" onclick='window.location.href="../wap-news-list.php";'>
-    <div class="box"><img src="../images/13.jpg"  border="0"/><br />看资讯</div>
+    <div class="box"><img src="../images/13.jpg"  border="0"/><br />ニュース</div>
   </div>
   <div class="clear"></div>
 </div>
@@ -77,10 +77,10 @@ $(document).ready(function()
 			<td><div class="table_title">简历状态</div></td>
 		</tr>
 		<tr>
-			<td><label><input type="radio" name="display" value="1" {#if $resume_one.display==1#}checked{#/if#}/> 公开</label></td>
+			<td><label><input type="radio" name="display" value="1" {#if $resume_one.display==1#}checked{#/if#}/> 公開</label></td>
 		</tr>
 		<tr>
-			<td><label><input type="radio" name="display" value="2"  {#if $resume_one.display==2#}checked{#/if#}/> 保密</label></td>
+			<td><label><input type="radio" name="display" value="2"  {#if $resume_one.display==2#}checked{#/if#}/> 守秘</label></td>
 		</tr>
 	</tbody>
 </table>
@@ -96,7 +96,7 @@ $(document).ready(function()
 			<td><label><input type="radio" name="display_name" value="3" {#if $resume_one.display_name==3#}checked{#/if#}/> {#$resume_one.fullname_3#}</label></td>
 		</tr>
 		<tr>
-			<td><label><input type="radio" name="display_name" value="2" {#if $resume_one.display_name==2#}checked{#/if#}/> 编号</label></td>
+			<td><label><input type="radio" name="display_name" value="2" {#if $resume_one.display_name==2#}checked{#/if#}/> 番号</label></td>
 		</tr>
 	</tbody>
 </table>
@@ -107,10 +107,10 @@ $(document).ready(function()
 			<td><div class="table_title">简历照片</div></td>
 		</tr>
 		<tr>
-			<td><label><input type="radio" name="photo_privacy" id="" checked /> 公开</label></td>
+			<td><label><input type="radio" name="photo_privacy" id="" checked /> 公開</label></td>
 		</tr>
 		<tr>
-			<td><label><input type="radio" name="photo_privacy" id="" /> 保密</label></td>
+			<td><label><input type="radio" name="photo_privacy" id="" /> 守秘</label></td>
 		</tr>
 	</tbody>
 </table> -->

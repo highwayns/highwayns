@@ -1,4 +1,4 @@
-﻿Core.AllowHostnameUnderscore
+Core.AllowHostnameUnderscore
 TYPE: bool
 VERSION: 4.6.0
 DEFAULT: false

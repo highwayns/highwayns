@@ -1,24 +1,10 @@
 ﻿<?php
 
-/**
- * Validates shorthand CSS property font.
- */
 class HTMLPurifier_AttrDef_CSS_Font extends HTMLPurifier_AttrDef
 {
 
-    /**
-     * Local copy of validators
-     * @type HTMLPurifier_AttrDef[]
-     * @note If we moved specific CSS property definitions to their own
-     *       classes instead of having them be assembled at run time by
-     *       CSSDefinition, this wouldn't be necessary.  We'd instantiate
-     *       our own copies.
-     */
     protected $info = array();
 
-    /**
-     * @param HTMLPurifier_Config $config
-     */
     public function __construct($config)
     {
         $def = $config->getCSSDefinition();
@@ -30,12 +16,6 @@ class HTMLPurifier_AttrDef_CSS_Font extends HTMLPurifier_AttrDef
         $this->info['font-family'] = $def->info['font-family'];
     }
 
-    /**
-     * @param string $string
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
-     * @return bool|string
-     */
     public function validate($string, $config, $context)
     {
         static $system_fonts = array(

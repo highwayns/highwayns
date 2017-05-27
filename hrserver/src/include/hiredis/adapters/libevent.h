@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2010-2011, Pieter Noordhuis <pcnoordhuis at gmail dot com>
  *
  * All rights reserved.

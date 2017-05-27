@@ -1,4 +1,4 @@
-﻿CSS.ForbiddenProperties
+CSS.ForbiddenProperties
 TYPE: lookup
 VERSION: 4.2.0
 DEFAULT: array()

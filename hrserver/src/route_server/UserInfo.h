@@ -1,4 +1,4 @@
-//
+﻿//
 //  UserInfo.h
 //  im-server-TT
 //

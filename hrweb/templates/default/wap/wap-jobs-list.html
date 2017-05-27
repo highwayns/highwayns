@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"  />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>职位列表 - {#$QISHI.site_name#}</title>
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
+<title>職位一覧 - {#$HIGHWAY.site_name#}</title>
+<meta name="author" content="海威人材" />
+<meta name="copyright" content="highwayns.com" />
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/jobs.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_domain#}{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<script src="{#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 <script src="js/jquery.common.js" type='text/javascript' ></script>
 <script type="text/javascript">
 $(document).ready(function()
@@ -122,10 +122,10 @@ $(document).ready(function()
 		$(this).hide();
 		var offset=$(".jobs_list div[class='list']").size();
 		// offset=parseInt(offset.substr(3));
-		$.get("{#$QISHI.wap_domain#}/plus/wap_ajax.php?act=ajaxjobslist&offset="+(offset)+"&rows=5&recommend="+recommend+"&emergency="+emergency+"&key="+key+"&district="+district+"&sdistrict="+sdistrict+"&trade="+trade+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&wage="+wage, function(result){
+		$.get("{#$HIGHWAY.wap_domain#}/plus/wap_ajax.php?act=ajaxjobslist&offset="+(offset)+"&rows=5&recommend="+recommend+"&emergency="+emergency+"&key="+key+"&district="+district+"&sdistrict="+sdistrict+"&trade="+trade+"&topclass="+topclass+"&category="+category+"&subclass="+subclass+"&wage="+wage, function(result){
 		    if(result=="-1"){
 		    	$(".more").show();
-		    	$(".more").html("没有更多职位了");
+		    	$(".more").html("もっと職位なし");
 		    }else{
 		    	$(".showlist").append(result);
 		    	$(".more").show();
@@ -162,7 +162,7 @@ $(document).ready(function()
 <body>
 <div class="sub_bodybg"></div>
 <div class="sub_head_top">
-	<div class="title">{#if $smarty.get.emergency=="1"#}紧急招聘{#elseif $smarty.get.recommend=="1"#}推荐职位{#else#}搜索职位{#/if#}</div>
+	<div class="title">{#if $smarty.get.emergency=="1"#}緊急募集{#elseif $smarty.get.recommend=="1"#}お勧め職{#else#}職位検索{#/if#}</div>
 	<div class="back" id="pageback"><img src="images/18.jpg" alt="#"   border="0"/></div>  
 	<div class="menu" id="topmenu_sub"><a href="javascript:void(0);"><img src="images/2.jpg"  border="0"/></a></div>
 </div>
@@ -172,7 +172,7 @@ $(document).ready(function()
 <!--快捷按钮 -->
 <!--关键字搜索 -->
 <div class="jobs_so">
-	<input name="key" type="text"  id="key"  class="keyinput" value="{#if $smarty.get.key==""#}请输入关键字{#else#}{#$smarty.get.key#}{#/if#}"/>
+	<input name="key" type="text"  id="key"  class="keyinput" value="{#if $smarty.get.key==""#}キーワード入力してください{#else#}{#$smarty.get.key#}{#/if#}"/>
 	<div class="clearkey" id="clearkey"><img src="images/17.jpg"  border="0"/></div>
     <div class="so_sub"><img src="images/19.jpg"  border="0"/></div>
 </div>
@@ -197,7 +197,7 @@ $(document).ready(function()
     </div>
     <script type="text/javascript">
       var citystr = '';
-      $.each(QS_city_parent, function(pindex, pval) {
+      $.each(HW_city_parent, function(pindex, pval) {
         if(pval) {
           var citys = pval.split(",");
           citystr += '<li class="area_big" rcoid="'+citys[0]+'" pid="'+citys[0]+'" title="'+citys[1]+'" href="javascript:;">'+citys[1]+'</li>';
@@ -209,9 +209,9 @@ $(document).ready(function()
         var cid = $(this).attr("pid");
         var ctitle = $(this).attr("title");
         var scitystr = "";
-        if(QS_city[cid]) {
-          var ccitysArray = QS_city[cid].split("|");
-          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/不限" pid="'+cid+'.0" href="javascript:;">不限</li>';
+        if(HW_city[cid]) {
+          var ccitysArray = HW_city[cid].split("|");
+          scitystr += '<li class="area_small" rcoid="0" title="'+ctitle+'/制限なし" pid="'+cid+'.0" href="javascript:;">限定なし</li>';
           $.each(ccitysArray, function(cindex, cval) {
             if(cval) {
               var ccitys = cval.split(",");
@@ -286,13 +286,13 @@ $(document).ready(function()
     </div>
   </div>
   <div class="menu choose_menu" id="menuTrad" style="display:none;position:absolute;z-index:1;">
-        <div class="menu_title">行业</div>
+        <div class="menu_title">業界</div>
         <div class="choose_close"></div>
         <ul id="trad_list"></ul>
   </div>
   <script type="text/javascript">
       var tradli = '';
-      $.each(QS_trade, function(index, val) {
+      $.each(HW_trade, function(index, val) {
         if(val) {
           var trads = val.split(",");
           tradli += '<li id="'+trads[0]+'" title="'+trads[1]+'">'+trads[1]+'</li>';
@@ -337,7 +337,7 @@ $(document).ready(function()
     </div>
   </div>
   <div class="menu choose_menu" id="menuJobs" style="display:none;position:absolute;z-index:1;">
-  <div class="menu_title">职能</div>
+  <div class="menu_title">職能</div>
   <div class="choose_close"></div>
   <div class="area_choose">
     <ul class="area_left" id="jobs_left_list"></ul>
@@ -346,10 +346,10 @@ $(document).ready(function()
   </div>
   <script type="text/javascript">
     var jobstr = '';
-    $.each(QS_jobs_parent, function(pindex, pval) {
+    $.each(HW_jobs_parent, function(pindex, pval) {
       if(pval) {
         var jobs = pval.split(",");
-        var sjobsArray = QS_jobs[jobs[0]].split("|");
+        var sjobsArray = HW_jobs[jobs[0]].split("|");
         $.each(sjobsArray, function(sindex, sval) {
           if(sval) {
             var sjobs = sval.split(",");
@@ -364,9 +364,9 @@ $(document).ready(function()
       var rpid = $(this).attr("pid");
       var rtitle = $(this).attr("title");
       var sjobstr = "";
-      if(QS_jobs[rid]) {
-        var cjobsArray = QS_jobs[rid].split("|");
-        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/不限" pid="'+rpid+'.0">不限</li>';
+      if(HW_jobs[rid]) {
+        var cjobsArray = HW_jobs[rid].split("|");
+        sjobstr += '<li class="area_small" rcoid="0" title="'+rtitle+'/制限なし" pid="'+rpid+'.0">限定なし</li>';
         $.each(cjobsArray, function(cindex, cval) {
           if(cval) {
             var cjobs = cval.split(",");
@@ -445,10 +445,10 @@ $(document).ready(function()
     </div>
   </div>
   <div class="menu choose_menu" id="menuWage" style="display:none;position:absolute;z-index:1;">
-  <div class="menu_title">薪资</div>
+  <div class="menu_title">給料</div>
     <div class="choose_close"></div>
     <ul>
-      {#qishi_get_classify  set="类型:QS_wage,列表名:c_wage"#}
+      {#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
       {#foreach from=$c_wage item=list#}
       <li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
       {#/foreach#}
@@ -459,7 +459,7 @@ $(document).ready(function()
 <!-- 选择完之后的完成框 -->
 <div class="so_complete">
   <div class="so_complete_box">
-  <span>搜索条件：</span><i id="showListCity"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListTrad"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListJobs"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListWage"></i>
+  <span>検索条件：</span><i id="showListCity"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListTrad"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListJobs"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i id="showListWage"></i>
 </div>
 <div class="clear"></div>
   <img id="clearShowList" src="./images/so_close.gif" alt=""width="16"height="17" />
@@ -469,7 +469,7 @@ $(document).ready(function()
   var citygetDistrictId = "{#$smarty.get.district#}";
   var citygetSdistrictId = "{#$smarty.get.sdistrict#}";
   var showCityHtm = "";
-  $.each(QS_city_parent, function(cindex, cval) {
+  $.each(HW_city_parent, function(cindex, cval) {
      if(cval) {
         var citys = cval.split(",");
         if(citys[0] == citygetDistrictId) {
@@ -478,10 +478,10 @@ $(document).ready(function()
      }
   });
   if(citygetSdistrictId == "0") {
-    showCityHtm += "不限";
+    showCityHtm += "制限なし";
   } else {
-    if(QS_city[citygetDistrictId]) {
-      var ccitysArray = QS_city[citygetDistrictId].split("|");
+    if(HW_city[citygetDistrictId]) {
+      var ccitysArray = HW_city[citygetDistrictId].split("|");
       $.each(ccitysArray, function(scindex, scval) {
          if(scval) {
             var scitys = scval.split(",");
@@ -496,7 +496,7 @@ $(document).ready(function()
   // 行业恢复
   var citygetTradeId = "{#$smarty.get.trade#}";
   var showTradeHtm = "";
-  $.each(QS_trade, function(tindex, tval) {
+  $.each(HW_trade, function(tindex, tval) {
     if(tval) {
       var trads = tval.split(",");
       if(trads[0] == citygetTradeId) {
@@ -510,8 +510,8 @@ $(document).ready(function()
   var citygetCategoryId = "{#$smarty.get.category#}";
   var citygetSubclassId = "{#$smarty.get.subclass#}";
   var showJobsHtm = "";
-  if(QS_jobs[citygetTopclassId]) {
-    var sjobsArray = QS_jobs[citygetTopclassId].split("|");
+  if(HW_jobs[citygetTopclassId]) {
+    var sjobsArray = HW_jobs[citygetTopclassId].split("|");
     $.each(sjobsArray, function(sindex, sval) {
       if(sval) {
         var sjobs = sval.split(",");
@@ -522,10 +522,10 @@ $(document).ready(function()
     });
   }
   if(citygetSubclassId == "0") {
-    showJobsHtm += "不限";
+    showJobsHtm += "制限なし";
   } else {
-    if(QS_jobs[citygetCategoryId]) {
-      var tsjobsArray = QS_jobs[citygetCategoryId].split("|");
+    if(HW_jobs[citygetCategoryId]) {
+      var tsjobsArray = HW_jobs[citygetCategoryId].split("|");
       $.each(tsjobsArray, function(sindex, sval) {
         if(sval) {
           var tsjobs = sval.split(",");
@@ -540,7 +540,7 @@ $(document).ready(function()
   // 薪资恢复
   var citygetWageId = "{#$smarty.get.wage#}";
   var showWageHtm = "";
-  $.each(QS_wage, function(windex, wval) {
+  $.each(HW_wage, function(windex, wval) {
     if(wval) {
       var wages = wval.split(",");
       if(wages[0] == citygetWageId) {
@@ -566,10 +566,10 @@ $(document).ready(function()
 	<div class="list" id="li-0" url="{#$list.url#}">
 	  <div class="t1">
          <span ><a href="{#$list.url#}">{#$list.jobs_name#}</a>
-              {#if $list.stick=="1"#}<img title="置顶信息" src="images/ding.jpg" border="0" class="vtip"/>{#/if#}
-              {#if $list.emergency=="1"#}<img title="紧急招聘" src="images/iconji.gif" border="0" class="vtip" />{#/if#}
-              {#if $list.recommend=="1"#}<img title="推荐职位" src="images/iconjian.gif" border="0" class="vtip" />{#/if#}
-              {#if $list.graduate=="1"#}<img title="欢迎应届生投递简历" src="images/ying.jpg" border="0" class="vtip"/>{#/if#}
+              {#if $list.stick=="1"#}<img title="トップ情報" src="images/ding.jpg" border="0" class="vtip"/>{#/if#}
+              {#if $list.emergency=="1"#}<img title="緊急募集" src="images/iconji.gif" border="0" class="vtip" />{#/if#}
+              {#if $list.recommend=="1"#}<img title="お勧め職位" src="images/iconjian.gif" border="0" class="vtip" />{#/if#}
+              {#if $list.graduate=="1"#}<img title="新卒大歓迎" src="images/ying.jpg" border="0" class="vtip"/>{#/if#}
          </span>
          <br />
 {#$list.companyname#}</div>
@@ -582,7 +582,7 @@ $(document).ready(function()
 {#if $jobs#}
     <div class="more link_bk"><a href="javascript:void(0);">更多职位...</a></div>	
 {#else#}
-    <div class="more link_bk">没有更多职位了</div>	
+    <div class="more link_bk">もっと職位無し</div>	
 {#/if#}
 </div>
 {#include file="wap/footer.htm"#}

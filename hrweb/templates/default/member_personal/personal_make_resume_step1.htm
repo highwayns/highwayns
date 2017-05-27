@@ -5,7 +5,7 @@
 <title>{#$title#}</title>
 <link rel="shortcut icon" href="{#$HIGHWAY.site_dir#}favicon.ico" />
 <meta name="author" content="海威人材" />
-<meta name="copyright" content="jp.highwayns.com" />
+<meta name="copyright" content="highwayns.com" />
 <meta name="renderer" content="webkit"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="{#$HIGHWAY.site_template#}css/user_personal.css" rel="stylesheet" type="text/css" />
@@ -45,13 +45,13 @@ function is_form_changed() {
 }
 if ($.browser.msie){
     window.onunload = function(){
-        return "您正在编辑的内容尚未保存，确定要离开此页吗？";
+        return "編集している内容が保存されていません，この頁から移動しますか？";
     }
 }
 else{
     window.onbeforeunload = function(){
         if (is_form_changed()) {
-			return '您正在编辑的内容尚未保存，确定要离开此页吗？';
+			return '編集している内容が保存されていません，この頁から移動しますか？';
 		}
     }
 }
@@ -169,7 +169,7 @@ var y=myDate.getFullYear();
 jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
     var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}|17[0-9]{9}$/;
     return this.optional(element) || (tel.test(value));
-}, "请正确填写手机号码");
+}, "携帯番号正しく入力してください");
  $("#Form1").validate({
    rules:{
    fullname: "required",
@@ -206,45 +206,45 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	},
     messages: {
     fullname: {
-    required: jQuery.format("请输入真实姓名")
+    required: jQuery.format("名前を入力してください")
    },
    birthdate: {
-    required: jQuery.format("请选择出生年份")
+    required: jQuery.format("出生年代")
    },
    residence: {
-    required: jQuery.format("请填写现居住地")
+    required: jQuery.format("現住所入力")
    },
    education: {
-    required: jQuery.format("请选择你的学历")
+    required: jQuery.format("学歴選択してください")
    },
    major_cn: {
-    required: jQuery.format("请选择你的专业")
+    required: jQuery.format("専門選択")
    },
    experience: {
-    required: jQuery.format("请选择工作经验")
+    required: jQuery.format("仕事経験を選択してください")
    },
    mobile: {
-    required: jQuery.format("请填写手机号"),
-    isPhoneNumber: jQuery.format("请正确填写手机号码")
+    required: jQuery.format("携帯番号入力"),
+    isPhoneNumber: jQuery.format("携帯番号正しく入力してください")
    },
    email: {
-    required: jQuery.format("请填写电子邮箱"),
-	email: jQuery.format("请正确填写电子邮箱")
+    required: jQuery.format("メールアドレス入力してください"),
+	email: jQuery.format("メール正しく入力してください")
    },
-   current:"请选择目前状态",
-   intention_jobs:"请选择期望职位",
-   trade_cn:"请选择期望行业",
+   current:"現状選択してください",
+   intention_jobs:"期望職位選択",
+   trade_cn:"期望業界選択",
    district: {
-    required: jQuery.format("请选择工作地区")
+    required: jQuery.format("仕事地区選択")
    },
    wage: {
-    required: jQuery.format("请选择期望薪资")
+    required: jQuery.format("選択期望薪资")
    }
    {#if $verify_resume=="1" && $resume_basic.fullname==""#}
    ,
     postcaptcha: {
-    required: "请填写验证码",
-	remote: jQuery.format("验证码错误")	
+    required: "検証コード入力",
+	remote: jQuery.format("検証コードエラー")	
    }
     {#/if#}
   },
@@ -262,20 +262,20 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	}
     });
 	jQuery.validator.addMethod("IScaptchastr", function(value, element) {
-	var str="点击获取验证码";
+	var str="点击取得検証コード";
 	var flag=true;
 	if (str==value)
 	{
 	flag=false;
 	}
 	return  flag || this.optional(element) ;
-	}, "请填写验证码");
+	}, "検証コード入力");
 	/////验证码部分
 	{#if $verify_resume=="1" && $resume_basic.fullname==""#}
 	function imgcaptcha(inputID,imgdiv)
 	{
 		$(inputID).focus(function(){
-			if ($(inputID).val()=="点击获取验证码")
+			if ($(inputID).val()=="点击取得検証コード")
 			{
 			$(inputID).val("");
 			$(inputID).css("color","#333333");
@@ -324,7 +324,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 <body {#if $HIGHWAY.body_bgimg#}style="background:url({#$HIGHWAY.site_domain#}{#$HIGHWAY.site_dir#}data/{#$HIGHWAY.updir_images#}/{#$HIGHWAY.body_bgimg#}) repeat-x center 38px;"{#/if#}>
 {#include file="user/header.htm"#}
 
-<div class="page_location link_bk">当前位置：<a href="{#$HIGHWAY.site_dir#}">首页</a> > <a href="{#$userindexurl#}">会员中心</a> > 创建简历</div>
+<div class="page_location link_bk">現在の位置：<a href = "{#$HIGHWAY.site_dir#}">トップ</a> > <a href="{#$userindexurl#}">会員センター</a> >プロフィールを作成 </div>
 
 <div class="usermain">
   <div class="leftmenu link_bk">
@@ -336,20 +336,20 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 	  <div class="addresume">
 		
 	    <div class="titleH1">
-	      <div class="h1-title">创建简历</div>
+	      <div class="h1-title">プロフィールの作成</div>
         </div>
 	    <div class="titleH2"><span>基本信息</span></div>
 		<form id="Form1" name="Form1" method="post" action="?act=make1_save" >
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
-			<td width="125" align="right">简历名称：</td>
+			<td width="125" align="right">履歴書名前：</td>
 			<td width="230"><input name="title" type="text" class="input_text_200" id="title" maxlength="80"   value=""/></td>
 <!-- 			<td style="position: relative;">
 				<div class="leftbox" style="position: absolute;right: 110px;top:5px">
 					<div>
 					  	<img name="" src="{#$HIGHWAY.site_template#}images/06.jpg" width="100" height="100" alt="" id="img_src"/>
 					</div>
-					<a href="javascript:;"  class="edit" id="resumePhotosButton" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 100px;">简历照片</a>
+					<a href="javascript:;"  class="edit" id="resumePhotosButton" style="background-color: #c0c0c0;color: #666666;display: block;font-size: 12px;height: 28px;line-height: 28px;text-align: center;text-decoration: none;width: 100px;">履歴書写真</a>
 					<input name="photo" type="hidden" id="photo" value="" />
 		  		</div>
 			</td> -->
@@ -360,11 +360,11 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td>
 			<input name="display_name" id="display_name" type="hidden" value="{#$HIGHWAY.resume_privacy#}" />
 			  <span class="publicity" id="publicitydiv" style="display:block;float:left;">
-			    <div class="input_text_70_bg" id="display_name_cn">{#if $HIGHWAY.resume_privacy=="1"#}完全公开{#elseif $HIGHWAY.resume_privacy=="2"#}显示编号{#elseif $HIGHWAY.resume_privacy=="3"#}隐藏名字{#/if#}</div>
+			    <div class="input_text_70_bg" id="display_name_cn">{#if $HIGHWAY.resume_privacy=="1"#}完全公开{#elseif $HIGHWAY.resume_privacy==“2"#}番号表示{#elseif $HIGHWAY.resume_privacy==“3"#}名前隠す{#/if#}</div>
 					<div class="selbox">
-						<div class="div" id="1">完全公开</div>
-						<div class="div" id="2">显示编号</div>
-						<div class="div" id="3">隐藏姓名</div>
+						<div class="div" id="1">完全開示</div>
+						<div class="div" id="2">番号表示</div>
+						<div class="div" id="3">名前隠蔽</div>
 					</div>
 			  </span>&nbsp;&nbsp;&nbsp;&nbsp;
 		    </td>
@@ -375,8 +375,8 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<div id="sex_radio">
 			<input name="sex" id="sex" type="hidden" value="{#$userprofile.sex|default:1#}" />
 			<input name="sex_cn" id="sex_cn" type="hidden" value="{#$userprofile.sex_cn|default:'男'#}" />
-			  <div class="input_radio{#if $userprofile.sex==1||$userprofile.sex==""#} select{#/if#}" id="1">男</div>
-			  <div class="input_radio{#if $userprofile.sex==2#} select{#/if#}" id="2">女</div>			  
+			  <div class="input_radio{#if $userprofile.sex==1||$userprofile.sex==""#} select{#/if#}" id="1">男性</div>
+			  <div class="input_radio{#if $userprofile.sex==2#} select{#/if#}" id="2">女性</div>			  
 			  <div class="clear"></div>
 			  </div>
 		    </td>
@@ -386,7 +386,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">出生年份</span>：</td>
 			<td class="infoContent">
 			<div class="timeSel">
-			 <div class="input_text_200_bg date_input">{#if $userprofile.birthday#}{#$userprofile.birthday#}{#else#}请选择{#/if#}</div>
+			 <div class="input_text_200_bg date_input">{#ifの$ userprofile.birthday#} {#$userprofile.birthday#} {#他#} </div {#場合/#}を選択>
               <input name="birthdate" id="birthdate" type="hidden" value="{#$userprofile.birthday#}" />
               <div class="setBox" id="">
                 <i class="prevIcon"></i>
@@ -473,10 +473,10 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">最高学历</span>：</td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="education_menu" class="input_text_200_bg">{#if $userprofile.education#}{#$userprofile.education_cn#}{#else#}请选择{#/if#}</div>	
+             	 	<div id="education_menu" class="input_text_200_bg">{#ifの$ userprofile.education#} {#$userprofile.education_cn#} {#else#} </div {#場合/#}を選択>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_education,列表名:c_education"#}
+	              			{#highway_get_classify  set="タイプ:HW_education,リスト名:c_education"#}
 	              			{#foreach from=$c_education item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -491,7 +491,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		  <tr>
 			<td align="right"><span class="nec">所学专业</span>：</td>
 			<td style="position:relative;z-index:2;">
-				<div class="input_text_200_bg ucc-default" id="majorText">{#if $userprofile.major#}{#$userprofile.major_cn#}{#else#}请选择{#/if#}</div>
+				<div class="input_text_200_bg ucc-default" id="majorText">{#if $userprofile.major#}{#$userprofile.major_cn#}{#else#}選択してください{#/if#}</div>
 				<!-- 所学专业弹出框 -->
 				<div class="aui_outer" id="aui_outer_major">
 					<table class="aui_border">
@@ -536,11 +536,11 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">工作经验</span>：</td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="experience_menu" class="input_text_200_bg">{#if $userprofile.experience#}{#$userprofile.experience_cn#}{#else#}请选择{#/if#}</div>	
+             	 	<div id="experience_menu" class="input_text_200_bg">{#if $userprofile.experience#}{#$userprofile.experience_cn#}{#else#}選択してください{#/if#}</div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_experience,列表名:c_experience"#}
-	              			<li id="-1" title="应届生">应届生</li>
+	              			{#highway_get_classify  set="タイプ:HW_experience,リスト名:c_experience"#}
+	              			<li id="-1" title="新卒">新卒</li>
 	              			{#foreach from=$c_experience item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -556,7 +556,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td align="right"><span class="nec">手机</span>：</td>
 			<td>
 				{#if $user.mobile_audit=="1"#}
-				{#$user.mobile#} <a href="javascript:;" class="audit_mobile">修改</a>
+				{#$user.mobile#} <a href="javascript:;" class="audit_mobile">変更</a>
 				<input name="mobile" id="mobile" type="hidden" class="input_text_200" value="{#$user.mobile#}" />
 				{#else#}
 				<input name="mobile" id="mobile" type="text" class="input_text_200" value="{#$user.mobile#}" />
@@ -571,7 +571,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td width="125" align="right"><span class="nec">邮箱</span>：</td>
 			<td>
 				{#if $user.email_audit=="1"#}
-				{#$user.email#} <a href="javascript:;" class="audit_email">修改</a>
+				{#$user.email#} <a href="javascript:;" class="audit_email">変更</a>
 				<input name="email" id="email" type="hidden" class="input_text_200" value="{#$user.email#}" />
 				{#else#}
 				<input name="email" id="email" type="text" class="input_text_200" value="{#$user.email#}" />
@@ -581,23 +581,23 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" id="displaymorediv">
 		  <tr>
-			<td width="125" align="right">身高：</td>
+			<td width="125" align="right">身長：</td>
 			<td width="220"><input name="height" type="text" class="input_text_200_bgsg" value="{#$userprofile.height#}" /> </td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr class="jobmain">
-			<td width="125" align="right">籍贯：</td>
+			<td width="125" align="right">出身：</td>
 			<td><input name="householdaddress" type="text" class="input_text_200" id="householdaddress"  value="{#$userprofile.householdaddress#}" /> </td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr>
-			<td align="right">婚姻状况：</td>
+			<td align="right">婚姻状況：</td>
 			<td>
 			<div id="marriage_radio">
 			<input name="marriage" id="marriage" type="hidden" value="{#$userprofile.marriage|default:'1'#}" />
 			<input name="marriage_cn" id="marriage_cn" type="hidden" value="{#$userprofile.marriage_cn|default:'未婚'#}" />
 			  <div class="input_radio{#if $userprofile.marriage==1||$userprofile.marriage==''#} select{#/if#}" id="1">未婚</div>
-			  <div class="input_radio{#if $userprofile.marriage==2#} select{#/if#}" id="2">已婚</div>
+			  <div class="input_radio{#if $userprofile.marriage==2#} select{#/if#}" id="2">既婚</div>
 			  <div class="clear"></div>
 			  </div>
 		    </td>
@@ -613,10 +613,10 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 				<td width="127" align="right"><span class="nec">目前状态：</span></td>
 				<td >
 					<div style="position:relateve;">
-			             	 	<div id="current_menu" class="input_text_200_bg">请选择</div>	
+			             	 	<div id="current_menu" class="input_text_200_bg">選択してください</div>	
 			             	 	<div class="menu" id="menu5">
 				              		<ul>
-				              			{#highway_get_classify  set="类型:HW_current,列表名:c_current"#}
+				              			{#highway_get_classify  set="タイプ:HW_current,リスト名:c_current"#}
 				              			{#foreach from=$c_current item=list#}
 				              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 				              			{#/foreach#}
@@ -632,7 +632,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		  <tr class="jobmain">
 			<td width="127" align="right" valign="top" style="padding-top:16px;"><span class="nec">期望职位：</span></td>
 			<td  id="jobsSort" style="position:relative">
-				<div class="input_text_200_bg ucc-default" id="jobText">请选择</div>
+				<div class="input_text_200_bg ucc-default" id="jobText">選択してください</div>
 				<!-- 期望职位弹出框 -->
 				<div class="aui_outer" id="aui_outer_job">
 					<table class="aui_border">
@@ -648,7 +648,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 															<div class="LocalDataMultiC">
 																<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="ars" class="text-warning">0</strong> 项</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars" class=“text-warning">0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="data-row-list data-row-main" id="job_list">
 																	<!-- 列表内容 -->
 																</div>
@@ -673,7 +673,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		  <tr class="jobmain">
 			<td width="127" align="right" valign="top" style="padding-top:16px;"><span class="nec">期望行业：</span></td>
 			<td  id="jobsTrad" style="position:relative;z-index:2;">
-				<div class="input_text_200_bg ucc-default" id="tradText">请选择</div>
+				<div class="input_text_200_bg ucc-default" id="tradText">選択してください</div>
 				<!-- 期望行业弹出框 -->
 				<div class="aui_outer" id="aui_outer">
 					<table class="aui_border">
@@ -689,7 +689,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 															<div class="items jquery-localdata">
 																<div class="selector-header"><span class="selector-title">行业选择</span><div></div><span id="tr-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arstrade" class="text-warning">0</strong> 项</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した <strong id="arstrade" class="text-warning">0</strong> 項目</div><div id="result-list-trade" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="item-table">
 																	<table class="options-table options-table-7">
 																		<tbody class="item-list"><tr><td class="bno"><table><tbody id="trad_list">
@@ -720,7 +720,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		   <tr class="jobmain">
 			<td width="127" align="right"><span class="nec">工作地区：</span></td>
 			<td  id="jobsCity" style="position:relative">
-				<div class="input_text_200_bg ucc-default" id="cityText">请选择</div>
+				<div class="input_text_200_bg ucc-default" id="cityText">選択してください</div>
 				<!-- 工作地区弹出框 -->
 				<div class="aui_outer" id="aui_outer_city">
 					<table class="aui_border">
@@ -736,7 +736,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 															<div class="LocalDataMultiC" style="width:623px;">
 																<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">最多选 <strong class="text-warning">3</strong> 项&nbsp;&nbsp;已选 <strong id="arscity" class="text-warning">0</strong> 项</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity" class= “text-warning"">0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																<div class="data-row-list data-row-main" id="city_list">
 																	<!-- 列表内容 -->
 																</div>
@@ -765,7 +765,7 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<div id="nature_radio">
 			<input name="nature" id="nature" type="hidden" value="" />
 			<input name="nature_cn" id="nature_cn" type="hidden" value="" />
-			{#highway_get_classify  set="类型:HW_jobs_nature,列表名:c_nature"#}
+			{#highway_get_classify  set="タイプ:HW_jobs_nature,リスト名:c_nature"#}
 			{#section name=list loop=$c_nature#}
 			  <div class="input_radio {#if $smarty.section.list.index==0#}select{#/if#}" id="{#$c_nature[list].id#}">{#$c_nature[list].categoryname#}</div>
 			  {#/section#}			  
@@ -778,10 +778,10 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 			<td width="127" align="right"><span class="nec">期望薪资：</span></td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="wage_menu" class="input_text_200_bg">请选择</div>	
+             	 	<div id="wage_menu" class="input_text_200_bg">選択してください</div>	
              	 	<div class="menu" id="menu3">
 	              		<ul>
-	              			{#highway_get_classify  set="类型:HW_wage,列表名:c_wage"#}
+	              			{#highway_get_classify  set="タイプ:HW_wage,リスト名:c_wage"#}
 	              			{#foreach from=$c_wage item=list#}
 	              			<li id="{#$list.id#}" title="{#$list.categoryname#}">{#$list.categoryname#}</li>
 	              			{#/foreach#}
@@ -795,17 +795,17 @@ jQuery.validator.addMethod("isPhoneNumber", function(value, element) {
 		  </tr>
 		  {#if $verify_resume=="1" && $resume_basic.fullname==""#}
 		  <tr>
-			<td width="125" align="right">验证码：</td>
+			<td width="125" align="right">コード：</td>
 			<td width="230">
 				<div>
 					<div id="imgdiv"></div>
-					<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+					<input  class="input_text_200" name="postcaptcha" id="postcaptcha" type="text" value="点击取得検証コード" style="color:#999999"/>
 				</div></td>
 		  </tr>
 		  {#/if#}
 		   <tr>
 			<td width="127" align="right"> </td>
-			<td colspan="2"><input type="submit" name="submitsave" id="submitsave" value="保存"  class="but220lan" onclick="$(window).unbind('beforeunload');"/>			</td>
+			<td colspan="2"><input type=“submit" name=“submitsave" id=“submitsave" value=“保存"  class=“but220lan" onclick=“$(window).unbind(‘beforeunload’);"/>			</td>
 		  </tr>
 		</table>
 	</form>

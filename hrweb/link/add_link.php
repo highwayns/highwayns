@@ -22,28 +22,28 @@ elseif ($act=="save")
 	$postcaptcha = trim($_POST['postcaptcha']);
 	if($captcha['verify_link']=='1' && empty($postcaptcha))
 	{
-		showmsg("请填写验证码",1);
+		showmsg("検証コードを入力してください",1);
  	}
 	if ($captcha['verify_link']=='1' &&  strcasecmp($_SESSION['imageCaptcha_content'],$postcaptcha)!=0)
 	{
-		showmsg("验证码错误",1);
+		showmsg("確認コードエラー",1);
 	}
 	if ($_CFG['app_link']<>"1")
 	{
-	showmsg('已停止自助申请链接，请联系网站管理员！',1);
+	showmsg('リンク申請が停止しました，管理者に連絡してください！',1);
 	}
 	else
 	{
-	$setsqlarr['link_name']=trim($_POST['link_name'])?trim($_POST['link_name']):showmsg('您没有填写链接名称！',1);
-	$setsqlarr['link_url']=trim($_POST['link_url'])?trim($_POST['link_url']):showmsg('您没有填写链接地址！',1);
+	$setsqlarr['link_name']=trim($_POST['link_name'])?trim($_POST['link_name']):showmsg('リンクの名称を入力してください！',1);
+	$setsqlarr['link_url']=trim($_POST['link_url'])?trim($_POST['link_url']):showmsg('リンクアドレスを入力してください！',1);
 	$setsqlarr['link_logo']=trim($_POST['link_logo']);
 	$setsqlarr['app_notes']=trim($_POST['app_notes']);
 	$setsqlarr['alias']=trim($_POST['alias']);
 	$setsqlarr['display']=2;
 	$setsqlarr['type_id']=2;
-	$link[0]['text'] = "返回网站首页";
+	$link[0]['text'] = "ウェブページへ戻る";
 	$link[0]['href'] =$_CFG['site_dir'];
-	!$db->inserttable(table('link'),$setsqlarr)?showmsg("添加失败！",0):showmsg("添加成功，请等待管理员审核！",2,$link);
+	!$db->inserttable(table('link'),$setsqlarr)?showmsg("追加失敗！",0):showmsg("追加成功，管理者審査を待ってください！",2,$link);
 	}
 }
 unset($smarty);

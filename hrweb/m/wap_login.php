@@ -30,11 +30,11 @@ elseif($act == 'weixin_login'){
 	
 	$smarty->display('wap/scan/scan_success.html');
 }
-elseif(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'] )
+elseif(!$_SESSION['uid'] && !$_SESSION['username'] && !$_SESSION['utype'] &&  $_COOKIE['HW']['username'] && $_COOKIE['HW']['password'] )
 {
-	if(check_cookie($_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
+	if(check_cookie($_COOKIE['HW']['username'],$_COOKIE['HW']['password']))
 	{
-	update_user_info($_COOKIE['QS']['username'],false,false);
+	update_user_info($_COOKIE['HW']['username'],false,false);
 			if($_SESSION['utype']==2)	header("location:personal/wap_user.php");
 			if($_SESSION['utype']==1)	header("location:company/wap_user.php");
 	}
@@ -60,8 +60,8 @@ elseif ($act=='login')
 elseif ($act == 'do_login')
 {
 	require_once(HIGHWAY_ROOT_PATH.'include/fun_wap.php');
-	if($_POST['username']=="用户名/手机号/邮箱" || $_POST['password']==""|| $_POST['username']=="" ){
-		$smarty->assign('err',"请输入用户密码");
+	if($_POST['username']=="ユーザ名/携帯番号/メール" || $_POST['password']==""|| $_POST['username']=="" ){
+		$smarty->assign('err',"ユーザパスワードを入力してください");
 		$smarty->display('wap/wap_login.html');
 	}else{
 		$username=isset($_POST['username'])?trim($_POST['username']):"";
@@ -82,7 +82,7 @@ elseif ($act == 'do_login')
 			else
 			{
 				$smarty->caching = false;
-				$smarty->assign('err',"用户登录失败，用户名或密码错误");
+				$smarty->assign('err',"ユーザ登録失敗，ユーザ名或パスワードエラー");
 				$smarty->display('wap/wap_login.html');
 			}		
 		}
