@@ -38,7 +38,7 @@
 		<div class="top-search clearfix">
 			<div class="t-search-box f-left">
 				<div class="type-input-box f-left" id="hidden_input_box">
-					<div class="key">{#$Smarty.get.key | default:： “キーワードを入力してください” #} </div>
+					<div class="key">{#$Smarty.get.key | default:： “キーワードを入力してください" #} </div>
 					<input type="text" name="key" id="key" value="{#$smarty.get.key#}" style="display:none;"/>
 					<input name="trade" id="trade" type="hidden" value="{#$smarty.get.trade#}" />
 					<input name="citycategory" id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}"/>
@@ -47,7 +47,7 @@
 					<input type="hidden" name="page" id="page" value="{#$smarty.get.page#}">
 				</div>
 			</div>
-			<div class="t-search-btn f-left"><input type = “button” detype = “HW_companylist” ID = “searcnbtn” value= “検&nbsp;索” /></div>
+			<div class="t-search-btn f-left"><input type = “button" detype = “HW_companylist" ID = “searcnbtn" value= “検&nbsp;索" /></div>
 		</div>
 		<div class="fliter-wrap">
 			<div class="filter-drop clearfix">
@@ -114,7 +114,7 @@
 																		<div class="LocalDataMultiC" style="width:623px;">
 																			<div class="selector-header"><span class="selector-title">地区選択</span><div></div><span id="ct-selector-save" class="selector-save">確定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> 件、<strong ID = “arscity” class= “text-warning””>0</strong> 件を選択しました</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> 件、<strong ID = “arscity" class= “text-warning"">0</strong> 件を選択しました</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="city_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -164,7 +164,7 @@
 				<div class="has-select-item f-left" type="trade">産業カテゴリー<i class="fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.citycategory#}
-				<div class="has-select-item f-left" type="citycategory">エリアタイプ<i class=“fliter-clear-icon”></i></div>
+				<div class="has-select-item f-left" type="citycategory">エリアタイプ<i class=“fliter-clear-icon"></i></div>
 			{#/if#}
 			{#if $smarty.get.nature#}
 				{#highway_get_classify set="リスト名:nature,タイプ:HW_company_type,表示件数:100"#}

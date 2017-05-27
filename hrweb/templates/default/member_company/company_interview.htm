@@ -67,7 +67,7 @@
 					<div class="navs link_bk">
 						<a href="?act={#$act#}&look=" {#if $smarty.get.look==""#}class="se"{#/if#}>すべての履歴書 <span class="check">({#$count#})</span></a>
 						<a href="?act={#$act#}&look=1" {#if $smarty.get.look=="1"#}class="se"{#/if#}>相手未確認<span class="no_check">({#$count1#})</span></a>
-						<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>相手は確認した<span class=“check”>({#$count2#})</span></a>
+						<a href="?act={#$act#}&look=2" {#if $smarty.get.look=="2"#}class="se"{#/if#}>相手は確認した<span class=“check">({#$count2#})</span></a>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 						<div class="item f-left top-item4">通知内容</div>
 						<div class="item f-left top-item5">
 							<div class="data-filter span4">
-								<span class="filter-span">{#if $smarty.get.look==‘1’#}相手未確認{#elseif $smarty.get.look==‘2’#}相手確認済み{#else#}見る状態{#/if#}<i class=“filter-icon”></i></span>
+								<span class="filter-span">{#if $smarty.get.look==‘1’#}相手未確認{#elseif $smarty.get.look==‘2’#}相手確認済み{#else#}見る状態{#/if#}<i class=“filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="?act={#$act#}&jobsid={#$smarty.get.jobsid#}&jname={#$smarty.get.jname#}&look=">全部</a></li>
 									<li><a href="?act={#$act#}&jobsid={#$smarty.get.jobsid#}&jname={#$smarty.get.jname#}&look=2">对方已查看</a></li>

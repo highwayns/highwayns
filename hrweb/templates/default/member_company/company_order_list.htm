@@ -108,7 +108,7 @@
 							<div class="c-data-content order-list clearfix">
 								<div class="c-item f-left content1">
 									<div><a href="javascript:;" order_id="{#$payment[payment].id#}" class="name-link underline">{#$payment[payment].oid#}</a></div>
-									<p>作る時間:{#$payment[payment].addtime|date_format:”%Y-%m-%d %h:%M”#} | 支払い方法:{#$payment[payment].payment_name#}</p>
+									<p>作る時間:{#$payment[payment].addtime|date_format:"%Y-%m-%d %h:%M"#} | 支払い方法:{#$payment[payment].payment_name#}</p>
 								</div>
 								<div class="c-item f-left content2">
 									<span class="order-not-done">{#if $payment[payment].is_paid==1#}未完成{#/if#}{#if $payment[payment].is_paid==2#}<span style="color:#4CA51F">已支付</span>{#/if#}</span>

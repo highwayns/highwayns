@@ -15,7 +15,7 @@
     <form id="form1" name="form1" method="post" action="?act=edit_users_info_save">
 	{#$inputtoken#}
 	<table width="100%" border="0" cellpadding="4" cellspacing="0"  class="admin_table" >
-	{#if $admin_purview=="all" and  $account.purview<>“all”#}<!--スーパー管理者のログと情報スーパー管理者を変更していません -->
+	{#if $admin_purview=="all" and  $account.purview<>“all"#}<!--スーパー管理者のログと情報スーパー管理者を変更していません -->
     <tr>
       <td width="120" height="30" align="right"  style="border:0px;"  >ユーザー名：</td>
       <td  tyle="border:0px;" >
@@ -60,7 +60,7 @@
 	  <tr>
       <td height="30" align="right"  >&nbsp;</td>
       <td height="50"  >
-	  {#if $admin_purview=="all" and  $account.purview<>“all”#}<!--スーパー管理者のログと情報スーパー管理者を変更していません -->
+	  {#if $admin_purview=="all" and  $account.purview<>“all"#}<!--スーパー管理者のログと情報スーパー管理者を変更していません -->
 	  <input name="id" type="hidden" value="{#$account.admin_id#}" />
             <input name="submit3" type="submit" class="admin_submit"    value="修正"/>
 			{#/if#}

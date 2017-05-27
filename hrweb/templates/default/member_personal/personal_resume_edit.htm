@@ -207,7 +207,7 @@ function showyearbox(divname,inputname,birth)
 			htm+="<ul>";
 			for (i=y;i>=ymin;i--)
 			{
-			htm+="<li title=\""+i+"\">“+i+”年</li>";
+			htm+="<li title=\""+i+"\">“+i+"年</li>";
 			}
 			htm+="<div class=\"clear\"></div>";
 			htm+="</ul>";
@@ -219,7 +219,7 @@ function showyearbox(divname,inputname,birth)
 			htm+="<ul>";
 			for (i=y;i>=ymin;i--)
 			{
-			htm+="<li title=\""+i+"\">“+i+”年</li>";
+			htm+="<li title=\""+i+"\">“+i+"年</li>";
 			}
 			htm+="<div class=\"clear\"></div>";
 			htm+="</ul>";
@@ -593,21 +593,21 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<div id="base_info_update_show"> 
 			<div class="c-resume-info-show">
 				<div class="info-list">
-					<div class="all-row" >履歴書名前：<strong id=“base_info_title”>{#if $resume_basic.title#}{#$resume_basic.title#}{#else#}未命名简历{#/if#}</strong></div>
+					<div class="all-row" >履歴書名前：<strong id=“base_info_title">{#if $resume_basic.title#}{#$resume_basic.title#}{#else#}未命名简历{#/if#}</strong></div>
 					<div class="half-wrap clearfix">
-						<div class="half-row f-left">姓＆NBSP;＆NBSP;名：<spanID = “base_info_fullname”>{#$resume_basic.fullname#}</span><span id="base_info_fullname_display_name"></span></div>
-						<div class="half-row f-left">誕生の年：<span id=“base_info_birthdate”>{#$resume_basic.birthdate#}</span>年</div>
+						<div class="half-row f-left">姓＆NBSP;＆NBSP;名：<spanID = “base_info_fullname">{#$resume_basic.fullname#}</span><span id="base_info_fullname_display_name"></span></div>
+						<div class="half-row f-left">誕生の年：<span id=“base_info_birthdate">{#$resume_basic.birthdate#}</span>年</div>
 						<div class="half-row f-left">性&nbsp;&nbsp;别：<span id="base_info_sex_cn">{#if $resume_basic.sex==1#} 男{#/if#}  {#if $resume_basic.sex==2#} 女{#/if#}</span></div>
-						<div class="half-row f-left">住所：<spanID = “base_info_residence”>{#$resume_basic.residence#}</span></div>
+						<div class="half-row f-left">住所：<spanID = “base_info_residence">{#$resume_basic.residence#}</span></div>
 						<div class="half-row f-left">最高学歴：<spanID =「base_info_education_cn」>{#$resume_basic.education_cn#}</span></div>
-						<div class="half-row f-left">専&nbsp;&nbsp;業：<span id=“base_info_major_cn”>{#$resume_basic.major_cn#}</span></div>
-						<div class="half-row f-left">職歴：<spanID = “base_info_experience_cn”>{#$resume_basic.experience_cn#}</span></div>
-						<div class="half-row f-left">婚姻状況：<span id = “base_info_marriage_cn”>{#$resume_basic.marriage_cn#}</span></div>
-						<div class="half-row f-left">ボディ＆NBSP;＆NBSP;高さ：<spanID = “base_info_height”>{# if $resume_basic.height#}{#$resume_basic.height#}{#else#}未填写{#/if#}</span></div>
-						<div class="half-row f-left">籍＆NBSP;＆NBSP;貫：<span id=“base_info_householdaddress”>{#$resume_basic.householdaddress#}</span></div>
+						<div class="half-row f-left">専&nbsp;&nbsp;業：<span id=“base_info_major_cn">{#$resume_basic.major_cn#}</span></div>
+						<div class="half-row f-left">職歴：<spanID = “base_info_experience_cn">{#$resume_basic.experience_cn#}</span></div>
+						<div class="half-row f-left">婚姻状況：<span id = “base_info_marriage_cn">{#$resume_basic.marriage_cn#}</span></div>
+						<div class="half-row f-left">ボディ＆NBSP;＆NBSP;高さ：<spanID = “base_info_height">{# if $resume_basic.height#}{#$resume_basic.height#}{#else#}未填写{#/if#}</span></div>
+						<div class="half-row f-left">籍＆NBSP;＆NBSP;貫：<span id=“base_info_householdaddress">{#$resume_basic.householdaddress#}</span></div>
 					</div>
-					<div class="all-row">電話番号：<spanID = “base_info_telephone”>{#$resume_basic.telephone#}</span> {#if $user.mobile_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
-					<div class="all-row">Eメール：<span id=“base_info_email”>{#$resume_basic.email#}</span> {#if $user.email_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
+					<div class="all-row">電話番号：<spanID = “base_info_telephone">{#$resume_basic.telephone#}</span> {#if $user.mobile_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
+					<div class="all-row">Eメール：<span id=“base_info_email">{#$resume_basic.email#}</span> {#if $user.email_audit=="1"#}<img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="" width="13" height="13" />{#/if#}</div>
 				</div>
 				<div class="leftbox" style="position: absolute;right:95px;top:25px;border:1px solid #c0c0c0;width: 150px;">
 					<div>
@@ -639,7 +639,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				<td>
 				<input name="display_name" id="display_name" type="hidden" value="{#$resume_basic.display_name#}" />
 				  <div class="publicity" id="publicitydiv">
-				    <div class="input_text_70_bg" id="display_name_cn">{#if $resume_basic.display_name=="1"#}完全公開{#elseif $resume_basic.display_name==“2”#}番号表示{#elseif $resume_basic.display_name==“3”#}名前隠す{#/if#}</div>
+				    <div class="input_text_70_bg" id="display_name_cn">{#if $resume_basic.display_name=="1"#}完全公開{#elseif $resume_basic.display_name==“2"#}番号表示{#elseif $resume_basic.display_name==“3"#}名前隠す{#/if#}</div>
 						<div class="selbox">
 							<div class="div" id="1">完全開示</div>
 							<div class="div" id="2">番号表示</div>
@@ -973,12 +973,12 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<div class="base_table" id="base_update_show"> 
 				<div class="c-resume-info-show">
 					<div class="info-list">
-						<div class="all-row">応募ステータス：<spanID = “base_current_cn”>{#$resume_basic.current_cn#}</span></div>
-						<div class="all-row">仕事性質：<spanID = “base_nature_cn”>{#$resume_basic.nature_cn#}</span></div>
-						<div class="all-row">希望業種：<spanID = “base_trade_cn”>{#$resume_basic.trade_cn#}</span></div>
-						<div class="all-row">予想職位：<span id = “base_intention_jobs”>{#$resume_basic.intention_jobs#}</span></div>
-						<div class="all-row">作業エリア：<spanID = “base_district_cn”>{#$resume_basic.district_cn#}</span></div>
-						<div class="all-row">希望給与：<spanID = “base_wage_cn”>{#$resume_basic.wage_cn#}</span></div>
+						<div class="all-row">応募ステータス：<spanID = “base_current_cn">{#$resume_basic.current_cn#}</span></div>
+						<div class="all-row">仕事性質：<spanID = “base_nature_cn">{#$resume_basic.nature_cn#}</span></div>
+						<div class="all-row">希望業種：<spanID = “base_trade_cn">{#$resume_basic.trade_cn#}</span></div>
+						<div class="all-row">予想職位：<span id = “base_intention_jobs">{#$resume_basic.intention_jobs#}</span></div>
+						<div class="all-row">作業エリア：<spanID = “base_district_cn">{#$resume_basic.district_cn#}</span></div>
+						<div class="all-row">希望給与：<spanID = “base_wage_cn">{#$resume_basic.wage_cn#}</span></div>
 					</div>
 				</div>
 			</div>
@@ -1086,7 +1086,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 																		<div class="LocalDataMultiC">
 																			<div class="selector-header"><span class="selector-title">职位选择</span><div></div><span id="jb-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars” class=“text-warning”>0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																			<div class="data-row-head"><div class="data-row"><div class="data-row-side">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択<strong id=“ars" class=“text-warning">0</strong> 項目</div><div id="result-list-job" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																			<div class="data-row-list data-row-main" id="job_list">
 																				<!-- 列表内容 -->
 																			</div>
@@ -1128,7 +1128,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 																	<div class="LocalDataMultiC" style="width:623px;">
 																		<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																		<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																		<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity" class= “text-warning"">0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																		<div class="data-row-list data-row-main" id="city_list">
 																			<!-- 列表内容 -->
 																		</div>
@@ -1169,7 +1169,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 				  </tr> 
 			          <tr>
 						<td width="125" align="right"> </td> 
-						<td><input type=“submit” name=“basic_save” id=“basic_save” value=“保存”  class=“but100lan”/><input type="button" name="" id="close_basic" value="取消"  class="but100hui"/>
+						<td><input type=“submit" name=“basic_save" id=“basic_save" value=“保存"  class=“but100lan"/><input type="button" name="" id="close_basic" value="取消"  class="but100hui"/>
 						</td>
 					  </tr>
 			</table>
@@ -1241,7 +1241,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	    	<div class="titleH2">
 				<div class="lt h2-title">教育経験</div>
 				<div class="add" id="add_education" 
-				{#if $resume_education#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button”   id=“nav_add_education” value=“追加”  class=“but55lan_add”/></div><！--教育経験が存在する場合、このボタンを表示 —  >
+				{#if $resume_education#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button"   id=“nav_add_education" value=“追加"  class=“but55lan_add"/></div><！--教育経験が存在する場合、このボタンを表示 —  >
 				<div class="clear"></div>
 			</div> 
 			<div id="education_list_box"></div> 
@@ -1455,7 +1455,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 		<!-- 工作经历 start -->
       	<div class="titleH2">
 			<div class="lt h2-title">実務経験</div>
-			<div class="add" id="add_work" {#if $resume_work#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_work" value=“追加”  class="but55lan_add"/></div><！ - 仕事の経験は、このボタンが表示され存在している場合 - >
+			<div class="add" id="add_work" {#if $resume_work#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_work" value=“追加"  class="but55lan_add"/></div><！ - 仕事の経験は、このボタンが表示され存在している場合 - >
 			<div class="clear"></div>
 		</div>
 			
@@ -1527,7 +1527,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 					   <tr>
 						<td width="100" align="left"> </td>
 						<input type="hidden" name="work_id" id="work_id">
-						<td><input type=“submit” name=“save_work” id=“save_work” value=“保存”  class=“but100lan”/><input type="button" name="" id="close_work_form" value="取消"  class="but100hui"/>
+						<td><input type=“submit" name=“save_work" id=“save_work" value=“保存"  class=“but100lan"/><input type="button" name="" id="close_work_form" value="取消"  class="but100hui"/>
 						</td>
 					  </tr>
 			  </table>
@@ -1652,7 +1652,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 	      	<div class="titleH2">
 				<div class="lt h2-title">トレーニング経験</div>
 				<div class="add" id="add_training" 
-				{#if $resume_training#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button”   id=“nav_add_training” value=“追加”  class=“but55lan_add”/></div>
+				{#if $resume_training#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button"   id=“nav_add_training" value=“追加"  class=“but55lan_add"/></div>
 				<!--当培训经历存在，则显示这个按钮 -->
 				<div class="clear"></div>
 			</div>		
@@ -1870,7 +1870,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<div class="titleH2">
 				<div class="lt h2-title">言語能力</div>
 				<div class="add" id="add_language" 
-				{#if $resume_language#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button” id=“nav_add_language” value=“添加” class=“but55lan_add”/></div>
+				{#if $resume_language#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type=“button" id=“nav_add_language" value=“添加" class=“but55lan_add"/></div>
 				<!--当培训经历存在，则显示这个按钮 -->
 				<div class="clear"></div>
 			</div>		
@@ -2027,7 +2027,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			<div class="titleH2">
 				<div class="lt h2-title">証明書を受け取ります</div>
 				<div class="add" id="add_credent" 
-				{#if $resume_credent#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_credent" value=“追加”  class="but55lan_add"/></div>
+				{#if $resume_credent#}style="display:block;"{#else#}style="display:none;"{#/if#}><input type="button"   id="nav_add_credent" value=“追加"  class="but55lan_add"/></div>
 				<!--当培训经历存在，则显示这个按钮 -->
 				<div class="clear"></div>
 			</div>		
@@ -2480,7 +2480,7 @@ $("#resumePhotosButton_w").die().live('click', function(event) {
 			var note_img=dialog();
 			var title=$(this).attr("title");
 		    note_img.title('系统提示');
-		    note_img.content('<div class="img-edit-dialog dialog-block"><div class="dialog-item clearfix"><div class="d-type f-left">附属書の説明</div><div class="d-content f-left"><textarea id="note_title" cols="30" rows="10" class="dialog-textarea">'+title+'</textarea></div></div><div class="center-btn-wrap"><input type="button" value="保存" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value=“取り消し” class="btn-65-30grey btn-big-font DialogClose" /></div></div>');
+		    note_img.content('<div class="img-edit-dialog dialog-block"><div class="dialog-item clearfix"><div class="d-type f-left">附属書の説明</div><div class="d-content f-left"><textarea id="note_title" cols="30" rows="10" class="dialog-textarea">'+title+'</textarea></div></div><div class="center-btn-wrap"><input type="button" value="保存" class="btn-65-30blue btn-big-font DialogSubmit" /><input type="button" value=“取り消し" class="btn-65-30grey btn-big-font DialogClose" /></div></div>');
 		    note_img.width('300');
 		    note_img.showModal();
 		    /* 关闭 */

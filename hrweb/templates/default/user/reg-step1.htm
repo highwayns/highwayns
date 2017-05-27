@@ -31,7 +31,7 @@ $(document).ready(function($) {
 		submitHandler:function(form){
 			if($("#agreement_mobile").attr("checked")==false)
 			{
-				alert("[登録协议]に合意したら、人材続次へ");
+				alert("[登録協議]に合意したら、次へ続く");
 				return false;
 			}
         	form.submit();  
@@ -93,7 +93,7 @@ $(document).ready(function($) {
 		submitHandler:function(form){
 			if($("#agreement_email").attr("checked")==false)
 			{
-				alert("[登録协议]に合意したら、人材続次へ");
+				alert("[登録協議]に合意したら、次へ続く");
 				return false;
 			}
 			var check_reg_email="{#$HIGHWAY.check_reg_email#}";
@@ -187,7 +187,7 @@ $(document).ready(function($) {
 						$("#sms_send").closest('.reg-form-item').addClass('reg-form-item-sms');
 						$("#sms_send").hide();
 						$("#send_ok").css('display', 'inline-block');
-						$("#send_ok").html( SysSecond +" 秒後可再取得");
+						$("#send_ok").html( SysSecond +" 秒後で再取得可");
 						$(".sms_send_succeed").show();
 					} 
 					else 
@@ -243,8 +243,8 @@ $(document).ready(function($) {
 	<div class="container">
 		<div class="step_wrap">
 			<div class="three-step-bar clearfix">
-				<div class="step tstep1 f-left active"><i class="step-icon">1</i>ログイン設定</div>
-				<div class="step tstep2 f-left"><i class="step-icon">2</i>アカウント情報入力</div>
+				<div class="step tstep1 f-left active"><i class="step-icon">1</i>アカウント設定</div>
+				<div class="step tstep2 f-left"><i class="step-icon">2</i>情報入力</div>
 				<div class="step tstep3 f-left"><i class="step-icon">3</i>登録成功</div>
 			</div>
 		</div>
@@ -253,10 +253,10 @@ $(document).ready(function($) {
 		<div class="reg-main clearfix">
 			<div class="reg-left-form f-left">
 				<div class="reg-form-item reg-form-item-w clearfix">
-					<div class="reg-form-type f-left">メンバーの種類</div>
+					<div class="reg-form-type f-left">会員種別</div>
 					<div class="reg-form-content f-left">
 						<div class="member-type-wrap clearfix">
-							<div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>パーソナル</div>
+							<div class="member-type select f-left" member-type="2"><i class="member-icon m-icon1"></i>個人</div>
 							<div class="member-type f-left" member-type="1"><i class="member-icon m-icon2"></i>企業</div>
 						</div>
 					</div>
@@ -265,16 +265,16 @@ $(document).ready(function($) {
 				<!-- 个人 -->
 				<div class="reg-warning">
 					<i class="regw-arrow"><em></em></i>
-					<div class="warlist"><span class="colorfe">1.免费创简历</span>  - 個人会員登録、複数の履歴書を無料に作成できる</div>
-					<div class="warlist"><span class="colorfe">2.职位海量淘</span>  - 新しいサイトの高賃金の仕事の毎日多数なので、あなたの選択を待つ</div>
-					<div class="warlist warlist-last"><span class="colorfe">3.简历轻松投</span>  - 無制限の履歴書の配信、常に輝いている金</div>
+					<div class="warlist"><span class="colorfe">1.無料履歴書作成</span>  - 個人会員登録、複数の履歴書を無料に作成できる</div>
+					<div class="warlist"><span class="colorfe">2.無料職位検索</span>  - 新しいサイトの高賃金の仕事の毎日多数なので、あなたの選択を待つ</div>
+					<div class="warlist warlist-last"><span class="colorfe">3.無料履歴書送信</span>  - 無制限の履歴書の配信、常に輝いている金</div>
 				</div>
 				<!-- 企业 -->
 				<div class="reg-warning">
 					<i class="regw-arrow regw-arrow-com"><em></em></i>
-					<div class="warlist"><span class="colorfe">1.发布招聘信息</span>  - 登録会員企業、簡単リクルート</div>
-					<div class="warlist"><span class="colorfe">2.收取简历投递</span>  - 履歴書の受け取ることが無制限</div>
-					<div class="warlist warlist-last"><span class="colorfe">3.多种职位分享</span>  - マイクロチャネル募集企業はの人を募集し、より良いより便利に</div>
+					<div class="warlist"><span class="colorfe">1.募集情報配布</span>  - 登録会員企業、簡単リクルート</div>
+					<div class="warlist"><span class="colorfe">2.履歴書受信</span>  - 履歴書の受け取ることが無制限</div>
+					<div class="warlist warlist-last"><span class="colorfe">3.職位配信</span>  - マイクロチャネル募集企業はの人を募集し、より良いより便利に</div>
 				</div>
 				<!-- 注册提示信息 end-->
 				<!-- 手机注册开始  -->
@@ -288,16 +288,16 @@ $(document).ready(function($) {
 						<div class="verification f-left"></div>
 					</div>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">PINコード</div>
+						<div class="reg-form-type f-left">検証コード</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="mobile_vcode" id="mobile_vcode" class="text text-lg span180" placeholder="検証コード" />
 						</div>
 						<div class="reg-form-other verification f-left">
-							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">メッセージ認証コードを取得します</a>
+							<a href="javascript:void(0)" class="btn short-text-btn" id="sms_send">ショートメッセージで認証コードを取得します</a>
 							<a id="send_ok" class="btn short-text-btn" style="display: none;"><span id="remainTime"></span>秒後改めて受け取る</a>
 						</div>
 					</div>
-					<div class="sms_send_succeed"><label class="ver-success" style="display: inline;">验证码已发送至您的手机，请查收</label></div>
+					<div class="sms_send_succeed"><label class="ver-success" style="display: inline;">認証コードを送信しました。</label></div>
 					<div class="reg-form-item special clearfix">
 						<div class="reg-form-type f-left">&nbsp;</div>
 						<div class="reg-form-content f-left">
@@ -320,7 +320,7 @@ $(document).ready(function($) {
 				<!-- 邮箱注册开始  -->
 				<form action="?act=reg_step2_email" id="reg_by_email" method="post" {#if $SMSconfig.open==1#}style="display: none;"{#/if#}>
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">メールボックス</div>
+						<div class="reg-form-type f-left">メール</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="email" id="email" class="text text-lg span350 inputElem" placeholder="メールを入力してください" />
 						</div>
@@ -328,12 +328,12 @@ $(document).ready(function($) {
 					</div>
 					{#if $verify_userreg=="1"#}
 					<div class="reg-form-item clearfix">
-						<div class="reg-form-type f-left">PINコード</div>
+						<div class="reg-form-type f-left">検証コード</div>
 						<div class="reg-form-content f-left">
 							<input type="text" name="postcaptcha" id="postcaptcha" class="text text-lg span180" placeholder="検証コード" />
 						</div>
 						<div class="reg-form-other f-left verification" style="padding-left: 20px;">
-							<div class="ver-box f-left"><img src=“{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}” id=“getcode” align=“absmiddle”  style=“cursor:pointer;width: 148px;height: 38px;” title=“ 置き換えるために、このコードをクリックを参照しないでください？”border=“0” /></div>
+							<div class="ver-box f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 148px;height: 38px;" title="置き換えるために、このコードをクリックを参照しないでください？" border="0" /></div>
 						</div>
 					</div>
 					{#/if#}
@@ -341,7 +341,7 @@ $(document).ready(function($) {
 						<div class="reg-form-type f-left">&nbsp;</div>
 						<div class="reg-form-content f-left">
 							<div class="agree-confirm">
-								<label><input type="checkbox" name="agreement_email" id="agreement_email" value="1" checked="checked"/>我已阅读并同意</label><a href="{#$HIGHWAY.site_dir#}agreement/">《{#$HIGHWAY.site_name#}用户服务协议》</a>
+								<label><input type="checkbox" name="agreement_email" id="agreement_email" value="1" checked="checked"/>閲覧済み且つ同意</label><a href="{#$HIGHWAY.site_dir#}agreement/">《{#$HIGHWAY.site_name#}ユーザ協議》</a>
 							</div>
 						</div>
 					</div>
@@ -360,7 +360,7 @@ $(document).ready(function($) {
 				<div class="reg-form-item special clearfix">
 					<div class="reg-form-type f-left">&nbsp;</div>
 					<div class="reg-form-content f-left">
-						<div class="agree-confirm">あなたは&nbsp;<a class="c" href="javascript:void(0)" id="change_reg_type" reg_type="1" >使用邮箱注册>></a></div>
+						<div class="agree-confirm">あなたは&nbsp;<a class="c" href="javascript:void(0)" id="change_reg_type" reg_type="1" >メールで登録>></a></div>
 					</div>
 				</div>
 				{#/if#}
@@ -368,10 +368,10 @@ $(document).ready(function($) {
 		</div>
 		<div class="common-status" style="display: none;padding: 70px 0 50px 0;">
 			<div class="status-main">
-				<span><img src=“{#$HIGHWAY.site_template#}images/icon-success.png” alt=“成功” /></span>还差两步即可完成注册
+				<span><img src="{#$HIGHWAY.site_template#}images/icon-success.png" alt="成功" />後二つステップ登録完了</span>
 			</div>
 			<p>私たちは、あなたのメールボックスに<spanID =「send_email」></span>アクティベーションメールを送信され、登録を完了するために、電子メールでリンクをクリックしてください！</P>
-			<div class="status-btn"><a href="#" target="_blank" id="goto_email" email="" class="btn btn-lg blue span2">立即进入邮箱</a></div>
+			<div class="status-btn"><a href="#" target="_blank" id="goto_email" email="" class="btn btn-lg blue span2">メールボックスへ</a></div>
 		</div>
 </div>
 

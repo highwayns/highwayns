@@ -218,14 +218,14 @@ $(document).ready(function()
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall" style="margin-top:20px;">
 		  <tr>
 			<td width="125" align="right"><span class="nec">企业名称</span>：</td>
-			<td width="230">{#if $company_profile.audit==1#}{#$company_profile.companyname#}<span class=“vtip c” title=“あなだは営業許可の認証を通過し、企業名を修正するとき管理員に連絡してください！”></span>{#else#}<input name="companyname" type="text" class="input_text_200" id="companyname" maxlength="80"   value="{#$company_profile.companyname#}"/>{#/if#}</td>
+			<td width="230">{#if $company_profile.audit==1#}{#$company_profile.companyname#}<span class=“vtip c" title=“あなだは営業許可の認証を通過し、企業名を修正するとき管理員に連絡してください！"></span>{#else#}<input name="companyname" type="text" class="input_text_200" id="companyname" maxlength="80"   value="{#$company_profile.companyname#}"/>{#/if#}</td>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr>
 			<td width="125" align="right"><span class="nec">企业性质</span>：</td>
 			<td width="230">
 				<div style="position:relateve;">
-             	 	<div id="nature_menu" class="input_text_200_bg">{#$Company_profile.nature_cn |default：# “を選択してください”} </div>	
+             	 	<div id="nature_menu" class="input_text_200_bg">{#$Company_profile.nature_cn |default：# “を選択してください"} </div>	
              	 	<div class="menu" id="menu1">
 	              		<ul>
 	              			{#highway_get_classify set="リスト名:c_nature,タイプ:HW_company_type"#}
@@ -243,7 +243,7 @@ $(document).ready(function()
 		  <tr class="jobmain">
 			<td align="right"><span class="nec">所属行业</span>：</td>
 			<td id="jobsTrad" style="position:relative;z-index:1;">
-				<div class="input_text_200_bg ucc-default" id="tradText">{#$Company_profile.trade_cn |default： “選択してください”#} </div>
+				<div class="input_text_200_bg ucc-default" id="tradText">{#$Company_profile.trade_cn |default： “選択してください"#} </div>
 				<!-- 所属行业弹出框 -->
 				<div class="aui_outer" id="aui_outer">
 					<table class="aui_border">
@@ -289,7 +289,7 @@ $(document).ready(function()
 			<td align="right"><span class="nec">企业规模</span>：</td>
 			<td>
 				<div style="position:relateve;">
-             	 	<div id="scale_menu" class="input_text_200_bg">{#$Company_profile.scale_cn | default:：# “を選択してください”} </div>	
+             	 	<div id="scale_menu" class="input_text_200_bg">{#$Company_profile.scale_cn | default:：# “を選択してください"} </div>	
              	 	<div class="menu" id="menu2">
 	              		<ul>
 	              			{#highway_get_classify set="リスト名:c_scale,タイプ:HW_scale"#}
@@ -313,7 +313,7 @@ $(document).ready(function()
 	                <td width="20" align="center" style="padding:0px">ワン</td>
 	                <td width="80"  style="padding:0px">
 	                	<div style="position:relateve;">
-		             	 	<div id="currency_menu" class="input_text_60_bg">{#$Company_profile.currency | default： “人民元” #} </div>	
+		             	 	<div id="currency_menu" class="input_text_60_bg">{#$Company_profile.currency | default： “人民元" #} </div>	
 		             	 	<div class="menu" id="menu3">
 			              		<ul>
 			              			<li title="円">人民元</li>
@@ -372,7 +372,7 @@ $(document).ready(function()
 		  <tr>
 			<td width="125" align="right">所在街：</td>
 			<td width="230" style="position:relative;">
-				<div class="input_text_200_bg ucc-default" id="streetText">{#$company_profile.street_cn|default:”未注記道路”#}</div>
+				<div class="input_text_200_bg ucc-default" id="streetText">{#$company_profile.street_cn|default:"未注記道路"#}</div>
 				<!-- 所在街道弹出框 -->
 				<div class="aui_outer" id="aui_outer_street">
 					<table class="aui_border">
@@ -495,7 +495,7 @@ $(document).ready(function()
 		  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableall">
 		  <tr>
 			<td align="right" width="125">&nbsp;</td>
-			<td width="130"><input type=“submit” value=“保存” id=“save_profile” class=“but100lan” onclick=“$(window).unbind(‘beforeunload’);”/></td>
+			<td width="130"><input type=“submit" value=“保存" id=“save_profile" class=“but100lan" onclick=“$(window).unbind(‘beforeunload’);"/></td>
 			<td>&nbsp;</td>
 		  </tr>
 		  </table>

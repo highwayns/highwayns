@@ -149,7 +149,7 @@ $(function(){
 																				<div class="LocalDataMultiC" style="width:623px;">
 																					<div class="selector-header"><span class="selector-title">地区选择</span><div></div><span id="ct-selector-save" class="selector-save">确定</span><span class="selector-close">X</span><div class="clear"></div></div>
 
-																					<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity” class= “text-warning””>0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
+																					<div class="data-row-head"><div class="data-row"><div class="data-row-side data-row-side-c">選択上限<strong class="text-warning">3</strong> アイテム＆NBSP;＆NBSP;選択した<strong ID = “arscity" class= “text-warning"">0</strong> 項目</div><div id="result-list-city" class="result-list data-row-side-ra"></div></div><div class="cla"></div></div>
 																					<div class="data-row-list data-row-main" id="city_list">
 																						<!-- 列表内容 -->
 																					</div>
@@ -190,11 +190,11 @@ $(function(){
 						<li>{#$li.comname#}</li>
 						<li>雇用人数：{#if $li.amount=="0"#}若干{#else#}{#$li.amount#}{#/if#}人</li>
 						<li>有効まで：{#if $li.deadline=="0"#}长期有效{#else#}{#$li.deadline|date_format:"%Y-%m-%d"#}{#/if#}</li>
-						<li class="tel">コンタクト：<hREF = “javascriptの：無効（0）;” クラス= “show_tel” ID = “{#$li.id#}”>[点击查看]</a></li>
+						<li class="tel">コンタクト：<hREF = “javascriptの：無効（0）;" クラス= “show_tel" ID = “{#$li.id#}">[点击查看]</a></li>
 						<div class="clear"></div>
 					</ul>
 					<div class="clear"></div>
-					<p>要件：{#$li.detailed#}{#if $li.show_detail#}<a href=“javascript:void(0);” class=“show_detailed” id=“{#$li.id#}”>[展开]</a>{#/if#}</p>
+					<p>要件：{#$li.detailed#}{#if $li.show_detail#}<a href=“javascript:void(0);" class=“show_detailed" id=“{#$li.id#}">[展开]</a>{#/if#}</p>
 					<div class="add">住所：{#$li.district_cn#}{#if $li.district_cn#}-{#$li.sdistrict_cn#}{#/if#}</div>
 					<div class="edit"><a href="javascript:void(0)" class="refreshsimple" id="{#$li.id#}">刷新</a>| <a href="javascript:void(0)" class="editsimple" id="{#$li.id#}">编辑</a> | <a href="javascript:void(0)" class="delsimple" id="{#$li.id#}">删除</a></div>
 					<div class="clear"></div>

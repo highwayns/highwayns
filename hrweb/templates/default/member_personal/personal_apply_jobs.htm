@@ -55,12 +55,12 @@
 				<form action="?act=del_jobs_apply" id="form1" name="form1" method="post">
 				<div class="personal-data-list">
 					<div class="c-data-top app-job clearfix">
-						<div class="item f-left check-item"><input type="checkbox" name="chkAll" id="chk" title=“全部選択/逆選択” class="checkbox" /></div>
+						<div class="item f-left check-item"><input type="checkbox" name="chkAll" id="chk" title=“全部選択/逆選択" class="checkbox" /></div>
 						<div class="item f-left top-item1">
 							<div class="data-filter span4">
 								<span class="filter-span">{#if $smarty.get.jobs_type_cn#}{#$smarty.get.jobs_type_cn#}{#else#}普通仕事{#/if#}<i class="filter-icon"></i></span>
 								<ul class="filter-down">
-									<li><a href="{#"jobs_type:,jobs_type_cn:普通職位”|highway_parse_url#}">普通职位</a></li>
+									<li><a href="{#"jobs_type:,jobs_type_cn:普通職位"|highway_parse_url#}">普通职位</a></li>
 								</ul>
 							</div>
 						</div>
@@ -83,22 +83,22 @@
 								<span class="filter-span">{#ifの$ smarty.get.reply_cn#} {#$smarty.get.reply_cn#} {#他位}送達フィードバック<i class="filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="{#"reply_id:,reply_cn:"|highway_parse_url#}">全部</a></li>
-									<li><a href=“{#”reply_id:1,reply_cn:企业を確認しません”|HIGHWAY_parse_url#}”>企业未查看</a></li>
-									<li><hREF = “{#” reply_id：2、reply_cn：フィードバックする"|highway_parse_url#}">待反馈</a></li>
-									<li><a href=“{#”reply_id:3,reply_cn:適切”|HIGHWAY_parse_url#}”>合适</a></li>
-									<li><hREF = “{#” reply_id：4、reply_cn：不適切 "|highway_parse_url#}">不合适</a></li>
-									<li><a href=“{#”reply_id:5,reply_cn:保留”|HIGHWAY_parse_url#}”>待定</a></li>
-									<li><a href="{#"reply_id:6,reply_cn:未開通”|highway_parse_url#}">未接通</a></li>
+									<li><a href=“{#"reply_id:1,reply_cn:企业を確認しません"|HIGHWAY_parse_url#}">企业未查看</a></li>
+									<li><hREF = “{#" reply_id：2、reply_cn：フィードバックする"|highway_parse_url#}">待反馈</a></li>
+									<li><a href=“{#"reply_id:3,reply_cn:適切"|HIGHWAY_parse_url#}">合适</a></li>
+									<li><hREF = “{#" reply_id：4、reply_cn：不適切 "|highway_parse_url#}">不合适</a></li>
+									<li><a href=“{#"reply_id:5,reply_cn:保留"|HIGHWAY_parse_url#}">待定</a></li>
+									<li><a href="{#"reply_id:6,reply_cn:未開通"|highway_parse_url#}">未接通</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="item f-left top-item5">
 							<div class="data-filter span4">
-								<span class="filter-span">{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}届ける時間{#/if#}<i class=“filter-icon”></i></span>
+								<span class="filter-span">{#if $smarty.get.settr_cn#}{#$smarty.get.settr_cn#}{#else#}届ける時間{#/if#}<i class=“filter-icon"></i></span>
 								<ul class="filter-down">
 									<li><a href="{#"settr:,settr_cn:"|highway_parse_url#}">全部</a></li>
-									<li><a href=“{#”settr:7,settr_cn:最近一周”|HIGHWAY_parse_url#}”>最近一周</a></li>
-									<li><a href="{#"settr:14,settr_cn:最近二週”|highway_parse_url#}">最近两周</a></li>
+									<li><a href=“{#"settr:7,settr_cn:最近一周"|HIGHWAY_parse_url#}">最近一周</a></li>
+									<li><a href="{#"settr:14,settr_cn:最近二週"|highway_parse_url#}">最近两周</a></li>
 								</ul>
 							</div>
 						</div>
@@ -129,7 +129,7 @@
 						{#/foreach#}
 						<div class="c-data-row last">
 							<div class="c-data-content apply_jobs clearfix">
-								<div class="c-item f-left check-item"><input type=“checkbox” name=“chkall” id=“chk2” title=“全部選択/逆選択” class=“checkbox” /></div>
+								<div class="c-item f-left check-item"><input type=“checkbox" name=“chkall" id=“chk2" title=“全部選択/逆選択" class=“checkbox" /></div>
 								<div class="data-last-btn f-left">
 									<input type="button" value="削除" class="btn-65-30blue ctrl-del"  act="?act=del_jobs_apply&jobs_type={#$smarty.get.jobs_type#}"/>
 								</div>

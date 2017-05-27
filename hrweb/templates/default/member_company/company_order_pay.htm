@@ -44,11 +44,11 @@
   		</div>
   		{#elseif $HIGHWAY.operation_mode=="2"#}
   		<div class="balance">
-  			<div class="bal_text">私のパッケージ：<span> {#$user_setmeal.setmeal_name#} </span>、{#if $setmeal_endtime#}{#if $setmeal_endtime==“期限なし”#}期限なし{#else#}また<span> {#$setmeal_endtime#} </span>期限がくる{#/if#}{#else#}期限が切れた{#/if#}<span class=“small”> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
+  			<div class="bal_text">私のパッケージ：<span> {#$user_setmeal.setmeal_name#} </span>、{#if $setmeal_endtime#}{#if $setmeal_endtime==“期限なし"#}期限なし{#else#}また<span> {#$setmeal_endtime#} </span>期限がくる{#/if#}{#else#}期限が切れた{#/if#}<span class=“small"> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
   		</div>
   		{#else#}
   		<div class="balance">
-  			<div class="bal_text">あなたのパッケージ：<span> {#$user_setmeal.setmeal_name#} </span>、{#if $setmeal_endtime#}{#if $setmeal_endtime==“期限なし”#}期限なし{#else#}また<span> {#$setmeal_endtime#} </span>期限がくる{#/if#}{#else#}期限が切れた{#/if#}<span class=“small”> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
+  			<div class="bal_text">あなたのパッケージ：<span> {#$user_setmeal.setmeal_name#} </span>、{#if $setmeal_endtime#}{#if $setmeal_endtime==“期限なし"#}期限なし{#else#}また<span> {#$setmeal_endtime#} </span>期限がくる{#/if#}{#else#}期限が切れた{#/if#}<span class=“small"> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
   			<div class="bal_text bal_text_s">残り{#$HIGHWAY.points_byname#} <span> {#$points#} </span>{#$HIGHWAY.points_quantifier#}&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account&detail=1">[积分明细]</a>&nbsp;&nbsp;<a target="_blank" href="company_service.php?act=j_account">[积分消费规则]</a></div>
   		</div>
   		{#/if#}
