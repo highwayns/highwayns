@@ -67,12 +67,12 @@
 		   <a href="{#$list.resume_url#}" target="_blank"> {#$list.title#}</a>
 		  {#/if#}	</td>
     <td  style="color:#009900">（フルインデックス：{#$ list.complete_percent#}％）</td>
-    <td><a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm（ ‘あなたはそれを削除してもよろしいですか？’）”>[删除]</a></td>
+    <td><a href="?act=perform&delete=yes&id={#$list.id#}&{#$urltoken#}"  onClick="return confirm（ ‘あなたはそれを削除してもよろしいですか？’）">[删除]</a></td>
     </tr>
 	 {#/foreach#}
 	 {#if $resume==""#}
   <tr> 
-    <td colspan="3"><span style="color:#999999">未创建简历</span></td>
+    <td colspan="3"><span style="color:#999999">履歴書未作成</span></td>
     </tr>
 	  {#/if#}
 </table>	  </td>

@@ -155,13 +155,13 @@ $(".ajax_user_login").live('click',function(){
 			<div class="top-streamer"><i class="streamer-angle"></i>{#$show.message#}</div>
 			{#/if#}
 			{#if $show.isminesee == '1'#}
-			<div class="top-streamer"><i class="streamer-angle"></i>履歴書名前：<font style=“font-weight:bold”>{#$show.title#}</font>  &nbsp;公開状態：<font style="font-weight:bold"><span id="showDisplayName">{#if $show.display == ‘1’#}公開{#else#}未公開{#/if#}</span></font></div>
+			<div class="top-streamer"><i class="streamer-angle"></i>履歴書名前：<font style=“font-weight:bold">{#$show.title#}</font>  &nbsp;公開状態：<font style="font-weight:bold"><span id="showDisplayName">{#if $show.display == ‘1’#}公開{#else#}未公開{#/if#}</span></font></div>
 			{#/if#}
 			<div class="personal-info clearfix">
 				<div class="personal-pic f-left"><img src="{#$show.photosrc#}" alt="" width="160" height="178" /></div>
 				<div class="info-text f-left">
 					<h2>{#$show.fullname#} <span>（{#$show.sex_cn#}，{#$show.age#}才）</span></h2>
-					<div class="resume-time">更新：{#$show.refreshtime | DaTE_FORMaT： “％Y-％M-％D” #} </div>
+					<div class="resume-time">更新：{#$show.refreshtime | DaTE_FORMaT： “％Y-％M-％D" #} </div>
 					<div class="resonal-auth clearfix">
 						{#if $show.is_audit_mobile == 1#}<div class="auth-item phone f-left">携帯電話は認定済み</div>{#/if#}
 						{#if $show.is_audit_weixin#}<div class="auth-item weichat f-left">wechat認定済み</div>{#/if#}
@@ -279,7 +279,7 @@ $(".ajax_user_login").live('click',function(){
 		</div>
 		<div class="fix-control">
 			<div class="fix-wrap">
-				<div class="code-box"><img src="{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.wap_domain#}/wap-resume-show.php?id={#$show.id#}" alt=“QRコード” width="74" height="74" /></div>
+				<div class="code-box"><img src="{#$HIGHWAY.site_dir#}plus/url_qrcode.php?url={#$HIGHWAY.wap_domain#}/wap-resume-show.php?id={#$show.id#}" alt=“QRコード" width="74" height="74" /></div>
 				<div class="download">{#if $show.isminesee != '1'#}<a href="javascript:;" class="download-btn">履歴書ダウンロード</a>{#else#}<a href="javascript:;" pid="{#$show.id#}" class="download-btn tpl">テンプレート更新</a>{#/if#}</div>
 				<div class="ctrl-text"></div>
 				<div class="ctrl-bar">

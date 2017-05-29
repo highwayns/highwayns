@@ -118,7 +118,7 @@ $(document).ready(function(){
 							<h3 class="job-name">{#$show.jobs_name#}</h3>
 							<div class="job-company clearfix"><a href="{#$show.company_url#}" class="f-left">{#$show.companyname#}</a></div>
 							<div class="job-watch-info clearfix">
-								<div class="add-time f-left">更新：{#$show.refreshtime | DaTE_FORMaT： “％Y-％M-％D％h：％M” #} </div>
+								<div class="add-time f-left">更新：{#$show.refreshtime | DaTE_FORMaT： “％Y-％M-％D％h：％M" #} </div>
 								<div class="watch f-left">ブラウザの<span><em class="times click"></em></span>タイムズ</div>
 								<div class="resumes-man f-left"><span>{#$show.countresume#}</span>履歴書の提出</div>
 							</div>
@@ -152,7 +152,7 @@ $(document).ready(function(){
 								<div class="job-id-item f-left">性別要求：{#$show.sex_cn#} </div>
 								<div class="job-id-item f-left">作業領域：{#$show.district_ch#}{#if $show.sdistrict_ch#}-{#$show.sdistrict_ch#}{#/if#}</div>
 								<div class="job-id-item f-left">学歴要求：{#$show.education_cn#}</div>
-								<div class="job-id-item f-left">仕事経験：{#$show.experience_cn#}&nbsp;{#if $show.graduate==“1”#}(新卒可){#/if#}</div>
+								<div class="job-id-item f-left">仕事経験：{#$show.experience_cn#}&nbsp;{#if $show.graduate==“1"#}(新卒可){#/if#}</div>
 							</div>
 						</div>
 						<div class="job-block">
@@ -186,25 +186,25 @@ $(document).ready(function(){
 											<b>周辺リサーチ</B>
 											<ul>
 												<li>
-													<label for="hotel"><input type=“checkbox” value=“ホテル” id=“hotel”  class=“serch”/>&nbsp;ホテル</label>
+													<label for="hotel"><input type=“checkbox" value=“ホテル" id=“hotel"  class=“serch"/>&nbsp;ホテル</label>
 												</li>
 												<li>
-													<label for="catering"><input type=“checkbox” value=“飲食” id=“catering”  class=“serch”/>&nbsp;飲食</label>
+													<label for="catering"><input type=“checkbox" value=“飲食" id=“catering"  class=“serch"/>&nbsp;飲食</label>
 												</li>
 												<li>
-													<label for="supermarket"><input type="checkbox" value=“スーパー” id="supermarket" class="serch"/>&nbsp;スーパー</label>
+													<label for="supermarket"><input type="checkbox" value=“スーパー" id="supermarket" class="serch"/>&nbsp;スーパー</label>
 												</li>
 												<li>
-													<label for="bank"><input type=“checkbox” value=“銀行” id=“bank” class=“serch”/>&nbsp;銀行</label>
+													<label for="bank"><input type=“checkbox" value=“銀行" id=“bank" class=“serch"/>&nbsp;銀行</label>
 												</li>
 												<li>
-													<label for="hospital"><input type="checkbox" value=“病院” id="hospital" class="serch"/>&nbsp;病院</label>
+													<label for="hospital"><input type="checkbox" value=“病院" id="hospital" class="serch"/>&nbsp;病院</label>
 												</li>
 												<li>
 													<label for="scholl"><input type="checkbox" value="学校" id="scholl" class="serch"/>&nbsp;学校</label>
 												</li>
 												<li>
-													<label for="bus"><input type=“checkbox” value=“交通” id=“bus” class=“serch”/>&nbsp;交通</label>
+													<label for="bus"><input type=“checkbox" value=“交通" id=“bus" class=“serch"/>&nbsp;交通</label>
 												</li>
 											</ul>
 										</div>
@@ -212,8 +212,8 @@ $(document).ready(function(){
 										<div class="map_bottom">
 											<h4>線路を調べる</h4>
 											<span>起点：<input type="text" name="start" value="" class="addr_inpt"/></span>
-											<span>終点：<input type=“text” name=“end” value=“{#$company.address#}” class=“addr_inpt” readonly/></span>
-											<span><input type=“button”value=”交通検索”class=“bus_submit”/></span>
+											<span>終点：<input type=“text" name=“end" value=“{#$company.address#}" class=“addr_inpt" readonly/></span>
+											<span><input type=“button"value="交通検索"class=“bus_submit"/></span>
 										</div>
 										<div id="r-result" style="margin-bottom: 10px;"></div>
 									</div>
@@ -341,7 +341,7 @@ $(document).ready(function(){
 						<li>規模：{#$company.scale_cn#}</li>
 						<li>地区：{#$company.district_cn#}</li>
 						{#if $company.website#}
-						<li>URL：<a target=“_blank” href=“{#$company.website#}” rel=“nofollow”>{#$company.website#}</a></li>
+						<li>URL：<a target=“_blank" href=“{#$company.website#}" rel=“nofollow">{#$company.website#}</a></li>
 						{#/if#}
 					</ul>
 				</div>

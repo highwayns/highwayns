@@ -119,18 +119,18 @@ $(".refresh_resume").live("click",function(){
 			  <div class="toptitle">
 				<div class="t">
 					<span class="h2-title">{#$list.title#}</span>
-					<span class="date">リフレッシュタイム：{#$list.refreshtime | DaTE_FORMaT： “％Y-％M-％D％h：％M” #} </span>
+					<span class="date">リフレッシュタイム：{#$list.refreshtime | DaTE_FORMaT： “％Y-％M-％D％h：％M" #} </span>
 				</div>
 			  </div>
 				<div class="fbox">
-					审核状态：{#if $list.audit=="1"#}<span style="color: #009900">承認</span>{#elseif $list.audit=="2"#}<span style="color: #FF6600">審査中</span>{#elseif $list.audit=="3"#}<span style="color: #FF0000">承認されていません</span>{#/if#}<br />履歴書のレベル：{#if $list.talent=="2"#}<span style="color:#FF6600">高级</span>{#elseif $list.talent==“3”#}高級審査待ち{#else#}普通{#/if#}</div>
-				  <div class="fbox">完全性：{#$list.complete_percent#}%<span style="color:#FF0000">({#if $list.level=="1"#}差{#elseif $list.level=="2"#}良{#else#}优{#/if#})</span><br /> 公开状态：<span style="cursor:pointer;" class="resume_privacy" pid="{#$list.id#}" id="view_display_{#$list.id#}">{#if $list.display==“1”#}公開{#elseif $list.display==“2”#}非公開{#/if#}</span></div>
+					审核状态：{#if $list.audit=="1"#}<span style="color: #009900">承認</span>{#elseif $list.audit=="2"#}<span style="color: #FF6600">審査中</span>{#elseif $list.audit=="3"#}<span style="color: #FF0000">承認されていません</span>{#/if#}<br />履歴書のレベル：{#if $list.talent=="2"#}<span style="color:#FF6600">高级</span>{#elseif $list.talent==“3"#}高級審査待ち{#else#}普通{#/if#}</div>
+				  <div class="fbox">完全性：{#$list.complete_percent#}%<span style="color:#FF0000">({#if $list.level=="1"#}差{#elseif $list.level=="2"#}良{#else#}优{#/if#})</span><br /> 公开状态：<span style="cursor:pointer;" class="resume_privacy" pid="{#$list.id#}" id="view_display_{#$list.id#}">{#if $list.display==“1"#}公開{#elseif $list.display==“2"#}非公開{#/if#}</span></div>
 				  <div class="fbox">面接/アプリケーション：<a href="personal_apply.php?act=interview">{#$list.countinterview#}</a>/<a href="personal_apply.php?act=apply_jobs">{#$list.countapply#}</a><br />下载/浏览：<a href="personal_apply.php?act=attention_me">{#$list.countdown#}</a>/<a href="personal_apply.php?act=attention_me">{#$list.click#}</a></div>
 			  <div class="fbox last">					 	
-				 	<div class="buts"><input type="button" class="refresh_resume but100_30lan" value=“履歴書リフレッシュ” pid="{#$list.id#}"/></div>			 	   
-				   		<div class="buts"><input type="button"  class="but100_30hui" value=“履歴書の修正” onclick="javascript:location.href='?act=edit_resume&pid={#$list.id#}' "/”></div>
+				 	<div class="buts"><input type="button" class="refresh_resume but100_30lan" value=“履歴書リフレッシュ" pid="{#$list.id#}"/></div>			 	   
+				   		<div class="buts"><input type="button"  class="but100_30hui" value=“履歴書の修正" onclick="javascript:location.href='?act=edit_resume&pid={#$list.id#}' "/"></div>
 						<div class="clear"></div>
-					<div class="buts"><input type="button"  class="but100_30hui" value=“履歴書ビュー” onclick="javascript:window.open('{#$list.resume_url#}')"/></div>
+					<div class="buts"><input type="button"  class="but100_30hui" value=“履歴書ビュー" onclick="javascript:window.open('{#$list.resume_url#}')"/></div>
 						<div class="buts">
 								<div class="morebox" id="morebox">
 									<div class="more">その他の操作</div>						

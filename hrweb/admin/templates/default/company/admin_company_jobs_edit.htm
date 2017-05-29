@@ -113,7 +113,7 @@ $(document).ready(function()
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">求人を編集- <span style=“color:#0066CC”>{#$jobs.jobs_name#}</span> </div>
+<div class="toptit">求人を編集- <span style="color:#0066CC">{#$jobs.jobs_name#}</span> </div>
 <form id="Form1" name="Form1" method="post" action="?act=editjobs_save" >
 {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
@@ -162,7 +162,7 @@ $(document).ready(function()
           <td width="110" height="30" align="right" bgcolor="#FFFFFF"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 性別要求：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 		  
-		   <label><input name=“sex”  type=“radio” value=“1”  title=“男” {#if $jobs.sex == “1”#}checked=“checked”{#/if#} />男</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   <label><input name="sex"  type="radio" value="1"  title="男" {#if $jobs.sex == "1"#}checked="checked"{#/if#} />男</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		  <label><input name="sex"  type="radio" value="2"  title="女"  {#if $jobs.sex == "2"#}checked="checked"{#/if#} />女</label>
 		  
 		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -188,7 +188,7 @@ $(document).ready(function()
         </tr>
         <tr>
           <td height="30" align="right" bgcolor="#FFFFFF"style=" border-bottom:1px #CCCCCC dashed">発効日：</td>
-          <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">リリース日：{#$jobs.addtime|date_format:"%Y-%m-%d %H:%M”#}，締め切り：{#$jobs.deadline|date_format:"%Y-%m-%d %H:%M"#}<input name="olddeadline" type="hidden" value="{#$jobs.deadline#}" /></td>
+          <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">リリース日：{#$jobs.addtime|date_format:"%Y-%m-%d %H:%M"#}，締め切り：{#$jobs.deadline|date_format:"%Y-%m-%d %H:%M"#}<input name="olddeadline" type="hidden" value="{#$jobs.deadline#}" /></td>
         </tr>
         <tr>
           <td height="30" align="right"   bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>職種カテゴリー：</td>

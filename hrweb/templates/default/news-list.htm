@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<head>{#HIGHWAY_news_category　set= “リスト名：カテゴリ、名前の長さ：10、情報のサブクラス：GET [ID]” #} <！ - 情報のカテゴリ名を取得します - >
+<head>{#HIGHWAY_news_category　set= “リスト名：カテゴリ、名前の長さ：10、情報のサブクラス：GET [ID]" #} <！ - 情報のカテゴリ名を取得します - >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {#highway_pageinfo set="リスト名:pageinfo,Call:HW_newslist,分類ID:GET[id]"#}
 {#if $pageinfo.title#}
@@ -41,7 +41,7 @@
 							{#foreach from=$news item=list#}
 							<li>
 								<div class="new_tit s"><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></div>
-								<p>発行時間：{#$list.addtime | DaTE_FORMaT： “％Y-％M-％D” #}＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP; <span>浏览次数：{#$list.click#}</span></p>
+								<p>発行時間：{#$list.addtime | DaTE_FORMaT： “％Y-％M-％D" #}＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP;＆NBSP; <span>浏览次数：{#$list.click#}</span></p>
 								<p>{#$list.briefly#}<a href="{#$list.url#}">[查看全文]</a></p>
 							</li>
 							{#/foreach#}

@@ -69,7 +69,7 @@ return (true);
       </div>
 		</div>
 		 <div class="balance">
-  			<div class="bal_text">私のパッケージ：<span> {#$user_setmeal.setmeal_name#} </span>、{#if $setmeal_endtime#}{#if $setmeal_endtime==“期限なし”#}期限なし{#else#}また<span> {#$setmeal_endtime#} </span>有効期限日{#/if#}{#else#}期限切れ{#/if#}<span class="small"> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
+  			<div class="bal_text">私のパッケージ：<span> {#$user_setmeal.setmeal_name#} </span>、{#if $setmeal_endtime#}{#if $setmeal_endtime==“期限なし"#}期限なし{#else#}また<span> {#$setmeal_endtime#} </span>有効期限日{#/if#}{#else#}期限切れ{#/if#}<span class="small"> (开通时间{#$user_setmeal.starttime|date_format:"%Y-%m-%d"#}，结束时间{#$user_setmeal.endtime|date_format:"%Y-%m-%d"#})</span>&nbsp;&nbsp;&nbsp;<a target="_blank" href="?act=t_account&detail=1">[套餐明细]</a></div>
   		</div>
   		<div class="bar">
   			<div class="bar_step1">
@@ -89,7 +89,7 @@ return (true);
   				<tbody>
   					<tr>
   						<td height="30" width="100">パッケージの種類：</td>
-  						<td><span>{#$setmeal.setmeal_name#}</span>&nbsp;（服務期限：{#if $setmeal.days==“0”#}無制限{#else#}{#$setmeal.days#}日{#/if#}）</td>
+  						<td><span>{#$setmeal.setmeal_name#}</span>&nbsp;（服務期限：{#if $setmeal.days==“0"#}無制限{#else#}{#$setmeal.days#}日{#/if#}）</td>
   					</tr>
   					<tr>
   						<td height="30" width="100">パッケージ価格：</td>

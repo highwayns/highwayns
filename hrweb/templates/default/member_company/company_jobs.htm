@@ -192,7 +192,7 @@ $(document).ready(function(){
 					发布中职位<span >({#$jobs_total[0]#})</span></a>
 					<a href="?act={#$act#}&jobtype=2" {#if $smarty.get.jobtype=="2"#}class="se"{#/if#}>
 					审核中职位<span >({#$jobs_total[2]#})</span></a>
-					<a href="?act={#$act#}&jobtype=3" {#if $smarty.get.jobtype=="3"#}class="se"{#/if#}>ジョブズが示されていません<span class=“check”>({#$jobs_total[3]#})</span></a>
+					<a href="?act={#$act#}&jobtype=3" {#if $smarty.get.jobtype=="3"#}class="se"{#/if#}>ジョブズが示されていません<span class=“check">({#$jobs_total[3]#})</span></a>
 					<a href="?act={#$act#}&jobtype=1" {#if $smarty.get.jobtype=="1"#}class="se"{#/if#}>
 					全部职位<span >({#$jobs_total[1]#})</span></a>
 					<div class="clear"></div>
@@ -214,10 +214,10 @@ $(document).ready(function(){
 						<span class="filter-span">{#if $smarty.get.generalize_cn==‘’#}プロモーション状態{#else#}{#$smarty.get.generalize_cn#}{#/if#}<i class="filter-icon"></i></span>
 						<ul class="filter-down">  
 							<li><a href="{#"generalize:,generalize_cn:全部"|highway_parse_url#}">全部</a></li>
-							<li><a href=“{#”generalize:stick,generalize_cn:トップ設置”|HIGHWAY_parse_url#}”>置顶</a></li>
-							<li><a href="{#"generalize:highlight,generalize_cn:パッケージ”|highway_parse_url#}">套色</a></li>
-							<li><a href="{#"generalize:emergency,generalize_cn:緊急”|highway_parse_url#}">紧急</a></li>
-							<li><a href=“{#”generalize:recommend,generalize_cn:推薦”|HIGHWAY_parse_url#}”>推荐</a></li>
+							<li><a href=“{#"generalize:stick,generalize_cn:トップ設置"|HIGHWAY_parse_url#}">置顶</a></li>
+							<li><a href="{#"generalize:highlight,generalize_cn:パッケージ"|highway_parse_url#}">套色</a></li>
+							<li><a href="{#"generalize:emergency,generalize_cn:緊急"|highway_parse_url#}">紧急</a></li>
+							<li><a href=“{#"generalize:recommend,generalize_cn:推薦"|HIGHWAY_parse_url#}">推荐</a></li>
 						</ul>
 					</div>
 				</div>
@@ -263,7 +263,7 @@ $(document).ready(function(){
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択” /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択" /></div>
 					<div class="data-last-btn f-left">
 						{#if $HIGHWAY.operation_mode=="3"#}
 						<input type="hidden" name="refresh" id="refresh" value="" />
@@ -420,7 +420,7 @@ $(document).ready(function(){
 			{#/foreach#}
 			<div class="c-data-row last">
 				<div class="c-data-content apply_jobs clearfix">
-					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択” /></div>
+					<div class="c-item f-left check-item"><input type="checkbox" name="chkAll"   id="chk2" title=“全部選択/逆選択" /></div>
 					<div class="data-last-btn f-left">
 						<input type="button" name="delete" class="btn-65-30blue ctrl-del" value="削除" id="delete" act="?act=jobs_perform&delete=1"/>
 					</div>
@@ -467,7 +467,7 @@ $(document).ready(function(){
 		<script>window._bd_share_config={"common":{"bdText":"{#$jobs_one.companyname#}在@{#$HIGHWAY.site_name#}  配布了最新職位 : {#$jobs_one.jobs_name#}(月給 : {#$jobs_one.wage_cn#})","bdDesc":"もっと最新職位履歴書ニュースはこちらへ{#$HIGHWAY.site_name#}","bdUrl":"{#$jobs_one.jobs_url#}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 		</script>
 	</div>
-	<p class="succsee-more">多くの求職者に注意を引き付けるために、私たちはこのことをお勧めします：<a href=“javascript:;” class=“underline set_promotion” catid=“3” jobid=“{#$jobs_one.id#}”>置顶职位</a></p>
+	<p class="succsee-more">多くの求職者に注意を引き付けるために、私たちはこのことをお勧めします：<a href=“javascript:;" class=“underline set_promotion" catid=“3" jobid=“{#$jobs_one.id#}">置顶职位</a></p>
 </div>
 </body>
 </html>
