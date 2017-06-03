@@ -1,4 +1,4 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 
 <div class="admin_main_nr_dbox">
 <div class="pagetit">
@@ -6,48 +6,48 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>ãƒ’ãƒ³ãƒˆï¼š</h2>
-	<p>ã‚ãªãŸã¯ãƒãƒ¼ãƒˆã‚’è¿½åŠ ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€é †åºã‚’åŒºåˆ¥ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚</P>
+	<h2>ƒqƒ“ƒgF</h2>
+	<p>‚ ‚È‚½‚Íƒm[ƒg‚ğ’Ç‰Á‚·‚é‚±‚Æ‚É‚æ‚èA‡˜‚ğ‹æ•Ê‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B</P>
   </div>
-<div class="toptit">è¡¨ç¤ºé †åº</div>
+<div class="toptit">•\¦‡”Ô</div>
 <form id="Form1" name="Form1" method="post" action="?act=order_notes_save&id={#$payment.id#}">
 {#$inputtoken#}
   <table width="100%" border="0" cellpadding="4" cellspacing="0"  >
       <tr>
-      <td width="160" height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">æ”¯æ‰•ã„çŠ¶æ³ï¼š</td>
-      <td style=" border-bottom:1px #CCCCCC dashed"> {#if $payment.is_paid=="1"#}<span style="color: #FF6600">å¾…ä»˜æ¬¾...</span>{#/if#}{#if $payment.is_paid=="2"#}<span style="color: #009900">å·²å®Œæˆ{#/if#}</span></td>
+      <td width="160" height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">x•¥‚¢ó‹µF</td>
+      <td style=" border-bottom:1px #CCCCCC dashed"> {#if $payment.is_paid=="1"#}<span style="color: #FF6600">‘Ò•tŠ¼...</span>{#/if#}{#if $payment.is_paid=="2"#}<span style="color: #009900">›ßŠ®¬{#/if#}</span></td>
     </tr>
     <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ä¼šå“¡ãƒãƒ£ãƒ¼ã‚¸ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">‰ïˆõƒ`ƒƒ[ƒW‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“F</td>
       <td style=" border-bottom:1px #CCCCCC dashed"> {#$payment.payment_username.username#} </td>
     </tr>
     <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">æ”¯æ‰•ã†ã¹ãé‡‘é¡ï¼š</td>
-      <td style=" border-bottom:1px #CCCCCC dashed" >ï¿¥<span style="color:#0033CC; font-size:20px;">{#$payment.amount#}</span> å…ƒ</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">x•¥‚¤‚×‚«‹àŠzF</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" ><span style="color:#0033CC; font-size:20px;">{#$payment.amount#}</span> Œ³</td>
     </tr>
 	    <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ã‚ªãƒ¼ãƒ€èª¬æ˜ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ƒI[ƒ_à–¾F</td>
       <td style=" border-bottom:1px #CCCCCC dashed" ><span style="color:#0033CC">{#$payment.description#}</span></td>
     </tr>
 		    <tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ãŠæ”¯æ‰•ã„æ–¹æ³•ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">‚¨x•¥‚¢•û–@F</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.payment_name#}</td>
     </tr>
 	<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">æ³¨æ–‡ç•ªå·ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">’•¶”Ô†F</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.oid#}<input type="hidden" name="oid"  value="{#$payment.oid#}" /></td>
     </tr>
 		<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ç”³è«‹æ™‚é–“ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">\¿ŠÔF</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.addtime|date_format:"%Y-%m-%d   %H:%M"#}</td>
     </tr>
 		<tr>
 		<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ãƒãƒ£ãƒ¼ã‚¸å®Ÿè¡Œæ™‚é–“ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ƒ`ƒƒ[ƒWÀsŠÔF</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.payment_time|date_format:"%Y-%m-%d   %H:%M"#}</td>
     </tr>
 		<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ãƒ¡ãƒ¢ã‚’è¿½åŠ ï¼š</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">ƒƒ‚‚ğ’Ç‰ÁF</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >
 	  <textarea name="notes" style="width:300px; height:50px; font-size:12px; line-height:180%" onpropertychange="if(this.value.length>120){this.value=this.value.slice(0,120)}">{#$payment.notes#}</textarea>
 	   </td>
@@ -56,8 +56,8 @@
       <td height="30" align="right" >&nbsp;</td>
       <td height="80" ><span style="font-size:14px;">
         <input type="hidden" name="url"  value="{#$url#}" /><br />
-        <input name="submit3" type="submit" class="admin_submit"    value="ã‚³ãƒ¡ãƒ³ãƒˆä¿®æ­£"/>
-        <input name="submit22" type="button" class="admin_submit"    value="æˆ»ã‚‹" onclick="window.location.href='{#$url#}'"/>
+        <input name="submit3" type="submit" class="admin_submit"    value="ƒRƒƒ“ƒgC³"/>
+        <input name="submit22" type="button" class="admin_submit"    value="–ß‚é" onclick="window.location.href='{#$url#}'"/>
       </span></td>
     </tr>
   </table>

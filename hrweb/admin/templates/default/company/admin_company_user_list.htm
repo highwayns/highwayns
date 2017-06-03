@@ -63,7 +63,7 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type=“checkbox" name=“ “ title=“全部選択/逆選択" id=“chk"/>用户名</label></td>
+      <label id="chkAll"><input type=“checkbox" name=“ “ title=“全部選択/逆選択" id=“chk"/>ユーザ名</label></td>
       <td  class="admin_list_tit">email</td>
 	  <td  class="admin_list_tit">電話番号</td>
       <td  class="admin_list_tit">企業情報</td>
@@ -103,7 +103,7 @@ $(document).ready(function()
 		{#if $list.last_login_time#}
 		{#$list.last_login_time|date_format:"%Y-%m-%d"#}
 		{#else#}
-		从未登录
+		ログインなし
 		{#/if#}
 		</td> 
 		<td align="center" class="admin_list">
@@ -135,7 +135,7 @@ $(document).ready(function()
         <td>
         	 <input type="button" name="open" value="会員追加" class="admin_submit"  onclick="window.location.href='?act=members_add'"/>
 	<input type="button" name="ButDel"  id="ButDel" value="会員削除" class="admin_submit"/>
-	<input type="button" name="AddConsultant" id="AddConsultant" value="顧問設定" class="admin_submit"/>
+	<input type="button" name="AddConsultant" id="AddConsultant" value="コンサルタント設定" class="admin_submit"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -172,25 +172,25 @@ $(document).ready(function()
 	  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
 		<tr>
 		  <td width="30" height="30">&nbsp;</td>
-		  <td height="30"><strong  style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+		  <td height="30"><strong  style="color:#0066CC; font-size:14px;">削除してよろしいでしょうか？</strong></td>
 		</tr>
 			  <tr>
 		  <td width="27" height="25">&nbsp;</td>
 		  <td><label>
 			<input name="delete_user" type="checkbox" id="delete_user" value="yes" checked="checked" />
-			删除此会员 <span style="color:#666666">（このメンバーを削除するなど、あなたが公開された情報を管理することはできません、ログオンすることはできません）<span></label></td>
+			会員削除 <span style="color:#666666">（このメンバーを削除するなど、あなたが公開された情報を管理することはできません、ログオンすることはできません）<span></label></td>
 		</tr>
 		<tr>
 		  <td width="27" height="25">&nbsp;</td>
 		  <td width="425"><label>
 			<input name="delete_company" type="checkbox" id="delete_company" value="yes" checked="checked" />
-			删除此会员的企业资料</label></td>
+			会員の企業資料削除</label></td>
 		</tr>
 		<tr>
 		  <td width="27" height="25">&nbsp;</td>
 		  <td width="425"><label>
 			<input name="delete_jobs" type="checkbox" id="delete_jobs" value="yes" checked="checked"/>
-			删除此企业发布的招聘信息</label></td>
+			企業募集情報削除</label></td>
 		</tr>
 		<tr>
 		  <td height="25">&nbsp;</td>

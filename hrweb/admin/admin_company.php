@@ -1002,7 +1002,7 @@ elseif($act == 'consultant_install')
 	$clist = get_consultant($offset,$perpage,$oederbysql);
 
 	$smarty->assign('tuid',$tuid);
-	$smarty->assign('pageheader',"顧問設定");
+	$smarty->assign('pageheader',"コンサルタント設定");
 	$smarty->assign('page',$page->show(3));
 	$smarty->assign('consultants',$consultants);
 	$smarty->display('company/admin_consultant_install.htm');
@@ -1011,7 +1011,7 @@ elseif($act == 'consultant_install')
 elseif($act == 'consultant_install_save')
 {
 	//得到 顾问的id 
-	$id = !empty($_GET['id'])?intval($_GET['id']):adminmsg("顧問選択エラー表示！",0);
+	$id = !empty($_GET['id'])?intval($_GET['id']):adminmsg("コンサルタント選択エラー表示！",0);
 	//得到要设置顾问的企业会员uid 
 	$tuid =!empty($_REQUEST['tuid'])?$_REQUEST['tuid']:adminmsg("会員を選択してください！",1);
 	$tuid=explode(",", $tuid);
@@ -1020,7 +1020,7 @@ elseif($act == 'consultant_install_save')
 	}
 	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = "?act=members_list";
-	write_log("企業uidは".$tuid."の企業設定顧問,顧問idは".$id, $_SESSION['admin_name'],3);
+	write_log("企業uidは".$tuid."の企業設定コンサルタント,コンサルタントidは".$id, $_SESSION['admin_name'],3);
 	adminmsg('設定成功！',2,$link);
 }
 elseif($act == 'user_edit')
@@ -1334,7 +1334,7 @@ elseif($act == 'consultant')
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
 	$clist = get_consultant($offset,$perpage,$oederbysql);
-	$smarty->assign('pageheader',"顧問管理");
+	$smarty->assign('pageheader',"コンサルタント管理");
 	$smarty->assign('clist',$clist);
 	$smarty->assign('page',$page->show(3));
 	$smarty->display('company/admin_consultant_list.htm');
@@ -1347,7 +1347,7 @@ elseif($act == 'consultant_manage')
 	$sql = "select * from ".table('consultant')." where id = {$id}";
 	$consultant = $db->getone($sql);
 	if(empty($consultant)){
-		adminmsg('顧問失った',1);
+		adminmsg('コンサルタント失った',1);
 	}
 	//分页
 	require_once(HIGHWAY_ROOT_PATH.'include/page.class.php');
@@ -1358,7 +1358,7 @@ elseif($act == 'consultant_manage')
 	$currenpage=$page->nowindex;
 	$offset=($currenpage-1)*$perpage;
 	$members = get_member_manage($offset,$perpage,$wheresql);
-	$smarty->assign('pageheader',"顧問リセット");
+	$smarty->assign('pageheader',"コンサルタントリセット");
 	$smarty->assign('consultant',$consultant);
 	$smarty->assign('members',$members);
 	$smarty->assign('page',$page->show(3));
@@ -1399,7 +1399,7 @@ elseif($act == 'consultant_add')
 {
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"consultant_add");
-	$smarty->assign('pageheader',"顧問管理");
+	$smarty->assign('pageheader',"コンサルタント管理");
 	$smarty->display('company/admin_consultant_add.htm');
 }
 elseif($act == 'consultant_add_save')
@@ -1417,7 +1417,7 @@ elseif($act == 'consultant_add_save')
 	$setsqlarr['pic']=date("Y/m/d/").$setsqlarr['pic'];
 
 	$insert_id=$db->inserttable(table('consultant'),$setsqlarr,true);
-	write_log("顧問追加".$setsqlarr['name'], $_SESSION['admin_name'],3);
+	write_log("コンサルタント追加".$setsqlarr['name'], $_SESSION['admin_name'],3);
 	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = "?act=consultant";
 	$link[1]['text'] = "続く追加";
@@ -1430,11 +1430,11 @@ elseif($act == 'consultant_edit')
 	check_permissions($_SESSION['admin_purview'],"consultant_edit");
 	$id=intval($_GET['id']);
 	if(!$id){
-		adminmsg("顧問を選択してください！",1);
+		adminmsg("コンサルタントを選択してください！",1);
 	}
 	$consultant = get_consultant_one($id);
 	$smarty->assign('consultant',$consultant);
-	$smarty->assign('pageheader',"顧問管理");
+	$smarty->assign('pageheader',"コンサルタント管理");
 	$smarty->display('company/admin_consultant_edit.htm');
 }
 elseif($act == 'consultant_edit_save')
@@ -1443,7 +1443,7 @@ elseif($act == 'consultant_edit_save')
 	check_permissions($_SESSION['admin_purview'],"consultant_edit");
 	$id=intval($_POST['id']);
 	if(!$id){
-		adminmsg("顧問を選択してください！",1);
+		adminmsg("コンサルタントを選択してください！",1);
 	}
 	$consultant = get_consultant_one($id);
 	$setsqlarr['name'] = !empty($_POST['name']) ? trim($_POST['name']):adminmsg('名前を入力してください！',1);
@@ -1458,7 +1458,7 @@ elseif($act == 'consultant_edit_save')
 	}
 	
 	$db->updatetable(table('consultant'),$setsqlarr," id={$id} ");
-	write_log("変更顧問idは".$id."の顧問情報", $_SESSION['admin_name'],3);
+	write_log("変更コンサルタントidは".$id."のコンサルタント情報", $_SESSION['admin_name'],3);
 	$link[0]['text'] = "一覧に戻る";
 	$link[0]['href'] = "?act=consultant";
 	$link[1]['text'] = "変更結果閲覧";
@@ -1469,7 +1469,7 @@ elseif($act == "consultant_del"){
 	check_permissions($_SESSION['admin_purview'],"consultant_del");
 	$id=intval($_GET['id']);
 	if(!$id){
-		adminmsg("顧問を選択してください！",1);
+		adminmsg("コンサルタントを選択してください！",1);
 	}
 	del_consultant($id);
 	adminmsg("削除成功！",2);
