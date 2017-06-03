@@ -192,7 +192,7 @@ $(document).ready(function()
 	</td>
   </tr>
   <tr>
-    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>会社サイズ：</td>
+    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>会社規模：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="タイプ:HW_scale,リスト名:li"#}
@@ -233,25 +233,25 @@ $(document).ready(function()
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>電話：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="telephone" type="text" class="input_text_200" id="telephone" maxlength="25" value="{#$company_profile.telephone#}"/>
-    <label><input name="telephone_show"  type="checkbox" value="1" {#if $company_profile.telephone_show=="1"#}checked="checked"{#/if#} />联系电话在职位详细页中显示
+    <label><input name="telephone_show"  type="checkbox" value="1" {#if $company_profile.telephone_show=="1"#}checked="checked"{#/if#} />連絡電話は職位詳細中表示
 	</td>
   </tr>
   <tr>
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>連絡先Eメール：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="email" type="text" class="input_text_200" id="email" maxlength="25" value="{#$company_profile.email#}"/>
-    <label><input name="email_show"  type="checkbox" value="1" {#if $company_profile.email_show=="1"#}checked="checked"{#/if#} />联系邮箱在职位详细页中显示
+    <label><input name="email_show"  type="checkbox" value="1" {#if $company_profile.email_show=="1"#}checked="checked"{#/if#} />連絡先Eメールは職位詳細中表示
 	</td>
   </tr>
   <tr>
-    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">会社のWebサイト：</td>
+    <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">会社のウェブサイト：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed"><input name="website" type="text" class="input_text_200" id="website" maxlength="80" value="{#$company_profile.website#}"/></td>
   </tr>
   <tr>
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>住所：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="address" type="text" class="input_text_200" id="address" maxlength="80"  style="width:447px;" value="{#$company_profile.address#}"/>
-    <label><input name="address_show"  type="checkbox" value="1" {#if $company_profile.address_show=="1"#}checked="checked"{#/if#} />联系地址在职位详细页中显示
+    <label><input name="address_show"  type="checkbox" value="1" {#if $company_profile.address_show=="1"#}checked="checked"{#/if#} />住所は職位詳細中表示
 	</td>
   </tr>
 
@@ -259,7 +259,7 @@ $(document).ready(function()
     <td align="right" valign="top"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 会社紹介：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed"><textarea name="contents" class="company_mb_textarea" id="introduction" style="width:450px; height:150px;"onpropertychange="if(this.value.length&gt;2000){this.value=this.value.slice(0,2000)}">{#$company_profile.contents#}</textarea>
         <br />
-        <div style="line-height:30px; height:30px;"> <span style="color:#333333">请将字数控制在2000字以内进行填写</span></div></td>
+        <div style="line-height:30px; height:30px;"> <span style="color:#333333">2000文字以内に</span></div></td>
   </tr>
   <tr>
             <td height="30" align="right"   >&nbsp;</td>
@@ -294,7 +294,7 @@ $(document).ready(function()
 		<tr>
             <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">&nbsp;</td>
             <td height="120" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="font-size:14px;">
-              <input name="submit3" type="submit" class="admin_submit"    value="選択された削除"/> 
+              <input name="submit3" type="submit" class="admin_submit"    value="削除"/> 
               <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location.href='{#$url#}'"/>
             </span></td>
           </tr>

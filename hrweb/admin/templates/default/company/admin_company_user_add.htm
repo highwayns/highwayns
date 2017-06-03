@@ -102,7 +102,7 @@ $(document).ready(function()
     return this.optional(element) || /^[\u0391-\uFFE5\w]+$/.test(value);
     }, "英字、数字とアンドバーだけ");
     jQuery.validator.addMethod("nomobile", function(value, element) { 
-      var tel = /^(13|15|18)\d{9}$/;
+    	var tel = /^((0\d{1}-{4}-{4}))$/;
     var $cstr= true;
     if (tel.test(value)) $cstr= false;
     return $cstr || this.optional(element); 
@@ -140,9 +140,9 @@ $(document).ready(function()
       <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">ポイントが送るかどうか：</td>
       <td  style=" border-bottom:1px #CCCCCC dashed"  ><label>
         <input name="regpoints" type="radio" value="y" checked="checked" />
-        赠送</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+        贈り</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
         <input type="radio" name="regpoints" value="n"   />
-        不赠送</label></td>
+        贈り無し</label></td>
 	    </tr>
 		
 		<tr id="regpointsshow">
@@ -157,7 +157,7 @@ $(document).ready(function()
       <td  style=" border-bottom:1px #CCCCCC dashed" >
           <label>
           <input type="radio" name="reg_service" value="0" {#if $HIGHWAY.reg_service=='0'#}checked="checked"{#/if#}/>
-          不赠送</label>
+          贈り無し</label>
           {#foreach from=$givesetmeal item=list#}
 		    &nbsp;&nbsp;
 		    <label>
@@ -168,18 +168,18 @@ $(document).ready(function()
 	    </tr>
 		{#/if#}
 		<tr>
-			<td align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF0000">是否已收费：</span></td>
+			<td align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF0000">徴収するかどうか：</span></td>
 			<td style=" border-bottom:1px #CCCCCC dashed">
 			<label>
 			 <input name="is_money" type="radio" value="1" checked="checked" class="yes_money3"/>
-			是</label> &nbsp;&nbsp;&nbsp;<label>
+			はい</label> &nbsp;&nbsp;&nbsp;<label>
 			<input name="is_money" type="radio" value="0"  class="no_money3"/>
-			否</label>		
+			いいえ</label>		
 			</td>
       </tr>
 	   <tr class="log_amount3">
-        <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">收费金额：</span></td>
-        <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 元
+        <td align="right"  style=" border-bottom:1px #CCCCCC dashed;"><span style="color:#FF0000">徴収金額：</span></td>
+        <td style=" border-bottom:1px #CCCCCC dashed"><input name="log_amount" type="text" class="input_text_200"  value="{#$setmeal.log_amount#}" maxlength="5"/> 円
          <span class="admin_note">（金額を記入してください）</span> </td>
       </tr>
     <tr>

@@ -167,7 +167,7 @@ var myDate = new Date();
 var y=myDate.getFullYear();
 // 手机号码验证   
 jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
-    var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}|17[0-9]{9}$/;
+	var tel = /^((0\d{1}-{4}-{4}))$/;
     return this.optional(element) || (tel.test(value));
 }, "携帯番号正しく入力してください");
  $("#Form1").validate({

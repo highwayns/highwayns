@@ -1,4 +1,4 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -16,11 +16,11 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first">
-      <label id="chkAll"><input type=â€œcheckbox" name=â€œ â€œ title=â€œå…¨éƒ¨é¸æŠ/é€†é¸æŠ" id=â€œchk"/>é¡¾é—®ç…§ç‰‡</label>
+      <label id="chkAll"><input type=gcheckbox" name=g g title=g‘S•”‘I‘ğ/‹t‘I‘ğ" id=gchk"/>ƒRƒ“ƒTƒ‹ƒ^ƒ“ƒgÊ^</label>
 	  </td>
-	  <td    class="admin_list_tit">ã‚³ãƒ³ã‚µãƒ«ã‚¿ãƒ³ãƒˆå</td> 
-	  <td  width="12%" class="admin_list_tit">ã‚³ãƒ³ã‚µãƒ«ã‚¿ãƒ³ãƒˆQQ </td>  
-      <td width="15%" align="center" class="admin_list_tit">æ“ä½œ</td>
+	  <td    class="admin_list_tit">ƒRƒ“ƒTƒ‹ƒ^ƒ“ƒg–¼</td> 
+	  <td  width="12%" class="admin_list_tit">ƒRƒ“ƒTƒ‹ƒ^ƒ“ƒgQQ </td>  
+      <td width="15%" align="center" class="admin_list_tit">‘€ì</td>
     </tr>
 	{#foreach from=$clist item=list#}
       <tr >
@@ -36,24 +36,24 @@ $(document).ready(function()
 		</td>
      
         <td width="15%" align="center" class="admin_list">
-        		<a href="?act=consultant_manage&id={#$list.id#}">ç®¡ç†</a>
+        		<a href="?act=consultant_manage&id={#$list.id#}">ŠÇ—</a>
 		&nbsp;&nbsp;
-		<a href="?act=consultant_edit&id={#$list.id#}">å¤‰æ›´</a>
+		<a href="?act=consultant_edit&id={#$list.id#}">•ÏX</a>
 		&nbsp;&nbsp;
-		<a href="?act=consultant_del&id={#$list.id#}">å‰Šé™¤</a>
+		<a href="?act=consultant_del&id={#$list.id#}">íœ</a>
 		</td>
       </tr>
       {#/foreach#}
     </table>
   </form>
 	{#if !$clist#}
-	<div class="admin_list_no_info">ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãªã—ï¼</div>
+	<div class="admin_list_no_info">ƒƒbƒZ[ƒW‚È‚µI</div>
 	{#/if#}
   
 	<table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-        <input type="button" name="" value="é¡§å•è¿½åŠ " class="admin_submit"  id="ButAdd" onclick="javascript:window.location.href='?act=consultant_add'" />
+        <input type="button" name="" value="ƒRƒ“ƒTƒ‹ƒ^ƒ“ƒg’Ç‰Á" class="admin_submit"  id="ButAdd" onclick="javascript:window.location.href='?act=consultant_add'" />
 		  
 		</td>
         <td width="305" align="right">

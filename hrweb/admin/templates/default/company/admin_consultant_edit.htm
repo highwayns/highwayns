@@ -1,20 +1,20 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 <div class="admin_main_nr_dbox">
 <div class="pagetit">
 	<div class="ptit"> {#$pageheader#}</div>
   <div class="clear"></div>
 </div>
-<div class="toptit">ã‚³ãƒ³ã‚µãƒ«ã‚¿ãƒ³ãƒˆã®å¤‰æ›´</div>
+<div class="toptit">ƒRƒ“ƒTƒ‹ƒ^ƒ“ƒg•ÏX</div>
   <form id="form1" name="form1" method="post" action="?act=consultant_edit_save" enctype="multipart/form-data">
   {#$inputtoken#}
   <input type="hidden" name="id" value="{#$consultant.id#}">
   <table width="100%" border="0" cellpadding="4" cellspacing="0"   >
     <tr>
-      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">åå‰ï¼š</td>
+      <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">–¼‘OF</td>
       <td  style=" border-bottom:1px #CCCCCC dashed"> <input name="name" type="text" class="input_text_200" id="name" maxlength="25" value="{#$consultant.name#}"/> </td>
     </tr>
     <tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">å†™çœŸï¼š</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">Ê^F</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="pic" type="file" style="width:200px; height:22px; border:1px #7797A8 solid; font-size:12px;" id="pic" value=""/></td>
     </tr>
     {#if $consultant.pic!=""#}
@@ -26,16 +26,16 @@
     </tr>
     {#/if#}
     <tr>
-      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">QQï¼š</td>
+      <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">QQF</td>
       <td  style=" border-bottom:1px #CCCCCC dashed" ><input name="qq" type="text" class="input_text_200" id="qq" maxlength="15" value="{#$consultant.qq#}"/></td>
     </tr>
 		
     <tr>
       <td height="30" align="right"  >&nbsp;</td>
       <td height="60"  ><span style="font-size:14px;">
-        <input name="submit3" type="submit" class="admin_submit"    value="ä¿å­˜"/>
+        <input name="submit3" type="submit" class="admin_submit"    value="•Û‘¶"/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input name="submit22" type="button" class="admin_submit"    value="æˆ»ã‚‹" onclick="window.location.href='?act=consultant'"/>
+        <input name="submit22" type="button" class="admin_submit"    value="–ß‚é" onclick="window.location.href='?act=consultant'"/>
       </span></td>
     </tr>
   </table>
