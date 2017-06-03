@@ -19,7 +19,7 @@ $(document).ready(function()
 	});
 	//点击批量删除	
 	$("#ButDlete").click(function(){
-		if (confirm('你确定要删除吗？'))
+		if (confirm('削除してよろしいでしょうか？'))
 		{
 			$("form[name=form1]").attr("action",$("form[name=form1]").attr("action")+"&delete=true");
 			$("form[name=form1]").submit()
@@ -281,26 +281,26 @@ $(document).ready(function()
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
     <tr>
       <td width="20" height="30">&nbsp;</td>
-      <td height="30"><strong  style="color:#0066CC; font-size:14px;">将所选职位置为：</strong></td>
+      <td height="30"><strong  style="color:#0066CC; font-size:14px;">選択された職位：</strong></td>
     </tr>
 		
 	      <tr>
       <td width="40" height="25">&nbsp;</td>
       <td>
                       <label><input name="audit" type="radio" value="1" checked="checked"  id="success" />
-                      审核通过</label></td>
+                      審査合格</label></td>
     </tr>
     <tr>
       <td width="40" height="25">&nbsp;</td>
       <td>
                       <label><input type="radio" name="audit" value="3"  id="fail"/>
-                       审核未通过</label></td>
+                       審査不合格</label></td>
     </tr>
     <tr>
       <td width="40" height="25">&nbsp;</td>
       <td>
                       <label><input type="checkbox" name="pms_notice" value="1"  checked="checked"/>
-					  站内信通知
+					  メッセージ送信
                        </label></td>
     </tr>
 	<tr style="display:none" id="reason">

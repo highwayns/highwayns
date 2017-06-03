@@ -48,8 +48,8 @@ $(document).ready(function()
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-系统默认分类不能删除！<br />
-删除顶级级分类将会自动删除此分类下的子分类。
+システム初期分類削除ができません！<br />
+トップ分類削除したら、サブ分類自動削除する。
 </p>
 </div>
 	 <form id="form1" name="form1" method="post" action="?act=del_category">
@@ -73,9 +73,9 @@ $(document).ready(function()
 	  </td>
 	   <td align="center"  class="admin_list">
 	    {#if $list.admin_set=="1"#}
-			   系统分类
+			   システム分類
 			   {#else#}
-			     自定义分类
+			     カスタム分類
 			   {#/if#}
 	   </td>
       <td align="center"  class="admin_list">
@@ -98,9 +98,9 @@ $(document).ready(function()
 			  </td>
 			   <td align="center"  class="admin_list">
 			   {#if $slist.admin_set=="1"#}
-			   系统分类
+			   システム分類
 			   {#else#}
-			     自定义分类
+			     カスタム分類
 			   {#/if#}
 			   </td>
 			  <td align="center"  class="admin_list">
@@ -121,7 +121,7 @@ $(document).ready(function()
 <tr>
         <td>
         <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="分類追加"  onclick="window.location='?act=category_add'"/>
-		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="選択された削除" onclick="return confirm('削除してよろしいでしようか？')"/>
+		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="削除" onclick="return confirm('削除してよろしいでしようか？')"/>
 		</td>
         <td width="305" align="right">
 	  

@@ -126,7 +126,7 @@ $(document).ready(function()
 		</td>
 		<td align="center" class="admin_list">
 		{#if $HIGHWAY.operation_mode=='1'#} 
-			<strong>{#$list.points#}</strong> 积分
+			<strong>{#$list.points#}</strong> ポイント
 		{#elseif $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
 				{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">パッケージなし</span>{#/if#}
 		{#/if#}
@@ -135,7 +135,7 @@ $(document).ready(function()
 		{#$list.get_resume#}
 		</td>
         <td width="15%" align="center" class="admin_list">
-		<a href="admin_memberslog.php?uid={#$list.uid#}">日誌</a>
+		<a href="admin_memberslog.php?uid={#$list.uid#}">ログ</a>
 		&nbsp;
 		<a href="?act=edit_company_profile&id={#$list.id#}">変更</a>
 		&nbsp;
@@ -198,19 +198,19 @@ $(document).ready(function()
 <div style="display:none" id="OpDelLayer">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
     <tr>
-      <td height="30" colspan="2"><strong  style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+      <td height="30" colspan="2"><strong  style="color:#0066CC; font-size:14px;">削除してよろしいでしょうか？</strong></td>
       </tr>
     <tr>
       <td width="20" height="25">&nbsp;</td>
       <td><label>
         <input name="delete_company" type="checkbox" id="delete_company" value="yes" checked="checked" />
-        删除企业资料</label></td>
+        企業資料削除</label></td>
     </tr>
 	<tr>
       <td height="25">&nbsp;</td>
       <td><label>
         <input name="delete_jobs" type="checkbox" id="delete_jobs" value="yes" checked="checked"/>
-        删除此企业发布的招聘信息</label></td>
+        募集情報削除</label></td>
     </tr>
 	<tr>
 	  <td height="25">&nbsp;</td>
@@ -222,13 +222,13 @@ $(document).ready(function()
 <div style="display:none" id="OprefreshLayer">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
     <tr>
-      <td height="30" colspan="2"><strong  style="color:#0066CC; font-size:14px;">刷新该企业的职位：</strong></td>
+      <td height="30" colspan="2"><strong  style="color:#0066CC; font-size:14px;">該当企業職位更新：</strong></td>
       </tr>
     <tr>
       <td width="20" height="25">&nbsp;</td>
       <td><label>
         <input name="refresh_jobs" type="checkbox" id="refresh_jobs" value="yes" />
-        同时刷新所选企业的职位</label></td>
+        同時に該当企業職位更新</label></td>
     </tr>
 	 <tr>
       <td height="25">&nbsp;</td>
@@ -241,7 +241,7 @@ $(document).ready(function()
  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6" >
     <tr>
       <td width="20" height="30">&nbsp;</td>
-      <td height="30"><strong  style="color:#0066CC; font-size:14px;">将所选企业设置为：</strong></td>
+      <td height="30"><strong  style="color:#0066CC; font-size:14px;">選択された企業：</strong></td>
     </tr>
 		
 	      <tr>
@@ -249,27 +249,27 @@ $(document).ready(function()
       <td>
 	  <label >
                       <input name="audit" type="radio" value="1" checked="checked"  id="success" />
-                      认证通过 </label>	  </td>
+                      認定合格 </label>	  </td>
     </tr>
     <tr>
       <td height="25">&nbsp;</td>
       <td><label >
                       <input type="radio" name="audit" value="3"  id="fail"/>
-        认证未通过</label></td>
+        認定未合格</label></td>
     </tr>
 	 <tr>
       <td height="25">&nbsp;</td>
       <td>
 	  <label >
 	  <input type="radio" name="audit" value="2"  id="wait"/>      
-	  等待认证
+	  認定待ち
 	  </label>	</td>
     </tr>
     <tr>
       <td width="40" height="25">&nbsp;</td>
       <td>
 		  <label><input type="checkbox" name="pms_notice" value="1"  checked="checked"/>
-		  站内信通知
+		  メッセージ送信
 		   </label>
 	  </td>
     </tr>

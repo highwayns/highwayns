@@ -4,7 +4,7 @@ $(document).ready(function()
 {
  //点击批量删除	
 	$("#ButDlete").click(function(){
-		if (confirm('你确定要删除吗？'))
+		if (confirm('削除してよろしいでしょうか？'))
 		{
 			$("form[name=form1]").submit()
 		}
@@ -29,8 +29,8 @@ $(document).ready(function()
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-系统将自动下架到期广告。<br />
-按广告位显示广告请点击右下角按钮
+システムは期限切れた広告自動停止する。<br />
+右下のボタンをクリックして、広告一覧を表示する。
 </p>
 </div>
 
@@ -38,8 +38,8 @@ $(document).ready(function()
 
 	<div class="tit link_lan">
 	<strong>広告一覧</strong><span>（見つかった{#$total#}記事）</span>
-	<a href="?act=list">[既定値に戻します]</a >
-	<div class="pli link_bk"><u>每页显示：</u>
+	<a href="?act=list">[初期値に戻る]</a >
+	<div class="pli link_bk"><u>頁ごと表示：</u>
 	<a href="{#"perpage:10"|highway_parse_url#}" {#if $smarty.get.perpage=="10"#}class="select"{#/if#}>10</a>
 	<a href="{#"perpage:20"|highway_parse_url#}" {#if $smarty.get.perpage=="20"#}class="select"{#/if#}>20</a>
 	<a href="{#"perpage:30"|highway_parse_url#}" {#if $smarty.get.perpage=="30"#}class="select"{#/if#}>30</a>
@@ -60,7 +60,7 @@ $(document).ready(function()
 	  <div class="t">表示状態</div>	  
 	  <div class="txt link_lan">
 	 	<a href="{#"is_display:"|highway_parse_url#}" {#if $smarty.get.is_display==""#}class="select"{#/if#}>制限なし</a>
-		<a href="{#"is_display:1"|highway_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>ノーマル</a>
+		<a href="{#"is_display:1"|highway_parse_url#}" {#if $smarty.get.is_display=="1"#}class="select"{#/if#}>正常</a>
 		<a href="{#"is_display:0"|highway_parse_url#}" {#if $smarty.get.is_display=="0"#}class="select"{#/if#}>停止</a>
 	  </div>
     </div>
@@ -87,7 +87,7 @@ $(document).ready(function()
       <td   class="admin_list_tit admin_list_first">
      <label id="chkAll"><input type="checkbox" name="" title="全部選択/逆選択" id="chk"/>広告タイトル</label>
 	 </td>
-	  <td width="16%"  class="admin_list_tit">所有広告</td>
+	  <td width="16%"  class="admin_list_tit">広告一覧</td>
 	  <td width="7%" align="center"  class="admin_list_tit">タイプ</td>
       <td width="9%" align="center"  class="admin_list_tit">開始時刻</td>
       <td width="9%" align="center"  class="admin_list_tit">有効期限</td>	  
@@ -99,7 +99,7 @@ $(document).ready(function()
 	 <tr>
       <td   class="admin_list admin_list_first">
      <input type="checkbox" name="id[]"  value="{#$li.id#}"/>
-	<a href="?act=edit_ad&id={#$li.id#}" {#if $li.text_color<>""#}style="color:{#$li.text_color#}"{#/if#}  {#if $li.type_id=="1"#}class="vtip" title="{#$li.text_content#}" {#elseif $li.type_id=="2"#}class="vtip" title='<img src="{#$li.img_path#}" />'{#/if#}>{#$li.title#}</a> 
+<a href="?act=edit_ad&id={#$li.id#}" {#if $li.text_color<>""#}style="color:{#$li.text_color#}"{#/if#}  {#if $li.type_id=="1"#}class="vtip" title="{#$li.text_content#}" {#elseif $li.type_id=="2"#}class="vtip" title='<img src="{#$li.img_path#}" />'{#/if#}>{#$li.title#}</a> 
 	  {#if $li.note<>""#}
 	  <img src="images/comment_alert.gif" border="0"  class="vtip" title="{#$li.note#}"/>
 	  {#/if#}	
@@ -109,24 +109,24 @@ $(document).ready(function()
 	  </td>
 	  <td align="center"  class="admin_list">
 	  {#if $li.type_id=="1"#}文字
-	  {#elseif $li.type_id=="2"#}图片
-	  {#elseif $li.type_id=="3"#}代码
+	  {#elseif $li.type_id=="2"#}画像
+	  {#elseif $li.type_id=="3"#}コード
 	  {#elseif $li.type_id=="4"#}FLASH
-	  {#elseif $li.type_id=="5"#}浮动
-	  {#elseif $li.type_id=="6"#}视频
+	  {#elseif $li.type_id=="5"#}すべり
+	  {#elseif $li.type_id=="6"#}動画
 	  {#/if#}	  </td>
       <td align="center"  class="admin_list">
 	  {#if $li.starttime=="0"#}
-		无限制
+		制限なし
 		{#else#}
 		{#$li.starttime|date_format:"%Y-%m-%d"#}
 		{#/if#}	  </td>
       <td align="center"  class="admin_list">
 	  {#if $li.deadline=="0"#}
-		无限制
+		制限なし
 		{#else#}
 					{#if $li.deadline < $smarty.now#}
-					<span style="color:#FF6600">期限が切れている</span>
+					<span style="color:#FF6600">期限が切れた</span>
 					{#else#}
 					{#$li.deadline|date_format:"%Y-%m-%d"#}
 					{#/if#}
@@ -166,7 +166,7 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="広告タイトル">広告title</li>
+														<li id="1" title="広告タイトル">広告タイトル</li>
 														</ul>
 												</div>
 						</div>				

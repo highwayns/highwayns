@@ -8,7 +8,7 @@
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
- 自定义广告位调用名不可以以 “HW_"开头
+ カスタマイズ広告は “HW_"で開始ができません。
 </p>
 </div>
 <div class="toptit">広告場所の変更：<span style="color:#006699">{#$ad_category.categoryname#}</span></div>
@@ -48,15 +48,15 @@
 			 <label><input type="radio" name="type_id" value="1" {#if $ad_category.type_id=="1"#}checked="checked"{#/if#}/>文字</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
  <label><input name="type_id" type="radio" value="2" {#if $ad_category.type_id=="2"#}checked="checked"{#/if#}/>
- 图片</label>
+ 画像</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
- <label><input type="radio" name="type_id" value="3" {#if $ad_category.type_id=="3"#}checked="checked"{#/if#}/>代码</label>
+ <label><input type="radio" name="type_id" value="3" {#if $ad_category.type_id=="3"#}checked="checked"{#/if#}/>コード</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
  <label><input type="radio" name="type_id" value="4" {#if $ad_category.type_id=="4"#}checked="checked"{#/if#}/>FLASH</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
- <label><input type="radio" name="type_id" value="5" {#if $ad_category.type_id=="5"#}checked="checked"{#/if#}/>浮动</label>
+ <label><input type="radio" name="type_id" value="5" {#if $ad_category.type_id=="5"#}checked="checked"{#/if#}/>すべり</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
- <label><input type="radio" name="type_id" value="6" {#if $ad_category.type_id=="6"#}checked="checked"{#/if#}/>视频</label>
+ <label><input type="radio" name="type_id" value="6" {#if $ad_category.type_id=="6"#}checked="checked"{#/if#}/>動画</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
       {#/if#}
 		  </td>
@@ -73,7 +73,7 @@
 			{#$inputtoken#}
 			<input name="id" type="hidden" value="{#$ad_category.id#}" />
       <input name="admin_set" type="hidden" value="{#$ad_category.admin_set#}" />
-			<input type="submit" name="Submit3" value="提出確定" class="admin_submit"   />
+			<input type="submit" name="Submit3" value="確定" class="admin_submit"   />
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 			</td>

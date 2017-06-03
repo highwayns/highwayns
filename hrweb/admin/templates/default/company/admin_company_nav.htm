@@ -1,11 +1,11 @@
-﻿<div class="topnav">
-<a href="?act=company_list" {#if $navlabel=='company_list' || $navlabel==''#}class="select"{#/if#}><u>所有企业</u></a>
+<div class="topnav">
+<a href="?act=company_list" {#if $navlabel=='company_list' || $navlabel==''#}class="select"{#/if#}><u>���ׂĊ��</u></a>
 {#if $HIGHWAY.operation_mode=='1'#}  
-<a href="?act=meal_log&mode=1" {#if $navlabel=='meal_log'#}class="select"{#/if#}><u>积分开通与变更记录</u></a>
+<a href="?act=meal_log&mode=1" {#if $navlabel=='meal_log'#}class="select"{#/if#}><u>�R�[�X�J�ʋL�^</u></a>
 {#elseif $HIGHWAY.operation_mode=='2'||$HIGHWAY.operation_mode=='3'#}  
-<a href="?act=meal_members" {#if $navlabel=='meal_members'#}class="select"{#/if#}><u>已购买套餐会员</u></a>
-<a href="?act=meal_log&mode=2" {#if $navlabel=='meal_log'#}class="select"{#/if#}><u>套餐开通与变更记录</u></a>
+<a href="?act=meal_members" {#if $navlabel=='meal_members'#}class="select"{#/if#}><u>�R�[�X�w�����</u></a>
+<a href="?act=meal_log&mode=2" {#if $navlabel=='meal_log'#}class="select"{#/if#}><u>�R�[�X�J�ʂƕύX�L�^</u></a>
 {#/if#}
-<a href="?act=meal_log_pie" {#if $navlabel=='meal_log_pie'#}class="select"{#/if#}><u>营业额报表</u></a>
+<a href="?act=meal_log_pie" {#if $navlabel=='meal_log_pie'#}class="select"{#/if#}><u>�c�ƃ��|�[�g</u></a>
 <div class="clear"></div>
 </div>

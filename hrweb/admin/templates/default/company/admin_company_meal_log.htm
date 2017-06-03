@@ -19,9 +19,9 @@
 <div class="toptip">
 	<h2>説明：</h2>
 	<p>
-		管理员修改包括：管理员修改会员的积分，修改会员的套餐内各种服务的条数！<br>
-		管理员开通包括：管理员后台确认订单收款，重新开通服务，添加会员赠送积分，赠送套餐！<br>
-		修改套餐说明：发布普通职位3-10,3表示修改之前的数目，10表示修改后的数目！
+		管理者修正：会員のポイント，会員コースの各サービス件数を修正する！<br>
+		管理者開通：振込確認，サービス再開，会員ポイント送り，コース送り！<br>
+		コース説明：普通職位3-10,3は修正前の数字，10修正後の数字！
 	</p>
 </div>
   <div class="seltpye_x">
@@ -64,7 +64,7 @@
   <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type=“checkbox" name=“ “ title=“全部選択/逆選択" id=“chk"/>公司名称</label></td>
+      <label id="chkAll"><input type=“checkbox" name=“ “ title=“全部選択/逆選択" id=“chk"/>会社名称</label></td>
 	   <td  class="admin_list_tit">ユーザー名</td>
 		{#if $HIGHWAY.operation_mode=='1'#}  
 			  <td width="10%" class="admin_list_tit">現在のポイント</td>
@@ -96,7 +96,7 @@
 		</td>
 		 <td class="admin_list">
 		{#if $HIGHWAY.operation_mode=='1'#} 
-			<strong>{#$list.points#}</strong> 积分
+			<strong>{#$list.points#}</strong> ポイント
 		{#elseif $HIGHWAY.operation_mode=='2'#}  
 			{#if $list.setmeal_name#}<span style="color: #009900">{#$list.setmeal_name#}</span>{#else#}<span style="color:#FF3300">パッケージなし</span>{#/if#}
 		{#elseif $HIGHWAY.operation_mode=='3'#}  
@@ -105,13 +105,13 @@
 		</td>
  		<td class="admin_list">
 			{#if $list.log_type =="1"#}
-				系统赠送
+				システム贈り
 			{#elseif $list.log_type =="2"#}
-				会员购买
+				会員購入
 			{#elseif $list.log_type =="3"#}
-				管理员修改
+				管理者修正
 			{#elseif $list.log_type =="4"#}
-				管理员开通
+				管理员開通
 			{#/if#}
 		</td>
 		 <td class="admin_list">

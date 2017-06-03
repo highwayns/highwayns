@@ -63,7 +63,7 @@ $(document).ready(function()
 	    range: jQuery.format(" {0} から {1} までの値を入力してください")
 	   },
 	    category: {
-	    required: jQuery.format("選択職位種別，精确選択職位種別可以有效提高募集效果")
+	    required: jQuery.format("選択職位種別，有効な職位種別選択は募集に効果がある")
 	   },
 	    district: {
 	    required: jQuery.format("仕事地区選択")
@@ -195,7 +195,7 @@ $(document).ready(function()
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		   
 <div>
-		<input type="text" value="{#$jobs.category_cn|default:"请选择"#}"  readonly="readonly" name="category_cn" id="category_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$jobs.category_cn|default:"選択"#}"  readonly="readonly" name="category_cn" id="category_cn" class="input_text_200 input_text_selsect"/>
 		<input name="topclass" id="topclass" type="hidden" value="{#$jobs.topclass#}" />
 		<input name="category" id="category" type="hidden" value="{#$jobs.category#}" />
 		<input name="subclass" id="subclass" type="hidden" value="{#$jobs.subclass#}" />
@@ -216,7 +216,7 @@ $(document).ready(function()
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 作業エリア：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
-				<input type="text" value="{#$jobs.district_cn|default:"请选择"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
+				<input type="text" value="{#$jobs.district_cn|default:"選択"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
 		<input name="district" id="district" type="hidden" value="{#$jobs.district#}" />
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$jobs.sdistrict#}" />
 		<div id="menu2" class="dmenu shadow">
@@ -237,7 +237,7 @@ $(document).ready(function()
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
 	{#highway_get_classify set="タイプ:HW_education,リスト名:li"#}
-		<input type="text" value="{#$jobs.education_cn|default:"请选择"#}"  readonly="readonly" name="education_cn" id="education_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$jobs.education_cn|default:"選択"#}"  readonly="readonly" name="education_cn" id="education_cn" class="input_text_200 input_text_selsect"/>
 		<input name="education" id="education" type="hidden" value="{#$jobs.education#}" />
 		<div id="menu3" class="menu">
 			<ul>
@@ -255,7 +255,7 @@ $(document).ready(function()
 		 
 		 <div>
 	{#highway_get_classify set="タイプ:HW_experience,リスト名:li"#}
-		<input type="text" value="{#$jobs.experience_cn|default:"请选择"#}"  readonly="readonly" name="experience_cn" id="experience_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$jobs.experience_cn|default:"選択"#}"  readonly="readonly" name="experience_cn" id="experience_cn" class="input_text_200 input_text_selsect"/>
 		<input name="experience" id="experience" type="hidden" value="{#$jobs.experience#}" />
 		<div id="menu4" class="menu">
 			<ul>
@@ -271,11 +271,11 @@ $(document).ready(function()
 				
         <tr>
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
-		  <span style="color:#FF3300; font-weight:bold">*</span> 月薪范围：</td>
+		  <span style="color:#FF3300; font-weight:bold">*</span> 月給範囲：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <div>
 	{#highway_get_classify set="タイプ:HW_wage,リスト名:li"#}
-		<input type="text" value="{#$jobs.wage_cn|default:"请选择"#}"  readonly="readonly" name="wage_cn" id="wage_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$jobs.wage_cn|default:"選択"#}"  readonly="readonly" name="wage_cn" id="wage_cn" class="input_text_200 input_text_selsect"/>
 		<input name="wage" id="wage" type="hidden" value="{#$jobs.wage#}" />
 		<div id="menu5" class="menu">
 			<ul>
@@ -290,7 +290,7 @@ $(document).ready(function()
 
         <tr>
           <td align="right" valign="top" bgcolor="#FFFFFF" >
-		  <span style="color:#FF3300; font-weight:bold">*</span> 职位描述：</td>
+		  <span style="color:#FF3300; font-weight:bold">*</span> 職位説明：</td>
           <td bgcolor="#FFFFFF"  >
 		  <textarea name="contents" class="company_mb_textarea" id="contents" style="width:580px; height:180px;" >{#$jobs.contents#}</textarea>
             <br />
@@ -299,10 +299,10 @@ $(document).ready(function()
         </tr>
 		<tr>
           <td height="30" align="right"  >
-		<span style="color:#FF3300; font-weight:bold">*</span> 应届生应聘：</td>
+		<span style="color:#FF3300; font-weight:bold">*</span> 新卒募集：</td>
           <td  >	 
-		  <label><input name="graduate" type="radio" value="0"  {#if $jobs.graduate=="0"#}checked="checked"{#/if#} />不允许</label>
-		   <label><input type="radio" name="graduate" value="1"  {#if $jobs.graduate=="1"#}checked="checked"{#/if#} />允许</label>
+		  <label><input name="graduate" type="radio" value="0"  {#if $jobs.graduate=="0"#}checked="checked"{#/if#} />不可</label>
+		   <label><input type="radio" name="graduate" value="1"  {#if $jobs.graduate=="1"#}checked="checked"{#/if#} />可能</label>
 		  </td>
         </tr>
 		
@@ -314,21 +314,21 @@ $(document).ready(function()
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 連絡先：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <input name="contact" type="text" class="input_text_200" id="contact" value="{#$jobs.contact.contact#}" maxlength="15" />
-           <label><input name="contact_show"  type="checkbox" value="1" {#if $jobs.contact.contact_show=="1"#}checked="checked"{#/if#} />联系人在职位详细页中显示
+           <label><input name="contact_show"  type="checkbox" value="1" {#if $jobs.contact.contact_show=="1"#}checked="checked"{#/if#} />連絡先は職位詳細中表示
 		  </td>
          </tr>
        	<!--	<tr>
          <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold"> </span>連絡先のQQ番号：</td>
          <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
        		  <input name="qq" type="text" class="input_text_200" id="qq" maxlength="50" value="{#$jobs.contact.qq#}" />
-       		  <label><input name="qq_show"  type="checkbox" value="1" {#if $jobs.contact.qq_show=="1"#}checked="checked"{#/if#}/>联系qq在职位详细页中显示</label>
+       		  <label><input name="qq_show"  type="checkbox" value="1" {#if $jobs.contact.qq_show=="1"#}checked="checked"{#/if#}/>連絡qqは職位詳細中表示</label>
           </td>
        </tr> -->
 		<tr>
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 電話：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <input name="telephone" type="text" class="input_text_200" id="telephone" maxlength="35" value="{#$jobs.contact.telephone#}" />
-           <label><input name="telephone_show"  type="checkbox" value="1" {#if $jobs.contact.telephone_show=="1"#}checked="checked"{#/if#} />联系电话在职位详细页中显示
+           <label><input name="telephone_show"  type="checkbox" value="1" {#if $jobs.contact.telephone_show=="1"#}checked="checked"{#/if#} />連絡電話は職位詳細中表示
 		  </td>
         </tr>
 	<tr>
@@ -336,19 +336,19 @@ $(document).ready(function()
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><label>
           <input name="email" type="text" class="input_text_200" id="email" maxlength="80"  value="{#$jobs.contact.email#}"/>
           </label>
-           <label><input name="email_show"  type="checkbox" value="1" {#if $jobs.contact.email_show=="1"#}checked="checked"{#/if#} />联系邮箱在职位详细页中显示
+           <label><input name="email_show"  type="checkbox" value="1" {#if $jobs.contact.email_show=="1"#}checked="checked"{#/if#} />連絡先Eメールは職位詳細中表示
 		  </td>
         </tr>
         <tr>
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span> 住所：</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">
 		  <input name="address" type="text" class="input_text_200" id="address" maxlength="50"  value="{#$jobs.contact.address#}"/>
-           <label><!-- <input name="address_show"  type="checkbox" value="1" {#if $jobs.contact.address_show=="1"#}checked="checked"{#/if#} />联系地址在职位详细页中显示 -->
+           <label><!-- <input name="address_show"  type="checkbox" value="1" {#if $jobs.contact.address_show=="1"#}checked="checked"{#/if#} />住所は職位詳細中表示 -->
 		  </td>
         </tr>
           <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">電子メールの履歴書を使用して受信？</td>
           <td bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><label>
-            <input name="notify" type="radio" value="1" {#if $jobs.contact.notify eq 1#}checked="checked"{#/if#} /> 接收
+            <input name="notify" type="radio" value="1" {#if $jobs.contact.notify eq 1#}checked="checked"{#/if#} /> 許可
           </label> &nbsp;&nbsp;&nbsp;
             <label>
             <input type="radio" name="notify" value="0" {#if $jobs.contact.notify eq "0"#}checked="checked"{#/if#}/>受信しません　　　　 </label> 
@@ -391,7 +391,7 @@ $(document).ready(function()
 		<tr>
             <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">&nbsp;</td>
             <td height="120" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="font-size:14px;">
-              <input name="submit3" type="submit" class="admin_submit"    value="選択された削除"/> 
+              <input name="submit3" type="submit" class="admin_submit"    value="削除"/> 
               <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location.href='{#$url#}'"/>
             </span></td>
           </tr>

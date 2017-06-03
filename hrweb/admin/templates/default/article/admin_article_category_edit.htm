@@ -5,7 +5,7 @@
 	{#include file="article/admin_article_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">分類を変更します</div>
+<div class="toptit">分類変更</div>
     <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 	{#$inputtoken#}
       <table width="100%" border="0" cellpadding="3" cellspacing="5"  >
@@ -31,7 +31,7 @@
         <tr>
           <td align="right">title：</td>
           <td><input name="title" type="text" class="input_text_200"  maxlength="30" value="{#$category.title#}"/>
-            不填则为分类名称</td>
+            ない場合分類名称</td>
         </tr>
         <tr>
           <td align="right">description：</td>

@@ -8,7 +8,7 @@
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-系统默认分类不能删除！<br />
+システム初期分類削除ができません！<br />
 </p>
 </div>
   <form id="form1" name="form1" method="post" action="?act=del_property">
@@ -31,9 +31,9 @@
 	  </td>
 	   <td align="center"  class="admin_list">
 	    {#if $list.admin_set=="1"#}
-			   系统分类
+			   システム分類
 			   {#else#}
-			     自定义属性
+			     カスタム属性
 			   {#/if#}
 	   </td>
       <td align="center"  class="admin_list">
@@ -51,7 +51,7 @@
 <tr>
         <td>
         <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="属性追加"  onclick="window.location='?act=property_add'"/>
-		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="選択された削除" onclick="return confirm('削除してよろしいでしようか？')"/>
+		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="削除" onclick="return confirm('削除してよろしいでしようか？')"/>
 		</td>
         <td width="305" align="right">
 	  
