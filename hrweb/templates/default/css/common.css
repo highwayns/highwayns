@@ -1,4 +1,4 @@
-﻿html{_background-image:url(about:blank);_background-attachment:fixed;}
+html{_background-image:url(about:blank);_background-attachment:fixed;}
 /*body {margin-left: 0px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;font-size:12px; color: #333333; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; background:url(../images/01.jpg) repeat-x 0px 38px;font-family:"microsoft yahei"}*/
 body {margin-left: 0px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;font-size:12px; color: #333333; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; background:url(../images/01.jpg) repeat-x center 38px;font-family:"microsoft yahei",_margin:0; _height:100%;}
 form,p,h1,h2,h3,h4,input{ margin:0px; padding:0px;}
@@ -483,7 +483,7 @@ table.aui_border, table.aui_dialog { border:0; margin:0; border-collapse:collaps
 .LocalDataMultiC .selector-close{display:block;width:28px;height:28px;background:url("../images/selector.png") no-repeat 0 -50px;position:absolute;top:50%;margin-top:-14px;right:10px;border-radius:2px;cursor:pointer;text-indent:-100px;overflow:hidden;}
 .LocalDataMultiC .selector-close:hover{background-position:-66px -50px;}
 
-.LocalDataMultiC .data-row-head .data-row{/*width:672px;*/height:30px;line-height:30px;}
+.LocalDataMultiC .data-row-head .data-row{/*width:672px;*/height:30px;line-height:15px;}
 .LocalDataMultiC .data-icon {background-image: url(../images/icon_multi_c.png);background-repeat: no-repeat;display: inline-block;height: 16px;line-height: 16px;margin-right: 0.3em;overflow: hidden;vertical-align: text-top;width: 16px;margin-top:-1px;}
 .LocalDataMultiC .data-icon-info {background-position: 0 0;}
 .LocalDataMultiC .data-icon-expend {background-position: 0 -16px;margin-left: -1px;}
