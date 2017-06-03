@@ -8,8 +8,8 @@
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-系统默认分类不能删除！<br />
-删除分类组将同时删除此组下的所有分类。
+システム初期分類削除ができません！<br />
+トップ分類削除したら、サブ分類も削除する。
 </p>
 </div>
   <form id="form1" name="form1" method="post" action="?act=del_group">
@@ -18,7 +18,7 @@
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
       <label id="chkAll"><input type="checkbox" name=" " title="全部選択/逆選択" id="chk"/>分類グルップ名称</label></td>
-	  <td  class="admin_list_tit">コール名</td>
+	  <td  class="admin_list_tit">CALL名</td>
 	  <td   align="center"  class="admin_list_tit">タイプ</td>
       <td width="20%"   class="admin_list_tit">操作</td>
     </tr>
@@ -34,9 +34,9 @@
 </td>
 			    <td align="center"  class="admin_list">
 	   {#if $li.g_sys=="1"#}
-	    系统分类
+	    システム分類
 	   {#else#}
-	   自定义分类组
+	   カスタム分類
 	   {#/if#}
  
 		 </td>
@@ -54,7 +54,7 @@
 <tr>
         <td>
         <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="分類グループ追加"  onclick="window.location='?act=add_group'"/>
-		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="選択された削除" onclick="return confirm('サブグループも削除します，削除してよろしいでしょうか？')"/>
+		<input name="ButDel" type="submit" class="admin_submit" id="ButDel"  value="削除" onclick="return confirm('サブグループも削除します，削除してよろしいでしょうか？')"/>
 		</td>
         <td width="305" align="right">
 	  

@@ -7,7 +7,7 @@
 </div>
 <div class="toptip">
 	<h2>ヒント：</h2>
-	<p>決済システムを確認した後、自動的にポイントやそのメンバーへのサービスの開口部を充電します、これは元に戻すことはできません。</P>
+	<p>決済システムを確認した後、自動的にポイントを更新します、これは元に戻すことができません。</P>
   </div>
 <div class="toptit">オーダー設定</div>
 <form id="Form1" name="Form1" method="post" action="?act=order_set_save&id={#$payment.id#}">
@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">支払うべき金額：</td>
-      <td style=" border-bottom:1px #CCCCCC dashed" >￥<span style="color:#0033CC; font-size:20px;">{#$payment.amount#}</span> 元</td>
+      <td style=" border-bottom:1px #CCCCCC dashed" >￥<span style="color:#0033CC; font-size:20px;">{#$payment.amount#}</span> 円</td>
     </tr>
 	    <tr>
       <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">オーダ説明：</td>
@@ -38,7 +38,7 @@
       <td style=" border-bottom:1px #CCCCCC dashed" >{#$payment.addtime|date_format:"%Y-%m-%d   %H:%M"#}</td>
     </tr>
 		<tr>
-      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">メモを追加：</td>
+      <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed">メモ：</td>
       <td style=" border-bottom:1px #CCCCCC dashed" >
 	  <textarea name="notes" style="width:300px; height:50px; font-size:12px; line-height:180%" onpropertychange="if(this.value.length>120){this.value=this.value.slice(0,120)}">{#$payment.notes#}</textarea>
 	   </td>
@@ -47,7 +47,7 @@
       <td height="30" align="right" >&nbsp;</td>
       <td height="80" ><span style="font-size:14px;">
         <input type="hidden" name="url"  value="{#$url#}" /><br />
-        <input name="submit3" type="submit" class="admin_submit"    value="振込確認"/> <span style="color: #666666; font-size:12px">(确认收到款后，系统将会自动为会员充值积分)</span>
+        <input name="submit3" type="submit" class="admin_submit"    value="確認"/> <span style="color: #666666; font-size:12px">(決済システムを確認した後、自動的にポイントを更新する)</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
         <br />
         <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="window.location.href='{#$url#}'"/>

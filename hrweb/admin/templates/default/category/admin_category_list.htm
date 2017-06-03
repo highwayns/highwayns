@@ -4,7 +4,7 @@ $(document).ready(function()
 {
 	//点击批量取消	
 	$("#ButDel").click(function(){
-		if (confirm('你确定要删除吗？'))
+		if (confirm('削除してよろしいでしょうか？'))
 		{
 			$("form[name=form1]").attr("action","?act=del_category");
 			$("form[name=form1]").submit()
@@ -22,7 +22,7 @@ $(document).ready(function()
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-正式运营后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。
+使用中の分類を削除すると、関連情報も削除する。
 </p>
 </div>
   <form id="form1" name="form1" method="post" action="?act=category_save">
@@ -67,7 +67,7 @@ $(document).ready(function()
 		<input name="ButSave" type="submit" class="admin_submit" id="ButSave" value="修正保存"/>
 		{#/if#}
         <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="分類追加"  onclick="window.location='?act=add_category&alias={#$group.g_alias#}'"/>
-		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="選択された削除" />
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="削除" />
 		<input name="location" type="button" class="admin_submit"   value="分類グループに戻る" onclick="window.location='?act=grouplist'" />
 		</td>
         <td width="305" align="right">

@@ -24,21 +24,21 @@ $(document).ready(function()
 	$("#sub2").click(function()
 	{
 	 if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
-	 if ($("#img_file").val()=="" && $("#img_path").val()==""){alert ("写真アップロードまたは写真パス入力");return false;}
+	 if ($("#img_file").val()=="" && $("#img_path").val()==""){alert ("画像アップロードまたはパス入力");return false;}
 	 $("#FormData").submit();
 	});	
 	//代码
 	$("#sub3").click(function()
 	{
-	 if ($("#code_content").val()==""){alert ("広告代码を入力してください"); return false;}
+	 if ($("#code_content").val()==""){alert ("広告コードを入力してください"); return false;}
 	 $("#FormData").submit();
 	});	
 	//FLASH
 	$("#sub4").click(function()
 	{
 	  if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
-	 if ($("#flash_file").val()=="" && $("#flash_path").val()==""){alert ("FLASHアップロードまたはFLASHパス入力");return false;}
-	 if ($("#flash_width").val()=="" || $("#flash_height").val()==""){alert ("広さ和高さ入力");return false;}
+	 if ($("#flash_file").val()=="" && $("#flash_path").val()==""){alert ("FLASHアップロードまたはパス入力");return false;}
+	 if ($("#flash_width").val()=="" || $("#flash_height").val()==""){alert ("幅と高さ入力");return false;}
 	 $("#FormData").submit();
 	});	
 	
@@ -47,10 +47,10 @@ $(document).ready(function()
 	{
 	  if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
 	 if ($("#floating_file").val()=="" && $("#floating_path").val()==""){alert ("ファイルアップロードまたはパス入力してください");return false;}
-	 if ($("#floating_width").val()=="" || $("#floating_height").val()==""){alert ("広さ和高さ入力");return false;}
-	  if ($("#floating_left").val()=="" && $("#floating_right").val()==""){alert ("左距または右距入力");return false;}
+	 if ($("#floating_width").val()=="" || $("#floating_height").val()==""){alert ("幅と高さ入力");return false;}
+	  if ($("#floating_left").val()=="" && $("#floating_right").val()==""){alert ("左マージまたは右マージ入力");return false;}
 	  if ($("#floating_top").val()==""){alert ("トップ距入力");return false;}
-	  if ($("#floating_top").val()>800){alert ("顶距800を超えた，表示できないかもしれません，300以内に設定してください");return false;}
+	  if ($("#floating_top").val()>800){alert ("トップから800を超えた，表示できないかもしれません，300以内に設定してください");return false;}
 	 $("#FormData").submit();
 	});	
 	//视频
@@ -58,7 +58,7 @@ $(document).ready(function()
 	{
 	  if ($("#title").val()==""){alert ("広告タイトル入力"); return false;}
 	 if ($("#video_file").val()=="" && $("#video_path").val()==""){alert ("アップロードまたはパス入力");return false;}
-	 if ($("#video_width").val()=="" || $("#video_height").val()==""){alert ("広さ和高さ入力");return false;}
+	 if ($("#video_width").val()=="" || $("#video_height").val()==""){alert ("幅と高さ入力");return false;}
 	 $("#FormData").submit();
 	});		
 	
@@ -111,8 +111,8 @@ $(document).ready(function()
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-上传大文件建议通过FTP上传
-在填写路径的时候，建议使用“/"或“http:// "  开头的绝对路径。
+サイズ大きいファイルアップロードする時FTPを利用してください。
+リモートアドレス入力する時，頭に“/“または“http:// “を使ってください 。
 </p>
 </div>
 <div class="toptit">広告編集<span style="color:#0033CC">{#$ad.title#} </span></div>
@@ -120,7 +120,7 @@ $(document).ready(function()
 <input name="id" type="hidden" value="{#$ad.id#}" /><input name="url" type="hidden" value="{#$url#}" />
 <table width="100%" border="0" cellpadding="3" cellspacing="3">
               <tr>
-                <td width="100" align="right">広告のtitle（必須）：</td>
+                <td width="100" align="right">広告のタイトル（必須）：</td>
                 <td><input name="title" type="text" class="input_text_400" id="title" maxlength="100"  value="{#$ad.title#}"/> <span class="admin_note">見出しが異なる広告の唯一のエントリが識別される説明し、広告でが表示されませんの</span></td>
               </tr>
 			  <tr>
@@ -144,7 +144,7 @@ $(document).ready(function()
 				<input name="alias" id="alias" type="hidden" value="{#$ad.alias#}" />				</td>
               </tr>
               <tr>
-                <td align="right">表示順序：</td>
+                <td align="right">表示順番：</td>
                 <td><input name="show_order" type="text" class="input_text_200" id="show_order"  value="{#$ad.show_order#}" maxlength="3" />                   <span class="admin_note">数字が大きければトップに行けます</span></td>
               </tr>
   <tr>
@@ -153,12 +153,12 @@ $(document).ready(function()
       <input name="starttime" type="text" class="input_text_200 date_input"   maxlength="10"  value="{#$ad.starttime#}"  /> <span class="admin_note">设置广告起始生效的时间，格式 yyyy-mm-dd，留空为不限制起始时间</span></td>
     </tr>
   <tr>
-    <td align="right">終了時刻：</td>
+    <td align="right">終了時間：</td>
     <td>
       <input name="deadline" type="text" class="input_text_200 date_input" id="deadline" maxlength="10"  value="{#$ad.deadline#}"/> <span class="admin_note">设置广告广告结束的时间，格式 yyyy-mm-dd，留空为不限制结束时间</span></td>
     </tr>
   <tr>
-    <td align="right">注：</td>
+    <td align="right">コメント：</td>
     <td><textarea name="note" id="note" style="width:300px; height:50px; font-size:12px; line-height:180%">{#$ad.note#}</textarea></td>
     </tr>
     </table>
@@ -183,13 +183,13 @@ $(document).ready(function()
                 </tr>
       </table>
 	  <div style="padding-left:110px; padding-top:10px;">
-	  <input type="button"  id="sub1" value="提出確定" class="admin_submit"   />
+	  <input type="button"  id="sub1" value="確定" class="admin_submit"   />
       <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 	  </div>
      
 	</div>
 <div class="adshow" id="show2">			
-	 <div class="toptit">ピクチャー広告</div>
+	 <div class="toptit">画像広告</div>
 	
 	<table width="100%" border="0" cellpadding="3" cellspacing="3">
 	
@@ -197,10 +197,10 @@ $(document).ready(function()
                   <td width="100" align="right">ローカルのアップロード：</td>
                   <td >
 				 <input name="img_file" type="file"   id="img_file" style="font-size:12px; height:24px; width:273px;" />
-				  <span class="admin_note">（フォーマットを許可する：gif/jpg/bmp/png，文件大小：1000KB)</span></td>
+				  <span class="admin_note">（可能フォーマット：gif/jpg/bmp/png，サイズ：1000KB)</span></td>
                 </tr>
                 <tr>
-                  <td width="100" align="right">または絵：</td>
+                  <td width="100" align="right">またはパス：</td>
                   <td ><input name="img_path" type="text" class="input_text_200" id="img_path" maxlength="250" value="{#$ad.img_path#}"/>                     <span class="admin_note">以下のような：/images/logo.gifまたはhttp://www.baidu.com/img/baidu_logo.gif</span></td>
                 </tr>
                 <tr>
@@ -208,7 +208,7 @@ $(document).ready(function()
                   <td><input name="img_url" type="text" class="input_text_200" id="img_url" maxlength="250"  value="{#$ad.img_url#}"/><span class="admin_note">以下のような：のhttp：//www.highwayns.com </span></td>
                 </tr>
                 <tr>
-                  <td align="right">写真説明：</td>
+                  <td align="right">画像説明：</td>
                   <td><input name="img_explain" type="text" class="input_text_200" id="img_explain" maxlength="250" value="{#$ad.img_explain#}"/></td>
                 </tr>
 				<tr>
@@ -222,7 +222,7 @@ $(document).ready(function()
                 </tr>
       </table>
 		  <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub2" value="提出確定" class="admin_submit"   />
+		  <input type="button"  id="sub2" value="確定" class="admin_submit"   />
 		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 	</div>
@@ -235,7 +235,7 @@ $(document).ready(function()
                 </tr>
       </table>
 	   	<div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub3" value="提出確定" class="admin_submit"   />
+		  <input type="button"  id="sub3" value="確定" class="admin_submit"   />
 		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 	  </div>
 	</div>
@@ -248,36 +248,36 @@ $(document).ready(function()
                   <td width="100" align="right">ローカルのアップロード：</td>
           <td >
 				 <input name="flash_file" type="file"   id="flash_file" style="font-size:12px; height:24px; width:273px;" />
-			 <span class="admin_note">（ファイル：swf，テキストサイズ：1000KB）</span></td>
+			 <span class="admin_note">（ファイル：swf，サイズ：1000KB）</span></td>
           </tr>
                 <tr>
-                  <td width="100" align="right">或いはFlashアドレス：</td>
+                  <td width="100" align="right">またははFlashアドレス：</td>
                   <td><input name="flash_path" type="text" class="input_text_200" id="flash_path" maxlength="250"  value="{#$ad.flash_path#}"/>               <span class="admin_note">以下のような：/images/123.swfまたはhttp://www.highwayns.com/123.swf</span></td>
                 </tr>
                 <tr>
-                  <td align="right">フラッシュ幅（必須）：</td>
+                  <td align="right">Flash幅（必須）：</td>
                   <td><input name="flash_width" type="text" class="input_text_200" id="flash_width" maxlength="5"   value="{#$ad.flash_width#}"/>
                   px</td>
                 </tr>
                 <tr>
-                  <td align="right">フラッシュ高さ（必須）：</td>
+                  <td align="right">Flash高さ（必須）：</td>
                   <td><input name="flash_height" type="text" class="input_text_200" id="flash_height" maxlength="5"   value="{#$ad.flash_height#}"/>
                   px</td>
                 </tr>
           </table>
 		  <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub4" value="提出確定" class="admin_submit"   />
+		  <input type="button"  id="sub4" value="確定" class="admin_submit"   />
 		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 	</div>
 					<div class="adshow" id="show5">
-					<div class="toptit">動き広告</div>
+					<div class="toptit">動画広告</div>
 				<table width="100%" border="0" cellpadding="3" cellspacing="3">
                 <tr>
                   <td width="100" align="right">タイプ：</td>
                   <td><label>
                     <input name="floating_type" type="radio" value="1" {#if $ad.floating_type=="1"#}checked="checked"{#/if#} />
-图片</label>
+画像</label>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <label>
                     <input type="radio" name="floating_type" value="2" {#if $ad.floating_type=="2"#}checked="checked"{#/if#} />
@@ -287,7 +287,7 @@ Flash </label></td>
                   <td width="100" align="right">ローカルのアップロード：</td>
                   <td >
 				 <input name="floating_file" type="file" id="floating_file" style="font-size:12px; height:24px; width:273px;" />
-                 <span class="admin_note">（フォーマットを許可する：GIF / JPG / BMP / PNG / SWFファイルサイズ：1000KB）</span></td>
+                 <span class="admin_note">（可能フォーマット：GIF / JPG / BMP / PNG / SWF、ファイルサイズ：1000KB）</span></td>
                 </tr>
                 <tr>
                   <td align="right">またはパス：</td>
@@ -310,21 +310,21 @@ Flash </label></td>
                    <tr>
                   <td align="right">左から（記入自由）</td>
                   <td><input name="floating_left" type="text" class="input_text_200" id="floating_left"   value="{#$ad.floating_left#}" maxlength="5"   />
-  px(左距与右距选填一个，如左距设置为0，则此浮动将在左侧浮动，如设置为100，则此浮动将在距离浏览器左侧100像素处浮动。)</td>
+  px(左マージと右マージ一つ選択して，左マージは0の場合，左に表示する，左マージは100の場合，左100ピクセルのところに表示。)</td>
                   </tr>
 				   <tr>
                   <td align="right">右から（記入自由）</td>
                   <td><input name="floating_right" type="text" class="input_text_200" id="floating_right"    value="{#$ad.floating_right#}"  maxlength="5"  />
-  px(左距与右距选填一个，如右距设置为0，则此浮动将在右侧浮动，如设置为100，则此浮动将在距离浏览器右侧100像素处浮动。)</td>
+  px(左マージと右マージ一つ選択して，右マージは0の場合，右に表示する，右マージは100の場合，右100ピクセルのところに表示。)</td>
                   </tr>
 				   <tr>
                   <td align="right">トップ距離（必須）：</td>
                   <td><input name="floating_top" type="text" class="input_text_200" id="floating_top"  value="{#$ad.floating_top#}" maxlength="5"  />
-  px(此浮动距离浏览器顶端的距离，如有多个浮动，请设置不同的顶距，以免被遮盖)</td>
+  px(トップからの距離を設定する、複数ある場合、異なる距離を設定して、重ないようにする)</td>
                   </tr>
             </table>
 				 <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub5" value="提出確定" class="admin_submit"   />
+		  <input type="button"  id="sub5" value="確定" class="admin_submit"   />
 		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 				</div>	
@@ -337,10 +337,10 @@ Flash </label></td>
                   <td width="100" align="right">ローカルのアップロード：</td>
                   <td >
 				 <input name="video_file" type="file"   id="video_file" style="font-size:12px; height:24px; width:273px;" />
-                <span class="admin_note">（可フォーマット：SWF / FLV / F4V、ファイルサイズ：5000キロバイト、FTPから大きなファイルをアップロードしてください）</span></td>
+                <span class="admin_note">（可能フォーマット：SWF / FLV / F4V、ファイルサイズ：5000KB、FTPから大きなファイルをアップロードしてください）</span></td>
                 </tr>
                 <tr>
-                  <td width="100" align="right">またはパスを入力する：</td>
+                  <td width="100" align="right">またはパス：</td>
                   <td ><input name="video_path" type="text" class="input_text_200" id="video_path"   value="{#$ad.video_path#}"/> <span class="admin_note">以下のような：/images/logo.swfまたはhttp://www.baidu.com/img/baidu_logo.swf</span></td>
                 </tr>
                <tr>
@@ -349,14 +349,14 @@ Flash </label></td>
                   px</td>
                 </tr>
                 <tr>
-                  <td align="right">ビデオの高さ（必須）：</td>
+                  <td align="right">動画の高さ（必須）：</td>
                   <td><input name="video_height" type="text" class="input_text_200" id="video_height" maxlength="5"  value="{#$ad.video_height#}"  />
                   px</td>
                 </tr>
       </table>
 	  {#$inputtoken#}
 		  <div style="padding-left:110px; padding-top:10px;">
-		  <input type="button"  id="sub6" value="提出確定" class="admin_submit"   />
+		  <input type="button"  id="sub6" value="確定" class="admin_submit"   />
 		  <input name="submit22" type="button" class="admin_submit"    value="戻る" onclick="Javascript:window.history.go(-1)"/>
 		  </div>
 	</div>

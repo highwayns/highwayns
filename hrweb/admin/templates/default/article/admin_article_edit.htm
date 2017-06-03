@@ -1,7 +1,7 @@
 ﻿{#include file="sys/admin_header.htm"#}
-<script type="text/javascript" charset="gbk" src="ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="gbk" src="ueditor/ueditor.all.min.js"> </script>
-<script type="text/javascript" charset="gbk" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="ueditor/lang/ja-jp/ja-jp.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function()
@@ -107,9 +107,9 @@ $(document).ready(function()
       <tr>
         <td height="50" align="center" >
 		<input name="id" type="hidden" value="{#$edit_article.id#}" />
-		<input type="submit" name="Submit" value="提出確定" class="admin_submit"   />
+		<input type="submit" name="Submit" value="確定" class="admin_submit"   />
 
-          <input type="reset" name="Submit2" value="重置表单" class="admin_submit"   /></td>
+          <input type="reset" name="Submit2" value="重置" class="admin_submit"   /></td>
       </tr>
     </table>
     <table width="100%" border="0" cellpadding="5" cellspacing="0" class="admin_table">
@@ -134,7 +134,7 @@ $(document).ready(function()
         <td >&nbsp;</td>
       </tr>
 	  <tr>
-        <td align="right" >出典：</td>
+        <td align="right" >ソース：</td>
         <td ><input name="source" type="text" class="input_text_150" id="source" maxlength="50" value="{#$edit_article.source#}"/></td>
         <td align="right" >外部リンク：</td>
         <td ><input name="is_url" type="text" class="input_text_150" id="is_url" value="{#$edit_article.is_url#}" maxlength="100"/></td>

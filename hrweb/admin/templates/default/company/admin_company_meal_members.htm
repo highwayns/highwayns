@@ -19,7 +19,7 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
   <div class="seltpye_x">
-		<div class="left">パッケージタイプ</div>	
+		<div class="left">コースタイプ</div>	
 		<div class="right">
 		<a href="{#"setmeal_id:"|highway_parse_url#}" {#if $smarty.get.setmeal_id==""#}class="select"{#/if#}>制限なし</a>
 		{#foreach from=$setmeal item=list#}
@@ -47,9 +47,9 @@ $(document).ready(function()
   <table width="100%" border="0" cellpadding="0" cellspacing="0"   class="link_lan">
     <tr>
       <td  class="admin_list_tit admin_list_first" >
-      <label id="chkAll"><input type=“checkbox" name=“ “ title=“全部選択/逆選択" id=“chk"/>公司名称</label></td>
+      <label id="chkAll"><input type=“checkbox" name=“ “ title=“全部選択/逆選択" id=“chk"/>会社名称</label></td>
 	   <td  class="admin_list_tit">ユーザー名</td>
-	   <td  class="admin_list_tit">パッケージ名</td>
+	   <td  class="admin_list_tit">コース名</td>
       <td  class="admin_list_tit">email</td>     
       <td     class="admin_list_tit">サービスの開始時間</td>
 	  <td     class="admin_list_tit">サービスの有効期限</td>
@@ -86,7 +86,7 @@ $(document).ready(function()
 		</td>
 		<td   class="admin_list">
 		{#if $list.endtime=="0"#}
-		不限制	
+		制限なし	
 		{#else#}
 			{#if $list.endtime>$smarty.now#}
 			{#$list.endtime|date_format:"%Y-%m-%d"#}
@@ -153,7 +153,7 @@ $(document).ready(function()
 		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
 			<tr>
 			  <td width="20" height="30">&nbsp;</td>
-			  <td height="30"><strong  style="color:#0066CC; font-size:14px;">延长服务到期时间：</strong></td>
+			  <td height="30"><strong  style="color:#0066CC; font-size:14px;">サービス期間延長：</strong></td>
 			</tr>
 				  <tr>
 			  <td width="27" height="25">&nbsp;</td>

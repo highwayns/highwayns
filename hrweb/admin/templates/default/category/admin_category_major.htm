@@ -125,7 +125,7 @@ $(document).ready(function()
 			  		html+="</td>";
 			  		html+="<td class=\"admin_list\">";	  	  
 			 		html+="<a href=\"?act=edit_major_category&id="+val[0]+"\">変更</a>&nbsp;&nbsp;&nbsp;&nbsp;";	
-					html+="<a onclick=\"return confirm('你确定要删除吗？')\" href=\"?act=del_major_category&id="+val[0]+"&{#$urltoken#}\">削除</a>";
+					html+="<a onclick=\"return confirm('削除してよろしいでしょうか？')\" href=\"?act=del_major_category&id="+val[0]+"&{#$urltoken#}\">削除</a>";
 					html+="</td>";	
 					html+="</tr>";
 					i++;
@@ -162,8 +162,8 @@ $(document).ready(function()
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-正式运营后删除分类会导致与此分类关联的信息类别丢失，修改不会受影响。<br />
-删除顶级级分类将会自动删除此分类下的子分类。<br />
+使用中の分類を削除すると、関連情報も削除する。<br />
+トップ分類を削除すると、サブ分類も削除する。<br />
 </p>
 </div>
   <form id="form1" name="form1" method="post" action="?act=major_all_save">
@@ -189,7 +189,7 @@ $(document).ready(function()
 	   <input name="category_order[]" type="text"  value="{#$list.category_order#}" class="input_text_50"/>
 	  </td>
       <td class="admin_list">
-	  <a href="?act=add_category_major&parentid={#$list.id#}">サブクラスの追加</a>
+	  <a href="?act=add_category_major&parentid={#$list.id#}">サブ分類の追加</a>
 			 </td>
     </tr>
       {#/foreach#}
@@ -199,7 +199,7 @@ $(document).ready(function()
         <td>
 		<input name="ButSave" type="submit" class="admin_submit" id="ButSave" value="分類保存"/>
         <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="分類追加"  onclick="window.location='?act=add_category_major'"/>
-		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="選択された削除" />
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="削除" />
 		</td>
         <td width="305" align="right">
 	  

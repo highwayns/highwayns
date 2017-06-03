@@ -8,8 +8,8 @@
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-每个资源文件最多包含5000个URL，并且文件在压缩前不超过9.5MB。<br />
-此设置将关联计划任务中的百度开发平台数据生成任务。
+文書に最大5000URLを含む，圧縮前に9.5MBを超えないでください。<br />
+この設定はBaiduプレートフォームタスク関連です。
 </p>
 </div>
 <div class="toptit">設定</div>
@@ -23,10 +23,10 @@
         <input name="order" type="radio" id="order" value="1"  {#if $xml.order=="1"#}checked=checked {#/if#}/>時間降順の追加</label>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <label>
-        <input name="order" type="radio" id="order" value="2"  {#if $xml.order=="2"#}checked=checked {#/if#}/>リフレッシュタイム降順</label>	  </td>
+        <input name="order" type="radio" id="order" value="2"  {#if $xml.order=="2"#}checked=checked {#/if#}/>更新時間降順</label>	  </td>
     </tr>
     <tr>
-      <td width="150" align="right">情報の最大を生成します。</td>
+      <td width="150" align="right">文書生成</td>
       <td><input name="xmlmax" type="text"  class="input_text_200" id="xmlmax" value="{#$xml.xmlmax#}" maxlength="30"/><span class="admin_note">0は制限なし，もし10000に設定したら，毎回最大仕事生成数は10000である</span></td>
     </tr>
     <tr>

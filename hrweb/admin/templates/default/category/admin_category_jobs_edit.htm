@@ -1,4 +1,4 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 <div class="admin_main_nr_dbox">
 <div class="pagetit">
 	<div class="ptit"> {#$pageheader#}</div>
@@ -6,24 +6,24 @@
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>ãƒ’ãƒ³ãƒˆï¼š</h2>
+	<h2>ƒqƒ“ƒgF</h2>
 	<p>
-æ­£å¼ä½¿ç”¨ååˆ é™¤åˆ†ç±»ä¼šå¯¼è‡´ä¸æ­¤åˆ†ç±»å…³è”çš„ä¿¡æ¯ç±»åˆ«ä¸¢å¤±ï¼Œä¿®æ”¹ä¸ä¼šå—å½±å“ã€‚<br />
+g—p’†‚Ì•ª—Ş‚ğíœ‚·‚é‚ÆAŠÖ˜Aî•ñ‚àíœ‚·‚éB<br />
 </p>
 </div>
-<div class="toptit">åˆ†é¡ã‚’å¤‰æ›´ã—ã¾ã™</div>
+<div class="toptit">•ª—Ş•ÏX</div>
 <form id="form1" name="form1" method="post" action="?act=edit_jobs_category_save">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="6" cellpadding="0" >
  <tr>
-    <td width="120" align="right">ã‚«ãƒ†ã‚´ãƒªãƒ¼ï¼š</td>
+    <td width="120" align="right">ƒJƒeƒSƒŠ[F</td>
     <td>
 	<select name="parentid">
-	  <option value="0" {#if "0"==$category.parentid#}selected="selected"{#/if#}>ãƒˆãƒƒãƒ—ã‚«ãƒ†ã‚´ãƒª</option>
-	  {#highway_get_classify set="ãƒªã‚¹ãƒˆå:jobs,ã‚¿ã‚¤ãƒ—:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
+	  <option value="0" {#if "0"==$category.parentid#}selected="selected"{#/if#}>ƒgƒbƒvƒJƒeƒSƒŠ</option>
+	  {#highway_get_classify set="ƒŠƒXƒg–¼:jobs,ƒ^ƒCƒv:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$category.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
-	  {#highway_get_classify set="ãƒªã‚¹ãƒˆå:sub_jobs,ã‚¿ã‚¤ãƒ—:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
-	  <option value="{#$s_list.id#}" {#if $s_list.id==$category.parentid#}selected="selected"{#/if#}>â”œâ”€{#$s_list.categoryname#}</option>
+	  {#highway_get_classify set="ƒŠƒXƒg–¼:sub_jobs,ƒ^ƒCƒv:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
+	  <option value="{#$s_list.id#}" {#if $s_list.id==$category.parentid#}selected="selected"{#/if#}>„¥„Ÿ{#$s_list.categoryname#}</option>
 	  {#/foreach#}
 	{#/foreach#}
 	
@@ -31,17 +31,17 @@
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">åå‰ï¼š</td>
+    <td width="120" align="right">–¼‘OF</td>
     <td><input name="categoryname" type="text" class="input_text_200"  value="{#$category.categoryname#}"/></td>
   </tr>
    <tr>
-    <td width="120" align="right">ä¸¦ã¹æ›¿ãˆï¼š</td>
+    <td width="120" align="right">•À‚×‘Ö‚¦F</td>
     <td><input name="category_order" type="text" class="input_text_200"  value="{#$category.category_order#}"/></td>
   </tr>
   <tr>
-    <td width="120" align="right">ä¾‹ï¼š</td>
+    <td width="120" align="right">—áF</td>
     <td><textarea name="content" cols="70" rows="7" style="font-size:12px;"/>{#$category.content#}</textarea><br />
-<span style="color:#666666">æ³¨æ„ï¼š3ã¤ã ã‘ã®ä¾‹ãŒè¿½åŠ åˆ†é¡ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™</span>
+<span style="color:#666666">’ˆÓF3‚Â‚¾‚¯‚Ì—á‚ª’Ç‰Á•ª—Ş‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·</span>
     </td>
   </tr>
 </table>
@@ -51,8 +51,8 @@
     <td width="120"> </td>
     <td>
 	<input name="id" type="hidden" value="{#$category.id#}" />
-	<input type="submit" name="addsave" value="ä¿å­˜" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="æˆ»ã‚‹" onclick="window.location='?act=jobs'"/>
+	<input type="submit" name="addsave" value="•Û‘¶" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="–ß‚é" onclick="window.location='?act=jobs'"/>
 	
 	</td>
   </tr>

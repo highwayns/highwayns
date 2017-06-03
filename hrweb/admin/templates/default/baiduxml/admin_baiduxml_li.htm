@@ -8,8 +8,8 @@
 <div class="toptip">
 	<h2>ヒント：</h2>
 	<p>
-计划任务中可设置定期生成资源文档。<br />
-您可以通过修改配置信息来调整生成结果。<br />
+計画タスクに定期的に文章生成設定ができます。<br />
+設定で文書内容も調整ができます。<br />
 </p>
 </div>
  <form id="form1" name="form1" method="post" action="?act=del">
@@ -21,7 +21,7 @@
 	       
             <td class="admin_list_tit">ドキュメントのパス</td>
 		    <td width="180" align="center"  class="admin_list_tit">生成時間</td>
-        <td width="160" align="center"   class="admin_list_tit">原稿サイズ:{#$job_list.experience_cn#}</div>MB</em></td>
+        <td width="160" align="center"   class="admin_list_tit">文書サイズ:{#$job_list.experience_cn#}</div>MB</em></td>
 	
       </tr>
 	 {#foreach from=$flist item=li#}
@@ -47,8 +47,8 @@
 <table width="100%" border="0" cellspacing="10" cellpadding="0" class="admin_list_btm">
       <tr>
         <td>
-		  <input name="But" type="button" class="admin_submit" id="But" value="文書作成"  onclick="window.location='?act=make'"/>
-<input name="del" type="submit" class="admin_submit" id="ButDel" value="選択された削除" onclick="return confirm('削除してよろしいでしようか？')"/>
+		  <input name="But" type="button" class="admin_submit" id="But" value="文書生成"  onclick="window.location='?act=make'"/>
+<input name="del" type="submit" class="admin_submit" id="ButDel" value="削除" onclick="return confirm('削除してよろしいでしようか？')"/>
 		</td>
         <td width="305" align="right">		
 	    </td>
