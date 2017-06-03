@@ -1,4 +1,4 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -16,21 +16,21 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>ãƒ’ãƒ³ãƒˆï¼š</h2>
+	<h2>ƒqƒ“ƒgF</h2>
 	<p>
-	ç‚¹å‡»â€œç»§ç»­æ·»åŠ "æŒ‰é’®ï¼Œå¯åŒæ—¶æ·»åŠ å¤šä¸ªåˆ†ç±»ï¼<br />
+	‘±‚­’Ç‰Á‚ğƒNƒŠƒbƒN‚µ‚Ä•ª—Ş‚ğ’Ç‰Á‚·‚éI<br />
 </p>
 </div>
-<div class="toptit">ã‚«ãƒ†ã‚´ãƒªãƒ¼ã‚’è¿½åŠ </div>
+<div class="toptit">ƒJƒeƒSƒŠ[‚ğ’Ç‰Á</div>
 <form id="form1" name="form1" method="post" action="?act=add_category_major_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #93AEDD  dashed">
  <tr>
-    <td width="120" align="right">ã‚«ãƒ†ã‚´ãƒªãƒ¼ï¼š</td>
+    <td width="120" align="right">ƒJƒeƒSƒŠ[F</td>
     <td>
 	<select name="parentid[]">
-	  {#highway_get_classify set="ãƒªã‚¹ãƒˆå:major,ã‚¿ã‚¤ãƒ—:HW_major,id:0"#}
+	  {#highway_get_classify set="ƒŠƒXƒg–¼:major,ƒ^ƒCƒv:HW_major,id:0"#}
 	  {#foreach from=$major item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$smarty.get.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
 	  {#/foreach#}
@@ -38,11 +38,11 @@ $(document).ready(function()
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">åå‰ï¼š</td>
+    <td width="120" align="right">–¼‘OF</td>
     <td><input name="categoryname[]" type="text" class="input_text_200"  value=""/></td>
   </tr>
    <tr>
-    <td width="120" align="right">ä¸¦ã¹æ›¿ãˆï¼š</td>
+    <td width="120" align="right">•À‚×‘Ö‚¦F</td>
     <td><input name="category_order[]" type="text" class="input_text_200"  value="0"/></td>
   </tr>
 </table>
@@ -52,9 +52,9 @@ $(document).ready(function()
   <tr>
     <td width="120"> </td>
     <td>
-	<input type="submit" name="addsave" value="ä¿å­˜" class="admin_submit" />
-	<input type="button" name="add_form" id="add_form" value="ç¶šãè¿½åŠ " class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="æˆ»ã‚‹" onclick="window.location='?act=major'"/>
+	<input type="submit" name="addsave" value="•Û‘¶" class="admin_submit" />
+	<input type="button" name="add_form" id="add_form" value="‘±‚­’Ç‰Á" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="–ß‚é" onclick="window.location='?act=major'"/>
 	
 	</td>
   </tr>

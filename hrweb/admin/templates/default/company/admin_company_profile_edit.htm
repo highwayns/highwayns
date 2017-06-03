@@ -108,7 +108,7 @@ $(document).ready(function()
           <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">モードを追加します。</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
 		  {#if $company_profile.robot == "0"#}人工{#/if#}
-		{#if $company_profile.robot == "1"#}采集{#/if#}
+		{#if $company_profile.robot == "1"#}採集{#/if#}
 		 </td>
         </tr>
 		<tr>
@@ -124,10 +124,10 @@ $(document).ready(function()
         <tr>
           <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"> 認定ステータス：</td>
           <td  style=" border-bottom:1px #CCCCCC dashed">
-		  <label><input name="audit"  type="radio" value="1" {#if $company_profile.audit eq "1"#}checked="checked"{#/if#} />认证通过</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		 <label><input name="audit"  type="radio" value="2" {#if $company_profile.audit eq "2"#}checked="checked"{#/if#} />等待认证</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		  <label><input name="audit"  type="radio" value="3" {#if $company_profile.audit eq "3"#}checked="checked"{#/if#} />认证未通过</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		   <label><input name="audit"  type="radio" value="0" {#if $company_profile.audit eq "0"#}checked="checked"{#/if#} />未认证</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <label><input name="audit"  type="radio" value="1" {#if $company_profile.audit eq "1"#}checked="checked"{#/if#} />認定合格</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 <label><input name="audit"  type="radio" value="2" {#if $company_profile.audit eq "2"#}checked="checked"{#/if#} />認定待ち</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <label><input name="audit"  type="radio" value="3" {#if $company_profile.audit eq "3"#}checked="checked"{#/if#} />認定未合格</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   <label><input name="audit"  type="radio" value="0" {#if $company_profile.audit eq "0"#}checked="checked"{#/if#} />未認定</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 </td>
         </tr>
 		
@@ -140,7 +140,7 @@ $(document).ready(function()
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="タイプ:HW_company_type,リスト名:li"#}
-		<input type="text" value="{#$company_profile.nature_cn|default:"请选择"#}"  readonly="readonly" name="nature_cn" id="nature_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$company_profile.nature_cn|default:"選択"#}"  readonly="readonly" name="nature_cn" id="nature_cn" class="input_text_200 input_text_selsect"/>
 		<input name="nature" id="nature" type="hidden" value="{#$company_profile.nature#}" />
 		<div id="menu1" class="menu">
 			<ul>
@@ -158,7 +158,7 @@ $(document).ready(function()
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="タイプ:HW_trade,リスト名:li"#}
-		<input type="text" value="{#$company_profile.trade_cn|default:"请选择"#}"  readonly="readonly" name="trade_cn" id="trade_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$company_profile.trade_cn|default:"選択"#}"  readonly="readonly" name="trade_cn" id="trade_cn" class="input_text_200 input_text_selsect"/>
 		<input name="trade" id="trade" type="hidden" value="{#$company_profile.trade#}" />
 		<div id="menu2" class="dmenu shadow">
 			<ul>
@@ -175,7 +175,7 @@ $(document).ready(function()
     <td height="30" align="right" style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>場所：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
-		<input type="text" value="{#$company_profile.district_cn|default:"请选择"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$company_profile.district_cn|default:"選択"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_selsect"/>
 		<input name="district" id="district" type="hidden" value="{#$company_profile.district#}" />
 		<input name="sdistrict" id="sdistrict" type="hidden" value="{#$company_profile.sdistrict#}" />
 		<div id="menu3" class="dmenu shadow">
@@ -196,7 +196,7 @@ $(document).ready(function()
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<div>
 	{#highway_get_classify set="タイプ:HW_scale,リスト名:li"#}
-		<input type="text" value="{#$company_profile.scale_cn|default:"请选择"#}"  readonly="readonly" name="scale_cn" id="scale_cn" class="input_text_200 input_text_selsect"/>
+		<input type="text" value="{#$company_profile.scale_cn|default:"選択"#}"  readonly="readonly" name="scale_cn" id="scale_cn" class="input_text_200 input_text_selsect"/>
 		<input name="scale" id="scale" type="hidden" value="{#$company_profile.scale#}" />
 		<div id="menu4" class="menu">
 			<ul>
@@ -215,18 +215,18 @@ $(document).ready(function()
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label>
         <input name="currency" type="radio" value="円"  {#if $company_profile.currency=="" || $company_profile.currency == "円"#} checked="checked"{#/if#} />
-        人民币</label>
+        円</label>
       &nbsp;&nbsp;&nbsp;
       <label>
-        <input type="radio" name="currency" value="美元" {#if $company_profile.currency eq "美元"#} checked="checked"{#/if#}/>
-        美元</label>    </td>
+        <input type="radio" name="currency" value="ドル" {#if $company_profile.currency eq "ドル"#} checked="checked"{#/if#}/>
+        ドル</label>    </td>
   </tr>
 		
   <tr>
     <td height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed"><span style="color:#FF3300; font-weight:bold">*</span>連絡先：</td>
     <td  style=" border-bottom:1px #CCCCCC dashed">
 	<input name="contact" type="text" class="input_text_200" id="contact" maxlength="25" value="{#$company_profile.contact#}"/>
-    <label><input name="contact_show"  type="checkbox" value="1" {#if $company_profile.contact_show=="1"#}checked="checked"{#/if#} />联系人在职位详细页中显示
+    <label><input name="contact_show"  type="checkbox" value="1" {#if $company_profile.contact_show=="1"#}checked="checked"{#/if#} />連絡先は職位詳細中表示
 	</td>
   </tr>
   <tr>

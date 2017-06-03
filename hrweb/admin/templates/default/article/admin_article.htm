@@ -4,7 +4,7 @@ $(document).ready(function()
 {
 	//点击批量取消	
 	$("#ButDel").click(function(){
-		if (confirm('你确定要删除吗？'))
+		if (confirm('削除して、よろしいでしょうか？'))
 		{
 			$("form[name=form1]").submit()
 		}
@@ -78,7 +78,7 @@ $(document).ready(function()
     <tr>
       <td height="26" class="admin_list_tit admin_list_first" >
       <label id="chkAll"><input type="checkbox" name=" " title="全部選択/逆選択" id="chk"/>文書タイトル</label></td>
-      <td width="100"   align="center"  class="admin_list_tit">の実施例を追加します。</td>
+      <td width="100"   align="center"  class="admin_list_tit">実例追加</td>
       <td width="100"   align="center" class="admin_list_tit"> プロパティ</td>
 	  <td width="50"   align="center" class="admin_list_tit">並び替え</td>
       <td width="50"   align="center" class="admin_list_tit">クリック</td>
@@ -97,7 +97,7 @@ $(document).ready(function()
 	    </td>
 		 <td align="center" class="admin_list" >
 		 {#if $list.robot=="0"#}人工{#/if#}
-		 {#if $list.robot=="1"#}采集{#/if#}		 </td>
+		 {#if $list.robot=="1"#}採集{#/if#}		 </td>
         <td align="center"  class="admin_list">{#$list.p_categoryname#}</td>
 		<td align="center"  class="admin_list">{#$list.article_order#}</td>
         <td align="center"  class="admin_list">{#$list.click#}</td>
@@ -116,7 +116,7 @@ $(document).ready(function()
 <tr>
         <td>
         <input name="ButADD" type="button" class="admin_submit" id="ButADD" value="文章追加"  onclick="window.location='?act=news_add'"/>
-		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="選択された削除"/>
+		<input name="ButDel" type="button" class="admin_submit" id="ButDel"  value="削除"/>
 		</td>
         <td width="305" align="right">
 		<form id="formseh" name="formseh" method="get" action="?">	
@@ -128,8 +128,8 @@ $(document).ready(function()
 								<input name="key_type" id="key_type" type="hidden" value="{#$smarty.get.key_type|default:"1"#}" />
 												<div id="sehmenu" class="seh_menu">
 														<ul>
-														<li id="1" title="タイトル">titleます。</li>
-														<li id="2" title="ニュースID">情報ID</li>
+														<li id="1" title="タイトル">タイトル</li>
+														<li id="2" title="ニュースID">ニュースID</li>
 														</ul>
 												</div>
 						</div>				

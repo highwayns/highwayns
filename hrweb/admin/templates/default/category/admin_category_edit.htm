@@ -1,20 +1,20 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 <div class="admin_main_nr_dbox">
 <div class="pagetit">
 	<div class="ptit"> {#$pageheader#}</div>
 	{#include file="category/admin_category_nav.htm"#}
   <div class="clear"></div>
 </div>
-<div class="toptit">åˆ†é¡ã‚’å¤‰æ›´ã—ã¾ã™</div>
+<div class="toptit">•ª—Ş•ÏX</div>
 <form id="form1" name="form1" method="post" action="?act=edit_category_save">
 {#$inputtoken#}
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #96B7E2 dashed">
   <tr>
-    <td width="120" align="right">åå‰ï¼š</td>
+    <td width="120" align="right">–¼‘OF</td>
     <td><input name="c_name" type="text" class="input_text_200"  value="{#$category.c_name#}" /></td>
   </tr>
     <tr>
-    <td width="120" align="right">ä¸¦ã¹æ›¿ãˆï¼š</td>
+    <td width="120" align="right">•À‚×‘Ö‚¦F</td>
     <td>	
 	<input name="c_order" type="text" class="input_text_200"  value="{#$category.c_order#}" />
 	<input name="c_alias" type="hidden" value="{#$category.c_alias#}" />
@@ -22,18 +22,18 @@
 	</td>
   </tr>
    <tr>
-    <td width="120" align="right">ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®æœ€åˆã®æ–‡å­—ï¼š</td>
+    <td width="120" align="right">ƒCƒ“ƒfƒbƒNƒX‚ÌÅ‰‚Ì•¶šF</td>
     <td>	
 	<input name="c_index" type="text" class="input_text_200" maxlength="60"  value="{#$category.c_index#}"  /> 
-	<span class="admin_note">ã‚«ãƒ†ã‚´ãƒªåã¨ã—ã¦ï¼šDingyuanã‚¿ã‚¤ãƒ ã‚ºã‚»ãƒ³ã‚¿ãƒ¼ã ã£ãŸï¼šãã®ã‚ˆã†ãª<strong>d</strong></span>
+	<span class="admin_note">ƒJƒeƒSƒŠ–¼<strong>d</strong></span>
 	</td>
   </tr>
    {#if $category.c_alias=="HW_officebuilding"#}
    <tr>
-    <td width="120" align="right">èª¬æ˜ï¼š</td>
+    <td width="120" align="right">à–¾F</td>
     <td>	
 	<input name="c_note" type="text" class="input_text_200" maxlength="60"  value="{#$category.c_note#}"  /> 
-	<span class="admin_note">ä»¥ä¸‹ã®ã‚ˆã†ãªï¼šå»ºè¨­ã‚„æ±ç’°çŠ¶é“è·¯ã®äº¤å·®ç‚¹Dingyuanã‚¿ã‚¤ãƒ ã‚ºã‚»ãƒ³ã‚¿ãƒ¼</span>
+	<span class="admin_note">ˆÈ‰º‚Ì‚æ‚¤‚Èà–¾‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢</span>
 	</td>
   </tr>
   {#/if#}
@@ -43,8 +43,8 @@
     <td width="120"> </td>
     <td>
 	<input name="c_id" type="hidden" value="{#$category.c_id#}" />
-	<input type="submit" name="save" value="ä¿å­˜" class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="æˆ»ã‚‹" onclick="window.location='?act=show_category&alias={#$category.c_alias#}'"/>
+	<input type="submit" name="save" value="•Û‘¶" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="–ß‚é" onclick="window.location='?act=show_category&alias={#$category.c_alias#}'"/>
 	
 	</td>
   </tr>

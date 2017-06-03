@@ -1,4 +1,4 @@
-ï»¿{#include file="sys/admin_header.htm"#}
+{#include file="sys/admin_header.htm"#}
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -16,25 +16,25 @@ $(document).ready(function()
   <div class="clear"></div>
 </div>
 <div class="toptip">
-	<h2>ãƒ’ãƒ³ãƒˆï¼š</h2>
+	<h2>ƒqƒ“ƒgF</h2>
 	<p>
-	ç‚¹å‡»â€œç»§ç»­æ·»åŠ "æŒ‰é’®ï¼Œå¯åŒæ—¶æ·»åŠ å¤šä¸ªåˆ†ç±»ï¼<br />
+	‘±‚­’Ç‰Áƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä•ª—Ş‚ğ’Ç‰Á‚·‚éI<br />
 </p>
 </div>
-<div class="toptit">ã‚«ãƒ†ã‚´ãƒªãƒ¼ã‚’è¿½åŠ </div>
+<div class="toptit">ƒJƒeƒSƒŠ[‚ğ’Ç‰Á</div>
 <form id="form1" name="form1" method="post" action="?act=add_category_jobs_save">
 {#$inputtoken#}
 <div id="html_tpl">
 <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-bottom:1px #93AEDD  dashed">
  <tr>
-    <td width="120" align="right">ã‚«ãƒ†ã‚´ãƒªãƒ¼ï¼š</td>
+    <td width="120" align="right">ƒJƒeƒSƒŠ[F</td>
     <td>
 	<select name="parentid[]">
-	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>ãƒˆãƒƒãƒ—ã‚«ãƒ†ã‚´ãƒª</option>
-	  {#highway_get_classify set="ãƒªã‚¹ãƒˆå:jobs,ã‚¿ã‚¤ãƒ—:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
+	  <option value="0" {#if "0"==$smarty.get.parentid#}selected="selected"{#/if#}>ƒgƒbƒvƒJƒeƒSƒŠ</option>
+	  {#highway_get_classify set="ƒŠƒXƒg–¼:jobs,ƒ^ƒCƒv:HW_jobs,id:0"#}{#foreach from=$jobs item=list#}
 	  <option value="{#$list.id#}" {#if $list.id==$smarty.get.parentid#}selected="selected"{#/if#}>{#$list.categoryname#}</option>
-	  {#highway_get_classify set="ãƒªã‚¹ãƒˆå:sub_jobs,ã‚¿ã‚¤ãƒ—:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
-	  <option value="{#$s_list.id#}" {#if $s_list.id==$smarty.get.parentid#}selected="selected"{#/if#}>â”œâ”€{#$s_list.categoryname#}</option>
+	  {#highway_get_classify set="ƒŠƒXƒg–¼:sub_jobs,ƒ^ƒCƒv:HW_jobs,id:$list.id"#}{#foreach from=$sub_jobs item=s_list#}
+	  <option value="{#$s_list.id#}" {#if $s_list.id==$smarty.get.parentid#}selected="selected"{#/if#}>„¥„Ÿ{#$s_list.categoryname#}</option>
 	  {#/foreach#}
 	{#/foreach#}
 	
@@ -42,17 +42,17 @@ $(document).ready(function()
 	</td>
  </tr>
   <tr>
-    <td width="120" align="right">åå‰ï¼š</td>
+    <td width="120" align="right">–¼‘OF</td>
     <td><input name="categoryname[]" type="text" class="input_text_200"  value=""/></td>
   </tr>
    <tr>
-    <td width="120" align="right">ä¸¦ã¹æ›¿ãˆï¼š</td>
+    <td width="120" align="right">•À‚×‘Ö‚¦F</td>
     <td><input name="category_order[]" type="text" class="input_text_200"  value="0"/></td>
   </tr>
   <tr>
-    <td width="120" align="right">ä¾‹ï¼š</td>
+    <td width="120" align="right">—áF</td>
     <td><textarea name="content[]" cols="70" rows="7" style="font-size:12px;"/></textarea><br />
-<span style="color:#666666">æ³¨æ„ï¼š3ã¤ã ã‘ã®ä¾‹ãŒè¿½åŠ åˆ†é¡ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™</span>
+<span style="color:#666666">’ˆÓF3‚Â‚¾‚¯‚Ì—á‚ª’Ç‰Á•ª—Ş‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·</span>
     </td>
   </tr>
 </table>
@@ -62,9 +62,9 @@ $(document).ready(function()
   <tr>
     <td width="120"> </td>
     <td>
-	<input type="submit" name="addsave" value="ä¿å­˜" class="admin_submit" />
-	<input type="button" name="add_form" id="add_form" value="ç¶šãè¿½åŠ " class="admin_submit" />
-		  <input name="submit22" type="button" class="admin_submit"    value="æˆ»ã‚‹" onclick="window.location='?act=jobs'"/>
+	<input type="submit" name="addsave" value="•Û‘¶" class="admin_submit" />
+	<input type="button" name="add_form" id="add_form" value="‘±‚­’Ç‰Á" class="admin_submit" />
+		  <input name="submit22" type="button" class="admin_submit"    value="–ß‚é" onclick="window.location='?act=jobs'"/>
 	
 	</td>
   </tr>
