@@ -100,7 +100,7 @@ $(document).ready(function() {
   return this.optional(element) || /^[\u0391-\uFFE5\w]+$/.test(value);
   }, "英字、数字とアンドバーだけ");
   jQuery.validator.addMethod("nomobile", function(value, element) { 
-    var tel = /^(13|15|18)\d{9}$/;
+	  var tel = /^((0\d{1}-{4}-{4}))$/;
   var $cstr= true;
   if (tel.test(value)) $cstr= false;
   return $cstr || this.optional(element); 

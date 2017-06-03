@@ -54,7 +54,7 @@ $(document).ready(function()
 		$(".log_amount3").show();
 	});
 	jQuery.validator.addMethod("isPhoneNumber", function(value, element) {   
-      var tel = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+		var tel = /^((0\d{1}-{4}-{4}))$/;
       return this.optional(element) || (tel.test(value));
   }, "携帯番号正しく入力してください");
   $("#form4").validate({

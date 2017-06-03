@@ -1346,7 +1346,7 @@ function get_consultant($offset,$perpage,$get_sql= '')
 function del_consultant($id){
 	global $db;
 	$db->query("delete from ".table('consultant')." where id=".$id);
-	write_log("削除された顧問idは".$id."の顧問", $_SESSION['admin_name'],3);
+	write_log("削除されたコンサルタントidは".$id."のコンサルタント", $_SESSION['admin_name'],3);
 	return true;
 }
 function set_user_status($status,$uid)
