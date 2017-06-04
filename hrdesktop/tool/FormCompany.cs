@@ -22,6 +22,8 @@ namespace highwayns
         {
             string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "派遣会社一覧.csv");
             readData(fileName);
+            fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "生産技能会社一覧.txt");
+            readData2(fileName);
             MessageBox.Show("Load Over!");
         }
 
@@ -41,19 +43,18 @@ namespace highwayns
                     string comment  = row.Cells[0].Value.ToString();
                     string companyName = row.Cells[1].Value.ToString();
                     string departName = row.Cells[2].Value.ToString();
-                    string address = row.Cells[3].Value.ToString();
+                    string manager = row.Cells[3].Value.ToString();
+                    string address = row.Cells[4].Value.ToString();
+                    string tel = row.Cells[5].Value.ToString();
+                    string mail = row.Cells[6].Value.ToString();
 
-                    companyName = companyName + departName;
-                    string[] strs = companyName.Split('　');
-                    if (strs.Length == 2)
-                    {
-                        companyName = strs[0];
-                        departName = strs[1];
-                    }
                     execel.setValue(2, idx, companyName);
                     execel.setValue(3, idx, departName);
+                    execel.setValue(4, idx, manager);
+                    execel.setValue(5, idx, mail);
                     execel.setValue(6, idx, address);
-                    execel.setValue(7, idx, comment);
+                    execel.setValue(7, idx, tel);
+                    execel.setValue(8, idx, comment);
                     idx++;
                 }
                 execel.SaveAs(dlg.FileName);
@@ -73,23 +74,48 @@ namespace highwayns
                         string[] temp = line.Split(' ');
                         if (temp.Length >= 4)
                         {
-                            string[] rows = new string[4];
-                            rows[0] = temp[0] + temp[1];
-                            rows[1] = temp[2];
+                            string[] rows = new string[7];
+                            rows[0] = temp[0] + temp[1];//会社番号
+                            rows[1] = temp[2];//会社名称
                             if (temp.Length == 4)
                             {
-                                rows[2] = "";
-                                rows[3] = temp[3];
+                                rows[2] = "";//部門または職位
+                                rows[4] = temp[3];//アドレス
                             }
                             else
                             {
-                                rows[2] = temp[3];
-                                rows[3] = temp[4];
+                                rows[2] = temp[3];//部門または職位
+                                rows[4] = temp[4];//アドレス
 
                             }
+                            rows[3] = "";//管理者名前
+                            rows[5] = "";//電話・FAX
+                            rows[6] = "";//メール
                             dgvData.Rows.Add(rows);
                         }
                     }
+                    line = sr.ReadLine();
+                }
+            }
+        }
+
+        private void readData2(string filename)
+        {
+            using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+            {
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] temp = line.Split(' '); 
+                    string[] rows = new string[7];
+                    rows[0] = "";//会社番号
+                    rows[1] = temp[0];//会社名
+                    rows[2] = temp[1];//部門または職位
+                    rows[3] = line.Replace(temp[0],"").Replace(temp[1],"").Trim();//管理者名前                    
+                    rows[4] = sr.ReadLine();//アドレス
+                    rows[5] = sr.ReadLine();//電話・FAX
+                    rows[6] = "";//メール
+                    dgvData.Rows.Add(rows);
                     line = sr.ReadLine();
                 }
             }

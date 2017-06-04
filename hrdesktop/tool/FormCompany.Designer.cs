@@ -34,13 +34,16 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(527, 332);
+            this.btnSave.Location = new System.Drawing.Point(841, 332);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 26;
@@ -66,11 +69,14 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column5,
+            this.Column4,
+            this.Column6,
+            this.Column7});
             this.dgvData.Location = new System.Drawing.Point(12, 12);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowTemplate.Height = 21;
-            this.dgvData.Size = new System.Drawing.Size(622, 316);
+            this.dgvData.Size = new System.Drawing.Size(904, 316);
             this.dgvData.TabIndex = 24;
             // 
             // Column1
@@ -91,17 +97,32 @@
             this.Column3.Name = "Column3";
             this.Column3.Width = 150;
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "manager";
+            this.Column5.Name = "Column5";
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "Address";
             this.Column4.Name = "Column4";
             this.Column4.Width = 200;
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "tel";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "mail";
+            this.Column7.Name = "Column7";
+            // 
             // FormCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 359);
+            this.ClientSize = new System.Drawing.Size(945, 359);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.dgvData);
@@ -120,6 +141,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
