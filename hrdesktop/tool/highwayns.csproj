@@ -150,6 +150,9 @@
     <Compile Include="FormAndroid.Designer.cs">
       <DependentUpon>FormAndroid.cs</DependentUpon>
     </Compile>
+    <Content Include="生産技能会社一覧.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="FormAddress.resx">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </EmbeddedResource>
