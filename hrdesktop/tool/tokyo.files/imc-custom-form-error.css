@@ -1,0 +1,18 @@
+.imc-custom-form-error-001 .alert-msg {
+	background: none; left: -8px; bottom: 50px; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+}
+.imc-custom-form-error-001 .imc-form-item__error-text {
+	background: none; left: -8px; bottom: 50px; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+}
+.imc-custom-form-error-001 .alert-msg > span {
+	background: none; color: rgb(241, 73, 66); font-size: 12px;
+}
+.imc-custom-form-error-001 .imc-form-item__error-text > span {
+	background: none; color: rgb(241, 73, 66); font-size: 12px;
+}
+.imc-custom-form-error-001 .alert-msg > span::after {
+	left: auto; bottom: auto; border-top-color: currentColor; border-right-color: currentColor; border-left-color: currentColor; border-top-width: medium; border-right-width: medium; border-left-width: medium; border-top-style: none; border-right-style: none; border-left-style: none; position: relative;
+}
+.imc-custom-form-error-001 .imc-form-item__error-text > span::after {
+	left: auto; bottom: auto; border-top-color: currentColor; border-right-color: currentColor; border-left-color: currentColor; border-top-width: medium; border-right-width: medium; border-left-width: medium; border-top-style: none; border-right-style: none; border-left-style: none; position: relative;
+}
