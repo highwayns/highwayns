@@ -24,6 +24,11 @@ namespace highwayns
             readData(fileName);
             fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "生産技能会社一覧.txt");
             readData2(fileName);
+            fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20130715.csv");
+            readData3(fileName);
+            fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20151220.csv");
+            readData3(fileName);
+
             MessageBox.Show("Load Over!");
         }
 
@@ -116,6 +121,36 @@ namespace highwayns
                     rows[5] = sr.ReadLine();//電話・FAX
                     rows[6] = "";//メール
                     dgvData.Rows.Add(rows);
+                    line = sr.ReadLine();
+                }
+            }
+        }
+
+        private void readData3(string filename)
+        {
+            using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+            {
+                string line = sr.ReadLine();
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] temp = line.Split(',');
+                    string[] rows = new string[7];
+                    for (int i = 3; i < temp.Length; i++)
+                    {
+                        if (temp[i].StartsWith("http"))
+                        {
+                            rows[0] = temp[i];//会社番号
+                            rows[1] = temp[i-1];//会社名
+                            rows[2] = "";//部門または職位
+                            rows[3] = "";//管理者名前                    
+                            rows[4] = "";//アドレス
+                            rows[5] = "";//電話・FAX
+                            rows[6] = "";//メール
+                            dgvData.Rows.Add(rows);
+                            break;
+                        }
+                    }
                     line = sr.ReadLine();
                 }
             }

@@ -1,0 +1,30 @@
+html.remodal-is-locked {
+	overflow: hidden; -ms-touch-action: none; touch-action: none;
+}
+.remodal {
+	display: none;
+}
+[data-remodal-id] {
+	display: none;
+}
+.remodal-overlay {
+	left: -5000px; top: -5000px; right: -5000px; bottom: -5000px; display: none; position: fixed; z-index: 9999;
+}
+.remodal-wrapper {
+	left: 0px; top: 0px; text-align: center; right: 0px; bottom: 0px; overflow: auto; display: none; position: fixed; z-index: 10000; -webkit-overflow-scrolling: touch;
+}
+.remodal-wrapper::after {
+	height: 100%; margin-left: -0.05em; display: inline-block; content: "";
+}
+.remodal-overlay {
+	backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.remodal-wrapper {
+	backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.remodal {
+	position: relative; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%;
+}
+.remodal-is-initialized {
+	display: inline-block;
+}

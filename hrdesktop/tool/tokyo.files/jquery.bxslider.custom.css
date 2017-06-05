@@ -1,0 +1,24 @@
+.bx-wrapper {
+	margin: 0px auto;
+}
+.bx-wrapper img {
+	display: inline-block;
+}
+.bx-wrapper .bx-viewport {
+	background: none; border: 0px solid rgb(255, 255, 255); border-image: none; left: 0px; box-shadow: 0px 0px 0px #ccc; -webkit-box-shadow: 0 0 0 #ccc; -moz-box-shadow: 0 0 0 #ccc;
+}
+.bx-wrapper .bx-pager {
+	width: 100%; bottom: -40px; position: absolute;
+}
+.bx-wrapper .bx-controls-auto {
+	width: 100%; bottom: -40px; position: absolute;
+}
+.bx-wrapper .bx-default-pager.bx-pager a {
+	background: rgb(232, 239, 246);
+}
+.bx-wrapper .bx-default-pager.bx-pager a:hover {
+	background: rgb(0, 137, 252);
+}
+.bx-wrapper .bx-default-pager.bx-pager a.active {
+	background: rgb(0, 137, 252);
+}

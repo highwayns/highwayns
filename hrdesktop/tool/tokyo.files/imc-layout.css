@@ -1,0 +1,90 @@
+.imc-layout {
+	overflow: hidden; clear: both;
+}
+.imc-layout--visible {
+	overflow: visible;
+}
+.imc-layout--blue {
+	background: rgb(25, 94, 165);
+}
+.imc-layout--white {
+	background: rgb(255, 255, 255);
+}
+.imc-layout--flex {
+	margin: 0px auto; width: 1060px; padding-bottom: 76px; font-size: 0px; display: flex; justify-content: space-between; -js-display: flex; -webkit-display: flex; -webkit-justify-content: space-between;
+}
+.imc-layout--margin-bottom {
+	margin-bottom: 24px;
+}
+.imc-layout--single {
+	margin: 0px auto; width: 790px; padding-bottom: 76px;
+}
+.imc-layout--full {
+	margin: 0px auto; width: 1060px; padding-bottom: 76px;
+}
+.imc-layout--full-narrow {
+	margin: 0px auto; width: 930px; padding-bottom: 76px;
+}
+.imc-layout--header {
+	background: rgb(255, 255, 255);
+}
+.imc-layout__header-link {
+	background: rgb(235, 235, 235);
+}
+.imc-layout__header {
+	margin: 0px auto;
+}
+.imc-layout--footer {
+	background: rgb(43, 55, 78); padding-bottom: 10px;
+}
+.imc-layout--continue {
+	padding-bottom: 0px;
+}
+.imc-layout__footer {
+	margin: 0px auto;
+}
+.imc-layout--global-menu {
+	background: rgb(255, 255, 255);
+}
+.imc-layout--global-menu--matome {
+	background: rgb(25, 92, 165);
+}
+.imc-layout__global-menu {
+	margin: 0px auto;
+}
+.imc-layout--keyv {
+	background: rgb(28, 83, 143);
+}
+.imc-layout--shadow {
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.2); -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.imc-layout__keyv {
+	margin: 0px auto; width: 1060px;
+}
+.imc-layout__keyv__breadcrumb {
+	padding-top: 16px;
+}
+.imc-layout__full {
+	margin: 0px auto; width: 1060px;
+}
+.imc-layout__full--link {
+	
+}
+.imc-layout__full--margin-bottom {
+	
+}
+.imc-layout__full-narrow {
+	margin: 0px auto; width: 930px;
+}
+.imc-layout__main {
+	background: none; width: 790px; font-size: 14px; vertical-align: top; display: inline-block;
+}
+.imc-layout__side {
+	background: none; width: 250px; font-size: 14px; margin-left: 20px; vertical-align: top; display: inline-block;
+}
+.imc-layout__margin-top {
+	
+}
+.imc-layout--fixed-footer {
+	background: rgb(252, 148, 26);
+}

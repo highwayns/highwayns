@@ -1,0 +1,409 @@
+@import url( ../smartblog/style.css );
+.sidebar-widget {
+	padding: 30px 25px 20px; margin-bottom: 10px;
+}
+#npcatch li {
+	line-height: 1.7; overflow: hidden; clear: both; margin-bottom: 5px; vertical-align: top;
+}
+#npcatch img {
+	padding: 5px 10px 10px 0px; float: left;
+}
+#npcatch .title a {
+	width: 100%; line-height: 1.5; font-weight: 700;
+}
+#npcatch .title {
+	line-height: 1.7;
+}
+#npcatch .date {
+	color: rgb(102, 102, 153); font-size: x-small; font-weight: 400; display: block;
+}
+.breadcrumbs {
+	margin-top: -10px; margin-bottom: 15px; margin-left: 10px;
+}
+.breadcrumbs span[property='name'] {
+	padding: 0px; overflow: hidden; margin-top: -3px; vertical-align: middle; display: inline-block; white-space: nowrap; -ms-text-overflow: ellipsis; max-width: 300px;
+}
+.post-box .post-title {
+	font-weight: 500;
+}
+.post-box .post-title {
+	line-height: 1.3;
+}
+.post-box .post-title {
+	padding-top: 2px; padding-left: 5px;
+}
+.featured-carousel .featured-post-title {
+	font-weight: bold;
+}
+div.tagcloud a:hover {
+	color: rgb(255, 255, 255);
+}
+#footer h3.widget-title {
+	font-weight: bold;
+}
+.footer-bottom {
+	padding: 20px 0px;
+}
+.copyright {
+	font-size: 13px;
+}
+.post-content h2 {
+	padding: 15px 18px; color: rgb(51, 51, 51); line-height: 30px; font-size: 23px; font-weight: 700; margin-top: 25px; margin-bottom: 25px; border-bottom-color: rgb(153, 153, 153); border-left-color: rgb(28, 151, 220); border-bottom-width: 1px; border-left-width: 8px; border-bottom-style: dotted; border-left-style: solid;
+}
+.post-content h3 {
+	color: rgb(86, 75, 75); padding-left: 13px; clear: both; font-size: 21px; font-weight: bold; margin-top: 40px; margin-bottom: 15px; margin-left: 10px; border-left-color: rgb(74, 221, 232); border-left-width: 8px; border-left-style: solid;
+}
+.post-content h4 {
+	font-size: 18px; margin-top: 30px;
+}
+.post-content h5 {
+	font-size: 16px;
+}
+.post-content p {
+	color: rgb(63, 63, 63);
+}
+.post-content blockquote {
+	margin-top: 10px;
+}
+table.tablepress {
+	border: 1px solid rgb(221, 221, 221); border-image: none; width: 100%; color: rgb(34, 34, 34); line-height: 1.625; font-family: "Lora", Georgia, "Times New Roman", Times; font-weight: normal; background-color: rgb(255, 255, 255);
+}
+table.tablepress {
+	border: 1px solid rgb(221, 221, 221); border-image: none; width: 85%; font-size: 13px;
+}
+.tablepress {
+	border: currentColor; border-image: none; width: 100%; margin-bottom: 1em; border-collapse: collapse; border-spacing: 0;
+}
+.mamahack-fb .mamahack-fb__boxLike__message {
+	color: rgb(255, 255, 255);
+}
+.post-content p {
+	font-size: 15px;
+}
+.example {
+	background: rgb(247, 247, 247); margin: 0px 0px 20px; padding: 25px 25px 15px; color: rgb(136, 136, 136); line-height: 2; font-size: 14px; font-style: italic; border-left-color: rgb(255, 91, 36); border-left-width: 0px; border-left-style: solid; position: relative;
+}
+body p.logo-text {
+	margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-size: 12px;
+}
+ul.npcatch a {
+	color: rgb(17, 17, 17);
+}
+.post-content a {
+	color: rgb(0, 140, 168);
+}
+.post-content a:hover {
+	color: rgb(51, 51, 51); text-decoration: underline;
+}
+.post-meta-footer a {
+	color: rgb(96, 96, 96); text-decoration: none;
+}
+.post-content .read-more {
+	background-color: rgb(24, 136, 221);
+}
+.post-content .read-more a {
+	color: rgb(255, 255, 255); background-color: rgb(24, 136, 221);
+}
+body .post-content .read-more a:hover {
+	color: rgb(255, 255, 255); text-decoration: none; background-color: rgb(51, 51, 51);
+}
+.read-more a:hover {
+	color: rgb(255, 255, 255); text-decoration: none; background-color: rgb(51, 51, 51);
+}
+.post-box span.futoji {
+	font-weight: bold;
+}
+.post-box span.komoji {
+	color: rgb(119, 119, 119); line-height: 0.1em; font-size: 13px;
+}
+.post-content a.btn:hover {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.table-responsive th {
+	background-color: rgb(245, 245, 245);
+}
+.table-responsive tbody td {
+	background-color: rgb(255, 255, 255);
+}
+.post-content a[href^='http://'] {
+	background: url("http://markehack.jp/wp-content/themes/smartblog-child/window-a.png") no-repeat right; padding-right: 15px;
+}
+.post-content a[href^='https://'] {
+	background: url("http://markehack.jp/wp-content/themes/smartblog-child/window-a.png") no-repeat right; padding-right: 15px;
+}
+body .post-content a[href^='http://markehack.jp/'] {
+	background: none; padding-right: 0px;
+}
+body .post-content a[href^='https://markehack.jp/'] {
+	background: none; padding-right: 0px;
+}
+body .sns_tw_btm a[href^='https://twitter.com/share'] {
+	background: none; padding-right: 0px;
+}
+body .sns_tw_btm a[href^='https://twitter.com/'] {
+	background: none; padding-right: 0px;
+}
+.post-content .sns_fb_btm {
+	padding-right: 10px; float: left;
+}
+.post-content .sns_fb2_btm {
+	padding-right: 10px; float: left;
+}
+.post-content .sns_tw_btm {
+	padding-right: 10px; float: left;
+}
+.post-content .sns_hb_btm {
+	padding-right: 10px; float: left;
+}
+.post-content .sns_btm {
+	clear: both;
+}
+.post-content .sns_fb2_btm .fb-like {
+	padding-right: 10px; margin-top: -8px; float: left;
+}
+.post-content .single_data {
+	color: rgb(153, 153, 153); clear: both; font-size: 13px;
+}
+body #categories-3 .widget_categories ul li a:hover {
+	color: rgb(0, 140, 168);
+}
+.widget_categories li a:hover {
+	color: rgb(0, 140, 168);
+}
+body .post-content .read-more a[href^='http://markehack.jp/'] {
+	padding-right: 10px; background-color: rgb(24, 136, 221);
+}
+body .post-content .read-more a[href^='https://markehack.jp/'] {
+	padding-right: 10px; background-color: rgb(24, 136, 221);
+}
+body .post-content .read-more a[href^='http://markehack.jp/']:hover {
+	background-color: rgb(51, 51, 51);
+}
+.alert-success {
+	border-color: rgb(221, 221, 221); padding: 25px 30px; color: rgb(49, 112, 143); background-color: rgb(252, 252, 252);
+}
+.alert-info1 {
+	border-color: rgb(221, 221, 221); padding: 25px 30px; color: rgb(49, 112, 143); background-color: rgb(252, 252, 252);
+}
+.alert-info2 {
+	border-color: rgb(221, 221, 221); padding: 25px 30px; color: rgb(49, 112, 143); background-color: rgb(252, 252, 252);
+}
+.alert-info3 {
+	border-color: rgb(221, 221, 221); padding: 25px 30px; color: rgb(49, 112, 143); background-color: rgb(252, 252, 252);
+}
+.alert-info4 {
+	border-color: rgb(221, 221, 221); padding: 25px 30px; color: rgb(49, 112, 143); background-color: rgb(252, 252, 252);
+}
+.alert-info {
+	border-color: rgb(221, 221, 221); padding: 25px 30px; color: rgb(51, 51, 51); background-color: rgb(252, 252, 252);
+}
+.alert-info5 {
+	border-color: rgb(250, 235, 204); color: rgb(49, 112, 143); background-color: rgb(252, 248, 227);
+}
+.alert-top {
+	font-weight: bold; margin-bottom: 15px;
+}
+.alert-info ul li {
+	color: rgb(51, 51, 51);
+}
+.alert-info ul {
+	margin-bottom: 5px;
+}
+.alert-info ol li {
+	color: rgb(51, 51, 51);
+}
+.alert-info ol {
+	margin-bottom: 5px;
+}
+body .post-content .post-box .post-title {
+	text-transform: none;
+}
+body .post-content h1 .post-box .post-title {
+	text-transform: none;
+}
+.page-numbers span.current {
+	color: rgb(255, 255, 255);
+}
+body .page-numbers a:hover {
+	color: rgb(255, 255, 255);
+}
+.post-main-img {
+	margin-bottom: 10px;
+}
+#npcatch .date {
+	color: rgb(170, 170, 170);
+}
+ul.sidber_popular li {
+	padding-bottom: 10px;
+}
+.table-responsive .top {
+	vertical-align: top;
+}
+.table-responsive .center {
+	text-align: center;
+}
+.table-responsive .middle {
+	vertical-align: middle;
+}
+table.font-Small {
+	font-size: 12px;
+}
+.post-content ul li {
+	color: rgb(51, 51, 51);
+}
+.balloon-btn-set {
+	width: 75px; height: 63px; margin-bottom: -25px; display: block;
+}
+.balloon-btn-set a {
+	color: rgb(75, 79, 86); font-size: 13px; text-decoration: none; display: block;
+}
+a.arrow-box-link {
+	text-align: center; color: rgb(75, 79, 86); display: block;
+}
+a.balloon-btn-link {
+	border-radius: 3px; border: 1px solid rgb(144, 148, 156); border-image: none; width: 75px; height: 18px; text-align: center; color: white; line-height: 16px; display: block; position: relative;
+}
+.arrow-box {
+	background: rgb(255, 255, 255); border-radius: 3px; border: 1px solid rgb(144, 148, 156); border-image: none; width: 75px; height: 33px; text-align: center; line-height: 33px; display: inline-block; position: relative;
+}
+.arrow-box::after {
+	border: solid transparent; border-image: none; left: 50%; top: 100%; width: 0px; height: 0px; position: absolute; content: " "; pointer-events: none;
+}
+.arrow-box::before {
+	border: solid transparent; border-image: none; left: 50%; top: 100%; width: 0px; height: 0px; position: absolute; content: " "; pointer-events: none;
+}
+.arrow-box::after {
+	border-width: 3px; border-color: rgb(255, 255, 255) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); margin-left: -3px;
+}
+.arrow-box::before {
+	border-width: 5px; border-color: rgb(144, 148, 156) rgba(187, 187, 187, 0) rgba(187, 187, 187, 0); margin-left: -5px;
+}
+a.twitter-balloon-btn-link .fa-twitter {
+	color: rgb(85, 172, 238); font-size: 16px;
+}
+a.twitter-balloon-btn-link .tweet-label {
+	font: bold 11px/18px "Helvetica Neue", Arial, sans-serif; color: rgb(0, 0, 0); margin-left: 3px; vertical-align: top; font-size-adjust: none; font-stretch: normal;
+}
+a.balloon-btn-link {
+	background: -ms-linear-gradient(rgb(249, 249, 249) 5%, rgb(233, 233, 233) 100%) rgb(249, 249, 249); border: 1px solid rgb(187, 187, 187); border-image: none; color: rgb(102, 102, 102); font-size: 16px; font-weight: normal; text-decoration: none; display: inline-block; box-shadow: inset 1px 1px 0px 0px #ffffff; text-shadow: 1px 1px 0px #ffffff; -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff; -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+#jetpack-post-views-widget-2 {
+	display: none;
+}
+@media screen and (max-width:480px)
+{
+.blog-2col.blog-masonry .post-entry {
+	padding: 5px;
+}
+.post-header {
+	padding: 20px 5px 10px 10px;
+}
+.post-meta {
+	font-size: 12px; margin-top: 5px;
+}
+.post-content {
+	padding: 15px 10px 15px 13px;
+}
+.post-meta ul li.edit-link {
+	display: none;
+}
+.post-format-icon {
+	display: none;
+}
+.sidebar-widget {
+	margin: 10px -10px; padding: 30px 10px 10px 15px;
+}
+.breadcrumbs {
+	font-size: 12px; margin-top: -20px; margin-bottom: 15px; margin-left: 10px;
+}
+.post-entry {
+	margin: 10px -10px;
+}
+.author-box {
+	margin: 10px -10px; padding: 30px 15px 0px;
+}
+.related-posts-wrapper {
+	margin: 10px -10px; padding: 30px 15px 0px;
+}
+.related-post-meta {
+	margin-top: -5px;
+}
+.related-posts {
+	margin-bottom: 10px;
+}
+#npcatch li {
+	line-height: 1.5; margin-bottom: 0px;
+}
+.post-content blockquote {
+	padding: 15px 15px 15px 45px;
+}
+.post-content blockquote::before {
+	left: 15px; top: 15px; font-size: 20px;
+}
+.example {
+	padding: 15px 15px 15px 45px;
+}
+.post-content h2 {
+	padding: 5px 13px 10px; color: rgb(51, 51, 51); line-height: 30px; font-size: 18px; font-weight: 700; margin-top: 25px; margin-bottom: 15px; border-bottom-color: rgb(153, 153, 153); border-left-color: rgb(125, 168, 219); border-bottom-width: 1px; border-left-width: 8px; border-bottom-style: dotted; border-left-style: solid;
+}
+.post-content h3 {
+	color: rgb(86, 75, 75); padding-left: 10px; clear: both; font-size: 17px; font-weight: bold; margin-top: 20px; margin-bottom: 15px; margin-left: 0px; border-left-color: rgb(175, 208, 239); border-left-width: 8px; border-left-style: solid;
+}
+.post-content h4 {
+	font-size: 17px;
+}
+.post-content h5 {
+	font-size: 16px;
+}
+body p.logo-text {
+	margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-size: 11px;
+}
+.header-style-one .logo {
+	max-width: 300px;
+}
+.header-style-one .logo {
+	margin-top: 15px;
+}
+.header-style-two .logo {
+	margin-top: 15px;
+}
+.header-style-three .logo {
+	margin-top: 15px;
+}
+.header-style-one .logo a {
+	max-width: 150px;
+}
+.primary-mobile-menu-icons {
+	margin-top: -25px;
+}
+.sticky-mobile-menu-icons {
+	margin-top: -25px;
+}
+.post-content .sns_fb_btm {
+	padding-right: 5px; float: left;
+}
+.post-content .sns_tw_btm {
+	padding-right: 5px; padding-bottom: 0px; margin-bottom: 0px; float: left;
+}
+.post-content .sns_btm {
+	clear: both;
+}
+.sidebar-ad {
+	margin-left: -10px;
+}
+.container p.logo-text {
+	margin-bottom: -10px;
+}
+.breadcrumbs {
+	padding: 0px; margin-bottom: 0px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 0px; border-bottom-style: solid; white-space: nowrap; -ms-overflow-x: scroll;
+}
+.breadcrumbs span {
+	padding: 0px 0em; display: inline-block;
+}
+.alert-info3 {
+	padding: 25px 30px;
+}
+.alert-info4 {
+	padding: 20px 25px;
+}
+}

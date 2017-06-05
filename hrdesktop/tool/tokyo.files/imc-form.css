@@ -1,0 +1,201 @@
+.imc-form-item {
+	position: relative;
+}
+.imc-form-item--inline {
+	display: inline-block;
+}
+.imc-form-item__text {
+	background: rgb(242, 244, 250); padding: 0px 13px; border-radius: 6px; border: 1px solid rgb(179, 179, 179); border-image: none; width: 210px; height: 55px; color: rgb(43, 55, 78); line-height: 55px; font-size: 14px; box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2); -webkit-border-radius: 6px; -moz-border-radius: 6px; -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); -moz-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.imc-form-item__text--small {
+	width: 220px; height: 45px; line-height: 45px;
+}
+.imc-form-item__text--medium {
+	width: 480px;
+}
+.imc-form-item__text--long {
+	width: 528px;
+}
+.imc-form-item__text--short {
+	width: 100px;
+}
+.imc-form-item__text:focus {
+	border-color: rgb(0, 137, 252); background-color: rgb(255, 255, 255);
+}
+.alert .imc-form-item__text {
+	border-color: rgb(241, 73, 66) !important; background-color: rgb(254, 238, 238) !important;
+}
+.imc-form-item__error.imc-form-item__text {
+	border-color: rgb(241, 73, 66) !important; background-color: rgb(254, 238, 238) !important;
+}
+.imc-form-item__ok.imc-form-item__text {
+	font-weight: bold; background-color: rgb(219, 227, 247);
+}
+.imc-form-item__text--company {
+	background-position: 12px; padding-left: 36px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_company.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--user {
+	background-position: 9px; padding-left: 36px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_user.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--tel {
+	background-position: 9px; padding-left: 36px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_tel.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--email {
+	background-position: 9px; padding-left: 36px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_email.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--home {
+	background-position: 9px; padding-left: 36px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_home.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--price {
+	background-position: 9px; padding-left: 36px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_price.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--user-g {
+	background-position: 20px; padding-left: 64px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_user_g.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--tel-g {
+	background-position: 20px; padding-left: 64px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_tel_g.png"); background-repeat: no-repeat;
+}
+.imc-form-item__text--email-g {
+	background-position: 20px; padding-left: 64px; background-image: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_email_g.png"); background-repeat: no-repeat;
+}
+.imc-form-item__select {
+	background: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/icon/icon_pulldown.png") no-repeat right 12px center; padding: 12px 10px; border-radius: 6px; border: 1px solid rgb(179, 179, 179); border-image: none; width: 230px; color: rgb(43, 55, 78); -webkit-border-radius: 6px; -moz-border-radius: 6px; -moz-appearance: none; -webkit-appearance: none; appearance: none;
+}
+.imc-form-item__select::-ms-expand {
+	display: none;
+}
+.imc-form-item__select:hover {
+	border-color: rgb(0, 137, 252); background-color: rgb(255, 255, 255);
+}
+.imc-form-item__error.imc-form-item__select {
+	border-color: rgb(241, 73, 66);
+}
+@media all and (min-width:1px)
+{
+.imc-form-item__checkbox {
+	display: none;
+}
+.imc-form-item__checkbox + label::before {
+	left: 0px; top: 0px; color: rgb(43, 55, 78); line-height: 24px; letter-spacing: 10px; font-family: FontAwesome; font-size: 24px; vertical-align: middle; display: inline-block; position: absolute; content: "\f096";
+}
+:checked.imc-form-item__checkbox + label::before {
+	color: rgb(25, 92, 165); content: "\f14a";
+}
+}
+.imc-form-item__checkbox + label {
+	padding-left: 26px; font-size: 14px; display: inline-block; position: relative;
+}
+.imc-form-item__error.imc-form-item__checkbox {
+	background: rgb(241, 73, 66);
+}
+.imc-form-item__error.imc-form-item__checkbox + label::before {
+	color: rgb(241, 73, 66);
+}
+@media all and (min-width:1px)
+{
+.imc-form-item__radio {
+	display: none;
+}
+.imc-form-item__radio + label::before {
+	left: 0px; top: 0px; color: rgb(43, 55, 78); line-height: 24px; letter-spacing: 10px; font-family: FontAwesome; font-size: 24px; vertical-align: middle; display: inline-block; position: absolute; content: "\f1db";
+}
+:checked.imc-form-item__radio + label::before {
+	color: rgb(25, 92, 165); content: "\f192";
+}
+}
+.imc-form-item__radio + label {
+	padding-left: 26px; font-size: 14px; display: inline-block; position: relative;
+}
+.imc-form-item__error.imc-form-item__radio {
+	background: rgb(241, 73, 66);
+}
+.imc-form-item__error.imc-form-item__radio + label::before {
+	color: rgb(241, 73, 66);
+}
+.imc-form-item__textarea {
+	background: rgb(242, 244, 250); padding: 10px; border-radius: 6px; border: 1px solid rgb(179, 179, 179); border-image: none; width: 370px; height: 100px; color: rgb(43, 55, 78); font-size: 14px; box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2); -webkit-border-radius: 6px; -moz-border-radius: 6px; -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); -moz-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); resize: vertical;
+}
+.imc-form-item__textarea:focus {
+	border-color: rgb(0, 137, 252); background-color: rgb(255, 255, 255);
+}
+.imc-form-item__textarea--medium {
+	width: 480px;
+}
+.imc-form-item__textarea--long {
+	width: 528px;
+}
+.imc-form-item__textarea--height {
+	height: 200px;
+}
+.imc-form-item__error.imc-form-item__textarea {
+	background: rgb(254, 238, 238); border-color: rgb(241, 73, 66);
+}
+.imc-form-item__ok.imc-form-item__textarea {
+	font-weight: bold; background-color: rgb(219, 227, 247);
+}
+.alert-msg {
+	background: rgb(0, 0, 0); padding: 5px 10px; border-radius: 6px; left: 0px; text-align: left; bottom: 57px; display: inline-block; position: absolute; box-shadow: 0px 2px 2px rgba(0,0,0,0.4); -webkit-border-radius: 6px; -moz-border-radius: 6px; -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+.imc-form-item__error-text {
+	background: rgb(0, 0, 0); padding: 5px 10px; border-radius: 6px; left: 0px; text-align: left; bottom: 57px; display: inline-block; position: absolute; box-shadow: 0px 2px 2px rgba(0,0,0,0.4); -webkit-border-radius: 6px; -moz-border-radius: 6px; -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+.keyv2 .alert-msg {
+	left: 50px; white-space: nowrap;
+}
+.keyv2 .imc-form-item__error-text {
+	left: 50px; white-space: nowrap;
+}
+.imc-form-item--textarea .alert-msg {
+	top: -40px; bottom: auto;
+}
+.imc-form-item--textarea .imc-form-item__error-text {
+	top: -40px; bottom: auto;
+}
+.alert-msg > span {
+	background: rgb(13, 13, 13); color: rgb(255, 255, 255); line-height: 1.1; font-size: 14px; display: inline-block; position: relative;
+}
+.imc-form-item__error-text > span {
+	background: rgb(13, 13, 13); color: rgb(255, 255, 255); line-height: 1.1; font-size: 14px; display: inline-block; position: relative;
+}
+.alert-msg > span::before {
+	color: rgb(241, 73, 66); letter-spacing: 5px; font-family: FontAwesome; font-size: 15px; vertical-align: middle; display: inline-block; content: "\f071";
+}
+.imc-form-item__error-text > span::before {
+	color: rgb(241, 73, 66); letter-spacing: 5px; font-family: FontAwesome; font-size: 15px; vertical-align: middle; display: inline-block; content: "\f071";
+}
+.alert-msg > span::after {
+	left: 15px; bottom: -18px; border-top-color: rgb(13, 13, 13); border-right-color: transparent; border-left-color: transparent; border-top-width: 15px; border-right-width: 15px; border-left-width: 15px; border-top-style: solid; border-right-style: solid; border-left-style: solid; position: absolute; content: "";
+}
+.imc-form-item__error-text > span::after {
+	left: 15px; bottom: -18px; border-top-color: rgb(13, 13, 13); border-right-color: transparent; border-left-color: transparent; border-top-width: 15px; border-right-width: 15px; border-left-width: 15px; border-top-style: solid; border-right-style: solid; border-left-style: solid; position: absolute; content: "";
+}
+.imc-form-item__search {
+	background: rgb(255, 255, 255); padding: 0px 10px; width: 670px; height: 46px; color: rgb(43, 55, 78); line-height: 46px; font-size: 16px; vertical-align: middle; border-top-color: rgb(179, 179, 179); border-bottom-color: rgb(179, 179, 179); border-left-color: rgb(179, 179, 179); border-top-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-bottom-style: solid; border-left-style: solid; display: inline-block; border-top-left-radius: 6px; border-bottom-left-radius: 6px; -webkit-border-top-left-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-bottom-left-radius: 6px; -moz-border-radius-bottomleft: 6px;
+}
+.imc-form-item__search:focus {
+	border-color: rgb(0, 137, 252); background-color: rgb(255, 255, 255);
+}
+.imc-form-item__search--small {
+	width: 234px;
+}
+.imc-form-item__incremental {
+	left: 0px; top: 46px; position: absolute; z-index: 1;
+}
+.imc-form-item__incremental--search {
+	width: 666px;
+}
+.imc-form-side {
+	background: url("//s3-ap-northeast-1.amazonaws.com/unilabo-imitsu-static/image/v2/common/back/back_side_form.png") no-repeat; width: 250px; height: 517px; position: relative;
+}
+.imc-form-side__name {
+	left: 0px; top: 200px; text-align: center; right: 0px; position: absolute;
+}
+.imc-form-side__tel {
+	left: 0px; top: 254px; text-align: center; right: 0px; position: absolute;
+}
+.imc-form-side__email {
+	left: 0px; top: 308px; text-align: center; right: 0px; position: absolute;
+}
+.imc-form-side__button {
+	left: 0px; top: 362px; text-align: center; right: 0px; position: absolute;
+}
