@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using NC.HPS.Lib;
+//using NC.HPS.Lib;
 
 namespace highwayns
 {
@@ -33,7 +33,7 @@ namespace highwayns
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {/*
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -64,7 +64,7 @@ namespace highwayns
                 }
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save Over!");
-            }
+            }*/
         }
 
         private void readData(string filename)
@@ -155,5 +155,64 @@ namespace highwayns
                 }
             }
         }
+
+        private void btnLoadHtml_Click(object sender, EventArgs e)
+        {
+            string dir = @"C:\Temp\Spider";
+            getLine(dir);
+        }
+        private void getLine(string dir)
+        {
+            string[] files = Directory.GetFiles(dir, "*.htm*");
+            foreach (string file in files)
+            {
+                getCompanyInfor(file);
+            }
+            string[] subdirs = Directory.GetDirectories(dir);
+            foreach (string subdir in subdirs)
+            {
+                getLine(subdir);
+            }
+        }
+
+        private void getCompanyInfor(string fileName)
+        {
+            if (fileName.IndexOf("株") > -1)
+            {
+                string[] rows = new string[7];
+                rows[0] = "";//会社番号
+                rows[1] = Path.GetFileNameWithoutExtension(fileName);//会社名
+                rows[2] = "";//部門または職位
+                rows[3] = "";//管理者名前                    
+                rows[4] = "";//アドレス
+                rows[5] = "";//電話・FAX
+                rows[6] = "";//メール
+                using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        if (line.IndexOf(">電話番号<") > -1)
+                        {
+                            line = sr.ReadLine();
+                            rows[5] = line.Replace("<td>", "").Replace("</td></tr>", "");
+                        }
+                        if (line.IndexOf(">郵便番号<") > -1)
+                        {
+                            line = sr.ReadLine();
+                            rows[4] = line.Replace("<td>", "").Replace("</td></tr>", "");
+                        }
+                        if (line.IndexOf(">住所<") > -1)
+                        {
+                            line = sr.ReadLine();
+                            rows[4] += line.Replace("<td>", "").Replace("</td></tr>", "");
+                        }
+                        line = sr.ReadLine();
+                    }
+                }
+                dgvData.Rows.Add(rows);
+            }
+        }
+
     }
 }

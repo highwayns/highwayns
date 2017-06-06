@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using HtmlAgilityPack;
+using Weaver;
+using System.Threading;
+using System.Text.RegularExpressions;
+using System.Net;
 
 namespace highwayns
 {
@@ -69,15 +73,48 @@ namespace highwayns
                     || node.InnerHtml.IndexOf("@") > -1
                     || node.InnerHtml.IndexOf("資本金") > -1
                     || node.InnerHtml.IndexOf("電話") > -1
-                    || node.InnerHtml.IndexOf("tel") > -1
+                    || node.InnerHtml.IndexOf("有限") > -1
                     )
                 {
                     string url = node.GetAttributeValue("href", "");
                     listBox1.Items.Add(url);
-                    listBox1.Items.Add(node.InnerHtml);
+                    string temp = node.InnerHtml;
+                    if (temp.IndexOf("の") > -1)
+                        temp = temp.Substring(0, temp.IndexOf("の"));
+                    if (temp.IndexOf("&") > -1)
+                        temp = temp.Substring(0, temp.IndexOf("&"));
+                    listBox1.Items.Add(temp);
                     Application.DoEvents();
                 }
             }
+        }
+
+        private void btnGet_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listBox1.Items.Count; i += 2)
+            {
+                Application.DoEvents();
+                Uri uri2 = new Uri(listBox1.Items[i].ToString());
+                string filename = Path.GetFileName(uri2.LocalPath);
+
+                UriBuilder uri = new UriBuilder(uri2.AbsoluteUri);
+                string path = i.ToString();
+                path = @"C:\Temp\Spider\" + uri.Host + "\\" + Regex.Replace(path, "/", "\\");
+
+                if (!path.EndsWith("\\"))
+                    path += "\\";
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFileAsync(uri2, path + filename);
+                    //Log.DownloadedFile(uri2.AbsoluteUri);
+                    Application.DoEvents();
+                }
+            }
+            MessageBox.Show("Get Over!");
         }
     }
 }

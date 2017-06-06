@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Collections;
 
 namespace Weaver
 {
@@ -34,7 +35,36 @@ namespace Weaver
             if (SpiderController.SeedURLs.Count == 0)
                 Console.WriteLine("Need at least one seed URL.");
         }
+        Hashtable ht = new Hashtable();
+        public void Get(List<string> urls)
+        {            
+            SpiderController.WhiteListedDomains.Clear();
+            foreach (string seed in urls)
+            {
+                string dm = getDomain(seed);
+                if (ht[dm] == null)
+                {
+                    SpiderController.WhiteListedDomains.Add(dm);
+                    ht[dm] = dm;
+                }
+                Url url = new Url(seed, -1);                
+                this.UrlsSeen.Add(seed);
+                threadManager.LaunchThread(FetchNewPage, url);
+            }
 
+            if (SpiderController.SeedURLs.Count == 0)
+                Console.WriteLine("Need at least one seed URL.");
+        }
+
+        private string getDomain(string seed)
+        {
+            string[] temp = seed.Split('/');
+            if(temp.Length>2)
+            {
+                return temp[2].Replace("www.","");
+            }
+            return "";
+        }
         private void FetchNewPage(Url url)
         {
             Log.WriteToLog("Fetching page...", url.uri.AbsoluteUri);
