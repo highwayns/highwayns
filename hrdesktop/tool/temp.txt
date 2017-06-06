@@ -1,0 +1,2 @@
+string urlEnc = System.Web.HttpUtility.UrlEncode(str);
+https://search.yahoo.co.jp/search?p=%E6%B5%B7%E5%A8%81%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE&aq=-1&oq=&ei=UTF-8&fr=top_ga1_sa&mfb=415_55a&x=wrt
