@@ -70,7 +70,7 @@ namespace Weaver
                 {
                     html = reader.ReadToEnd();
                 }
-                response.Dispose();
+                response.Close();
             }
             catch(NullReferenceException ex)
             {

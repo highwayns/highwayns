@@ -55,6 +55,12 @@
     <Compile Include="Dat.cs" />
     <Compile Include="EncodeType.cs" />
     <Compile Include="Enum_.cs" />
+    <Compile Include="FormWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWeb.Designer.cs">
+      <DependentUpon>FormWeb.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     <Content Include="生産技能会社一覧.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="FormWeb.resx">
+      <DependentUpon>FormWeb.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddress.resx">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +383,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="HtmlAgilityPack\HtmlAgilityPack-4.0.csproj">
+      <Project>{1028002a-bbe2-4ff2-94b7-a8368a8f6887}</Project>
+      <Name>HtmlAgilityPack-4.0</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
