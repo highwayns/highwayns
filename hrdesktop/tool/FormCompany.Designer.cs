@@ -38,6 +38,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLoadHtml = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +119,22 @@
             this.Column7.HeaderText = "mail";
             this.Column7.Name = "Column7";
             // 
+            // btnLoadHtml
+            // 
+            this.btnLoadHtml.Location = new System.Drawing.Point(143, 332);
+            this.btnLoadHtml.Name = "btnLoadHtml";
+            this.btnLoadHtml.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadHtml.TabIndex = 27;
+            this.btnLoadHtml.Text = "LoadHtml";
+            this.btnLoadHtml.UseVisualStyleBackColor = true;
+            this.btnLoadHtml.Click += new System.EventHandler(this.btnLoadHtml_Click);
+            // 
             // FormCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 359);
+            this.Controls.Add(this.btnLoadHtml);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.dgvData);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button btnLoadHtml;
     }
 }

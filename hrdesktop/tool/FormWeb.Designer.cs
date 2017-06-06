@@ -32,6 +32,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -71,11 +72,22 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "C:\\Users\\ju8251\\Documents\\GitHub\\highwayns\\hrdesktop\\tool";
             // 
+            // btnGet
+            // 
+            this.btnGet.Location = new System.Drawing.Point(62, 349);
+            this.btnGet.Name = "btnGet";
+            this.btnGet.Size = new System.Drawing.Size(75, 23);
+            this.btnGet.TabIndex = 4;
+            this.btnGet.Text = "Get";
+            this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
+            // 
             // FormWeb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 411);
+            this.Controls.Add(this.btnGet);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.listBox1);
@@ -93,6 +105,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnGet;
     }
 }
 

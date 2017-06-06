@@ -17,7 +17,7 @@
       Please also be aware that changing these settings incorrectly may cause the crawler
       to misbehave or, most likely, not function at all.-->
   
-  <setting id="MaximumDepth">3</setting>
+  <setting id="MaximumDepth">0</setting>
   <!--MaximumDepth refers to the link depth from the root page that should be crawled. 
       For example, if MaximumDepth is set to 0 then only the root URL will be crawled. 
       If MaximumDepth is set to 1 then the root URL will be crawled along with every URL
@@ -50,7 +50,7 @@
   <setting id="LogFolder">C:\Temp\</setting>
   <!--The location on the hard drive where the log file will be saved.-->
   
-  <setting id="FileTypesToDownload">.html|.htm|.js|.css|.jpg|.png</setting>
+  <setting id="FileTypesToDownload">.html|.htm</setting>
   <!--List the file types the crawler should download here. File types listed should be in this
       format using "|" as a delimiter: 
       

@@ -42,6 +42,7 @@
             this.btnMicrosoft = new System.Windows.Forms.Button();
             this.btnDataClean = new System.Windows.Forms.Button();
             this.btnCompany = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -184,11 +185,22 @@
             this.btnCompany.UseVisualStyleBackColor = true;
             this.btnCompany.Click += new System.EventHandler(this.btnCompany_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(269, 149);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Web";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.btnDataClean);
             this.Controls.Add(this.btnMicrosoft);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Button btnMicrosoft;
         private System.Windows.Forms.Button btnDataClean;
         private System.Windows.Forms.Button btnCompany;
+        private System.Windows.Forms.Button button2;
     }
 }
