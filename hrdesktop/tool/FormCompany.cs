@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Net;
 //using NC.HPS.Lib;
 
 namespace highwayns
@@ -212,6 +214,45 @@ namespace highwayns
                 }
                 dgvData.Rows.Add(rows);
             }
+        }
+
+        private void btnGetHP_Click(object sender, EventArgs e)
+        {
+            Random rdm = new Random();
+            
+            for (int i = 0; i < dgvData.Rows.Count; i++)
+            {
+                Application.DoEvents();
+                if (i % 5 == 0)
+                {
+                    System.Threading.Thread.Sleep(10000);
+                }
+                string tmp = rdm.Next(1,999).ToString("000")+"_"+rdm.Next(1,9).ToString("0");
+                string companyName  = dgvData.Rows[i].Cells[1].Value.ToString();
+                companyName = System.Web.HttpUtility.UrlEncode(companyName);
+                string link = string.Format("https://search.yahoo.co.jp/search?p={0}&ei=UTF-8", companyName,tmp);
+                Uri uri2 = new Uri(link);
+                string filename = dgvData.Rows[i].Cells[1].Value.ToString()+".htm";
+
+                UriBuilder uri = new UriBuilder(uri2.AbsoluteUri);
+                string path = i.ToString();
+                path = @"C:\Temp\yahoo\" + uri.Host + "\\" + Regex.Replace(path, "/", "\\");
+
+                if (!path.EndsWith("\\"))
+                    path += "\\";
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFileAsync(uri2, path + filename);
+                    //Log.DownloadedFile(uri2.AbsoluteUri);
+                    Application.DoEvents();
+                }
+            }
+            MessageBox.Show("Get Over!");
+
         }
 
     }

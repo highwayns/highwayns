@@ -39,6 +39,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLoadHtml = new System.Windows.Forms.Button();
+            this.btnGetHP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,11 +130,22 @@
             this.btnLoadHtml.UseVisualStyleBackColor = true;
             this.btnLoadHtml.Click += new System.EventHandler(this.btnLoadHtml_Click);
             // 
+            // btnGetHP
+            // 
+            this.btnGetHP.Location = new System.Drawing.Point(235, 332);
+            this.btnGetHP.Name = "btnGetHP";
+            this.btnGetHP.Size = new System.Drawing.Size(75, 23);
+            this.btnGetHP.TabIndex = 28;
+            this.btnGetHP.Text = "GetHP";
+            this.btnGetHP.UseVisualStyleBackColor = true;
+            this.btnGetHP.Click += new System.EventHandler(this.btnGetHP_Click);
+            // 
             // FormCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 359);
+            this.Controls.Add(this.btnGetHP);
             this.Controls.Add(this.btnLoadHtml);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Button btnLoadHtml;
+        private System.Windows.Forms.Button btnGetHP;
     }
 }
