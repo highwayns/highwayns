@@ -33,6 +33,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnGet = new System.Windows.Forms.Button();
+            this.btnGetUrl = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -82,11 +83,22 @@
             this.btnGet.UseVisualStyleBackColor = true;
             this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
+            // btnGetUrl
+            // 
+            this.btnGetUrl.Location = new System.Drawing.Point(158, 349);
+            this.btnGetUrl.Name = "btnGetUrl";
+            this.btnGetUrl.Size = new System.Drawing.Size(75, 23);
+            this.btnGetUrl.TabIndex = 5;
+            this.btnGetUrl.Text = "GetUrl";
+            this.btnGetUrl.UseVisualStyleBackColor = true;
+            this.btnGetUrl.Click += new System.EventHandler(this.btnGetUrl_Click);
+            // 
             // FormWeb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 411);
+            this.Controls.Add(this.btnGetUrl);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnStart);
@@ -106,6 +118,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnGet;
+        private System.Windows.Forms.Button btnGetUrl;
     }
 }
 
