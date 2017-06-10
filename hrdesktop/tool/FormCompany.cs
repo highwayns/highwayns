@@ -35,8 +35,8 @@ namespace highwayns
             readData(fileName);
             fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "生産技能会社一覧.txt");
             readData2(fileName);
-            fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20130715.csv");
-            readData3(fileName);
+            //fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20130715.csv");
+            //readData3(fileName);
             fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20151220.csv");
             readData3(fileName);
 
@@ -250,82 +250,6 @@ namespace highwayns
 
         }
         /// <summary>
-        /// load profile
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLoadProfile_Click(object sender, EventArgs e)
-        {
-            string dir = @"C:\Temp\Spider";
-            getLine(dir);
-            MessageBox.Show("Load html Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
-        }
-        /// <summary>
-        /// get line after spider
-        /// </summary>
-        /// <param name="dir"></param>
-        private void getLine(string dir)
-        {
-            string[] files = Directory.GetFiles(dir, "*.htm*");
-            foreach (string file in files)
-            {
-                getCompanyInfor(file);
-            }
-            string[] subdirs = Directory.GetDirectories(dir);
-            foreach (string subdir in subdirs)
-            {
-                getLine(subdir);
-            }
-        }
-        /// <summary>
-        /// get company infor after spider
-        /// </summary>
-        /// <param name="fileName"></param>
-        private void getCompanyInfor(string fileName)
-        {
-            if (fileName.IndexOf("株") > -1)
-            {
-                string[] rows = new string[9];
-                rows[0] = dgvData.Rows.Count.ToString();
-                rows[1] = Path.GetFileNameWithoutExtension(fileName);//会社名
-                rows[2] = "";//部門または職位
-                rows[3] = "";//管理者名前                    
-                rows[4] = "";//アドレス
-                rows[5] = "";//電話・FAX
-                rows[6] = "";//メール
-                rows[7] = "";//web
-                rows[8] = "";//other
-                using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
-                {
-                    string line = sr.ReadLine();
-                    while (line != null)
-                    {
-                        if (line.IndexOf(">電話番号<") > -1)
-                        {
-                            line = sr.ReadLine();
-                            rows[5] = line.Replace("<td>", "").Replace("</td></tr>", "");
-                        }
-                        if (line.IndexOf(">郵便番号<") > -1)
-                        {
-                            line = sr.ReadLine();
-                            rows[4] = line.Replace("<td>", "").Replace("</td></tr>", "");
-                        }
-                        if (line.IndexOf(">住所<") > -1)
-                        {
-                            line = sr.ReadLine();
-                            rows[4] += line.Replace("<td>", "").Replace("</td></tr>", "");
-                        }
-                        line = sr.ReadLine();
-                    }
-                }
-                if (ht[rows[1]] == null)
-                {
-                    ht[rows[1]] = rows;
-                    dgvData.Rows.Add(rows);
-                }
-            }
-        }
-        /// <summary>
         /// get url after websearch
         /// </summary>
         /// <param name="sender"></param>
@@ -438,6 +362,88 @@ namespace highwayns
 
         }
         /// <summary>
+        /// load profile
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLoadProfile_Click(object sender, EventArgs e)
+        {
+            string dir = @"C:\Temp\Spider";
+            getLine(dir);
+            MessageBox.Show("Load html Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
+        }
+        /// <summary>
+        /// get line after spider
+        /// </summary>
+        /// <param name="dir"></param>
+        private void getLine(string dir)
+        {
+            string[] files = Directory.GetFiles(dir, "*.htm");
+            foreach (string file in files)
+            {
+                getCompanyInfor(file);
+            }
+            string[] subdirs = Directory.GetDirectories(dir);
+            foreach (string subdir in subdirs)
+            {
+                getLine(subdir);
+            }
+        }
+        /// <summary>
+        /// get company infor after spider
+        /// </summary>
+        /// <param name="fileName"></param>
+        private void getCompanyInfor(string fileName)
+        {
+            string name = Path.GetFileNameWithoutExtension(fileName);
+            if (name.IndexOf("_") > -1)
+            {
+                name = name.Substring(0, name.IndexOf("_"));
+            }
+            string[] data = (string[])ht[name];
+            if (data == null) return;
+            int score = 0;
+            using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
+            {
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    if (line.IndexOf("電話番号") > -1 || line.IndexOf("TEL") > -1 || line.IndexOf("FAX") > -1)
+                    {
+                        score++;
+                    }
+                    if (line.IndexOf("郵便番号") > -1 || line.IndexOf("〒") > -1)
+                    {
+                        score++;
+                    }
+                    if (line.IndexOf("住所") > -1)
+                    {
+                        score++;
+                    }
+                    if (line.IndexOf("会社名称") > -1 || line.IndexOf("商号") > -1)
+                    {
+                        score++;
+                    }
+                    if (line.IndexOf("資本金") > -1 || line.IndexOf("人数") > -1)
+                    {
+                        score++;
+                    }
+                    if (line.IndexOf("代表取締役") > -1 || line.IndexOf("取締役") > -1)
+                    {
+                        score++;
+                    }
+                    line = sr.ReadLine();
+                }
+                if (score > 3)
+                {
+                    data[8] = data[8] + "*";
+                    int idx = int.Parse(data[0]);
+                    dgvData.Rows[idx].Cells[8].Value = data[8];
+                    Application.DoEvents();
+                }
+            }
+        }
+        /// <summary>
         /// CSV ファイルに保存
         /// </summary>
         /// <param name="sender"></param>
@@ -502,7 +508,7 @@ namespace highwayns
                 if(data[7]!="" && (data[3]=="" || data[5]==""))
                 {
                     Uri uri2 = new Uri(data[7]);
-                    string filename = data[1];
+                    string filename = data[1]+".htm";
 
                     UriBuilder uri = new UriBuilder(uri2.AbsoluteUri);
                     string path = data[0];
@@ -517,6 +523,7 @@ namespace highwayns
                     using (WebClient client = new WebClient())
                     {
                         client.DownloadFileAsync(uri2, path + filename);
+                        System.Threading.Thread.Sleep(5000);
                         Application.DoEvents();
                     }
                 }
@@ -531,6 +538,103 @@ namespace highwayns
         /// <param name="e"></param>
         private void btnGetProfile_Click(object sender, EventArgs e)
         {
+            getLine3(@"C:\temp\Spider");
+        }
+        /// <summary>
+        /// get line after web search
+        /// </summary>
+        /// <param name="dir"></param>
+        private void getLine3(string dir)
+        {
+            string[] files = Directory.GetFiles(dir, "*.htm");
+            foreach (string file in files)
+            {
+                //File.Move(file,file+".htm");
+                getCompanyInfor3(file);
+            }
+            string[] subdirs = Directory.GetDirectories(dir);
+            foreach (string subdir in subdirs)
+            {
+                getLine3(subdir);
+            }
+            //MessageBox.Show("Over!");
+        }
+        /// <summary>
+        /// get company infor after web search
+        /// </summary>
+        /// <param name="fileName"></param>
+        private void getCompanyInfor3(string fileName)
+        {
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.OptionAutoCloseOnEnd = false;  //最後に自動で閉じる（？）
+            doc.OptionCheckSyntax = false;     //文法チェック。
+            doc.OptionFixNestedTags = true;    //閉じタグが欠如している場合の処理
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            StreamReader sr = new StreamReader(fs, Encoding.UTF8);
+            doc.Load(sr);
+            fs.Close();
+            sr.Close();
+            HtmlAgilityPack.HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//a");
+            if (nodes != null)
+            {
+                getCompanyInfor3(nodes, fileName);
+            }
+
+        }
+        /// <summary>
+        /// get company infor after web search
+        /// </summary>
+        /// <param name="nodes"></param>
+        /// <param name="fileName"></param>
+        private void getCompanyInfor3(HtmlAgilityPack.HtmlNodeCollection nodes, string fileName)
+        {
+            string name = Path.GetFileNameWithoutExtension(fileName);
+            string[] data = (string[])ht[name];
+            if (data == null) return;
+            Uri uri1 = new Uri(data[7]);
+            Hashtable urls = new Hashtable();
+            foreach (HtmlAgilityPack.HtmlNode node in nodes)
+            {
+                if (node.InnerHtml.IndexOf(name) > -1)
+                {
+                    string url = System.Web.HttpUtility.HtmlDecode(node.GetAttributeValue("href", ""));
+                    if (url.StartsWith("http"))
+                    {
+                        if (url.Split('/').Length < 5 && url.IndexOf("?") < 0)
+                        {
+                            Uri uri2 = new Uri(url);
+                            if(url != data[7] && uri1.Host == uri2.Host && urls[url]==null)
+                                urls[url]=url;
+                        }
+                    }
+                }
+            }
+            if (urls.Keys.Count > 0)
+            {
+                string[] urldata = new string[urls.Keys.Count];
+                urls.Keys.CopyTo(urldata, 0);
+                for (int i = 0; i < urldata.Length; i++)
+                {
+                    Uri uri3 = new Uri(urldata[i]);
+                    UriBuilder uri = new UriBuilder(uri3.AbsoluteUri);
+                    string path = fileName.Split('\\')[4];
+                    path = @"C:\Temp\Spider\" + uri.Host + "\\" + Regex.Replace(path, "/", "\\");
+                    string filename = Path.Combine(Path.GetDirectoryName(fileName), Path.GetFileNameWithoutExtension(fileName)+"_"+i.ToString()+".htm");
+                    if (!path.EndsWith("\\"))
+                        path += "\\";
+
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
+                    if (!File.Exists(filename))
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            client.DownloadFileAsync(uri3, filename);
+                            Application.DoEvents();
+                        }
+                    }
+                }
+            }
 
         }
 
