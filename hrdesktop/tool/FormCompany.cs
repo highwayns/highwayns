@@ -82,7 +82,7 @@ namespace highwayns
                     idx++;
                 }
                 execel.SaveAs(dlg.FileName);
-                MessageBox.Show("Save Over!\r\n there are "+ht.Keys.Count.ToString()+" record!");
+                MessageBox.Show("Save ExcelOver!\r\n there are "+ht.Keys.Count.ToString()+" record!");
             }
         }
         /// <summary>
@@ -214,10 +214,6 @@ namespace highwayns
             for (int i = 0; i < dgvData.Rows.Count; i++)
             {
                 Application.DoEvents();
-                if (i % 5 == 0)
-                {
-                    System.Threading.Thread.Sleep(10000);
-                }
                 string tmp = rdm.Next(1,999).ToString("000")+"_"+rdm.Next(1,9).ToString("0");
                 string companyName  = dgvData.Rows[i].Cells[1].Value.ToString();
                 string[] infor = (string[])ht[companyName];
@@ -242,6 +238,7 @@ namespace highwayns
                     {
                         client.DownloadFileAsync(uri2, path + filename);
                         count++;
+                        System.Threading.Thread.Sleep(1000);
                         Application.DoEvents();
                     }
                 }
@@ -257,6 +254,7 @@ namespace highwayns
         private void btnGetUrl_Click(object sender, EventArgs e)
         {
             getLine2(@"C:\temp\bing\www.bing.com");
+            MessageBox.Show("Get Url Over!");
         }
         /// <summary>
         /// get line after web search
@@ -370,7 +368,7 @@ namespace highwayns
         {
             string dir = @"C:\Temp\Spider";
             getLine(dir);
-            MessageBox.Show("Load html Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
+            MessageBox.Show("Load profile Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
         }
         /// <summary>
         /// get line after spider
@@ -463,7 +461,7 @@ namespace highwayns
                         sw.WriteLine(string.Join(",", data));
                     }
                 }
-                MessageBox.Show("Save Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
+                MessageBox.Show("Save Csv Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
             }
 
         }
@@ -490,7 +488,7 @@ namespace highwayns
                         line = sr.ReadLine();
                     }
                 }
-                MessageBox.Show("Save Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
+                MessageBox.Show("Load Csv Over!\r\n there are " + ht.Keys.Count.ToString() + " record!");
             }
 
         }
@@ -528,7 +526,7 @@ namespace highwayns
                     }
                 }
             }
-            MessageBox.Show("Get Profile Over!");
+            MessageBox.Show("Get Home Page Over!");
 
         }
         /// <summary>
@@ -539,6 +537,7 @@ namespace highwayns
         private void btnGetProfile_Click(object sender, EventArgs e)
         {
             getLine3(@"C:\temp\Spider");
+            MessageBox.Show("Get Profile Over!");
         }
         /// <summary>
         /// get line after web search
