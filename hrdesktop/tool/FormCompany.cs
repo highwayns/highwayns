@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
-//using NC.HPS.Lib;
+using NC.HPS.Lib;
 using System.Collections;
 
 namespace highwayns
@@ -48,7 +48,7 @@ namespace highwayns
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSaveExcel_Click(object sender, EventArgs e)
-        {/*
+        {
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -83,7 +83,7 @@ namespace highwayns
                 }
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save ExcelOver!\r\n there are "+ht.Keys.Count.ToString()+" record!");
-            }*/
+            }
         }
         /// <summary>
         /// read data have dispatch no
@@ -592,20 +592,108 @@ namespace highwayns
             if (data == null) return;
             Uri uri1 = new Uri(data[7]);
             Hashtable urls = new Hashtable();
+            int count = 0;
             foreach (HtmlAgilityPack.HtmlNode node in nodes)
             {
-                if (node.InnerHtml.IndexOf(name) > -1)
+                if (node.InnerHtml.IndexOf("企業") > -1||
+                    node.InnerHtml.IndexOf("会社") > -1 ||
+                    node.InnerHtml.IndexOf("概要") > -1||
+                    node.InnerHtml.IndexOf("案内") > -1||
+                    node.InnerHtml.IndexOf("COMPANY") > -1||
+                    node.InnerHtml.IndexOf("ABOUTUS") > -1)
                 {
                     string url = System.Web.HttpUtility.HtmlDecode(node.GetAttributeValue("href", ""));
                     if (url.StartsWith("http"))
                     {
-                        if (url.Split('/').Length < 5 && url.IndexOf("?") < 0)
+                        if (url.Split('/').Length < 6 && url.IndexOf("?") < 0)
                         {
                             Uri uri2 = new Uri(url);
-                            if(url != data[7] && uri1.Host == uri2.Host && urls[url]==null)
-                                urls[url]=url;
+                            if (url != data[7] && uri1.Host == uri2.Host && urls[url] == null)
+                            {
+                                urls[url] = url;
+                                count++;
+                                if (count == 20)
+                                {
+                                    break;
+                                }
+                            }
                         }
                     }
+                    else
+                    {
+                        if (url.StartsWith("/"))
+                            url = "http://" + uri1.Host + url;
+                        else
+                            url = "http://" + uri1.Host + "/" + url;
+                        if (url.Split('/').Length < 6 && url.IndexOf("?") < 0)
+                        {
+                            Uri uri2 = new Uri(url);
+                            if (url != data[7] && urls[url] == null)
+                            {
+                                urls[url] = url;
+                                count++;
+                                if (count == 20)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                    
+                }
+            }
+            if (count == 0)
+            {
+                foreach (HtmlAgilityPack.HtmlNode node in nodes)
+                {
+                    string url = System.Web.HttpUtility.HtmlDecode(node.GetAttributeValue("href", ""));
+                    if (url.IndexOf("corporate") > -1 || 
+                        url.IndexOf("about") > -1  ||
+                        url.IndexOf("infor") > -1 ||
+                        url.IndexOf("profile") > -1 ||
+                        url.IndexOf("company") > -1)
+                    {
+
+                        if (url.StartsWith("http"))
+                        {
+                            if (url.Split('/').Length < 6 && url.IndexOf("?") < 0)
+                            {
+                                Uri uri2 = new Uri(url);
+                                if (url != data[7] && uri1.Host == uri2.Host && urls[url] == null)
+                                {
+                                    urls[url] = url;
+                                    count++;
+                                    if (count == 20)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (url.StartsWith("/"))
+                                url = "http://" + uri1.Host + url;
+                            else
+                                url = "http://" + uri1.Host + "/" + url;
+                            if (url.Split('/').Length < 6 && url.IndexOf("?") < 0)
+                            {
+                                Uri uri2 = new Uri(url);
+                                if (url != data[7] && urls[url] == null)
+                                {
+                                    urls[url] = url;
+                                    count++;
+                                    if (count == 20)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    
                 }
             }
             if (urls.Keys.Count > 0)
@@ -629,6 +717,7 @@ namespace highwayns
                         using (WebClient client = new WebClient())
                         {
                             client.DownloadFileAsync(uri3, filename);
+                            System.Threading.Thread.Sleep(1000);
                             Application.DoEvents();
                         }
                     }
