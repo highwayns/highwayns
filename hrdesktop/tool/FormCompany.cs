@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
-using NC.HPS.Lib;
+//using NC.HPS.Lib;
 using System.Collections;
 
 namespace highwayns
@@ -35,8 +35,8 @@ namespace highwayns
             readData(fileName);
             fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "生産技能会社一覧.txt");
             readData2(fileName);
-            //fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20130715.csv");
-            //readData3(fileName);
+            fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20130715.csv");
+            readData3(fileName);
             fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "CompanyList_20151220.csv");
             readData3(fileName);
 
@@ -48,7 +48,7 @@ namespace highwayns
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSaveExcel_Click(object sender, EventArgs e)
-        {
+        {/*
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -83,7 +83,7 @@ namespace highwayns
                 }
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save ExcelOver!\r\n there are "+ht.Keys.Count.ToString()+" record!");
-            }
+            }*/
         }
         /// <summary>
         /// read data have dispatch no
@@ -312,7 +312,7 @@ namespace highwayns
                     string url = node.GetAttributeValue("href", "");
                     if(url.StartsWith("http"))
                     {
-                        if (url.Split('/').Length < 5 && url.IndexOf("?") < 0)
+                        if (url.Split('/').Length < 6 && url.IndexOf("?") < 0)
                         {
                             urls.Add(url);
                         }
@@ -521,7 +521,7 @@ namespace highwayns
                     using (WebClient client = new WebClient())
                     {
                         client.DownloadFileAsync(uri2, path + filename);
-                        System.Threading.Thread.Sleep(5000);
+                        System.Threading.Thread.Sleep(1000);
                         Application.DoEvents();
                     }
                 }
