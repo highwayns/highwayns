@@ -470,7 +470,7 @@ namespace highwayns
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                using (StreamWriter sw = new StreamWriter(dlg.FileName,true, Encoding.UTF8))
+                using (StreamWriter sw = new StreamWriter(dlg.FileName,false, Encoding.UTF8))
                 {
                     // add table list
                     foreach (DataGridViewRow row in dgvData.Rows)
