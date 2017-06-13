@@ -55,6 +55,12 @@
     <Compile Include="Dat.cs" />
     <Compile Include="EncodeType.cs" />
     <Compile Include="Enum_.cs" />
+    <Compile Include="FormPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonal.Designer.cs">
+      <DependentUpon>FormPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormWeb.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,15 @@
     <Content Include="oosakakita.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="personal\1.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="personal\2.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="personal\3.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="saitama.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -279,6 +294,9 @@
     <Content Include="生産技能会社一覧.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="FormPersonal.resx">
+      <DependentUpon>FormPersonal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormWeb.resx">
       <DependentUpon>FormWeb.cs</DependentUpon>
     </EmbeddedResource>

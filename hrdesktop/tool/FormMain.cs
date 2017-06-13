@@ -90,5 +90,10 @@ namespace highwayns
         {
             (new FormWeb()).ShowDialog();
         }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            (new FormPersonal()).ShowDialog();
+        }
     }
 }
