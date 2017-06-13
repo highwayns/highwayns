@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
-using NC.HPS.Lib;
+//using NC.HPS.Lib;
 using System.Collections;
 
 namespace highwayns
@@ -48,7 +48,7 @@ namespace highwayns
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSaveExcel_Click(object sender, EventArgs e)
-        {
+        {/*
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -83,7 +83,7 @@ namespace highwayns
                 }
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save ExcelOver!\r\n there are "+ht.Keys.Count.ToString()+" record!");
-            }
+            }*/
         }
         /// <summary>
         /// read data have dispatch no
@@ -401,6 +401,7 @@ namespace highwayns
             string[] data = (string[])ht[name];
             if (data == null) return;
             int score = 0;
+            int score2 = 0;
             using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
@@ -430,15 +431,33 @@ namespace highwayns
                     {
                         score++;
                     }
+                    if (line.IndexOf("募集") > -1 || line.IndexOf("パートナー") > -1 || line.IndexOf("お問合せ") > -1)
+                    {
+                        score2++;
+                    }
                     line = sr.ReadLine();
                 }
                 if (score > 3)
                 {
-                    data[8] = data[8] + "*";
+                    if(score2>0)
+                        data[8] = data[8] + "***" + fileName;
+                    else
+                        data[8] = data[8] + "**" + fileName;
+                    ht[name] = data;
                     int idx = int.Parse(data[0]);
                     dgvData.Rows[idx].Cells[8].Value = data[8];
                     Application.DoEvents();
                 }
+                else if(score2>0)
+                {
+                    data[8] = data[8] + "*" + fileName;
+                    ht[name] = data;
+                    int idx = int.Parse(data[0]);
+                    dgvData.Rows[idx].Cells[8].Value = data[8];
+                    Application.DoEvents();
+
+                }
+
             }
         }
         /// <summary>
