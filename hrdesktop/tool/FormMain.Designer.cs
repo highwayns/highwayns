@@ -43,6 +43,7 @@
             this.btnDataClean = new System.Windows.Forms.Button();
             this.btnCompany = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnPersonal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -195,11 +196,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnPersonal
+            // 
+            this.btnPersonal.Location = new System.Drawing.Point(375, 149);
+            this.btnPersonal.Name = "btnPersonal";
+            this.btnPersonal.Size = new System.Drawing.Size(75, 23);
+            this.btnPersonal.TabIndex = 15;
+            this.btnPersonal.Text = "Personal";
+            this.btnPersonal.UseVisualStyleBackColor = true;
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.btnPersonal);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.btnDataClean);
@@ -238,5 +250,6 @@
         private System.Windows.Forms.Button btnDataClean;
         private System.Windows.Forms.Button btnCompany;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPersonal;
     }
 }
