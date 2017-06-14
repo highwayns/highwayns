@@ -78,7 +78,7 @@ namespace highwayns
                 if (!url.StartsWith("http"))
                 {
                     string link = "https://www.njss.info";
-                    if (url.StartsWith("/"))
+                    if (!url.StartsWith("/"))
                         url = link + "/" + url;
                     else
                         url = link + url;
@@ -281,7 +281,7 @@ namespace highwayns
                 if (!url.StartsWith("http"))
                 {
                     string link = "https://www.njss.info";
-                    if (url.StartsWith("/"))
+                    if (!url.StartsWith("/"))
                         url = link + "/" + url;
                     else
                         url = link + url;
@@ -369,7 +369,7 @@ namespace highwayns
                 if (!url.StartsWith("http"))
                 {
                     string link = "https://www.njss.info";
-                    if (url.StartsWith("/"))
+                    if (!url.StartsWith("/"))
                         url = link + "/" + url;
                     else
                         url = link + url;
@@ -387,6 +387,80 @@ namespace highwayns
                             ;
                     }
                 }
+            }
+        }
+        Hashtable bid = new Hashtable();
+        /// <summary>
+        /// Load Csv for bid project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLoadCsv_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamReader sr = new StreamReader(dlg.FileName, Encoding.UTF8))
+                {
+                    dgvData.Rows.Clear();
+                    bid.Clear();
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        string[] temp = line.Split(',');
+                        string[] rows = new string[9];
+                        rows[0] = dgvData.Rows.Count.ToString();
+                        rows[1] = temp[0];//名称
+                        rows[2] = temp[1];//分類
+                        rows[3] = temp[2];//区域                    
+                        rows[4] = temp[3].Replace("入札可能案件","");//入札可能案件
+                        rows[5] = temp[4].Replace("案件登録数", "");//案件登録数
+                        rows[6] = temp[5].Replace("入札結果数", "");//入札結果数
+                        rows[7] = temp[6];//web
+                        rows[8] = "";//other
+                        dgvData.Rows.Add(rows);
+                        bid[rows[1]] = rows;
+                        line = sr.ReadLine();
+                    }
+                }
+                MessageBox.Show("Load Csv Over!\r\n there are " + bid.Keys.Count.ToString() + " record!");
+            }
+
+        }
+        /// <summary>
+        /// Save to Csv
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSavetoCsv_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(dlg.FileName, false, Encoding.UTF8))
+                {
+                    // add table list
+                    foreach (DataGridViewRow row in dgvData.Rows)
+                    {
+                        string companyName = row.Cells[1].Value.ToString();
+                        string[] data = (string[])bid[companyName];
+                        sw.WriteLine(string.Join(",", data,1,data.Length-1));
+                    }
+                }
+                MessageBox.Show("Save Csv Over!\r\n there are " + bid.Keys.Count.ToString() + " record!");
+            }
+        }
+        /// <summary>
+        /// Show Detail
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string name = dgvData.Rows[e.RowIndex].Cells[1].Value.ToString();
+                (new FormNjssDetail(name)).ShowDialog();
             }
         }
 
