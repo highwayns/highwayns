@@ -303,5 +303,92 @@ namespace highwayns
             }
         }
 
+        private void btnDownloadBidDetail_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string link = "https://www.njss.info/";
+                Uri uri2 = new Uri(link);
+
+                UriBuilder uri = new UriBuilder(uri2.AbsoluteUri);
+                string path = @"C:\Temp\njss\" + uri.Host + "\\organizations\\proc";
+                string[] dirs = Directory.GetDirectories(path);
+                Hashtable urls = new Hashtable();
+                foreach (string dir in dirs)
+                {
+                    string[] files = Directory.GetFiles(dir);
+                    if (files!=null && files.Length >0)
+                    {
+                        getBidDetailUrl(files[0], urls);
+                    }
+                }
+                using (StreamWriter sw = new StreamWriter(dlg.FileName, false, Encoding.UTF8))
+                {
+                    foreach (string key in urls.Keys)
+                    {
+                        sw.WriteLine(Convert.ToString(urls[key]) + "," + key);
+                    }
+                }
+                MessageBox.Show("Get BidDetail Url Over!\r\n there are " + urls.Keys.Count.ToString() + " record!");
+
+            }
+        }
+        /// <summary>
+        /// get Bid Url 
+        /// </summary>
+        /// <param name="fileName"></param>
+        private void getBidDetailUrl(string fileName, Hashtable urls)
+        {
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.OptionAutoCloseOnEnd = false;  //最後に自動で閉じる（？）
+            doc.OptionCheckSyntax = false;     //文法チェック。
+            doc.OptionFixNestedTags = true;    //閉じタグが欠如している場合の処理
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            StreamReader sr = new StreamReader(fs, Encoding.UTF8);
+            doc.Load(sr);
+            fs.Close();
+            sr.Close();
+            HtmlAgilityPack.HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//a");
+            if (nodes != null)
+            {
+                getBidDetailUrl(nodes, urls, fileName);
+            }
+        }
+        /// <summary>
+        /// get Bid Detail Url
+        /// </summary>
+        /// <param name="nodes"></param>
+        /// <param name="fileName"></param>
+        private void getBidDetailUrl(HtmlAgilityPack.HtmlNodeCollection nodes, Hashtable urls,string fileName)
+        {
+            string name = Path.GetFileNameWithoutExtension(fileName);
+            foreach (HtmlAgilityPack.HtmlNode node in nodes)
+            {
+                string url = node.GetAttributeValue("href", "");
+                if (!url.StartsWith("http"))
+                {
+                    string link = "https://www.njss.info";
+                    if (url.StartsWith("/"))
+                        url = link + "/" + url;
+                    else
+                        url = link + url;
+                }
+                if (url.IndexOf("offers/view") > -1 && node.InnerText.Trim() != "")
+                {
+                    HtmlAgilityPack.HtmlNodeCollection linodes = node.ParentNode.ParentNode.SelectNodes(".//li");
+                    if (linodes != null && linodes.Count >2)
+                    {
+                        urls[url] = name
+                            + "," + node.InnerText.Replace(",", "_").Trim()
+                            + "," + linodes[0].InnerText.Replace(",", "").Trim()
+                            + "," + linodes[1].InnerText.Replace(",", "").Trim()
+                            + "," + linodes[2].InnerText.Replace(",", "").Trim()
+                            ;
+                    }
+                }
+            }
+        }
+
     }
 }

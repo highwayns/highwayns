@@ -33,6 +33,7 @@
             this.btnGetUrl = new System.Windows.Forms.Button();
             this.btnGetBidInfor = new System.Windows.Forms.Button();
             this.btnDownload = new System.Windows.Forms.Button();
+            this.btnDownloadBidDetail = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSearchWeb
@@ -85,11 +86,22 @@
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
+            // btnDownloadBidDetail
+            // 
+            this.btnDownloadBidDetail.Location = new System.Drawing.Point(514, 357);
+            this.btnDownloadBidDetail.Name = "btnDownloadBidDetail";
+            this.btnDownloadBidDetail.Size = new System.Drawing.Size(89, 23);
+            this.btnDownloadBidDetail.TabIndex = 37;
+            this.btnDownloadBidDetail.Text = "DownBidDetail";
+            this.btnDownloadBidDetail.UseVisualStyleBackColor = true;
+            this.btnDownloadBidDetail.Click += new System.EventHandler(this.btnDownloadBidDetail_Click);
+            // 
             // FormNjss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 392);
+            this.Controls.Add(this.btnDownloadBidDetail);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnGetBidInfor);
             this.Controls.Add(this.btnGetHomePage);
@@ -108,5 +120,6 @@
         private System.Windows.Forms.Button btnGetUrl;
         private System.Windows.Forms.Button btnGetBidInfor;
         private System.Windows.Forms.Button btnDownload;
+        private System.Windows.Forms.Button btnDownloadBidDetail;
     }
 }
