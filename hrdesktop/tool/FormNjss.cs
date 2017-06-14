@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace highwayns
 {
@@ -168,7 +169,46 @@ namespace highwayns
         /// <param name="e"></param>
         private void btnGetBid_Click(object sender, EventArgs e)
         {
+            OpenFileDialog dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Hashtable ht = new Hashtable();
+                using (StreamReader sr = new StreamReader(dlg.FileName, Encoding.UTF8))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        string[] data = line.Split(',');
+                        ht[data[6]] = data;
+                        line = sr.ReadLine();
+                    }
+                }
+                foreach (string key in ht.Keys)
+                {
+                    Uri uri2 = new Uri(key);
+                    string[] data = (string[])ht[key];
+                    string filename = data[0] + ".htm";
+                    UriBuilder uri = new UriBuilder(uri2.AbsoluteUri);
+                    string path = @"C:\Temp\njss\" + uri.Host + "\\" + Regex.Replace(uri.Path, "/", "\\"); ;
+                    if (!path.EndsWith("\\"))
+                        path += "\\";
 
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
+                    path = path + filename;
+                    if (!File.Exists(path))
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            client.DownloadFileAsync(uri2, path);
+                            System.Threading.Thread.Sleep(1000);
+                            Application.DoEvents();
+                        }
+                    }
+
+                }
+                MessageBox.Show("get Bid Infor!\r\n there are " + ht.Keys.Count.ToString() + " record!");
+            }
         }
         /// <summary>
         /// ダウンロードBidインフォ
@@ -254,9 +294,9 @@ namespace highwayns
                         urls[url] = node.InnerText.Replace(",", "_").Trim()
                             + "," + nodes[nodes[node] + 1].InnerText.Trim()
                             + "," + nodes[nodes[node] + 2].InnerText.Trim()
-                            + "," + linodes[2].InnerText.Trim()
-                            + "," + linodes[3].InnerText.Trim()
-                            + "," + linodes[4].InnerText.Trim()
+                            + "," + linodes[2].InnerText.Replace(",", "").Trim()
+                            + "," + linodes[3].InnerText.Replace(",", "").Trim()
+                            + "," + linodes[4].InnerText.Replace(",", "").Trim()
                             ;
                     }
                 }
