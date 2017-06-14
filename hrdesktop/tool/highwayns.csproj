@@ -61,6 +61,12 @@
     <Compile Include="FormCompanyEdit.Designer.cs">
       <DependentUpon>FormCompanyEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNjss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNjss.Designer.cs">
+      <DependentUpon>FormNjss.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </Content>
     <EmbeddedResource Include="FormCompanyEdit.resx">
       <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNjss.resx">
+      <DependentUpon>FormNjss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPersonal.resx">
       <DependentUpon>FormPersonal.cs</DependentUpon>

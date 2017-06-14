@@ -17,7 +17,7 @@
       Please also be aware that changing these settings incorrectly may cause the crawler
       to misbehave or, most likely, not function at all.-->
   
-  <setting id="MaximumDepth">0</setting>
+  <setting id="MaximumDepth">3</setting>
   <!--MaximumDepth refers to the link depth from the root page that should be crawled. 
       For example, if MaximumDepth is set to 0 then only the root URL will be crawled. 
       If MaximumDepth is set to 1 then the root URL will be crawled along with every URL
@@ -44,13 +44,13 @@
       sleep for a random period of time between the minimum and maximum idle times before fetching 
       a new page and before downloading a file. Time is in milliseconds.-->
 
-  <setting id="DownloadFolder">C:\Temp\Spider\</setting>
+  <setting id="DownloadFolder">C:\Temp\niss\</setting>
   <!--The location on the hard drive where downloaded files will be saved.-->
 
   <setting id="LogFolder">C:\Temp\</setting>
   <!--The location on the hard drive where the log file will be saved.-->
   
-  <setting id="FileTypesToDownload">.html|.htm</setting>
+  <setting id="FileTypesToDownload">.htm|.html</setting>
   <!--List the file types the crawler should download here. File types listed should be in this
       format using "|" as a delimiter: 
       
@@ -92,62 +92,7 @@
       Each domain should be indented and seperated by a new line. Do not include "http://www".-->
   
   <setting id="WhiteListedDomains">
-js-gino.org
-anken-navi.jp
-nioh.jp
-ecareer.ne.jp
-e-planner.co.jp
-ecareerjs.jp
-p-meister.co.jp
-ecareerfa.jp
-frontier-human.jp
-hotheart.co.jp
-awg.gr.jp
-miyakoweb.jp
-lightningfactory.net
-randstad.co.jp
-lofty-ltd.co.jp
-softbankhc.co.jp
-ws-gp.co.jp
-world-works.co.jp
-witc.co.jp
-k-wise.co.jp
-aidem.co.jp
-aspex.co.jp
-atsumaru.jp
-m-addicom.jp
-ad-vantage.jp
-advance-news.co.jp
-imiw.jp
-aiu.co.jp
-apseeds.co.jp
-sg-fielder.co.jp
-sbs-staff.co.jp
-spool-hs.co.jp
-m-pj.com
-careerroad.co.jp
-create-group.co.jp
-crosslink.jp.net
-ken-ltd.com
-sounds-good.co.jp
-sundesign.co.jp
-shinsei-group.co.jp
-zeku.co.jp
-takagi-l.co.jp
-teikeiworks.co.jp
-dip-net.co.jp
-tominbank.co.jp
-toritsu-gk.co.jp
-towa-cast.nettowa
-nedia.or.jp
-nihonhifuku.jp
-noguchi-net.co.jp
-maxsupport.co.jp
-uts-corp.co.jp
-leopalace21.com
-renty.co.jp
-rentic-chubu.co.jp
-rodo.co.jp
+    www.njss.info
   </setting>
   <!--List the domains the crawler should *only* visit here. Any URL with a domain not listed here will 
       be skipped if the UseWhiteList setting is set to True.
@@ -159,9 +104,6 @@ rodo.co.jp
       Each domain should be properly indented and seperated by a new line. Do not include "http://www".-->
   
   <setting id="SeedURLs">
-    http://js-gino.org/jsla/member.php
-    http://www.anken-navi.jp/
-    http://nioh.jp/
-    https://www.softbankhc.co.jp
+    https://www.njss.info/
   </setting>
 </configuration>
