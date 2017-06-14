@@ -744,6 +744,33 @@ namespace highwayns
             }
 
         }
+        /// <summary>
+        /// edit company infor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string name = dgvData.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string[] data = (string[])ht[name];
+                if (data != null && data[8].IndexOf("*") > -1)
+                {
+                    FormCompanyEdit form = new FormCompanyEdit(data);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        ht[name] = form.data;
+                        for (int i = 2; i < 8; i++)
+                        {
+                            dgvData.Rows[e.RowIndex].Cells[i].Value = data[i];
+                        }
+                    }
+                }
+            }
+
+        }
+
 
     }
 }
