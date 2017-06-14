@@ -55,6 +55,12 @@
     <Compile Include="Dat.cs" />
     <Compile Include="EncodeType.cs" />
     <Compile Include="Enum_.cs" />
+    <Compile Include="FormCompanyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompanyEdit.Designer.cs">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,7 +158,6 @@
       <DependentUpon>FormTranslate.cs</DependentUpon>
     </Compile>
     <Compile Include="Message.cs" />
-    <Compile Include="NCExcel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tbl.cs" />
@@ -294,6 +299,9 @@
     <Content Include="生産技能会社一覧.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="FormCompanyEdit.resx">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPersonal.resx">
       <DependentUpon>FormPersonal.cs</DependentUpon>
     </EmbeddedResource>
