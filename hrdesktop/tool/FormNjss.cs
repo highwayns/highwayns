@@ -363,6 +363,16 @@ namespace highwayns
         private void getBidDetailUrl(HtmlAgilityPack.HtmlNodeCollection nodes, Hashtable urls,string fileName)
         {
             string name = Path.GetFileNameWithoutExtension(fileName);
+            string address = "";
+            HtmlAgilityPack.HtmlNodeCollection linodes = nodes[0].SelectNodes("//li");
+            foreach (HtmlAgilityPack.HtmlNode addressNode in linodes)
+            {
+                if (addressNode.InnerText.IndexOf("〒") > -1)
+                {
+                    address = addressNode.InnerText.Replace(" ", "").Replace("\n","");
+                    break;
+                }
+            }
             foreach (HtmlAgilityPack.HtmlNode node in nodes)
             {
                 string url = node.GetAttributeValue("href", "");
@@ -376,16 +386,36 @@ namespace highwayns
                 }
                 if (url.IndexOf("offers/view") > -1 && node.InnerText.Trim() != "")
                 {
-                    HtmlAgilityPack.HtmlNodeCollection linodes = node.ParentNode.ParentNode.SelectNodes(".//li");
+                    linodes = node.ParentNode.ParentNode.SelectNodes(".//li");
                     if (linodes != null && linodes.Count >2)
                     {
                         urls[url] = name
                             + "," + node.InnerText.Replace(",", "_").Trim()
-                            + "," + linodes[0].InnerText.Replace(",", "").Trim()
-                            + "," + linodes[1].InnerText.Replace(",", "").Trim()
-                            + "," + linodes[2].InnerText.Replace(",", "").Trim()
+                            + "," + linodes[0].InnerText.Replace(" ", "").Replace("\n", "").Trim()
+                            + "," + linodes[1].InnerText.Replace(" ", "").Replace("\n", "").Trim()
+                            + "," + linodes[2].InnerText.Replace(" ", "").Replace("\n", "").Trim()
+                            + "," + address 
                             ;
                     }
+                    //Uri uri2 = new Uri(url);
+                    //string filename = node.InnerText.Replace(",", "_").Trim() + ".htm";
+                    //UriBuilder uri = new UriBuilder(uri2.AbsoluteUri);
+                    //string path = @"C:\Temp\njss\" + uri.Host + "\\" + Regex.Replace(uri.Path, "/", "\\"); ;
+                    //if (!path.EndsWith("\\"))
+                    //    path += "\\";
+
+                    //if (!Directory.Exists(path))
+                    //    Directory.CreateDirectory(path);
+                    //path = path + filename;
+                    //if (!File.Exists(path))
+                    //{
+                    //    using (WebClient client = new WebClient())
+                    //    {
+                    //        client.DownloadFileAsync(uri2, path);
+                    //        System.Threading.Thread.Sleep(1000);
+                    //        Application.DoEvents();
+                    //    }
+                    //}
                 }
             }
         }
