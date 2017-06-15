@@ -85,14 +85,14 @@ namespace highwayns
                                     data[2] = tdnode.ChildNodes[5].InnerText;
                                     data[3] = tdnode.ChildNodes[3].InnerText;
                                     data[4] = tdnode.ChildNodes[7].InnerText;
-                                    data[8] = tdnode.ChildNodes[9].InnerText + " " + tdnode.ChildNodes[11].InnerText;
+                                    data[8] = tdnode.ChildNodes[9].InnerText.Replace(" ", "").Replace("\n", "") + " " + tdnode.ChildNodes[11].InnerText.Replace(" ", "").Replace("\n", "");
                                 }
                                 else
                                 {
                                     data[2] = trnode.ChildNodes[5].InnerText;
                                     data[3] = trnode.ChildNodes[3].InnerText;
                                     data[4] = trnode.ChildNodes[7].InnerText;
-                                    data[8] = trnode.ChildNodes[9].InnerText + " " + trnode.ChildNodes[11].InnerText;
+                                    data[8] = trnode.ChildNodes[9].InnerText.Replace(" ", "").Replace("\n", "") + " " + trnode.ChildNodes[11].InnerText.Replace(" ", "").Replace("\n", "");
                                 }
                                 break;
                             }
@@ -107,6 +107,37 @@ namespace highwayns
 
         private void btnLoadTxt_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnLoadCsv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSavetoCsv_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(dlg.FileName, false, Encoding.UTF8))
+                {
+                    // add table list
+                    foreach (DataGridViewRow row in dgvData.Rows)
+                    {
+                        string[] data = new string[9];
+                        for (int i = 0; i < 9; i++)
+                        {
+                            if (row.Cells[i].Value == null)
+                                data[i] = "";
+                            else
+                                data[i] = row.Cells[i].Value.ToString();
+                        }
+                        sw.WriteLine(string.Join(",", data));
+                    }
+                }
+                MessageBox.Show("Save Csv Over!\r\n there are " + dgvData.Rows.Count.ToString() + " record!");
+            }
 
         }
     }

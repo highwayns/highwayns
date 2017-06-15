@@ -54,6 +54,7 @@
             this.btnLoadCsv.TabIndex = 41;
             this.btnLoadCsv.Text = "LoadCsv";
             this.btnLoadCsv.UseVisualStyleBackColor = true;
+            this.btnLoadCsv.Click += new System.EventHandler(this.btnLoadCsv_Click);
             // 
             // btnSavetoCsv
             // 
@@ -63,6 +64,7 @@
             this.btnSavetoCsv.TabIndex = 40;
             this.btnSavetoCsv.Text = "saveCsv";
             this.btnSavetoCsv.UseVisualStyleBackColor = true;
+            this.btnSavetoCsv.Click += new System.EventHandler(this.btnSavetoCsv_Click);
             // 
             // btnSearchWeb
             // 
