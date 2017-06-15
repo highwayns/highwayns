@@ -60,7 +60,7 @@ namespace highwayns
             lblPath.Text = urls;
             try
             {
-                webBrowser1.Navigate(new Uri(urls));
+                webBrowser1.Navigate(new Uri(data[7]));
             }
             catch
             {
