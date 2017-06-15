@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
+using System.Diagnostics;
 
 namespace highwayns
 {
@@ -62,10 +63,57 @@ namespace highwayns
                 MessageBox.Show("Load Csv Over!\r\n there are " + bid.Keys.Count.ToString() + " record!");
             }
         }
-
+        /// <summary>
+        /// load csv
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormNjssDetail_Load(object sender, EventArgs e)
         {
             btnLoadCsv_Click(null, null);
+        }
+        /// <summary>
+        /// DoubleClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string url = dgvData.Rows[e.RowIndex].Cells[7].Value.ToString();
+                ExecuteCommand(@"C:\Program Files\Internet Explorer\iexplore.exe", url, "", false);
+            }
+
+        }
+        /// <summary>
+        /// 应用程序启动
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="localworkpath"></param>
+        /// <returns></returns>
+        private static int ExecuteCommand(string cmd, string para, string localworkpath, bool userShell)
+        {
+            int exitCode = -1;
+
+            try
+            {
+                Process process = new Process();
+                process.StartInfo.UseShellExecute = userShell;
+                process.StartInfo.FileName = cmd;
+                process.StartInfo.WorkingDirectory = localworkpath;
+                process.StartInfo.Arguments = para;
+                process.Start();
+                //process.WaitForExit();
+                exitCode = process.ExitCode;
+                process.Close();
+            }
+            catch (Exception er)
+            {
+                //MessageBox.Show("Exception=" + er.ToString());
+                exitCode = -1;
+            }
+            return exitCode;
         }
     }
 }
