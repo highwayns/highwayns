@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
-//using NC.HPS.Lib;
+using NC.HPS.Lib;
 using System.Collections;
 
 namespace highwayns
@@ -48,7 +48,7 @@ namespace highwayns
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSaveExcel_Click(object sender, EventArgs e)
-        {/*
+        {
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -83,7 +83,7 @@ namespace highwayns
                 }
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save ExcelOver!\r\n there are "+ht.Keys.Count.ToString()+" record!");
-            }*/
+            }
         }
         /// <summary>
         /// read data have dispatch no
