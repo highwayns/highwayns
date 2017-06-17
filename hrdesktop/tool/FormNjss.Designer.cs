@@ -208,6 +208,7 @@
             this.btnSave.TabIndex = 40;
             this.btnSave.Text = "saveExcel";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FormNjss
             // 
