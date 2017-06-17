@@ -1145,7 +1145,7 @@ namespace NC.HPS.Lib
             return m_db.SetData_(LoginID, dataid, fieldlist, TBL_CUSTOMER, wheresql, valuesql, out newdataid, NCConst.ConnectionString);
         }
         #endregion
-        
+
         #region GetRFIDCustomer
         /// <summary>
         /// GetCustomer 
