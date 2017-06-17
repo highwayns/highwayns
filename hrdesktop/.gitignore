@@ -9,9 +9,13 @@ bin/
 tmp/
 *.tmp
 !*.bak
+<<<<<<< HEAD
+=======
 !*.dll
+>>>>>>> refs/remotes/highwayns/tei952
 *.swp
 *~.nib
+!*.exe
 local.properties
 .classpath
 .settings/
