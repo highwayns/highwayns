@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using NC.HPS.Lib;
@@ -11,6 +10,7 @@ using System.IO;
 using System.Collections;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+//using Com.Seezt.Skins;
 
 namespace HPSBid
 {
@@ -18,9 +18,9 @@ namespace HPSBid
     {
 
         private const string SYSTEM_ID = "HPSBid";
-        private const string SQL_FILE = "bid.sql";
-        
-        private string strDataSource  = null;
+        private const string SQL_FILE = "Govement.sql";
+
+        private string strDataSource = null;
         private string strDbName = null;
         private string strUserName = null;
         private string strPassword = null;
@@ -63,29 +63,11 @@ namespace HPSBid
             InitializeComponent();
         }
         /// <summary>
-        /// 初始化
-        /// </summary>
-        private void init()
-        {
-            DataSet ds = new DataSet();
-            if (db.GetEmpVW(0, 0, "*", "", "", ref ds))
-            {
-                dataGridView1.DataSource = ds.Tables[0];
-            }
-            DataSet ds_dispatch = new DataSet();
-            if (db.GetSend(0, 0, "distinct [Role]", "", "", ref ds_dispatch))
-            {
-                cmbRole.DataSource = ds_dispatch.Tables[0];
-                cmbRole.DisplayMember = "Role";
-            }
-
-        }
-        /// <summary>
-        /// 开始启动
+        /// 画面初期化
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FormCJC_Load(object sender, EventArgs e)
+        private void FormCustomer_Load(object sender, EventArgs e)
         {
             string scriptFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), SQL_FILE);
             if (File.Exists(scriptFile))
@@ -95,69 +77,64 @@ namespace HPSBid
                     executeCjwScript(scriptFile);
                 }
             }
-            init();
+            initKind();
+            initFormat();
+            init("","","");
         }
         /// <summary>
-        /// 文件导入
+        /// 初期化
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void init(string kind, string format, string subscripted)
         {
-        }
+            DataSet ds = new DataSet();
+            string wheresql = "1=1";
+            if (kind != "") wheresql += " and kind='" + kind + "'";
+            if (format != "") wheresql += " and format='" + format + "'";
+            if (subscripted != "") wheresql += " and subscripted='" + subscripted + "'";
 
-        /// <summary>
-        /// メール送信
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnMailSend_Click(object sender, EventArgs e)
-        {
-            //if (dataGridView1.SelectedRows.Count > 0)
-            //{
-            //    string fileName = @"C:\temp\resume.xls";
-            //    FileExport(fileName);
-            //    string membername = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            //    FormCustomer form = new FormCustomer(db);
-            //    if (form.ShowDialog() == DialogResult.OK)
-            //    {
-            //        List<CustomerInfor> customerInfor = form.Customer;
-            //        Hashtable mailserver = GetMailServer();
-            //        if (mailserver != null)
-            //        {
-            //            foreach (CustomerInfor customer in customerInfor)
-            //            {
-            //                MailPara mp = (MailPara)mailserver["GMAIL"];
-            //                mp.to = customer.mailaddress;
-            //                mp.subject = "人材紹介";
-            //                mp.body = customer.companyname + "\r\n"
-            //                    + customer.name + " 様" + "\r\n"
-            //                    + membername+ "を紹介します、よろしくお願いします。"
-            //                    ;
-            //                mp.htmlbody = "";
-            //                mp.picfile = fileName;
-            //                if (mp.isHtml != "Y")
-            //                {
-            //                    mp.htmlbody = null;
-            //                }
-            //                if (mp.attachement != "Y")
-            //                {
-            //                    mp.picfile = null;
-            //                }
-
-            //                NCMail.SendEmail(mp.subject, mp.body, mp.htmlbody, mp.picfile, mp.address, mp.user, mp.password, mp.from, mp.to, mp.servertype);
-            //            }
-            //        }
-            //    }
-
-            //}
+            if (db.GetGovement(0, 0, "*", wheresql, "", ref ds))
+            {
+                dataGridView1.DataSource = ds.Tables[0];
+                lblRecordNum.Text = "("+ds.Tables[0].Rows.Count.ToString() + ")";
+            }
         }
         /// <summary>
-        /// file Export
+        /// 初期化行业
         /// </summary>
-        /// <param name="fileName"></param>
-        private void FileExport(string fileName)
+        private void initKind()
         {
+            DataSet ds = new DataSet();
+            if (db.GetGovement(0, 0, "distinct kind", "", "", ref ds))
+            {
+                cmbKinds.DataSource = ds.Tables[0];
+                cmbKinds.DisplayMember = "kind";
+            }
+            DataSet ds2 = new DataSet();
+            if (db.GetGovement(0, 0, "distinct kind", "", "", ref ds2))
+            {
+                cmbKind.DataSource = ds2.Tables[0];
+                cmbKind.DisplayMember = "kind";
+            }
+            cmbKinds.Text = "";
+        }
+        /// <summary>
+        /// 初期化分类
+        /// </summary>
+        private void initFormat()
+        {
+            DataSet ds = new DataSet();
+            if (db.GetGovement(0, 0, "distinct format", "", "", ref ds))
+            {
+                cmbFormat.DataSource = ds.Tables[0];
+                cmbFormat.DisplayMember = "format";
+            }
+            DataSet ds2 = new DataSet();
+            if (db.GetGovement(0, 0, "distinct format", "", "", ref ds2))
+            {
+                cmbFormats.DataSource = ds2.Tables[0];
+                cmbFormats.DisplayMember = "format";
+            }
+            cmbFormats.Text = "";
         }
         /// <summary>
         /// 送信用構造体
@@ -220,10 +197,10 @@ namespace HPSBid
             try
             {
                 FileInfo file = new FileInfo(scriptFile);
-                using(StreamReader sr = file.OpenText())
+                using (StreamReader sr = file.OpenText())
                 {
                     string script = sr.ReadToEnd();
-                
+
                     conn.Open();
                     IEnumerable<string> commands = Regex.Split(script, @"^\s*GO\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
                     foreach (string command in commands)
@@ -289,5 +266,235 @@ namespace HPSBid
             }
             return false;
         }
+
+        /// <summary>
+        /// 选择行变化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                txtId.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                txtCname.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                txtName.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                txtPostCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                txtAddress.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                txtTel.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                txtFax.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                cmbKind.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                cmbFormat.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+                txtScale.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+                txtCYMD.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+                txtOther.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                txtMail.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+                txtWeb.Text = dataGridView1.SelectedRows[0].Cells[13].Value.ToString();
+                txtJCname.Text = dataGridView1.SelectedRows[0].Cells[14].Value.ToString();
+                txtCreateTime.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
+                cmbSubscript.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+            }
+        }
+        /// <summary>
+        /// 增加客户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            String valueList = "'" + txtCname.Text + "','" + txtName.Text + "','" + txtPostCode.Text + "','" + txtAddress.Text + "','" + txtTel.Text
+                + "','" + txtFax.Text + "','" + cmbKind.Text + "','" + cmbFormat.Text + "','" + txtScale.Text + "','" + txtCYMD.Text + "','" + txtOther.Text
+                + "','" + txtMail.Text + "','" + txtWeb.Text + "','" + txtJCname.Text + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','" + cmbSubscript.Text + "','" + db.db.UserID + "'";
+            if (db.SetGovement(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
+                                 "", valueList, out id))
+            {
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0001I", db.db.Language);
+                MessageBox.Show(msg);
+                init("","","");
+            }
+            else
+            {
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0002I", db.db.Language);
+                MessageBox.Show(msg);
+            }
+
+        }
+        /// <summary>
+        /// 更新客户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                int id = 0;
+                String valueList = "Cname='" + txtCname.Text + "',name='" + txtName.Text + "',postcode='" + txtPostCode.Text + "',address='" + txtAddress.Text + "',tel='" + txtTel.Text
+                    + "',fax='" + txtFax.Text + "',kind='" + cmbKind.Text + "',format='" + cmbFormat.Text + "',scale='" + txtScale.Text + "',CYMD='" + txtCYMD.Text + "',other='" + txtOther.Text
+                    + "',mail='" + txtMail.Text + "',web='" + txtWeb.Text + "',jCName='" + txtJCname.Text + "',createtime='" + txtCreateTime.Text + "',subscripted='" + cmbSubscript.Text + "'";
+                if (db.SetGovement(0, 1, "", "id=" + txtId.Text, valueList, out id) && id == 1)
+                {
+                    string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0003I", db.db.Language);
+                    MessageBox.Show(msg);
+                    init("","","");
+                }
+                else
+                {
+                    string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0004I", db.db.Language);
+                    MessageBox.Show(msg);
+                }
+            }
+            else
+            {
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0000I", db.db.Language);
+                MessageBox.Show(msg);
+            }
+        }
+        /// <summary>
+        /// Create　Publish
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPublish_Click(object sender, EventArgs e)
+        {
+            Hashtable ht = null; 
+            DataSet ds = new DataSet();
+            NdnPublicFunction function = new NdnPublicFunction();
+            int newid = 0;
+            if (db.GetGovement(0, 0, "*", "", "", ref ds))
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    String id = row["id"].ToString();
+                    String mail = row["mail"].ToString();
+                    String subscripted = row["subscripted"].ToString().Trim();
+                    if (!function.IsMail(mail, false) || ht[mail]!=null)
+                    {
+                        db.SetGovement(0, 1, "", "id=" + id, "subscripted='N'", out newid);
+                    }
+                    else
+                    {
+                        if (subscripted != "T")
+                        {
+                            db.SetGovement(0, 1, "", "id=" + id, "subscripted='Y'", out newid);
+                        }
+                    }
+                }
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0007I", db.db.Language);
+                MessageBox.Show(msg);
+                init("", "", "");
+            }
+            else
+            {
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0008I", db.db.Language);
+                MessageBox.Show(msg);
+            }
+
+        }
+        /// <summary>
+        /// 删除客户数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int id = 0;
+                if (db.SetGovement(0, 2, "", "id=" + txtId.Text, "", out id) && id == 2)
+                {
+                    string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0005I", db.db.Language);
+                    MessageBox.Show(msg);
+                    init("", "", "");
+                }
+                else
+                {
+                    string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0006I", db.db.Language);
+                    MessageBox.Show(msg);
+                }
+            }
+            else
+            {
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0000I", db.db.Language);
+                MessageBox.Show(msg);
+            }
+        }
+        /// <summary>
+        /// 数据检索
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            init(cmbKinds.Text, cmbFormats.Text, cmbSubscripts.Text);
+        }
+        /// <summary>
+        /// 客户导入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGet_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Text File (*.csv)|*.csv|All File (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                importGovementFile(dlg.FileName);
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0001I", db.db.Language);
+                MessageBox.Show(msg);
+            }
+
+
+        }
+        /// <summary>
+        /// 機構导入
+        /// </summary>
+        /// <param name="csvFile"></param>
+        private void importGovementFile(String fileName)
+        {
+            NdnPublicFunction func = new NdnPublicFunction();
+            using (StreamReader reader =
+                new StreamReader(fileName, Encoding.GetEncoding("UTF-8")))
+            {
+                String line = reader.ReadLine();
+                while (line != null)
+                {
+                    string[] data = line.Split(',');
+                    if (data.Length == 9)
+                    {
+                        int id = 0;
+                        String valueList = "'" + data[1] + "','" + data[1] + "','','" + data[4] + "','','','機構','" + data[2] + "','" + data[3] + "','2017/06/15','" + data[8]
+                            + "','" + data[6] + "','','" + data[3] + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','Y','1'";
+                        db.SetGovement(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
+                                                "", valueList, out id);
+                    }
+                    line = reader.ReadLine();
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// 機構データ導出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// メール送信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMailSend_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
