@@ -366,16 +366,46 @@ namespace HPSManagement
         private void btnGet_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Text File (*.txt)|*.txt|All File (*.*)|*.*";
+            dlg.Filter = "Text File (*.csv)|*.csv|All File (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                importRFIDFile(dlg.FileName);
-                backupRFIDFile(dlg.FileName);
+                importPersonalFile(dlg.FileName);
+                //importRFIDFile(dlg.FileName);
+                //backupRFIDFile(dlg.FileName);
                 string msg = NCMessage.GetInstance(db.Language).GetMessageById("CM0001I", db.Language);
                 MessageBox.Show(msg);
             }
 
         }
+        /// <summary>
+        /// Personal导入
+        /// </summary>
+        /// <param name="csvFile"></param>
+        private void importPersonalFile(String fileName)
+        {
+            NdnPublicFunction func = new NdnPublicFunction();
+            using (StreamReader reader =
+                new StreamReader(fileName, Encoding.GetEncoding("UTF-8")))
+            {
+                String line = reader.ReadLine();
+                while (line != null)
+                {
+                    string[] data = line.Split(',');
+                    if (data.Length == 9)
+                    {
+                        data[6] = data[6].Replace("mailto:", "");
+                        int id = 0;
+                        String valueList = "'" + data[0] + "','" + data[1] + "','','" + data[4] + "','','','個人','"+data[2]+"','"+data[3]+"','2017/06/15','" + data[8]
+                            + "','" + data[6] + "','','" + data[3] + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','Y','" + db.UserID + "'";
+                        db.SetCustomer(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
+                                                "", valueList, out id);
+                    }
+                    line = reader.ReadLine(); 
+                }
+            }
+
+        }
+
         /// <summary>
         /// RFID导入
         /// </summary>
