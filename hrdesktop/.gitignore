@@ -8,7 +8,7 @@
 bin/
 tmp/
 *.tmp
-*.bak
+!*.bak
 *.swp
 *~.nib
 !*.exe
