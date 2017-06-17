@@ -42,6 +42,8 @@
             this.btnMicrosoft = new System.Windows.Forms.Button();
             this.btnDataClean = new System.Windows.Forms.Button();
             this.btnCompany = new System.Windows.Forms.Button();
+            this.btnNjss = new System.Windows.Forms.Button();
+            this.btnPersonal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -184,11 +186,33 @@
             this.btnCompany.UseVisualStyleBackColor = true;
             this.btnCompany.Click += new System.EventHandler(this.btnCompany_Click);
             // 
+            // btnNjss
+            // 
+            this.btnNjss.Location = new System.Drawing.Point(269, 149);
+            this.btnNjss.Name = "btnNjss";
+            this.btnNjss.Size = new System.Drawing.Size(75, 23);
+            this.btnNjss.TabIndex = 14;
+            this.btnNjss.Text = "Njss";
+            this.btnNjss.UseVisualStyleBackColor = true;
+            this.btnNjss.Click += new System.EventHandler(this.btnNjss_Click);
+            // 
+            // btnPersonal
+            // 
+            this.btnPersonal.Location = new System.Drawing.Point(375, 149);
+            this.btnPersonal.Name = "btnPersonal";
+            this.btnPersonal.Size = new System.Drawing.Size(75, 23);
+            this.btnPersonal.TabIndex = 15;
+            this.btnPersonal.Text = "Personal";
+            this.btnPersonal.UseVisualStyleBackColor = true;
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 261);
+            this.Controls.Add(this.btnPersonal);
+            this.Controls.Add(this.btnNjss);
             this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.btnDataClean);
             this.Controls.Add(this.btnMicrosoft);
@@ -225,5 +249,7 @@
         private System.Windows.Forms.Button btnMicrosoft;
         private System.Windows.Forms.Button btnDataClean;
         private System.Windows.Forms.Button btnCompany;
+        private System.Windows.Forms.Button btnNjss;
+        private System.Windows.Forms.Button btnPersonal;
     }
 }

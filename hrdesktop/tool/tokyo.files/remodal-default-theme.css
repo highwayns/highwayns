@@ -1,0 +1,93 @@
+.remodal-is-opening.remodal-bg {
+	-webkit-filter: blur(3px);
+}
+.remodal-is-opened.remodal-bg {
+	-webkit-filter: blur(3px);
+}
+.remodal-overlay {
+	background: rgba(43, 46, 56, 0.9);
+}
+.remodal-is-opening.remodal-overlay {
+	animation-duration: 0.3s; animation-fill-mode: forwards; -webkit-animation-duration: 0.3s; -webkit-animation-fill-mode: forwards;
+}
+.remodal-is-closing.remodal-overlay {
+	animation-duration: 0.3s; animation-fill-mode: forwards; -webkit-animation-duration: 0.3s; -webkit-animation-fill-mode: forwards;
+}
+.remodal-is-opening.remodal-overlay {
+	animation-name: remodal-overlay-opening-keyframes; -webkit-animation-name: remodal-overlay-opening-keyframes;
+}
+.remodal-is-closing.remodal-overlay {
+	animation-name: remodal-overlay-closing-keyframes; -webkit-animation-name: remodal-overlay-closing-keyframes;
+}
+.remodal-wrapper {
+	padding: 10px 10px 0px;
+}
+.remodal {
+	background: rgb(255, 255, 255); padding: 35px; width: 100%; color: rgb(43, 46, 56); margin-bottom: 10px; box-sizing: border-box; transform: translate3d(0px, 0px, 0px); -webkit-transform: translate3d(0, 0, 0); -webkit-box-sizing: border-box;
+}
+.remodal-is-opening.remodal {
+	animation-duration: 0.3s; animation-fill-mode: forwards; -webkit-animation-duration: 0.3s; -webkit-animation-fill-mode: forwards;
+}
+.remodal-is-closing.remodal {
+	animation-duration: 0.3s; animation-fill-mode: forwards; -webkit-animation-duration: 0.3s; -webkit-animation-fill-mode: forwards;
+}
+.remodal-is-opening.remodal {
+	animation-name: remodal-opening-keyframes; -webkit-animation-name: remodal-opening-keyframes;
+}
+.remodal-is-closing.remodal {
+	animation-name: remodal-closing-keyframes; -webkit-animation-name: remodal-closing-keyframes;
+}
+.remodal {
+	vertical-align: middle;
+}
+.remodal-wrapper::after {
+	vertical-align: middle;
+}
+.remodal-close {
+	background: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; transition:color 0.2s; border-image: none; left: 0px; top: 0px; width: 35px; height: 35px; color: rgb(149, 151, 156); overflow: visible; text-decoration: none; display: block; position: absolute; cursor: pointer; -webkit-transition: color 0.2s;
+}
+.remodal-close:hover {
+	color: rgb(43, 46, 56);
+}
+.remodal-close:focus {
+	color: rgb(43, 46, 56);
+}
+.remodal-close::before {
+	left: 0px; top: 0px; width: 35px; text-align: center; line-height: 35px; font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important; font-size: 25px; display: block; position: absolute; content: "\00d7";
+}
+.remodal-confirm {
+	font: inherit; margin: 0px; padding: 12px 0px; outline: 0px; border: 0px currentColor; transition:background 0.2s; border-image: none; text-align: center; overflow: visible; text-decoration: none; vertical-align: middle; display: inline-block; cursor: pointer; min-width: 110px; font-size-adjust: inherit; font-stretch: inherit; -webkit-transition: background 0.2s;
+}
+.remodal-cancel {
+	font: inherit; margin: 0px; padding: 12px 0px; outline: 0px; border: 0px currentColor; transition:background 0.2s; border-image: none; text-align: center; overflow: visible; text-decoration: none; vertical-align: middle; display: inline-block; cursor: pointer; min-width: 110px; font-size-adjust: inherit; font-stretch: inherit; -webkit-transition: background 0.2s;
+}
+.remodal-confirm {
+	background: rgb(129, 199, 132); color: rgb(255, 255, 255);
+}
+.remodal-confirm:hover {
+	background: rgb(102, 187, 106);
+}
+.remodal-confirm:focus {
+	background: rgb(102, 187, 106);
+}
+.remodal-cancel {
+	background: rgb(229, 115, 115); color: rgb(255, 255, 255);
+}
+.remodal-cancel:hover {
+	background: rgb(239, 83, 80);
+}
+.remodal-cancel:focus {
+	background: rgb(239, 83, 80);
+}
+@media only screen and (min-width:641px)
+{
+.remodal {
+	max-width: 700px;
+}
+}
+.lt-ie9 .remodal-overlay {
+	background: rgb(43, 46, 56);
+}
+.lt-ie9 .remodal {
+	width: 700px;
+}

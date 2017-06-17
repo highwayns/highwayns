@@ -55,6 +55,36 @@
     <Compile Include="Dat.cs" />
     <Compile Include="EncodeType.cs" />
     <Compile Include="Enum_.cs" />
+    <Compile Include="FormCompanyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompanyEdit.Designer.cs">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNjss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNjss.Designer.cs">
+      <DependentUpon>FormNjss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNjssDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNjssDetail.Designer.cs">
+      <DependentUpon>FormNjssDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonal.Designer.cs">
+      <DependentUpon>FormPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWeb.Designer.cs">
+      <DependentUpon>FormWeb.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +170,6 @@
       <DependentUpon>FormTranslate.cs</DependentUpon>
     </Compile>
     <Compile Include="Message.cs" />
-    <Compile Include="NCExcel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tbl.cs" />
@@ -150,6 +179,153 @@
     <Compile Include="FormAndroid.Designer.cs">
       <DependentUpon>FormAndroid.cs</DependentUpon>
     </Compile>
+    <Content Include="akita.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="companyList_2015.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fukuyama.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gifu.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="hirojima.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="hyouko.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kagojima.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kanagawa.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kouti.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kumamoto.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="matuyama.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mie.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="miyasiro.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="miyazaki.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nagasaki.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="naha.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nakaoka.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nakazu.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nara.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="okasaki.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="okayama.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="okinawa.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="oode2017.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="oosakakita.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="personal\1.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="personal\2.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="personal\3.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="saitama.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="saka.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sinjyuku.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sizioka.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="takamatu.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tamaguti.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tiba.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tiyoda.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tokujima.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tokyo.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="totigi.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="totori.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="wakayama.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="yamanasi.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="zika.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="zuka.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="生産技能会社一覧.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="FormCompanyEdit.resx">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNjss.resx">
+      <DependentUpon>FormNjss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNjssDetail.resx">
+      <DependentUpon>FormNjssDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonal.resx">
+      <DependentUpon>FormPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWeb.resx">
+      <DependentUpon>FormWeb.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddress.resx">
       <DependentUpon>FormAddress.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +384,12 @@
     <Content Include="JobList.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="CompanyList_20130715.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="CompanyList_20151220.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="KEN_ALL_ROME.CSV">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -245,6 +427,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="HtmlAgilityPack\HtmlAgilityPack-4.0.csproj">
+      <Project>{1028002a-bbe2-4ff2-94b7-a8368a8f6887}</Project>
+      <Name>HtmlAgilityPack-4.0</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

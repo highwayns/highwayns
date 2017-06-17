@@ -1,0 +1,15 @@
+.yarpp_pro_msg {
+	padding: 0.4em 2em 0.8em; border: 1px ridge rgb(208, 208, 208); border-image: none; text-align: justify;
+}
+.yarpp_pro_msg strong {
+	width: 100%; text-align: center; color: orange; display: inline-block;
+}
+.yarpp_help {
+	background: url("../../../../wp-includes/images/wpicons.png") no-repeat -520px -20px; width: 20px; height: 20px; vertical-align: text-bottom; display: inline-block; position: relative;
+}
+.yarpp_help_msg {
+	padding: 10px 15px; border: 1px solid rgb(208, 208, 208); border-image: none; left: 25px; width: 250px; text-align: justify; display: none; position: absolute; z-index: 100; box-shadow: 0px 0px 0.4em -0.15em #333; background-color: rgb(255, 255, 255);
+}
+.yarpp_help:hover .yarpp_help_msg {
+	display: block;
+}

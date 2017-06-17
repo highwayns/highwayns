@@ -1,0 +1,534 @@
+body {
+	font-family: "ÉÅÉCÉäÉI","Meiryo","ÇlÇr ÇoÉSÉVÉbÉN","MS PGOTHIC",sans-serif; font-size: 12px;
+}
+span.img span {
+	line-height: 1.2; font-size: 90%;
+}
+h2 {
+	line-height: 1.3; font-size: 160%;
+}
+h3 {
+	line-height: 1.4; font-size: 100%;
+}
+h4 {
+	line-height: 1.5; font-size: 100%;
+}
+p {
+	line-height: 1.5; font-size: 100%;
+}
+p.lead {
+	font-size: 100%;
+}
+p.note {
+	font-size: 90%;
+}
+p.affix {
+	font-size: 90%;
+}
+blockquote {
+	line-height: 1.5; font-size: 100%;
+}
+address {
+	line-height: 1.3; font-size: 90%;
+}
+li {
+	line-height: 1.5; font-size: 100%;
+}
+th {
+	line-height: 1.4; font-size: 100%;
+}
+td {
+	line-height: 1.4; font-size: 100%;
+}
+.lhn h2 {
+	line-height: 1.1;
+}
+.lhn h3 {
+	line-height: 1.2;
+}
+.lhn th {
+	line-height: 1.2;
+}
+.lhn td {
+	line-height: 1.2;
+}
+.lhn h4 {
+	line-height: 1.3;
+}
+.lhn p {
+	line-height: 1.3;
+}
+.lhn blockquote {
+	line-height: 1.3;
+}
+.lhn li {
+	line-height: 1.3;
+}
+.lhw h2 {
+	line-height: 1.9;
+}
+.lhw h3 {
+	line-height: 2.1;
+}
+.lhw th {
+	line-height: 2.1;
+}
+.lhw td {
+	line-height: 2.1;
+}
+.lhw h4 {
+	line-height: 2.2;
+}
+.lhw p {
+	line-height: 2.2;
+}
+.lhw blockquote {
+	line-height: 2.2;
+}
+.lhw li {
+	line-height: 2.2;
+}
+#area-header span.img span {
+	line-height: 1.2; font-size: 90%;
+}
+#area-header h2 {
+	line-height: 1.3; font-size: 160%;
+}
+#area-header h3 {
+	line-height: 1.4; font-size: 90%;
+}
+#area-header h4 {
+	line-height: 1.5; font-size: 90%;
+}
+#area-header p {
+	line-height: 1.5; font-size: 90%;
+}
+#area-header p.lead {
+	font-size: 90%;
+}
+#area-header p.note {
+	font-size: 90%;
+}
+#area-header p.affix {
+	font-size: 90%;
+}
+#area-header blockquote {
+	line-height: 1.5; font-size: 90%;
+}
+#area-header address {
+	font-size: 90%;
+}
+#area-header li {
+	line-height: 1.5; font-size: 90%;
+}
+#area-header th {
+	line-height: 1.4; font-size: 90%;
+}
+#area-header td {
+	line-height: 1.4; font-size: 90%;
+}
+#area-header .lhn h2 {
+	line-height: 1.1;
+}
+#area-header .lhn h3 {
+	line-height: 1.2;
+}
+#area-header .lhn th {
+	line-height: 1.2;
+}
+#area-header .lhn td {
+	line-height: 1.2;
+}
+#area-header .lhn h4 {
+	line-height: 1.3;
+}
+#area-header .lhn p {
+	line-height: 1.3;
+}
+#area-header .lhn blockquote {
+	line-height: 1.3;
+}
+#area-header .lhn li {
+	line-height: 1.3;
+}
+#area-header .lhw h2 {
+	line-height: 1.5;
+}
+#area-header .lhw h3 {
+	line-height: 1.7;
+}
+#area-header .lhw th {
+	line-height: 1.7;
+}
+#area-header .lhw td {
+	line-height: 1.7;
+}
+#area-header .lhw h4 {
+	line-height: 1.8;
+}
+#area-header .lhw p {
+	line-height: 1.8;
+}
+#area-header .lhw blockquote {
+	line-height: 1.8;
+}
+#area-header .lhw li {
+	line-height: 1.8;
+}
+.side-group span.img span {
+	line-height: 1.2; font-size: 90%;
+}
+.side-group h2 {
+	line-height: 1.3; font-size: 120%;
+}
+.side-group h3 {
+	line-height: 1.4; font-size: 90%;
+}
+.side-group h4 {
+	line-height: 1.5; font-size: 90%;
+}
+.side-group p {
+	line-height: 1.5; font-size: 90%;
+}
+.side-group p.lead {
+	font-size: 90%;
+}
+.side-group p.note {
+	font-size: 90%;
+}
+.side-group p.affix {
+	font-size: 90%;
+}
+.side-group blockquote {
+	line-height: 1.5; font-size: 90%;
+}
+.side-group address {
+	font-size: 90%;
+}
+.side-group li {
+	line-height: 1.5; font-size: 90%;
+}
+.side-group th {
+	line-height: 1.4; font-size: 90%;
+}
+.side-group td {
+	line-height: 1.4; font-size: 90%;
+}
+.side-group .lhn h2 {
+	line-height: 1.1;
+}
+.side-group .lhn h3 {
+	line-height: 1.2;
+}
+.side-group .lhn th {
+	line-height: 1.2;
+}
+.side-group .lhn td {
+	line-height: 1.2;
+}
+.side-group .lhn h4 {
+	line-height: 1.3;
+}
+.side-group .lhn p {
+	line-height: 1.3;
+}
+.side-group .lhn blockquote {
+	line-height: 1.3;
+}
+.side-group .lhn li {
+	line-height: 1.3;
+}
+.side-group .lhw h2 {
+	line-height: 1.5;
+}
+.side-group .lhw h3 {
+	line-height: 1.7;
+}
+.side-group .lhw th {
+	line-height: 1.7;
+}
+.side-group .lhw td {
+	line-height: 1.7;
+}
+.side-group .lhw h4 {
+	line-height: 1.8;
+}
+.side-group .lhw p {
+	line-height: 1.8;
+}
+.side-group .lhw blockquote {
+	line-height: 1.8;
+}
+.side-group .lhw li {
+	line-height: 1.8;
+}
+#area-footer span.img span {
+	line-height: 1.2; font-size: 90%;
+}
+#area-footer h2 {
+	line-height: 1.3; font-size: 120%;
+}
+#area-footer h3 {
+	line-height: 1.4; font-size: 90%;
+}
+#area-footer h4 {
+	line-height: 1.5; font-size: 90%;
+}
+#area-footer p {
+	line-height: 1.5; font-size: 90%;
+}
+#area-footer p.lead {
+	font-size: 90%;
+}
+#area-footer p.note {
+	font-size: 90%;
+}
+#area-footer p.affix {
+	font-size: 90%;
+}
+#area-footer blockquote {
+	line-height: 1.5; font-size: 90%;
+}
+#area-footer address {
+	font-size: 90%;
+}
+#area-footer li {
+	line-height: 1.5; font-size: 90%;
+}
+#area-footer th {
+	line-height: 1.4; font-size: 90%;
+}
+#area-footer td {
+	line-height: 1.4; font-size: 90%;
+}
+#area-footer .lhn h2 {
+	line-height: 1.1;
+}
+#area-footer .lhn h3 {
+	line-height: 1.2;
+}
+#area-footer .lhn th {
+	line-height: 1.2;
+}
+#area-footer .lhn td {
+	line-height: 1.2;
+}
+#area-footer .lhn h4 {
+	line-height: 1.3;
+}
+#area-footer .lhn p {
+	line-height: 1.3;
+}
+#area-footer .lhn blockquote {
+	line-height: 1.3;
+}
+#area-footer .lhn li {
+	line-height: 1.3;
+}
+#area-footer .lhw h2 {
+	line-height: 1.5;
+}
+#area-footer .lhw h3 {
+	line-height: 1.7;
+}
+#area-footer .lhw th {
+	line-height: 1.7;
+}
+#area-footer .lhw td {
+	line-height: 1.7;
+}
+#area-footer .lhw h4 {
+	line-height: 1.8;
+}
+#area-footer .lhw p {
+	line-height: 1.8;
+}
+#area-footer .lhw blockquote {
+	line-height: 1.8;
+}
+#area-footer .lhw li {
+	line-height: 1.8;
+}
+#page-title {
+	font-size: 16px;
+}
+#page-title span {
+	font-size: 10px;
+}
+.menuh .menu-a a.mn1 {
+	font-size: 90%;
+}
+.menuh .menu-a .nolink {
+	font-size: 90%;
+}
+.menuh .menu-b a.mn1 {
+	font-size: 90%;
+}
+.menuh .menu-b .nolink {
+	font-size: 90%;
+}
+.menuh .menu-c a.mn1 {
+	font-size: 90%;
+}
+.menuh .menu-c .nolink {
+	font-size: 90%;
+}
+.bread-crumb1 {
+	font-size: 90%;
+}
+.bread-crumb2 {
+	font-size: 90%;
+}
+.bread-crumb3 {
+	font-size: 90%;
+}
+.type-1 .frill img {
+	padding: 2px; border: 1px solid rgb(235, 235, 235); border-image: none;
+}
+.type-2 .frill img {
+	padding: 2px; border: 1px solid rgb(71, 71, 71); border-image: none;
+}
+.area {
+	-ms-zoom: 1;
+}
+.block {
+	-ms-zoom: 1;
+}
+.column {
+	-ms-zoom: 1;
+}
+.box {
+	-ms-zoom: 1;
+}
+.pocket {
+	-ms-zoom: 1;
+}
+.slice {
+	-ms-zoom: 1;
+}
+.menuh {
+	-ms-zoom: 1;
+}
+.menuh ul {
+	-ms-zoom: 1;
+}
+.menuv {
+	-ms-zoom: 1;
+}
+.menu-a {
+	-ms-zoom: 1;
+}
+.menu-b {
+	-ms-zoom: 1;
+}
+.menu-c {
+	-ms-zoom: 1;
+}
+.menu-d {
+	-ms-zoom: 1;
+}
+.menu-e {
+	-ms-zoom: 1;
+}
+.mbox {
+	-ms-zoom: 1;
+}
+dt {
+	-ms-zoom: 1;
+}
+dd {
+	-ms-zoom: 1;
+}
+.area::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.amc::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.block::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.bmc::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.column::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.box::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.pocket::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.xmc::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.mc::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.balloon::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.menuh ul::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.menu-a::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.menu-b::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.menu-c::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.menu-d::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.menu-e::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+.mbox::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+dt::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+dd::after {
+	height: 0px; line-height: 0; clear: both; display: block; visibility: hidden; content: "";
+}
+ol li {
+	margin-left: 30px;
+}
+li ol li {
+	margin-left: 30px;
+}
+ol.decimal li {
+	margin-left: 30px;
+}
+li ol.decimal li {
+	margin-left: 30px;
+}
+.min {
+	font-family: "ÇlÇr Çoñæí©","MS PMincho";
+}
+.got {
+	font-family: "ÉÅÉCÉäÉI","Meiryo","ÇlÇr ÇoÉSÉVÉbÉN","MS PGOTHIC",sans-serif;
+}
+.fsize_lll {
+	font-size: 260%;
+}
+.fsize_ll {
+	font-size: 160%;
+}
+.fsize_l {
+	font-size: 140%;
+}
+.fsize_m {
+	font-size: 120%;
+}
+.fsize_s {
+	font-size: 90%;
+}
+.fsize_ss {
+	font-size: 80%;
+}

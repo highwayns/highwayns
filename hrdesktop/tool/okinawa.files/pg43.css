@@ -1,0 +1,202 @@
+@import url( _cnskin/302c/css/style.css );
+#L01 .noskin#area-header {
+	width: 825px;
+}
+#L02 .noskin#area-header {
+	width: 825px;
+}
+#L03 .noskin#area-header {
+	width: 825px;
+}
+#L07 .noskin#area-header {
+	width: 825px;
+}
+#L08 .noskin#area-header {
+	width: 825px;
+}
+#L01 #area-header {
+	width: 841px;
+}
+#L02 #area-header {
+	width: 841px;
+}
+#L03 #area-header {
+	width: 841px;
+}
+#L07 #area-header {
+	width: 841px;
+}
+#L08 #area-header {
+	width: 841px;
+}
+#L01 .noskin#area-billboard {
+	width: 825px;
+}
+#L02 .noskin#area-billboard {
+	width: 825px;
+}
+#L03 .noskin#area-billboard {
+	width: 825px;
+}
+#L07 .noskin#area-billboard {
+	width: 825px;
+}
+#L08 .noskin#area-billboard {
+	width: 825px;
+}
+#L01 #area-billboard {
+	width: 841px;
+}
+#L02 #area-billboard {
+	width: 841px;
+}
+#L03 #area-billboard {
+	width: 841px;
+}
+#L07 #area-billboard {
+	width: 841px;
+}
+#L08 #area-billboard {
+	width: 841px;
+}
+#L01 .noskin#area-contents {
+	width: 825px;
+}
+#L02 .noskin#area-contents {
+	width: 825px;
+}
+#L03 .noskin#area-contents {
+	width: 825px;
+}
+#L07 .noskin#area-contents {
+	width: 825px;
+}
+#L08 .noskin#area-contents {
+	width: 825px;
+}
+#L01 #area-contents {
+	width: 841px;
+}
+#L02 #area-contents {
+	width: 841px;
+}
+#L03 #area-contents {
+	width: 841px;
+}
+#L07 #area-contents {
+	width: 841px;
+}
+#L08 #area-contents {
+	width: 841px;
+}
+#L02 #area-main {
+	width: 70%;
+}
+#L03 #area-main {
+	width: 70%;
+}
+#L07 #area-main {
+	width: 70%;
+}
+#L08 #area-main {
+	width: 70%;
+}
+#L02 #area-side-a {
+	width: 29%;
+}
+#L03 #area-side-a {
+	width: 29%;
+}
+#L07 #area-side-a {
+	width: 29%;
+}
+#L08 #area-side-a {
+	width: 29%;
+}
+#L01 .noskin#area-footer {
+	width: 825px;
+}
+#L02 .noskin#area-footer {
+	width: 825px;
+}
+#L03 .noskin#area-footer {
+	width: 825px;
+}
+#L07 .noskin#area-footer {
+	width: 825px;
+}
+#L08 .noskin#area-footer {
+	width: 825px;
+}
+#L01 #area-footer {
+	width: 841px;
+}
+#L02 #area-footer {
+	width: 841px;
+}
+#L03 #area-footer {
+	width: 841px;
+}
+#L07 #area-footer {
+	width: 841px;
+}
+#L08 #area-footer {
+	width: 841px;
+}
+#L04 {
+	margin: 0px auto; width: auto;
+}
+#L04 #area-contents {
+	width: auto;
+}
+#L04 #main-group {
+	width: 100%; margin-left: -240px;
+}
+#L04 #area-main {
+	margin-left: 250px;
+}
+#L04 #area-side-a {
+	width: 240px;
+}
+#L05 {
+	margin: 0px auto; width: auto;
+}
+#L05 #area-contents {
+	width: auto;
+}
+#L05 #main-group {
+	width: 100%; margin-left: -240px;
+}
+#L05 #main-group .core {
+	width: 100%; margin-right: -240px;
+}
+#L05 #area-main {
+	margin-right: 250px; margin-left: 250px;
+}
+#L05 #area-side-a {
+	width: 240px;
+}
+#L05 #area-side-b {
+	width: 240px;
+}
+#L06 {
+	margin: 0px auto; width: auto;
+}
+#L06 #area-contents {
+	width: auto;
+}
+#L06 #main-group {
+	width: 100%; margin-right: -240px;
+}
+#L06 #area-main {
+	margin-right: 250px;
+}
+#L06 #area-side-a {
+	width: 240px;
+}
+body {
+	background: rgb(7, 47, 93);
+}
+.wind-bg {
+	background: url("_src/sc240/8AC8FAC.jpg") no-repeat top;
+}

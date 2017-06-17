@@ -85,5 +85,15 @@ namespace highwayns
         {
             (new FormCompany()).ShowDialog();
         }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            (new FormPersonal()).ShowDialog();
+        }
+
+        private void btnNjss_Click(object sender, EventArgs e)
+        {
+            (new FormNjss()).ShowDialog();
+        }
     }
 }

@@ -1,0 +1,96 @@
+* {
+	box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+html {
+	-webkit-text-size-adjust: none;
+}
+body {
+	background: rgb(250, 250, 250); font: 14px/1.7 "Century Gothic", "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, "ÇlÇr ÇoÉSÉVÉbÉN", Osaka, sans-serif; color: rgb(43, 55, 78); min-width: 1060px; font-size-adjust: none; font-stretch: normal;
+}
+button {
+	font: 14px/1.7 "Century Gothic", "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, "ÇlÇr ÇoÉSÉVÉbÉN", Osaka, sans-serif; font-size-adjust: none; font-stretch: normal;
+}
+a {
+	color: rgb(0, 137, 252); text-decoration: none;
+}
+a:hover {
+	color: rgb(61, 131, 165); text-decoration: underline;
+}
+figure {
+	margin: 0px; padding: 0px; font-size: 0px;
+}
+figure figcaption {
+	font-size: 14px;
+}
+:-ms-input-placeholder {
+	color: rgb(170, 170, 170) !important;
+}
+.c-m-t1 {
+	margin-top: 10px;
+}
+.c-m-t {
+	margin-top: 20px;
+}
+.c-m-t-x2 {
+	margin-top: 40px;
+}
+.c-m-b {
+	margin-bottom: 20px;
+}
+.c-m-b-x2 {
+	margin-bottom: 40px;
+}
+.c-m-l {
+	margin-left: 20px;
+}
+.c-m-r {
+	margin-right: 20px;
+}
+.c-center {
+	text-align: center;
+}
+.c-right {
+	text-align: right;
+}
+.c-small {
+	font-size: 12px;
+}
+.c-basic-text {
+	color: rgb(43, 55, 78);
+}
+.c-primary-green {
+	color: rgb(71, 190, 182);
+}
+a.c-a {
+	color: rgb(43, 55, 78); text-decoration: underline;
+}
+a.c-a:hover {
+	color: rgb(43, 55, 78); text-decoration: none;
+}
+.c-overlay {
+	background: rgba(43, 46, 56, 0.9); left: 0px; top: 0px; width: 100%; height: 100%; position: fixed; z-index: 10000;
+}
+.c-on {
+	color: rgb(252, 212, 52);
+}
+.c-off {
+	color: rgb(235, 235, 235);
+}
+.c-h {
+	
+}
+.c-h:hover {
+	cursor: pointer; opacity: 0.7;
+}
+.margin {
+	
+}
+.margin-t {
+	margin-top: 20px;
+}
+.margin-tb {
+	margin-top: 20px; margin-bottom: 20px;
+}
+.c-d-ib {
+	padding-right: 5px; vertical-align: middle; display: inline-block;
+}

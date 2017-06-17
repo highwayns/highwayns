@@ -1,0 +1,369 @@
+html {
+	margin: 0px; padding: 0px;
+}
+form {
+	margin: 0px; padding: 0px;
+}
+input {
+	margin: 0px; padding: 0px;
+}
+a img {
+	border: 0px currentColor; border-image: none;
+}
+a {
+	color: rgb(0, 102, 153); text-decoration: underline;
+}
+a:hover {
+	color: rgb(255, 153, 0);
+}
+#banner a {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+#banner a:hover {
+	color: rgb(51, 51, 51);
+}
+#side a {
+	color: rgb(102, 102, 102);
+}
+#side a:hover {
+	color: rgb(255, 153, 0);
+}
+h1 {
+	font-weight: bold;
+}
+h2 {
+	font-weight: bold;
+}
+h3 {
+	font-weight: bold;
+}
+h4 {
+	font-weight: bold;
+}
+h5 {
+	font-weight: bold;
+}
+h6 {
+	font-weight: bold;
+}
+h1 {
+	margin: 0px;
+}
+h2 {
+	margin: 0px;
+}
+h3 {
+	margin: 0px;
+}
+h4 {
+	margin: 0px;
+}
+h5 {
+	margin: 0px;
+}
+h6 {
+	margin: 0px;
+}
+@media screen and (min-width:768px)
+{
+body {
+	background: rgb(245, 245, 245); margin: 0px; padding: 0px; text-align: center; color: rgb(51, 51, 51); line-height: 1.5; font-size: 0.8em; min-width: 750px;
+}
+#container {
+	background: url("img/bbg.gif"); margin: 0px auto; padding: 0px; width: 740px; text-align: center; position: relative;
+}
+#container::after {
+	clear: both; display: block; visibility: hidden; content: " ";
+}
+#banner {
+	margin: 0px auto; width: 730px; height: 250px; position: relative;
+}
+#banner div {
+	background: url("img/top.jpg"); margin: 0px auto; width: 730px; height: 250px; display: block; position: relative;
+}
+#banner h1 {
+	background: url("img/h1.jpg") no-repeat; margin: 0px; padding: 5px 0px 0px 25px; width: 600px; height: 53px; text-align: left; color: rgb(255, 255, 255); line-height: 1.25; letter-spacing: 0.2em; font-family: "HGP憂塸妏恨集窾B", "僸儔僊僲妏僑 Pro W8"; font-size: 1.5em; font-weight: normal;
+}
+#banner-search {
+	left: 25px; text-align: left; bottom: 15px; color: rgb(51, 51, 51); position: absolute;
+}
+#banner-description {
+	display: none;
+}
+#pagebody {
+	margin: 0px auto; width: 730px; text-align: left; position: relative;
+}
+#pagebody::after {
+	clear: both; display: block; visibility: hidden; content: " ";
+}
+#main {
+	background: rgb(255, 255, 255); margin: 1px 10px; padding: 9px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 490px; text-align: left; float: left; display: inline; position: relative; min-height: 1px;
+}
+.conte {
+	margin: 0px 0px 5px; padding: 10px; border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+}
+#side {
+	margin: 1px 10px; width: 180px; text-align: left; color: rgb(153, 153, 153); float: right; display: inline; position: relative; min-height: 1px;
+}
+#s-main {
+	margin: 10px; width: 510px; text-align: left; float: left; display: inline; position: relative; min-height: 1px; _width: 490px;
+}
+.header1 {
+	background: url("img/ah.gif") no-repeat; margin: 15px 0px; padding: 5px 0px 10px 45px; width: auto; text-transform: uppercase; line-height: 1.25; letter-spacing: 0.2em; clear: both; font-family: "HGP憂塸妏恨集窾B", "僸儔僊僲妏僑 Pro W8"; font-size: 1.3em; font-weight: normal; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted; position: relative; _width: 100%;
+}
+.entry {
+	margin: 10px; padding: 0px 0px 5px; line-height: 1.5; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.more {
+	text-align: right;
+}
+.header2 {
+	margin: 10px 0px 0px; padding: 5px 0px 5px 10px; line-height: 1.25; font-family: "HGP憂塸妏恨集窾B", "僸儔僊僲妏僑 Pro W8"; font-size: 1.1em; font-weight: normal; border-left-color: rgb(204, 204, 204); border-left-width: 5px; border-left-style: solid; display: inline; position: relative;
+}
+.header1 a {
+	text-decoration: none;
+}
+.header2 a {
+	text-decoration: none;
+}
+.bread {
+	background: none; margin: 0px 10px; text-align: left; padding-left: 10px;
+}
+.f-navi {
+	margin: 5px 0px; text-align: center; clear: both;
+}
+.gotop {
+	padding: 10px; text-align: right; clear: both;
+}
+.img {
+	margin: 0px 5px 5px 0px; text-align: center; float: left;
+}
+.tb-info {
+	border: 1px dotted rgb(204, 204, 204); border-image: none; text-align: center;
+}
+@media screen and (min-width:768px)
+{
+#footer {
+	background: url("img/footer.gif") no-repeat bottom; margin: 0px auto; padding: 0px; width: 740px; height: 80px; text-align: left; color: rgb(255, 255, 255); clear: both; position: relative;
+}
+#footer p {
+	margin: 0px; text-align: center; padding-top: 30px; font-size: 0.8em;
+}
+#footer a {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.footer-navi {
+	margin: 0px auto; padding: 10px 0px; width: 700px; clear: both; font-size: 0.8em; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: dotted; border-bottom-style: dotted;
+}
+.footer-navi a {
+	color: rgb(153, 153, 153);
+}
+.side-header {
+	background: url("img/mh.gif") no-repeat; margin: 0px 0px 10px; padding: 9px 0px; width: auto; text-align: center; color: rgb(255, 255, 255); line-height: 1.25; font-size: 12px; font-weight: bold; position: relative;
+}
+}
+#side p {
+	padding: 0px 5px;
+}
+#side ul {
+	list-style: none; margin: 0px 0px 10px; padding: 0px;
+}
+#side li a {
+	margin: 2px 0px; padding: 10px 0px; border: 1px solid rgb(220, 220, 220); border-image: none; width: 178px; color: rgb(102, 102, 102); line-height: 1.25; text-indent: 5px; font-size: 12px; text-decoration: none; display: block;
+}
+#side li a:hover {
+	background: rgb(76, 166, 216); color: rgb(255, 255, 255);
+}
+#side dl {
+	padding: 5px;
+}
+#side dt {
+	line-height: 1.5; font-size: 12px;
+}
+.ads {
+	margin: 10px 0px 20px; padding: 0px; text-align: center; color: rgb(51, 51, 51); font-size: 0.8em;
+}
+.aka {
+	color: rgb(255, 0, 0); font-weight: bold;
+}
+.ki {
+	background: rgb(255, 255, 0); font-weight: bold;
+}
+.sp {
+	color: rgb(255, 0, 0); font-size: 16px; font-weight: bold;
+}
+.sb {
+	color: rgb(0, 0, 0); font-size: 16px; font-weight: bold;
+}
+@media screen and (min-width:768px)
+{
+.l_cen {
+	margin: 5px 0px; padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 46.5%; float: left; min-height: 150px; _width: 49%; _height: 150px;
+}
+.r_cen {
+	margin: 5px 0px; padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 46.5%; float: right; min-height: 150px; _width: 49%; _height: 150px;
+}
+}
+@media screen and (max-width:768px)
+{
+table {
+	width: 100% !important; border-collapse: collapse;
+}
+th {
+	width: auto; border-collapse: collapse;
+}
+td {
+	width: auto; border-collapse: collapse;
+}
+img {
+	margin: 0px !important; padding: 0px !important; height: auto !important; max-width: 100% !important;
+}
+ul {
+	margin: 0px !important;
+}
+ol {
+	margin: 0px !important;
+}
+li {
+	margin: 0px !important;
+}
+h2 {
+	width: auto !important;
+}
+h3 {
+	width: auto !important;
+}
+h4 {
+	width: auto !important;
+}
+h5 {
+	width: auto !important;
+}
+h6 {
+	width: auto !important;
+}
+.conte {
+	margin: 0px; padding: 10px; border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+body {
+	background: rgb(245, 245, 245); margin: 0px; padding: 0px; text-align: center; color: rgb(51, 51, 51); line-height: 1.5; font-size: 14px; min-width: 100%;
+}
+#banner {
+	margin: 0px auto; width: 100%; position: relative;
+}
+#banner div {
+	margin: 0px auto; width: 100%; display: block; position: relative;
+}
+#banner h1 {
+	background: url("img/h1.jpg") no-repeat center; margin: 0px; padding: 5px 0px 5px 5px; width: 100%; text-align: left; color: rgb(255, 255, 255); font-family: "HGP憂塸妏恨集窾B", "僸儔僊僲妏僑 Pro W8"; font-size: 14px; font-weight: normal;
+}
+.ads img {
+	width: 96%;
+}
+#container {
+	margin: 0px; padding: 0px; width: 100%; overflow: hidden;
+}
+#pagebody {
+	margin: 0px; padding: 0px; width: 100%; overflow: hidden;
+}
+#main {
+	background: rgb(255, 255, 255); margin: 0px; padding: 9px; width: 100%; text-align: left; overflow: hidden; float: none; min-height: 1px;
+}
+.l_cen {
+	margin: 5px 2%; padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; float: left;
+}
+.r_cen {
+	margin: 5px 2%; padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; float: left;
+}
+.header1 {
+	background: url("img/ah.gif") no-repeat; margin: 15px 0px; padding: 5px 0px 10px 45px; width: auto; text-transform: uppercase; line-height: 1.25; letter-spacing: 0.2em; clear: both; font-family: "HGP憂塸妏恨集窾B", "僸儔僊僲妏僑 Pro W8"; font-size: 1.3em; font-weight: normal; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted; display: block; _width: 100%;
+}
+#side {
+	background: rgb(255, 255, 255); padding: 0px 0px 10px; width: 100% !important; overflow: hidden; margin-left: 0px; float: none; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+#side h2 {
+	background: url("img/sp_icon_bk.png") no-repeat 100% 50% rgb(238, 238, 238); padding: 10px 0px 10px 10px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 100% !important; text-align: left; color: rgb(0, 0, 0); text-indent: 0px; font-size: 100%; display: inherit; cursor: pointer;
+}
+.side-header {
+	background: url("img/s_mh.jpg"); margin: 0px 0px 10px; padding: 9px 0px; width: auto; text-align: center; color: rgb(255, 255, 255); line-height: 1.25; font-size: 12px; font-weight: bold; position: relative;
+}
+#side ul {
+	margin: 0px; padding: 0px; display: none;
+}
+h3 {
+	margin: 0px; padding: 0px; display: none;
+}
+#powered {
+	margin: 0px; padding: 0px; display: none;
+}
+.active#side ul {
+	background: none; margin: 0px; padding: 0px; display: block;
+}
+.active#side h3 {
+	display: block;
+}
+.active#side #powered {
+	display: block;
+}
+#side ul li {
+	margin: 0px; padding: 0px; width: 100% !important; clear: both;
+}
+#side ul li a {
+	padding: 6px 8px 8px; display: block;
+}
+#side h3 {
+	padding: 4px 0px; text-align: center; color: rgb(255, 255, 255); font-family: "HG憂塸妏恨集窾B"; font-size: 16px; font-weight: normal; border-top-color: rgb(255, 102, 0); border-bottom-color: rgb(255, 102, 0); border-top-width: 3px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: dashed; background-image: url("img/nin.jpg");
+}
+#side li {
+	margin: 0px; padding-left: 0px; font-size: 12px; list-style-type: none;
+}
+#side li a {
+	width: 100%; color: rgb(0, 0, 255); text-indent: 10px; font-size: 16px; text-decoration: none; display: block; background-image: url("img/kuro-b.gif"); background-repeat: no-repeat;
+}
+.ctgy dt {
+	background-position: left; padding: 0px 0px 0px 20px; color: rgb(255, 255, 255); font-size: 16px; font-weight: bold; margin-bottom: 0px; display: block; background-image: url("img/li-r.gif"); background-repeat: no-repeat;
+}
+.ctgy dt a:link {
+	color: rgb(102, 102, 102);
+}
+.ctgy dt a:hover {
+	color: red;
+}
+.ctgy dt a:visited {
+	color: rgb(102, 102, 102);
+}
+.ctgy dd {
+	margin: 0px 0px 20px 10px; padding: 3px 4px 3px 10px; color: rgb(0, 0, 0); font-size: 16px; border-bottom-color: rgb(153, 153, 153); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.navi {
+	margin: 0px; text-align: left; font-size: small;
+}
+.navi a {
+	color: rgb(0, 0, 255);
+}
+.navi a:visited {
+	color: rgb(0, 0, 255);
+}
+.entry-body {
+	padding: 0px 5px;
+}
+.wan7 {
+	background: rgb(255, 255, 204); margin: 0px 5px 30px; padding: 20px 15px; border: 1px solid rgb(255, 102, 0); border-image: none; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold;
+}
+#footer {
+	background: url("img/footer.gif") no-repeat bottom; margin: 0px auto; padding: 0px; width: 100%; height: 80px; text-align: left; color: rgb(255, 255, 255); clear: both; position: relative;
+}
+#footer p {
+	margin: 0px; text-align: center; padding-top: 30px; font-size: 0.8em;
+}
+#footer a {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.footer-navi {
+	margin: 0px auto; padding: 10px 0px; width: 100%; text-align: center; line-height: 1.25; clear: both; font-size: 14px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: dotted; border-bottom-style: dotted;
+}
+.footer-navi a {
+	color: rgb(153, 153, 153);
+}
+}

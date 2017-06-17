@@ -1,0 +1,15 @@
+.yarpp-related {
+	margin: 1em 0px;
+}
+.yarpp-related a {
+	font-weight: bold; text-decoration: none;
+}
+.yarpp-related .yarpp-thumbnail-title {
+	text-align: left; font-size: 96%; font-weight: bold; text-decoration: none;
+}
+.yarpp-related h3 {
+	margin: 0px; padding: 0px 0px 5px; text-transform: capitalize; font-size: 125%; font-weight: bold;
+}
+.yarpp-related .yarpp-promote {
+	background: url("//api.engage.bidsystem.com/adk_mini_logo.png") no-repeat; width: 78px; height: 17px; color: rgb(102, 102, 102); text-indent: -1000px; clear: both; font-size: 11px; float: right; cursor: pointer;
+}
