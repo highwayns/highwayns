@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.Text.RegularExpressions;
+using NC.HPS.Lib;
 
 namespace highwayns
 {
@@ -491,6 +492,45 @@ namespace highwayns
             {
                 string name = dgvData.Rows[e.RowIndex].Cells[1].Value.ToString();
                 (new FormNjssDetail(name)).ShowDialog();
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "入札テンプレート.xlsx");
+                NCExcel execel = new NCExcel();
+                execel.OpenExcelFile(fileName);
+                execel.SelectSheet(1);
+                int idx = 3;
+                // add table list
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    string no = row.Cells[0].Value.ToString();
+                    string Name = row.Cells[1].Value.ToString();
+                    string bunrui = row.Cells[2].Value.ToString();
+                    string area = row.Cells[3].Value.ToString();
+                    string num1 = row.Cells[4].Value.ToString();
+                    string num2 = row.Cells[5].Value.ToString();
+                    string num3 = row.Cells[6].Value.ToString();
+                    string web = row.Cells[7].Value.ToString();
+                    string comment = row.Cells[8].Value.ToString();
+
+                    execel.setValue(1, idx, no);
+                    execel.setValue(2, idx, Name);
+                    execel.setValue(3, idx, bunrui);
+                    execel.setValue(4, idx, area);
+                    execel.setValue(5, idx, num1);
+                    execel.setValue(6, idx, num2);
+                    execel.setValue(7, idx, num3);
+                    execel.setValue(8, idx, web);
+                    execel.setValue(9, idx, comment);
+                    idx++;
+                }
+                execel.SaveAs(dlg.FileName);
+                MessageBox.Show("Save ExcelOver!\r\n there are " + dgvData.Rows.Count.ToString() + " record!");
             }
         }
 
