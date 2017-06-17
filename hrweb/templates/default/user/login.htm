@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -85,7 +85,7 @@ $(document).ready(function()
 		else if($("#postcaptcha").val()=="")
 		{	
 
-			$(".login_err").html("検証コードを入力してください");
+			$(".login_err").html("認証コードを入力してください");
 			$(".login_err").show();
 		}
 		{#/if#}
@@ -117,7 +117,7 @@ $(document).ready(function()
 					else if(data=="errcaptcha")
 					{
 					$("#imgdiv img").attr("src",$("#imgdiv img").attr("src")+"1");
-					errinfo="検証コードエラー";
+					errinfo="認証コードエラー";
 					}
 					else if(data=="status_err")
 					{
@@ -148,7 +148,7 @@ $(document).ready(function()
 	</div>
 	<div id="login-box">
 		{#if $HIGHWAY.weixin_apiopen=='1' && $HIGHWAY.weixin_scan_login=='1'#}
-		<div class="weixin-login-box"><a href=“javascript:void(0);" class=“login-type wx" title=“wechatログイン"></a><!-- pc登录class="pc" --></div> 
+		<div class="weixin-login-box"><a href="javascript:void(0);" class="login-type wx" title="wechatログイン"></a><!-- pc登录class="pc" --></div> 
 		{#/if#}
 		<h1>会員ログイン</h1>
 		<form action="" id="pcLogin">
@@ -156,17 +156,17 @@ $(document).ready(function()
 			<div class="login-ver-box error login_err" style="display: none;"></div>
 			<div class="login-input-item clearfix">
 				<i class="login-icon l-icon-user f-left"></i>
-				<div class="f-left"><input type="text" name="username" id="username" placeholder=“ユーザー名/携帯/メールボックス" class="login-input" /></div>
+				<div class="f-left"><input type="text" name="username" id="username" placeholder="ユーザー名/携帯/メールボックス" class="login-input" /></div>
 				<div class="input-clear"></div>
 			</div>
 			<div class="login-input-item clearfix">
 				<i class="login-icon l-icon-password f-left"></i>
-				<div class="f-left"><input type=“password" name=“password" id=“password" placeholder=“パスワード" class=“login-input" /></div>
+				<div class="f-left"><input type="password" name="password" id="password" placeholder="パスワード" class="login-input" /></div>
 			</div>
 			{#if $verify_userlogin=="1"#}
 			<div class="login-input-item lver clearfix">
-				<div class="f-left"><input type="text" class="text span190 text-lg" name="postcaptcha" id="postcaptcha" placeholder= “コードを右に入力" /></div>
-				<div class="login-ver f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title=“検証コードを変更してください"  border="0" /></div>
+				<div class="f-left"><input type="text" class="text span190 text-lg" name="postcaptcha" id="postcaptcha" placeholder= "認証コードを入力" /></div>
+				<div class="login-ver f-left"><img src="{#$HIGHWAY.site_dir#}include/imagecaptcha.php?t={#$random#}" id="getcode" align="absmiddle"  style="cursor:pointer;width: 100px;height: 38px;" title="検証コードを変更してください"  border="0" /></div>
 			</div>
 			{#/if#}
 			<div class="auto-login clearfix">

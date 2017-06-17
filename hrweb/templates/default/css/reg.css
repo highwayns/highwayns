@@ -240,7 +240,7 @@ input.text.span190{width: 170px;}
 .weixin-login-box .login-type.wx{background-position: 0px 0px;}
 .weixin-login-box .login-type.pc{background-position: -59px 0px;}
 #login-box h1{font-size: 20px;color:#666;font-weight: normal;margin-bottom: 10px;}
-#login-box .login-ver-box{margin-bottom: 10px;padding-left: 34px;border:1px solid;height:24px;line-height: 24px;}
+#login-box .login-ver-box{margin-bottom: 10px;padding-left:34px;border:1px solid;height:28px;line-height: 14px;}
 #login-box .login-ver-box.tips{background:url(../images/icon36.png) no-repeat 10px -46px #fff6d2;border-color: #ffe57d;color: #666;}
 #login-box .login-ver-box.error{background:url(../images/icon36.png) no-repeat 10px 4px #fff0f0;border-color: #ff483f;color: #fc4343;}
 #login-box .login-input-item{margin-bottom: 20px;height:38px;border:1px solid #dddddd;position: relative;}
