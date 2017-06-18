@@ -10,6 +10,7 @@ namespace HPSBid
     public class DB
     {
         private const string TBL_GOVEMENT = "機構";//機構
+        private const string TBL_PROJECT = "プロジェクト";//プロジェクト
 
         public CmWinServiceAPI db;
         public DB()
@@ -55,6 +56,44 @@ namespace HPSBid
                                   out int newdataid)
         {
             return db.m_db.SetData_(LoginID, dataid, fieldlist, TBL_GOVEMENT, wheresql, valuesql, out newdataid, NCConst.ConnectionString);
+        }
+        #endregion
+
+        #region GetProject
+        /// <summary>
+        /// GetProject 
+        /// </summary>
+        /// <param name="LoginID">ユーザＩＤ</param>
+        /// <param name="dataid">データＩＤ</param>
+        /// <param name="fieldlist">フィールドリスト</param>
+        /// <param name="wheresql">ＷＨＥＲＥ文</param>
+        /// <param name="ordersql">ＯＲＤＥＲ文</param>
+        /// <param name="dataSet">データセット</param>
+        /// <returns>成功の場合ＴＵＲＥ</returns>
+        public bool GetProject(int LoginID, int dataid, string fieldlist,
+                                  string wheresql, string ordersql,
+                                  ref DataSet dataSet)
+        {
+            string where = wheresql;
+            if (where == "") where = "1=1";
+            return db.m_db.GetDataList_(LoginID, dataid, fieldlist, TBL_PROJECT, where, ordersql, ref dataSet, NCConst.ConnectionString);
+        }
+
+        /// <summary>
+        /// SetProject
+        /// </summary>
+        /// <param name="LoginID">ユーザＩＤ</param>
+        /// <param name="dataid">データＩＤ</param>
+        /// <param name="fieldlist">フィールドリスト</param>
+        /// <param name="wheresql">ＷＨＥＲＥ文</param>
+        /// <param name="valuesql">ＶＡＬＵＥ文</param>
+        /// <param name="newdataid">新規するときのＩＤ</param>
+        /// <returns>成功場合ＴＲＵＥ</returns>
+        public bool SetProject(int LoginID, int dataid, string fieldlist,
+                                   string wheresql, string valuesql,
+                                  out int newdataid)
+        {
+            return db.m_db.SetData_(LoginID, dataid, fieldlist, TBL_PROJECT, wheresql, valuesql, out newdataid, NCConst.ConnectionString);
         }
         #endregion
 
