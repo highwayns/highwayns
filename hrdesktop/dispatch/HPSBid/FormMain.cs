@@ -18,7 +18,7 @@ namespace HPSBid
     {
 
         private const string SYSTEM_ID = "HPSBid";
-        private const string SQL_FILE = "Govement.sql";
+        private const string SQL_FILE = "bid.sql";
 
         private string strDataSource = null;
         private string strDbName = null;
@@ -296,7 +296,7 @@ namespace HPSBid
             }
         }
         /// <summary>
-        /// 增加客户
+        /// 增加機構
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -321,7 +321,7 @@ namespace HPSBid
 
         }
         /// <summary>
-        /// 更新客户
+        /// 更新機構
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -394,7 +394,7 @@ namespace HPSBid
 
         }
         /// <summary>
-        /// 删除客户数据
+        /// 删除機構数据
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -431,7 +431,7 @@ namespace HPSBid
             init(cmbKinds.Text, cmbFormats.Text, cmbSubscripts.Text);
         }
         /// <summary>
-        /// 客户导入
+        /// 機構导入
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -461,15 +461,40 @@ namespace HPSBid
                 String line = reader.ReadLine();
                 while (line != null)
                 {
-                    string[] data = line.Split(',');
-                    if (data.Length == 9)
-                    {
-                        int id = 0;
-                        String valueList = "'" + data[1] + "','" + data[1] + "','','" + data[4] + "','','','機構','" + data[2] + "','" + data[3] + "','2017/06/15','" + data[8]
-                            + "','" + data[6] + "','','" + data[3] + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','Y','1'";
-                        db.SetGovement(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
-                                                "", valueList, out id);
-                    }
+                    string[] temp = line.Split(',');
+                    string name = temp[0];//名称
+                    string bunrui = temp[1];//分類
+                    string area = temp[2];//区域                    
+                    string num1 = temp[3].Replace("入札可能案件", "");//入札可能案件
+                    string num2 = temp[4].Replace("案件登録数", "");//案件登録数
+                    string num3 = temp[5].Replace("入札結果数", "");//入札結果数
+                    string url = temp[6];//web
+
+                    int id = 0;
+                    String valueList = "'" 
+                        + name //名称
+                        + "','" 
+                        + "" //管理者
+                        + "','','" //postcode
+                        + "" //address
+                        + "','','','"//tel,fax
+                        +bunrui+"','" //kind
+                        + area //formart
+                        + "','" 
+                        + "" //scale
+                        + "','2017/06/15','" //CYMD
+                        + ""//other
+                        + "','" 
+                        + "" //mail
+                        + "','"
+                        + url//web
+                        + "','" 
+                        + ""//jCName 
+                        + "','" 
+                        + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") 
+                        + "','Y','1',"+num1+","+num2+","+num3;
+                    db.SetGovement(0, 0, "Cname,name,postcode,[address],tel,fax,kind,[format],scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID,入札可能案件,案件登録数,入札結果数",
+                                            "", valueList, out id);
                     line = reader.ReadLine();
                 }
             }
@@ -493,6 +518,20 @@ namespace HPSBid
         /// <param name="e"></param>
         private void btnMailSend_Click(object sender, EventArgs e)
         {
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                (new FormProject(db,name)).ShowDialog();
+            }
 
         }
 
