@@ -117,66 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>772, 511</value>
-  </data>
-  <data name="btnSelect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 23</value>
-  </data>
-  <data name="txtExcelFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>564, 511</value>
-  </data>
-  <data name="txtExcelFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 21</value>
-  </data>
-  <data name="btnLoad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>822, 511</value>
-  </data>
-  <data name="btnLoad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 23</value>
-  </data>
   <data name="btnLoad.Text" xml:space="preserve">
     <value>导入</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 29</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>姓名</value>
   </data>
-  <data name="cmbRole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 29</value>
-  </data>
-  <data name="cmbRole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 29</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>职业</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>486, 511</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>简历文件</value>
-  </data>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 62</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>902, 439</value>
   </data>
   <data name="Column1.HeaderText" xml:space="preserve">
     <value>编号</value>
@@ -277,110 +232,38 @@
   <data name="Column33.HeaderText" xml:space="preserve">
     <value>学位</value>
   </data>
-  <data name="btnMemberinfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 511</value>
-  </data>
-  <data name="btnMemberinfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
-  </data>
   <data name="btnMemberinfo.Text" xml:space="preserve">
     <value>基本信息</value>
-  </data>
-  <data name="btnWork.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 511</value>
-  </data>
-  <data name="btnWork.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
   </data>
   <data name="btnWork.Text" xml:space="preserve">
     <value>工作经历</value>
   </data>
-  <data name="btnDispatch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 511</value>
-  </data>
-  <data name="btnDispatch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
-  </data>
   <data name="btnDispatch.Text" xml:space="preserve">
     <value>派遣经历</value>
-  </data>
-  <data name="btnExport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>899, 511</value>
-  </data>
-  <data name="btnExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
   </data>
   <data name="btnExport.Text" xml:space="preserve">
     <value>导出</value>
   </data>
-  <data name="btnSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>899, 29</value>
-  </data>
-  <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
-  </data>
   <data name="btnSearch.Text" xml:space="preserve">
     <value>检索</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>562, 29</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>经验</value>
   </data>
-  <data name="txtTool.Location" type="System.Drawing.Point, System.Drawing">
-    <value>616, 29</value>
-  </data>
-  <data name="txtTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 21</value>
-  </data>
-  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 29</value>
-  </data>
-  <data name="txtName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 21</value>
-  </data>
-  <data name="btnMailSend.Location" type="System.Drawing.Point, System.Drawing">
-    <value>880, 540</value>
-  </data>
-  <data name="btnMailSend.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 23</value>
-  </data>
   <data name="btnMailSend.Text" xml:space="preserve">
     <value>邮件发送</value>
-  </data>
-  <data name="btnTrain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 511</value>
-  </data>
-  <data name="btnTrain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
   </data>
   <data name="btnTrain.Text" xml:space="preserve">
     <value>资格</value>
   </data>
-  <data name="btnCreateBiza.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 540</value>
-  </data>
-  <data name="btnCreateBiza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 23</value>
-  </data>
   <data name="btnCreateBiza.Text" xml:space="preserve">
     <value>签证</value>
-  </data>
-  <data name="btnSchool.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 511</value>
-  </data>
-  <data name="btnSchool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 23</value>
   </data>
   <data name="btnSchool.Text" xml:space="preserve">
     <value>学历</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+  <data name="btnImportCsv.Text" xml:space="preserve">
+    <value>Csv导入</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>992, 559</value>

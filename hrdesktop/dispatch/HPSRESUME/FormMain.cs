@@ -11,6 +11,7 @@ using System.IO;
 using System.Collections;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 namespace HPSRESUME
 {
@@ -391,11 +392,18 @@ namespace HPSRESUME
         {
             DataSet ds = new DataSet();
             string strName = txtName.Text;
-            string strWhere = "name like '%" + strName +"%'"
-                + " AND sendtool like '%"+txtTool.Text+"%'";
+            string strWhere = "1=1";
+            if (!string.IsNullOrEmpty(strName))
+            {
+                strWhere += " AND name like '%" + cmbRole.Text + "%'";
+            }
+            if (!string.IsNullOrEmpty(txtTool.Text))
+            {
+                strWhere += " AND skill like '%" + cmbRole.Text + "%'";
+            }
             if (!string.IsNullOrEmpty(cmbRole.Text))
             {
-                strWhere += " AND sendrole = '" + cmbRole.Text + "'";
+                strWhere += " AND sendrole like '%" + cmbRole.Text + "%'";
             }
             if (db.GetEmpVW(0, 0, "*", strWhere, "", ref ds))
             {
@@ -705,6 +713,65 @@ namespace HPSRESUME
                 FormSchool form = new FormSchool(db, resumeid);
                 form.ShowDialog();
                 init();
+            }
+
+        }
+        /// <summary>
+        /// CSV 導入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImportCsv_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Text File (*.csv)|*.csv|All File (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                importPersonalFile(dlg.FileName);
+                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0001I", db.db.Language);
+                MessageBox.Show(msg);
+            }
+
+
+        }
+        /// <summary>
+        /// 個人导入
+        /// </summary>
+        /// <param name="csvFile"></param>
+        private void importPersonalFile(String fileName)
+        {
+            NdnPublicFunction func = new NdnPublicFunction();
+            using (StreamReader reader =
+                new StreamReader(fileName, Encoding.GetEncoding("UTF-8")))
+            {
+                String line = reader.ReadLine();
+                while (line != null)
+                {
+                    string[] temp = line.Split(',');
+                    if (temp.Length == 9)
+                    {
+                        string name = temp[1];// 氏名                    
+                        string sex = temp[2];// 性别
+                        int age =0;
+                        if(temp[3]!="")
+                            age = int.Parse(Strings.StrConv(temp[3].Replace("歳", ""), VbStrConv.Narrow, 0));
+                        string birthday = System.DateTime.Now.AddYears(0 - age).ToString("yyyy-MM-dd");  //对应 技术者履历书中的 生年月
+                        string BirthAddress = temp[6];//メール
+                        string country = "日本";  //对应 技术者履历书中的 国籍
+                        string nearstation = temp[4]; //对应 技术者履历书中的 自宅・最寄り駅
+                        string skill = temp[8];//希望職
+                        string fieldlist = "Name,Sex,Birthday,BirthAddress,Country,NearStation,skill,UserID";  //分别对应数据库中雇员表里的字段
+                        string valuelist = "'" + name + "','" + sex + "','" + birthday + "','"
+                                           + BirthAddress + "','" + country + "','" + nearstation + "','" + skill + "','"+db.db.UserID+"'";
+                        int id = 0;
+                        if (db.SetEmp(0, 0, fieldlist, "", valuelist, out id))
+                        {
+                            //
+                        }
+                    }
+                    line = reader.ReadLine();
+                }
+
             }
 
         }
