@@ -1,7 +1,7 @@
 ﻿USE [HPS]
 GO
 
-/****** Object:  Table [dbo].[客户]    Script Date: 2017/06/17 13:34:53 ******/
+/****** Object:  Table [dbo].[会社]    Script Date: 2017/06/17 13:34:53 ******/
 SET ANSI_NULLS ON
 GO
 

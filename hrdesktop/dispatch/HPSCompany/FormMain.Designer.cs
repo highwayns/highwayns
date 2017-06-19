@@ -49,7 +49,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvData = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,7 +97,7 @@
             this.cmbFormat = new System.Windows.Forms.ComboBox();
             this.cmbKind = new System.Windows.Forms.ComboBox();
             this.btnGet = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -207,14 +207,13 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dataGridView1
+            // dgvData
             // 
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.AllowUserToOrderColumns = true;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -232,12 +231,14 @@
             this.Column15,
             this.Column16,
             this.Column17});
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            resources.ApplyResources(this.dgvData, "dgvData");
+            this.dgvData.MultiSelect = false;
+            this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            this.dgvData.RowTemplate.Height = 23;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dgvData.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // Column1
             // 
@@ -483,46 +484,46 @@
             // 
             // cmbKinds
             // 
-            resources.ApplyResources(this.cmbKinds, "cmbKinds");
             this.cmbKinds.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbKinds, "cmbKinds");
             this.cmbKinds.Name = "cmbKinds";
             // 
             // cmbFormats
             // 
-            resources.ApplyResources(this.cmbFormats, "cmbFormats");
             this.cmbFormats.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbFormats, "cmbFormats");
             this.cmbFormats.Name = "cmbFormats";
             // 
             // cmbSubscripts
             // 
-            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
             this.cmbSubscripts.FormattingEnabled = true;
             this.cmbSubscripts.Items.AddRange(new object[] {
             resources.GetString("cmbSubscripts.Items"),
             resources.GetString("cmbSubscripts.Items1"),
             resources.GetString("cmbSubscripts.Items2")});
+            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
             this.cmbSubscripts.Name = "cmbSubscripts";
             // 
             // cmbSubscript
             // 
-            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
             this.cmbSubscript.FormattingEnabled = true;
             this.cmbSubscript.Items.AddRange(new object[] {
             resources.GetString("cmbSubscript.Items"),
             resources.GetString("cmbSubscript.Items1"),
             resources.GetString("cmbSubscript.Items2")});
+            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
             this.cmbSubscript.Name = "cmbSubscript";
             // 
             // cmbFormat
             // 
-            resources.ApplyResources(this.cmbFormat, "cmbFormat");
             this.cmbFormat.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbFormat, "cmbFormat");
             this.cmbFormat.Name = "cmbFormat";
             // 
             // cmbKind
             // 
-            resources.ApplyResources(this.cmbKind, "cmbKind");
             this.cmbKind.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbKind, "cmbKind");
             this.cmbKind.Name = "cmbKind";
             // 
             // btnGet
@@ -586,11 +587,11 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormMain";
             this.Load += new System.EventHandler(this.FormCustomer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,7 +619,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblCustomer;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.TextBox txtScale;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtMail;

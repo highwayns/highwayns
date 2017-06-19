@@ -43,6 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="FormCompanyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompanyEdit.Designer.cs">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormCompanyEdit.resx">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

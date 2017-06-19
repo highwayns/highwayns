@@ -94,7 +94,7 @@ namespace HPSCompany
 
             if (db.GetCompany(0, 0, "*", wheresql, "", ref ds))
             {
-                dataGridView1.DataSource = ds.Tables[0];
+                dgvData.DataSource = ds.Tables[0];
                 lblRecordNum.Text = "("+ds.Tables[0].Rows.Count.ToString() + ")";
             }
         }
@@ -274,29 +274,29 @@ namespace HPSCompany
         /// <param name="e"></param>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                txtId.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                txtCname.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                txtName.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                txtPostCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                txtAddress.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                txtTel.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                txtFax.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                cmbKind.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-                cmbFormat.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-                txtScale.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
-                txtCYMD.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
-                txtOther.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
-                txtMail.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
-                txtWeb.Text = dataGridView1.SelectedRows[0].Cells[13].Value.ToString();
-                txtJCname.Text = dataGridView1.SelectedRows[0].Cells[14].Value.ToString();
-                txtCreateTime.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
-                cmbSubscript.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+                txtId.Text = dgvData.SelectedRows[0].Cells[0].Value.ToString();
+                txtCname.Text = dgvData.SelectedRows[0].Cells[1].Value.ToString();
+                txtName.Text = dgvData.SelectedRows[0].Cells[2].Value.ToString();
+                txtPostCode.Text = dgvData.SelectedRows[0].Cells[3].Value.ToString();
+                txtAddress.Text = dgvData.SelectedRows[0].Cells[4].Value.ToString();
+                txtTel.Text = dgvData.SelectedRows[0].Cells[5].Value.ToString();
+                txtFax.Text = dgvData.SelectedRows[0].Cells[6].Value.ToString();
+                cmbKind.Text = dgvData.SelectedRows[0].Cells[7].Value.ToString();
+                cmbFormat.Text = dgvData.SelectedRows[0].Cells[8].Value.ToString();
+                txtScale.Text = dgvData.SelectedRows[0].Cells[9].Value.ToString();
+                txtCYMD.Text = dgvData.SelectedRows[0].Cells[10].Value.ToString();
+                txtOther.Text = dgvData.SelectedRows[0].Cells[11].Value.ToString();
+                txtMail.Text = dgvData.SelectedRows[0].Cells[12].Value.ToString();
+                txtWeb.Text = dgvData.SelectedRows[0].Cells[13].Value.ToString();
+                txtJCname.Text = dgvData.SelectedRows[0].Cells[14].Value.ToString();
+                txtCreateTime.Text = dgvData.SelectedRows[0].Cells[15].Value.ToString();
+                cmbSubscript.Text = dgvData.SelectedRows[0].Cells[16].Value.ToString();
             }
         }
         /// <summary>
-        /// 增加客户
+        /// 增加公司
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -321,13 +321,13 @@ namespace HPSCompany
 
         }
         /// <summary>
-        /// 更新客户
+        /// 更新公司
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
 
                 int id = 0;
@@ -394,13 +394,13 @@ namespace HPSCompany
 
         }
         /// <summary>
-        /// 删除客户数据
+        /// 删除公司数据
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
                 int id = 0;
                 if (db.SetCompany(0, 2, "", "id=" + txtId.Text, "", out id) && id == 2)
@@ -431,7 +431,7 @@ namespace HPSCompany
             init(cmbKinds.Text, cmbFormats.Text, cmbSubscripts.Text);
         }
         /// <summary>
-        /// 客户导入
+        /// 公司导入
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -462,11 +462,24 @@ namespace HPSCompany
                 while (line != null)
                 {
                     string[] data = line.Split(',');
+                    string Cname =data[1];//会社名
+                    string depart = data[2];//部門または職位
+                    string manager = data[3];//管理者名前                    
+                    string address = data[4];//アドレス
+                    string Tel = data[5] ;//電話・FAX
+                    string mail = data[6] ;//メール
+                    string web = data[7];//web
+                    string other = data[8];//other
+                    
                     if (data.Length == 9)
                     {
                         int id = 0;
-                        String valueList = "'" + data[1] + "','" + data[1] + "','','" + data[4] + "','','','会社','" + data[2] + "','" + data[3] + "','2017/06/15','" + data[8]
-                            + "','" + data[6] + "','','" + data[3] + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','Y','1'";
+                        String valueList = "'" + Cname + "','"
+                            + manager + "','','" 
+                            + address + "','"
+                            +Tel+"','','','','','2017/06/15','"
+                            + other + "','','"
+                            + web + "','" + depart + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','Y','1'";
                         db.SetCompany(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
                                                 "", valueList, out id);
                     }
@@ -493,6 +506,33 @@ namespace HPSCompany
         /// <param name="e"></param>
         private void btnMailSend_Click(object sender, EventArgs e)
         {
+
+        }
+        /// <summary>
+        /// ウェブ編集
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string[] data = new string[18];
+                for (int i = 0; i < 18; i++)
+                {
+                    data[i] = dgvData.Rows[e.RowIndex].Cells[i].Value.ToString();
+                }
+                FormCompanyEdit form = new FormCompanyEdit(data);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    data = form.data;
+                    for (int i = 0; i < 18; i++)
+                    {
+                        dgvData.Rows[e.RowIndex].Cells[i].Value = data[i];
+                    }
+
+                }
+            }
 
         }
 
