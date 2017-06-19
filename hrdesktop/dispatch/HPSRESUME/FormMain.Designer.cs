@@ -82,6 +82,7 @@
             this.btnTrain = new System.Windows.Forms.Button();
             this.btnCreateBiza = new System.Windows.Forms.Button();
             this.btnSchool = new System.Windows.Forms.Button();
+            this.btnImportCsv = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,8 +112,8 @@
             // 
             // cmbRole
             // 
-            this.cmbRole.FormattingEnabled = true;
             resources.ApplyResources(this.cmbRole, "cmbRole");
+            this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Name = "cmbRole";
             // 
             // label2
@@ -127,6 +128,7 @@
             // 
             // dataGridView1
             // 
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -165,7 +167,6 @@
             this.Column31,
             this.Column32,
             this.Column33});
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -446,10 +447,18 @@
             this.btnSchool.UseVisualStyleBackColor = true;
             this.btnSchool.Click += new System.EventHandler(this.btnSchool_Click);
             // 
+            // btnImportCsv
+            // 
+            resources.ApplyResources(this.btnImportCsv, "btnImportCsv");
+            this.btnImportCsv.Name = "btnImportCsv";
+            this.btnImportCsv.UseVisualStyleBackColor = true;
+            this.btnImportCsv.Click += new System.EventHandler(this.btnImportCsv_Click);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnImportCsv);
             this.Controls.Add(this.btnSchool);
             this.Controls.Add(this.btnCreateBiza);
             this.Controls.Add(this.btnTrain);
@@ -534,5 +543,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
+        private System.Windows.Forms.Button btnImportCsv;
     }
 }
