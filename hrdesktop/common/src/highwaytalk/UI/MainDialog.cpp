@@ -189,7 +189,7 @@ void MainDialog::OnWindowInitialized(TNotifyUI& msg)
 	if (m_ptxtUname)
 	{
 		CString strVersion;
-		strVersion.Format(_T("V.%d"), highwaytalk_VERSION);
+		strVersion.Format(_T("V.%d"), HIGHWAYTALK_VERSION);
 		m_ptxtUname->SetToolTip(strVersion);
 	}
 	//加载图标

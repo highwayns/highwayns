@@ -13,15 +13,15 @@ import "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include\objsafe.idl"
 	helpstring("IGifSmileyCtrl Interface"),
 	pointer_default(unique)
 ] 
-#line 31 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 31 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 interface IGifSmileyCtrl : IDispatch {
-#line 34 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 34 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 	[propput,bindable,requestedit,id(-501)] HRESULT  BackColor([in] OLE_COLOR clr);
-#line 36 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 36 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 	[propget,bindable,requestedit,id(-501)] HRESULT  BackColor([out,retval] OLE_COLOR *pclr);
-#line 38 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 38 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 	[propget,bindable,requestedit,id(-515)] HRESULT  HWND([out,retval] long *pHWND);
-#line 40 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 40 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 	[id(1)] HRESULT  LoadFromFile([in] BSTR bstrFileName);
 	[id(2)] HRESULT  LoadFromFileSized([in] BSTR bstrFileName, [in] INT nWidth, [in] INT nHeight);
 	[id(3)] HRESULT  SetHostWindow([in] long hwndHostWindow, [in] INT nNotyfyMode);
@@ -36,9 +36,9 @@ interface IGifSmileyCtrl : IDispatch {
 	helpstring("IGifSmileyCtrl2 Interface"),
 	pointer_default(unique)
 ] 
-#line 57 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 57 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 interface IGifSmileyCtrl2 : IDispatch {
-#line 59 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 59 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 	[id(4)] HRESULT  SetHint([in] BSTR bstrHint);
 	[id(5)] HRESULT  GetHint([out,retval] BSTR *bstrHint);
 };
@@ -56,7 +56,7 @@ library GifSmiley
 		uuid(DB35DD77-55E2-4905-8075-EB351BB5CBC1),
 		helpstring("GifSmileyCtrl Class")
 	] 
-#line 77 "c:\\users\\gun\\documents\\github\\highwaytalk\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
+#line 77 "c:\\users\\gun\\documents\\github\\highwayns\\hrdesktop\\common\\src\\gifsmiley\\gifsmileyctrl.h"
 	coclass CGifSmileyCtrl {
 		[default]	interface IGifSmileyCtrl2;
 		interface IGifSmileyCtrl;

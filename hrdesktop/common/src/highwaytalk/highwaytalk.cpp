@@ -39,7 +39,7 @@ BOOL ChighwaytalkApp::InitInstance()
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 	LOG__(APP, _T("===================================VersionNO:%d======BulidTime：%s--%s==========================")
-		, highwaytalk_VERSION, util::utf8ToCString(__DATE__), util::utf8ToCString(__TIME__));
+		, HIGHWAYTALK_VERSION, util::utf8ToCString(__DATE__), util::utf8ToCString(__TIME__));
 	if (!__super::InitInstance())
 	{
 		LOG__(ERR, _T("__super::InitInstance failed."));
