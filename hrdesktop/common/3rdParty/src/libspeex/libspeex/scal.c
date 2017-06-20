@@ -1,4 +1,4 @@
-/* Copyright (C) 2006-2008 CSIRO, Jean-Marc Valin, Xiph.Org Foundation
+﻿/* Copyright (C) 2006-2008 CSIRO, Jean-Marc Valin, Xiph.Org Foundation
 
    File: scal.c
    Shaped comb-allpass filter for channel decorrelation

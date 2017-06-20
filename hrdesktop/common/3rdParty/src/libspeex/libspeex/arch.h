@@ -1,4 +1,4 @@
-/* Copyright (C) 2003 Jean-Marc Valin */
+﻿/* Copyright (C) 2003 Jean-Marc Valin */
 /**
    @file arch.h
    @brief Various architecture definitions Speex

@@ -125,7 +125,7 @@ void SysConfigDialog::_InitlizeSetting()
 	module::TTConfig* pTTConfig = module::getSysConfigModule()->getSystemConfig();
 	if (!pTTConfig)
 	{
-		LOG__(ERR, _T("_InitlizeSetting,读取设置失败"));
+		LOG__(ERR, _T("_InitlizeSetting,設定読取失敗"));
 		return;
 	}
 	if (pTTConfig->sysBaseFlag & module::BASE_FLAG_TOPMOST)
@@ -168,7 +168,7 @@ void SysConfigDialog::_ApplySetting()
 	int baseFlag = 0;
 	if (!pTTConfig)
 	{
-		LOG__(ERR, _T("SysConfigDialog::_ApplySetting,读取设置失败"));
+		LOG__(ERR, _T("SysConfigDialog::_ApplySetting,設定読取失敗"));
 		return;
 	}
 	if (m_topmostBtn->GetCheck())

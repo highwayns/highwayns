@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin 
+﻿/* Copyright (C) 2002 Jean-Marc Valin 
    File: high_lsp_tables.c
    Codebooks for high-band LSPs in SB-CELP mode
   

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 David Rowe */
+﻿/* Copyright (C) 2006 David Rowe */
 /**
    @file lsp_bfin.h
    @author David Rowe

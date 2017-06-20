@@ -86,7 +86,7 @@ DuiLib::CDuiString ServerConfigDialog::GetSkinFolder()
 
 void ServerConfigDialog::_InitlizeSetting()
 {
-	LOG__(ERR, _T("_InitlizeSetting,读取设置失败"));
+	LOG__(ERR, _T("_InitlizeSetting,設定読取失敗"));
 	module::TTConfig* pTTConfig = module::getSysConfigModule()->getSystemConfig();
 	if (!pTTConfig)
 	{

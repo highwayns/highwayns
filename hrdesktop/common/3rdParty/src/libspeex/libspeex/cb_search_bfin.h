@@ -1,4 +1,4 @@
-/* Copyright (C) 2005 Analog Devices */
+﻿/* Copyright (C) 2005 Analog Devices */
 /**
    @author Jean-Marc Valin 
    @file cb_search_bfin.h

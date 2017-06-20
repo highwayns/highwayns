@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2008 Jean-Marc Valin
+﻿/* Copyright (C) 2003-2008 Jean-Marc Valin
 
    File: mdf.c
    Echo canceller based on the MDF algorithm (see below)

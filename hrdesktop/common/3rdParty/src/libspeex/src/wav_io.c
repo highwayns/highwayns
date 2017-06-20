@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin 
+﻿/* Copyright (C) 2002 Jean-Marc Valin 
    File: wav_io.c
    Routines to handle wav (RIFF) headers
 

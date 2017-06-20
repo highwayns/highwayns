@@ -609,7 +609,7 @@ BOOL AudioMessageMananger::getAudioMsgLenth(IN UCHAR* data, IN UINT32 lenth, OUT
 	AudioMsgLen = (data[0] << 24) + (data[1] << 16) + (data[2] << 8) + data[3];
 	if (0 == AudioMsgLen)
 	{
-		LOG__(ERR, _T("语音时长为零"));
+		LOG__(ERR, _T("音声時間が0"));
 	}
 	return TRUE;
 }

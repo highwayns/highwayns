@@ -226,13 +226,13 @@ WIN_Audio_close ( void )
 
     if (!g_bEnd)
     {
-        g_hDuoduoWnd = FindWindow(NULL,"多多卖家版");
+        g_hDuoduoWnd = FindWindow(NULL,"DUODUO");
         if (g_hDuoduoWnd)
         {
             PostMessage(g_hDuoduoWnd,g_sPlayFinished,NULL,NULL);
         }else
         {
-            //Box( "Can't find window named 多多卖家版" );
+            //Box( "Can't find window named DUODUO" );
         }
     }
 

@@ -1,4 +1,4 @@
-#define STBI_NO_STDIO
+﻿#define STBI_NO_STDIO
 #define STBI_NO_WRITE
 #define STBI_NO_HDR
 

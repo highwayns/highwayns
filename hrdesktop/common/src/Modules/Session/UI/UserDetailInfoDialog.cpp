@@ -84,10 +84,10 @@ void UserDetailInfoDialog::OnWindowInitialized(TNotifyUI& msg)
 		}
 		else if (2 == userInfo.gender)
 		{
-			sex->SetText(_T("小仙"));
+			sex->SetText(_T("スプライト"));
 		}
 		else
-			sex->SetText(_T("人妖"));
+			sex->SetText(_T("ニューハーフ"));
 	}
 	CControlUI* department = m_PaintManager.FindControl(_T("department"));
 	if (department)

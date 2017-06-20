@@ -148,7 +148,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("1");
 		item.folder = false;		
 		item.logo = _T("man_big.png");
-		item.nick_name = _T("大佛");
+		item.nick_name = _T("仏");
 		item.description = _T("dafo@mogujie.com");
 
 		myself_info_ = item;
@@ -159,7 +159,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("2");
 		item.folder = false;
 		item.logo = _T("default.png");
-		item.nick_name = _T("快刀");
+		item.nick_name = _T("鋭いナイフ");
 		item.description = _T("kuaidao@mogujie.com");
 		pFriendsList->AddNode(item, root_parent);
 		friends_.push_back(item);
@@ -167,8 +167,8 @@ void MainFrame::UpdateFriendsList()
         item.id = _T("2");
         item.folder = false;
         item.logo = _T("default.png");
-        item.nick_name = _T("子烨");
-        item.description = _T("万恶的地主");
+        item.nick_name = _T("イェ子");
+        item.description = _T("極めて悪い土地主");
         pFriendsList->AddNode(item, root_parent);
         friends_.push_back(item);
 
@@ -186,14 +186,14 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("3");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("企业好友");
+		item.nick_name = _T("企業友達");
 		Node* root_parent2 = pFriendsList->AddNode(item, NULL);
 		friends_.push_back(item);
 
 		item.id = _T("4");
 		item.folder = false;
 		item.logo = _T("icon_home.png");
-		item.nick_name = _T("腾讯企业QQ的官方展示号");
+		item.nick_name = _T("TencentQQの会社展示番号");
 		item.description = _T("");
 		pFriendsList->AddNode(item, root_parent2);
 		friends_.push_back(item);
@@ -201,7 +201,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("5");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("陌生人");
+		item.nick_name = _T("他人");
 		Node* root_parent3 = pFriendsList->AddNode(item, NULL);
 		friends_.push_back(item);
 
@@ -209,7 +209,7 @@ void MainFrame::UpdateFriendsList()
 		item.id = _T("6");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("黑名单");
+		item.nick_name = _T("黒リスト");
 		Node* root_parent4 = pFriendsList->AddNode(item, NULL);
 		friends_.push_back(item);
 	}
@@ -227,19 +227,19 @@ void MainFrame::UpdateGroupsList()
 
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("我的QQ群");
+		item.nick_name = _T("私のQQグループ");
 
 		Node* root_parent = pGroupsList->AddNode(item, NULL);
 
 		item.folder = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("Duilib官方交流群");
+		item.nick_name = _T("DuilibComunity");
 		item.description = _T("153787916");
 		pGroupsList->AddNode(item, root_parent);
 
 		item.folder = false;
 		item.logo = _T("groups.png");
-		item.nick_name = _T("Duilib官方交流群2");
+		item.nick_name = _T("DuilibCommunity");
 		item.description = _T("79145400");
 		pGroupsList->AddNode(item, root_parent);
 	}
@@ -260,7 +260,7 @@ void MainFrame::UpdateRecentlyList()
 		item.folder = false;
 		item.empty = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("子烨");
+		item.nick_name = _T("イェ子");
 		item.description.Format(_T("%d"),item.Time);
 
 		pRecentlyList->AddNode(item, NULL);
@@ -268,37 +268,37 @@ void MainFrame::UpdateRecentlyList()
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("麦克");
-		//item.description = _T("大帅哥");
+		item.nick_name = _T("マック");
+		//item.description = _T("ハンサム");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("四叶");
-		//item.description = _T("闷骚的少年");
+		item.nick_name = _T("四葉");
+		//item.description = _T("闷骚の少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL, 2);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
 		item.nick_name = _T("独嘉");
-		//item.description = _T("风一般的少年");
+		//item.description = _T("風のような少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("四叶");
-		//item.description = _T("闷骚的少年");
+		item.nick_name = _T("四葉");
+		//item.description = _T("闷骚の少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("千凡");
-		//item.description = _T("养猫的孩纸");
+		item.nick_name = _T("千帆");
+		//item.description = _T("養猫のことも");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL,3);
 
@@ -313,14 +313,14 @@ void MainFrame::UpdateRecentlyList()
 		//	pRecentlyList->Add(pListElement);
 
 		//	pListElement->SetText(0, _T("WHO1753"));
-		//	pListElement->SetText(1, _T("程序设计"));
+		//	pListElement->SetText(1, _T("プログラム設計"));
 		//	pListElement->SetText(2, _T("100"));
 		//}
 
 		//UserListItemInfo item;
 		//item.folder = true;
 		//item.empty = false;
-		//item.nick_name = _T("我的QQ群");
+		//item.nick_name = _T("私のQQグループ");
 
 		//pRecentlyList->addItem(item);
 	}
@@ -383,7 +383,7 @@ void MainFrame::ShowSearchResList()
 		item.id = _T("1");
 		item.folder = false;
 		item.logo = _T("man_big.png");
-		item.nick_name = _T("大佛");
+		item.nick_name = _T("仏");
 		item.description = _T("dafo@mogujie.com");
 
 		myself_info_ = item;
@@ -394,7 +394,7 @@ void MainFrame::ShowSearchResList()
 		item.id = _T("2");
 		item.folder = false;
 		item.logo = _T("default.png");
-		item.nick_name = _T("快刀");
+		item.nick_name = _T("鋭いナイフ");
 		item.description = _T("kuaidao@mogujie.com");
 		pSearchUserList->AddNode(item, root_parent);
 		friends_.push_back(item);
@@ -402,8 +402,8 @@ void MainFrame::ShowSearchResList()
 		item.id = _T("2");
 		item.folder = false;
 		item.logo = _T("default.png");
-		item.nick_name = _T("子烨");
-		item.description = _T("万恶的地主");
+		item.nick_name = _T("イェ子");
+		item.description = _T("極めて悪い土地主");
 		pSearchUserList->AddNode(item, root_parent);
 		friends_.push_back(item);
 	}

@@ -1,4 +1,4 @@
-// xImaCodec.cpp : Encode Decode functions
+﻿// xImaCodec.cpp : Encode Decode functions
 /* 07/08/2001 v1.00 - Davide Pizzolato - www.xdp.it
  * CxImage version 6.0.0 02/Feb/2008
  */

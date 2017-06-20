@@ -1,4 +1,4 @@
-/* Declarations for getopt.
+﻿/* Declarations for getopt.
    Copyright (C) 1989,90,91,92,93,94,96,97,98 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 

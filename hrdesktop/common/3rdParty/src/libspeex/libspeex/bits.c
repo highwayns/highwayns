@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin 
+﻿/* Copyright (C) 2002 Jean-Marc Valin 
    File: speex_bits.c
 
    Handles bit packing/unpacking

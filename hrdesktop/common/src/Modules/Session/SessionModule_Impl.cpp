@@ -227,7 +227,7 @@ void SessionModule_Impl::_sessionMsgData(IN std::string& pbBody)
 
 	if (ReceiveMsgManage::getInstance()->checkIsReduplicatedMsg(msg, imMsgData.msg_id()))
 	{
-		LOG__(ERR, _T("checkIsReduplicatedMsg,消息重复"));
+		LOG__(ERR, _T("checkIsReduplicatedMsg,メッセージ重複"));
 		return;
 	}
 

@@ -70,7 +70,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
 		else if (msg.pSender == m_pBtnSendImage)
 		{
 			CFileDialog	fileDlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST
-				, _T("图片 文件|*.png;*.jpeg;*.jpg;*.gif;*.bmp||"), AfxGetMainWnd());
+				, _T("画像ファイル|*.png;*.jpeg;*.jpg;*.gif;*.bmp||"), AfxGetMainWnd());
 			fileDlg.m_ofn.Flags |= OFN_NOCHANGEDIR;
 			fileDlg.DoModal();
 
@@ -161,7 +161,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
             }
 
             CFileDialog	fileDlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST
-                , _T("文件|*.*||"), AfxGetMainWnd());
+                , _T("ファイル|*.*||"), AfxGetMainWnd());
             fileDlg.m_ofn.Flags |= OFN_NOCHANGEDIR;
             fileDlg.DoModal();
 

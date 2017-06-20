@@ -193,7 +193,7 @@ BOOL ChighwaytalkApp::_IsHaveInstance()
 	HANDLE hMutex = ::CreateMutex(NULL, TRUE, AppSingletonMutex);
 	if (hMutex != NULL && GetLastError() == ERROR_ALREADY_EXISTS)
 	{
-		MessageBox(0, _T("上次程序运行还没完全退出，请稍后再启动！"), _T("highwaytalk"), MB_OK);
+		MessageBox(0, _T("前回プログラまた終了しません、少々お待ちください！"), _T("highwaytalk"), MB_OK);
 		return TRUE;
 	}
 

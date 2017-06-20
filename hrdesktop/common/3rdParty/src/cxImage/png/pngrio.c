@@ -1,4 +1,4 @@
-
+﻿
 /* pngrio.c - functions for data input
  *
  * Last changed in libpng 1.2.13 November 13, 2006

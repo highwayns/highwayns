@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.Text.RegularExpressions;
-using NC.HPS.Lib;
+//using NC.HPS.Lib;
 
 namespace highwayns
 {
@@ -496,7 +496,7 @@ namespace highwayns
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {/*
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -531,7 +531,7 @@ namespace highwayns
                 }
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save ExcelOver!\r\n there are " + dgvData.Rows.Count.ToString() + " record!");
-            }
+            }*/
         }
 
     }

@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin 
+﻿/* Copyright (C) 2002 Jean-Marc Valin 
    File: gain_table_lbr.c
    Codebook for 3-tap pitch prediction gain (32 entries)
   

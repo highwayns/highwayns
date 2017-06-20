@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin */
+﻿/* Copyright (C) 2002 Jean-Marc Valin */
 /**
    @file filters_sse.h
    @brief Various analysis/synthesis filters (SSE version)

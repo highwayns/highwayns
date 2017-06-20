@@ -256,7 +256,7 @@ BOOL ChangeDiscussionGrpMemberDialog::_AddToGroupMemberList(IN std::string sid, 
 	CListContainerElementUI* pListElement = (CListContainerElementUI*)dlgBuilder.Create(_T("CreateDiscussionGrpDialog\\ListGroupMembersItem.xml"), (UINT)0, NULL, &m_PaintManager);
 	if (!pListElement)
 	{
-		LOG__(ERR, _T("群item创建失败"));
+		LOG__(ERR, _T("グループitem作成失敗"));
 		return FALSE;
 	}
 	CControlUI* pLogo = static_cast<CControlUI*>(pListElement->FindSubControl(_T("AvatarInfo")));

@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Jean-Marc Valin
+﻿/* Copyright (C) 2007 Jean-Marc Valin
       
    File: speex_buffer.h
    This is a very simple ring buffer implementation. It is not thread-safe
