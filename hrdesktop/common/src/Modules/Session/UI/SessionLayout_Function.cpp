@@ -352,7 +352,7 @@ void SessionLayout::_DafoNetWorkPicMsg(OUT MixedMsg& mixMsg)
 	if (0 == nPos)
 	{
 		UInt32 nCount = module::getMessageModule()->getTotalUnReadMsgCount();
-		mixMsg.m_strTextData = _T("我的总未读计数为：") + util::int32ToCString(nCount);
+		mixMsg.m_strTextData = _T("未読ファイル数：") + util::int32ToCString(nCount);
 		return;
 	}
 	const UInt32 nMySid = module::getSysConfigModule()->userId();

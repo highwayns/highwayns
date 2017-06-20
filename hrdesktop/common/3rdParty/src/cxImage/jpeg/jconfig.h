@@ -1,4 +1,4 @@
-/* jconfig.bcc --- jconfig.h for Borland C (Turbo C) on MS-DOS or OS/2. */
+﻿/* jconfig.bcc --- jconfig.h for Borland C (Turbo C) on MS-DOS or OS/2. */
 /* see jconfig.doc for explanations */
 
 #define HAVE_PROTOTYPES

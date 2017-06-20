@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2006 Jean-Marc Valin 
+﻿/* Copyright (C) 2002-2006 Jean-Marc Valin 
    File: filters.c
    Various analysis/synthesis filters
 

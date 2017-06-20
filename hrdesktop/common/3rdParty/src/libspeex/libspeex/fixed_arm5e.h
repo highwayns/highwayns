@@ -1,4 +1,4 @@
-/* Copyright (C) 2003 Jean-Marc Valin */
+﻿/* Copyright (C) 2003 Jean-Marc Valin */
 /**
    @file fixed_arm5e.h
    @brief ARM-tuned fixed-point operations

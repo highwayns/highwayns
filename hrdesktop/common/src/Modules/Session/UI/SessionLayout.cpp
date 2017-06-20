@@ -261,7 +261,7 @@ void SessionLayout::_AddGroupMemberToList(IN const std::string& sID, IN const BO
 	CListContainerElementUI* pListElement = (CListContainerElementUI*)dlgBuilder.Create(_T("SessionDialog\\groupMembersListItem.xml"), (UINT)0, NULL, &m_paint_manager);
 	if (!pListElement)
 	{
-		LOG__(ERR, _T("群item创建失败"));
+		LOG__(ERR, _T("グループitem作成失敗"));
 		return;
 	}
 	CButtonUI* pLogo = static_cast<CButtonUI*>(pListElement->FindSubControl(_T("AvatarInfo")));

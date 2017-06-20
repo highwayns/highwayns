@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Jean-Marc Valin
+﻿/* Copyright (C) 2007 Jean-Marc Valin
       
    File: os_support.h
    This is the (tiny) OS abstraction layer. Aside from math.h, this is the

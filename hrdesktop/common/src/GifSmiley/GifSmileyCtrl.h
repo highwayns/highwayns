@@ -1,4 +1,4 @@
-#ifndef GifSmileyCtrl_h__
+﻿#ifndef GifSmileyCtrl_h__
 #define GifSmileyCtrl_h__
 
 // GifSmileyCtrl.h : Declaration of the CGifSmileyCtrl

@@ -1,4 +1,4 @@
-/* Copyright (C) 2006 Jean-Marc Valin 
+﻿/* Copyright (C) 2006 Jean-Marc Valin 
    File: window.c
 
    Redistribution and use in source and binary forms, with or without

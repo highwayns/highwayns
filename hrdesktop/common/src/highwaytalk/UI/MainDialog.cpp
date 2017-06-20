@@ -420,7 +420,7 @@ void MainDialog::_FreshMySignature(void)
         m_pEditSignature->SetText(util::stringToCString(myInfo.signature));
         if (myInfo.signature.empty())
         {
-            m_pEditSignature->SetToolTip(_T("编辑个性签名"));
+            m_pEditSignature->SetToolTip(_T("個性サイン編集"));
         }
         else
         {

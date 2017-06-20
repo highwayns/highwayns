@@ -446,7 +446,7 @@ CControlUI* CDialogBuilder::_Parse(CMarkupNode* pRoot, CControlUI* pParent, CPai
 			if( pControl == NULL )
 			{
 #ifdef _DEBUG
-				DUITRACE(_T("未知控件:%s"),pstrClass);
+				DUITRACE(_T("未知コントロール:%s"),pstrClass);
 #else
 				continue;
 #endif

@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin 
+﻿/* Copyright (C) 2002 Jean-Marc Valin 
    File: exc_20_32_table.c
    Codebook for excitation in narrowband CELP mode (2000 bps)
 

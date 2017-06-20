@@ -1,4 +1,4 @@
-/* pnggccrd.c was removed from libpng-1.2.20. */
+﻿/* pnggccrd.c was removed from libpng-1.2.20. */
 
 /* This code snippet is for use by configure's compilation test. */
 

@@ -1,4 +1,4 @@
-// xImaLyr.cpp : Layers functions
+﻿// xImaLyr.cpp : Layers functions
 /* 21/04/2003 v1.00 - Davide Pizzolato - www.xdp.it
  * CxImage version 6.0.0 02/Feb/2008
  */

@@ -1,4 +1,4 @@
-/* Copyright (C) 2004 Jean-Marc Valin */
+﻿/* Copyright (C) 2004 Jean-Marc Valin */
 /**
    @file ltp_arm4.h
    @brief Long-Term Prediction functions (ARM4 version)

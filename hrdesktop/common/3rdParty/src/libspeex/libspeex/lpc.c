@@ -1,4 +1,4 @@
-/*
+﻿/*
   Copyright 1992, 1993, 1994 by Jutta Degener and Carsten Bormann,
   Technische Universitaet Berlin
 

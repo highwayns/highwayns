@@ -1,4 +1,4 @@
-/* Copyright (C) 2005 Analog Devices */
+﻿/* Copyright (C) 2005 Analog Devices */
 /**
    @file ltp_bfin.h
    @author Jean-Marc Valin

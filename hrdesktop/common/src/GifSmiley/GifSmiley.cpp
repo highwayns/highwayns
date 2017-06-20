@@ -1,4 +1,4 @@
-// GifSmiley.cpp : Implementation of DLL Exports.
+﻿// GifSmiley.cpp : Implementation of DLL Exports.
 
 
 #include "stdafx.h"

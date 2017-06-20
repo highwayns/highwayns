@@ -83,12 +83,12 @@ namespace highwayns
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             data[1] = lblCompany.Text;
-            data[1] = txtDepartment.Text;
-            data[1] = txtManager.Text;
-            data[1] = txtAddress.Text;
-            data[1] = txtTel.Text;
-            data[1] = txtMail.Text;
-            data[1] = txtWeb.Text;
+            data[2] = txtDepartment.Text;
+            data[3] = txtManager.Text;
+            data[4] = txtAddress.Text;
+            data[5] = txtTel.Text;
+            data[6] = txtMail.Text;
+            data[7] = txtWeb.Text;
             this.DialogResult = DialogResult.OK;
         }
 

@@ -1,4 +1,4 @@
-/* Copyright (C) 2004 Jean-Marc Valin */
+﻿/* Copyright (C) 2004 Jean-Marc Valin */
 /**
    @file cb_search_arm4.h
    @brief Fixed codebook functions (ARM4 version)

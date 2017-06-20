@@ -1385,7 +1385,7 @@ void CxImage::InitTextInfo( CXTEXTINFO *txt )
     txt->b_outline = 0;     // default: no outline (OUTLINE NOT IMPLEMENTED AT THIS TIME)
     txt->b_round   = 20;    // default: rounding radius is 20% of the rectangle height
     // the text 
-    _stprintf( txt->text, _T("Sample Text 01234觖")); // text use TCHAR mappings <Cesar M>
+    _stprintf( txt->text, _T("Sample Text 01234不満")); // text use TCHAR mappings <Cesar M>
     txt->align = DT_CENTER;
     return;
 }

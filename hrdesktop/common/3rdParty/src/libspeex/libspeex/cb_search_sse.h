@@ -1,4 +1,4 @@
-/* Copyright (C) 2004 Jean-Marc Valin */
+﻿/* Copyright (C) 2004 Jean-Marc Valin */
 /**
    @file cb_search_sse.h
    @brief Fixed codebook functions (SSE version)

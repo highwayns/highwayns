@@ -94,13 +94,13 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 
 		item.folder = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("大佛");
+		item.nick_name = _T("仏");
 		item.description = _T("153787916");
 		pGroupsList->AddNode(item, root_parent);
 
 		item.folder = false;
 		item.logo = _T("groups.png");
-		item.nick_name = _T("快刀");
+		item.nick_name = _T("鋭いナイフ");
 		item.description = _T("79145400");
 		pGroupsList->AddNode(item, root_parent);
 
@@ -108,7 +108,7 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 		item.id = _T("3");
 		item.folder = true;
 		item.empty = false;
-		item.nick_name = _T("客服");
+		item.nick_name = _T("サービス");
 		Node* root_parent2 = pGroupsList->AddNode(item, NULL);
 
 		item.folder = false;
@@ -121,7 +121,7 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 		{
 			item.folder = false;
 			item.logo = _T("groups.png");
-			item.nick_name = _T("荡荡");
+			item.nick_name = _T("ゆれ");
 			item.description = _T("79145400");
 			pGroupsList->AddNode(item, root_parent2);
 		}
@@ -141,7 +141,7 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 		item.folder = false;
 		item.empty = false;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("子烨");
+		item.nick_name = _T("イェ子");
 		item.description.Format(_T("%d"), item.Time);
 
 		pRecentlyList->AddNode(item, NULL);
@@ -149,37 +149,37 @@ void CreateDiscussionGrpDialog::OnPrepare(TNotifyUI& msg)
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("麦克");
-		//item.description = _T("大帅哥");
+		item.nick_name = _T("マック");
+		//item.description = _T("ハンサム");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("四叶");
-		//item.description = _T("闷骚的少年");
+		item.nick_name = _T("四葉");
+		//item.description = _T("闷骚の少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL, 2);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
 		item.nick_name = _T("独嘉");
-		//item.description = _T("风一般的少年");
+		//item.description = _T("風のような少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("四叶");
-		//item.description = _T("闷骚的少年");
+		item.nick_name = _T("四葉");
+		//item.description = _T("闷骚の少年");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL);
 
 		item.Time = rand() % 200;
 		item.logo = _T("duilib.png");
-		item.nick_name = _T("千凡");
-		//item.description = _T("养猫的孩纸");
+		item.nick_name = _T("千帆");
+		//item.description = _T("養猫のことも");
 		item.description.Format(_T("%d"), item.Time);
 		pRecentlyList->AddNode(item, NULL, 3);
 

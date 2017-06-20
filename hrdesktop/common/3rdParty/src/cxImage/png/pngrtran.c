@@ -1,4 +1,4 @@
-
+﻿
 /* pngrtran.c - transforms the data in a row for PNG readers
  *
  * Last changed in libpng 1.2.22 [October 13, 2007]

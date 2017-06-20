@@ -1,4 +1,4 @@
-#ifdef WIN32
+﻿#ifdef WIN32
 	#ifdef NETWORK_EXPORTS
 		#define NETWORK_DLL __declspec(dllexport)
 	#else

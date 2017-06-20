@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Jean-Marc Valin 
+﻿/* Copyright (C) 2002 Jean-Marc Valin 
    File: exc_8_128_table.c
    Codebook for excitation in narrowband CELP mode (7000 bps)
 

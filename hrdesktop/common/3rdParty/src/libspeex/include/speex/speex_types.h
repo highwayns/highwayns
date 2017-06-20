@@ -1,4 +1,4 @@
-/* speex_types.h taken from libogg */
+﻿/* speex_types.h taken from libogg */
 /********************************************************************
  *                                                                  *
  * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *

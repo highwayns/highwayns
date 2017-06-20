@@ -1,4 +1,4 @@
-/* Copyright (C) 2005 Jean-Marc Valin, CSIRO, Christopher Montgomery
+﻿/* Copyright (C) 2005 Jean-Marc Valin, CSIRO, Christopher Montgomery
    File: vorbis_psy.h
 
    Redistribution and use in source and binary forms, with or without

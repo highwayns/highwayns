@@ -1,4 +1,4 @@
-
+﻿
 /* pngset.c - storage of image information into info struct
  *
  * Last changed in libpng 1.2.24 [December 14, 2007]

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * A socket event dispatcher, features include: 
  * 1. portable: worked both on Windows, MAC OS X,  LINUX platform
  * 2. a singleton pattern: only one instance of this class can exist

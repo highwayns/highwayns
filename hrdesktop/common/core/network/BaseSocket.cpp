@@ -1,4 +1,4 @@
-#include "BaseSocket.h"
+﻿#include "BaseSocket.h"
 #include "EventDispatch.h"
 
 typedef hash_map<net_handle_t, CBaseSocket*> SocketMap;

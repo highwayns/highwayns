@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2007 Jean-Marc Valin 
+﻿/* Copyright (C) 2002-2007 Jean-Marc Valin 
    File: modes.c
 
    Describes the wideband modes of the codec

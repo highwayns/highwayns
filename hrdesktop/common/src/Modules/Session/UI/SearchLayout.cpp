@@ -157,7 +157,7 @@ void SearchLayout::_updateSearchResultList(IN const std::vector<std::string>& na
 
 	item.folder = true;
 	item.empty = false;
-	//item.description = _T("搜索结果1");
+	//item.description = _T("検索結果1");
 	if (1 == IdType)
 	{
 		item.nickName = util::getMultilingual()->getStringById(_T("STRID_SEARCHLAYOUT_GROUP_USERSITEM")); 

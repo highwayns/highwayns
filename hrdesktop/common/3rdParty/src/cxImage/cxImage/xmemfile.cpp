@@ -1,4 +1,4 @@
-#include "xmemfile.h"
+﻿#include "xmemfile.h"
 
 //////////////////////////////////////////////////////////
 CxMemFile::CxMemFile(BYTE* pBuffer, DWORD size)
