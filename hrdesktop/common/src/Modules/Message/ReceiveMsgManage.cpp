@@ -499,7 +499,7 @@ BOOL AudioMessageMananger::playAudioMsgByAudioSid(IN const std::string& sSession
 	csFilePath = _T("\"") + csFilePath + _T("\"");
 
 	//先关闭原来的播放窗口 
-	HWND hTTWnd = FindWindow(NULL, _T("teamtalkaudio-speexdecWindow"));
+	HWND hTTWnd = FindWindow(NULL, _T("highwaytalkaudio-speexdecWindow"));
 	if (hTTWnd)
 	{
 		COPYDATASTRUCT cpyData = { 0 };

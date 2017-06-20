@@ -64,7 +64,7 @@ BEGIN
             VALUE "LegalCopyright", "mogujie.  All rights reserved."
             VALUE "InternalName", "GifSmiley.dll"
             VALUE "OriginalFilename", "GifSmiley.dll"
-            VALUE "ProductName", "Teamtalk"
+            VALUE "ProductName", "highwaytalk"
             VALUE "ProductVersion", "1.0.0.1"
             VALUE "OLESelfRegister", ""
         END

@@ -43,7 +43,7 @@ struct TTConfigNeedCache
 	BOOL			isRememberPWD = TRUE;
 	CString			userName;
 	std::string		password;
-	CString			loginServIP = _T("http://access.teamtalk.im:8080/msg_server");				//开源测试服务器地址
+	CString			loginServIP = _T("http://access.highwaytalk.im:8080/msg_server");				//开源测试服务器地址
 	Int32			sysBaseFlag = 0;			//基本设置
 	Int32			sysSoundTypeBaseFlag = 0;	//声音类型
 };

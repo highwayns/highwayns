@@ -64,7 +64,7 @@ char* g_audioFile = 0;
 extern HWND g_hMsgWindow;
 extern int WriteDebugLog(char *str);
 extern uintptr_t _beginthread(void( __cdecl *start_address )( void * ),unsigned stack_size,void *arglist );
-extern BOOL sendTeamTalkMessage(const PCOPYDATASTRUCT cpyData);
+extern BOOL sendhighwaytalkMessage(const PCOPYDATASTRUCT cpyData);
 
 DWORD playSpeexAudio(LPVOID pParam);
 
@@ -122,7 +122,7 @@ Set_WIN_Params ( FILE_T   dummyFile ,
 {
 	WAVEFORMATEX  outFormat;
 	UINT          deviceID = WAVE_MAPPER;
-    g_sPlayFinished = RegisterWindowMessage("TeamTalk_msg_950E5225_F4A8_4b92_B339_6013154BA4F1");
+    g_sPlayFinished = RegisterWindowMessage("highwaytalk_msg_950E5225_F4A8_4b92_B339_6013154BA4F1");
 
 	(void) dummyFile;
 
@@ -245,7 +245,7 @@ LRESULT CALLBACK StartupMsgWndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM l
             if(1 == pCpyData->dwData) //1 表示退出进程
             {
                 PostMessage(g_hMsgWindow,WM_QUIT,0,0);
-                WriteDebugLog("break playing by TeamTalk");
+                WriteDebugLog("break playing by highwaytalk");
             }
             break;
         }
@@ -266,8 +266,8 @@ void MessagePump()
 
 DWORD CreatWindow(LPVOID pParam)
 {
-    TCHAR	WND_CLASS_NAME[] = TEXT("teamtalkspeexdecWindow");
-    TCHAR	WND_NAME[] = TEXT("teamtalkaudio-speexdecWindow");
+    TCHAR	WND_CLASS_NAME[] = TEXT("highwaytalkspeexdecWindow");
+    TCHAR	WND_NAME[] = TEXT("highwaytalkaudio-speexdecWindow");
 
     WNDCLASSEX	wc;
     ZeroMemory(&wc, sizeof(wc));

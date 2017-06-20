@@ -11,20 +11,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1EC6A826-BFE4-4015-A7B4-52B3D0A0D4A9}</ProjectGuid>
-    <RootNamespace>DuiLibEx</RootNamespace>
-    <Keyword>MFCDLLProj</Keyword>
+    <ProjectGuid>{227620A9-98FE-4160-B08B-074B2FFC2784}</ProjectGuid>
+    <RootNamespace>highwaytalk</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <ProjectName>highwaytalk</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -56,17 +57,19 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;DUILIBEX_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_NON_CONFORMING_SWPRINTFS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;$(SolutionDir)..\include;$(SolutionDir)..\include\utility;$(SolutionDir)..\3rdParty\src\json\include\;$(SolutionDir)..\3rdParty\src;$(SolutionDir)..\3rdParty\include;$(SolutionDir)\..\..\;$(SolutionDir)\..\core;$(SolutionDir)\..\..\TTServer\cpp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>.\DuiLibEx.def</ModuleDefinitionFile>
-      <ImportLibrary>$(SolutionDir)..\lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>utility.lib;network.lib;DuiLib.lib;Modules.lib;GifSmiley.lib;libprotobuf-lite.lib;httpclient.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\lib\$(Configuration);$(SolutionDir)\..\3rdParty\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
@@ -75,7 +78,8 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <BuildLog>
-      <Path />
+      <Path>
+      </Path>
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,19 +89,21 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;DUILIBEX_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_NON_CONFORMING_SWPRINTFS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;$(SolutionDir)..\include;$(SolutionDir)..\include\utility;$(SolutionDir)..\3rdParty\src\json\include\;$(SolutionDir)..\3rdParty\src;$(SolutionDir)..\3rdParty\include;$(SolutionDir)\..\..\;$(SolutionDir)\..\core;$(SolutionDir)\..\..\TTServer\cpp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ModuleDefinitionFile>.\DuiLibEx.def</ModuleDefinitionFile>
-      <ImportLibrary>$(SolutionDir)..\lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>utility.lib;network.lib;DuiLib.lib;Modules.lib;httpclient.lib;libprotobuf-lite.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\lib\$(Configuration);$(SolutionDir)\..\3rdParty\lib\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
@@ -110,25 +116,56 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DuiLibEx.cpp" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="highwaytalk.h" />
+    <ClInclude Include="UI\MainDialog.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="highwaytalk.cpp" />
+    <ClCompile Include="UI\MainDialog.cpp" />
+    <ClCompile Include="UI\MainDialog_Event.cpp" />
+    <ClCompile Include="UI\MainDialog_TrayIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\DuilibEx\DuilibExDll.h" />
-    <ClInclude Include="DuiLibEx.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ResourceCompile Include="highwaytalk.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DuiLibEx.def" />
-    <None Include="res\DuiLibEx.rc2" />
+    <None Include="res\highwaytalk.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DuiLibEx.rc" />
+    <Image Include="res\highwaytalk.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\bin\highwaytalk\gui\CreateDiscussionGrpDialog\ChangeDiscussionMemberDialog.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+    <Xml Include="..\..\bin\highwaytalk\gui\CreateDiscussionGrpDialog\CreateDiscussionGrpDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\CreateDiscussionGrpDialog\ListCreatFromItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\CreateDiscussionGrpDialog\ListGroupMembersItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\EmotionDialog\emotion.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\EmotionDialog\QSBFace.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\FileTransferDialog\FileTransferDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\FileTransferDialog\FileTransferListItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\LoginDialog\LoginDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\MainDialog\eaUserListItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\MainDialog\groupListItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\MainDialog\MainDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\MainDialog\recentlyListItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\MainDialog\UserDetailInfoDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\menu\lineStatus.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\menu\SendFile.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\menu\TrayIconMenu.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\menu\userListMenu.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\SessionDialog\groupMembersListItem.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\SessionDialog\SessionDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\SysConfigDialog\ServerConfigDialog.xml" />
+    <Xml Include="..\..\bin\highwaytalk\gui\SysConfigDialog\SysConfigDialog.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

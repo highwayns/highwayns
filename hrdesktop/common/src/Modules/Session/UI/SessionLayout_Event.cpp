@@ -125,7 +125,7 @@ void SessionLayout::Notify(TNotifyUI& msg)
             {
                 wchar_t szWndName[MAX_PATH] = { 0 };
                 GetClassName(hWnd, szWndName, MAX_PATH);
-                if (_wcsicmp(szWndName, L"TeamTalkMainDialog"))
+                if (_wcsicmp(szWndName, L"highwaytalkMainDialog"))
                 {
                     continue;
                 }

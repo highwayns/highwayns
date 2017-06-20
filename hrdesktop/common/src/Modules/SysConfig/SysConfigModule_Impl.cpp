@@ -27,7 +27,7 @@ namespace module
 namespace
 {
 	const CString g_config = _T("config.dat");
-	const CString g_flag = _T("$Teamtalk");
+	const CString g_flag = _T("$highwaytalk");
 	const CString g_account_config = _T("accountConfig.ini");
 }
 

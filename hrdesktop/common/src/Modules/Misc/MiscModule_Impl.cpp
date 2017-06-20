@@ -88,7 +88,7 @@ CString MiscModule_Impl::getTTCommonAppdata()
 	TCHAR szTempDir[MAX_PATH];
 	SHGetFolderPath(NULL, CSIDL_COMMON_APPDATA, NULL, SHGFP_TYPE_DEFAULT, szTempDir);
 	CString csDataDir(szTempDir);
-	csDataDir += _T("\\TeamTalkOpen\\");
+	csDataDir += _T("\\highwaytalkOpen\\");
 
 	return csDataDir;
 }

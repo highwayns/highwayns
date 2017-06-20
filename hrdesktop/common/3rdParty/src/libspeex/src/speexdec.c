@@ -89,7 +89,7 @@
 
 ogg_sync_state oy;
 SpeexBits bits;
-HWND g_hTeamTalkWnd = 0;
+HWND g_hhighwaytalkWnd = 0;
 HWND g_hMsgWindow = NULL;
 extern CRITICAL_SECTION  cs;
 
@@ -114,17 +114,17 @@ FILE *out_file_open(char *outFile, int rate, int *channels)
    return fout;
 }
 
-BOOL sendTeamTalkMessage(const PCOPYDATASTRUCT cpyData)
+BOOL sendhighwaytalkMessage(const PCOPYDATASTRUCT cpyData)
 {
 #ifdef _DEBUG
-	g_hTeamTalkWnd = FindWindow("TeamTalkMainDialog_debug", 0);
+	g_hhighwaytalkWnd = FindWindow("highwaytalkMainDialog_debug", 0);
 #else
-	g_hTeamTalkWnd = FindWindow("TeamTalkMainDialog", 0);
+	g_hhighwaytalkWnd = FindWindow("highwaytalkMainDialog", 0);
 #endif
     
-    if (g_hTeamTalkWnd && cpyData)
+    if (g_hhighwaytalkWnd && cpyData)
     {
-        SendMessage(g_hTeamTalkWnd,WM_COPYDATA,0,(LPARAM)cpyData);
+        SendMessage(g_hhighwaytalkWnd,WM_COPYDATA,0,(LPARAM)cpyData);
         return TRUE;
 	}
 	else
@@ -492,7 +492,7 @@ end:
         cpyData.lpData = (PVOID)inFile;
         cpyData.cbData = (DWORD)strlen(inFile);
         cpyData.dwData = 0; //表示结束语音播放
-        sendTeamTalkMessage(&cpyData);
+        sendhighwaytalkMessage(&cpyData);
     }
 
     free(inFile);
@@ -518,7 +518,7 @@ int main(int argc, char **argv)
     {
         COPYDATASTRUCT cpyData = {0};
         cpyData.dwData = 2; //标示未插入扬声器设备
-        sendTeamTalkMessage(&cpyData);
+        sendhighwaytalkMessage(&cpyData);
         WriteDebugLog("No audio device present");
         exit(1);
     }

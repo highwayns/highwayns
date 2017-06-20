@@ -139,11 +139,11 @@
     <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\..\bin\teamtalk\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\..\bin\highwaytalk\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\..\obj\$(Configuration)\$(ProjectName)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\..\bin\teamtalk\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\..\bin\highwaytalk\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\..\obj\$(Configuration)\$(ProjectName)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_SSE|Win32'">

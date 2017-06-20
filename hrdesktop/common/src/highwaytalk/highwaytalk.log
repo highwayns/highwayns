@@ -1,0 +1,11 @@
+﻿2017/06/20 9:40:01 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\src\highwaytalk\highwaytalk.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\ /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\..\include /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\..\include\utility /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\..\3rdParty\src\json\include\ /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\..\3rdParty\src /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\..\3rdParty\include /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\\..\..\ /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\\..\core /IC:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\\..\..\TTServer\cpp /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _CRT_SECURE_NO_WARNINGS /D _CRT_NON_CONFORMING_SWPRINTFS /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"C:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\highwaytalk.pch" /Fo"C:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\\" /Fd"C:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+     1>c:\users\ju8251\documents\github\highwaytalk\hrdesktop\common\src\highwaytalk\stdafx.h(19): fatal error C1083: include ファイルを開けません。'afxwin.h':No such file or directory
+     1>プロジェクト "C:\Users\ju8251\Documents\GitHub\highwaytalk\hrdesktop\common\src\highwaytalk\highwaytalk.vcxproj" (Build ターゲット) のビルドが終了しました -- 失敗。
+
+ビルドに失敗しました。
+
+経過時間 00:00:07.93
