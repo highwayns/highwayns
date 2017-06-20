@@ -37,7 +37,7 @@ SysConfigDialog::~SysConfigDialog()
 
 LPCTSTR SysConfigDialog::GetWindowClassName() const
 {
-	return _T("TeamTalkSysConfigDialog");
+	return _T("highwaytalkSysConfigDialog");
 }
 
 DuiLib::CDuiString SysConfigDialog::GetSkinFile()

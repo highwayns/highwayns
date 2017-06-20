@@ -37,7 +37,7 @@ ServerConfigDialog::~ServerConfigDialog()
 
 LPCTSTR ServerConfigDialog::GetWindowClassName() const
 {
-	return _T("TeamTalkServerConfigDialog");
+	return _T("highwaytalkServerConfigDialog");
 }
 
 DuiLib::CDuiString ServerConfigDialog::GetSkinFile()
