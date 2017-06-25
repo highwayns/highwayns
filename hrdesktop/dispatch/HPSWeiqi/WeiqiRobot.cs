@@ -182,6 +182,12 @@ namespace HPSWeiqi
         #endregion
 
         #region 私有方法
+        private int NotQizhi(int qizhi)
+        {
+            if (qizhi == 2)
+                return 1;
+            else return 2;
+        }
         /// <summary>
         /// 思考
         /// </summary>
@@ -195,6 +201,104 @@ namespace HPSWeiqi
                 {
                     return new Point(point3D.X, point3D.Y);
                 }
+                //长气
+                for (int i = 1; i < 18; i++)
+                {
+                    for (int j = 1; j < 18; j++)
+                    {
+                        if (data[i][j] == qizhi)
+                        {
+                            if (data[i][j - 1] == NotQizhi(qizhi) 
+                                && data[i][j + 1] == NotQizhi(qizhi) 
+                                && data[i - 1][j] == NotQizhi(qizhi) 
+                                && data[i + 1][j] == 0)
+                            {
+                                return new Point(i + 1, j);
+                            }
+                            if (data[i][j - 1] == 0
+                                && data[i][j + 1] == NotQizhi(qizhi)
+                                && data[i - 1][j] == NotQizhi(qizhi)
+                                && data[i + 1][j] == NotQizhi(qizhi))
+                            {
+                                return new Point(i, j-1);
+                            }
+                            if (data[i][j - 1] == NotQizhi(qizhi)
+                                && data[i][j + 1] == 0
+                                && data[i - 1][j] == NotQizhi(qizhi)
+                                && data[i + 1][j] == NotQizhi(qizhi))
+                            {
+                                return new Point(i, j+1);
+                            }
+                            if (data[i][j - 1] == NotQizhi(qizhi)
+                                && data[i][j + 1] == NotQizhi(qizhi)
+                                && data[i - 1][j] == 0
+                                && data[i + 1][j] == NotQizhi(qizhi))
+                            {
+                                return new Point(i - 1, j);
+                            }
+                        }
+                    }
+                }
+                // 打吃或吃子
+                for (int i = 0; i < 18; i++)
+                {
+                    for (int j = 0; j < 18; j++)
+                    {
+                        if (data[i][j] == qizhi && data[i][j + 1] == NotQizhi(qizhi))
+                        {
+                            int K = j + 2;
+                            if (data[i][K] == qizhi)
+                            {
+                                if (i > 0 && data[i - 1][j + 1] == 0)
+                                {
+                                    return new Point(i - 1, j + 1);
+                                }
+                                if (data[i + 1][j + 1] == 0)
+                                {
+                                    return new Point(i + 1, j + 1);
+                                }
+                            }
+                        }
+                        if (data[i][j] == qizhi && data[i + 1][j] == NotQizhi(qizhi))
+                        {
+                            int K = i + 2;
+                            if (data[K][j] == qizhi)
+                            {
+                                if (j > 0 && data[i + 1][j - 1] == 0)
+                                {
+                                    return new Point(i + 1, j - 1);
+                                }
+                                if (data[i + 1][j + 1] == 0)
+                                {
+                                    return new Point(i + 1, j + 1);
+                                }
+                            }
+                        }
+                    }
+                }
+                // 夹
+                for (int i = 0; i < 18; i++)
+                {
+                    for (int j = 0; j < 18; j++)
+                    {
+                        if (data[i][j] == qizhi && data[i][j + 1] == NotQizhi(qizhi))
+                        {
+                            int K = j + 2;
+                            if (data[i][K] == 0)
+                            {
+                                return new Point(i, K);
+                            }
+                        }
+                        if (data[i][j] == qizhi && data[i + 1][j] == NotQizhi(qizhi))
+                        {
+                            int K = i + 2;
+                            if (data[K][j] == 0)
+                            {
+                                return new Point(K, j);
+                            }
+                        }
+                    }
+                }        
             }
             //计算
             IList<Point> points = calc();

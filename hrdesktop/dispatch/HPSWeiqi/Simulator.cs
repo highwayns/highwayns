@@ -210,6 +210,58 @@ namespace HPSWeiqi
 
         #region 公开方法
         /// <summary>
+        /// 模式初期化
+        /// </summary>
+        private void initPattern()
+        {
+            Pattern pt = new Pattern();
+            pt.AddPoint3D(new Point3D(0, 1, 0));
+            pt.AddPoint3D(new Point3D(0, 0, 1));
+            pt.AddPoint3D(new Point3D(1, 0, 0));
+            patternList.Add(pt);
+
+            pt = new Pattern();
+            pt.AddPoint3D(new Point3D(0, 0, 0));
+            pt.AddPoint3D(new Point3D(0, 1, 1));
+            pt.AddPoint3D(new Point3D(1, 0, 0));
+            pt.AddPoint3D(new Point3D(1, 1, 1));
+            pt.AddPoint3D(new Point3D(2, 0, 0));
+            pt.AddPoint3D(new Point3D(2, 1, 1));
+            pt.AddPoint3D(new Point3D(3, 0, 0));
+            pt.AddPoint3D(new Point3D(3, 1, 1));
+            pt.AddPoint3D(new Point3D(4, 0, 0));
+            pt.AddPoint3D(new Point3D(4, 1, 1));
+            pt.AddPoint3D(new Point3D(5, 0, 0));
+            pt.AddPoint3D(new Point3D(5, 1, 1));
+            pt.AddPoint3D(new Point3D(6, 0, 0));
+            pt.AddPoint3D(new Point3D(6, 1, 1));
+            pt.AddPoint3D(new Point3D(7, 0, 0));
+            pt.AddPoint3D(new Point3D(7, 1, 1));
+            pt.AddPoint3D(new Point3D(8, 0, 0));
+            pt.AddPoint3D(new Point3D(8, 1, 1));
+            pt.AddPoint3D(new Point3D(9, 0, 0));
+            pt.AddPoint3D(new Point3D(9, 1, 1));
+            pt.AddPoint3D(new Point3D(10, 0, 0));
+            pt.AddPoint3D(new Point3D(10, 1, 1));
+            pt.AddPoint3D(new Point3D(11, 0, 0));
+            pt.AddPoint3D(new Point3D(11, 1, 1));
+            pt.AddPoint3D(new Point3D(12, 0, 0));
+            pt.AddPoint3D(new Point3D(12, 1, 1));
+            pt.AddPoint3D(new Point3D(13, 0, 0));
+            pt.AddPoint3D(new Point3D(13, 1, 1));
+            pt.AddPoint3D(new Point3D(14, 0, 0));
+            pt.AddPoint3D(new Point3D(14, 1, 1));
+            pt.AddPoint3D(new Point3D(15, 0, 0));
+            pt.AddPoint3D(new Point3D(15, 1, 1));
+            pt.AddPoint3D(new Point3D(16, 0, 0));
+            pt.AddPoint3D(new Point3D(16, 1, 1));
+            pt.AddPoint3D(new Point3D(17, 0, 0));
+            pt.AddPoint3D(new Point3D(17, 1, 1));
+            pt.AddPoint3D(new Point3D(18, 0, 0));
+            pt.AddPoint3D(new Point3D(18, 1, 1));
+            patternList.Add(pt);
+        }
+        /// <summary>
         /// 结构函数
         /// </summary>
         /// <param name="patternPath"></param>
