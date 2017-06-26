@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 //using Com.Seezt.Skins;
 
-namespace HPSCompany
+namespace HPSConsultant
 {
     public partial class FormMain : Form
     {

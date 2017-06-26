@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C354C980-423D-4545-B107-F301D6D77979}</ProjectGuid>
+    <ProjectGuid>{74D11882-5F58-49E3-8268-E73FF6981D4C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HPSCompany</RootNamespace>
-    <AssemblyName>HPSCompany</AssemblyName>
+    <RootNamespace>HPSConsultant</RootNamespace>
+    <AssemblyName>HPSConsultant</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,11 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
-    <Compile Include="FormCompanyEdit.cs">
+    <Compile Include="FormConsultantEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCompanyEdit.Designer.cs">
-      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    <Compile Include="FormConsultantEdit.Designer.cs">
+      <DependentUpon>FormConsultantEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -58,8 +58,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormCompanyEdit.resx">
-      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    <EmbeddedResource Include="FormConsultantEdit.resx">
+      <DependentUpon>FormConsultantEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -78,14 +78,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="company.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="consultant.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="お客様テンプレート.xlsx">
+    <Content Include="コンサルテントテンプレート.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

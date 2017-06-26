@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("HPSCompany")]
+[assembly: AssemblyTitle("HPSConsultant")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HPSCompany")]
+[assembly: AssemblyProduct("HPSConsultant")]
 [assembly: AssemblyCopyright("Copyright ©  HW 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

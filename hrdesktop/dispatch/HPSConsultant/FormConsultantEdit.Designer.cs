@@ -1,4 +1,4 @@
-﻿namespace HPSCompany
+﻿namespace HPSConsultant
 {
     partial class FormCompanyEdit
     {

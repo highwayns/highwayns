@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPSCompany", "HPSCompany\HP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPSBid", "HPSBid\HPSBid.csproj", "{F87EEAA1-5833-46FC-A1AB-F958C885ECBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPSConsultant", "HPSConsultant\HPSConsultant.csproj", "{74D11882-5F58-49E3-8268-E73FF6981D4C}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -197,6 +199,16 @@ Global
 		{F87EEAA1-5833-46FC-A1AB-F958C885ECBF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F87EEAA1-5833-46FC-A1AB-F958C885ECBF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F87EEAA1-5833-46FC-A1AB-F958C885ECBF}.Release|x86.ActiveCfg = Release|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{74D11882-5F58-49E3-8268-E73FF6981D4C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
