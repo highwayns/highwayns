@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EE98AEB-991A-4817-B7A7-ED633CF6F048}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HPSTest</RootNamespace>
+    <AssemblyName>HPSTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\HPSManagement\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\HPSManagement\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormImport.Designer.cs">
+      <DependentUpon>FormImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormQuestionSingle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormQuestionSingle.Designer.cs">
+      <DependentUpon>FormQuestionSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormRank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormRank.Designer.cs">
+      <DependentUpon>FormRank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormSetting.Designer.cs">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormSync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormSync.Designer.cs">
+      <DependentUpon>FormSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormTestManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormTestManager.Designer.cs">
+      <DependentUpon>FormTestManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormTestSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormTestSelect.Designer.cs">
+      <DependentUpon>FormTestSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAnswerQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAnswerQuestion.Designer.cs">
+      <DependentUpon>FormAnswerQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAnswerQuestionB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAnswerQuestionB.Designer.cs">
+      <DependentUpon>FormAnswerQuestionB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAnswerQuestionQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAnswerQuestionQ.Designer.cs">
+      <DependentUpon>FormAnswerQuestionQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormTestList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormTestList.Designer.cs">
+      <DependentUpon>FormTestList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CmWinServiceAPI.cs" />
+    <Compile Include="Controls\UserTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserTest.Designer.cs">
+      <DependentUpon>UserTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserInfor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserInfor.Designer.cs">
+      <DependentUpon>UserInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\FormRank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FormRank.Designer.cs">
+      <DependentUpon>FormRank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\FormTestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FormTestView.Designer.cs">
+      <DependentUpon>FormTestView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\FormUserTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FormUserTest.Designer.cs">
+      <DependentUpon>FormUserTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YYTestApi.cs" />
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.zh-CN.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormImport.resx">
+      <DependentUpon>FormImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormQuestionSingle.resx">
+      <DependentUpon>FormQuestionSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormRank.resx">
+      <DependentUpon>FormRank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormSetting.resx">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormSync.resx">
+      <DependentUpon>FormSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormTestManager.resx">
+      <DependentUpon>FormTestManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormTestSelect.resx">
+      <DependentUpon>FormTestSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAnswerQuestion.resx">
+      <DependentUpon>FormAnswerQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAnswerQuestionB.resx">
+      <DependentUpon>FormAnswerQuestionB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAnswerQuestionQ.resx">
+      <DependentUpon>FormAnswerQuestionQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormTestList.resx">
+      <DependentUpon>FormTestList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserTest.resx">
+      <DependentUpon>UserTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserInfor.resx">
+      <DependentUpon>UserInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="User\FormRank.resx">
+      <DependentUpon>FormRank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FormTestView.resx">
+      <DependentUpon>FormTestView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Config\HTest.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="app.ico" />
+    <Content Include="CookComputing.XmlRpcV2.dll" />
+    <Content Include="DB\HT.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icon\customer.ico" />
+    <Content Include="icon\customer.png" />
+    <Content Include="icon\customerdb.ico" />
+    <Content Include="icon\customerdb.png" />
+    <Content Include="icon\exit.ico" />
+    <Content Include="icon\exit.png" />
+    <Content Include="icon\export.ico" />
+    <Content Include="icon\export.png" />
+    <Content Include="icon\ftp.ico" />
+    <Content Include="icon\ftp.png" />
+    <Content Include="icon\internet.ico" />
+    <Content Include="icon\internet.png" />
+    <Content Include="icon\mag.ico" />
+    <Content Include="icon\mag.png" />
+    <Content Include="icon\mail.ico" />
+    <Content Include="icon\mail.png" />
+    <Content Include="icon\main.ico" />
+    <Content Include="icon\main.png" />
+    <None Include="icon\openfolder.gif" />
+    <Content Include="icon\operator.ico" />
+    <Content Include="icon\operator.png" />
+    <Content Include="icon\refresh.ico" />
+    <Content Include="icon\refresh.png" />
+    <Content Include="icon\restore.ico" />
+    <Content Include="icon\restore.png" />
+    <Content Include="icon\setting.ico" />
+    <Content Include="icon\setting.png" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="image\ten.jpg" />
+    <Content Include="IrisSkin2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HPSWinServiceObject\HPSWinServiceObject.csproj">
+      <Project>{35C6FDAB-A005-4056-BD58-D6E9D9D74098}</Project>
+      <Name>HPSWinServiceObject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
