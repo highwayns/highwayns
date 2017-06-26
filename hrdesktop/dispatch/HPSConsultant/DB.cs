@@ -5,7 +5,7 @@ using System.Text;
 using NC.HPS.Lib;
 using System.Data;
 
-namespace HPSCompany
+namespace HPSConsultant
 {
     public class DB
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace HPSCompany
+namespace HPSConsultant
 {
     public partial class FormCompanyEdit : Form
     {
