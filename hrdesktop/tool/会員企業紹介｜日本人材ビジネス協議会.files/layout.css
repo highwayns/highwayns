@@ -1,0 +1,240 @@
+#main #right {
+	margin: 0px; padding: 0px 0px 0px 30px; width: 645px; text-align: left; float: right;
+}
+#right .catch-m01 {
+	line-height: 12px; font-size: 12px; margin-top: 35px; margin-bottom: 23px;
+}
+#right .catch-m02 {
+	line-height: 12px; font-size: 12px; margin-top: 60px; margin-bottom: 23px;
+}
+#right .join-m01 {
+	background-position: bottom; line-height: 12px; padding-bottom: 15px; font-size: 12px; margin-top: 35px; margin-bottom: 17px; background-image: url("../joinus/img/join-line.png"); background-attachment: scroll; background-repeat: repeat-x;
+}
+#right .join-m02 {
+	background-position: bottom; line-height: 12px; padding-bottom: 15px; font-size: 12px; margin-top: 60px; margin-bottom: 17px; background-image: url("../joinus/img/join-line.png"); background-attachment: scroll; background-repeat: repeat-x;
+}
+#right .txt-s {
+	line-height: 1.5em; font-size: 1.2em; font-weight: normal;
+}
+#right .txt-m {
+	line-height: 1.6em; font-size: 1.3em; font-weight: normal;
+}
+#right .txt-l {
+	line-height: 1.7em; font-size: 1.4em; font-weight: normal;
+}
+.strong-point {
+	color: rgb(251, 198, 0); font-weight: normal;
+}
+.right-end {
+	margin-top: 6px; margin-bottom: 55px;
+}
+#right .list {
+	line-height: 1.5em; padding-left: 1.6em; font-size: 1.4em; font-weight: normal; margin-bottom: -0.6em; list-style-type: circle;
+}
+.list li {
+	margin: 0px; padding-bottom: 8px; padding-left: 0em; list-style-type: disc;
+}
+#right .list02 {
+	line-height: 1.5em; padding-left: 1.6em; font-size: 1.3em; font-weight: normal; margin-bottom: -0.6em; list-style-type: circle;
+}
+.list02 li {
+	margin: 0px; padding-bottom: 8px; padding-left: 0em; clear: left; list-style-type: disc;
+}
+.chart01 {
+	border-width: 1px; border-style: solid none none; border-color: rgb(112, 112, 112);
+}
+.chart01 tr th {
+	border-width: 1px; border-style: none solid solid none; border-color: rgb(112, 112, 112); padding: 10px; line-height: 1em; font-size: 1.3em; font-weight: normal; background-color: rgb(54, 54, 54);
+}
+.chart01 tr td {
+	border-width: 1px; border-style: none none solid; border-color: rgb(112, 112, 112); padding: 10px 1.5em 10px 10px; line-height: 1em; font-size: 1.3em; font-weight: normal;
+}
+.chart01 .odd {
+	padding-left: 1.5em; background-color: rgb(97, 93, 93);
+}
+.chart01 .even {
+	padding-left: 1.5em; background-color: rgb(89, 86, 86);
+}
+.chart02 {
+	border-width: 1px; border-style: solid none none; border-color: rgb(112, 112, 112); margin-top: 14px;
+}
+.chart02 tr th {
+	border-width: 1px; border-style: none solid solid none; border-color: rgb(112, 112, 112); padding: 10px; text-align: center; line-height: 1em; font-size: 1.3em; font-weight: normal; background-color: rgb(54, 54, 54);
+}
+#right .chart02 .no-line {
+	border-width: 1px; border-color: rgb(112, 112, 112); padding: 10px; border-right-style: none;
+}
+.chart02 tr td {
+	border-width: 1px; border-style: none solid solid none; border-color: rgb(112, 112, 112); padding: 10px 1.2em; line-height: 1em; font-size: 1.3em; font-weight: normal;
+}
+.chart02 .odd {
+	padding-left: 1.5em; background-color: rgb(97, 93, 93);
+}
+.chart02 .even {
+	padding-left: 1.5em; background-color: rgb(89, 86, 86);
+}
+#main #right a {
+	color: rgb(248, 189, 44);
+}
+#main #right a:hover {
+	color: rgb(254, 216, 49);
+}
+.float-r {
+	margin-top: 5px; margin-bottom: 20px; margin-left: 20px; float: right;
+}
+.float-r02 {
+	border-width: 20px; border-style: none none none solid; border-color: rgb(53, 48, 48); margin-top: 5px; margin-left: 0px; float: right;
+}
+.float-l {
+	margin-top: 5px; margin-right: 20px; margin-bottom: 20px; float: left;
+}
+.kome {
+	font-family: "ÇlÇr ÉSÉVÉbÉN", "MS Gothic", "OsakaÅ|ìôïù", Osaka-mono, monospace; margin-right: 0.4em;
+}
+#right .sub-t {
+	color: rgb(177, 222, 240); line-height: 1em; font-size: 1.4em; margin-top: 1.6em; margin-bottom: 0.7em;
+}
+.float-r02 img {
+	margin-bottom: 10px;
+}
+#right #office {
+	padding: 13px 13px 10px; width: auto; height: auto; overflow: hidden; clear: both; margin-top: 35px; margin-bottom: 55px; background-color: rgb(97, 93, 93);
+}
+#office dt {
+	line-height: 1em; font-size: 1.4em; font-weight: bold; margin-bottom: 0.8em;
+}
+#office dd {
+	line-height: 1.5em; font-size: 1.3em; margin-top: 0.5em;
+}
+.signature {
+	line-height: 1.7em; overflow: hidden; clear: both; font-size: 1.3em; font-weight: bold; margin-top: 2em; margin-bottom: 35px; float: right;
+}
+.schedule {
+	overflow: hidden; margin-top: -1.4em; margin-bottom: 0em;
+}
+.schedule dt {
+	margin-right: 1em; float: left;
+}
+.schedule dd {
+	clear: right; float: left;
+}
+.members01 {
+	border-width: 1px; border-style: solid none none; border-color: rgb(112, 112, 112); background-color: rgb(97, 93, 93);
+}
+.members01 tr th {
+	border-width: 1px; border-style: none solid solid none; border-color: rgb(112, 112, 112); padding: 10px; width: 40%; line-height: 1.5em; font-size: 1.2em; font-weight: normal; background-color: rgb(54, 54, 54);
+}
+.members01 tr td {
+	border-width: 1px; border-style: none none solid; border-color: rgb(112, 112, 112); padding: 7px 10px; line-height: 1.4em; font-size: 1.2em; font-weight: normal;
+}
+.members01 tr + .odd {
+	padding-left: 1.5em; background-color: rgb(97, 93, 93);
+}
+.members01 tr + .odd {
+	padding-left: 1.5em; background-color: rgb(97, 93, 93);
+}
+.members01 tr + .even {
+	padding-left: 1.5em; background-color: rgb(89, 86, 86);
+}
+.members-h4-01 {
+	background-position: bottom; padding: 7px 10px 8px; color: rgb(255, 255, 255); line-height: 1em; letter-spacing: 0.2em; font-size: 1.4em; font-weight: normal; margin-top: 13px; margin-bottom: 13px; background-image: url("../members/img/members-sub_bg.png"); background-attachment: scroll; background-repeat: repeat-x;
+}
+.members-h4-02 {
+	background-position: center; padding: 7px 10px 8px; color: rgb(255, 255, 255); line-height: 1em; letter-spacing: 0.2em; font-size: 1.4em; font-weight: normal; margin-top: 35px; margin-bottom: 13px; background-image: url("../members/img/members-sub_bg.png"); background-attachment: scroll; background-repeat: repeat-x;
+}
+.members01 tr th strong {
+	padding-bottom: 5px; font-size: 1em; font-weight: normal;
+}
+.members01 tr th a {
+	text-decoration: none;
+}
+#right .members01 tr th a {
+	text-decoration: none;
+}
+.members01 p {
+	margin-top: 0.6em; margin-bottom: 0.6em;
+}
+.num {
+	padding-left: 1em;
+}
+.num li {
+	margin-left: 0.7em; list-style-type: decimal;
+}
+.business-list {
+	border-width: 1px; border-style: solid none none; border-color: rgb(112, 112, 112); margin-top: 8px;
+}
+.business-list tr th {
+	border-width: 1px; border-style: none solid solid none; border-color: rgb(112, 112, 112); padding: 10px; width: 60%; text-align: center; line-height: 1em; font-size: 1.3em; font-weight: normal; background-color: rgb(54, 54, 54);
+}
+#right .business-list .no-line {
+	border-width: 1px; border-color: rgb(112, 112, 112); padding: 10px; border-right-style: none;
+}
+.business-list tr td {
+	border-width: 1px; border-style: none solid solid none; border-color: rgb(112, 112, 112); padding: 10px 1.5em; text-align: left; line-height: 1.4em; font-size: 1.2em; font-weight: normal;
+}
+.business-list .odd {
+	padding-left: 1.5em; background-color: rgb(97, 93, 93);
+}
+.business-list .even {
+	padding-left: 1.5em; background-color: rgb(89, 86, 86);
+}
+#right .business-t01 {
+	background-position: bottom; line-height: 1.3em; padding-bottom: 15px; font-size: 1.6em; margin-top: 35px; margin-bottom: 17px; background-image: url("../joinus/img/join-line.png"); background-attachment: scroll; background-repeat: repeat-x;
+}
+.business-list tr td strong {
+	font-size: 1.2em; font-weight: normal;
+}
+.program {
+	
+}
+.program tr td {
+	padding: 0.7em; border: 1px solid rgb(153, 153, 153); border-image: none; color: rgb(51, 51, 51); line-height: 1.3em; font-size: 1.2em; background-color: rgb(237, 237, 237);
+}
+.program th {
+	padding: 0.5em; border: 1px solid rgb(153, 153, 153); border-image: none; text-align: center; color: rgb(255, 255, 255); font-size: 1.2em; font-weight: bold; background-color: rgb(30, 71, 140);
+}
+.program tr td h5 {
+	color: rgb(169, 60, 61);
+}
+#right .privacy-c01 {
+	background-position: bottom; line-height: 1em; padding-bottom: 15px; font-size: 1.3em; margin-top: 35px; margin-bottom: 12px; background-image: url("../joinus/img/join-line.png"); background-attachment: scroll; background-repeat: repeat-x;
+}
+.p-num {
+	line-height: 1.5em; padding-left: 1em; font-size: 1.2em; font-weight: normal; margin-top: 0.5em;
+}
+.p-num li {
+	margin-left: 0.7em; list-style-type: decimal;
+}
+#right .contactform {
+	margin-top: 30px;
+}
+.contactform .hissu {
+	color: rgb(175, 67, 51);
+}
+.contactform table tr th {
+	border-width: 1px; border-style: none none solid; border-color: rgb(105, 105, 105); line-height: 1em; padding-top: 1em; padding-bottom: 1em; font-size: 1.3em; font-weight: normal;
+}
+.contactform table tr td {
+	border-width: 1px; border-style: none none solid; border-color: rgb(105, 105, 105); line-height: 1em; padding-top: 1em; padding-bottom: 1em; font-size: 1.3em; font-weight: normal;
+}
+.contactform table {
+	border-width: 1px; border-style: solid none none; border-color: rgb(105, 105, 105); margin-top: 10px; margin-bottom: 25px;
+}
+#form-b {
+	text-align: center;
+}
+.form-b01 {
+	background-position: center; margin: auto; padding: 10px 20px 12px; border: 1px solid rgb(71, 107, 165); border-image: none; color: rgb(255, 255, 255); line-height: 1em; font-size: 1.4em; background-image: url("../contact/img/from-b.png"); background-attachment: scroll; background-repeat: no-repeat;
+}
+.form-b01:hover {
+	background-image: url("../contact/img/from-b_on.png");
+}
+.phto-lib {
+	overflow: hidden; clear: both; margin-top: 25px;
+}
+.phto-lib li {
+	width: 153px; height: auto; margin-top: 11px; margin-left: 11px; float: left;
+}
+.phto-lib li:first-child {
+	margin-left: 0px;
+}

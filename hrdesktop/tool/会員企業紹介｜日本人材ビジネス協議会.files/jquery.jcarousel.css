@@ -1,0 +1,21 @@
+.jcarousel-container {
+	position: relative;
+}
+.jcarousel-clip {
+	overflow: hidden; position: relative; z-index: 2;
+}
+.jcarousel-list {
+	left: 0px; top: 0px; overflow: hidden; position: relative; z-index: 1;
+}
+.jcarousel-list li {
+	list-style: none; float: left;
+}
+.jcarousel-item {
+	list-style: none; float: left;
+}
+.jcarousel-next {
+	display: none; z-index: 3;
+}
+.jcarousel-prev {
+	display: none; z-index: 3;
+}

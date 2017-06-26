@@ -1,0 +1,138 @@
+#topimg {
+	background-position: center 33px; margin: 0px; padding: 0px; width: 100%; height: auto; overflow: hidden; background-repeat: no-repeat;
+}
+#header {
+	margin: auto; width: 900px; height: auto; position: relative;
+}
+#header .top-catch {
+	left: 280px; top: 62px; line-height: 12px; font-size: 12px; position: absolute;
+}
+#header .top-txt {
+	left: 280px; top: 135px; text-align: left; color: rgb(255, 255, 255); line-height: 1.8em; font-family: "ÇlÇr Çoñæí©", "MS PMincho", "ÉqÉâÉMÉmñæí© Pro W3", "Hiragino Mincho Pro", serif; font-size: 1.6em; position: absolute; text-shadow: 0px 0px 3px #000;
+}
+#header .page-catch {
+	left: 257px; top: 115px; line-height: 12px; font-size: 12px; position: absolute;
+}
+#header h1 {
+	margin: 0px; padding: 0px; width: 225px; height: 225px; line-height: 12px; font-size: 12px;
+}
+#header #left {
+	margin: 0px; padding: 0px; width: 225px; height: auto; overflow: hidden; float: left;
+}
+#headmenu {
+	top: 10px; right: 0px; color: rgb(255, 255, 255); position: absolute;
+}
+#headmenu li {
+	line-height: 12px; font-family: "Marcellus", serif; font-size: 12px; float: left;
+}
+#headmenu li a:link {
+	color: rgb(242, 242, 242); text-decoration: none;
+}
+#headmenu li a:visited {
+	color: rgb(242, 242, 242); text-decoration: underline;
+}
+#headmenu li a:hover {
+	color: rgb(204, 204, 204); text-decoration: none;
+}
+#headmenu .line {
+	border-width: 1px; border-style: none solid none none; border-color: rgb(105, 105, 105); padding-right: 13px; margin-right: 13px;
+}
+.h-copy {
+	left: 0px; top: 9px; font-weight: bold; position: absolute;
+}
+#header .tel {
+	top: 37px; right: 0px; position: absolute;
+}
+#gnavi {
+	background-position: top; margin: auto; width: 225px; height: auto; overflow: hidden; background-attachment: scroll; background-repeat: no-repeat;
+}
+#gnavi ul {
+	margin: 0px auto; z-index: 1;
+}
+#gnavi li {
+	float: none;
+}
+#contents {
+	margin: 0px auto; width: 100%; height: auto; overflow: hidden; padding-top: 0px; clear: both; position: relative; background-image: url("../img/common/contents_bg.png");
+}
+#contents #main {
+	margin: auto; width: 900px; height: auto; position: relative;
+}
+#main #left {
+	margin: 0px; padding: 0px; width: 225px; height: auto; overflow: hidden; float: left; background-image: url("../img/common/contents-l_bg.png"); background-repeat: repeat;
+}
+#main #add {
+	margin: 0px; padding: 0px; width: 225px; height: 225px; overflow: hidden; float: left; background-image: url("../img/common/contents-l_bg.png"); background-repeat: repeat;
+}
+#main #add dl {
+	text-align: left; padding-bottom: 15px; margin-top: 20px; margin-left: 15px;
+}
+#main #add dl dt {
+	line-height: 1em; font-size: 1.3em; font-weight: normal; margin-bottom: 1em;
+}
+#main #add dl dd {
+	color: rgb(242, 242, 242); line-height: 1em; font-size: 1.2em; font-weight: normal; margin-bottom: 0.8em;
+}
+#main #add dl .like-b {
+	padding-top: 10px; position: relative; z-index: 9999;
+}
+#main #right {
+	margin: 0px; padding: 0px; width: 675px; float: right;
+}
+#right #topics {
+	width: 406px; height: 173px; text-align: left; color: rgb(242, 242, 242); margin-top: 20px; margin-bottom: 0px; margin-left: 20px; float: left; -ms-overflow-y: auto;
+}
+#topics h2 {
+	line-height: 1em; font-size: 1.2em; font-weight: normal; margin-bottom: 35px;
+}
+#topics h2 strong {
+	font-family: "Times New Roman", Times, serif; font-size: 1.5em; font-weight: normal; margin-right: 0.8em;
+}
+#topics dl {
+	border-width: 1px; border-style: none none solid; border-color: rgb(103, 100, 100); margin: 0px 0px 12px; padding: 0px 0px 8px; width: auto; height: auto; overflow: hidden;
+}
+#topics dl dt {
+	margin: 0px; padding: 0px; width: 30%; line-height: 1.3em; font-family: "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, Osaka, "ÇlÇr ÇoÉSÉVÉbÉN", "MS PGothic", sans-serif; font-size: 1.2em; float: left;
+}
+#topics dl dd {
+	margin: 0px; padding: 0px; width: 70%; line-height: 1.3em; font-family: "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, Osaka, "ÇlÇr ÇoÉSÉVÉbÉN", "MS PGothic", sans-serif; font-size: 1.2em; float: left;
+}
+#topics a {
+	color: rgb(242, 242, 242); text-decoration: none;
+}
+#topics a:hover {
+	color: rgb(204, 204, 204); text-decoration: underline;
+}
+#right #banner {
+	margin: 22px 0px 0px; padding: 0px; width: 225px; float: right;
+}
+#banner li {
+	line-height: 12px; font-size: 12px; margin-bottom: 15px;
+}
+#contentsp {
+	border-width: 1px; border-style: solid none none; border-color: rgb(212, 212, 212); width: 940px; padding-top: 25px; clear: both; margin-top: 35px; margin-right: auto; margin-left: auto; position: relative;
+}
+.contents-st1 {
+	background-position: left top; border-width: 4px; border-style: none none none solid; border-color: rgb(174, 219, 0); height: auto; text-align: left; line-height: 12px; overflow: hidden; padding-top: 0px; padding-bottom: 2px; padding-left: 9px; font-size: 12px; margin-right: 4px; margin-bottom: 13px; background-image: none; background-attachment: scroll; background-repeat: repeat-x;
+}
+.contents-st2 {
+	background-position: left bottom; border-width: 4px; border-style: none none none solid; border-color: rgb(180, 206, 16); text-align: left; line-height: 12px; padding-top: 1px; padding-bottom: 3px; padding-left: 12px; font-size: 12px; margin-top: 10px; margin-right: 5px; margin-bottom: 10px; background-attachment: scroll; background-repeat: repeat-x;
+}
+.pageimg {
+	background-position: center 33px; margin: 0px; padding: 0px; width: 100%; height: auto; background-image: url("../img/page/page_img01.png"); background-attachment: scroll; background-repeat: no-repeat;
+}
+#left .p-banner {
+	margin-bottom: 30px;
+}
+#left .p-banner li:first-child {
+	line-height: 12px; font-size: 12px; margin-bottom: 15px;
+}
+#footer {
+	width: 900px; height: auto; padding-bottom: 15px; clear: both; margin-top: 45px; margin-right: auto; margin-left: auto; position: relative;
+}
+#copyright {
+	border-width: 1px; border-style: solid none none; border-color: rgb(85, 86, 86); margin: -7px auto auto; width: 900px; height: auto; text-align: left; color: rgb(204, 204, 204); line-height: 1em; letter-spacing: 0.1em; overflow: hidden; padding-top: 20px; padding-bottom: 15px; clear: both; font-family: "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, Osaka, "ÇlÇr ÇoÉSÉVÉbÉN", "MS PGothic", sans-serif; font-size: 1em;
+}
+.backtotop {
+	right: 50px; bottom: 45px; position: fixed;
+}

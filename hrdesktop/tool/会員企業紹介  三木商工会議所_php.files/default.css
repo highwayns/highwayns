@@ -1,0 +1,780 @@
+* {
+	font-family: "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, Osaka, "ÇlÇr ÇoÉSÉVÉbÉN", "MS PGothic", sans-serif;
+}
+html {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+body {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+div {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+span {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+iframe {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+h1 {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+h2 {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+h3 {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+h4 {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+h5 {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+h6 {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+p {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+a {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+em {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+img {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+strike {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+strong {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+sub {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+sup {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+b {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+u {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+i {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+center {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+dl {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+dt {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+dd {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+ol {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+ul {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+li {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+form {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+label {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+caption {
+	background: none; list-style: none; margin: 0px; padding: 0px; outline: 0px; border: 0px currentColor; border-image: none; font-size: 100%;
+}
+body {
+	color: rgb(51, 51, 51); line-height: 1.4; font-size: 13px; border-top-color: rgb(0, 77, 161); border-top-width: 3px; border-top-style: solid;
+}
+a {
+	color: rgb(77, 77, 77);
+}
+a:hover {
+	color: rgb(16, 148, 235);
+}
+hr {
+	margin: 0px 0px 30px; width: 700px; text-align: left;
+}
+#wrapper {
+	margin: 0px auto; width: 960px;
+}
+#header {
+	width: 100%; height: 145px;
+}
+#main {
+	width: 700px; float: left;
+}
+#sub {
+	width: 220px; float: right;
+}
+#page-top {
+	padding: 20px 0px 10px; width: 100%; clear: both;
+}
+#pr-wrapper {
+	background: rgb(250, 250, 250); padding: 15px 0px; width: 100%; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+#pr {
+	margin: 0px auto; width: 960px; text-align: center;
+}
+#footer {
+	margin: 0px auto; width: 960px; height: 120px;
+}
+h1 {
+	background: url("../../img/common/midashi1.jpg") no-repeat left bottom; margin: 0px 0px 15px; width: 700px; height: auto; color: rgb(51, 51, 51); font-size: 19px; border-top-color: rgb(242, 242, 242); border-top-width: 1px; border-top-style: solid; min-height: 48px;
+}
+h1 p {
+	padding: 11px 10px 11px 20px;
+}
+.clearfix::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: ".";
+}
+h2 {
+	background: url("../../img/common/arrow4.jpg") no-repeat 9px rgb(1, 77, 161); margin: 0px 0px 20px; width: 700px; color: rgb(255, 255, 255); line-height: 1; font-size: 15px;
+}
+h2 p {
+	padding: 12px 10px 10px 20px;
+}
+h3 {
+	margin: 0px 0px 10px; padding: 4px 0px; width: 700px; color: rgb(51, 110, 182); line-height: 1.4; font-size: 16px;
+}
+h4 {
+	margin: 0px 0px 5px; padding: 1px 0px 1px 8px; line-height: 1; font-size: 14px; border-left-color: rgb(51, 51, 51); border-left-width: 4px; border-left-style: solid;
+}
+h5 {
+	padding: 0px 0px 10px; font-size: 14px;
+}
+.pb5 {
+	padding-bottom: 5px;
+}
+.pb10 {
+	padding-bottom: 10px;
+}
+.pb15 {
+	padding-bottom: 15px;
+}
+.pb20 {
+	padding-bottom: 20px;
+}
+.pt5 {
+	padding-top: 5px;
+}
+.pt10 {
+	padding-top: 10px;
+}
+.pt15 {
+	padding-top: 15px;
+}
+.pt20 {
+	padding-top: 20px;
+}
+.right {
+	text-align: right;
+}
+.left {
+	text-align: left;
+}
+.center {
+	text-align: center;
+}
+.clearfix {
+	display: inline-table;
+}
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+.bdr {
+	padding: 9px 0px;
+}
+.img-bdr {
+	padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.center-banner {
+	padding: 0px 0px 15px; text-align: center;
+}
+ul.info-box {
+	margin: 0px 0px 15px; width: 700px;
+}
+ul.info-box li {
+	background: url("../../img/common/border_dot.gif") repeat-x bottom; margin: 0px 0px 8px; padding: 0px 0px 8px;
+}
+.info-date {
+	width: 130px; font-size: 12px; float: left;
+}
+.info-date p {
+	padding: 0px 0px 0px 15px;
+}
+.info-category {
+	width: 90px; float: left;
+}
+.info-title {
+	width: 479px; float: left;
+}
+.info-title a {
+	font-size: 14px;
+}
+#topic-pass {
+	padding: 0px 15px; width: 670px; line-height: 100%; font-size: 10px; margin-bottom: 15px;
+}
+#site-info {
+	background: url("../../img/common/border_dot.gif") repeat-x bottom; height: 22px; font-size: 10px;
+}
+#site-info p {
+	padding: 3px 0px 0px 3px;
+}
+a#logo {
+	width: 470px; height: 78px; float: left; display: block;
+}
+a#logo img {
+	margin: 17px 0px 0px;
+}
+#search {
+	background: url("../../img/common/search_img.jpg") no-repeat left; margin: 25px 0px 0px; width: 250px; float: right;
+}
+input#search-text {
+	background: url("../../img/common/yahoo_logo.jpg") no-repeat center; margin: 0px 0px 0px 25px; border: 1px solid rgb(128, 157, 185); border-image: none; width: 165px; height: 20px;
+}
+ul#nav {
+	clear: both;
+}
+#nav li {
+	width: 137px; height: 45px; float: left;
+}
+#nav li a {
+	width: 100%; height: 45px; text-indent: -9999px; display: block;
+}
+li#nav-about {
+	width: 138px;
+}
+li#nav-kankou {
+	display: none;
+}
+#nav-top a {
+	background: url("../../img/common/nav.jpg") no-repeat 0px 0px;
+}
+#nav-keiei a {
+	background: url("../../img/common/nav.jpg") no-repeat -137px 0px;
+}
+#nav-hansoku a {
+	background: url("../../img/common/nav.jpg") no-repeat -274px 0px;
+}
+#nav-ninshou a {
+	background: url("../../img/common/nav.jpg") no-repeat -411px 0px;
+}
+#nav-kyosai a {
+	background: url("../../img/common/nav.jpg") no-repeat -548px 0px;
+}
+#nav-kentei a {
+	background: url("../../img/common/nav.jpg") no-repeat -685px 0px;
+}
+#nav-about a {
+	background: url("../../img/common/nav.jpg") no-repeat -822px 0px;
+}
+#nav-top a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat 0px -45px;
+}
+#nav-keiei a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat -137px -45px;
+}
+#nav-hansoku a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat -274px -45px;
+}
+#nav-ninshou a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat -411px -45px;
+}
+#nav-kyosai a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat -548px -45px;
+}
+#nav-kentei a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat -685px -45px;
+}
+#nav-about a:hover {
+	background: url("../../img/common/nav.jpg") no-repeat -822px -45px;
+}
+#profile {
+	margin: 0px 0px 12px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 200px; font-size: 12px;
+}
+#profile .inner {
+	padding: 11px;
+}
+#profile p {
+	padding: 0px 0px 6px; text-align: center;
+}
+#profile strong {
+	padding: 5px 0px; font-size: 14px; display: block;
+}
+#profile-link {
+	padding: 8px 0px 0px; line-height: 20px;
+}
+#sub ul {
+	padding: 0px 0px 25px;
+}
+#sub li {
+	background: url("../../img/common/arrow1.jpg") no-repeat left; padding: 3px 0px 3px 15px; font-size: 12px;
+}
+#side-banner img {
+	margin: 0px 0px 6px;
+}
+#side-button-box {
+	margin-bottom: 6px;
+}
+#side-button-box img {
+	margin: 0px 0px 6px;
+}
+#sub h3 {
+	background: rgb(1, 77, 161); margin: 0px; padding: 10px 12px 7px; border: currentColor; border-image: none; width: auto; color: rgb(255, 255, 255); line-height: 1; font-size: 13px;
+}
+ul.side-nav a {
+	padding: 12px 0px 10px; width: 100%; height: auto; line-height: 100%; font-size: 14px; font-weight: bold; text-decoration: none; display: block; min-height: 13px;
+}
+ul.side-nav li {
+	margin: 0px; padding: 0px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+}
+#pr p {
+	padding: 10px 0px 5px; text-align: left;
+}
+#pr img {
+	margin: 0px 18px 0px 0px;
+}
+#page-top .inner {
+	display: none;
+}
+#page-top .inner {
+	text-align: right;
+}
+#page-top a {
+	text-align: right; color: rgb(153, 153, 153);
+}
+#footer-logo {
+	margin: 0px auto; width: 204px; height: auto;
+}
+#footer-logo img {
+	margin: 40px 0px 0px 10px; padding-bottom: 20px;
+}
+#footer-nav {
+	padding: 10px 0px 20px; width: 960px; text-align: center; line-height: 1.6; font-size: 12px;
+}
+#copyright {
+	background: url("../../img/common/border_dot.gif") repeat-x top; padding: 15px 0px 30px; text-align: center; color: rgb(153, 153, 153); clear: both; font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+}
+#home-img {
+	padding: 0px 0px 15px;
+}
+#top_flash {
+	border: 1px solid rgb(51, 51, 51); border-image: none; width: 958px; height: 288px; overflow: hidden; margin-bottom: 30px;
+}
+#top_flash img {
+	margin: 0px; padding: 0px; border: 0px currentColor; border-image: none;
+}
+#top_flash a {
+	float: left;
+}
+h2#midashi_news {
+	background: url("../../img/home/ttl_news.jpg") no-repeat; margin: 0px 0px 15px; padding: 0px; border: currentColor; border-image: none; width: 700px; height: 34px;
+}
+h2#midashi_event {
+	background: url("../../img/home/ttl_event.jpg") no-repeat; margin: 0px 0px 15px; padding: 0px; border: currentColor; border-image: none; width: 700px; height: 34px;
+}
+h2 .midashi1 {
+	width: 500px; text-indent: -9999px; float: left;
+}
+h2 .midashi2 {
+	background: url("../../img/common/arrow2.jpg") no-repeat left; width: 80px; height: 34px; float: right;
+}
+h2 .midashi2 a {
+	padding: 10px 0px 10px 12px; color: rgb(13, 122, 191); font-size: 12px; font-weight: normal; display: block;
+}
+h2 .midashi3 {
+	padding: 9px 0px 0px; width: 60px; float: right;
+}
+h2#midashi_business {
+	background: url("../../img/home/ttl_business.jpg") no-repeat; margin: 0px 0px 15px; border: currentColor; border-image: none; width: 700px; height: 34px; text-indent: -9999px;
+}
+.sp-box {
+	padding: 0px 0px 25px;
+}
+.sp {
+	margin: 0px 15px 15px 0px; border-radius: 3px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 220px; height: 215px; float: left;
+}
+.sp:hover {
+	border-color: rgb(16, 148, 235);
+}
+.sp h3 {
+	padding: 14px 0px 0px 9px;
+}
+.sp p {
+	padding: 0px 10px 2px; font-size: 12px;
+}
+.sp div {
+	padding: 0px 12px 0px 0px; text-align: right; font-size: 12px;
+}
+.news-box {
+	margin: 0px 0px 15px; padding: 20px; border: 2px solid rgb(255, 202, 202); border-image: none;
+}
+ul.list1 {
+	width: 700px;
+}
+ul.list1 li {
+	background: url("../../img/common/border_dot2.jpg") repeat-x bottom; margin: 0px 0px 10px; padding: 6px 0px 0px 5px; color: rgb(51, 110, 182); font-size: 15px;
+}
+ul.list1 li a {
+	background: url("../../img/common/arrow3.jpg") no-repeat left 0px; padding: 0px 0px 0px 22px; color: rgb(51, 110, 182); line-height: 1; font-size: 14px; font-weight: bold; text-decoration: none; display: block;
+}
+ul.list1 li a:hover {
+	color: rgb(79, 136, 206);
+}
+ul.list1 li div {
+	padding: 8px 0px 14px 22px; color: rgb(51, 51, 51); font-size: 13px;
+}
+.tbox {
+	padding: 0px 0px 30px; width: 690px; line-height: 150%; font-size: 14px;
+}
+.list-box2 {
+	background: url("../../img/common/list2_bg.jpg") repeat-y left; margin-bottom: 15px;
+}
+.list2 {
+	background: url("../../img/common/border_dot2.jpg") repeat-x bottom; padding: 15px 0px; width: 700px;
+}
+.list-tit {
+	width: 200px; font-size: 14px; font-weight: bold; float: left;
+}
+.list-tit strong {
+	background: url("../../img/common/arrow3.jpg") no-repeat 10px 12px; padding: 8px 0px 0px 32px; display: block;
+}
+.list-body {
+	width: 490px; font-size: 14px; float: right;
+}
+ul.list3 {
+	padding: 0px 0px 20px;
+}
+ul.list3 li {
+	background: url("../../img/common/arrow3.gif") no-repeat left; padding: 5px 0px 5px 20px;
+}
+ul.list3 li a {
+	font-size: 14px;
+}
+ul.list4 li {
+	padding: 0px 0px 15px;
+}
+ul.list4 li strong {
+	display: block;
+}
+ul.list4 li p {
+	padding: 0px 0px 0px 22px;
+}
+ul.list5 {
+	padding: 0px 0px 15px;
+}
+ul.list5 li {
+	list-style: circle; margin: 0px 0px 0px 20px; padding: 0px 0px 2px;
+}
+ul.error {
+	background: rgb(254, 248, 248); margin: 0px 0px 15px; padding: 15px;
+}
+table.ta1 {
+	margin: 0px 0px 30px;
+}
+table.ta1 td {
+	margin: 0px 0px 20px; padding: 8px 10px; text-align: left; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.ta1 th {
+	margin: 0px 0px 20px; padding: 8px 10px; text-align: left; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.ta1 th a {
+	text-decoration: none;
+}
+table.ta2 {
+	margin: 0px 0px 30px;
+}
+table.ta2 td {
+	margin: 0px 0px 20px; padding: 12px 10px; text-align: left; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.ta2 th {
+	margin: 0px 0px 20px; padding: 12px 10px; text-align: left; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.ta2 th {
+	width: 150px; padding-left: 25px;
+}
+table.ta2 td {
+	width: 450px;
+}
+table.ta2 td span {
+	padding: 3px 0px; color: rgb(102, 102, 102); font-size: 12px;
+}
+table.ta2 th span {
+	color: rgb(255, 102, 51); font-size: 11px; font-weight: normal;
+}
+table.ta3 {
+	margin: 0px 0px 15px; width: 700px; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-top-width: 1px; border-right-width: 1px; border-top-style: solid; border-right-style: solid;
+}
+table.ta3 td {
+	margin: 0px 0px 20px; padding: 8px 14px; border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.ta3 th {
+	margin: 0px 0px 20px; padding: 8px 14px; border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.ta3 th {
+	background: url("../../img/common/arrow6.gif") no-repeat 15px rgb(248, 248, 248); width: 150px; text-align: left; line-height: 1; padding-left: 28px; white-space: nowrap;
+}
+table.ta3 td {
+	white-space: normal;
+}
+.button-box {
+	background: rgb(245, 245, 245); padding: 20px 0px; width: 700px; text-align: center; border-top-color: rgb(153, 153, 153); border-top-width: 2px; border-top-style: solid;
+}
+.button-box input {
+	width: 150px; height: 28px;
+}
+.frm_text1 {
+	border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.prev-btn {
+	padding: 20px 0px 15px; width: 700px; text-align: right;
+}
+.box1 {
+	background: rgb(246, 246, 246); border: 1px solid rgb(211, 211, 211); border-image: none; width: 700px;
+}
+.box1 .inner {
+	padding: 13px 22px;
+}
+.box1 h5 {
+	padding: 5px 0px 10px; color: rgb(51, 51, 51); font-size: 15px;
+}
+.box1 p {
+	background: url("../../img/common/arrow3.gif") no-repeat left; padding: 10px 0px 15px 20px;
+}
+.box1 a {
+	color: rgb(79, 136, 206);
+}
+.box2 {
+	margin: 0px 15px 15px 0px; border: 1px solid rgb(200, 200, 200); border-image: none; width: 340px; height: auto !important; float: left; min-height: 170px;
+}
+.box2 h4 {
+	background: rgb(236, 236, 236); margin: 1px; border: currentColor; border-image: none; color: rgb(51, 51, 51);
+}
+.box2 h4 p {
+	padding: 4px;
+}
+.box2 ul {
+	padding: 13px;
+}
+.la1 {
+	padding: 0px 0px 20px; width: 220px; float: left;
+}
+.la2 {
+	padding: 0px 0px 20px; width: 480px; float: left;
+}
+.la1 img {
+	margin: 0px 0px 0px 10px;
+}
+.clear {
+	clear: both;
+}
+.img-box1 {
+	margin: 20px; text-align: center;
+}
+.q {
+	padding: 0px 0px 10px; color: rgb(204, 51, 0); font-size: 16px; font-weight: bold;
+}
+.q span {
+	font-family: "Times New Roman", Times, serif; font-size: 22px; font-weight: normal;
+}
+.answer {
+	margin: 0px 0px 15px; padding: 0px 0px 10px; font-size: 14px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.answer span {
+	font-family: "Times New Roman", Times, serif; font-size: 22px; font-weight: normal;
+}
+.ibox1 {
+	background: url("../../img/common/border3.jpg") repeat-y right; margin: 20px 0px; width: 350px; height: auto !important; font-size: 14px; float: left; min-height: 130px;
+}
+.ibox2 {
+	margin: 20px 0px; width: 350px; height: auto !important; font-size: 14px; float: left; min-height: 130px;
+}
+.ibox1 p {
+	background: url("../../img/common/arrow5.jpg") no-repeat left; margin: 0px 0px 10px; padding: 6px 6px 6px 14px; line-height: 1; font-size: 16px; font-weight: bold; display: block;
+}
+.ibox2 p {
+	background: url("../../img/common/arrow5.jpg") no-repeat left; margin: 0px 0px 10px; padding: 6px 6px 6px 14px; line-height: 1; font-size: 16px; font-weight: bold; display: block;
+}
+.ibox1 .inner {
+	padding: 5px 20px 10px;
+}
+.ibox2 .inner {
+	padding: 5px 20px 10px;
+}
+.detail {
+	padding: 10px 0px 0px; text-align: right; font-size: 13px;
+}
+.detail a {
+	color: rgb(51, 110, 182);
+}
+.red {
+	color: rgb(204, 0, 0);
+}
+.sub-nav {
+	background: rgb(243, 243, 243); margin: 0px 0px 10px; padding: 12px 20px; border: 1px solid rgb(204, 204, 204); border-image: none; line-height: 180%; font-size: 11px;
+}
+.jobbox {
+	margin: 0px 0px 15px; padding: 15px; border: 1px solid rgb(239, 239, 239); border-image: none;
+}
+.jobbox a {
+	color: rgb(0, 102, 204);
+}
+#custom-html table {
+	margin: 0px 0px 10px; width: 100%; border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid; border-collapse: collapse; border-spacing: 0;
+}
+#custom-html table td {
+	padding: 5px; font-weight: normal; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-top-width: 1px; border-right-width: 1px; border-top-style: solid; border-right-style: solid;
+}
+#custom-html table th {
+	padding: 5px; font-weight: normal; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-top-width: 1px; border-right-width: 1px; border-top-style: solid; border-right-style: solid;
+}
+#logo {
+	background: none;
+}
+.drawer {
+	display: none;
+}
+#nav2 {
+	display: none;
+}
+.carousel {
+	display: none;
+}
+#pagetop a {
+	display: none;
+}
+ul.switch {
+	display: none;
+}
+#copyright2 {
+	display: none;
+}
+@media screen and (max-width:1px)
+{
+#top_flash {
+	display: none;
+}
+#search {
+	display: none;
+}
+#logo img {
+	display: none;
+}
+#nav {
+	display: none;
+}
+.drawer {
+	display: inherit;
+}
+#nav2 {
+	display: inherit;
+}
+.carousel {
+	display: inherit;
+}
+#pagetop {
+	display: inherit;
+}
+ul.switch {
+	display: inherit;
+}
+#copyright2 {
+	display: inherit;
+}
+#wrapper {
+	width: 100%;
+}
+#header {
+	height: auto;
+}
+body {
+	width: 100%; line-height: 16px; font-family: Arial, Roboto, "Droid Sans", "ü‡ÉSÉVÉbÉN", YuGothic, "ÉqÉâÉMÉmäpÉS ProN W3", "Hiragino Kaku Gothic ProN", "ÉÅÉCÉäÉI", Meiryo, sans-serif; font-size: 12px;
+}
+a#logo {
+	background: url("/img/common/sp_logo.png") no-repeat 0px 0px; margin: 18px auto 20px; width: 155px; height: 89px; float: none; display: block;
+}
+#nav2 {
+	margin-top: 40px; border-top-color: rgb(238, 238, 238); border-top-width: 1px; border-top-style: solid;
+}
+#nav2 li {
+	padding: 0px; width: 50%; height: 45px; text-align: left; font-size: 13px; font-weight: bold; margin-bottom: 0px; margin-left: -1px; border-right-color: rgb(238, 238, 238); border-bottom-color: rgb(238, 238, 238); border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; float: left;
+}
+#nav2 li a {
+	background: url("/fc/img/common/ic_keyboard_arrow_right_gray_36dp_2x.png") no-repeat right 5px center / auto 24px; padding: 15px; width: auto; height: auto; color: rgb(0, 0, 0); text-indent: 0px; text-decoration: none; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none; display: block;
+}
+#copyright2 {
+	height: 100px; text-align: center; padding-top: 30px; font-size: 12px;
+}
+.carousel img {
+	width: 100%;
+}
+.carousel p {
+	padding: 10px 0px 0px; width: 100%; height: 20px; text-align: center; color: rgb(102, 102, 102); line-height: 14px; font-size: 10px;
+}
+#pr-wrapper {
+	display: none;
+}
+#main {
+	display: none;
+}
+#sub {
+	display: none;
+}
+#footer {
+	display: none;
+}
+#pagetop {
+	right: 15px; bottom: 12px; position: fixed;
+}
+#pagetop a {
+	padding: 8px 0px 0px; width: 45px; height: 37px; text-align: center; color: rgb(255, 255, 255); font-size: 26px; font-weight: normal; text-decoration: none; display: block; z-index: 999; opacity: 0.4; background-color: rgb(0, 0, 0);
+}
+ul.switch {
+	padding: 0px; width: auto; text-align: center; display: inherit;
+}
+ul.switch li {
+	padding: 0px; border-radius: 4px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 120px; height: 38px; vertical-align: top; display: inline-block;
+}
+ul.switch li.lt {
+	border-top-right-radius: 0px; border-bottom-right-radius: 0px;
+}
+ul.switch li.lt a::before {
+	font-family: "FontAwesome"; margin-right: 8px; vertical-align: -1px; content: "\f108";
+}
+ul.switch li.gt {
+	border-color: rgb(102, 102, 102); margin-left: -1px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;
+}
+ul.switch li.gt a {
+	background: rgb(102, 102, 102); color: rgb(255, 255, 255);
+}
+ul.switch li.gt a::before {
+	color: rgb(255, 255, 255); font-family: "FontAwesome"; font-size: 1.4em; margin-right: 6px; vertical-align: -2px; content: "\f10b";
+}
+ul.switch li a {
+	width: 100%; height: 26px; padding-top: 12px; font-size: 13px; text-decoration: none; display: block;
+}
+#btnPC {
+	
+}
+#btnSP {
+	
+}
+}

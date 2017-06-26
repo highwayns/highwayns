@@ -1,0 +1,90 @@
+* {
+	margin: 0px; padding: 0px; font-style: normal;
+}
+html {
+	-ms-overflow-y: scroll;
+}
+table {
+	font-size: 100%; border-collapse: collapse; border-spacing: 0; empty-cells: show;
+}
+caption {
+	text-align: left;
+}
+th {
+	text-align: left;
+}
+object {
+	vertical-align: top;
+}
+embed {
+	vertical-align: top;
+}
+hr {
+	display: none;
+}
+legend {
+	display: none;
+}
+h1 {
+	font-size: 100%;
+}
+h2 {
+	font-size: 100%;
+}
+h3 {
+	font-size: 100%;
+}
+h4 {
+	font-size: 100%;
+}
+h5 {
+	font-size: 100%;
+}
+h6 {
+	font-size: 100%;
+}
+img {
+	border: currentColor; border-image: none; vertical-align: bottom;
+}
+li {
+	list-style: none;
+}
+p {
+	text-align: justify; -ms-text-justify: inter-ideograph;
+}
+input {
+	padding: 1px;
+}
+textarea {
+	padding: 2px; width: 98%; overflow: auto; font-size: 100%; vertical-align: top;
+}
+option {
+	padding-right: 10px;
+}
+* + html option {
+	padding-right: 0px;
+}
+* html option {
+	padding-right: 0px;
+}
+acronym {
+	cursor: help;
+}
+abbr {
+	cursor: help;
+}
+body {
+	background-position: right top; margin: 0px; padding: 0px; border: 3px rgb(228, 0, 127); border-image: none; text-align: center; color: rgb(242, 242, 242); font-family: "ÉqÉâÉMÉmäpÉS Pro W3", "Hiragino Kaku Gothic Pro", "ÉÅÉCÉäÉI", Meiryo, Osaka, "ÇlÇr ÇoÉSÉVÉbÉN", "MS PGothic", sans-serif; font-size: 62.5%; min-width: 980px; background-attachment: scroll; background-repeat: no-repeat; background-color: rgb(35, 24, 21);
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	
+}
