@@ -247,30 +247,44 @@ namespace HPSWeiqi
                         if (data[i][j] == qizhi && data[i][j + 1] == NotQizhi(qizhi))
                         {
                             int K = j + 2;
+                            if (K == 19) break;
                             if (data[i][K] == qizhi)
-                            {
+                            {                               
                                 if (i > 0 && data[i - 1][j + 1] == 0)
                                 {
-                                    return new Point(i - 1, j + 1);
+                                    if (!(data[i-1][j] == NotQizhi(qizhi) && data[i-1][j + 2] == NotQizhi(qizhi)))
+                                    {
+                                        return new Point(i - 1, j + 1);
+                                    }
                                 }
                                 if (data[i + 1][j + 1] == 0)
                                 {
-                                    return new Point(i + 1, j + 1);
+                                    if (!(data[i+1][j] == NotQizhi(qizhi) && data[i+1][j + 2] == NotQizhi(qizhi)))
+                                    {
+                                        return new Point(i + 1, j + 1);
+                                    }
                                 }
                             }
                         }
                         if (data[i][j] == qizhi && data[i + 1][j] == NotQizhi(qizhi))
                         {
                             int K = i + 2;
+                            if (K == 19) break;
                             if (data[K][j] == qizhi)
                             {
                                 if (j > 0 && data[i + 1][j - 1] == 0)
                                 {
-                                    return new Point(i + 1, j - 1);
+                                    if (!(data[i][j - 1] == NotQizhi(qizhi) && data[i+2][j - 1] == NotQizhi(qizhi)))
+                                    {
+                                        return new Point(i + 1, j - 1);
+                                    }
                                 }
                                 if (data[i + 1][j + 1] == 0)
                                 {
-                                    return new Point(i + 1, j + 1);
+                                    if (!(data[i][j + 1] == NotQizhi(qizhi) && data[i+2][j + 1] == NotQizhi(qizhi)))
+                                    {
+                                        return new Point(i + 1, j + 1);
+                                    }
                                 }
                             }
                         }
@@ -284,6 +298,7 @@ namespace HPSWeiqi
                         if (data[i][j] == qizhi && data[i][j + 1] == NotQizhi(qizhi))
                         {
                             int K = j + 2;
+                            if (K == 19) break;
                             if (data[i][K] == 0)
                             {
                                 return new Point(i, K);
@@ -292,6 +307,7 @@ namespace HPSWeiqi
                         if (data[i][j] == qizhi && data[i + 1][j] == NotQizhi(qizhi))
                         {
                             int K = i + 2;
+                            if (K == 19) break;
                             if (data[K][j] == 0)
                             {
                                 return new Point(K, j);
