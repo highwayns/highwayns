@@ -88,7 +88,7 @@ namespace HPSWeiqi
         /// <param name="row"></param>
         /// <param name="col"></param>
         /// <param name="qizhi"></param>
-        public void Play(int row, int col, int qizhi, bool isRobot)
+        public bool Play(int row, int col, int qizhi, bool isRobot)
         {
             if (isRobot)
             {
@@ -97,7 +97,7 @@ namespace HPSWeiqi
                 {
                     data[point.X][point.Y] = qizhi;
                     checkQi(point.X, point.Y, qizhi);
-                    if (data[point.X][point.Y] == 0) return;
+                    if (data[point.X][point.Y] == 0) return false;
                     Point3D pt = new Point3D(point.X, point.Y, qizhi);
                     Steps.Add(pt);
                 }
@@ -106,10 +106,11 @@ namespace HPSWeiqi
             {
                 data[row][col] = qizhi;
                 checkQi(row, col, qizhi);
-                if (data[row][col] == 0) return;
+                if (data[row][col] == 0) return false;
                 Point3D pt = new Point3D(row, col, qizhi);
                 Steps.Add(pt);
             }
+            return true;
         }
         /// <summary>
         /// 保存模式
@@ -201,6 +202,8 @@ namespace HPSWeiqi
                 {
                     return new Point(point3D.X, point3D.Y);
                 }
+                //吃子
+
                 //长气
                 for (int i = 1; i < 18; i++)
                 {
@@ -239,16 +242,15 @@ namespace HPSWeiqi
                         }
                     }
                 }
-                // 打吃或吃子
-                for (int i = 0; i < 18; i++)
+                // 打吃
+                for (int i = 1; i < 18; i++)
                 {
-                    for (int j = 0; j < 18; j++)
+                    for (int j = 1; j < 18; j++)
                     {
                         if (data[i][j] == qizhi && data[i][j + 1] == NotQizhi(qizhi))
                         {
                             int K = j + 2;
-                            if (K == 19) break;
-                            if (data[i][K] == qizhi)
+                            if (K <19 && data[i][K] == qizhi)
                             {                               
                                 if (i > 0 && data[i - 1][j + 1] == 0)
                                 {
@@ -269,8 +271,7 @@ namespace HPSWeiqi
                         if (data[i][j] == qizhi && data[i + 1][j] == NotQizhi(qizhi))
                         {
                             int K = i + 2;
-                            if (K == 19) break;
-                            if (data[K][j] == qizhi)
+                            if (K < 19 && data[K][j] == qizhi)
                             {
                                 if (j > 0 && data[i + 1][j - 1] == 0)
                                 {
@@ -291,15 +292,14 @@ namespace HPSWeiqi
                     }
                 }
                 // 夹
-                for (int i = 0; i < 18; i++)
+                for (int i = 1; i < 18; i++)
                 {
-                    for (int j = 0; j < 18; j++)
+                    for (int j = 1; j < 18; j++)
                     {
                         if (data[i][j] == qizhi && data[i][j + 1] == NotQizhi(qizhi))
                         {
                             int K = j + 2;
-                            if (K == 19) break;
-                            if (data[i][K] == 0)
+                            if (K<19 && data[i][K] == 0)
                             {
                                 return new Point(i, K);
                             }
@@ -307,8 +307,23 @@ namespace HPSWeiqi
                         if (data[i][j] == qizhi && data[i + 1][j] == NotQizhi(qizhi))
                         {
                             int K = i + 2;
-                            if (K == 19) break;
-                            if (data[K][j] == 0)
+                            if (K < 19 && data[K][j] == 0)
+                            {
+                                return new Point(K, j);
+                            }
+                        }
+                        if (data[i][j] == qizhi && data[i][j - 1] == NotQizhi(qizhi))
+                        {
+                            int K = j - 2;
+                            if (K >-1 && data[i][K] == 0)
+                            {
+                                return new Point(i, K);
+                            }
+                        }
+                        if (data[i][j] == qizhi && data[i - 1][j] == NotQizhi(qizhi))
+                        {
+                            int K = i - 2;
+                            if (K > -1 && data[K][j] == 0)
                             {
                                 return new Point(K, j);
                             }
