@@ -126,7 +126,11 @@ namespace HPSWeiqi
                         }
                         else if (rdoGo.Checked)
                         {
-                            HPSWeiqi.Play(row, col, 1,false);
+                            if(!HPSWeiqi.Play(row, col, 1,false))
+                            {
+                                MessageBox.Show("Play失敗！");
+                                return;
+                            }
                             pictureBox1.Refresh();
                         }
                         rdoWhite.Checked = true;
@@ -147,7 +151,11 @@ namespace HPSWeiqi
                         }
                         else if (rdoGo.Checked)
                         {
-                            HPSWeiqi.Play(row, col, 2, false);
+                            if(!HPSWeiqi.Play(row, col, 2, false))
+                            {
+                                MessageBox.Show("Play失敗！");
+                                return;
+                            }
                             pictureBox1.Refresh();
                         }
                         rdoBlack.Checked = true;
@@ -238,13 +246,21 @@ namespace HPSWeiqi
         {
             if (rdoBlack.Checked)
             {
-                HPSWeiqi.Play(0, 0, 1, true);
+                if(!HPSWeiqi.Play(0, 0, 1, true))
+                {
+                    MessageBox.Show("Play失敗！");
+                    return;
+                }
                 pictureBox1.Refresh();
                 rdoWhite.Checked = true;
             }
             else
             {
-                HPSWeiqi.Play(0, 0, 2, true);
+                if(!HPSWeiqi.Play(0, 0, 2, true))
+                {
+                    MessageBox.Show("Play失敗！");
+                    return;
+                }
                 pictureBox1.Refresh();
                 rdoBlack.Checked = true;
             }
