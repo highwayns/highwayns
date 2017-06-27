@@ -48,12 +48,20 @@ namespace HPSTest
 
         private static NC.HEDAS.Lib.CmWinServiceAPI db = new NC.HEDAS.Lib.CmWinServiceAPI();
         public int userId = 0;
+        /// <summary>
+        /// 取得实例
+        /// </summary>
+        /// <param name="paramenter"></param>
+        public void GetInstance(object[] paramenter)
+        {
+            FormMain form = new FormMain();
+        }
         public FormMain()
         {
             InitializeComponent();
             if (GetConfigValue())
             {
-                this.Text = company + "-医院知识问答";
+                this.Text = company + "-知識テスト";
             }
             if (Skin != "")
                 skinEngine1.SkinFile = Skin;
