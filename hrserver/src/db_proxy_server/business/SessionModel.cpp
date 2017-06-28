@@ -28,7 +28,7 @@ CSessionModel* CSessionModel::getInstance()
 void CSessionModel::getRecentSession(uint32_t nUserId, uint32_t lastTime, list<IM::BaseDefine::ContactSessionInfo>& lsContact)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql = "select * from IMRecentSession where userId = " + int2string(nUserId) + " and status = 0 and updated >" + int2string(lastTime) + " order by updated desc limit 100";
@@ -69,14 +69,14 @@ void CSessionModel::getRecentSession(uint32_t nUserId, uint32_t lastTime, list<I
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
 uint32_t CSessionModel::getSessionId(uint32_t nUserId, uint32_t nPeerId, uint32_t nType, bool isAll)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     uint32_t nSessionId = INVALID_VALUE;
     if(pDBConn)
     {
@@ -101,7 +101,7 @@ uint32_t CSessionModel::getSessionId(uint32_t nUserId, uint32_t nPeerId, uint32_
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
     return nSessionId;
 }
@@ -110,7 +110,7 @@ bool CSessionModel::updateSession(uint32_t nSessionId, uint32_t nUpdateTime)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         string strSql = "update IMRecentSession set `updated`="+int2string(nUpdateTime) + " where id="+int2string(nSessionId);
@@ -119,7 +119,7 @@ bool CSessionModel::updateSession(uint32_t nSessionId, uint32_t nUpdateTime)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
@@ -128,7 +128,7 @@ bool CSessionModel::removeSession(uint32_t nSessionId)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         uint32_t nNow = (uint32_t) time(NULL);
@@ -138,7 +138,7 @@ bool CSessionModel::removeSession(uint32_t nSessionId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
@@ -150,7 +150,7 @@ uint32_t CSessionModel::addSession(uint32_t nUserId, uint32_t nPeerId, uint32_t 
     nSessionId = getSessionId(nUserId, nPeerId, nType, true);
     uint32_t nTimeNow = time(NULL);
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         if(INVALID_VALUE != nSessionId)
@@ -194,7 +194,7 @@ uint32_t CSessionModel::addSession(uint32_t nUserId, uint32_t nPeerId, uint32_t 
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return nSessionId;
 }

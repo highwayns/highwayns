@@ -27,14 +27,14 @@ sudo apt-get install -y redis-server
 sudo apt-get install -y mysql-server
 
 
-git clone https://git.oschina.net/benben-de-eggs/teamtalk-server-benben.git
+git clone https://git.oschina.net/benben-de-eggs/highwaytalk-server-benben.git
 
-mysql -uroot -p12345 < teamtalk-server-benben/auto_setup/mariadb/conf/ttopen.sql
+mysql -uroot -p12345 < highwaytalk-server-benben/auto_setup/mariadb/conf/ttopen.sql
 
 fi
 
 if [ $# -eq 0 ]; then
-  cd teamtalk-server-benben/src
+  cd highwaytalk-server-benben/src
 else
   cd $1/src
 fi

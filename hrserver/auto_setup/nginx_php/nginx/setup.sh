@@ -10,7 +10,7 @@ NGINX_PATH_6=http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos
 
 print_hello(){
 	echo "==========================================="
-	echo "$1 nginx for TeamTalk"
+	echo "$1 nginx for HighwayTalk"
 	echo "==========================================="
 }
 

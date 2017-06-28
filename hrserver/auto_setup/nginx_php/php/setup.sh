@@ -16,7 +16,7 @@ CPU_NUM=`cat /proc/cpuinfo | grep processor | wc -l`
 
 print_hello(){
 	echo "==========================================="
-	echo "$1 php for TeamTalk"
+	echo "$1 php for HighwayTalk"
 	echo "==========================================="
 }
 

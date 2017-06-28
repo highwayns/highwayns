@@ -76,7 +76,7 @@ bool CGroupMessageModel::sendMessage(uint32_t nFromId, uint32_t nGroupId, IM::Ba
     if(CGroupModel::getInstance()->isInGroup(nFromId, nGroupId))
     {
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
         if (pDBConn)
         {
             string strTableName = "IMGroupMessage_" + int2string(nGroupId % 8);
@@ -114,7 +114,7 @@ bool CGroupMessageModel::sendMessage(uint32_t nFromId, uint32_t nGroupId, IM::Ba
         }
         else
         {
-            log("no db connection for teamtalk_master");
+            log("no db connection for highwaytalk_master");
         }
     }
     else
@@ -268,7 +268,7 @@ void CGroupMessageModel::getMessage(uint32_t nUserId, uint32_t nGroupId, uint32_
     string strTableName = "IMGroupMessage_" + int2string(nGroupId % 8);
     
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         uint32_t nUpdated = CGroupModel::getInstance()->getUserJoinTime(nGroupId, nUserId);
@@ -316,7 +316,7 @@ void CGroupMessageModel::getMessage(uint32_t nUserId, uint32_t nGroupId, uint32_
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
@@ -429,7 +429,7 @@ void CGroupMessageModel::getLastMsg(uint32_t nGroupId, uint32_t &nMsgId, string 
     string strTableName = "IMGroupMessage_" + int2string(nGroupId % 8);
     
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql = "select msgId, type,userId, content from " + strTableName + " where groupId = " + int2string(nGroupId) + " and status = 0 order by created desc, id desc limit 1";
@@ -461,7 +461,7 @@ void CGroupMessageModel::getLastMsg(uint32_t nGroupId, uint32_t &nMsgId, string 
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
@@ -520,7 +520,7 @@ void CGroupMessageModel::getMsgByMsgId(uint32_t nUserId, uint32_t nGroupId, cons
         if (CGroupModel::getInstance()->isInGroup(nUserId, nGroupId))
         {
             CDBManager* pDBManager = CDBManager::getInstance();
-            CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+            CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
             if (pDBConn)
             {
                 string strTableName = "IMGroupMessage_" + int2string(nGroupId % 8);
@@ -575,7 +575,7 @@ void CGroupMessageModel::getMsgByMsgId(uint32_t nUserId, uint32_t nGroupId, cons
             }
             else
             {
-                log("no db connection for teamtalk_slave");
+                log("no db connection for highwaytalk_slave");
             }
         }
         else

@@ -14,7 +14,7 @@ PHP_NGINX_CONF_PATH=/etc/nginx/conf.d
 
 print_hello(){
 	echo "==========================================="
-	echo "$1 im web for TeamTalk"
+	echo "$1 im web for HighwayTalk"
 	echo "==========================================="
 }
 

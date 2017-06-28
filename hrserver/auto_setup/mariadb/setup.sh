@@ -29,7 +29,7 @@ CENTOS_VERSION=6
 
 print_hello(){
 	echo "==========================================="
-	echo "$1 mysql for TeamTalk"
+	echo "$1 mysql for HighwayTalk"
 	echo "==========================================="
 }
 

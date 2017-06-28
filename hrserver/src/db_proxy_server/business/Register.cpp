@@ -80,11 +80,11 @@ void doRegister(CImPdu* pPdu, uint32_t conn_uuid)
     uint32_t userId;
 
     CDBManager* pDBManger = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManger->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManger->GetDBConn("highwaytalk_slave");
     if (!pDBConn) {
-        loge("Get db teamtalk_slave connection failed");
+        loge("Get db highwaytalk_slave connection failed");
         msgRes.set_result_code(2);
-        msgRes.set_result_string("Get db teamtalk_slave connection failed");
+        msgRes.set_result_string("Get db highwaytalk_slave connection failed");
         pDBManger->RelDBConn(pDBConn);
     }
 
