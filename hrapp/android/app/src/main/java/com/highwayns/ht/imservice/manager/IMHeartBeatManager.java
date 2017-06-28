@@ -114,7 +114,7 @@ public class IMHeartBeatManager  extends  IMManager{
     public void sendHeartBeatPacket(){
         logger.d("heartbeat#reqSendHeartbeat");
         PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "teamtalk_heartBeat_wakelock");
+        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "HighwayTalk_heartBeat_wakelock");
         wl.acquire();
         try {
             final long timeOut = 5*1000;
