@@ -29,7 +29,7 @@ DB_PROXY_SERVER_CONF=dbproxyserver.conf
 
 print_hello(){
 	echo "==========================================="
-	echo "$1 im server for TeamTalk"
+	echo "$1 im server for HighwayTalk"
 	echo "==========================================="
 }
 

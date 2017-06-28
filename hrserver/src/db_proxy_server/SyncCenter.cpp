@@ -156,7 +156,7 @@ void* CSyncCenter::doSyncGroupChat(void* arg)
     map<uint32_t, uint32_t> mapChangedGroup;
     do{
         mapChangedGroup.clear();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
         if(pDBConn)
         {
             string strSql = "select id, lastChated from IMGroup where status=0 and lastChated >=" + int2string(m_pInstance->getLastUpdateGroup());
@@ -177,7 +177,7 @@ void* CSyncCenter::doSyncGroupChat(void* arg)
         }
         else
         {
-            log("no db connection for teamtalk_slave");
+            log("no db connection for highwaytalk_slave");
         }
         m_pInstance->updateLastUpdateGroup(time(NULL));
         for (auto it=mapChangedGroup.begin(); it!=mapChangedGroup.end(); ++it)

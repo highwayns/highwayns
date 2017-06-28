@@ -37,7 +37,7 @@ CUserModel* CUserModel::getInstance()
 void CUserModel::getChangedId(uint32_t& nLastTime, list<uint32_t> &lsIds)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql ;
@@ -71,7 +71,7 @@ void CUserModel::getChangedId(uint32_t& nLastTime, list<uint32_t> &lsIds)
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
@@ -82,7 +82,7 @@ void CUserModel::getUsers(list<uint32_t> lsIds, list<IM::BaseDefine::UserInfo> &
         return;
     }
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strClause;
@@ -128,7 +128,7 @@ void CUserModel::getUsers(list<uint32_t> lsIds, list<IM::BaseDefine::UserInfo> &
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
@@ -136,7 +136,7 @@ bool CUserModel::getUser(uint32_t nUserId, DBUserInfo_t &cUser)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql = "select * from IMUser where id="+int2string(nUserId);
@@ -167,7 +167,7 @@ bool CUserModel::getUser(uint32_t nUserId, DBUserInfo_t &cUser)
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
     return bRet;
 }
@@ -176,7 +176,7 @@ bool CUserModel::updateUser(DBUserInfo_t &cUser)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         uint32_t nNow = (uint32_t)time(NULL);
@@ -190,7 +190,7 @@ bool CUserModel::updateUser(DBUserInfo_t &cUser)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
@@ -199,7 +199,7 @@ bool CUserModel::insertUser(DBUserInfo_t &cUser)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         string strSql = "insert into IMUser(`id`,`sex`,`nick`,`domain`,`name`,`phone`,`email`,`avatar`,`departId`,`status`,`created`,`updated`) values(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -234,7 +234,7 @@ bool CUserModel::insertUser(DBUserInfo_t &cUser)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }

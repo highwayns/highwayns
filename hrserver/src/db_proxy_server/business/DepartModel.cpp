@@ -25,7 +25,7 @@ CDepartModel* CDepartModel::getInstance()
 void CDepartModel::getChgedDeptId(uint32_t& nLastTime, list<uint32_t>& lsChangedIds)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql = "select id, updated from IMDepart where updated > " + int2string(nLastTime);
@@ -47,7 +47,7 @@ void CDepartModel::getChgedDeptId(uint32_t& nLastTime, list<uint32_t>& lsChanged
     }
     else
     {
-        log("no db connection for teamtalk_slave.");
+        log("no db connection for highwaytalk_slave.");
     }
 }
 
@@ -59,7 +59,7 @@ void CDepartModel::getDepts(list<uint32_t>& lsDeptIds, list<IM::BaseDefine::Depa
         return;
     }
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strClause;
@@ -102,14 +102,14 @@ void CDepartModel::getDepts(list<uint32_t>& lsDeptIds, list<IM::BaseDefine::Depa
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
 void CDepartModel::getDept(uint32_t nDeptId, IM::BaseDefine::DepartInfo& cDept)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql = "select * from IMDepart where id = " + int2string(nDeptId);
@@ -137,6 +137,6 @@ void CDepartModel::getDept(uint32_t nDeptId, IM::BaseDefine::DepartInfo& cDept)
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }

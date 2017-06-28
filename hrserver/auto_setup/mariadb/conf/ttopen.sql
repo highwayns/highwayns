@@ -14,9 +14,9 @@
 # Dump of table IMAdmin
 # ------------------------------------------------------------
 
-DROP DATABASE IF EXISTS teamtalk;
-CREATE DATABASE teamtalk DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE teamtalk;
+DROP DATABASE IF EXISTS highwaytalk;
+CREATE DATABASE highwaytalk DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE highwaytalk;
 
 
 DROP TABLE IF EXISTS `IMAdmin`;

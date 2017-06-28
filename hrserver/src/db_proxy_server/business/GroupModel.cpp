@@ -91,7 +91,7 @@ bool CGroupModel::removeGroup(uint32_t nUserId, uint32_t nGroupId, list<uint32_t
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     set<uint32_t> setGroupUsers;
     if(pDBConn)
     {
@@ -153,7 +153,7 @@ void CGroupModel::getGroupInfo(map<uint32_t,IM::BaseDefine::GroupVersionInfo>& m
     if (!mapGroupId.empty())
     {
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
         if (pDBConn)
         {
             string strClause;
@@ -211,7 +211,7 @@ void CGroupModel::getGroupInfo(map<uint32_t,IM::BaseDefine::GroupVersionInfo>& m
         }
         else
         {
-            log("no db connection for teamtalk_slave");
+            log("no db connection for highwaytalk_slave");
         }
     }
     else
@@ -258,7 +258,7 @@ bool CGroupModel::insertNewGroup(uint32_t nUserId, const string& strGroupName, c
     bool bRet = false;
     nGroupId = INVALID_VALUE;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         string strSql = "insert into IMGroup(`name`, `avatar`, `creator`, `type`,`userCnt`, `status`, `version`, `lastChated`, `updated`, `created`) "\
@@ -293,7 +293,7 @@ bool CGroupModel::insertNewGroup(uint32_t nUserId, const string& strGroupName, c
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
@@ -305,7 +305,7 @@ bool CGroupModel::insertNewMember(uint32_t nGroupId, set<uint32_t>& setUsers)
     if(nGroupId != INVALID_VALUE &&  nUserCnt > 0)
     {
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
         if (pDBConn)
         {
             uint32_t nCreated = (uint32_t)time(NULL);
@@ -340,7 +340,7 @@ bool CGroupModel::insertNewMember(uint32_t nGroupId, set<uint32_t>& setUsers)
             }
             pDBManager->RelDBConn(pDBConn);
             
-            pDBConn = pDBManager->GetDBConn("teamtalk_master");
+            pDBConn = pDBManager->GetDBConn("highwaytalk_master");
             if (pDBConn)
             {
                 CacheManager* pCacheManager = CacheManager::getInstance();
@@ -424,12 +424,12 @@ bool CGroupModel::insertNewMember(uint32_t nGroupId, set<uint32_t>& setUsers)
             }
             else
             {
-                log("no db connection for teamtalk_master");
+                log("no db connection for highwaytalk_master");
             }
         }
         else
         {
-            log("no db connection for teamtalk_slave");
+            log("no db connection for highwaytalk_slave");
         }
     }
     return bRet;
@@ -438,7 +438,7 @@ bool CGroupModel::insertNewMember(uint32_t nGroupId, set<uint32_t>& setUsers)
 void CGroupModel::getUserGroupIds(uint32_t nUserId, list<uint32_t>& lsGroupId, uint32_t nLimited)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if(pDBConn)
     {
         string strSql ;
@@ -468,7 +468,7 @@ void CGroupModel::getUserGroupIds(uint32_t nUserId, list<uint32_t>& lsGroupId, u
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
@@ -477,7 +477,7 @@ void CGroupModel::getGroupVersion(list<uint32_t> &lsGroupId, list<IM::BaseDefine
     if(!lsGroupId.empty())
     {
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
         if(pDBConn)
         {
             string strClause;
@@ -522,7 +522,7 @@ void CGroupModel::getGroupVersion(list<uint32_t> &lsGroupId, list<IM::BaseDefine
         }
         else
         {
-            log("no db connection for teamtalk_slave");
+            log("no db connection for highwaytalk_slave");
         }
     }
     else
@@ -562,7 +562,7 @@ bool CGroupModel::hasModifyPermission(uint32_t nUserId, uint32_t nGroupId, IM::B
     
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if(pDBConn)
     {
         string strSql = "select creator, type from IMGroup where id="+ int2string(nGroupId);
@@ -600,7 +600,7 @@ bool CGroupModel::hasModifyPermission(uint32_t nUserId, uint32_t nGroupId, IM::B
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
     return bRet;
 }
@@ -622,7 +622,7 @@ bool CGroupModel::removeMember(uint32_t nGroupId, set<uint32_t> &setUser, list<u
     }
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if(pDBConn)
     {
         CacheManager* pCacheManager = CacheManager::getInstance();
@@ -666,7 +666,7 @@ bool CGroupModel::removeMember(uint32_t nGroupId, set<uint32_t> &setUser, list<u
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
@@ -802,7 +802,7 @@ void CGroupModel::getGroupUser(uint32_t nGroupId, list<uint32_t> &lsUserId)
 void CGroupModel::updateGroupChat(uint32_t nGroupId)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if(pDBConn)
     {
         uint32_t nNow = (uint32_t)time(NULL);
@@ -812,7 +812,7 @@ void CGroupModel::updateGroupChat(uint32_t nGroupId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
 }
 
@@ -820,7 +820,7 @@ void CGroupModel::updateGroupChat(uint32_t nGroupId)
 //{
 //    bool bRet = false;
 //    CDBManager* pDBManager = CDBManager::getInstance();
-//    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+//    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
 //    if(pDBConn)
 //    {
 //        string strSql = "select id from IMGroup where id=" + int2string(nGroupId)+" and status=0";
@@ -834,7 +834,7 @@ void CGroupModel::updateGroupChat(uint32_t nGroupId)
 //    }
 //    else
 //    {
-//        log("no db connection for teamtalk_slave");
+//        log("no db connection for highwaytalk_slave");
 //    }
 //    return bRet;
 //}
@@ -868,7 +868,7 @@ bool CGroupModel::incGroupVersion(uint32_t nGroupId)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if(pDBConn)
     {
         string strSql = "update IMGroup set version=version+1 where id="+int2string(nGroupId);
@@ -880,7 +880,7 @@ bool CGroupModel::incGroupVersion(uint32_t nGroupId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return  bRet;
 }
@@ -924,7 +924,7 @@ uint32_t CGroupModel::getUserJoinTime(uint32_t nGroupId, uint32_t nUserId)
 void CGroupModel::clearGroupMember(uint32_t nGroupId)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if(pDBConn)
     {
         string strSql = "delete from IMGroupMember where groupId="+int2string(nGroupId);
@@ -933,7 +933,7 @@ void CGroupModel::clearGroupMember(uint32_t nGroupId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     CacheManager* pCacheManager = CacheManager::getInstance();
     CacheConn* pCacheConn = pCacheManager->GetCacheConn("group_member");

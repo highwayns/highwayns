@@ -34,7 +34,7 @@ CFileModel* CFileModel::getInstance()
 void CFileModel::getOfflineFile(uint32_t userId, list<IM::BaseDefine::OfflineFileInfo>& lsOffline)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strSql = "select * from IMTransmitFile where toId="+int2string(userId) + " and status=0 order by created";
@@ -60,14 +60,14 @@ void CFileModel::getOfflineFile(uint32_t userId, list<IM::BaseDefine::OfflineFil
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 
 void CFileModel::addOfflineFile(uint32_t fromId, uint32_t toId, string& taskId, string& fileName, uint32_t fileSize)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         string strSql = "insert into IMTransmitFile (`fromId`,`toId`,`fileName`,`size`,`taskId`,`status`,`created`,`updated`) values(?,?,?,?,?,?,?,?)";
@@ -101,14 +101,14 @@ void CFileModel::addOfflineFile(uint32_t fromId, uint32_t toId, string& taskId, 
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
 }
 
 void CFileModel::delOfflineFile(uint32_t fromId, uint32_t toId, string& taskId)
 {
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         string strSql = "delete from IMTransmitFile where  fromId=" + int2string(fromId) + " and toId="+int2string(toId) + " and taskId='" + taskId + "'";
@@ -124,6 +124,6 @@ void CFileModel::delOfflineFile(uint32_t fromId, uint32_t toId, string& taskId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
 }

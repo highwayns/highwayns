@@ -1,9 +1,9 @@
 #!/bin/bash
-# this is a setup scripts for TeamTalk
+# this is a setup scripts for HighwayTalk
 # author: luoning
 # date: 09/05/2014
 
-# setup TeamTalk
+# setup HighwayTalk
 
 REDIS=redis
 MYSQL=mariadb
@@ -58,9 +58,9 @@ check_os() {
 
 print_hello() {
 	echo "========================================================================="
-	echo "TeamTalk V1.0 for CentOS Linux Server, Written by Luoning"
+	echo "HighwayTalk V1.0 for CentOS Linux Server, Written by Luoning"
 	echo "========================================================================="
-	echo "A tool to auto-compile & install TeamTalk on Linux "
+	echo "A tool to auto-compile & install HighwayTalk on Linux "
 	echo ""
 	echo "For more information please visit https://github.com/mogutt/TTAutoDeploy/"
 	echo "========================================================================="
@@ -417,7 +417,7 @@ check_all() {
     	exit 1
     fi
 	
-	echo "Check TeamTalk successed, and you can install TeamTalk now."
+	echo "Check HighwayTalk successed, and you can install HighwayTalk now."
 }
 
 clean_yum() {

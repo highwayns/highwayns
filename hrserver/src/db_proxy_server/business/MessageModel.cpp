@@ -50,7 +50,7 @@ void CMessageModel::getMessage(uint32_t nUserId, uint32_t nPeerId, uint32_t nMsg
 	if (nRelateId != INVALID_VALUE)
     {
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
         if (pDBConn)
         {
             string strTableName = "IMMessage_" + int2string(nRelateId % 8);
@@ -97,7 +97,7 @@ void CMessageModel::getMessage(uint32_t nUserId, uint32_t nPeerId, uint32_t nMsg
         }
         else
         {
-            log("no db connection for teamtalk_slave");
+            log("no db connection for highwaytalk_slave");
         }
 	}
     else
@@ -122,7 +122,7 @@ bool CMessageModel::sendMessage(uint32_t nRelateId, uint32_t nFromId, uint32_t n
     }
 
 	CDBManager* pDBManager = CDBManager::getInstance();
-	CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+	CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
 	if (pDBConn)
     {
         string strTableName = "IMMessage_" + int2string(nRelateId % 8);
@@ -159,7 +159,7 @@ bool CMessageModel::sendMessage(uint32_t nRelateId, uint32_t nFromId, uint32_t n
 	}
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
 	return bRet;
 }
@@ -276,7 +276,7 @@ void CMessageModel::getLastMsg(uint32_t nFromId, uint32_t nToId, uint32_t& nMsgI
     {
 
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
         if (pDBConn)
         {
             string strTableName = "IMMessage_" + int2string(nRelateId % 8);
@@ -362,7 +362,7 @@ void CMessageModel::getMsgByMsgId(uint32_t nUserId, uint32_t nPeerId, const list
     }
 
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         string strTableName = "IMMessage_" + int2string(nRelateId % 8);
@@ -416,7 +416,7 @@ void CMessageModel::getMsgByMsgId(uint32_t nUserId, uint32_t nPeerId, const list
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
 }
 

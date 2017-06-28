@@ -78,7 +78,7 @@ bool CAudioModel::readAudios(list<IM::BaseDefine::MsgInfo>& lsMsg)
     }
     bool bRet = false;
     CDBManager* pDBManger = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManger->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManger->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         for (auto it=lsMsg.begin(); it!=lsMsg.end(); )
@@ -115,7 +115,7 @@ bool CAudioModel::readAudios(list<IM::BaseDefine::MsgInfo>& lsMsg)
     }
     else
     {
-        log("no connection for teamtalk_slave");
+        log("no connection for highwaytalk_slave");
     }
     return bRet;
 }
@@ -144,7 +144,7 @@ int CAudioModel::saveAudioInfo(uint32_t nFromId, uint32_t nToId, uint32_t nCreat
 	if (!strPath.empty())
     {
         CDBManager* pDBManager = CDBManager::getInstance();
-        CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+        CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
         if (pDBConn)
         {
             uint32_t nStartPos = 0;
@@ -168,7 +168,7 @@ int CAudioModel::saveAudioInfo(uint32_t nFromId, uint32_t nToId, uint32_t nCreat
         }
         else
         {
-            log("no db connection for teamtalk_master");
+            log("no db connection for highwaytalk_master");
         }
 	}
     else

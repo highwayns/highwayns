@@ -14,7 +14,7 @@ REDIS_SERVER=redis-server
 
 print_hello(){
 	echo "==========================================="
-	echo "$1 redis for TeamTalk"
+	echo "$1 redis for HighwayTalk"
 	echo "==========================================="
 }
 

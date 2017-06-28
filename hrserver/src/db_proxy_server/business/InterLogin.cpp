@@ -17,7 +17,7 @@ bool CInterLoginStrategy::doLogin(const std::string &strName, const std::string 
     bool bRet = false;
     
     CDBManager* pDBManger = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManger->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManger->GetDBConn("highwaytalk_slave");
     if (pDBConn) {
         string strSql = "select * from IMUser where name='" + strName + "' and status=0";
         CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());

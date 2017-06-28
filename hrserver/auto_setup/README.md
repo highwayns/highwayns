@@ -1,5 +1,5 @@
 #安装说明:
-	TeamTalk整套服务提供模块部署脚本和一键部署方案，主要模块有NGINX,PHP,MARIADB(MYSQL),REDIS,IM_WEB,IM_SERVER,其中IM_WEB,IM_SERVER为自主开发模块,其余均为开源解决方案,各个模块	需要手动改动的地方如下:
+	HighwayTalk整套服务提供模块部署脚本和一键部署方案，主要模块有NGINX,PHP,MARIADB(MYSQL),REDIS,IM_WEB,IM_SERVER,其中IM_WEB,IM_SERVER为自主开发模块,其余均为开源解决方案,各个模块	需要手动改动的地方如下:
 ######NGINX: 
 	无需改动
 
@@ -68,7 +68,7 @@
 	"强烈建议"选择一台未安装过的NGINX,PHP,MySQL,REDIS,并且OS为CentOS 6.X或者7.X,在安装之前可以先执行"setup.sh check"命令进行上述环境的检查。检查通过后对各个模块进行一些配置文件的设置,其中主要设置的为IM_SERVER中的几个服务器地址设置,设置完成后运行"setup.sh install"
 
 ###模块部署:
-	TeamTalk的各模块支持安装到不同的服务器上,所以部署可以根据自己的需要进行模块安装,主要修改的地方即为上述各个模块中的IP地址设置。根据自己的网络拓扑在conf文件夹下的各个配置文件中预先设置正确的IP地址,然后执行模块内的"setup install"即可
+	HighwayTalk的各模块支持安装到不同的服务器上,所以部署可以根据自己的需要进行模块安装,主要修改的地方即为上述各个模块中的IP地址设置。根据自己的网络拓扑在conf文件夹下的各个配置文件中预先设置正确的IP地址,然后执行模块内的"setup install"即可
 
 
 ###IM_SERVER与IM_DB_PROXY架构图如下:

@@ -55,7 +55,7 @@ uint32_t CRelationModel::getRelationId(uint32_t nUserAId, uint32_t nUserBId, boo
         return nRelationId;
     }
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_slave");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_slave");
     if (pDBConn)
     {
         uint32_t nBigId = nUserAId > nUserBId ? nUserAId : nUserBId;
@@ -83,7 +83,7 @@ uint32_t CRelationModel::getRelationId(uint32_t nUserAId, uint32_t nUserBId, boo
     }
     else
     {
-        log("no db connection for teamtalk_slave");
+        log("no db connection for highwaytalk_slave");
     }
     return nRelationId;
 }
@@ -92,7 +92,7 @@ uint32_t CRelationModel::addRelation(uint32_t nSmallId, uint32_t nBigId)
 {
     uint32_t nRelationId = INVALID_VALUE;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         uint32_t nTimeNow = (uint32_t)time(NULL);
@@ -148,7 +148,7 @@ uint32_t CRelationModel::addRelation(uint32_t nSmallId, uint32_t nBigId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return nRelationId;
 }
@@ -157,7 +157,7 @@ bool CRelationModel::updateRelation(uint32_t nRelationId, uint32_t nUpdateTime)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         string strSql = "update IMRelationShip set `updated`="+int2string(nUpdateTime) + " where id="+int2string(nRelationId);
@@ -166,7 +166,7 @@ bool CRelationModel::updateRelation(uint32_t nRelationId, uint32_t nUpdateTime)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
@@ -175,7 +175,7 @@ bool CRelationModel::removeRelation(uint32_t nRelationId)
 {
     bool bRet = false;
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CDBConn* pDBConn = pDBManager->GetDBConn("highwaytalk_master");
     if (pDBConn)
     {
         uint32_t nNow = (uint32_t) time(NULL);
@@ -185,7 +185,7 @@ bool CRelationModel::removeRelation(uint32_t nRelationId)
     }
     else
     {
-        log("no db connection for teamtalk_master");
+        log("no db connection for highwaytalk_master");
     }
     return bRet;
 }
