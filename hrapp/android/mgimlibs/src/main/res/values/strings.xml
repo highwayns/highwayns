@@ -32,8 +32,8 @@
     <string name="new_msg_notify_got_vibration">震动</string>
     <string name="image_downloading_setting_name">图片下载设置</string>
     <string name="save_traffic">省流量模式</string>
-    <string name="exit_teamtalk">退出TeamTalk</string>
-    <string name="exit_teamtalk_tip">你确定退出TeamTalk?</string>
+    <string name="exit_HighwayTalk">退出HighwayTalk</string>
+    <string name="exit_HighwayTalk_tip">你确定退出HighwayTalk?</string>
     <string name="clear_cache_tip">你确定清理图片缓存?</string>
     <string name="confirm_dial">拨打电话:%s</string>
     <string name="confirm_send_email">发送邮件:%s</string>

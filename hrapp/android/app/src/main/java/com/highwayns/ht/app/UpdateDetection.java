@@ -82,7 +82,7 @@ public class UpdateDetection {
         // 设定下载的文件路径
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             savePath = Environment.getExternalStorageDirectory() + "/" + "download";
-            saveFileName = savePath + "/teamtalk.apk";
+            saveFileName = savePath + "/HighwayTalk.apk";
         }
     }
 

@@ -145,7 +145,7 @@ public class MyFragment extends MainFragment {
                 final EditText editText = (EditText)dialog_view.findViewById(R.id.dialog_edit_content);
                 editText.setVisibility(View.GONE);
                 TextView textText = (TextView)dialog_view.findViewById(R.id.dialog_title);
-                textText.setText(R.string.exit_teamtalk_tip);
+                textText.setText(R.string.exit_HighwayTalk_tip);
                 builder.setView(dialog_view);
                 builder.setPositiveButton(getString(R.string.tt_ok), new DialogInterface.OnClickListener() {
 

@@ -318,7 +318,7 @@ public class IMReconnectManager extends IMManager {
         try {
             if (null == wakeLock) {
                 PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
-                wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "teamtalk_reconnecting_wakelock");
+                wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "HighwayTalk_reconnecting_wakelock");
                 logger.i("acquireWakeLock#call acquireWakeLock");
                 wakeLock.acquire(15000);
             }
