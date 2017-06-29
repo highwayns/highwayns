@@ -92,7 +92,7 @@ namespace HPSConsultant
             if (format != "") wheresql += " and format='" + format + "'";
             if (subscripted != "") wheresql += " and subscripted='" + subscripted + "'";
 
-            if (db.GetCompany(0, 0, "*", wheresql, "", ref ds))
+            if (db.GetConsultant(0, 0, "*", wheresql, "", ref ds))
             {
                 dgvData.DataSource = ds.Tables[0];
                 lblRecordNum.Text = "("+ds.Tables[0].Rows.Count.ToString() + ")";
@@ -104,13 +104,13 @@ namespace HPSConsultant
         private void initKind()
         {
             DataSet ds = new DataSet();
-            if (db.GetCompany(0, 0, "distinct kind", "", "", ref ds))
+            if (db.GetConsultant(0, 0, "distinct kind", "", "", ref ds))
             {
                 cmbKinds.DataSource = ds.Tables[0];
                 cmbKinds.DisplayMember = "kind";
             }
             DataSet ds2 = new DataSet();
-            if (db.GetCompany(0, 0, "distinct kind", "", "", ref ds2))
+            if (db.GetConsultant(0, 0, "distinct kind", "", "", ref ds2))
             {
                 cmbKind.DataSource = ds2.Tables[0];
                 cmbKind.DisplayMember = "kind";
@@ -123,13 +123,13 @@ namespace HPSConsultant
         private void initFormat()
         {
             DataSet ds = new DataSet();
-            if (db.GetCompany(0, 0, "distinct format", "", "", ref ds))
+            if (db.GetConsultant(0, 0, "distinct format", "", "", ref ds))
             {
                 cmbFormat.DataSource = ds.Tables[0];
                 cmbFormat.DisplayMember = "format";
             }
             DataSet ds2 = new DataSet();
-            if (db.GetCompany(0, 0, "distinct format", "", "", ref ds2))
+            if (db.GetConsultant(0, 0, "distinct format", "", "", ref ds2))
             {
                 cmbFormats.DataSource = ds2.Tables[0];
                 cmbFormats.DisplayMember = "format";
@@ -296,7 +296,7 @@ namespace HPSConsultant
             }
         }
         /// <summary>
-        /// 增加公司
+        /// 增加顧問
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -306,7 +306,7 @@ namespace HPSConsultant
             String valueList = "'" + txtCname.Text + "','" + txtName.Text + "','" + txtPostCode.Text + "','" + txtAddress.Text + "','" + txtTel.Text
                 + "','" + txtFax.Text + "','" + cmbKind.Text + "','" + cmbFormat.Text + "','" + txtScale.Text + "','" + txtCYMD.Text + "','" + txtOther.Text
                 + "','" + txtMail.Text + "','" + txtWeb.Text + "','" + txtJCname.Text + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','" + cmbSubscript.Text + "','" + db.db.UserID + "'";
-            if (db.SetCompany(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
+            if (db.SetConsultant(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
                                  "", valueList, out id))
             {
                 string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0001I", db.db.Language);
@@ -321,7 +321,7 @@ namespace HPSConsultant
 
         }
         /// <summary>
-        /// 更新公司
+        /// 更新顧問
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -334,7 +334,7 @@ namespace HPSConsultant
                 String valueList = "Cname='" + txtCname.Text + "',name='" + txtName.Text + "',postcode='" + txtPostCode.Text + "',address='" + txtAddress.Text + "',tel='" + txtTel.Text
                     + "',fax='" + txtFax.Text + "',kind='" + cmbKind.Text + "',format='" + cmbFormat.Text + "',scale='" + txtScale.Text + "',CYMD='" + txtCYMD.Text + "',other='" + txtOther.Text
                     + "',mail='" + txtMail.Text + "',web='" + txtWeb.Text + "',jCName='" + txtJCname.Text + "',createtime='" + txtCreateTime.Text + "',subscripted='" + cmbSubscript.Text + "'";
-                if (db.SetCompany(0, 1, "", "id=" + txtId.Text, valueList, out id) && id == 1)
+                if (db.SetConsultant(0, 1, "", "id=" + txtId.Text, valueList, out id) && id == 1)
                 {
                     string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0003I", db.db.Language);
                     MessageBox.Show(msg);
@@ -363,7 +363,7 @@ namespace HPSConsultant
             DataSet ds = new DataSet();
             NdnPublicFunction function = new NdnPublicFunction();
             int newid = 0;
-            if (db.GetCompany(0, 0, "*", "", "", ref ds))
+            if (db.GetConsultant(0, 0, "*", "", "", ref ds))
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
@@ -372,13 +372,13 @@ namespace HPSConsultant
                     String subscripted = row["subscripted"].ToString().Trim();
                     if (!function.IsMail(mail, false) || ht[mail]!=null)
                     {
-                        db.SetCompany(0, 1, "", "id=" + id, "subscripted='N'", out newid);
+                        db.SetConsultant(0, 1, "", "id=" + id, "subscripted='N'", out newid);
                     }
                     else
                     {
                         if (subscripted != "T")
                         {
-                            db.SetCompany(0, 1, "", "id=" + id, "subscripted='Y'", out newid);
+                            db.SetConsultant(0, 1, "", "id=" + id, "subscripted='Y'", out newid);
                         }
                     }
                 }
@@ -394,7 +394,7 @@ namespace HPSConsultant
 
         }
         /// <summary>
-        /// 删除公司数据
+        /// 删除顧問数据
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -403,7 +403,7 @@ namespace HPSConsultant
             if (dgvData.SelectedRows.Count > 0)
             {
                 int id = 0;
-                if (db.SetCompany(0, 2, "", "id=" + txtId.Text, "", out id) && id == 2)
+                if (db.SetConsultant(0, 2, "", "id=" + txtId.Text, "", out id) && id == 2)
                 {
                     string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0005I", db.db.Language);
                     MessageBox.Show(msg);
@@ -431,7 +431,7 @@ namespace HPSConsultant
             init(cmbKinds.Text, cmbFormats.Text, cmbSubscripts.Text);
         }
         /// <summary>
-        /// 公司导入
+        /// 顧問导入
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -449,7 +449,7 @@ namespace HPSConsultant
 
         }
         /// <summary>
-        /// 会社导入
+        /// 顧問导入
         /// </summary>
         /// <param name="csvFile"></param>
         private void importCompanyFile(String fileName)
@@ -462,7 +462,7 @@ namespace HPSConsultant
                 while (line != null)
                 {
                     string[] data = line.Split(',');
-                    string Cname =data[1];//会社名
+                    string Cname =data[1];//顧問名
                     string depart = data[2];//部門または職位
                     string manager = data[3];//管理者名前                    
                     string address = data[4];//アドレス
@@ -480,7 +480,7 @@ namespace HPSConsultant
                             +Tel+"','','','','','2017/06/15','"
                             + other + "','','"
                             + web + "','" + depart + "','" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "','Y','1'";
-                        db.SetCompany(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
+                        db.SetConsultant(0, 0, "Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID",
                                                 "", valueList, out id);
                     }
                     line = reader.ReadLine();
@@ -491,7 +491,7 @@ namespace HPSConsultant
 
 
         /// <summary>
-        /// 会社データ導出
+        /// 顧問データ導出
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -1,18 +1,17 @@
-﻿生成启动时间为 2017/06/22 22:52:58。
+﻿生成启动时间为 2017/06/28 7:19:43。
      1>项目“C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\src\highwaytalk\highwaytalk.vcxproj”在节点 2 上(Build 个目标)。
-     1>Link:
+     1>ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\bin\rc.exe /D _DEBUG /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IC:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\ /nologo /fo"C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\highwaytalk.res" highwaytalk.rc 
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\bin\highwaytalk\Debug\highwaytalk.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\lib\Debug /LIBPATH:C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\3rdParty\lib\Debug utility.lib network.lib DuiLib.lib Modules.lib GifSmiley.lib "libprotobuf-lite.lib" httpclient.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\bin\highwaytalk\Debug\highwaytalk.pdb" /SUBSYSTEM:WINDOWS,"5.01" /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\bin\highwaytalk\Debug\highwaytalk.lib" /MACHINE:X86 C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\highwaytalk.res
          C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\stdafx.obj
          C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\highwaytalk.obj
          C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\MainDialog.obj
          C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\MainDialog_Event.obj
          C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\obj\Debug\highwaytalk_Debug\MainDialog_TrayIcon.obj
-     1>libprotobuf-lite.lib(common.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“libprotobuf-lite.lib(common.obj)”或在“C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\bin\highwaytalk\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
-     1>libprotobuf-lite.lib(once.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“libprotobuf-lite.lib(once.obj)”或在“C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\bin\highwaytalk\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
-     1>libprotobuf-lite.lib(atomicops_internals_x86_msvc.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“libprotobuf-lite.lib(atomicops_internals_x86_msvc.obj)”或在“C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\bin\highwaytalk\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
          highwaytalk.vcxproj -> C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\solution\\..\bin\highwaytalk\Debug\highwaytalk.exe
      1>已完成生成项目“C:\Users\gun\Documents\GitHub\highwayns\hrdesktop\common\src\highwaytalk\highwaytalk.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:03.89
+已用时间 00:00:16.08
