@@ -145,7 +145,7 @@ namespace HPSBid
         {
             if (e.RowIndex > -1)
             {
-                string url = dgvData.Rows[e.RowIndex].Cells[7].Value.ToString();
+                string url = dgvData.Rows[e.RowIndex].Cells[13].Value.ToString();
                 ExecuteCommand(@"C:\Program Files\Internet Explorer\iexplore.exe", url, "", false);
             }
 

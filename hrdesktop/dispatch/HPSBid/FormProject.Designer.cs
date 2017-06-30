@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.btnGet = new System.Windows.Forms.Button();
-            this.cmbFormats = new System.Windows.Forms.ComboBox();
-            this.cmbKinds = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblCustomer = new System.Windows.Forms.Label();
-            this.lblRecordNum = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +38,14 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGet = new System.Windows.Forms.Button();
+            this.cmbFormats = new System.Windows.Forms.ComboBox();
+            this.cmbKinds = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblRecordNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,11 +65,78 @@
             this.Column9});
             this.dgvData.Location = new System.Drawing.Point(12, 52);
             this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
             this.dgvData.RowTemplate.Height = 21;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(980, 284);
             this.dgvData.TabIndex = 42;
             this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id";
+            this.Column1.HeaderText = "No";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "jCNAME";
+            this.Column2.HeaderText = "名称";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Cname";
+            this.Column3.HeaderText = "プロジェクト";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "FORMAT";
+            this.Column5.HeaderText = "区域";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "kind";
+            this.Column4.HeaderText = "入札形式";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "公示日";
+            this.Column6.HeaderText = "公示日";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "address";
+            this.Column7.HeaderText = "住所";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "web";
+            this.Column8.HeaderText = "リンク";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "other";
+            this.Column9.HeaderText = "その他";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // btnGet
             // 
@@ -147,63 +214,6 @@
             this.lblRecordNum.Name = "lblRecordNum";
             this.lblRecordNum.Size = new System.Drawing.Size(0, 12);
             this.lblRecordNum.TabIndex = 104;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "id";
-            this.Column1.HeaderText = "No";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "jCNAME";
-            this.Column2.HeaderText = "名称";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Cname";
-            this.Column3.HeaderText = "プロジェクト";
-            this.Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "FORMAT";
-            this.Column5.HeaderText = "区域";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "kind";
-            this.Column4.HeaderText = "入札形式";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "公示日";
-            this.Column6.HeaderText = "公示日";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "address";
-            this.Column7.HeaderText = "住所";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "web";
-            this.Column8.HeaderText = "リンク";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "other";
-            this.Column9.HeaderText = "その他";
-            this.Column9.Name = "Column9";
             // 
             // FormProject
             // 
