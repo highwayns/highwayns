@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("医院知识问答")]
-[assembly: AssemblyDescription("这是一个用于医院知识问答的系统")]
+[assembly: AssemblyTitle("海威知识问答")]
+[assembly: AssemblyDescription("这是一个用于海威面试知识问答的系统")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("海威")]
 [assembly: AssemblyProduct("HPSTest")]

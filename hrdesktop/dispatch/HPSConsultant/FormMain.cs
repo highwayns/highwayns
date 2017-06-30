@@ -67,7 +67,7 @@ namespace HPSConsultant
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FormCustomer_Load(object sender, EventArgs e)
+        private void FormConsultant_Load(object sender, EventArgs e)
         {
             string scriptFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), SQL_FILE);
             if (File.Exists(scriptFile))
@@ -441,7 +441,7 @@ namespace HPSConsultant
             dlg.Filter = "Text File (*.csv)|*.csv|All File (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                importCompanyFile(dlg.FileName);
+                importConsultantFile(dlg.FileName);
                 string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0001I", db.db.Language);
                 MessageBox.Show(msg);
             }
@@ -452,7 +452,7 @@ namespace HPSConsultant
         /// 顧問导入
         /// </summary>
         /// <param name="csvFile"></param>
-        private void importCompanyFile(String fileName)
+        private void importConsultantFile(String fileName)
         {
             NdnPublicFunction func = new NdnPublicFunction();
             using (StreamReader reader =
@@ -522,7 +522,7 @@ namespace HPSConsultant
                 {
                     data[i] = dgvData.Rows[e.RowIndex].Cells[i].Value.ToString();
                 }
-                FormCompanyEdit form = new FormCompanyEdit(data);
+                FormConsultantEdit form = new FormConsultantEdit(data);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     data = form.data;

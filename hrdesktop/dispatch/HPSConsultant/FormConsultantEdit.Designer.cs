@@ -1,6 +1,6 @@
 ﻿namespace HPSConsultant
 {
-    partial class FormCompanyEdit
+    partial class FormConsultantEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             this.txtWeb = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtTel = new System.Windows.Forms.TextBox();
-            this.lblCompany = new System.Windows.Forms.Label();
+            this.lblConsultant = new System.Windows.Forms.Label();
             this.department = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -119,13 +119,13 @@
             this.txtTel.Size = new System.Drawing.Size(144, 19);
             this.txtTel.TabIndex = 6;
             // 
-            // lblCompany
+            // lblConsultant
             // 
-            this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(872, 48);
-            this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(0, 12);
-            this.lblCompany.TabIndex = 9;
+            this.lblConsultant.AutoSize = true;
+            this.lblConsultant.Location = new System.Drawing.Point(872, 48);
+            this.lblConsultant.Name = "lblConsultant";
+            this.lblConsultant.Size = new System.Drawing.Size(0, 12);
+            this.lblConsultant.TabIndex = 9;
             // 
             // department
             // 
@@ -197,7 +197,7 @@
             this.lblFlg.Size = new System.Drawing.Size(0, 12);
             this.lblFlg.TabIndex = 17;
             // 
-            // FormCompanyEdit
+            // FormConsultantEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -210,7 +210,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.department);
-            this.Controls.Add(this.lblCompany);
+            this.Controls.Add(this.lblConsultant);
             this.Controls.Add(this.txtWeb);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtTel);
@@ -220,9 +220,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.webBrowser1);
-            this.Name = "FormCompanyEdit";
-            this.Text = "FormCompanyEdit";
-            this.Load += new System.EventHandler(this.FormCompanyEdit_Load);
+            this.Name = "FormConsultantEdit";
+            this.Text = "FormConsultantEdit";
+            this.Load += new System.EventHandler(this.FormConsultantEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,7 +239,7 @@
         private System.Windows.Forms.TextBox txtWeb;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtTel;
-        private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.Label lblConsultant;
         private System.Windows.Forms.Label department;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

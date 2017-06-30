@@ -178,10 +178,10 @@
   <data name="btnUpdate.Text" xml:space="preserve">
     <value>顧問更新</value>
   </data>
-  <data name="lblCustomer.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblConsultant.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
-  <data name="lblCustomer.Text" xml:space="preserve">
+  <data name="lblConsultant.Text" xml:space="preserve">
     <value>顧問一览</value>
   </data>
   <data name="btnAdd.Text" xml:space="preserve">

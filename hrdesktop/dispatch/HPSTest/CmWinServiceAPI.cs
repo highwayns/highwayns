@@ -44,8 +44,9 @@ namespace NC.HEDAS.Lib
 			{
                 string constr=null;
                 NdnXmlConfig xmlConfig;
-                string appName = Path.GetFileNameWithoutExtension( System.Windows.Forms.Application.ExecutablePath);
-                xmlConfig = new NdnXmlConfig(string.Format(NCConst.CONFIG_FILE_DIR, appName) + NCUtility.GetAppConfig());
+                string path = Path.Combine(Path.GetDirectoryName( System.Windows.Forms.Application.ExecutablePath),"Config");
+                string dbpath = Path.Combine(Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "DB");
+                xmlConfig = new NdnXmlConfig( Path.Combine(path, "HPSTest.Config"));
 
                 if (!xmlConfig.ReadXmlData("database", "ConnectionString", ref constr))
                 {
@@ -53,7 +54,7 @@ namespace NC.HEDAS.Lib
                     NCLogger.GetInstance().WriteErrorLog(msg);
                 }
 
-                Connection = new OleDbConnection(constr);
+                Connection = new OleDbConnection(string.Format( constr,dbpath));
                 Connection.Open();
 			}
 			catch (Exception e)
