@@ -9,17 +9,17 @@ using System.Windows.Forms;
 
 namespace HPSConsultant
 {
-    public partial class FormCompanyEdit : Form
+    public partial class FormConsultantEdit : Form
     {
         public string[] data=null;
-        public FormCompanyEdit(string[] data)
+        public FormConsultantEdit(string[] data)
         {
             this.data = data;
 
             InitializeComponent();
         }
 
-        private void FormCompanyEdit_Load(object sender, EventArgs e)
+        private void FormConsultantEdit_Load(object sender, EventArgs e)
         {
             //id,Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID
             string urls = "";
@@ -69,7 +69,7 @@ namespace HPSConsultant
                 //
             }
             //id,Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID
-            lblCompany.Text = data[1];
+            lblConsultant.Text = data[1];
             txtDepartment.Text = data[14];
             txtManager.Text = data[2];
             txtAddress.Text = data[4];
@@ -86,7 +86,7 @@ namespace HPSConsultant
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             //id,Cname,name,postcode,address,tel,fax,kind,format,scale,CYMD,other,mail,web,jCNAME,createtime,subscripted,UserID
-            data[1] = lblCompany.Text;
+            data[1] = lblConsultant.Text;
             data[14] = txtDepartment.Text;
             data[2] = txtManager.Text;
             data[4] = txtAddress.Text;

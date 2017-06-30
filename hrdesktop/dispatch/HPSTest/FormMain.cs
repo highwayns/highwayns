@@ -55,6 +55,7 @@ namespace HPSTest
         public void GetInstance(object[] paramenter)
         {
             FormMain form = new FormMain();
+            form.ShowDialog();
         }
         public FormMain()
         {
@@ -227,8 +228,8 @@ namespace HPSTest
         private void SetSkinValue(string Skin)
         {
             NdnXmlConfig xmlConfig;
-            string appName = Path.GetFileNameWithoutExtension(System.Windows.Forms.Application.ExecutablePath);
-            xmlConfig = new NdnXmlConfig(string.Format(NCConst.CONFIG_FILE_DIR,appName) + NCUtility.GetAppConfig());
+            string path = Path.Combine(Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "Config");
+            xmlConfig = new NdnXmlConfig(Path.Combine(path, "HPSTest.Config"));
             if (!xmlConfig.WriteValue("config", "Skin", Skin))
             {
             }
@@ -240,8 +241,8 @@ namespace HPSTest
         {
             bool ret = true;
             NdnXmlConfig xmlConfig;
-            string appName = Path.GetFileNameWithoutExtension(System.Windows.Forms.Application.ExecutablePath);
-            xmlConfig = new NdnXmlConfig(string.Format(NCConst.CONFIG_FILE_DIR,appName) + NCUtility.GetAppConfig());
+            string path = Path.Combine(Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "Config");
+            xmlConfig = new NdnXmlConfig(Path.Combine(path, "HPSTest.Config"));
             if (!xmlConfig.ReadXmlData("config", "Skin", ref Skin))
             {
                 ret = false;
@@ -280,8 +281,8 @@ namespace HPSTest
         {
             bool ret = true;
             NdnXmlConfig xmlConfig;
-            string appName = Path.GetFileNameWithoutExtension(System.Windows.Forms.Application.ExecutablePath);
-            xmlConfig = new NdnXmlConfig(string.Format( NCConst.CONFIG_FILE_DIR,appName) + NCUtility.GetAppConfig());
+            string path = Path.Combine(Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "Config");
+            xmlConfig = new NdnXmlConfig(Path.Combine(path, "HPSTest.Config"));
             if (!xmlConfig.WriteValue("config", "company", company))
             {
                 ret = false;

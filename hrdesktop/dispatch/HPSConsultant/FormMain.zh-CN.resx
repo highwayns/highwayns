@@ -194,19 +194,19 @@
     <value>编号</value>
   </data>
   <data name="btnPublish.Text" xml:space="preserve">
-    <value>企业发行</value>
+    <value>顾问发行</value>
   </data>
   <data name="btnUpdate.Text" xml:space="preserve">
-    <value>企业更新</value>
+    <value>顾问更新</value>
   </data>
-  <data name="lblCustomer.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblConsultant.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
-  <data name="lblCustomer.Text" xml:space="preserve">
-    <value>企业一览</value>
+  <data name="lblConsultant.Text" xml:space="preserve">
+    <value>顾问一览</value>
   </data>
   <data name="btnAdd.Text" xml:space="preserve">
-    <value>企业增加</value>
+    <value>顾问增加</value>
   </data>
   <data name="Column1.HeaderText" xml:space="preserve">
     <value>编号</value>
@@ -329,10 +329,10 @@
     <value>是否订阅</value>
   </data>
   <data name="btnDelete.Text" xml:space="preserve">
-    <value>企业删除</value>
+    <value>顾问删除</value>
   </data>
   <data name="btnExport.Text" xml:space="preserve">
-    <value>企业导出</value>
+    <value>顾问导出</value>
   </data>
   <data name="btnMailSend.Text" xml:space="preserve">
     <value>邮件送信</value>
@@ -359,12 +359,12 @@
     <value>检索</value>
   </data>
   <data name="btnGet.Text" xml:space="preserve">
-    <value>企业导入</value>
+    <value>顾问导入</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>NSimSun, 9pt</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>企业管理</value>
+    <value>顾问管理</value>
   </data>
 </root>

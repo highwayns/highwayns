@@ -292,9 +292,10 @@
       <DependentUpon>FormTestView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Config\HTest.config">
+    <Content Include="Config\HPSTest.config">
       <SubType>Designer</SubType>
-    </None>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="app.ico" />
     <Content Include="CookComputing.XmlRpcV2.dll" />
     <Content Include="DB\HT.mdb">

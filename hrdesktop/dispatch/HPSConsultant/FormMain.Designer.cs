@@ -47,7 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnPublish = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblConsultant = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -195,10 +195,10 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // lblCustomer
+            // lblConsultant
             // 
-            resources.ApplyResources(this.lblCustomer, "lblCustomer");
-            this.lblCustomer.Name = "lblCustomer";
+            resources.ApplyResources(this.lblConsultant, "lblConsultant");
+            this.lblConsultant.Name = "lblConsultant";
             // 
             // btnAdd
             // 
@@ -209,6 +209,7 @@
             // 
             // dgvData
             // 
+            resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.AllowUserToOrderColumns = true;
@@ -231,7 +232,6 @@
             this.Column15,
             this.Column16,
             this.Column17});
-            resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -484,46 +484,46 @@
             // 
             // cmbKinds
             // 
-            this.cmbKinds.FormattingEnabled = true;
             resources.ApplyResources(this.cmbKinds, "cmbKinds");
+            this.cmbKinds.FormattingEnabled = true;
             this.cmbKinds.Name = "cmbKinds";
             // 
             // cmbFormats
             // 
-            this.cmbFormats.FormattingEnabled = true;
             resources.ApplyResources(this.cmbFormats, "cmbFormats");
+            this.cmbFormats.FormattingEnabled = true;
             this.cmbFormats.Name = "cmbFormats";
             // 
             // cmbSubscripts
             // 
+            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
             this.cmbSubscripts.FormattingEnabled = true;
             this.cmbSubscripts.Items.AddRange(new object[] {
             resources.GetString("cmbSubscripts.Items"),
             resources.GetString("cmbSubscripts.Items1"),
             resources.GetString("cmbSubscripts.Items2")});
-            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
             this.cmbSubscripts.Name = "cmbSubscripts";
             // 
             // cmbSubscript
             // 
+            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
             this.cmbSubscript.FormattingEnabled = true;
             this.cmbSubscript.Items.AddRange(new object[] {
             resources.GetString("cmbSubscript.Items"),
             resources.GetString("cmbSubscript.Items1"),
             resources.GetString("cmbSubscript.Items2")});
-            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
             this.cmbSubscript.Name = "cmbSubscript";
             // 
             // cmbFormat
             // 
-            this.cmbFormat.FormattingEnabled = true;
             resources.ApplyResources(this.cmbFormat, "cmbFormat");
+            this.cmbFormat.FormattingEnabled = true;
             this.cmbFormat.Name = "cmbFormat";
             // 
             // cmbKind
             // 
-            this.cmbKind.FormattingEnabled = true;
             resources.ApplyResources(this.cmbKind, "cmbKind");
+            this.cmbKind.FormattingEnabled = true;
             this.cmbKind.Name = "cmbKind";
             // 
             // btnGet
@@ -585,12 +585,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPublish);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.lblCustomer);
+            this.Controls.Add(this.lblConsultant);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormMain";
-            this.Load += new System.EventHandler(this.FormCustomer_Load);
+            this.Load += new System.EventHandler(this.FormConsultant_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -617,7 +617,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPublish;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.Label lblConsultant;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.TextBox txtScale;
