@@ -113,6 +113,18 @@ namespace HPSWeiqi
             return true;
         }
         /// <summary>
+        /// add step
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <param name="qizhi"></param>
+        public bool addStep(int row, int col, int qizhi)
+        {
+            Point3D pt = new Point3D(row, col, qizhi);
+            Steps.Add(pt);
+            return true;
+        }
+        /// <summary>
         /// 保存模式
         /// </summary>
         public void SavePattern()

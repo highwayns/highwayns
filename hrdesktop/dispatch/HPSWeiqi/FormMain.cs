@@ -19,6 +19,7 @@ namespace HPSWeiqi
         /// 围棋机器人
         /// </summary>
         private HPSWeiqiRobot HPSWeiqi = null;
+        private Montecarlo montecarlo = null;
         /// <summary>
         /// 五子棋机器人
         /// </summary>
@@ -42,6 +43,7 @@ namespace HPSWeiqi
                 for (int j = 0; j < 19; j++) data[i][j] = 0;
             }
             HPSWeiqi = new HPSWeiqiRobot(data);
+            montecarlo = new Montecarlo();
             wuziqi = new WuziqiRobot(data, 1);
         }
         //画网格
@@ -246,21 +248,35 @@ namespace HPSWeiqi
         {
             if (rdoBlack.Checked)
             {
-                if(!HPSWeiqi.Play(0, 0, 1, true))
+                //if(!HPSWeiqi.Play(0, 0, 1, true))
+                //{
+                //    MessageBox.Show("Play失敗！");
+                //    return;
+                //}
+                int x = 0; int y = 0;
+                if (!montecarlo.Play_UCT(data, 1, ref x, ref y))
                 {
                     MessageBox.Show("Play失敗！");
                     return;
                 }
+                HPSWeiqi.addStep(x,y,1);
                 pictureBox1.Refresh();
                 rdoWhite.Checked = true;
             }
             else
             {
-                if(!HPSWeiqi.Play(0, 0, 2, true))
+                //if(!HPSWeiqi.Play(0, 0, 2, true))
+                //{
+                //    MessageBox.Show("Play失敗！");
+                //    return;
+                //}
+                int x = 0; int y = 0;
+                if (!montecarlo.Play_UCT(data, 2, ref x, ref y))
                 {
                     MessageBox.Show("Play失敗！");
                     return;
                 }
+                HPSWeiqi.addStep(x, y, 2);
                 pictureBox1.Refresh();
                 rdoBlack.Checked = true;
             }
