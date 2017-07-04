@@ -1,4 +1,4 @@
-﻿package com.polites.android;
+package com.polites.android;
 
 public class Animator extends Thread {
 

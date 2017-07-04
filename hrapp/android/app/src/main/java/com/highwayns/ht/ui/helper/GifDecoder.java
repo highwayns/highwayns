@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.helper;
+package com.highwayns.ht.ui.helper;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;

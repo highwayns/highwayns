@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.entity;
+package com.highwayns.ht.imservice.entity;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

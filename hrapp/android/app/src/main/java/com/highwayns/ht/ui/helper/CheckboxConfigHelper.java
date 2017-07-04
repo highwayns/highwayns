@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.helper;
+package com.highwayns.ht.ui.helper;
 
 import android.view.View;
 import android.widget.CheckBox;

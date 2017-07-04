@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.manager;
+package com.highwayns.ht.imservice.manager;
 
 import com.google.protobuf.CodedInputStream;
 import com.highwayns.ht.protobuf.IMBaseDefine;

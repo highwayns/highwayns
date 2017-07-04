@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.callback;
+package com.highwayns.ht.imservice.callback;
 
 import android.os.Handler;
 

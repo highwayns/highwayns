@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht;
+package com.highwayns.ht;
 
 public class Security {
 	

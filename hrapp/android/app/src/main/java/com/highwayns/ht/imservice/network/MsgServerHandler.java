@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.network;
+package com.highwayns.ht.imservice.network;
 
 import com.highwayns.ht.imservice.manager.IMHeartBeatManager;
 import com.highwayns.ht.imservice.manager.IMSocketManager;

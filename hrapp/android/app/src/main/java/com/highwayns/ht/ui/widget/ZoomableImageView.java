@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.widget;
+package com.highwayns.ht.ui.widget;
 
 import android.app.Dialog;
 import android.content.Context;

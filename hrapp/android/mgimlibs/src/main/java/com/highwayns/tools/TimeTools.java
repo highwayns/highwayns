@@ -1,4 +1,4 @@
-﻿package com.highwayns.tools;
+package com.highwayns.tools;
 
 
 public class TimeTools{

@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.protobuf.base;
+package com.highwayns.ht.protobuf.base;
 
 import com.highwayns.ht.config.SysConstant;
 import com.highwayns.ht.imservice.support.SequenceNumberMaker;

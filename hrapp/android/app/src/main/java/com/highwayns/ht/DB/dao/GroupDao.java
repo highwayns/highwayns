@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.DB.dao;
+package com.highwayns.ht.DB.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

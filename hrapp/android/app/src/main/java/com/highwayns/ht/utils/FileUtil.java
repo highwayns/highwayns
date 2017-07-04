@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.utils;
 
 import android.graphics.Bitmap;

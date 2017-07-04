@@ -1,4 +1,4 @@
-﻿//package com.highwayns.ht.imv2.service;
+//package com.highwayns.ht.imv2.service;
 //
 //import android.content.BroadcastReceiver;
 //import android.content.Context;

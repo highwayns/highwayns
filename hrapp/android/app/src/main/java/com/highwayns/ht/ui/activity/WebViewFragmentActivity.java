@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.activity;
+package com.highwayns.ht.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.fragment;
+package com.highwayns.ht.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;

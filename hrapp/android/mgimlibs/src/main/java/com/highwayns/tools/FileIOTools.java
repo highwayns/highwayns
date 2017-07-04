@@ -1,4 +1,4 @@
-﻿package com.highwayns.tools;
+package com.highwayns.tools;
 
 import android.content.ContentResolver;
 import android.content.Context;

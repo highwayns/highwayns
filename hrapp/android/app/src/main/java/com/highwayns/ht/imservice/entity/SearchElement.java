@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.entity;
+package com.highwayns.ht.imservice.entity;
 
 public class SearchElement {
 	public int startIndex = -1;

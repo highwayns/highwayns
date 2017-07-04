@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.DB.entity;
+package com.highwayns.ht.DB.entity;
 
 import com.highwayns.ht.protobuf.helper.EntityChangeEngine;
 

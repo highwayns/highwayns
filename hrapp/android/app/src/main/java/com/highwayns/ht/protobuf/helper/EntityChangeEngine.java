@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.protobuf.helper;
+package com.highwayns.ht.protobuf.helper;
 
 import android.text.TextUtils;
 

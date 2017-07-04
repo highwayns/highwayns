@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.app;
+package com.highwayns.ht.app;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,7 +14,6 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
-
 import com.highwayns.ht.R;
 
 import java.io.File;

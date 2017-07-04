@@ -1,4 +1,4 @@
-﻿/*******************************************************************************
+/*******************************************************************************
  * Copyright 2011, 2012 Chris Banes.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -219,8 +219,10 @@ public class PullToRefreshListViewForNoneHeaderDivider extends PullToRefreshAdap
 
 		// Set it to this so it can be used in ListActivity/ListFragment
 		lv.setId(android.R.id.list);
-		lv.setHeaderDividersEnabled(false);
-		
+		if (VERSION.SDK_INT >= VERSION_CODES.CUPCAKE) {
+			lv.setHeaderDividersEnabled(false);
+		}
+
 		return lv;
 	}
 

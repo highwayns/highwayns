@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.widget;
+package com.highwayns.ht.ui.widget;
 
 /**
  * Created by zhujian on 15/3/9.

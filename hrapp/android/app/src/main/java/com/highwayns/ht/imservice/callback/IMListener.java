@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.callback;
+package com.highwayns.ht.imservice.callback;
 
 /**
  * @author : yingmu on 15-1-7.

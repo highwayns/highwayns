@@ -1,4 +1,4 @@
-﻿package com.polites.android;
+package com.polites.android;
 
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;

@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.utils;
+package com.highwayns.ht.utils;
 
 /**
  * Created by zhujian on 15/1/14.

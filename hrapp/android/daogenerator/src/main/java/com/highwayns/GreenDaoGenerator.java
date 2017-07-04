@@ -1,9 +1,7 @@
 ﻿package com.highwayns;
-import de.greenrobot.daogenerator.DaoGenerator;
-import de.greenrobot.daogenerator.Entity;
-import de.greenrobot.daogenerator.Index;
-import de.greenrobot.daogenerator.Property;
-import de.greenrobot.daogenerator.Schema;
+import de.greenrobot.daogenerator.*;
+
+import javax.xml.validation.Schema;
 
 /**
  * @author : yingmu on 14-12-31.

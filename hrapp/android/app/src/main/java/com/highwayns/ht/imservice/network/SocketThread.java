@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.network;
+package com.highwayns.ht.imservice.network;
 
 import com.google.protobuf.GeneratedMessageLite;
 import com.highwayns.ht.config.SysConstant;

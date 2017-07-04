@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.protobuf.helper;
+package com.highwayns.ht.protobuf.helper;
 
 import com.highwayns.ht.config.DBConstant;
 import com.highwayns.ht.protobuf.IMBaseDefine;

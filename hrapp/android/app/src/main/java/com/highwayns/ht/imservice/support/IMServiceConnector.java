@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.support;
+package com.highwayns.ht.imservice.support;
 
 import android.content.ComponentName;
 import android.content.Context;

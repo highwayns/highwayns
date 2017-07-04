@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.utils.pinyin;
+package com.highwayns.ht.utils.pinyin;
 
 import com.highwayns.ht.utils.pinyin.HanziToPinyin3.Token;
 

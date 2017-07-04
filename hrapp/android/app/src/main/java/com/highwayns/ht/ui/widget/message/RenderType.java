@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.widget.message;
+package com.highwayns.ht.ui.widget.message;
 
 /**
  * @author : yingmu on 15-1-8.
