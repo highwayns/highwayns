@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.helper.listener;
+package com.highwayns.ht.ui.helper.listener;
 
 import android.os.Handler;
 import android.os.Message;

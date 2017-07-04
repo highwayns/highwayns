@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.utils;
+package com.highwayns.ht.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;

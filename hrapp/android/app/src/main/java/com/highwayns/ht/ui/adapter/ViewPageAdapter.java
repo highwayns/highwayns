@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.ui.adapter;
 
 import android.support.v4.view.PagerAdapter;

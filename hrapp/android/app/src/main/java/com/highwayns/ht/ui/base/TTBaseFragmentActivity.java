@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.base;
+package com.highwayns.ht.ui.base;
 
 import android.support.v4.app.FragmentActivity;
 

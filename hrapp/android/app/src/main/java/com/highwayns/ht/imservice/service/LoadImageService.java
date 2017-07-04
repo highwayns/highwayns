@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.service;
+package com.highwayns.ht.imservice.service;
 
 import android.app.IntentService;
 import android.content.Intent;

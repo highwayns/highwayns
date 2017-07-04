@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.manager;
+package com.highwayns.ht.imservice.manager;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

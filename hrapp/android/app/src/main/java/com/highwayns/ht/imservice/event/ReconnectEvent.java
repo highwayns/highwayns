@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.event;
+package com.highwayns.ht.imservice.event;
 
 /**
  * @author : yingmu on 15-1-5.

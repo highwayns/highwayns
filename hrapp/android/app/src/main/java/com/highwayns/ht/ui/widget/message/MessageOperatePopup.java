@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.ui.widget.message;
 
 import android.annotation.SuppressLint;

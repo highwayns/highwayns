@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.protobuf.helper;
+package com.highwayns.ht.protobuf.helper;
 
 import com.google.protobuf.ByteString;
 import com.highwayns.ht.DB.entity.DepartmentEntity;

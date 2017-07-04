@@ -1,4 +1,4 @@
-﻿package com.highwayns.tools;
+package com.highwayns.tools;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

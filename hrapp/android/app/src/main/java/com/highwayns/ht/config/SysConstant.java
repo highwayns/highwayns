@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.config;
+package com.highwayns.ht.config;
 
 /**
  * 系统的常量类

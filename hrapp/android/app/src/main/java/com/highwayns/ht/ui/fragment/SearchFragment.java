@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.fragment;
+package com.highwayns.ht.ui.fragment;
 
 import android.os.Bundle;
 import android.text.Editable;

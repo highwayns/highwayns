@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.widget.message;
+package com.highwayns.ht.ui.widget.message;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;

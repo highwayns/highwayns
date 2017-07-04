@@ -1,4 +1,4 @@
-﻿package com.polites.android;
+package com.polites.android;
 
 import android.content.res.Configuration;
 import android.graphics.PointF;

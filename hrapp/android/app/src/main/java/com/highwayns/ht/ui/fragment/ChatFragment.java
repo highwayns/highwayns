@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.ui.fragment;
 
 import android.app.Activity;

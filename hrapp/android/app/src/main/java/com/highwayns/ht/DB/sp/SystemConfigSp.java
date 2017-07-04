@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.DB.sp;
+package com.highwayns.ht.DB.sp;
 
 import android.content.Context;
 import android.content.SharedPreferences;

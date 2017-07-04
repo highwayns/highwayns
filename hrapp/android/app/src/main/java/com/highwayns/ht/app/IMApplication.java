@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.app;
+package com.highwayns.ht.app;
 
 import android.app.Application;
 import android.content.Intent;

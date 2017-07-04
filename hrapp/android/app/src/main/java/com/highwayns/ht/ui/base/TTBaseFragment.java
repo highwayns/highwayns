@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.base;
+package com.highwayns.ht.ui.base;
 
 import android.content.Intent;
 import android.os.Bundle;

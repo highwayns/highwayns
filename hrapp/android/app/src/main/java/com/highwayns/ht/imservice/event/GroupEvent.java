@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.event;
+package com.highwayns.ht.imservice.event;
 
 
 import com.highwayns.ht.DB.entity.GroupEntity;

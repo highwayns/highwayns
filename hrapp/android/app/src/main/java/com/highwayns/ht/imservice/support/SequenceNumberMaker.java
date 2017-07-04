@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.imservice.support;
 
 /**

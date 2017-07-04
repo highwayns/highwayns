@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.entity;
+package com.highwayns.ht.imservice.entity;
 
 /**
  * @author : yingmu on 15-1-8.

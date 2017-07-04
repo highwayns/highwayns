@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.ui.adapter.album;
 
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.ui.widget;
 
 import android.content.Context;

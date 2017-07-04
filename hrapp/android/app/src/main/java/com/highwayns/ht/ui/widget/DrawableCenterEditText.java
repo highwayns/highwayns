@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.widget;
+package com.highwayns.ht.ui.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;

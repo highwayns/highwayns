@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.DB;
+package com.highwayns.ht.DB;
 
 import android.content.Context;
 import android.database.Cursor;

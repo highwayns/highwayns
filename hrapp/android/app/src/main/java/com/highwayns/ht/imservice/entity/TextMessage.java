@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.entity;
+package com.highwayns.ht.imservice.entity;
 
 import com.highwayns.ht.DB.entity.PeerEntity;
 import com.highwayns.ht.DB.entity.UserEntity;

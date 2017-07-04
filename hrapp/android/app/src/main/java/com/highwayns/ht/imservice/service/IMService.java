@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.service;
+package com.highwayns.ht.imservice.service;
 
 import android.app.Notification;
 import android.app.Service;

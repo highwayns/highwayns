@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.config;
+package com.highwayns.ht.config;
 
 /**
  * @author : yingmu on 15-1-5.

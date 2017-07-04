@@ -1,4 +1,4 @@
-﻿package com.highwayns.tools;
+package com.highwayns.tools;
 
 import android.text.Html;
 import android.text.Spanned;

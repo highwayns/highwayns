@@ -1,4 +1,4 @@
-﻿
+
 package com.highwayns.ht.ui.helper;
 
 import android.media.AudioFormat;

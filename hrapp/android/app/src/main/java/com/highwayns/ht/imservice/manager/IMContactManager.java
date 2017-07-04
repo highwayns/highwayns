@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.imservice.manager;
+package com.highwayns.ht.imservice.manager;
 
 import com.highwayns.ht.DB.DBInterface;
 import com.highwayns.ht.DB.entity.DepartmentEntity;

@@ -1,4 +1,4 @@
-﻿package com.highwayns.ht.ui.adapter;
+package com.highwayns.ht.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
