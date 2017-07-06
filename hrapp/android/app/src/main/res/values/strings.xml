@@ -1,0 +1,16 @@
+<resources>
+    <string name="PERSONAL_MAIN_SV_HINT">Text</string>
+    <string name="PERSONAL_MAIN_BUTTON_PERSONAL">Personal</string>
+    <string name="PERSONAL_MAIN_BUTTON_COUNSELOR">Counselor</string>
+    <string name="PERSONAL_MAIN_BUTTON_COMPANY">Company</string>
+    <string name="PERSONAL_MAIN_BUTTON_Skill">Knowledge Contest</string>
+    <string name="PERSONAL_MAIN_BUTTON_USERCENTER">User Center</string>
+    <string name="PERSONAL_MAIN_BUTTON_SERVICE">Service</string>
+    <string name="PERSONAL_MAIN_BUTTON_NEWS">News</string>
+    <string name="PERSONAL_MAIN_BUTTON_ABOUT">About</string>
+    <string name="PERSONAL_MAIN_BUTTON_HELP">Help</string>
+    <string name="PERSONAL_HOME_TV_TITLE">HOME</string>
+    <string name="COUNSELOR_HOME_TV_TITLE">Countselor Home Page</string>
+    <string name="ENTERPRISE_HOME_TV_TITLE">Enterprise Home Page</string>
+    <string name="COMPANY_HOME_TV_TITLE">Company Home Page</string>
+</resources>
