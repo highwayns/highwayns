@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="10">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/abs__background_holo_light"
+            android:orientation="vertical"
+    >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="@string/SERVICE_HOME_TV_TITLE"
+                android:textColor="@color/default_black_color"
+                android:gravity="center"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="10"
+    >
+
+        <ListView
+                android:id="@+id/lvItem_Service_Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true">
+
+        </ListView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/tt_tab_bk"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+    >
+
+        <com.highwayns.ht.ui.widget.NaviTabButton
+                android:id="@+id/btnSkill_Home_Service"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+        <com.highwayns.ht.ui.widget.NaviTabButton
+                android:id="@+id/btnService_Home_Service"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+        <com.highwayns.ht.ui.widget.NaviTabButton
+                android:id="@+id/btnCounselor_Home_Service"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+        <com.highwayns.ht.ui.widget.NaviTabButton
+                android:id="@+id/btnWork_Home_Service"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
