@@ -182,7 +182,7 @@
     <value>53, 12</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>顧問名称</value>
+    <value>公司名称</value>
   </data>
   <data name="txtId.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
@@ -194,7 +194,7 @@
     <value>编号</value>
   </data>
   <data name="btnPublish.Text" xml:space="preserve">
-    <value>顾问发行</value>
+    <value>Excel导出</value>
   </data>
   <data name="btnUpdate.Text" xml:space="preserve">
     <value>顾问更新</value>
@@ -212,10 +212,16 @@
     <value>编号</value>
   </data>
   <data name="Column2.HeaderText" xml:space="preserve">
-    <value>顧問名称</value>
+    <value>公司名称</value>
+  </data>
+  <data name="Column16.HeaderText" xml:space="preserve">
+    <value>部门</value>
   </data>
   <data name="Column3.HeaderText" xml:space="preserve">
     <value>姓名</value>
+  </data>
+  <data name="Column12.HeaderText" xml:space="preserve">
+    <value>其他</value>
   </data>
   <data name="Column4.HeaderText" xml:space="preserve">
     <value>邮编</value>
@@ -241,9 +247,6 @@
   <data name="Column11.HeaderText" xml:space="preserve">
     <value>设立日</value>
   </data>
-  <data name="Column12.HeaderText" xml:space="preserve">
-    <value>其他</value>
-  </data>
   <data name="Column13.HeaderText" xml:space="preserve">
     <value>邮件</value>
   </data>
@@ -252,9 +255,6 @@
   </data>
   <data name="Column15.HeaderText" xml:space="preserve">
     <value>登记日</value>
-  </data>
-  <data name="Column16.HeaderText" xml:space="preserve">
-    <value>日文名</value>
   </data>
   <data name="Column17.HeaderText" xml:space="preserve">
     <value>是否订阅</value>
@@ -332,7 +332,7 @@
     <value>顾问删除</value>
   </data>
   <data name="btnExport.Text" xml:space="preserve">
-    <value>顾问导出</value>
+    <value>TXT导入</value>
   </data>
   <data name="btnMailSend.Text" xml:space="preserve">
     <value>邮件送信</value>
@@ -349,17 +349,20 @@
   <data name="label18.Text" xml:space="preserve">
     <value>分类</value>
   </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 20</value>
+  </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
+    <value>53, 12</value>
   </data>
   <data name="label19.Text" xml:space="preserve">
-    <value>行业</value>
+    <value>公司名称</value>
   </data>
   <data name="btnSearch.Text" xml:space="preserve">
     <value>检索</value>
   </data>
   <data name="btnGet.Text" xml:space="preserve">
-    <value>顾问导入</value>
+    <value>CSV导入</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>NSimSun, 9pt</value>

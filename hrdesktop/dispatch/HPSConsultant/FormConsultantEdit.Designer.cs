@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultantEdit));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -46,162 +47,124 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblPath = new System.Windows.Forms.Label();
             this.lblFlg = new System.Windows.Forms.Label();
+            this.btnGetData = new System.Windows.Forms.Button();
+            this.btnGetWeb = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 29);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            resources.ApplyResources(this.webBrowser1, "webBrowser1");
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(853, 454);
-            this.webBrowser1.TabIndex = 0;
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(888, 459);
+            resources.ApplyResources(this.btnConfirm, "btnConfirm");
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 1;
-            this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(995, 459);
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtDepartment
             // 
-            this.txtDepartment.Location = new System.Drawing.Point(937, 82);
+            resources.ApplyResources(this.txtDepartment, "txtDepartment");
             this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(144, 19);
-            this.txtDepartment.TabIndex = 3;
             // 
             // txtManager
             // 
-            this.txtManager.Location = new System.Drawing.Point(937, 118);
+            resources.ApplyResources(this.txtManager, "txtManager");
             this.txtManager.Name = "txtManager";
-            this.txtManager.Size = new System.Drawing.Size(144, 19);
-            this.txtManager.TabIndex = 4;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(937, 160);
-            this.txtAddress.Multiline = true;
+            resources.ApplyResources(this.txtAddress, "txtAddress");
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(144, 116);
-            this.txtAddress.TabIndex = 5;
             // 
             // txtWeb
             // 
-            this.txtWeb.Location = new System.Drawing.Point(937, 380);
+            resources.ApplyResources(this.txtWeb, "txtWeb");
             this.txtWeb.Name = "txtWeb";
-            this.txtWeb.Size = new System.Drawing.Size(144, 19);
-            this.txtWeb.TabIndex = 8;
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(937, 338);
+            resources.ApplyResources(this.txtMail, "txtMail");
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(144, 19);
-            this.txtMail.TabIndex = 7;
             // 
             // txtTel
             // 
-            this.txtTel.Location = new System.Drawing.Point(937, 302);
+            resources.ApplyResources(this.txtTel, "txtTel");
             this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(144, 19);
-            this.txtTel.TabIndex = 6;
             // 
             // lblConsultant
             // 
-            this.lblConsultant.AutoSize = true;
-            this.lblConsultant.Location = new System.Drawing.Point(872, 48);
+            resources.ApplyResources(this.lblConsultant, "lblConsultant");
             this.lblConsultant.Name = "lblConsultant";
-            this.lblConsultant.Size = new System.Drawing.Size(0, 12);
-            this.lblConsultant.TabIndex = 9;
             // 
             // department
             // 
-            this.department.AutoSize = true;
-            this.department.Location = new System.Drawing.Point(871, 85);
+            resources.ApplyResources(this.department, "department");
             this.department.Name = "department";
-            this.department.Size = new System.Drawing.Size(62, 12);
-            this.department.TabIndex = 10;
-            this.department.Text = "department";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(872, 118);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 12);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "manager";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(872, 160);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 12);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "address";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(872, 305);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 12);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "tel";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(872, 341);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 12);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "mail";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(872, 383);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 12);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "web";
             // 
             // lblPath
             // 
-            this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.lblPath, "lblPath");
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(0, 12);
-            this.lblPath.TabIndex = 16;
             // 
             // lblFlg
             // 
-            this.lblFlg.AutoSize = true;
-            this.lblFlg.Location = new System.Drawing.Point(812, 9);
+            resources.ApplyResources(this.lblFlg, "lblFlg");
             this.lblFlg.Name = "lblFlg";
-            this.lblFlg.Size = new System.Drawing.Size(0, 12);
-            this.lblFlg.TabIndex = 17;
+            // 
+            // btnGetData
+            // 
+            resources.ApplyResources(this.btnGetData, "btnGetData");
+            this.btnGetData.Name = "btnGetData";
+            this.btnGetData.UseVisualStyleBackColor = true;
+            this.btnGetData.Click += new System.EventHandler(this.btnGetData_Click);
+            // 
+            // btnGetWeb
+            // 
+            resources.ApplyResources(this.btnGetWeb, "btnGetWeb");
+            this.btnGetWeb.Name = "btnGetWeb";
+            this.btnGetWeb.UseVisualStyleBackColor = true;
+            this.btnGetWeb.Click += new System.EventHandler(this.btnGetWeb_Click);
             // 
             // FormConsultantEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 498);
+            this.Controls.Add(this.btnGetWeb);
+            this.Controls.Add(this.btnGetData);
             this.Controls.Add(this.lblFlg);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.label5);
@@ -221,7 +184,6 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.webBrowser1);
             this.Name = "FormConsultantEdit";
-            this.Text = "FormConsultantEdit";
             this.Load += new System.EventHandler(this.FormConsultantEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,5 +210,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Label lblFlg;
+        private System.Windows.Forms.Button btnGetData;
+        private System.Windows.Forms.Button btnGetWeb;
     }
 }

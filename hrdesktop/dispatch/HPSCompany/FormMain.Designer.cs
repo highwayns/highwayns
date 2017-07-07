@@ -209,6 +209,7 @@
             // 
             // dgvData
             // 
+            resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.AllowUserToOrderColumns = true;
@@ -231,7 +232,6 @@
             this.Column15,
             this.Column16,
             this.Column17});
-            resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -484,46 +484,46 @@
             // 
             // cmbKinds
             // 
-            this.cmbKinds.FormattingEnabled = true;
             resources.ApplyResources(this.cmbKinds, "cmbKinds");
+            this.cmbKinds.FormattingEnabled = true;
             this.cmbKinds.Name = "cmbKinds";
             // 
             // cmbFormats
             // 
-            this.cmbFormats.FormattingEnabled = true;
             resources.ApplyResources(this.cmbFormats, "cmbFormats");
+            this.cmbFormats.FormattingEnabled = true;
             this.cmbFormats.Name = "cmbFormats";
             // 
             // cmbSubscripts
             // 
+            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
             this.cmbSubscripts.FormattingEnabled = true;
             this.cmbSubscripts.Items.AddRange(new object[] {
             resources.GetString("cmbSubscripts.Items"),
             resources.GetString("cmbSubscripts.Items1"),
             resources.GetString("cmbSubscripts.Items2")});
-            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
             this.cmbSubscripts.Name = "cmbSubscripts";
             // 
             // cmbSubscript
             // 
+            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
             this.cmbSubscript.FormattingEnabled = true;
             this.cmbSubscript.Items.AddRange(new object[] {
             resources.GetString("cmbSubscript.Items"),
             resources.GetString("cmbSubscript.Items1"),
             resources.GetString("cmbSubscript.Items2")});
-            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
             this.cmbSubscript.Name = "cmbSubscript";
             // 
             // cmbFormat
             // 
-            this.cmbFormat.FormattingEnabled = true;
             resources.ApplyResources(this.cmbFormat, "cmbFormat");
+            this.cmbFormat.FormattingEnabled = true;
             this.cmbFormat.Name = "cmbFormat";
             // 
             // cmbKind
             // 
-            this.cmbKind.FormattingEnabled = true;
             resources.ApplyResources(this.cmbKind, "cmbKind");
+            this.cmbKind.FormattingEnabled = true;
             this.cmbKind.Name = "cmbKind";
             // 
             // btnGet

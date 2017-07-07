@@ -31,9 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tool\bin\Debug\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,7 +63,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormCompanyEdit.ja-JP.resx">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCompanyEdit.resx">
+      <DependentUpon>FormCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompanyEdit.zh-CN.resx">
       <DependentUpon>FormCompanyEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja-JP.resx">
@@ -83,9 +94,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="お客様テンプレート.xlsx">
+    <Content Include="お客様テンプレート.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -359,39 +359,42 @@ namespace HPSCompany
         /// <param name="e"></param>
         private void btnPublish_Click(object sender, EventArgs e)
         {
-            Hashtable ht = null; 
-            DataSet ds = new DataSet();
-            NdnPublicFunction function = new NdnPublicFunction();
-            int newid = 0;
-            if (db.GetCompany(0, 0, "*", "", "", ref ds))
+            SaveFileDialog dlg = new SaveFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
-                foreach (DataRow row in ds.Tables[0].Rows)
+                string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "お客様テンプレート.xlsx");
+                NCExcel execel = new NCExcel();
+                execel.OpenExcelFile(fileName);
+                execel.SelectSheet(1);
+                int idx = 2;
+                // add table list
+                foreach (DataGridViewRow row in dgvData.Rows)
                 {
-                    String id = row["id"].ToString();
-                    String mail = row["mail"].ToString();
-                    String subscripted = row["subscripted"].ToString().Trim();
-                    if (!function.IsMail(mail, false) || ht[mail]!=null)
-                    {
-                        db.SetCompany(0, 1, "", "id=" + id, "subscripted='N'", out newid);
-                    }
-                    else
-                    {
-                        if (subscripted != "T")
-                        {
-                            db.SetCompany(0, 1, "", "id=" + id, "subscripted='Y'", out newid);
-                        }
-                    }
-                }
-                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0007I", db.db.Language);
-                MessageBox.Show(msg);
-                init("", "", "");
-            }
-            else
-            {
-                string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0008I", db.db.Language);
-                MessageBox.Show(msg);
-            }
+                    string no = row.Cells[0].Value.ToString();
+                    string companyName = row.Cells[1].Value.ToString();
+                    string departName = row.Cells[14].Value.ToString();
+                    string manager = row.Cells[2].Value.ToString();
+                    string postcode = row.Cells[3].Value.ToString();
+                    string address = row.Cells[4].Value.ToString();
+                    string tel = row.Cells[5].Value.ToString();
+                    string fax = row.Cells[6].Value.ToString();
+                    string mail = row.Cells[12].Value.ToString();
+                    string web = row.Cells[13].Value.ToString();
+                    string comment = row.Cells[11].Value.ToString();
 
+                    execel.setValue(1, idx, no);
+                    execel.setValue(2, idx, companyName);
+                    execel.setValue(3, idx, manager);
+                    execel.setValue(4, idx, mail);
+                    execel.setValue(5, idx, postcode + address);
+                    execel.setValue(6, idx, tel+" "+fax);
+                    execel.setValue(7, idx, web);
+                    execel.setValue(8, idx, departName +" "+comment);
+                    idx++;
+                }
+                execel.SaveAs(dlg.FileName);
+                MessageBox.Show("Save ExcelOver!\r\n there are " + dgvData.Rows.Count + " record!");
+            }
         }
         /// <summary>
         /// 删除公司数据
@@ -530,7 +533,7 @@ namespace HPSCompany
                     {
                         dgvData.Rows[e.RowIndex].Cells[i].Value = data[i];
                     }
-
+                    dataGridView1_SelectionChanged(null,null);
                 }
             }
 
