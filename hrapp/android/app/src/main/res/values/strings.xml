@@ -13,4 +13,27 @@
     <string name="COUNSELOR_HOME_TV_TITLE">Countselor Home Page</string>
     <string name="ENTERPRISE_HOME_TV_TITLE">Enterprise Home Page</string>
     <string name="COMPANY_HOME_TV_TITLE">Company Home Page</string>
+    <string name="SKILL_HOME_TV_TITLE">Skill Page Home</string>
+    <string name="USERCENTER_HOME_TV_TITLE">UserCenter Home Page</string>
+    <string name="SERVICE_HOME_TV_TITLE">Service Page Home</string>
+    <string name="NEWS_HOME_TV_TITLE">New Home Page</string>
+    <string name="HELP_HOME_TV_TITLE">Help Home Page</string>
+    <string name="TITLE_COMPANY_INFO">Company Information</string>
+    <string name="COMPANY_INFO_BACK">Back</string>
+    <string name="COMPANY_INFO_EDIT">Edit</string>
+    <string name="SOCIETY_EVOLUTION_INFO_BACK">Back</string>
+    <string name="TITLE_SOCIETY_EVOLUTION">Society Evolution</string>
+    <string name="SOCIETY_EVOLUTION_ADD">Add</string>
+    <string name="SOCIETY_EVOLUTION_EDIT_BACK">Back</string>
+    <string name="TITLE_SOCIETY_EVOLUTION_EDIT">Edit Society Evolution</string>
+    <string name="SOCIETY_EVOLUTION_EDIT_SAVE">Save</string>
+    <string name="PARTNER_RECRUIT_BACK">Back</string>
+    <string name="TITLE_PARTNER_RECRUIT">Partner Recruit</string>
+    <string name="PARTNER_RECRUIT_EDIT">Edit</string>
+    <string name="WORK_INFO_BACK">Back</string>
+    <string name="TITLE_WORK_INFO">Job Information</string>
+    <string name="WORK_INFO_ADD">Add</string>
+    <string name="WORK_INFO_EDIT_SAVE">Save</string>
+    <string name="TITLE_WORK_INFO_EDIT">Edit Job Information</string>
+    <string name="WORK_INFO_EDIT_BACK">Back</string>
 </resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/abs__background_holo_light"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+        <Button
+                android:id="@+id/btnBack_Work_Info_Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/WORK_INFO_EDIT_BACK"
+                android:layout_gravity="center"
+                android:layout_weight="0.42"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TITLE_WORK_INFO_EDIT"
+                android:textColor="@color/default_black_color"
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+        />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSave_Work_Info_Edit"
+                android:layout_margin="5dp"
+                android:text="@string/WORK_INFO_EDIT_SAVE"
+                android:layout_gravity="center"
+                android:layout_weight="0.42"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp">
+
+        <ImageView
+                android:id="@+id/company_info_items_ivIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="72px"
+                android:maxWidth="72px"
+                android:paddingBottom="20px"
+                android:paddingRight="10px"
+                android:paddingTop="20px"
+
+        />
+
+        <TextView
+                android:id="@+id/company_info_items_tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/PERSONAL_HOME_TV_TITLE"
+                android:padding="10px"
+        />
+
+    </LinearLayout>
+    <EditText
+            android:id="@+id/company_info_items_etInfo"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>
