@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="10">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/abs__background_holo_light"
+            android:orientation="vertical"
+    >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="@string/COMPANY_HOME_TV_TITLE"
+                android:textColor="@color/default_black_color"
+                android:gravity="center"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="10"
+    >
+
+        <ListView
+                android:id="@+id/lvCompany_Person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true">
+
+        </ListView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="10">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:layout_margin="5dp">
+
+        <ImageView
+
+                android:id="@+id/ivMain_Personal"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:src="@drawable/abs__ab_bottom_solid_light_holo"
+                android:scaleType="fitStart"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <SearchView
+                android:id="@+id/svMain_Personal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:queryHint="@string/PERSONAL_MAIN_SV_HINT"
+                android:iconifiedByDefault="false"/>
+
+        <ListView
+                android:id="@+id/lvMain_Personal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+            <Button
+                    android:id="@+id/btnPerson_Main_Personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_PERSONAL"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+            <Button
+                    android:id="@+id/btnCounselor_Main_Personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_COUNSELOR"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+            <Button
+                    android:id="@+id/btnCompany_Main_Personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_COMPANY"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+            <Button
+                    android:id="@+id/btnSkill_Main_Personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_Skill"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+            <Button
+                    android:id="@+id/btnUserCenter_Main_Personal"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_USERCENTER"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+            <Button
+                    android:id="@+id/btnService_Main_Personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_SERVICE"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+            <Button
+                    android:id="@+id/btnNews_Main_Personal"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_NEWS"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+            />
+            <Button
+                    android:id="@+id/btnAbout_Main_Personal"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_ABOUT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+
+            />
+            <Button
+                    android:id="@+id/btnHelp_Main_Personal"
+                    android:text="@string/PERSONAL_MAIN_BUTTON_HELP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/tt_show_head_toast_bg"
+                    android:background="@drawable/abs__cab_background_bottom_holo_dark"
+                    android:clickable="true"
+
+            />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

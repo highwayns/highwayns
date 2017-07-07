@@ -173,7 +173,7 @@
     <value>番号</value>
   </data>
   <data name="btnPublish.Text" xml:space="preserve">
-    <value>会社出版</value>
+    <value>Excel導出</value>
   </data>
   <data name="btnUpdate.Text" xml:space="preserve">
     <value>会社更新</value>
@@ -290,7 +290,7 @@
     <value>会社削除</value>
   </data>
   <data name="btnExport.Text" xml:space="preserve">
-    <value>会社導出</value>
+    <value>TXT導入</value>
   </data>
   <data name="btnMailSend.Text" xml:space="preserve">
     <value>メール送信</value>
@@ -317,7 +317,7 @@
     <value>検索</value>
   </data>
   <data name="btnGet.Text" xml:space="preserve">
-    <value>会社導入</value>
+    <value>CSV導入</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>会社管理</value>

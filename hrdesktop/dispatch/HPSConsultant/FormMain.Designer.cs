@@ -52,7 +52,9 @@
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,11 +63,9 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtScale = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -217,7 +217,9 @@
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column16,
             this.Column3,
+            this.Column12,
             this.Column4,
             this.Column5,
             this.Column6,
@@ -226,11 +228,9 @@
             this.Column9,
             this.Column10,
             this.Column11,
-            this.Column12,
             this.Column13,
             this.Column14,
             this.Column15,
-            this.Column16,
             this.Column17});
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
@@ -254,12 +254,26 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "jCname";
+            resources.ApplyResources(this.Column16, "Column16");
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
             // Column3
             // 
             this.Column3.DataPropertyName = "name";
             resources.ApplyResources(this.Column3, "Column3");
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "other";
+            resources.ApplyResources(this.Column12, "Column12");
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // Column4
             // 
@@ -317,13 +331,6 @@
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "other";
-            resources.ApplyResources(this.Column12, "Column12");
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
             // Column13
             // 
             this.Column13.DataPropertyName = "mail";
@@ -344,13 +351,6 @@
             resources.ApplyResources(this.Column15, "Column15");
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "jCname";
-            resources.ApplyResources(this.Column16, "Column16");
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
             // 
             // Column17
             // 
@@ -652,7 +652,9 @@
         private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
@@ -661,11 +663,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
     }
 }
