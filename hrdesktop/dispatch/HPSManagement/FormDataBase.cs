@@ -103,7 +103,7 @@ namespace HPSManagement
         private Boolean SetDatabaseConfig2()
         {
             NdnXmlConfig xmlConfig;
-            xmlConfig = new NdnXmlConfig(Path.Combine( NCConst.CONFIG_FILE_DIR , "CJWSWinService.Config"));
+            xmlConfig = new NdnXmlConfig(Path.Combine( NCConst.CONFIG_FILE_DIR , "HPSWinService.Config"));
             string strConnectionString = string.Format(
                 "Data Source={0};Initial Catalog={1};User ID={2};Password={3}",
                 txtDataSource.Text, txtDatabase.Text, txtUser.Text, NCCryp.Encrypto(txtPwd.Text));
@@ -145,10 +145,10 @@ namespace HPSManagement
         {
             if (SetDatabaseConfig())
             {
-                string filepath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"db\CJW2008.bak");
-                string scriptFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"db\cjwscript.sql");
+                string filepath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"db\HPS2008.bak");
+                string scriptFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"db\hpsscript.sql");
                 if (rdb2005.Checked)
-                    filepath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"db\CJW2005.bak");
+                    filepath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"db\HPS2005.bak");
                 lblInfor.Text = NCMessage.GetInstance(db.Language).GetMessageById("CM0160I", db.Language);
                 Application.DoEvents();
                 Boolean ret = true;
