@@ -213,10 +213,10 @@
   <Message id="CM0500I" msg="处理模块初始化开始。" />
   <Message id="CM0510I" msg="处理模块初始化结束。" />
 
-  <Message id="CM0520I" msg="长城期刊管理系统" />
+  <Message id="CM0520I" msg="海威期刊管理系统" />
   <Message id="CM0521I" msg="1.0.0" />
-  <Message id="CM0522I" msg="Copyright ©  2013" />
-  <Message id="CM0523I" msg="长城咨询有限责任公司" />
+  <Message id="CM0522I" msg="Copyright ©  2017" />
+  <Message id="CM0523I" msg="海威咨询有限责任公司" />
   <Message id="CM0524I" msg="这是一个可以有效管理公司文档，客户关系和公共媒体的系统。" />
 
   <Message id="CM0410W" msg="服务名不存在。" />
