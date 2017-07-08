@@ -213,10 +213,10 @@
   <Message id="CM0500I" msg="処理モジュール初期化が開始しました。" />
   <Message id="CM0510I" msg="処理モジュール初期化が終了しました。" />
 
-  <Message id="CM0520I" msg="長城雑誌管理システム" />
+  <Message id="CM0520I" msg="海威雑誌管理システム" />
   <Message id="CM0521I" msg="1.0.0" />
-  <Message id="CM0522I" msg="Copyright ©  2013" />
-  <Message id="CM0523I" msg="長城コンサルティング株式会社" />
+  <Message id="CM0522I" msg="Copyright ©  2017" />
+  <Message id="CM0523I" msg="海威コンサルティング株式会社" />
   <Message id="CM0524I" msg="これは素晴らしい雑誌、お客さんとメディア管理システム." />
 
   <Message id="CM0410W" msg="サービス名が存在しない。" />

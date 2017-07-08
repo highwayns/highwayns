@@ -213,10 +213,10 @@
   <Message id="CM0500I" msg="Begin to start process module。" />
   <Message id="CM0510I" msg="End to start process module。" />
   
-  <Message id="CM0520I" msg="Chojo Magzine Management System" />
+  <Message id="CM0520I" msg="Highway Magzine Management System" />
   <Message id="CM0521I" msg="1.0.0" />
-  <Message id="CM0522I" msg="Copyright ©  2013" />
-  <Message id="CM0523I" msg="Chojo Co,.Ltd" />
+  <Message id="CM0522I" msg="Copyright ©  2017" />
+  <Message id="CM0523I" msg="Kaii Consulting Co,.Ltd" />
   <Message id="CM0524I" msg="This is a greate notification system to manage you document,customer,public media." />
 
   <Message id="CM0410W" msg="Service is not exists。" />
