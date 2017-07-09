@@ -22,7 +22,9 @@ namespace NC.HPS.Lib
             List<String> attachmentfiles = new List<string>();
             if (!String.IsNullOrEmpty(picfile))
             {
-                attachmentfiles.Add(picfile);
+                string[] files = picfile.Split(';');
+                for(int i=0;i<files.Length;i++)
+                    attachmentfiles.Add(files[i]);
             }
             List<String> recipients = new List<string>();
             recipients.Add(to);

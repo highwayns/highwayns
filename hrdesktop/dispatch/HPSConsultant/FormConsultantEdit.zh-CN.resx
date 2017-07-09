@@ -149,7 +149,7 @@
     <value>电话</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 12</value>
+    <value>29, 12</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>邮件</value>
@@ -165,6 +165,18 @@
   </data>
   <data name="btnGetWeb.Text" xml:space="preserve">
     <value>网址取得</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>传真</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>邮编</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>顾问编辑</value>
