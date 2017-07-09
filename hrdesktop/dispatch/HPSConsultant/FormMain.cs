@@ -338,7 +338,24 @@ namespace HPSConsultant
                 {
                     string msg = NCMessage.GetInstance(db.db.Language).GetMessageById("CM0003I", db.db.Language);
                     MessageBox.Show(msg);
-                    init("","","");
+                    //init("","","");
+                    dgvData.SelectedRows[0].Cells[1].Value=txtCname.Text;
+                    dgvData.SelectedRows[0].Cells[2].Value = txtName.Text;
+                    dgvData.SelectedRows[0].Cells[3].Value = txtPostCode.Text;
+                    dgvData.SelectedRows[0].Cells[4].Value = txtAddress.Text;
+                    dgvData.SelectedRows[0].Cells[5].Value = txtTel.Text;
+                    dgvData.SelectedRows[0].Cells[6].Value = txtFax.Text;
+                    dgvData.SelectedRows[0].Cells[7].Value = cmbKind.Text;
+                    dgvData.SelectedRows[0].Cells[8].Value = cmbFormat.Text;
+                    dgvData.SelectedRows[0].Cells[9].Value = txtScale.Text;
+                    dgvData.SelectedRows[0].Cells[10].Value = txtCYMD.Text;
+                    dgvData.SelectedRows[0].Cells[11].Value = txtOther.Text;
+                    dgvData.SelectedRows[0].Cells[12].Value = txtMail.Text;
+                    dgvData.SelectedRows[0].Cells[13].Value = txtWeb.Text;
+                    dgvData.SelectedRows[0].Cells[14].Value = txtJCname.Text;
+                    dgvData.SelectedRows[0].Cells[15].Value = txtCreateTime.Text;
+                    dgvData.SelectedRows[0].Cells[16].Value = cmbSubscript.Text;
+
                 }
                 else
                 {
@@ -624,6 +641,18 @@ namespace HPSConsultant
         private void btnMailSend_Click(object sender, EventArgs e)
         {
 
+            if (dgvData.SelectedRows.Count > 0)
+            {
+                string[] data = new string[18];
+                for (int i = 0; i < 18; i++)
+                {
+                    data[i] = dgvData.SelectedRows[0].Cells[i].Value.ToString();
+                }
+                FormMail form = new FormMail(data,db);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                }
+            }
         }
         /// <summary>
         /// ウェブ編集
@@ -651,6 +680,15 @@ namespace HPSConsultant
                 }
             }
 
+        }
+        /// <summary>
+        /// バッチ送信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBatch_Click(object sender, EventArgs e)
+        {
+            //
         }
 
     }

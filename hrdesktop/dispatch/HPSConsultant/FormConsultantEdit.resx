@@ -122,23 +122,38 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 12</value>
+    <value>21, 12</value>
   </data>
-  <data name="&gt;&gt;txtManager.Name" xml:space="preserve">
-    <value>txtManager</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
-  <data name="department.Location" type="System.Drawing.Point, System.Drawing">
-    <value>871, 85</value>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtPostCode.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>888, 459</value>
+  </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
   <data name="&gt;&gt;txtTel.Name" xml:space="preserve">
     <value>txtTel</value>
+  </data>
+  <data name="&gt;&gt;lblFlg.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtPostCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>937, 156</value>
   </data>
   <data name="webBrowser1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -146,20 +161,32 @@
   <data name="&gt;&gt;btnConfirm.Name" xml:space="preserve">
     <value>btnConfirm</value>
   </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="&gt;&gt;txtPostCode.Name" xml:space="preserve">
+    <value>txtPostCode</value>
+  </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 12</value>
+  <data name="&gt;&gt;btnConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDepartment.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="btnConfirm.Text" xml:space="preserve">
     <value>Confirm</value>
@@ -167,8 +194,8 @@
   <data name="&gt;&gt;btnGetWeb.Name" xml:space="preserve">
     <value>btnGetWeb</value>
   </data>
-  <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>937, 160</value>
+  <data name="lblFlg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>812, 9</value>
   </data>
   <data name="btnGetData.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -176,7 +203,10 @@
   <data name="btnConfirm.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="lblFlg.AutoSize" type="System.Boolean, mscorlib">
+  <data name="txtPostCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 19</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;department.Type" xml:space="preserve">
@@ -195,10 +225,10 @@
     <value>937, 118</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="lblFlg.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 12</value>
@@ -212,8 +242,14 @@
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
   <data name="txtAddress.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 116</value>
+  </data>
+  <data name="&gt;&gt;txtDepartment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtAddress.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -224,17 +260,27 @@
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 12</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnGetWeb.Text" xml:space="preserve">
     <value>GetWeb</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>tel</value>
+  <data name="&gt;&gt;txtFax.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>web</value>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>PostCode</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Tel</value>
+  </data>
+  <data name="department.Location" type="System.Drawing.Point, System.Drawing">
+    <value>871, 85</value>
   </data>
   <data name="txtWeb.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 19</value>
@@ -245,8 +291,8 @@
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;webBrowser1.ZOrder" xml:space="preserve">
-    <value>19</value>
+  <data name="&gt;&gt;lblFlg.Name" xml:space="preserve">
+    <value>lblFlg</value>
   </data>
   <data name="&gt;&gt;lblFlg.Parent" xml:space="preserve">
     <value>$this</value>
@@ -254,23 +300,26 @@
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="department.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;txtMail.Name" xml:space="preserve">
     <value>txtMail</value>
+  </data>
+  <data name="&gt;&gt;txtPostCode.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnGetData.Location" type="System.Drawing.Point, System.Drawing">
     <value>995, 430</value>
   </data>
   <data name="txtTel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>937, 302</value>
+    <value>937, 317</value>
   </data>
   <data name="txtMail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>937, 338</value>
+    <value>937, 368</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;lblConsultant.Parent" xml:space="preserve">
     <value>$this</value>
@@ -287,11 +336,17 @@
   <data name="&gt;&gt;txtMail.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtDepartment.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 12</value>
+  </data>
+  <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>937, 181</value>
+  </data>
+  <data name="department.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 12</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>872, 341</value>
+    <value>872, 371</value>
   </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
@@ -308,11 +363,11 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormConsultantEdit</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1093, 498</value>
-  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="txtWeb.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -324,31 +379,34 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblPath.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="department.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 12</value>
-  </data>
   <data name="&gt;&gt;txtDepartment.Name" xml:space="preserve">
     <value>txtDepartment</value>
+  </data>
+  <data name="txtDepartment.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="txtMail.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>17</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
   </data>
   <data name="&gt;&gt;btnGetWeb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>872, 383</value>
+    <value>872, 398</value>
   </data>
   <data name="department.Text" xml:space="preserve">
     <value>department</value>
@@ -360,28 +418,31 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblConsultant.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>14</value>
   </data>
   <data name="&gt;&gt;txtTel.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;txtManager.Name" xml:space="preserve">
+    <value>txtManager</value>
+  </data>
+  <data name="&gt;&gt;txtPostCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblConsultant.Name" xml:space="preserve">
     <value>lblConsultant</value>
   </data>
-  <data name="department.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="lblFlg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>812, 9</value>
-  </data>
   <data name="&gt;&gt;btnGetWeb.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="lblConsultant.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="&gt;&gt;txtFax.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;lblPath.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;webBrowser1.Name" xml:space="preserve">
     <value>webBrowser1</value>
@@ -389,14 +450,23 @@
   <data name="&gt;&gt;txtWeb.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtDepartment.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 19</value>
   </data>
   <data name="&gt;&gt;btnConfirm.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>22</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -404,17 +474,20 @@
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="txtMail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 19</value>
+  <data name="txtFax.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;webBrowser1.ZOrder" xml:space="preserve">
+    <value>23</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>872, 305</value>
+    <value>872, 320</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="txtWeb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>937, 380</value>
+    <value>937, 395</value>
   </data>
   <data name="txtAddress.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -423,12 +496,12 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;department.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
   <data name="lblConsultant.Location" type="System.Drawing.Point, System.Drawing">
     <value>872, 48</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnConfirm.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMail.Parent" xml:space="preserve">
@@ -438,10 +511,13 @@
     <value>Cancel</value>
   </data>
   <data name="&gt;&gt;txtMail.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>16</value>
   </data>
   <data name="lblFlg.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
+  </data>
+  <data name="&gt;&gt;txtFax.Name" xml:space="preserve">
+    <value>txtFax</value>
   </data>
   <data name="txtAddress.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -455,6 +531,9 @@
   <data name="&gt;&gt;btnGetWeb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lblPath.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
@@ -463,6 +542,9 @@
   </data>
   <data name="&gt;&gt;txtWeb.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -474,16 +556,13 @@
     <value>label3</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>address</value>
+    <value>Address</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="&gt;&gt;lblFlg.Name" xml:space="preserve">
-    <value>lblFlg</value>
-  </data>
   <data name="&gt;&gt;btnGetData.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="txtManager.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 19</value>
@@ -492,15 +571,14 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>18</value>
   </data>
-  <data name="&gt;&gt;txtWeb.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>872, 159</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnGetData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -509,6 +587,9 @@
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 12</value>
+  </data>
+  <data name="lblConsultant.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 12</value>
   </data>
   <data name="&gt;&gt;lblConsultant.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -532,7 +613,7 @@
     <value>manager</value>
   </data>
   <data name="&gt;&gt;txtManager.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>19</value>
   </data>
   <data name="btnGetWeb.Location" type="System.Drawing.Point, System.Drawing">
     <value>888, 430</value>
@@ -540,11 +621,20 @@
   <data name="btnGetWeb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 12</value>
+  </data>
+  <data name="txtMail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 19</value>
+  </data>
+  <data name="&gt;&gt;txtPostCode.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 12</value>
   </data>
   <data name="lblFlg.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 12</value>
@@ -553,31 +643,34 @@
     <value>department</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>872, 160</value>
+    <value>872, 181</value>
   </data>
-  <data name="btnConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>888, 459</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1093, 498</value>
   </data>
-  <data name="&gt;&gt;txtDepartment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="txtFax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>937, 342</value>
+  </data>
   <data name="webBrowser1.Size" type="System.Drawing.Size, System.Drawing">
     <value>853, 454</value>
   </data>
-  <data name="&gt;&gt;btnConfirm.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblFlg.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtFax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnGetData.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>995, 459</value>
@@ -585,8 +678,8 @@
   <data name="webBrowser1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 29</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 12</value>
   </data>
   <data name="&gt;&gt;lblFlg.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -597,14 +690,17 @@
   <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
     <value>txtAddress</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 12</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtWeb.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="btnGetData.Text" xml:space="preserve">
     <value>GetData</value>
+  </data>
+  <data name="&gt;&gt;txtAddress.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -612,22 +708,28 @@
   <data name="&gt;&gt;btnGetData.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblConsultant.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 12</value>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>872, 345</value>
   </data>
   <data name="&gt;&gt;txtManager.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>mail</value>
+    <value>Mail</value>
+  </data>
+  <data name="lblPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
+  </data>
+  <data name="txtFax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 19</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh-CN</value>
   </metadata>
 </root>

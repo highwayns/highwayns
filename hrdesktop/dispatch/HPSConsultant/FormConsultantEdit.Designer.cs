@@ -49,6 +49,10 @@
             this.lblFlg = new System.Windows.Forms.Label();
             this.btnGetData = new System.Windows.Forms.Button();
             this.btnGetWeb = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtFax = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPostCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -159,10 +163,34 @@
             this.btnGetWeb.UseVisualStyleBackColor = true;
             this.btnGetWeb.Click += new System.EventHandler(this.btnGetWeb_Click);
             // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // txtFax
+            // 
+            resources.ApplyResources(this.txtFax, "txtFax");
+            this.txtFax.Name = "txtFax";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // txtPostCode
+            // 
+            resources.ApplyResources(this.txtPostCode, "txtPostCode");
+            this.txtPostCode.Name = "txtPostCode";
+            // 
             // FormConsultantEdit
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtPostCode);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtFax);
             this.Controls.Add(this.btnGetWeb);
             this.Controls.Add(this.btnGetData);
             this.Controls.Add(this.lblFlg);
@@ -212,5 +240,9 @@
         private System.Windows.Forms.Label lblFlg;
         private System.Windows.Forms.Button btnGetData;
         private System.Windows.Forms.Button btnGetWeb;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtFax;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtPostCode;
     }
 }

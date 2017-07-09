@@ -118,214 +118,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 12</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>分類</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>業界</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>電話</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>メール</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 12</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>ファクス</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>アドレス</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>管理者</value>
+  </data>
+  <data name="department.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="department.Text" xml:space="preserve">
+    <value>部門</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="btnConfirm.Text" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 12</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>内容</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>郵便</value>
+    <value>添付</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
+  <data name="btnLoadTemplate.Text" xml:space="preserve">
+    <value>テンプ開く</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>名前</value>
+  <data name="btnSaveTemplate.Text" xml:space="preserve">
+    <value>テンプ保存</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>会社名称</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>番号</value>
-  </data>
-  <data name="btnPublish.Text" xml:space="preserve">
-    <value>Excel導出</value>
-  </data>
-  <data name="btnUpdate.Text" xml:space="preserve">
-    <value>顧問更新</value>
-  </data>
-  <data name="lblConsultant.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
-  </data>
-  <data name="lblConsultant.Text" xml:space="preserve">
-    <value>顧問一览</value>
-  </data>
-  <data name="btnAdd.Text" xml:space="preserve">
-    <value>顧問追加</value>
-  </data>
-  <data name="Column1.HeaderText" xml:space="preserve">
-    <value>番号</value>
-  </data>
-  <data name="Column2.HeaderText" xml:space="preserve">
-    <value>会社名称</value>
-  </data>
-  <data name="Column16.HeaderText" xml:space="preserve">
-    <value>部門</value>
-  </data>
-  <data name="Column3.HeaderText" xml:space="preserve">
-    <value>名前</value>
-  </data>
-  <data name="Column12.HeaderText" xml:space="preserve">
-    <value>コメント</value>
-  </data>
-  <data name="Column4.HeaderText" xml:space="preserve">
-    <value>郵便</value>
-  </data>
-  <data name="Column5.HeaderText" xml:space="preserve">
-    <value>アドレス</value>
-  </data>
-  <data name="Column6.HeaderText" xml:space="preserve">
-    <value>電話</value>
-  </data>
-  <data name="Column7.HeaderText" xml:space="preserve">
-    <value>ファクス</value>
-  </data>
-  <data name="Column8.HeaderText" xml:space="preserve">
-    <value>業界</value>
-  </data>
-  <data name="Column9.HeaderText" xml:space="preserve">
-    <value>分類</value>
-  </data>
-  <data name="Column10.HeaderText" xml:space="preserve">
-    <value>規模</value>
-  </data>
-  <data name="Column11.HeaderText" xml:space="preserve">
-    <value>設立日</value>
-  </data>
-  <data name="Column13.HeaderText" xml:space="preserve">
-    <value>メール</value>
-  </data>
-  <data name="Column14.HeaderText" xml:space="preserve">
-    <value>ホーム</value>
-  </data>
-  <data name="Column15.HeaderText" xml:space="preserve">
-    <value>登録日</value>
-  </data>
-  <data name="Column17.HeaderText" xml:space="preserve">
-    <value>サブスクリプト</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>規模</value>
-  </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 12</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>メール</value>
-  </data>
-  <data name="lblOther.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 12</value>
-  </data>
-  <data name="lblOther.Text" xml:space="preserve">
-    <value>コメント</value>
-  </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label13.Text" xml:space="preserve">
-    <value>設立日</value>
-  </data>
-  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 12</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>ホーム</value>
-  </data>
-  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>日本名</value>
-  </data>
-  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>登録日</value>
-  </data>
-  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>648, 517</value>
-  </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>サブスクリプト</value>
-  </data>
-  <data name="btnDelete.Text" xml:space="preserve">
-    <value>顧問削除</value>
-  </data>
-  <data name="btnExport.Text" xml:space="preserve">
-    <value>TXT導入</value>
-  </data>
-  <data name="btnMailSend.Text" xml:space="preserve">
-    <value>メール送信</value>
-  </data>
-  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 20</value>
-  </data>
-  <data name="label17.Text" xml:space="preserve">
-    <value>サブスクリプト</value>
-  </data>
-  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label18.Text" xml:space="preserve">
-    <value>分類</value>
-  </data>
-  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 20</value>
-  </data>
-  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
-  </data>
-  <data name="label19.Text" xml:space="preserve">
-    <value>会社名称</value>
-  </data>
-  <data name="btnSearch.Text" xml:space="preserve">
-    <value>検索</value>
-  </data>
-  <data name="btnGet.Text" xml:space="preserve">
-    <value>CSV導入</value>
-  </data>
-  <data name="btnBatch.Text" xml:space="preserve">
-    <value>バッチ送信</value>
+  <data name="btnSelect.Text" xml:space="preserve">
+    <value>選択</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>顧問管理</value>
+    <value>メール送信</value>
   </data>
 </root>

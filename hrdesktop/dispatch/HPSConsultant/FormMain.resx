@@ -117,25 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnPublish.Text" xml:space="preserve">
-    <value>Excel Export</value>
-  </data>
   <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
-    <value>49</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>50</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 12</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>42</value>
+  </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 523</value>
   </data>
+  <data name="txtOther.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 19</value>
+  </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>38</value>
   </data>
   <data name="label19.Text" xml:space="preserve">
     <value>CName</value>
@@ -144,7 +143,7 @@
     <value>Tel</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>40</value>
   </data>
   <data name="&gt;&gt;label10.Name" xml:space="preserve">
     <value>label10</value>
@@ -155,15 +154,15 @@
   <data name="&gt;&gt;label15.Name" xml:space="preserve">
     <value>label15</value>
   </data>
-  <data name="label17.Text" xml:space="preserve">
-    <value>Subscripted</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="&gt;&gt;txtPostCode.Name" xml:space="preserve">
-    <value>txtPostCode</value>
+  <data name="lblConsultant.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 21</value>
+  </data>
+  <data name="&gt;&gt;btnBatch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtScale.Name" xml:space="preserve">
     <value>txtScale</value>
@@ -179,9 +178,6 @@
   </data>
   <data name="&gt;&gt;txtTel.Name" xml:space="preserve">
     <value>txtTel</value>
-  </data>
-  <data name="&gt;&gt;btnExport.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnPublish.Name" xml:space="preserve">
     <value>btnPublish</value>
@@ -201,6 +197,9 @@
   <data name="&gt;&gt;txtId.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="txtFax.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 19</value>
   </data>
@@ -210,14 +209,11 @@
   <data name="&gt;&gt;txtPostCode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="btnMailSend.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
   <data name="&gt;&gt;txtOther.Name" xml:space="preserve">
     <value>txtOther</value>
   </data>
   <data name="&gt;&gt;txtWeb.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="txtCreateTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>125, 545</value>
@@ -243,14 +239,18 @@
   <data name="txtTel.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 19</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
   <data name="txtScale.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 487</value>
   </data>
   <data name="txtCreateTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 19</value>
   </data>
-  <data name="txtCname.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 393</value>
+  <data name="txtPostCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 19</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>239, 395</value>
@@ -258,11 +258,14 @@
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 12</value>
   </data>
+  <data name="&gt;&gt;cmbKinds.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="Column4.HeaderText" xml:space="preserve">
     <value>postcode</value>
   </data>
   <data name="&gt;&gt;btnGet.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="txtCreateTime.TabIndex" type="System.Int32, mscorlib">
     <value>72</value>
@@ -272,9 +275,6 @@
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 12</value>
-  </data>
-  <data name="&gt;&gt;Column14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSearch.Parent" xml:space="preserve">
     <value>$this</value>
@@ -287,6 +287,9 @@
   </data>
   <data name="txtId.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 393</value>
+  </data>
+  <data name="Column16.HeaderText" xml:space="preserve">
+    <value>jCname</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>239, 424</value>
@@ -303,11 +306,14 @@
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="btnBatch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>603, 481</value>
+  </data>
+  <data name="txtAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>299, 19</value>
+  </data>
   <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
     <value>603, 422</value>
-  </data>
-  <data name="&gt;&gt;txtMail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Consultant Manager</value>
@@ -324,8 +330,11 @@
   <data name="btnExport.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 23</value>
   </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 496</value>
+  </data>
   <data name="&gt;&gt;btnPublish.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>47</value>
   </data>
   <data name="txtPostCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 424</value>
@@ -334,28 +343,25 @@
     <value>label11</value>
   </data>
   <data name="txtScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 19</value>
+    <value>90, 19</value>
   </data>
   <data name="&gt;&gt;btnMailSend.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="&gt;&gt;Column12.Name" xml:space="preserve">
     <value>Column12</value>
   </data>
   <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>48</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 12</value>
   </data>
-  <data name="txtCYMD.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 19</value>
-  </data>
-  <data name="lblOther.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
   <data name="&gt;&gt;cmbFormats.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="btnBatch.Text" xml:space="preserve">
+    <value>Batch Send</value>
   </data>
   <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 23</value>
@@ -372,17 +378,11 @@
   <data name="&gt;&gt;txtOther.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 460</value>
-  </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMail.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 23</value>
+    <value>23</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -417,8 +417,11 @@
   <data name="cmbSubscript.Items" xml:space="preserve">
     <value>Y</value>
   </data>
+  <data name="&gt;&gt;btnBatch.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>46</value>
   </data>
   <data name="cmbFormat.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 20</value>
@@ -430,13 +433,13 @@
     <value>Delete</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
   </data>
-  <data name="&gt;&gt;Column11.Name" xml:space="preserve">
-    <value>Column11</value>
+  <data name="&gt;&gt;btnPublish.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -453,11 +456,14 @@
   <data name="cmbFormats.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 20</value>
   </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
   <data name="&gt;&gt;btnPublish.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtId.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
+  <data name="&gt;&gt;btnBatch.Name" xml:space="preserve">
+    <value>btnBatch</value>
   </data>
   <data name="txtScale.TabIndex" type="System.Int32, mscorlib">
     <value>64</value>
@@ -465,26 +471,29 @@
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 12</value>
   </data>
-  <data name="&gt;&gt;btnPublish.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnExport.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>17</value>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>28</value>
   </data>
   <data name="lblConsultant.Text" xml:space="preserve">
     <value>Consultant List</value>
   </data>
+  <data name="Column5.HeaderText" xml:space="preserve">
+    <value>address</value>
+  </data>
   <data name="&gt;&gt;btnSearch.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 393</value>
   </data>
+  <data name="dgvData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>746, 331</value>
+  </data>
   <data name="Column7.HeaderText" xml:space="preserve">
     <value>fax</value>
-  </data>
-  <data name="btnGet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>696, 393</value>
   </data>
   <data name="&gt;&gt;label16.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -497,9 +506,6 @@
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 12</value>
-  </data>
-  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
-    <value>Column3</value>
   </data>
   <data name="Column13.HeaderText" xml:space="preserve">
     <value>mail</value>
@@ -516,14 +522,11 @@
   <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
-  <data name="cmbKinds.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
-  </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 12</value>
   </data>
-  <data name="txtOther.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 19</value>
+  <data name="lblOther.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
   </data>
   <data name="txtOther.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
@@ -546,9 +549,6 @@
   <data name="label15.TabIndex" type="System.Int32, mscorlib">
     <value>71</value>
   </data>
-  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 21</value>
-  </data>
   <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -564,6 +564,9 @@
   <data name="&gt;&gt;btnMailSend.Name" xml:space="preserve">
     <value>btnMailSend</value>
   </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
   <data name="&gt;&gt;btnGet.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -574,7 +577,7 @@
     <value>298, 424</value>
   </data>
   <data name="&gt;&gt;dgvData.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>51</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Name</value>
@@ -586,7 +589,10 @@
     <value>448, 550</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Web</value>
   </data>
   <data name="label17.TabIndex" type="System.Int32, mscorlib">
     <value>87</value>
@@ -604,7 +610,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmbFormats.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnMailSend.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 23</value>
@@ -616,7 +622,7 @@
     <value>694, 480</value>
   </data>
   <data name="&gt;&gt;txtName.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>41</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -640,7 +646,7 @@
     <value>web</value>
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="&gt;&gt;cmbSubscript.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -648,11 +654,8 @@
   <data name="&gt;&gt;txtTel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="txtPostCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 19</value>
-  </data>
-  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>603, 393</value>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblConsultant.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -672,26 +675,26 @@
   <data name="txtFax.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
   </data>
+  <data name="cmbSubscript.Location" type="System.Drawing.Point, System.Drawing">
+    <value>741, 513</value>
+  </data>
   <data name="&gt;&gt;label18.Name" xml:space="preserve">
     <value>label18</value>
   </data>
   <data name="&gt;&gt;btnGet.Name" xml:space="preserve">
     <value>btnGet</value>
   </data>
-  <data name="txtTel.TabIndex" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
   <data name="&gt;&gt;lblConsultant.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>49</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>57</value>
   </data>
-  <data name="&gt;&gt;txtName.Name" xml:space="preserve">
-    <value>txtName</value>
+  <data name="&gt;&gt;txtName.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Column17.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -699,14 +702,11 @@
   <data name="&gt;&gt;label12.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtTel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 460</value>
-  </data>
   <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
     <value>btnDelete</value>
   </data>
   <data name="&gt;&gt;txtPostCode.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>39</value>
   </data>
   <data name="&gt;&gt;cmbSubscript.Name" xml:space="preserve">
     <value>cmbSubscript</value>
@@ -720,6 +720,9 @@
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Fax</value>
   </data>
@@ -727,7 +730,7 @@
     <value>label19</value>
   </data>
   <data name="&gt;&gt;cmbKind.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;cmbKinds.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -747,17 +750,17 @@
   <data name="lblOther.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmbFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 490</value>
   </data>
   <data name="&gt;&gt;txtScale.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
   </data>
   <data name="cmbSubscript.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 20</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;txtOther.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -766,7 +769,7 @@
     <value>Search</value>
   </data>
   <data name="&gt;&gt;cmbKinds.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;Column8.Name" xml:space="preserve">
     <value>Column8</value>
@@ -774,11 +777,20 @@
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cmbSubscript.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Post</value>
   </data>
   <data name="Column11.HeaderText" xml:space="preserve">
     <value>CYMD</value>
+  </data>
+  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>603, 452</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>439, 395</value>
   </data>
   <data name="txtWeb.Size" type="System.Drawing.Size, System.Drawing">
     <value>301, 19</value>
@@ -786,14 +798,11 @@
   <data name="Column2.HeaderText" xml:space="preserve">
     <value>Cname</value>
   </data>
-  <data name="&gt;&gt;Column3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;cmbFormats.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 12</value>
+  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -805,13 +814,16 @@
     <value>62, 424</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>30</value>
   </data>
   <data name="txtFax.Location" type="System.Drawing.Point, System.Drawing">
     <value>414, 457</value>
   </data>
   <data name="&gt;&gt;btnGet.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -828,6 +840,9 @@
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
   </data>
+  <data name="btnBatch.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
   <data name="&gt;&gt;btnSearch.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -839,9 +854,6 @@
   </data>
   <data name="cmbFormat.TabIndex" type="System.Int32, mscorlib">
     <value>94</value>
-  </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 12</value>
   </data>
   <data name="&gt;&gt;Column15.Name" xml:space="preserve">
     <value>Column15</value>
@@ -858,9 +870,6 @@
   <data name="label19.TabIndex" type="System.Int32, mscorlib">
     <value>83</value>
   </data>
-  <data name="&gt;&gt;txtCreateTime.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="Column6.HeaderText" xml:space="preserve">
     <value>tel</value>
   </data>
@@ -876,17 +885,11 @@
   <data name="&gt;&gt;lblConsultant.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblRecordNum.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
-  <data name="&gt;&gt;txtWeb.Name" xml:space="preserve">
-    <value>txtWeb</value>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmbKind.Location" type="System.Drawing.Point, System.Drawing">
     <value>96, 493</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -910,7 +913,7 @@
     <value>48</value>
   </data>
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="&gt;&gt;txtAddress.Parent" xml:space="preserve">
     <value>$this</value>
@@ -921,14 +924,14 @@
   <data name="cmbFormats.Location" type="System.Drawing.Point, System.Drawing">
     <value>414, 17</value>
   </data>
-  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
-    <value>Column1</value>
+  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 393</value>
   </data>
-  <data name="&gt;&gt;cmbSubscripts.Name" xml:space="preserve">
-    <value>cmbSubscripts</value>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
+  <data name="&gt;&gt;txtCreateTime.ZOrder" xml:space="preserve">
+    <value>21</value>
   </data>
   <data name="&gt;&gt;txtCname.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -943,19 +946,22 @@
     <value>66</value>
   </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;label15.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="btnBatch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 23</value>
+  </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>61</value>
   </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="cmbFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 490</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 12</value>
@@ -969,20 +975,26 @@
   <data name="&gt;&gt;Column8.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;txtFax.ZOrder" xml:space="preserve">
+    <value>35</value>
+  </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtCname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 393</value>
   </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>65</value>
   </data>
+  <data name="&gt;&gt;Column11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>jCName</value>
+  </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>352, 463</value>
-  </data>
-  <data name="&gt;&gt;Column6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtAddress.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1008,8 +1020,8 @@
   <data name="&gt;&gt;Column15.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnExport.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;label19.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1017,14 +1029,17 @@
   <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Post</value>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;txtCname.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>43</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>CName</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="txtJCname.Location" type="System.Drawing.Point, System.Drawing">
     <value>298, 541</value>
@@ -1032,23 +1047,14 @@
   <data name="lblRecordNum.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 21</value>
   </data>
-  <data name="btnExport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>694, 422</value>
-  </data>
-  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;txtName.Name" xml:space="preserve">
+    <value>txtName</value>
   </data>
   <data name="Column17.HeaderText" xml:space="preserve">
     <value>subscripted</value>
   </data>
   <data name="&gt;&gt;label13.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="cmbKind.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
-  </data>
-  <data name="btnSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>89</value>
   </data>
   <data name="&gt;&gt;Column6.Name" xml:space="preserve">
     <value>Column6</value>
@@ -1062,8 +1068,8 @@
   <data name="&gt;&gt;cmbFormats.Name" xml:space="preserve">
     <value>cmbFormats</value>
   </data>
-  <data name="Column8.HeaderText" xml:space="preserve">
-    <value>kind</value>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Subscripted</value>
   </data>
   <data name="&gt;&gt;label12.Name" xml:space="preserve">
     <value>label12</value>
@@ -1077,8 +1083,11 @@
   <data name="&gt;&gt;cmbSubscripts.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>497, 393</value>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>603, 393</value>
+  </data>
+  <data name="&gt;&gt;lblRecordNum.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="txtMail.TabIndex" type="System.Int32, mscorlib">
     <value>70</value>
@@ -1089,8 +1098,8 @@
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>18</value>
   </data>
   <data name="cmbKinds.TabIndex" type="System.Int32, mscorlib">
     <value>90</value>
@@ -1107,20 +1116,23 @@
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
+  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label18.Text" xml:space="preserve">
     <value>Format</value>
   </data>
   <data name="&gt;&gt;btnMailSend.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Column16.HeaderText" xml:space="preserve">
-    <value>jCname</value>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>CYMD</value>
   </data>
   <data name="&gt;&gt;lblOther.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1132,7 +1144,7 @@
     <value>137, 19</value>
   </data>
   <data name="&gt;&gt;txtCYMD.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="&gt;&gt;lblOther.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1140,8 +1152,8 @@
   <data name="&gt;&gt;txtCreateTime.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>27</value>
+  <data name="cmbKinds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
   </data>
   <data name="lblOther.Location" type="System.Drawing.Point, System.Drawing">
     <value>239, 523</value>
@@ -1152,47 +1164,44 @@
   <data name="&gt;&gt;cmbKind.Name" xml:space="preserve">
     <value>cmbKind</value>
   </data>
-  <data name="dgvData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>746, 331</value>
+  <data name="cmbKind.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>44</value>
   </data>
   <data name="&gt;&gt;Column4.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblRecordNum.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="btnGet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>696, 393</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Address</value>
   </data>
-  <data name="lblConsultant.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 21</value>
+  <data name="btnMailSend.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
   </data>
   <data name="&gt;&gt;label19.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
+  <data name="&gt;&gt;txtWeb.Name" xml:space="preserve">
+    <value>txtWeb</value>
   </data>
   <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>
-  </data>
-  <data name="&gt;&gt;txtCreateTime.Name" xml:space="preserve">
-    <value>txtCreateTime</value>
   </data>
   <data name="txtWeb.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="&gt;&gt;lblOther.Name" xml:space="preserve">
     <value>lblOther</value>
-  </data>
-  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dgvData.Name" xml:space="preserve">
     <value>dgvData</value>
@@ -1204,13 +1213,13 @@
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
-  <data name="&gt;&gt;txtOther.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 21</value>
   </data>
-  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
   </data>
   <data name="&gt;&gt;Column5.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1224,20 +1233,23 @@
   <data name="label15.Text" xml:space="preserve">
     <value>CreateTime</value>
   </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
   <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="cmbSubscripts.Items" xml:space="preserve">
-    <value>Y</value>
   </data>
   <data name="txtAddress.TabIndex" type="System.Int32, mscorlib">
     <value>54</value>
   </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>30</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 496</value>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>CName</value>
   </data>
   <data name="lblRecordNum.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 12</value>
@@ -1245,35 +1257,35 @@
   <data name="cmbSubscripts.Location" type="System.Drawing.Point, System.Drawing">
     <value>650, 17</value>
   </data>
-  <data name="&gt;&gt;txtFax.ZOrder" xml:space="preserve">
-    <value>34</value>
+  <data name="&gt;&gt;txtCreateTime.Name" xml:space="preserve">
+    <value>txtCreateTime</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="lblConsultant.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
   </data>
-  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;txtMail.Name" xml:space="preserve">
     <value>txtMail</value>
   </data>
-  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;Column6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblConsultant.Name" xml:space="preserve">
     <value>lblConsultant</value>
   </data>
   <data name="&gt;&gt;cmbSubscripts.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Scale</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>55</value>
+  <data name="txtTel.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
   </data>
   <data name="txtCYMD.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 520</value>
@@ -1290,41 +1302,41 @@
   <data name="Column15.HeaderText" xml:space="preserve">
     <value>createtime</value>
   </data>
+  <data name="btnSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
   <data name="&gt;&gt;txtOther.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
-    <value>txtAddress</value>
+    <value>25</value>
   </data>
   <data name="&gt;&gt;txtTel.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="&gt;&gt;Column2.Name" xml:space="preserve">
     <value>Column2</value>
   </data>
-  <data name="txtAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>299, 19</value>
+  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
+    <value>Column3</value>
   </data>
   <data name="&gt;&gt;txtId.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>45</value>
   </data>
-  <data name="&gt;&gt;cmbKinds.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Column8.HeaderText" xml:space="preserve">
+    <value>kind</value>
   </data>
   <data name="&gt;&gt;Column7.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;txtPostCode.Name" xml:space="preserve">
+    <value>txtPostCode</value>
+  </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
     <value>573, 21</value>
   </data>
-  <data name="Column5.HeaderText" xml:space="preserve">
-    <value>address</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
     <value>448, 496</value>
@@ -1341,8 +1353,8 @@
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Column11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmbSubscript.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1350,26 +1362,29 @@
   <data name="Column10.HeaderText" xml:space="preserve">
     <value>scale</value>
   </data>
-  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtCreateTime.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Column13.Name" xml:space="preserve">
     <value>Column13</value>
   </data>
-  <data name="&gt;&gt;cmbFormat.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>869, 578</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Kind</value>
   </data>
-  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>603, 452</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>869, 578</value>
+  </data>
+  <data name="&gt;&gt;btnExport.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="txtId.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="btnExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>694, 422</value>
   </data>
   <data name="btnAdd.Text" xml:space="preserve">
     <value>Add Consultant</value>
@@ -1380,8 +1395,8 @@
   <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 550</value>
   </data>
-  <data name="&gt;&gt;txtName.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnBatch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;txtCname.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1395,23 +1410,32 @@
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
   </data>
+  <data name="lblRecordNum.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;cmbFormat.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
+    <value>txtAddress</value>
   </data>
   <data name="btnExport.Text" xml:space="preserve">
     <value>Txt Import</value>
   </data>
+  <data name="&gt;&gt;Column11.Name" xml:space="preserve">
+    <value>Column11</value>
+  </data>
   <data name="&gt;&gt;txtName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
+  <data name="lblRecordNum.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
   </data>
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtJCname.ZOrder" xml:space="preserve">
+    <value>19</value>
   </data>
   <data name="txtWeb.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 541</value>
@@ -1422,8 +1446,8 @@
   <data name="label16.Text" xml:space="preserve">
     <value>Subscripted</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1434,14 +1458,14 @@
   <data name="&gt;&gt;Column10.Name" xml:space="preserve">
     <value>Column10</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>439, 395</value>
+  <data name="&gt;&gt;btnBatch.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnUpdate.Text" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="txtCname.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 19</value>
+  <data name="txtTel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 460</value>
   </data>
   <data name="&gt;&gt;Column16.Name" xml:space="preserve">
     <value>Column16</value>
@@ -1455,8 +1479,8 @@
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>Web</value>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 12</value>
   </data>
   <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 23</value>
@@ -1464,38 +1488,38 @@
   <data name="&gt;&gt;Column2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtCname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 19</value>
   </data>
-  <data name="&gt;&gt;txtCYMD.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Column14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtId.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 19</value>
   </data>
-  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 23</value>
   </data>
   <data name="&gt;&gt;cmbKind.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>jCName</value>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 460</value>
   </data>
   <data name="cmbSubscript.Items1" xml:space="preserve">
     <value>N</value>
   </data>
-  <data name="&gt;&gt;txtCreateTime.ZOrder" xml:space="preserve">
-    <value>20</value>
+  <data name="&gt;&gt;txtCYMD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
   </data>
-  <data name="&gt;&gt;txtJCname.ZOrder" xml:space="preserve">
-    <value>18</value>
+  <data name="&gt;&gt;cmbFormat.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>43</value>
+  <data name="&gt;&gt;txtMail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmbKind.TabIndex" type="System.Int32, mscorlib">
     <value>95</value>
@@ -1503,23 +1527,26 @@
   <data name="&gt;&gt;cmbFormat.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
   </data>
-  <data name="cmbSubscript.Location" type="System.Drawing.Point, System.Drawing">
-    <value>741, 513</value>
+  <data name="btnPublish.Text" xml:space="preserve">
+    <value>Excel Export</value>
   </data>
-  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+  <data name="&gt;&gt;cmbSubscripts.Name" xml:space="preserve">
+    <value>cmbSubscripts</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>53</value>
+  <data name="&gt;&gt;Column3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblRecordNum.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="cmbSubscripts.Items" xml:space="preserve">
+    <value>Y</value>
   </data>
   <data name="cmbSubscripts.Items2" xml:space="preserve">
     <value>T</value>
@@ -1530,38 +1557,38 @@
   <data name="cmbFormats.TabIndex" type="System.Int32, mscorlib">
     <value>91</value>
   </data>
-  <data name="&gt;&gt;label14.Name" xml:space="preserve">
-    <value>label14</value>
+  <data name="txtCYMD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 19</value>
   </data>
-  <metadata name="Column14.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column17.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column16.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh-CN</value>
-  </metadata>
-  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="Column15.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column13.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ja-JP</value>
   </metadata>
   <metadata name="Column10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1569,10 +1596,10 @@
   <metadata name="Column12.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column13.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column14.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column16.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1581,10 +1608,10 @@
   <metadata name="Column9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column17.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

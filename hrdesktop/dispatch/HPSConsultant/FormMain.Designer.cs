@@ -97,6 +97,7 @@
             this.cmbFormat = new System.Windows.Forms.ComboBox();
             this.cmbKind = new System.Windows.Forms.ComboBox();
             this.btnGet = new System.Windows.Forms.Button();
+            this.btnBatch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -533,10 +534,18 @@
             this.btnGet.UseVisualStyleBackColor = true;
             this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
+            // btnBatch
+            // 
+            resources.ApplyResources(this.btnBatch, "btnBatch");
+            this.btnBatch.Name = "btnBatch";
+            this.btnBatch.UseVisualStyleBackColor = true;
+            this.btnBatch.Click += new System.EventHandler(this.btnBatch_Click);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBatch);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.cmbKind);
             this.Controls.Add(this.cmbFormat);
@@ -667,5 +676,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.Button btnBatch;
     }
 }

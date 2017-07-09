@@ -260,7 +260,7 @@
     <value>是否订阅</value>
   </data>
   <data name="txtScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 21</value>
+    <value>90, 21</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
@@ -363,6 +363,9 @@
   </data>
   <data name="btnGet.Text" xml:space="preserve">
     <value>CSV导入</value>
+  </data>
+  <data name="btnBatch.Text" xml:space="preserve">
+    <value>成批送信</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>NSimSun, 9pt</value>
