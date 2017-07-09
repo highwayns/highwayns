@@ -75,8 +75,10 @@ namespace HPSCompany
             lblCompany.Text = data[1];
             txtDepartment.Text = data[14];
             txtManager.Text = data[2];
+            txtPostCode.Text = data[3];
             txtAddress.Text = data[4];
             txtTel.Text = data[5];
+            txtFax.Text = data[6];
             txtMail.Text = data[12];
             txtWeb.Text = data[13];
         }
@@ -92,8 +94,10 @@ namespace HPSCompany
             data[1] = lblCompany.Text;
             data[14] = txtDepartment.Text;
             data[2] = txtManager.Text;
+            data[3] = txtPostCode.Text;
             data[4] = txtAddress.Text;
             data[5] = txtTel.Text;
+            data[6] = txtFax.Text;
             data[12] = txtMail.Text;
             data[13] = txtWeb.Text;
             this.DialogResult = DialogResult.OK;

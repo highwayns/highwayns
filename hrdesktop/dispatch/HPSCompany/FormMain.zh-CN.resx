@@ -361,6 +361,9 @@
   <data name="btnGet.Text" xml:space="preserve">
     <value>CSV导入</value>
   </data>
+  <data name="btnBatch.Text" xml:space="preserve">
+    <value>成批送信</value>
+  </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>NSimSun, 9pt</value>
   </data>

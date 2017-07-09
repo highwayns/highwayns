@@ -166,4 +166,19 @@
   <data name="btnGetData.Text" xml:space="preserve">
     <value>データ取得</value>
   </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>郵便</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 12</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>ファクス</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>会社編集</value>
+  </data>
 </root>

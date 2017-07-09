@@ -319,6 +319,9 @@
   <data name="btnGet.Text" xml:space="preserve">
     <value>CSV導入</value>
   </data>
+  <data name="btnBatch.Text" xml:space="preserve">
+    <value>バッチ送信</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>会社管理</value>
   </data>
