@@ -117,18 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnConfirm.Text" xml:space="preserve">
-    <value>确定</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>取消</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="department.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
   </data>
-  <data name="department.Text" xml:space="preserve">
-    <value>部门</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>邮件</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
@@ -136,49 +130,46 @@
   <data name="label1.Text" xml:space="preserve">
     <value>管理者</value>
   </data>
+  <data name="department.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="department.Text" xml:space="preserve">
+    <value>部门</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="btnConfirm.Text" xml:space="preserve">
+    <value>确认</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>地址</value>
+    <value>标题</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>电话</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>邮件</value>
+    <value>内容</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>网址</value>
+    <value>添付</value>
   </data>
-  <data name="btnGetWeb.Text" xml:space="preserve">
-    <value>网址取得</value>
+  <data name="btnLoadTemplate.Text" xml:space="preserve">
+    <value>打开模板</value>
   </data>
-  <data name="btnGetData.Text" xml:space="preserve">
-    <value>数据取得</value>
+  <data name="btnSaveTemplate.Text" xml:space="preserve">
+    <value>保存模板</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>邮编</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>传真</value>
+  <data name="btnSelect.Text" xml:space="preserve">
+    <value>选择</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>公司编辑</value>
+    <value>邮件送信</value>
   </data>
 </root>
