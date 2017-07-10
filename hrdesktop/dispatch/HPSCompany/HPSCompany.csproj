@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="HtmlAgilityPack, Version=1.4.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\tool\bin\Debug\HtmlAgilityPack.dll</HintPath>
+      <HintPath>..\..\tool\HtmlAgilityPack\bin\Debug\net35\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -573,6 +573,33 @@ namespace HPSCompany
         /// <param name="e"></param>
         private void btnBatch_Click(object sender, EventArgs e)
         {
+            ArrayList list = new ArrayList();
+            NdnPublicFunction func = new NdnPublicFunction();
+            for (int idx = 0; idx < dgvData.Rows.Count; idx++)
+            {
+                string mail = dgvData.Rows[idx].Cells[12].Value.ToString();
+                string Subscript = dgvData.Rows[idx].Cells[16].Value.ToString();
+                if (func.IsMail(mail, false) && Subscript == "Y")
+                {
+                    string[] data = new string[18];
+                    for (int i = 0; i < 18; i++)
+                    {
+                        data[i] = dgvData.Rows[idx].Cells[i].Value.ToString();
+                    }
+                    list.Add(data);
+                }
+            }
+            if (list.Count > 0)
+            {
+                FormBatchMail form = new FormBatchMail(list, db);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data Selected!");
+            }
 
         }
 
