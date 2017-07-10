@@ -14,12 +14,12 @@ namespace HPSConsultant
 {
     public partial class FormBatchMail : Form
     {
-        public string[][] data = null;
+        public ArrayList data = null;
         /// <summary>
         /// 数据库
         /// </summary>
         private DB db;
-        public FormBatchMail(string[][] data, DB db)
+        public FormBatchMail(ArrayList data, DB db)
         {
             this.data = data;
             this.db = db;
@@ -171,16 +171,16 @@ namespace HPSConsultant
             MailPara mp = (MailPara)ht["OUTLOOK"];
             mp.subject = txtTitle.Text;
             bool result = true;
-            for (int i = 0; i < data.Length; i++)
+            for (int i = 0; i < data.Count; i++)
             {
                 //lblConsultant.Text = data[1];
                 //txtDepartment.Text = data[14];
                 //txtManager.Text = data[2];
                 //txtMail.Text = data[12];
-
-                mp.body = string.Format(txtContent.Text, data[i][1], data[i][14], data[i][2]);
+                string[] items = (string[])data[i];
+                mp.body = string.Format(txtContent.Text, items[1], items[14], items[2]);
                 mp.picfile = txtAttach.Text;
-                mp.to = data[i][12];
+                mp.to = items[12];
                 if (mp.isHtml != "Y")
                 {
                     mp.htmlbody = null;
