@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProject));
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +52,7 @@
             // 
             // dgvData
             // 
+            resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -63,163 +65,125 @@
             this.Column7,
             this.Column8,
             this.Column9});
-            this.dgvData.Location = new System.Drawing.Point(12, 52);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.RowTemplate.Height = 21;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(980, 284);
-            this.dgvData.TabIndex = 42;
             this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "id";
-            this.Column1.HeaderText = "No";
+            resources.ApplyResources(this.Column1, "Column1");
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 50;
             // 
             // Column2
             // 
             this.Column2.DataPropertyName = "jCNAME";
-            this.Column2.HeaderText = "名称";
+            resources.ApplyResources(this.Column2, "Column2");
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "Cname";
-            this.Column3.HeaderText = "プロジェクト";
+            resources.ApplyResources(this.Column3, "Column3");
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "FORMAT";
-            this.Column5.HeaderText = "区域";
+            resources.ApplyResources(this.Column5, "Column5");
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "kind";
-            this.Column4.HeaderText = "入札形式";
+            resources.ApplyResources(this.Column4, "Column4");
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 150;
             // 
             // Column6
             // 
             this.Column6.DataPropertyName = "公示日";
-            this.Column6.HeaderText = "公示日";
+            resources.ApplyResources(this.Column6, "Column6");
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.DataPropertyName = "address";
-            this.Column7.HeaderText = "住所";
+            resources.ApplyResources(this.Column7, "Column7");
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.DataPropertyName = "web";
-            this.Column8.HeaderText = "リンク";
+            resources.ApplyResources(this.Column8, "Column8");
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
             this.Column9.DataPropertyName = "other";
-            this.Column9.HeaderText = "その他";
+            resources.ApplyResources(this.Column9, "Column9");
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
             // btnGet
             // 
-            this.btnGet.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGet.Location = new System.Drawing.Point(878, 348);
+            resources.ApplyResources(this.btnGet, "btnGet");
             this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(114, 23);
-            this.btnGet.TabIndex = 97;
-            this.btnGet.Text = "Csv Import";
             this.btnGet.UseVisualStyleBackColor = true;
             this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
             // cmbFormats
             // 
+            resources.ApplyResources(this.cmbFormats, "cmbFormats");
             this.cmbFormats.FormattingEnabled = true;
-            this.cmbFormats.Location = new System.Drawing.Point(598, 13);
             this.cmbFormats.Name = "cmbFormats";
-            this.cmbFormats.Size = new System.Drawing.Size(121, 20);
-            this.cmbFormats.TabIndex = 103;
             // 
             // cmbKinds
             // 
+            resources.ApplyResources(this.cmbKinds, "cmbKinds");
             this.cmbKinds.FormattingEnabled = true;
-            this.cmbKinds.Location = new System.Drawing.Point(409, 13);
             this.cmbKinds.Name = "cmbKinds";
-            this.cmbKinds.Size = new System.Drawing.Size(121, 20);
-            this.cmbKinds.TabIndex = 102;
             // 
             // btnSearch
             // 
-            this.btnSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSearch.Location = new System.Drawing.Point(907, 12);
+            resources.ApplyResources(this.btnSearch, "btnSearch");
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(85, 23);
-            this.btnSearch.TabIndex = 101;
-            this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label18.Location = new System.Drawing.Point(551, 17);
+            resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 12);
-            this.label18.TabIndex = 100;
-            this.label18.Text = "Format";
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label19.Location = new System.Drawing.Point(373, 17);
+            resources.ApplyResources(this.label19, "label19");
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(27, 12);
-            this.label19.TabIndex = 99;
-            this.label19.Text = "Kind";
             // 
             // lblCustomer
             // 
-            this.lblCustomer.AutoSize = true;
-            this.lblCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCustomer.Location = new System.Drawing.Point(254, 17);
+            resources.ApplyResources(this.lblCustomer, "lblCustomer");
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(64, 12);
-            this.lblCustomer.TabIndex = 98;
-            this.lblCustomer.Text = "Project List";
             // 
             // lblRecordNum
             // 
-            this.lblRecordNum.AutoSize = true;
-            this.lblRecordNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblRecordNum.Location = new System.Drawing.Point(18, 36);
+            resources.ApplyResources(this.lblRecordNum, "lblRecordNum");
             this.lblRecordNum.Name = "lblRecordNum";
-            this.lblRecordNum.Size = new System.Drawing.Size(0, 12);
-            this.lblRecordNum.TabIndex = 104;
             // 
             // FormProject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 383);
             this.Controls.Add(this.lblRecordNum);
             this.Controls.Add(this.cmbFormats);
             this.Controls.Add(this.cmbKinds);
@@ -230,7 +194,6 @@
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.dgvData);
             this.Name = "FormProject";
-            this.Text = "FormProject";
             this.Load += new System.EventHandler(this.FormProject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);

@@ -71,7 +71,7 @@ namespace HPSRESUME
             DataSet ds = new DataSet();
             if (db.GetEmpVW(0, 0, "*", "", "", ref ds))
             {
-                dataGridView1.DataSource = ds.Tables[0];
+                dgvData.DataSource = ds.Tables[0];
             }
             DataSet ds_dispatch = new DataSet();
             if (db.GetSend(0, 0, "distinct [Role]", "", "", ref ds_dispatch))
@@ -229,9 +229,9 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                int resumeid = int.Parse(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                int resumeid = int.Parse(dgvData.SelectedRows[0].Cells[1].Value.ToString());
                 string templatefile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "技術者履歴書_模板.xlsx");
                 if (!File.Exists(templatefile))
                 {
@@ -360,9 +360,9 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnWork_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                string resumeid = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string resumeid = dgvData.SelectedRows[0].Cells[1].Value.ToString();
                 FormWork form = new FormWork(db, resumeid);
                 form.ShowDialog();
                 init();
@@ -375,9 +375,9 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnDispatch_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                string resumeid = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string resumeid = dgvData.SelectedRows[0].Cells[1].Value.ToString();
                 FormDispatch form = new FormDispatch(db, resumeid);
                 form.ShowDialog();
                 init();
@@ -407,7 +407,7 @@ namespace HPSRESUME
             }
             if (db.GetEmpVW(0, 0, "*", strWhere, "", ref ds))
             {
-                dataGridView1.DataSource = ds.Tables[0];
+                dgvData.DataSource = ds.Tables[0];
             }
         }
         /// <summary>
@@ -417,11 +417,11 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnMailSend_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
                 string fileName = @"C:\temp\resume.xls";
                 FileExport(fileName);
-                string membername = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string membername = dgvData.SelectedRows[0].Cells[1].Value.ToString();
                 FormCustomer form = new FormCustomer(db);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -462,7 +462,7 @@ namespace HPSRESUME
         /// <param name="fileName"></param>
         private void FileExport(string fileName)
         {
-            int resumeid = int.Parse(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            int resumeid = int.Parse(dgvData.SelectedRows[0].Cells[1].Value.ToString());
             string templatefile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "技術者履歴書_模板.xlsx");
             NCExcel excel = new NCExcel();
             excel.OpenExcelFile(templatefile);
@@ -608,9 +608,9 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnTrain_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                string resumeid = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string resumeid = dgvData.SelectedRows[0].Cells[1].Value.ToString();
                 FormTrain form = new FormTrain(db, resumeid);
                 form.ShowDialog();
                 init();
@@ -624,10 +624,10 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnCreateBiza_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                string resumeid = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                string bizaid = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string resumeid = dgvData.SelectedRows[0].Cells[1].Value.ToString();
+                string bizaid = dgvData.SelectedRows[0].Cells[1].Value.ToString();
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
@@ -707,9 +707,9 @@ namespace HPSRESUME
         /// <param name="e"></param>
         private void btnSchool_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvData.SelectedRows.Count > 0)
             {
-                string resumeid = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string resumeid = dgvData.SelectedRows[0].Cells[1].Value.ToString();
                 FormSchool form = new FormSchool(db, resumeid);
                 form.ShowDialog();
                 init();
@@ -772,6 +772,63 @@ namespace HPSRESUME
                     line = reader.ReadLine();
                 }
 
+            }
+
+        }
+        /// <summary>
+        /// 个人送信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSendMail_Click(object sender, EventArgs e)
+        {
+            if (dgvData.SelectedRows.Count > 0)
+            {
+                string[] data = new string[18];
+                for (int i = 0; i < 18; i++)
+                {
+                    data[i] = dgvData.SelectedRows[0].Cells[i].Value.ToString();
+                }
+                FormMail form = new FormMail(data, db);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                }
+            }
+
+        }
+        /// <summary>
+        /// 成批送信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBatchMail_Click(object sender, EventArgs e)
+        {
+            ArrayList list = new ArrayList();
+            NdnPublicFunction func = new NdnPublicFunction();
+            for (int idx = 0; idx < dgvData.Rows.Count; idx++)
+            {
+                string mail = dgvData.Rows[idx].Cells[12].Value.ToString();
+                string Subscript = dgvData.Rows[idx].Cells[16].Value.ToString();
+                if (func.IsMail(mail, false) && Subscript == "Y")
+                {
+                    string[] data = new string[18];
+                    for (int i = 0; i < 18; i++)
+                    {
+                        data[i] = dgvData.Rows[idx].Cells[i].Value.ToString();
+                    }
+                    list.Add(data);
+                }
+            }
+            if (list.Count > 0)
+            {
+                FormBatchMail form = new FormBatchMail(list, db);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data Selected!");
             }
 
         }

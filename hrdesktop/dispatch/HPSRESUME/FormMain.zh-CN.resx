@@ -250,8 +250,8 @@
   <data name="label4.Text" xml:space="preserve">
     <value>经验</value>
   </data>
-  <data name="btnMailSend.Text" xml:space="preserve">
-    <value>邮件发送</value>
+  <data name="btnMailToCustomer.Text" xml:space="preserve">
+    <value>顾客送信</value>
   </data>
   <data name="btnTrain.Text" xml:space="preserve">
     <value>资格</value>
@@ -265,8 +265,14 @@
   <data name="btnImportCsv.Text" xml:space="preserve">
     <value>Csv导入</value>
   </data>
+  <data name="btnSendMail.Text" xml:space="preserve">
+    <value>送信</value>
+  </data>
+  <data name="btnBatchMail.Text" xml:space="preserve">
+    <value>成批送信</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>992, 559</value>
+    <value>992, 567</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>人才管理</value>

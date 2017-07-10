@@ -36,7 +36,7 @@
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvData = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,12 +78,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTool = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.btnMailSend = new System.Windows.Forms.Button();
+            this.btnMailToCustomer = new System.Windows.Forms.Button();
             this.btnTrain = new System.Windows.Forms.Button();
             this.btnCreateBiza = new System.Windows.Forms.Button();
             this.btnSchool = new System.Windows.Forms.Button();
             this.btnImportCsv = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnSendMail = new System.Windows.Forms.Button();
+            this.btnBatchMail = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -112,8 +114,8 @@
             // 
             // cmbRole
             // 
-            resources.ApplyResources(this.cmbRole, "cmbRole");
             this.cmbRole.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbRole, "cmbRole");
             this.cmbRole.Name = "cmbRole";
             // 
             // label2
@@ -126,14 +128,13 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // dataGridView1
+            // dgvData
             // 
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.AllowUserToOrderColumns = true;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -167,9 +168,10 @@
             this.Column31,
             this.Column32,
             this.Column33});
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            resources.ApplyResources(this.dgvData, "dgvData");
+            this.dgvData.Name = "dgvData";
+            this.dgvData.RowTemplate.Height = 23;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // Column1
             // 
@@ -419,12 +421,12 @@
             resources.ApplyResources(this.txtName, "txtName");
             this.txtName.Name = "txtName";
             // 
-            // btnMailSend
+            // btnMailToCustomer
             // 
-            resources.ApplyResources(this.btnMailSend, "btnMailSend");
-            this.btnMailSend.Name = "btnMailSend";
-            this.btnMailSend.UseVisualStyleBackColor = true;
-            this.btnMailSend.Click += new System.EventHandler(this.btnMailSend_Click);
+            resources.ApplyResources(this.btnMailToCustomer, "btnMailToCustomer");
+            this.btnMailToCustomer.Name = "btnMailToCustomer";
+            this.btnMailToCustomer.UseVisualStyleBackColor = true;
+            this.btnMailToCustomer.Click += new System.EventHandler(this.btnMailSend_Click);
             // 
             // btnTrain
             // 
@@ -454,15 +456,31 @@
             this.btnImportCsv.UseVisualStyleBackColor = true;
             this.btnImportCsv.Click += new System.EventHandler(this.btnImportCsv_Click);
             // 
+            // btnSendMail
+            // 
+            resources.ApplyResources(this.btnSendMail, "btnSendMail");
+            this.btnSendMail.Name = "btnSendMail";
+            this.btnSendMail.UseVisualStyleBackColor = true;
+            this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
+            // 
+            // btnBatchMail
+            // 
+            resources.ApplyResources(this.btnBatchMail, "btnBatchMail");
+            this.btnBatchMail.Name = "btnBatchMail";
+            this.btnBatchMail.UseVisualStyleBackColor = true;
+            this.btnBatchMail.Click += new System.EventHandler(this.btnBatchMail_Click);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBatchMail);
+            this.Controls.Add(this.btnSendMail);
             this.Controls.Add(this.btnImportCsv);
             this.Controls.Add(this.btnSchool);
             this.Controls.Add(this.btnCreateBiza);
             this.Controls.Add(this.btnTrain);
-            this.Controls.Add(this.btnMailSend);
+            this.Controls.Add(this.btnMailToCustomer);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtTool);
             this.Controls.Add(this.label4);
@@ -471,7 +489,7 @@
             this.Controls.Add(this.btnDispatch);
             this.Controls.Add(this.btnWork);
             this.Controls.Add(this.btnMemberinfo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvData);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbRole);
@@ -482,7 +500,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FormMain";
             this.Load += new System.EventHandler(this.FormCJC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,7 +515,7 @@
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Button btnMemberinfo;
         private System.Windows.Forms.Button btnWork;
         private System.Windows.Forms.Button btnDispatch;
@@ -506,7 +524,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTool;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Button btnMailSend;
+        private System.Windows.Forms.Button btnMailToCustomer;
         private System.Windows.Forms.Button btnTrain;
         private System.Windows.Forms.Button btnCreateBiza;
         private System.Windows.Forms.Button btnSchool;
@@ -544,5 +562,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
         private System.Windows.Forms.Button btnImportCsv;
+        private System.Windows.Forms.Button btnSendMail;
+        private System.Windows.Forms.Button btnBatchMail;
     }
 }
