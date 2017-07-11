@@ -50,6 +50,26 @@
             this.lblCustomer = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtScale = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
@@ -80,26 +100,6 @@
             this.cmbFormat = new System.Windows.Forms.ComboBox();
             this.cmbKind = new System.Windows.Forms.ComboBox();
             this.btnGet = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,6 +212,7 @@
             // 
             // dataGridView1
             // 
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -237,7 +238,6 @@
             this.Column18,
             this.Column19,
             this.Column20});
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -245,180 +245,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // txtScale
-            // 
-            resources.ApplyResources(this.txtScale, "txtScale");
-            this.txtScale.Name = "txtScale";
-            // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
-            // txtMail
-            // 
-            resources.ApplyResources(this.txtMail, "txtMail");
-            this.txtMail.Name = "txtMail";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // txtOther
-            // 
-            resources.ApplyResources(this.txtOther, "txtOther");
-            this.txtOther.Name = "txtOther";
-            // 
-            // lblOther
-            // 
-            resources.ApplyResources(this.lblOther, "lblOther");
-            this.lblOther.Name = "lblOther";
-            // 
-            // txtCYMD
-            // 
-            resources.ApplyResources(this.txtCYMD, "txtCYMD");
-            this.txtCYMD.Name = "txtCYMD";
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
-            // 
-            // txtWeb
-            // 
-            resources.ApplyResources(this.txtWeb, "txtWeb");
-            this.txtWeb.Name = "txtWeb";
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
-            // txtJCname
-            // 
-            resources.ApplyResources(this.txtJCname, "txtJCname");
-            this.txtJCname.Name = "txtJCname";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            // 
-            // txtCreateTime
-            // 
-            resources.ApplyResources(this.txtCreateTime, "txtCreateTime");
-            this.txtCreateTime.Name = "txtCreateTime";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // btnDelete
-            // 
-            resources.ApplyResources(this.btnDelete, "btnDelete");
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnExport
-            // 
-            resources.ApplyResources(this.btnExport, "btnExport");
-            this.btnExport.Name = "btnExport";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnMailSend
-            // 
-            resources.ApplyResources(this.btnMailSend, "btnMailSend");
-            this.btnMailSend.Name = "btnMailSend";
-            this.btnMailSend.UseVisualStyleBackColor = true;
-            this.btnMailSend.Click += new System.EventHandler(this.btnMailSend_Click);
-            // 
-            // lblRecordNum
-            // 
-            resources.ApplyResources(this.lblRecordNum, "lblRecordNum");
-            this.lblRecordNum.Name = "lblRecordNum";
-            // 
-            // label17
-            // 
-            resources.ApplyResources(this.label17, "label17");
-            this.label17.Name = "label17";
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
-            // 
-            // btnSearch
-            // 
-            resources.ApplyResources(this.btnSearch, "btnSearch");
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // cmbKinds
-            // 
-            this.cmbKinds.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbKinds, "cmbKinds");
-            this.cmbKinds.Name = "cmbKinds";
-            // 
-            // cmbFormats
-            // 
-            this.cmbFormats.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbFormats, "cmbFormats");
-            this.cmbFormats.Name = "cmbFormats";
-            // 
-            // cmbSubscripts
-            // 
-            this.cmbSubscripts.FormattingEnabled = true;
-            this.cmbSubscripts.Items.AddRange(new object[] {
-            resources.GetString("cmbSubscripts.Items"),
-            resources.GetString("cmbSubscripts.Items1"),
-            resources.GetString("cmbSubscripts.Items2")});
-            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
-            this.cmbSubscripts.Name = "cmbSubscripts";
-            // 
-            // cmbSubscript
-            // 
-            this.cmbSubscript.FormattingEnabled = true;
-            this.cmbSubscript.Items.AddRange(new object[] {
-            resources.GetString("cmbSubscript.Items"),
-            resources.GetString("cmbSubscript.Items1"),
-            resources.GetString("cmbSubscript.Items2")});
-            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
-            this.cmbSubscript.Name = "cmbSubscript";
-            // 
-            // cmbFormat
-            // 
-            this.cmbFormat.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbFormat, "cmbFormat");
-            this.cmbFormat.Name = "cmbFormat";
-            // 
-            // cmbKind
-            // 
-            this.cmbKind.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbKind, "cmbKind");
-            this.cmbKind.Name = "cmbKind";
-            // 
-            // btnGet
-            // 
-            resources.ApplyResources(this.btnGet, "btnGet");
-            this.btnGet.Name = "btnGet";
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
             // Column1
             // 
@@ -559,6 +385,180 @@
             resources.ApplyResources(this.Column20, "Column20");
             this.Column20.Name = "Column20";
             this.Column20.ReadOnly = true;
+            // 
+            // txtScale
+            // 
+            resources.ApplyResources(this.txtScale, "txtScale");
+            this.txtScale.Name = "txtScale";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // txtMail
+            // 
+            resources.ApplyResources(this.txtMail, "txtMail");
+            this.txtMail.Name = "txtMail";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // txtOther
+            // 
+            resources.ApplyResources(this.txtOther, "txtOther");
+            this.txtOther.Name = "txtOther";
+            // 
+            // lblOther
+            // 
+            resources.ApplyResources(this.lblOther, "lblOther");
+            this.lblOther.Name = "lblOther";
+            // 
+            // txtCYMD
+            // 
+            resources.ApplyResources(this.txtCYMD, "txtCYMD");
+            this.txtCYMD.Name = "txtCYMD";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // txtWeb
+            // 
+            resources.ApplyResources(this.txtWeb, "txtWeb");
+            this.txtWeb.Name = "txtWeb";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // txtJCname
+            // 
+            resources.ApplyResources(this.txtJCname, "txtJCname");
+            this.txtJCname.Name = "txtJCname";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // txtCreateTime
+            // 
+            resources.ApplyResources(this.txtCreateTime, "txtCreateTime");
+            this.txtCreateTime.Name = "txtCreateTime";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // btnDelete
+            // 
+            resources.ApplyResources(this.btnDelete, "btnDelete");
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnExport
+            // 
+            resources.ApplyResources(this.btnExport, "btnExport");
+            this.btnExport.Name = "btnExport";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnMailSend
+            // 
+            resources.ApplyResources(this.btnMailSend, "btnMailSend");
+            this.btnMailSend.Name = "btnMailSend";
+            this.btnMailSend.UseVisualStyleBackColor = true;
+            this.btnMailSend.Click += new System.EventHandler(this.btnMailSend_Click);
+            // 
+            // lblRecordNum
+            // 
+            resources.ApplyResources(this.lblRecordNum, "lblRecordNum");
+            this.lblRecordNum.Name = "lblRecordNum";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // btnSearch
+            // 
+            resources.ApplyResources(this.btnSearch, "btnSearch");
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cmbKinds
+            // 
+            resources.ApplyResources(this.cmbKinds, "cmbKinds");
+            this.cmbKinds.FormattingEnabled = true;
+            this.cmbKinds.Name = "cmbKinds";
+            // 
+            // cmbFormats
+            // 
+            resources.ApplyResources(this.cmbFormats, "cmbFormats");
+            this.cmbFormats.FormattingEnabled = true;
+            this.cmbFormats.Name = "cmbFormats";
+            // 
+            // cmbSubscripts
+            // 
+            resources.ApplyResources(this.cmbSubscripts, "cmbSubscripts");
+            this.cmbSubscripts.FormattingEnabled = true;
+            this.cmbSubscripts.Items.AddRange(new object[] {
+            resources.GetString("cmbSubscripts.Items"),
+            resources.GetString("cmbSubscripts.Items1"),
+            resources.GetString("cmbSubscripts.Items2")});
+            this.cmbSubscripts.Name = "cmbSubscripts";
+            // 
+            // cmbSubscript
+            // 
+            resources.ApplyResources(this.cmbSubscript, "cmbSubscript");
+            this.cmbSubscript.FormattingEnabled = true;
+            this.cmbSubscript.Items.AddRange(new object[] {
+            resources.GetString("cmbSubscript.Items"),
+            resources.GetString("cmbSubscript.Items1"),
+            resources.GetString("cmbSubscript.Items2")});
+            this.cmbSubscript.Name = "cmbSubscript";
+            // 
+            // cmbFormat
+            // 
+            resources.ApplyResources(this.cmbFormat, "cmbFormat");
+            this.cmbFormat.FormattingEnabled = true;
+            this.cmbFormat.Name = "cmbFormat";
+            // 
+            // cmbKind
+            // 
+            resources.ApplyResources(this.cmbKind, "cmbKind");
+            this.cmbKind.FormattingEnabled = true;
+            this.cmbKind.Name = "cmbKind";
+            // 
+            // btnGet
+            // 
+            resources.ApplyResources(this.btnGet, "btnGet");
+            this.btnGet.Name = "btnGet";
+            this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
             // FormMain
             // 

@@ -50,11 +50,23 @@
     <Compile Include="FormBaseInfo.Designer.cs">
       <DependentUpon>FormBaseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBatchMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBatchMail.Designer.cs">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCustomer.Designer.cs">
       <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMail.Designer.cs">
+      <DependentUpon>FormMail.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -98,6 +110,15 @@
     <EmbeddedResource Include="FormBaseInfo.zh-CN.resx">
       <DependentUpon>FormBaseInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchMail.ja-JP.resx">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchMail.resx">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchMail.zh-CN.resx">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCustomer.ja-JP.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +127,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCustomer.zh-CN.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMail.ja-JP.resx">
+      <DependentUpon>FormMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMail.resx">
+      <DependentUpon>FormMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMail.zh-CN.resx">
+      <DependentUpon>FormMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
