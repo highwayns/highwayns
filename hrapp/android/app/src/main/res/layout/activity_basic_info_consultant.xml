@@ -124,6 +124,7 @@
             android:orientation="horizontal">
         <Button
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:text="@string/BASIC_CONSULTANT_AFFIRM"
                 android:id="@+id/btnAffirm_Basic_Consultant_Info"
                 android:layout_weight="1"
@@ -133,6 +134,7 @@
         />
         <Button
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:id="@+id/btnCancel_Basic_Consultant_Info"
                 android:text="@string/BASIC_CONSULTANT_CANCEL"
                 android:layout_gravity="left"

@@ -31,9 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tool\bin\Debug\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +48,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="FormBatchMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBatchMail.Designer.cs">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGovementEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGovementEdit.Designer.cs">
+      <DependentUpon>FormGovementEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMail.Designer.cs">
+      <DependentUpon>FormMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,8 +79,41 @@
       <DependentUpon>FormProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormProjectEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProjectEdit.Designer.cs">
+      <DependentUpon>FormProjectEdit.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormBatchMail.ja-JP.resx">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchMail.resx">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchMail.zh-CN.resx">
+      <DependentUpon>FormBatchMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGovementEdit.ja-JP.resx">
+      <DependentUpon>FormGovementEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGovementEdit.resx">
+      <DependentUpon>FormGovementEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGovementEdit.zh-CN.resx">
+      <DependentUpon>FormGovementEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMail.ja-JP.resx">
+      <DependentUpon>FormMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMail.resx">
+      <DependentUpon>FormMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMail.zh-CN.resx">
+      <DependentUpon>FormMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -69,8 +125,23 @@
     <EmbeddedResource Include="FormMain.zh-CN.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProject.ja-JP.resx">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProject.resx">
       <DependentUpon>FormProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProject.zh-CN.resx">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProjectEdit.ja-JP.resx">
+      <DependentUpon>FormProjectEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProjectEdit.resx">
+      <DependentUpon>FormProjectEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProjectEdit.zh-CN.resx">
+      <DependentUpon>FormProjectEdit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
