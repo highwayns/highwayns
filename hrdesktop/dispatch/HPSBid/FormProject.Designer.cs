@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProject));
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnGet = new System.Windows.Forms.Button();
+            this.cmbFormats = new System.Windows.Forms.ComboBox();
+            this.cmbKinds = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblRecordNum = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,14 +47,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnGet = new System.Windows.Forms.Button();
-            this.cmbFormats = new System.Windows.Forms.ComboBox();
-            this.cmbKinds = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblCustomer = new System.Windows.Forms.Label();
-            this.lblRecordNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +70,52 @@
             this.dgvData.RowTemplate.Height = 21;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
+            // 
+            // btnGet
+            // 
+            resources.ApplyResources(this.btnGet, "btnGet");
+            this.btnGet.Name = "btnGet";
+            this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
+            // 
+            // cmbFormats
+            // 
+            resources.ApplyResources(this.cmbFormats, "cmbFormats");
+            this.cmbFormats.FormattingEnabled = true;
+            this.cmbFormats.Name = "cmbFormats";
+            // 
+            // cmbKinds
+            // 
+            resources.ApplyResources(this.cmbKinds, "cmbKinds");
+            this.cmbKinds.FormattingEnabled = true;
+            this.cmbKinds.Name = "cmbKinds";
+            // 
+            // btnSearch
+            // 
+            resources.ApplyResources(this.btnSearch, "btnSearch");
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // lblCustomer
+            // 
+            resources.ApplyResources(this.lblCustomer, "lblCustomer");
+            this.lblCustomer.Name = "lblCustomer";
+            // 
+            // lblRecordNum
+            // 
+            resources.ApplyResources(this.lblRecordNum, "lblRecordNum");
+            this.lblRecordNum.Name = "lblRecordNum";
             // 
             // Column1
             // 
@@ -133,52 +179,6 @@
             resources.ApplyResources(this.Column9, "Column9");
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            // 
-            // btnGet
-            // 
-            resources.ApplyResources(this.btnGet, "btnGet");
-            this.btnGet.Name = "btnGet";
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
-            // 
-            // cmbFormats
-            // 
-            resources.ApplyResources(this.cmbFormats, "cmbFormats");
-            this.cmbFormats.FormattingEnabled = true;
-            this.cmbFormats.Name = "cmbFormats";
-            // 
-            // cmbKinds
-            // 
-            resources.ApplyResources(this.cmbKinds, "cmbKinds");
-            this.cmbKinds.FormattingEnabled = true;
-            this.cmbKinds.Name = "cmbKinds";
-            // 
-            // btnSearch
-            // 
-            resources.ApplyResources(this.btnSearch, "btnSearch");
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
-            // 
-            // lblCustomer
-            // 
-            resources.ApplyResources(this.lblCustomer, "lblCustomer");
-            this.lblCustomer.Name = "lblCustomer";
-            // 
-            // lblRecordNum
-            // 
-            resources.ApplyResources(this.lblRecordNum, "lblRecordNum");
-            this.lblRecordNum.Name = "lblRecordNum";
             // 
             // FormProject
             // 
