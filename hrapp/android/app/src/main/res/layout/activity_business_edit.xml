@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/abs__background_holo_light"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+        <Button
+                android:id="@+id/btnBack_Edit_Business_Enterprise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/EDIT_BUSINESS_ENTERPRISE_BACK"
+                android:layout_gravity="center"
+                android:layout_weight="0.42"/>
+
+        <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/TITLE_EDIT_BUSINESS_ENTERPRISE"
+                android:textColor="@color/default_black_color"
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+        />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAdd_Edit_Business_Enterprise"
+                android:layout_margin="5dp"
+                android:text="@string/EDIT_BUSINESS_ENTERPRISE_ADD"
+                android:layout_gravity="center"
+                android:layout_weight="0.42"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/edit_business_enterprise_ivIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="72px"
+                android:src="@drawable/tt_clock_icon"
+                android:layout_gravity="center"
+                android:maxWidth="72px"
+                android:paddingBottom="20px"
+                android:paddingRight="10px"
+                android:paddingTop="20px"
+
+        />
+
+        <Spinner
+                android:id="@+id/edit_business_enterprise_tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10px"
+        />
+
+    </LinearLayout>
+    <EditText
+            android:id="@+id/edit_business_enterprise_etInfo"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_height="150dp"/>
+
+</LinearLayout>

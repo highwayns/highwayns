@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/abs__background_holo_light"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+        <Button
+                android:id="@+id/btnBack_Basic_Info_Personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/BASIC_CONSULTANT_BACK"
+                android:layout_gravity="center"
+                android:layout_weight="0.42"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TITLE_BASIC_CONSULTANT"
+                android:textColor="@color/default_black_color"
+                android:layout_gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+        />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnEdit_Basic_Info_Personal"
+                android:layout_margin="5dp"
+                android:text="@string/BASIC_CONSULTANT_EDIT"
+                android:layout_gravity="center"
+                android:layout_weight="0.42"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/ivIcon_Basic_Info_Personal_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="72px"
+                android:maxWidth="72px"
+                android:paddingBottom="20px"
+                android:paddingRight="10px"
+                android:paddingTop="20px"
+
+        />
+
+        <TextView
+                android:id="@+id/tvTitle_Basic_Info_Personal_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/BASIC_CONSULTANT_NAME"
+                android:padding="10px"
+        />
+
+
+    </LinearLayout>
+    <EditText
+            android:id="@+id/etConsultant_Basic_Info_Personal_Name"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"/>
+
+
+    <EditText
+            android:id="@+id/Basic_Info_Personal_etInfo"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_height="150dp"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/ivIcon_Basic_Info_Personal_Resume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="72px"
+                android:maxWidth="72px"
+                android:paddingBottom="20px"
+                android:paddingRight="10px"
+                android:paddingTop="20px"
+
+        />
+
+        <TextView
+                android:id="@+id/tvTitle_Basic_Info_Personal_Resume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/BASIC_CONSULTANT_RESUME"
+                android:padding="10px"
+        />
+
+
+    </LinearLayout>
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:background="@color/abs__background_holo_light"
+            android:layout_margin="5dp"
+            android:id="@+id/ivConsultantPic_Basic_Info_Personal_Info"
+    />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/BASIC_CONSULTANT_AFFIRM"
+                android:id="@+id/btnAffirm_Basic_Info_Personal_Info"
+                android:layout_weight="1"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="right"
+
+        />
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/btnCancel_Basic_Info_Personal_Info"
+                android:text="@string/BASIC_CONSULTANT_CANCEL"
+                android:layout_gravity="left"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+        />
+
+    </LinearLayout>
+
+
+</LinearLayout>

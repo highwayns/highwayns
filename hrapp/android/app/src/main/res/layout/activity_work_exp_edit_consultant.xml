@@ -8,6 +8,7 @@
             android:layout_height="wrap_content"
             android:background="@color/abs__background_holo_light"
             android:orientation="horizontal"
+            android:layout_margin="5dp"
             android:weightSum="1">
 
         <Button
@@ -48,6 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:src="@drawable/tt_clock_icon"
                 android:maxHeight="72px"
                 android:maxWidth="72px"
                 android:paddingBottom="20px"
@@ -55,9 +58,9 @@
                 android:paddingTop="20px"
         />
 
-        <TextView
+        <EditText
                 android:id="@+id/tvTitle_Work_Exp_Edit_Consultant"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10px"
