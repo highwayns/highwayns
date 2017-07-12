@@ -11,32 +11,24 @@
             android:weightSum="1">
 
         <Button
-                android:id="@+id/btnBack_Basic_Info_Personal"
+                android:id="@+id/btnBack_Personal_Info_Skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@string/BASIC_PERSONAL_BACK"
+                android:text="@string/PERSONAL_BASIC_SKILL_BACK"
                 android:layout_gravity="center"
                 android:layout_weight="0.42"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/TITLE_BASIC_PERSONAL"
+                android:text="@string/TITLE_PERSONAL_BASIC_SKILL"
                 android:textColor="@color/default_black_color"
                 android:layout_gravity="center"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
         />
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnEdit_Basic_Info_Personal"
-                android:layout_margin="5dp"
-                android:text="@string/BASIC_PERSONAL_EDIT"
-                android:layout_gravity="center"
-                android:layout_weight="0.42"/>
     </LinearLayout>
 
     <LinearLayout
@@ -45,7 +37,7 @@
             android:layout_height="match_parent">
 
         <ImageView
-                android:id="@+id/ivIcon_Basic_Info_Personal_Name"
+                android:id="@+id/ivIcon_Personal_Info_Skill_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
@@ -58,32 +50,32 @@
         />
 
         <TextView
-                android:id="@+id/tvTitle_Basic_Info_Personal_Name"
+                android:id="@+id/tvTitle_Personal_Info_Skill_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/BASIC_PERSONAL_NAME"
+                android:text="@string/PERSONAL_BASIC_SKILL_NAME"
                 android:padding="10px"
         />
 
 
     </LinearLayout>
     <EditText
-            android:id="@+id/etConsultant_Basic_Info_Personal_Name"
+            android:id="@+id/etPersonal_Personal_Info_Skill_Name"
             android:layout_width="match_parent"
             android:layout_margin="5dp"
             android:layout_height="wrap_content"/>
 
     <TextView
-            android:id="@+id/tvTitle_Basic_Info_Personal_Age"
+            android:id="@+id/tvTitle_Personal_Info_Skill_Age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/BASIC_PERSONAL_AGE"
+            android:text="@string/PERSONAL_BASIC_SKILL_AGE"
             android:padding="10px"
     />
 
     <EditText
-            android:id="@+id/Basic_Info_Personal_etAge"
+            android:id="@+id/Personal_Info_Skill_etAge"
             android:layout_width="match_parent"
             android:layout_margin="5dp"
             android:layout_height="150dp"/>
@@ -93,7 +85,7 @@
             android:layout_height="match_parent">
 
         <ImageView
-                android:id="@+id/ivIcon_Basic_Info_Personal_Resume"
+                android:id="@+id/ivIcon_Personal_Info_Skill_Station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
@@ -106,11 +98,11 @@
         />
 
         <TextView
-                android:id="@+id/tvTitle_Basic_Info_Personal_Resume"
+                android:id="@+id/tvTitle_Personal_Info_Skill_Station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/BASIC_PERSONAL_STATION"
+                android:text="@string/PERSONAL_BASIC_SKILL_STATION"
                 android:padding="10px"
         />
 
@@ -122,34 +114,9 @@
             android:layout_height="150dp"
             android:background="@color/abs__background_holo_light"
             android:layout_margin="5dp"
-            android:id="@+id/etStation_Basic_Info_Personal"
+            android:id="@+id/etStation_Personal_Info_Skill"
     />
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/BASIC_PERSONAL_AFFIRM"
-                android:id="@+id/btnAffirm_Basic_Info_Personal_Info"
-                android:layout_weight="1"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="right"
-
-        />
-        <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:id="@+id/btnCancel_Basic_Info_Personal_Info"
-                android:text="@string/BASIC_PERSONAL_CANCEL"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
-                android:layout_weight="1"
-        />
-
-    </LinearLayout>
 
 
 </LinearLayout>

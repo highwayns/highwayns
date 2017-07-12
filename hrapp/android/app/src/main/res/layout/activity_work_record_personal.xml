@@ -12,7 +12,7 @@
             android:weightSum="1">
 
         <Button
-                android:id="@+id/btnBack_Edu_Record_Personal"
+                android:id="@+id/btnBack_Work_Record_Personal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -23,7 +23,7 @@
         <TextView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="@string/TITLE_EDU_RECORD_PERSONAL"
+                android:text="@string/TITLE_WORK_RECORD_PERSONAL"
                 android:textColor="@color/default_black_color"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -34,9 +34,9 @@
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnAdd_Edu_Record_Personal"
+                android:id="@+id/btnAdd_Work_Record_Personal"
                 android:layout_margin="5dp"
-                android:text="@string/EDU_RECORD_PERSONAL_ADD"
+                android:text="@string/WORK_RECORD_PERSONAL_ADD"
                 android:layout_gravity="center"
                 android:layout_weight="0.42"/>
     </LinearLayout>
@@ -49,7 +49,7 @@
     >
 
         <ListView
-                android:id="@+id/lvItem_Edu_Record_Personal"
+                android:id="@+id/lvItem_Work_Record_Personal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true">
