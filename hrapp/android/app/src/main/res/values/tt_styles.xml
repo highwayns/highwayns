@@ -110,6 +110,10 @@
     </style>
 
 
+    <style name="buttonSwitch" parent="@android:style/Widget.CompoundButton">
+        <item name="android:button">@drawable/switch_button</item>
+    </style>
+
     <!--<style name="AppTheme" parent="android:Theme.NoTitleBar">-->
         <!--<item name="android:textViewStyle">@style/AppTheme.Widget.TextView</item>-->
     <!--</style>-->

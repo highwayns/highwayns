@@ -41,4 +41,165 @@
                 android:layout_weight="0.42"/>
     </LinearLayout>
 
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/USERID_BASIC_INFO_USER_CENTER"
+                    android:paddingLeft="50dp"
+                    android:layout_margin="5dp"
+            />
+            <EditText
+                    android:layout_margin="5dp"
+                    android:id="@+id/etUSerID_Basic_Info_UserCenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:paddingRight="70dp"
+                    android:paddingLeft="50dp"
+
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/BASIC_INFO_USER_CENTER_PERSONAL_ACT"
+                    android:id="@+id/textView"/>
+
+            <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/buttonSwitch"
+                    android:id="@+id/swConsultant_Basic_Info_UserCenter"
+                    android:background="#00000000"
+                    android:checked="true"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:paddingRight="70dp"
+                    android:layout_width="210dp"
+                    android:paddingLeft="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/BASIC_INFO_USER_CENTER_CONSULTANT_ACT"
+            />
+
+            <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/buttonSwitch"
+                    android:id="@+id/swPersonal_Basic_Info_UserCenter"
+                    android:background="#00000000"
+                    android:checked="true"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:paddingRight="70dp"
+                    android:layout_width="210dp"
+                    android:paddingLeft="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/BASIC_INFO_USER_CENTER_ENTERPRISE_ACT"
+            />
+
+            <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/buttonSwitch"
+                    android:id="@+id/swEnterprise_Basic_Info_UserCenter"
+                    android:background="#00000000"
+                    android:checked="true"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_margin="5dp"
+                android:text="@string/BASIC_INFO_USER_CENTER_EMAIL"
+                android:paddingLeft="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_margin="5dp"
+                android:id="@+id/etEmail_Basic_Info_UserCenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_margin="5dp"
+                android:text="@string/BASIC_INFO_USER_CENTER_TEL"
+                android:paddingLeft="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_margin="5dp"
+                android:id="@+id/etTel_Basic_Info_UserCenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+<LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btnConfirm_Basic_Info_UserCenter"
+        android:text="@string/BASIC_INFO_USER_CENTER_CONFIRM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginRight="50dp"
+    />
+    <Button
+            android:id="@+id/btnCancel_Basic_Info_UserCenter"
+            android:text="@string/BASIC_INFO_USER_CENTER_CANCEL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+    />
+
+</LinearLayout>
+
 </LinearLayout>
