@@ -167,4 +167,20 @@
     <string name="POINT_USER_CENTER_DEPOSIT">Deposit</string>
     <string name="POINT_USER_CENTER_WITHDRAW">Withdraw</string>
     <string name="POINT_USER_CENTER_CANCEL">Cancel</string>
+    <string name="FORGOT_PWD_USER_CENTER_BACK">Back</string>
+    <string name="TITLE_FORGOT_PWD_USER_CENTER">Forgot Password</string>
+    <string name="USER_ID_FORGOT_PWD_USER_CENTER">User ID</string>
+    <string name="EMAIL_FORGOT_PWD_USER_CENTER">Email</string>
+    <string name="FORGOT_PWD_USER_CENTER_SEND">Send</string>
+    <string name="FORGOT_PWD_USER_CENTER_CANCEL">Cancel</string>
+    <string name="RECOMMEND_USER_CENTER_BACK">Back</string>
+    <string name="TITLE_RECOMMEND_USER_CENTER">Friends Recommend</string>
+    <string name="USER_ID_RECOMMEND_USER_CENTER">User ID</string>
+    <string name="EMAIL_RECOMMEND_USER_CENTER">Friend\"s Email</string>
+    <string name="RECOMMEND_USER_CENTER_SEND">Send</string>
+    <string name="RECOMMEND_USER_CENTER_CANCEL">Cancel</string>
+    <string name="SETTING_USER_CENTER_BACK">Back</string>
+    <string name="SETTING_USER_CENTER_EDIT">Edit</string>
+    <string name="TITLE_SETTING_USER_CENTER">Setting</string>
+    <string name="USER_ID_SETTING_USER_CENTER">User ID</string>
 </resources>
