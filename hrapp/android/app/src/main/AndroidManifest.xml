@@ -150,6 +150,20 @@
         </activity>
         <activity android:name=".ui.activity.HomeConsultantActivity">
         </activity>
+        <activity android:name=".ui.activity.HomeEnterpriseActivity">
+        </activity>
+        <activity android:name=".ui.activity.HomeSkillActivity">
+        </activity>
+        <activity android:name=".ui.activity.HomeUserCenterActivity">
+        </activity>
+        <activity android:name=".ui.activity.HomeServiceActivity">
+        </activity>
+        <activity android:name=".ui.activity.HomeNewsActivity">
+        </activity>
+        <activity android:name=".ui.activity.HomeAboutActivity">
+        </activity>
+        <activity android:name=".ui.activity.HomeHelpActivity">
+        </activity>
     </application>
 
 </manifest>

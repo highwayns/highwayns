@@ -10,9 +10,15 @@ import com.highwayns.ht.R;
 
 public class MainPersonalActivity extends Activity implements View.OnClickListener{
 
-    private Button mPersonal, mConsultant, mCompany,
-                   mSkillTest, mUserCenter, mService,
-                   mNews, mAbout, mHelp;
+    private Button mPersonal;
+    private Button mConsultant;
+    private Button mCompany;
+    private Button mSkillTest;
+    private Button mUserCenter;
+    private Button mService;
+    private Button mNews;
+    private Button mAbout;
+    private Button mHelp;
     private ImageView mImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,7 @@ public class MainPersonalActivity extends Activity implements View.OnClickListen
         mConsultant = (Button)findViewById(R.id.btnCounselor_Main_Personal);
         mCompany = (Button)findViewById(R.id.btnCompany_Main_Personal);
         mSkillTest = (Button)findViewById(R.id.btnSkill_Main_Personal);
-        mUserCenter = (Button)findViewById(R.id.btnUserCenter_Main_Personal);
+        mUserCenter = (Button) findViewById(R.id.btnUserCenter_Main_Personal);
         mService = (Button)findViewById(R.id.btnService_Main_Personal);
         mNews = (Button)findViewById(R.id.btnNews_Main_Personal);
         mAbout = (Button)findViewById(R.id.btnAbout_Main_Personal);
@@ -60,8 +66,46 @@ public class MainPersonalActivity extends Activity implements View.OnClickListen
 
             case R.id.btnCounselor_Main_Personal:
                 intent = new Intent(MainPersonalActivity.this, HomeConsultantActivity.class);
+                startActivity(intent);
+                break;
 
-                break;;
+            case R.id.btnCompany_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeEnterpriseActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnSkill_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeSkillActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnUserCenter_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeUserCenterActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnService_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeServiceActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnNews_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeNewsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnAbout_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeAboutActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnHelp_Main_Personal:
+                intent = new Intent(MainPersonalActivity.this, HomeHelpActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
         }
     }
 }

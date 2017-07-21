@@ -1,0 +1,14 @@
+package com.highwayns.ht.ui.activity;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import com.highwayns.ht.R;
+
+public class HomeNewsActivity extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activiy_home_news);
+    }
+}

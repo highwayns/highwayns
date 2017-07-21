@@ -183,4 +183,11 @@
     <string name="SETTING_USER_CENTER_EDIT">Edit</string>
     <string name="TITLE_SETTING_USER_CENTER">Setting</string>
     <string name="USER_ID_SETTING_USER_CENTER">User ID</string>
+    <string name="PERSONAL_HOME_LIST_BASIC_INFO">Basic Information</string>
+    <string name="PERSONAL_HOME_LIST_EDU_RECORD">Educational Record</string>
+    <string name="PERSONAL_HOME_LIST_WORK_RECORD">Work Record</string>
+    <string name="PERSONAL_HOME_LIST_JOB_SEARCH">Search Job</string>
+    <string name="PERSONAL_HOME_LIST_SKILL_CONTEST">Skill Contest</string>
+    <string name="PERSONAL_HOME_LIST_SERVICE">Service</string>
+    <string name="PERSONAL_HOME_LIST_CONSUILTANT_CONTACT">Contact Consultant</string>
 </resources>
