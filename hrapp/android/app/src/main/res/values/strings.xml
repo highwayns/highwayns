@@ -190,4 +190,11 @@
     <string name="PERSONAL_HOME_LIST_SKILL_CONTEST">Skill Contest</string>
     <string name="PERSONAL_HOME_LIST_SERVICE">Service</string>
     <string name="PERSONAL_HOME_LIST_CONSUILTANT_CONTACT">Contact Consultant</string>
+    <string name="CONSULTANT_HOME_LIST_BASIC_INFO">Basic Information</string>
+    <string name="CONSULTANT_HOME_LIST_EDU_RECORD">Educational Record</string>
+    <string name="CONSULTANT_HOME_LIST_WORK_RECORD">Work Record</string>
+    <string name="CONSULTANT_HOME_LIST_ENTERPRISE_LIST">Enterprise List</string>
+    <string name="CONSULTANT_HOME_LIST_SKILL_CONTEST">Skill Contest</string>
+    <string name="CONSULTANT_HOME_LIST_SERVICE">Service</string>
+    <string name="CONSULTANT_HOME_LIST_PERSONAL_CONTACT">Personal Contact</string>
 </resources>

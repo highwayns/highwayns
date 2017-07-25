@@ -1,8 +1,10 @@
 package com.highwayns.ht.ui.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +12,8 @@ import android.widget.ListView;
 import com.highwayns.ht.R;
 import com.highwayns.ht.ui.adapter.ListViewAdapter;
 import com.highwayns.ht.utils.ListItem;
+
+import static android.content.ContentValues.TAG;
 
 public class HomePersonalActivity extends Activity {
 
@@ -77,7 +81,47 @@ public class HomePersonalActivity extends Activity {
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Log.d(TAG,"onItemClickListener position="+ position);
+                Intent intent;
+                switch (position){
+                    //基本情报
+                    case 0:
+                        intent = new Intent(HomePersonalActivity.this, PersonalBasicInfoActivity.class);
+                        startActivity(intent);
+                        break;
+                    //教育履历
+                    case 1:
+                        intent = new Intent(HomePersonalActivity.this, PersonalEduRecordActivity.class);
+                        startActivity(intent);
+                        break;
+                    //工作履历
+                    case 2:
+                        intent = new Intent(HomePersonalActivity.this, PersonalWorkRecordActivity.class);
+                        startActivity(intent);
+                        break;
+                    //工作检索
+                    case 3:
+                        intent = new Intent(HomePersonalActivity.this, PersonalJobSearchActivity.class);
+                        startActivity(intent);
+                        break;
+                    //知识竞技
+                    case 4:
+                        intent = new Intent(HomePersonalActivity.this, HomeSkillActivity.class);
+                        startActivity(intent);
+                        break;
+                    //SERVICE
+                    case 5:
+                        intent = new Intent(HomePersonalActivity.this, HomeServiceActivity.class);
+                        startActivity(intent);
+                        break;
+                    //顾问详谈
+                    case 6:
+                        //intent = new Intent(HomePersonalActivity.this, HomeServiceActivity.class);
+                        //startActivity(intent);
+                        break;
+
+                }
 
             }
         });

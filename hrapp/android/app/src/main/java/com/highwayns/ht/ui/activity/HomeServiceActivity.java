@@ -1,10 +1,10 @@
 package com.highwayns.ht.ui.activity;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import com.highwayns.ht.R;
 
-public class HomeServiceActivity extends ActionBarActivity {
+public class HomeServiceActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

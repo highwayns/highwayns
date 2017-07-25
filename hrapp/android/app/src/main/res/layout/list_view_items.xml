@@ -7,7 +7,7 @@
     <ImageView
             android:id="@+id/list_view_items_ivIcon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:adjustViewBounds="true"
             android:maxHeight="72px"
             android:maxWidth="72px"

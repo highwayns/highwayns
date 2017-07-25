@@ -53,5 +53,4 @@ dependencies {
     compile 'commons-io:commons-io:2.4'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'ch.acra:acra:4.5.0'
-    compile 'com.android.support:appcompat-v7:19.1.0'
 }
