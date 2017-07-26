@@ -197,4 +197,17 @@
     <string name="CONSULTANT_HOME_LIST_SKILL_CONTEST">Skill Contest</string>
     <string name="CONSULTANT_HOME_LIST_SERVICE">Service</string>
     <string name="CONSULTANT_HOME_LIST_PERSONAL_CONTACT">Personal Contact</string>
+    <string name="ENTERPRISE_HOME_LIST_BASIC_INFO">Enterprise Basic Information</string>
+    <string name="ENTERPRISE_HOME_LIST_EXP">Enterprise Experience</string>
+    <string name="ENTERPRISE_HOME_LIST_JOB_INDICATE">Job Indicate</string>
+    <string name="ENTERPRISE_HOME_LIST_BUSINESS">Business</string>
+    <string name="ENTERPRISE_HOME_LIST_CONSULTANT">Consultant Contact</string>
+    <string name="ENTERPRISE_HOME_LIST_PERSONAL_CONTACT">Personal Contact</string>
+    <string name="ENTERPRISE_HOME_LIST_SERVICE">Service</string>
+    <string name="ABOUT_HOME_LIST_BASIC_INFO">Basic Information</string>
+    <string name="ABOUT_HOME_LIST_BUSINESS">Business</string>
+    <string name="ABOUT_HOME_LIST_ACCESS">Access</string>
+    <string name="ABOUT_HOME_LIST_EXP">Company Experience</string>
+    <string name="ABOUT_HOME_LIST_CONSULTING">Consulting us</string>
+    <string name="ABOUT_HOME_LIST_PARTNER_RECRUIT">Partner Recruit</string>
 </resources>
