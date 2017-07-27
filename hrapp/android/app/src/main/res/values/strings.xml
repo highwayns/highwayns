@@ -210,4 +210,18 @@
     <string name="ABOUT_HOME_LIST_EXP">Company Experience</string>
     <string name="ABOUT_HOME_LIST_CONSULTING">Consulting us</string>
     <string name="ABOUT_HOME_LIST_PARTNER_RECRUIT">Partner Recruit</string>
+    <string name="HELP_HOME_LIST_UPDATE_INFO">Update Personal Information</string>
+    <string name="HELP_HOME_LIST_CONSULTANT_OPERATION">Consultant Operation</string>
+    <string name="HELP_HOME_LIST_ENTERPRISE_RECRUITMENT">Enterprise Recruitment</string>
+    <string name="HELP_HOME_LIST_SERVICE_APPLICATION">Service Application</string>
+    <string name="NEWS_HOME_LIST_COMPANY">News of company</string>
+    <string name="NEWS_HOME_LIST_NEW">Newest News</string>
+    <string name="NEWS_HOME_LIST_INLAND">Home News</string>
+    <string name="NEWS_HOME_LIST_ABROAD">Abroad News</string>
+    <string name="SERVICE_HOME_LIST_RENT">House Rent</string>
+    <string name="SERVICE_HOME_LIST_REPAIR">House Repair</string>
+    <string name="SERVICE_HOME_LIST_BOOK_AIR_TICKET">Air Ticket Booking</string>
+    <string name="SERVICE_HOME_LIST_HOTEL">Hotel Reservation</string>
+    <string name="SERVICE_HOME_LIST_RESTAURANT_RESERVATION">Restaurant Reservation</string>
+    <string name="SERVICE_HOME_LIST_EVENT">Event</string>
 </resources>

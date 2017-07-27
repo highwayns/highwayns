@@ -56,43 +56,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeEnterpriseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeEnterpriseActivity.java">
+      <file leaf-file-name="HomePersonalActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomePersonalActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="136" selection-end-column="5" />
+            <state relative-caret-position="687">
+              <caret line="126" column="11" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="126" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeServiceActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeServiceActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2182">
+              <caret line="113" column="5" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="113" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1185#1240#0" expanded="true" />
-                <element signature="e#1420#1468#0" expanded="true" />
-                <element signature="e#1648#1701#0" expanded="true" />
-                <element signature="e#1881#1938#0" expanded="true" />
-                <element signature="e#2118#2173#0" expanded="true" />
-                <element signature="e#2356#2408#0" expanded="true" />
-                <element signature="e#2588#2649#0" expanded="true" />
-                <element signature="e#2783#4807#0" expanded="true" />
-                <element signature="e#4806#4807#0" expanded="true" />
+                <element signature="e#1125#1171#0" expanded="true" />
+                <element signature="e#1351#1399#0" expanded="true" />
+                <element signature="e#1579#1636#0" expanded="true" />
+                <element signature="e#1816#1863#0" expanded="true" />
+                <element signature="e#2043#2107#0" expanded="true" />
+                <element signature="e#2288#2335#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeAboutActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeAboutActivity.java">
+      <file leaf-file-name="HomeSkillActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeSkillActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="122" column="1" lean-forward="true" selection-start-line="122" selection-start-column="1" selection-end-line="123" selection-end-column="0" />
+            <state relative-caret-position="296">
+              <caret line="31" column="52" lean-forward="true" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1144#1194#0" expanded="true" />
-                <element signature="e#1374#1417#0" expanded="true" />
-                <element signature="e#1597#1645#0" expanded="true" />
-                <element signature="e#1827#1873#0" expanded="true" />
-                <element signature="e#2051#2101#0" expanded="true" />
-                <element signature="e#2287#2342#0" expanded="true" />
-                <element signature="e#2476#4215#0" expanded="true" />
-                <element signature="e#4214#4215#0" expanded="true" />
+                <element signature="e#1116#1162#0" expanded="true" />
+                <element signature="e#1342#1390#0" expanded="true" />
+                <element signature="e#1570#1627#0" expanded="true" />
+                <element signature="e#1807#1854#0" expanded="true" />
+                <element signature="e#2034#2098#0" expanded="true" />
+                <element signature="e#2279#2326#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_home_skill.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_skill.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="759">
+              <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceStudyActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/ServiceStudyActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeUserCenterActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeUserCenterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,11 +136,9 @@
       <file leaf-file-name="AboutPartnerRecruitActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutPartnerRecruitActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="276">
               <caret line="14" column="64" lean-forward="false" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,23 +146,9 @@
       <file leaf-file-name="AboutConsultingActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutConsultingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="299">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AboutAccessActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutAccessActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,41 +158,8 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
               <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AboutSocietyEvoActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutSocietyEvoActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="66" lean-forward="false" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AboutBasicInfoActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutBasicInfoActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="11" column="63" lean-forward="true" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnterprisePersonalActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterprisePersonalActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-              <folding>
-                <element signature="e#224#225#0" expanded="true" />
-                <element signature="e#274#275#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -3037,7 +3024,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_usercenter.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_basic_info_usercenter.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_pwd_usercenter.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_recommend_usercenter.xml" />
@@ -3051,11 +3037,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home_personal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/tt_dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-w820dp/im_dimens.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeSkillActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeHelpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeServiceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeUserCenterActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeNewsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_personal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_view_items.xml" />
@@ -3074,20 +3056,25 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/ConsultantEduRecordActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/ConsultantWorkRecordActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/ConsultantEnterpriseSearchActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeConsultantActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterpriseBasicInfoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterpriseExpActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterpriseJobIndicateActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterpriseBusinessActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterpriseConsultantActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeEnterpriseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutBasicInfoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutSocietyEvoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutJobInfoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutConsultingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutAccessActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutPartnerRecruitActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeEnterpriseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeConsultantActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeAboutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeHelpActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeNewsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeServiceActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/ServiceStudyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeSkillActivity.java" />
       </list>
     </option>
   </component>
@@ -3095,8 +3082,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-88" />
-    <option name="y" value="18" />
+    <option name="x" value="-38" />
+    <option name="y" value="126" />
     <option name="width" value="1616" />
     <option name="height" value="1176" />
   </component>
@@ -3115,9 +3102,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3597,8 +3584,8 @@
     <property name="device.picker.selection" value="Nexus_5_API_25" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\highwayns\Documents\highwayns\highwayns\hrapp\android\app\src\main\res\drawable" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\highwayns\Documents\highwayns\highwayns\hrapp\android\app\src\main\res\layout" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.highwayns.ht.ui.activity" />
@@ -3609,8 +3596,8 @@
     <key name="android.template.parentActivityClass">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\highwayns\Documents\highwayns\highwayns\hrapp\android\app\src\main\res\layout" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\highwayns\Documents\highwayns\highwayns\hrapp\android\app\src\main\res\drawable" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -3918,7 +3905,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-88" y="18" width="1616" height="1176" extended-state="0" />
+    <frame x="-38" y="126" width="1616" height="1176" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3935,7 +3922,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13697319" sideWeight="0.48650387" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13697319" sideWeight="0.48650387" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -3945,6 +3932,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2577121" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3954,7 +3942,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649574" sideWeight="0.5040816" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3979,119 +3966,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/daogenerator/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeUserCenterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeServiceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeNewsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1716">
-          <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_personal.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_view_items.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal_basic_info.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/PersonalBasicInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="62" lean-forward="false" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/PersonalEduRecordActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="11" column="60" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/PersonalJobSearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="11" column="62" lean-forward="false" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_test_skill.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="47" column="10" lean-forward="true" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/PersonalServiceActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/PersonalSkillContestActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/PersonalWorkRecordActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -4162,9 +4036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1403">
           <caret line="67" column="74" lean-forward="false" selection-start-line="67" selection-start-column="74" selection-end-line="67" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4172,7 +4043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4180,9 +4050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4190,7 +4057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4198,10 +4064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="e#231#232#0" expanded="false" />
-            <element signature="e#281#282#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4209,36 +4071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="68" lean-forward="false" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomePersonalActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeConsultantActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="131" column="6" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="131" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1162#1217#0" expanded="false" />
-            <element signature="e#1402#1457#0" expanded="false" />
-            <element signature="e#1642#1698#0" expanded="false" />
-            <element signature="e#1883#1943#0" expanded="false" />
-            <element signature="e#2128#2186#0" expanded="false" />
-            <element signature="e#2374#2426#0" expanded="false" />
-            <element signature="e#2611#2672#0" expanded="false" />
-            <element signature="e#2809#4889#0" expanded="false" />
-            <element signature="e#4888#4889#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4279,9 +4111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4289,7 +4118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="64" lean-forward="false" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4297,7 +4125,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4316,7 +4143,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4324,36 +4150,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="71" lean-forward="true" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/EnterprisePersonalActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        <state relative-caret-position="161">
+          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
           <folding>
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeEnterpriseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="136" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1185#1240#0" expanded="true" />
-            <element signature="e#1420#1468#0" expanded="true" />
-            <element signature="e#1648#1701#0" expanded="true" />
-            <element signature="e#1881#1938#0" expanded="true" />
-            <element signature="e#2118#2173#0" expanded="true" />
-            <element signature="e#2356#2408#0" expanded="true" />
-            <element signature="e#2588#2649#0" expanded="true" />
-            <element signature="e#2783#4807#0" expanded="true" />
-            <element signature="e#4806#4807#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="false" />
+            <element signature="e#274#275#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4361,28 +4167,26 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutBasicInfoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="11" column="63" lean-forward="true" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-          <folding />
+          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutSocietyEvoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
+        <state relative-caret-position="207">
           <caret line="11" column="66" lean-forward="false" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutAccessActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="299">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4390,7 +4194,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4404,39 +4210,227 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutPartnerRecruitActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="276">
           <caret line="14" column="64" lean-forward="false" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/AboutConsultingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="299">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/DB/DBInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/config/DBConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_enterprise_home.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeEnterpriseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="36" column="57" lean-forward="false" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2124#2179#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_counselor.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeConsultantActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="32" column="47" lean-forward="false" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_company.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="49" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeAboutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="122" column="1" lean-forward="true" selection-start-line="122" selection-start-column="1" selection-end-line="123" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1144#1194#0" expanded="true" />
-            <element signature="e#1374#1417#0" expanded="true" />
-            <element signature="e#1597#1645#0" expanded="true" />
-            <element signature="e#1827#1873#0" expanded="true" />
-            <element signature="e#2051#2101#0" expanded="true" />
-            <element signature="e#2287#2342#0" expanded="true" />
-            <element signature="e#2476#4215#0" expanded="true" />
-            <element signature="e#4214#4215#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4292#4293#0" expanded="false" />
+            <element signature="e#4346#4347#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeUserCenterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activiy_home_news.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="33" column="49" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeNewsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="83" column="28" lean-forward="true" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+          <folding>
+            <element signature="e#1116#1162#0" expanded="true" />
+            <element signature="e#1342#1384#0" expanded="true" />
+            <element signature="e#1564#1609#0" expanded="true" />
+            <element signature="e#1789#1834#0" expanded="true" />
+            <element signature="e#1968#3246#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_help.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="44" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeHelpActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="30" column="55" lean-forward="false" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding>
+            <element signature="e#1113#1163#0" expanded="true" />
+            <element signature="e#1343#1402#0" expanded="true" />
+            <element signature="e#1584#1645#0" expanded="true" />
+            <element signature="e#1823#1881#0" expanded="true" />
+            <element signature="e#2015#3292#0" expanded="true" />
+            <element signature="e#3291#3292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomePersonalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="126" column="11" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="126" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_service.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeServiceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2182">
+          <caret line="113" column="5" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="113" selection-end-column="5" />
+          <folding>
+            <element signature="e#1125#1171#0" expanded="true" />
+            <element signature="e#1351#1399#0" expanded="true" />
+            <element signature="e#1579#1636#0" expanded="true" />
+            <element signature="e#1816#1863#0" expanded="true" />
+            <element signature="e#2043#2107#0" expanded="true" />
+            <element signature="e#2288#2335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_skill.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/HomeSkillActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="31" column="52" lean-forward="true" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+          <folding>
+            <element signature="e#1116#1162#0" expanded="true" />
+            <element signature="e#1342#1390#0" expanded="true" />
+            <element signature="e#1570#1627#0" expanded="true" />
+            <element signature="e#1807#1854#0" expanded="true" />
+            <element signature="e#2034#2098#0" expanded="true" />
+            <element signature="e#2279#2326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/highwayns/ht/ui/activity/ServiceStudyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>

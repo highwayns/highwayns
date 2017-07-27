@@ -34,7 +34,7 @@ public class HomeEnterpriseActivity extends Activity {
 
     private void initView() {
 
-        mListView = (ListView)findViewById(R.id.lvHome_Person);
+        mListView = (ListView)findViewById(R.id.lvEnterprise_Person);
         listViewAdapter = new ListViewAdapter(this);
 
         Resources res = this.getResources();
