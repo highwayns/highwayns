@@ -224,4 +224,16 @@
     <string name="SERVICE_HOME_LIST_HOTEL">Hotel Reservation</string>
     <string name="SERVICE_HOME_LIST_RESTAURANT_RESERVATION">Restaurant Reservation</string>
     <string name="SERVICE_HOME_LIST_EVENT">Event</string>
+    <string name="USER_CENTER_HOME_LIST_LOGIN">Login/Logout</string>
+    <string name="USER_CENTER_HOME_LIST_BASIC_INFO">Basic Information</string>
+    <string name="USER_CENTER_HOME_LIST_CHANGE_PWD">Change Password</string>
+    <string name="USER_CENTER_HOME_LIST_POINT_MANAGE">Point Managerment</string>
+    <string name="USER_CENTER_HOME_LIST_FRIEND_RECOMMEND">Friends Recommend</string>
+    <string name="USER_CENTER_HOME_LIST_FORGOT_PWD">forgot password</string>
+    <string name="USER_CENTER_HOME_LIST_SYS_SETTING">System setting</string>
+    <string name="ABOUT_BASIC_INFO_LIST_COMPANY_NAME">Company Name</string>
+    <string name="ABOUT_BASIC_INFO_LIST_ADDR">Address</string>
+    <string name="ABOUT_BASIC_INFO_LIST_BOARD_DIRECTOR">Board Director</string>
+    <string name="ABOUT_BASIC_INFO_LIST_REG_FUND">Registered Fund</string>
+    <string name="ABOUT_BASIC_INFO_LIST_BUSINESS_CONTENT">Business Content</string>
 </resources>
