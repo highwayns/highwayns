@@ -184,6 +184,26 @@
         </activity>
         <activity android:name=".ui.activity.ConsultantEnterpriseSearchActivity">
         </activity>
+        <activity android:name=".ui.activity.EnterpriseBasicInfoActivity">
+        </activity>
+        <activity android:name=".ui.activity.EnterpriseExpActivity">
+        </activity>
+        <activity android:name=".ui.activity.EnterpriseJobIndicateActivity">
+        </activity>
+        <activity android:name=".ui.activity.EnterpriseBusinessActivity">
+        </activity>
+        <activity android:name=".ui.activity.EnterpriseConsultantActivity">
+        </activity>
+        <activity android:name=".ui.activity.EnterprisePersonalActivity">
+        </activity>
+        <activity android:name=".ui.activity.AboutBasicInfoActivity">
+        </activity>
+        <activity android:name=".ui.activity.AboutSocietyEvoActivity">
+        </activity>
+        <activity android:name=".ui.activity.AboutJobInfoActivity">
+        </activity>
+        <activity android:name=".ui.activity.ServiceStudyActivity">
+        </activity>
     </application>
 
 </manifest>

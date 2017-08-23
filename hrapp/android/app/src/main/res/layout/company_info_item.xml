@@ -31,9 +31,14 @@
             />
 
     </LinearLayout>
-    <EditText
-            android:id="@+id/company_info_items_etInfo"
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                    android:id="@+id/company_info_items_etInfo"
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>

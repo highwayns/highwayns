@@ -29,7 +29,7 @@ import static android.content.ContentValues.TAG;
 
      private void initView() {
 
-         mListView = (ListView)findViewById(R.id.lvHome_Person);
+         mListView = (ListView)findViewById(R.id.lvCounselor_Person);
          listViewAdapter = new ListViewAdapter(this);
 
          Resources res = this.getResources();

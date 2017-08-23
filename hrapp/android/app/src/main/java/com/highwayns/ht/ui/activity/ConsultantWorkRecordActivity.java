@@ -10,5 +10,11 @@ public class ConsultantWorkRecordActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_exp_consultant);
+
+        initView();
+    }
+
+    private void initView() {
+
     }
 }
