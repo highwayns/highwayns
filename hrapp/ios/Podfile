@@ -1,5 +1,7 @@
 platform:ios, '7.0'
 
+target "HighwayTalk" do
+
 pod 'FMDB', '~> 2.3'
 pod 'SDWebImage', '~> 3.6'
 pod 'AFNetworking', '~> 2.3.0'
@@ -15,3 +17,5 @@ pod 'TTTAttributedLabel'
 pod 'SVWebViewController'
 pod 'XHImageViewer'
 pod 'ZXingObjC'
+
+end
