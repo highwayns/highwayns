@@ -27,19 +27,50 @@ sudo apt-get install -y redis-server
 sudo apt-get install -y mysql-server
 
 
-git clone https://git.oschina.net/benben-de-eggs/highwaytalk-server-benben.git
+git clone https://github.com/highwayns/highwayns.git
 
-mysql -uroot -p12345 < highwaytalk-server-benben/auto_setup/mariadb/conf/ttopen.sql
+mysql -uroot -p12345 < highwayns/hrserver/auto_setup/mariadb/conf/ttopen.sql
 
 fi
 
 if [ $# -eq 0 ]; then
-  cd highwaytalk-server-benben/src
+  cd highwayns/hrserver/src
 else
   cd $1/src
 fi
 
 python change_conf.py
+
+sudo apt-get install subversion 
+
+svn checkout http://svn.apache.org/repos/asf/incubator/log4cxx/trunk apache-log4cxx 
+./autogen.sh
+./configure
+make
+make check
+sudo make install
+
+
+
+tar -zxvf protobuf-2.6.1.tar.gz # 解?
+
+sudo apt-get install build-essential # 不装会??
+
+cd protobuf-2.6.1/ # ?入目?
+
+./configure # 配置安装文件
+
+make # ??
+
+make check # ????安装的?境
+
+sudo make install # 安装
+
+git clone https://github.com/libevent/libevent.git
+$ mkdir build && cd build
+ $ cmake ..     # Default to Unix Makefiles.
+ $ make
+ $ make verify  # (optional)
 
 cd ./login_server
 if [ -d "CMakeFiles" ]; then
@@ -73,6 +104,9 @@ if [ $? -ne 0 ]
 then
   exit 1
 fi
+
+apt-get install libmysqlclient-dev
+apt-get install mariadb-server-10.1
 
 cd ../db_proxy_server
 if [ -d "CMakeFiles" ]; then
@@ -138,3 +172,5 @@ cd ../db_proxy_server
 
 cd ../http_msg_server
 ./http_msg_server -d > /dev/null 2>&1
+
+lsof -i -Pn
