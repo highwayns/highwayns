@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
-//using NC.HPS.Lib;
+using NC.HPS.Lib;
 
 namespace highwayns
 {
@@ -58,6 +58,7 @@ namespace highwayns
                         {
                             if (line.IndexOf("PRIMARY KEY") > -1)
                             {
+                                //bug 只允许有一个主键
                                 table.pk = line.Split('`')[1];
                             }
                             else if (line.IndexOf("KEY") > -1)
@@ -70,7 +71,8 @@ namespace highwayns
                                 if (line.Trim().Split(' ')[1].IndexOf("(") > -1)
                                 {
                                     table.fields_type.Add(line.Trim().Split(' ')[1].Substring(0,line.Trim().Split(' ')[1].IndexOf("(")));
-                                    table.fields_size.Add(line.Trim().Split(' ')[1].Substring(line.Trim().Split(' ')[1].IndexOf("(")));
+                                    table.fields_size.Add(line.Trim().Split(' ')[1].Substring(line.Trim().Split(' ')[1].IndexOf("("))
+                                        .Replace("(", "").Replace(")", ""));
                                 }
                                 else
                                 {
@@ -103,7 +105,7 @@ namespace highwayns
                                 }
                                 if (line.IndexOf("default") > -1)
                                 {
-                                    table.fields_default.Add(line.Substring(line.IndexOf("default")+8));
+                                    table.fields_default.Add(line.Substring(line.IndexOf("default")+8).Replace("'", "").Replace(",", ""));
                                 }
                                 else
                                 {
@@ -178,7 +180,7 @@ namespace highwayns
                         line = line + tbl.fields_type[idx];
                         if(!string.IsNullOrEmpty(tbl.fields_size[idx]))
                         {
-                            line = line + "{0}";
+                            line = line + "({0})";
                             line = string.Format(line, tbl.fields_size[idx]);
                         }
                         if (!string.IsNullOrEmpty(tbl.fields_sign[idx]))
@@ -192,9 +194,9 @@ namespace highwayns
                             line = line + " {0}";
                             line = string.Format(line, tbl.fields_increase[idx]);
                         }
-                        if (!string.IsNullOrEmpty(tbl.fields_default[idx]))
+                        if (!string.IsNullOrEmpty(tbl.fields_default[idx].Trim()))
                         {
-                            line = line + " default {0}";
+                            line = line + (tbl.fields_default[idx].Equals("NULL")? " default NULL" : " default '{0}'");
                             line = string.Format(line, tbl.fields_default[idx]);                       
                         }
                         line = line + ",";
@@ -241,6 +243,8 @@ namespace highwayns
                     line = "";
                     sw.WriteLine(line);
                     line = "#||-_-||{0}表创建成功！||-_-||#";
+                    //line = "#||-_-||{0}テーブル作成成功！||-_-||#";
+
                     line = string.Format(line, tbl.name.Substring(3));
                     line = replace(line);
                     sw.WriteLine(line);
@@ -284,11 +288,12 @@ namespace highwayns
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
-        {/*
+        {
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "テーブル定義書.xls");
+
                 NCExcel execel = new NCExcel();
                 execel.OpenExcelFile(fileName);
                 execel.SelectSheet(1);
@@ -314,24 +319,59 @@ namespace highwayns
                     idx = 7;
                     for(int j=0; j < tables[i].fields.Count;j++)
                     {
+                        var lineData = new string[10];
+                        //No.
                         execel.setValue(2, idx, (idx - 6).ToString());
+                        //項目名
                         execel.setValue(3, idx, tables[i].fields[j]);
+                        //型
                         execel.setValue(4, idx, tables[i].fields_type[j]);
+                        //長さ
                         execel.setValue(5, idx, tables[i].fields_size[j].Replace("(", "").Replace(")", ""));
-                        if(tables[i].fields_null[j]== "NOT NULL")
+                        //必須
+                        if (tables[i].fields_null[j]== "NOT NULL")
                             execel.setValue(7, idx, "○");
-                        if(tables[i].pk.IndexOf(tables[i].fields[j])>-1)
+                        //主キー
+                        if (tables[i].pk.IndexOf(tables[i].fields[j])>-1)
                             execel.setValue(8, idx, "○");
-                        execel.setValue(9, idx, 
-                            tables[i].fields_increase[j] + "/" 
-                            + tables[i].fields_default[j] + "/" 
-                            + tables[i].fields_sign[j]);
+                        //備考
+                        //execel.setValue(9, idx, 
+                        //    tables[i].fields_increase[j] + "/" 
+                        //    + tables[i].fields_default[j] + "/" 
+                        //    + tables[i].fields_sign[j]);
+
+                        //add by edward
+                        //Signed
+                        if (tables[i].fields_sign[j] == "unsigned")
+                            execel.setValue(9, idx, "○");
+                        //Default
+                        if (!string.IsNullOrWhiteSpace(tables[i].fields_default[j]))
+                        {
+                            execel.setValue(10, idx, tables[i].fields_default[j]);
+                        }
+                        //AutoInc
+                        if (tables[i].fields_increase[j] == "auto_increment")
+                            execel.setValue(11, idx, "○");
+                        //end of add by edward
                         idx++;
                     }
+                    idx = 7;
+                    for (int j = 0; j < tables[i].keys.Count; j++)
+                    {
+                        int idcol = 12;
+                        foreach (var item in tables[i].keys[j].Replace("`", "").Split(','))
+                        {
+                            execel.setValue(idcol, idx, item);
+                            idcol++;
+                        }
+                        idx++;
+                    }
+
                 }
+                execel.Visible = true;
                 execel.SaveAs(dlg.FileName);
                 MessageBox.Show("Save Over!");
-            }*/
+            }
         }
     }
 }

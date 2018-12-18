@@ -16,6 +16,11 @@ namespace NC.HPS.Lib
         private Excel.Worksheet sheet;//当前操作的表格 
         private string AList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        public bool Visible {
+            set { m_objExcel.Visible = value; }
+        }
+
+
         /// <summary>
         /// ファイル開く
         /// </summary>
@@ -178,6 +183,17 @@ namespace NC.HPS.Lib
         {
             Excel.Range range = sheet.get_Range(this.GetAix(x, y), miss);
             range.set_Value(MissValue, text);
+        }
+        /// <summary>
+        /// 値設定 1 LINE
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="text"></param>
+        public void setValueLine(int startX, int startY, string[] texts)
+        {
+            Excel.Range range = sheet.get_Range(this.GetAix(startX, startY), this.GetAix(startX, startY+texts.Length-1));
+            range.set_Value(MissValue, texts);
         }
         /// <summary>
         /// 値取得
